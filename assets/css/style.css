@@ -2466,6 +2466,8 @@ h4.info-title {
   justify-content: center;
   max-height: 400px;
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .neighborhood-image {
