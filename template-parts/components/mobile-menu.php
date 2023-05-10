@@ -42,13 +42,9 @@ if (!empty($menuitems)) : ?>
 
                 <div class="wrap-right-menu">
 
-                    <div class="wrap-search">
-                        <div class="input-group">
-                            <div class="input-group-append">
-                                <button class="btn btn-search" type="button"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
+
+                    <button class="btn btn-search" type="button"><i class="fa fa-search"></i></button>
+
 
                     <div class="wrap-profile">
                         <?php if (is_user_logged_in()) :
