@@ -246,7 +246,7 @@ jQuery('#submit-forgot-password').on('click', function (e) {
 // }
 
 function hlr_search() {
-
+console.log('s');
     var query = jQuery('.keyword').val();
 
     if(query == null || query == ''){
