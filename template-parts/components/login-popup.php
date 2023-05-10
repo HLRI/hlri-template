@@ -63,7 +63,7 @@
                     <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
 
                     <div class="sign-in-btn">
-                        <button class="btn" id="submit-forgot-password">Register</button>
+                        <button class="btn" id="submit-forgot-password">Submit</button>
                         <button class="btn btn-login btn-orange-form">Login</button>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
 
                     <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
                     <div class="sign-in-btn">
-                        <button class="btn" id="submit-register">Submit</button>
+                        <button class="btn" id="submit-register">Register</button>
                         <button class="btn btn-login btn-orange-form">Login</button>
                     </div>
                 </div>
