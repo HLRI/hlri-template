@@ -31,7 +31,7 @@ jQuery(document).ready(function ($) {
         dots: false,
         // autoWidth: true,
         lazyLoad: true,
-        margin: 5,
+        margin: 10,
     });
 
     $(".teams").owlCarousel({
