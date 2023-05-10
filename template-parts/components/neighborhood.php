@@ -24,7 +24,7 @@ $peroperties = new WP_Query($arg);
                     <a href="<?= home_url('group/condo-assignment') ?>" title="" class="view-more">View more</a>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <div class="owl-carousel owl-theme neighborhood wrap-list">
+                    <div class="">
                         <?php while ($peroperties->have_posts()) : $peroperties->the_post();
                             $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
