@@ -2493,6 +2493,8 @@ h4.info-title {
   font-size: 20px;
   font-weight: bold;
   z-index: 10;
+  color: white;
+  font-family: 'Russo One', sans-serif;
 }
 
 a.neighborhood-link {
@@ -2505,4 +2507,3 @@ a.neighborhood-link {
   padding: .4rem 1rem;
   z-index: 10;
 }
-
