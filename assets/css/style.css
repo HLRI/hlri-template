@@ -2459,6 +2459,7 @@ h4.info-title {
 
 .wrap-neighborhood {
   width: 100%;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
