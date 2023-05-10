@@ -20,7 +20,7 @@
 <?php include(HLR_THEME_PATH . '/template-parts/components/counter.php'); ?>
 
 
-<div class="container-fluid my-5">
+<!-- <div class="container-fluid my-5">
     <div class="row px-4">
         <div class="col-lg-6">
             <?php include(HLR_THEME_PATH . '/template-parts/components/ads-banner.php'); ?>
@@ -29,7 +29,7 @@
             <?php do_shortcode('[testimonials count="4" display="1"]'); ?>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <?php include(HLR_THEME_PATH . '/template-parts/components/blog-list.php'); ?>
