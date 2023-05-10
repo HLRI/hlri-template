@@ -30,7 +30,7 @@ $peroperties = new WP_Query($arg);
                         ?>
 
                             <div class="neighborhood">
-                                <?php the_post_thumbnail('', ['class' => 'neighborhood-image']) ?>
+                                <?php the_post_thumbnail('large', ['class' => 'neighborhood-image']) ?>
                                 <div class="neighborhood-title">
                                     <?php the_title() ?>
                                 </div>
