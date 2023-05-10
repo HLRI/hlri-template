@@ -3,7 +3,7 @@
     <div class="modal-dialog m-0" role="document">
         <div class="modal-content rounded-0">
             <div class="modal-body px-2 py-3">
-                <div class="positioin-relative">
+                <div class="position-relative">
                     <div class="input-group">
                         <input autocomplete="off" name="address" type="search" onkeyup="hlr_search_mobile()" class="form-control input-search keyword-mobile" placeholder="Search by location...">
                     </div>
