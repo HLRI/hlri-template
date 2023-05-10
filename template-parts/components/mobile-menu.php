@@ -87,7 +87,7 @@ if (!empty($menuitems)) : ?>
     </div>
 
 
-    <div class="modal right menu" id="sidebarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal right fade menu" id="sidebarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog position-fixed m-auto" role="document">
             <div class="modal-content h-100">
                 <div class="modal-body text-left">
