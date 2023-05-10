@@ -2005,8 +2005,6 @@ span.page-numbers {
 
 .modal-content-login .modal-body-login .btn:hover {
   color: #fff;
-  letter-spacing: 2px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .modal-content-login .modal-body-login .btn:focus {

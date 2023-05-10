@@ -14,7 +14,7 @@
                     <p class="description"></p>
                     <div class="form-group">
                         <span class="input-icon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" id="username" placeholder="Enter Email Or Username">
+                        <input type="text" class="form-control" id="username" placeholder="Enter Email or Username">
                     </div>
                     <div class="form-group">
                         <span class="input-icon"><i class="fas fa-key"></i></span>
@@ -31,7 +31,7 @@
                     <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
 
                     <div class="sign-in-btn">
-                        <button class="btn" id="submit-login">Submit</button>
+                        <button class="btn" id="submit-login">Login</button>
                         <button class="btn btn-register btn-orange-form">Register</button>
                     </div>
 
@@ -63,7 +63,7 @@
                     <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
 
                     <div class="sign-in-btn">
-                        <button class="btn" id="submit-forgot-password">Submit</button>
+                        <button class="btn" id="submit-forgot-password">Register</button>
                         <button class="btn btn-login btn-orange-form">Login</button>
                     </div>
                 </div>

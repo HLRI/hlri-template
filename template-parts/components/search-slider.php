@@ -10,7 +10,7 @@
 
 <div class="wrap-search-slider">
     <div class="search-slider">
-        <input name="address" type="text" onkeyup="hlr_search()" class="form-control input-search-slider keyword" placeholder="Search by location...">
+        <input name="address" type="search" onkeyup="hlr_search()" class="form-control input-search-slider keyword" placeholder="Search by location...">
         <i class="fa fa-search" style="color: #dfdfdf; font-size: 19px;"></i>
     </div>
 
