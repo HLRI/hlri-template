@@ -2457,7 +2457,7 @@ h4.info-title {
   margin: 16px 0 12px 0 !important;
 }
 
-.neighborhood {
+.wrap-neighborhood {
   width: 100px;
   display: flex;
   flex-direction: column;

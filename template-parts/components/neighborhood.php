@@ -29,7 +29,7 @@ $peroperties = new WP_Query($arg);
                             $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
 
-                            <div class="neighborhood">
+                            <div class="wrap-neighborhood">
                                 <?php the_post_thumbnail('large', ['class' => 'neighborhood-image']) ?>
                                 <div class="neighborhood-title">
                                     <?php the_title() ?>
