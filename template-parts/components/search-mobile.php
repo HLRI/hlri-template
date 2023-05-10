@@ -1,3 +1,5 @@
+
+
 <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog m-0" role="document">
         <div class="modal-content rounded-0">
@@ -7,10 +9,14 @@
                         <input autocomplete="off" name="address" type="search" onkeyup="hlr_search()" class="form-control input-search keyword" placeholder="Search by location..." aria-label="Recipient's username" aria-describedby="basic-addon2">
                     </div>
                 </div>
+                <div class="search-result"></div>
+
             </div>
 
         </div>
     </div>
 </div>
+
+
 
 
