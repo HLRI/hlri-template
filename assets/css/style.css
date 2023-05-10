@@ -243,7 +243,7 @@ body * {
   font-size: 22px;
 }
 
-.item-social a:hover , .list-social li a i {
+.item-social a:hover , .list-social li a i:hover {
   transition: ease-out .3s;
   border: 1px solid var(--main-color);
   color: var(--main-color);
