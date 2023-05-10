@@ -853,7 +853,7 @@ body * {
 }
 
 .modal.right.fade.show .modal-dialog {
-  left: 0;
+  right: 0;
 }
 
 /* ----- MODAL STYLE ----- */
