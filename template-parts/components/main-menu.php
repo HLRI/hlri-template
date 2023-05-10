@@ -75,9 +75,10 @@
                     <div class="input-group">
                         <input type="text" class="form-control input-search" placeholder="Search by location..." aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-search" type="button"><i class="fa fa-search"></i></button>
+                            <button class="btn btn-search keyword" autocomplete="off" name="address" type="search" onkeyup="hlr_search()"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
+                    <div class="search-result"></div>
                 </div>
 
 
@@ -101,7 +102,7 @@
                                 <?= $user_meta->user_nicename ?>
                                 <i class="fa fa-chevron-down"></i>
                             </span>
-                            
+
                             <div class="menu-account-body">
                                 <a href="<?= $url ?>" class="btn-signin"><i class="fa fa-dashboard"></i> Dashboard</a>
                                 <a href="<?= wp_logout_url() ?>" class="btn-signin"><i class="fa fa-sign-out"></i> Signout</a>
