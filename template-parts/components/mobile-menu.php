@@ -42,7 +42,6 @@ if (!empty($menuitems)) : ?>
 
                 <div class="wrap-right-menu">
 
-                    <?php include(HLR_THEME_PATH . '/template-parts/components/search-mobile.php'); ?>
 
                     <div class="wrap-profile">
                         <?php if (is_user_logged_in()) :
