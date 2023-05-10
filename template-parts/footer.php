@@ -99,7 +99,7 @@ $posts = new WP_Query($arg);
 <?php endif; ?>
 
 
-   <?php include HLR_THEME_PATH.'template-parts/components/search-popup.php' ?>
+   <?php include HLR_THEME_PATH.'template-parts/components/search-mobile.php' ?>
    <?php include HLR_THEME_PATH.'template-parts/components/login-popup.php' ?>
 
 </body>
