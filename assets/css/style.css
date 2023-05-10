@@ -241,8 +241,9 @@ body * {
   color: #616161;
   transition: ease-in .3s;
   font-size: 22px;
-  box-shadow: 20px 20px 50px #00d2c6, -30px -30px 60px #00ffff;
-  background: white;
+  background: linear-gradient(225deg, #e6e6e6, #ffffff);
+  box-shadow: -5px 5px 10px #e3e3e3,
+    5px -5px 10px #ffffff;
 }
 
 .item-social a:hover {
