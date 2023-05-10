@@ -1,4 +1,4 @@
-<div class="wrap-search">
+<div class="wrap-search position-relative">
     <div class="input-group">
         <input  autocomplete="off" name="address" type="search" onkeyup="hlr_search()" class="form-control input-search keyword" placeholder="Search by location..." aria-label="Recipient's username" aria-describedby="basic-addon2">
         <div class="input-group-append">
