@@ -246,15 +246,13 @@ jQuery('#submit-forgot-password').on('click', function (e) {
 // }
 
 function hlr_search() {
-console.log('s');
     var query = jQuery('.keyword').val();
-
+console.log(query);
     if(query == null || query == ''){
         jQuery('.search-result').removeClass('d-block');
         return;
     }
 
-    console.log('2');
     fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/' + query + '.json?access_token=pk.eyJ1IjoiZWhzYW5iYXZhZ2hhciIsImEiOiJjbGdkeDZ2c20waHh6M2xwajlzbmhzaHFnIn0.zK6XBntMDbVlFWxY-QhPGg')
         .then(response => response.json())
         .then(data_mapbox => {
