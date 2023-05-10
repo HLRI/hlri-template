@@ -8,7 +8,7 @@
 
                 <?php include(HLR_THEME_PATH . '/template-parts/components/search-slider.php'); ?>
 
-                <button class="btn-slider">Search Condos on Map</button>
+                <a href="https://hlric.com/" class="btn-slider">Search Condos on Map</a>
             </div>
             <div class="carousel-inner">
                 <?php
