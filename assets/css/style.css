@@ -2474,12 +2474,19 @@ h4.info-title {
   object-fit: cover;
 }
 
-.neighborhood-title{
+.neighborhood-title {
   position: absolute;
-  bottom: 50px;
+  bottom: 100px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.neighborhood-link{
+.neighborhood-link {
   position: absolute;
   bottom: 20px;
+  background: #ffad00;
+  border-radius: 4px;
+  text-align: center;
+  color: white;
+  padding: .4rem 1rem;
 }
