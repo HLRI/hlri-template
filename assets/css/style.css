@@ -2484,7 +2484,7 @@ h4.info-title {
   font-weight: bold;
 }
 
-.neighborhood-link {
+a.neighborhood-link {
   position: absolute;
   bottom: 20px;
   background: #ffad00;

@@ -34,7 +34,7 @@ $peroperties = new WP_Query($arg);
                                 <div class="neighborhood-title">
                                     <?php the_title() ?>
                                 </div>
-                                <a class="neighborhood-link">5 Listing</a>
+                                <a href="#" class="neighborhood-link">5 Listing</a>
                             </div>
 
                         <?php endwhile; ?>
