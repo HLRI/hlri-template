@@ -2473,3 +2473,13 @@ h4.info-title {
   height: 100%;
   object-fit: cover;
 }
+
+.neighborhood-title{
+  position: absolute;
+  bottom: 50px;
+}
+
+.neighborhood-link{
+  position: absolute;
+  bottom: 20px;
+}
