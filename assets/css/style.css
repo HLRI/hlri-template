@@ -246,12 +246,6 @@ body * {
     5px -5px 10px #ffffff;
 }
 
-.item-social a:hover {
-  transition: ease-out .3s;
-  border: 1px solid var(--main-color);
-  color: var(--main-color);
-}
-
 .submenu {
   display: none;
   position: absolute;
