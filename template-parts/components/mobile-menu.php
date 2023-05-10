@@ -41,10 +41,9 @@ if (!empty($menuitems)) : ?>
 
 
                 <div class="wrap-right-menu">
-                    sdasdsadd
+
                     <div class="wrap-search">
                         <div class="input-group">
-                            <input type="text" class="form-control input-search" placeholder="Search by location..." aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-search" type="button"><i class="fa fa-search"></i></button>
                             </div>
