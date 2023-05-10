@@ -247,7 +247,6 @@ jQuery('#submit-forgot-password').on('click', function (e) {
 
 function hlr_search() {
     var query = jQuery('.keyword').val();
-console.log(query);
     if(query == null || query == ''){
         jQuery('.search-result').removeClass('d-block');
         return;
@@ -265,7 +264,7 @@ console.log(query);
                 type: 'post',
                 data: {
                     action: 'hlr_search',
-                    keyword: jQuery('.keyword').val()
+                    keyword: query
                 },
                 success: function (data) {
                     jQuery('.search-result').html(data);
@@ -298,8 +297,8 @@ console.log(query);
 }
 
 function hlr_search_mobile() {
-    var query = jQuery('.keyword').val();
-console.log(query);
+
+    var query = jQuery('.keyword-mobile').val();
     if(query == null || query == ''){
         jQuery('.search-result').removeClass('d-block');
         return;
@@ -317,7 +316,7 @@ console.log(query);
                 type: 'post',
                 data: {
                     action: 'hlr_search',
-                    keyword: jQuery('.keyword').val()
+                    keyword: query
                 },
                 success: function (data) {
                     jQuery('.search-result').html(data);
