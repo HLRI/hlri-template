@@ -234,16 +234,18 @@ body * {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid #616161;
+  /* border: 1px solid #616161; */
   display: flex;
   align-items: center;
   justify-content: center;
   color: #616161;
   transition: ease-in .3s;
   font-size: 22px;
+  box-shadow: 20px 20px 50px #00d2c6, -30px -30px 60px #00ffff;
+  background: white;
 }
 
-.item-social a:hover{
+.item-social a:hover {
   transition: ease-out .3s;
   border: 1px solid var(--main-color);
   color: var(--main-color);
@@ -767,7 +769,6 @@ body * {
 
 .content-footer-widget ul li a {
   color: #666;
-  padding-left: 4px;
 }
 
 .content-footer-widget ul li i {
@@ -778,10 +779,6 @@ body * {
   text-align: left;
   color: var(--main-color);
   margin-bottom: 1rem;
-}
-
-.content-footer-widget .item-social a {
-  padding-left: unset !important;
 }
 
 .content-footer-widget .item-social i {
@@ -2459,10 +2456,10 @@ a.google-login {
 }
 
 h4.info-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: #b2afc3;
-    border-bottom: 2px solid #b2afc3;
-    padding-bottom: 6px;
-    margin: 16px 0 12px 0 !important;
+  font-size: 20px;
+  font-weight: bold;
+  color: #b2afc3;
+  border-bottom: 2px solid #b2afc3;
+  padding-bottom: 6px;
+  margin: 16px 0 12px 0 !important;
 }
