@@ -243,7 +243,7 @@ body * {
   font-size: 22px;
 }
 
-.item-social a:hover {
+.item-social a:hover{
   transition: ease-out .3s;
   border: 1px solid var(--main-color);
   color: var(--main-color);
@@ -772,7 +772,6 @@ body * {
 
 .content-footer-widget ul li i {
   font-size: 16px;
-  color: #616161;
 }
 
 .content-footer-widget li {
@@ -2456,10 +2455,10 @@ a.google-login {
 }
 
 h4.info-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #b2afc3;
-  border-bottom: 2px solid #b2afc3;
-  padding-bottom: 6px;
-  margin: 16px 0 12px 0 !important;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b2afc3;
+    border-bottom: 2px solid #b2afc3;
+    padding-bottom: 6px;
+    margin: 16px 0 12px 0 !important;
 }
