@@ -42,10 +42,6 @@ if (!empty($menuitems)) : ?>
 
                 <div class="wrap-right-menu">
 
-
-                    <button class="btn btn-search" type="button"><i class="fa fa-search"></i></button>
-
-
                     <div class="wrap-profile">
                         <?php if (is_user_logged_in()) :
                             $user_meta = get_userdata(get_current_user_id());
