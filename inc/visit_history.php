@@ -3,7 +3,7 @@
 add_action('template_redirect', 'run_visit_history');
 function run_visit_history()
 {
-    $data = json_decode(stripslashes($_COOKIE['visit_history']), true);
+    $data = json_decode(@stripslashes($_COOKIE['visit_history']), true);
     if (is_singular('properties')) {
         $data[] = [
             'type' => 'properties',
