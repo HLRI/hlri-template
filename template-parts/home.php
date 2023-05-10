@@ -1,6 +1,9 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
 <?php include(HLR_THEME_PATH . '/template-parts/components/slider.php'); ?>
 <?php include(HLR_THEME_PATH . '/template-parts/components/top-section.php'); ?>
+
+<?php include(HLR_THEME_PATH . '/template-parts/components/neighborhood.php'); ?>
+
 <div class="container-fluid mb-5 mt-5">
     <div class="row px-2 px-lg-4">
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-2 mb-4 mb-lg-0">
