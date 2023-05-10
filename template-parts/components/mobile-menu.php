@@ -73,8 +73,9 @@ if (!empty($menuitems)) : ?>
                         <?php endif; ?>
                         <!-- <a href="#" class="icon-btn"><i class="fa fa-bell-o"></i></a>
                     <a href="#" class="icon-btn"><i class="fa fa-heart-o"></i></a> -->
-                        <a href="#" class="icon-search" data-toggle="modal" data-target="#search-modal"><i class="fa fa-search"></i></a>
-
+                        <?php if (!is_home()) : ?>
+                            <a href="#" class="icon-search" data-toggle="modal" data-target="#search-modal"><i class="fa fa-search"></i></a>
+                        <?php endif; ?>
                     </div>
 
 
