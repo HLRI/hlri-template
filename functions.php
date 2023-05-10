@@ -19,4 +19,5 @@ include HLR_THEME_PATH . 'inc/shortcodes.php';
 include HLR_THEME_PATH . 'inc/post_types.php';
 include HLR_THEME_PATH . 'inc/taxonomy.php';
 include HLR_THEME_PATH . 'inc/visit_history.php';
+include HLR_THEME_PATH . 'inc/add_thumbnail_to_taxonomy.php';
 
