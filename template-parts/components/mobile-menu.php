@@ -41,8 +41,14 @@ if (!empty($menuitems)) : ?>
 
 
                 <div class="wrap-right-menu">
-
-                    <?php include(HLR_THEME_PATH . '/template-parts/components/search-mobile.php'); ?>
+                    <div class="wrap-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-search" placeholder="Search by location..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-search" type="button"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="wrap-profile">
                         <?php if (is_user_logged_in()) :
