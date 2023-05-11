@@ -949,6 +949,7 @@ if (class_exists('CSF')) {
 	$prefix = 'neighborhood_options';
 	CSF::createTaxonomyOptions($prefix, array(
 		'taxonomy'  => 'neighborhood',
+		'data_type' => 'serialize'
 	));
 
 	CSF::createSection($prefix, array(
