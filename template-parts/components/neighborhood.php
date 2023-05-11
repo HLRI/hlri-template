@@ -18,7 +18,6 @@ $terms = get_terms([
                 <div class="owl-carousel owl-theme neighborhood wrap-list">
                     <?php foreach ($terms as $term) :
                         $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
-                        wp_die($meta);
                     ?>
 
                         <div class="wrap-neighborhood">
