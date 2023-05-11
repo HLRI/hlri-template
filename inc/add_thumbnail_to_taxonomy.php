@@ -1,5 +1,5 @@
 <?php
-function taxonomy_add_custom_field() {
+function taxonomy_add_image_field() {
     ?>
     <div class="form-field term-image-wrap">
         <label for="cat-image"><?php _e( 'Image' ); ?></label>
@@ -8,9 +8,9 @@ function taxonomy_add_custom_field() {
     </div>
     <?php
 }
-add_action( 'neighborhood_add_form_fields', 'taxonomy_add_custom_field', 10, 2 );
+add_action( 'neighborhood_add_form_fields', 'taxonomy_add_image_field', 10, 2 );
  
-function taxonomy_edit_custom_field($term) {
+function taxonomy_edit_image_field($term) {
     $image = get_term_meta($term->term_id, 'neighborhood_image', true);
     ?>
     <tr class="form-field term-image-wrap">
@@ -22,7 +22,7 @@ function taxonomy_edit_custom_field($term) {
     </tr>
     <?php
 }
-add_action( 'neighborhood_edit_form_fields', 'taxonomy_edit_custom_field', 10, 2 );
+add_action( 'neighborhood_edit_form_fields', 'taxonomy_edit_image_field', 10, 2 );
 
 
 function aw_include_script() {
