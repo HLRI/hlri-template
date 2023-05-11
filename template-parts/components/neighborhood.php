@@ -17,7 +17,7 @@ $terms = get_terms([
             <div class="d-flex justify-content-center">
                 <div class="owl-carousel owl-theme neighborhood wrap-list">
                     <?php foreach ($terms as $term) :
-                        $meta = get_term_meta($term->term_id, 'my_taxonomy_options', true);
+                        $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
                     ?>
 
                         <div class="wrap-neighborhood">
