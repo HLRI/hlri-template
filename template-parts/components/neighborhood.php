@@ -17,10 +17,10 @@ $terms = get_terms([
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme neighborhood wrap-list">
-                        <?php foreach ($terms as $term) :?>
+                        <?php foreach ($terms as $term) : ?>
 
                             <div class="wrap-neighborhood">
-                                <?php get_term_meta($term->term_id, 'neighborhood_image', true); ?>
+                                <?php $image = get_term_meta($term->term_id, 'neighborhood_image', true); ?>
                                 <img src="<?= $image ?>" class="neighborhood-image" alt="">
                                 <div class="neighborhood-title">
                                     <?= $term->name ?>
