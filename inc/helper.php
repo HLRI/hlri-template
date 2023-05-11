@@ -156,3 +156,20 @@ function sign_in_with_microsoft($input = '')
     </div>
 <?php
 }
+
+
+function get_post_count_taxonomy( $term_id, $taxonomy, $post_type ) {
+    $args = array(
+      'post_type' => $post_type,
+      'posts_per_page' => -1,
+      'tax_query' => array(
+        array(
+          'taxonomy' => $taxonomy,
+          'field' => 'id',
+          'terms' => $term_id,
+        )
+      )
+    );
+    $posts = get_posts( $args );
+    return count($posts);
+  }

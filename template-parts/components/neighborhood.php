@@ -25,7 +25,7 @@ $terms = get_terms([
                             <div class="neighborhood-title">
                                 <?= $term->name ?>
                             </div>
-                            <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" class="neighborhood-link">5 Listing</a>
+                            <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" class="neighborhood-link"><?= get_post_count_taxonomy($term->term_id,'neighborhood','properties') ?> Listing</a>
                         </div>
 
                     <?php endforeach; ?>
