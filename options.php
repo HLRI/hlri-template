@@ -738,7 +738,7 @@ if (class_exists('CSF')) {
 							'type'    => 'media',
 							'title'   => 'Media',
 							'library' => 'image',
-						  ),						  
+						),
 					),
 				),
 			)
@@ -940,8 +940,31 @@ if (class_exists('CSF')) {
 						'scrollWheelZoom' => true,
 					)
 				),
-				
+
 			)
 		)
 	);
+
+
+	$prefix = 'neighborhood_options';
+	CSF::createTaxonomyOptions($prefix, array(
+		'taxonomy'  => 'neighborhood',
+	));
+
+	CSF::createSection($prefix, array(
+		'fields' => array(
+			array(
+				'id'    => 'opt-neighborhood-link',
+				'type'  => 'link',
+				'title' => 'Link',
+			),
+			array(
+				'id'    => 'opt-neighborhood-image',
+				'type'  	=>	'media',
+				'library'	=>	'image',
+				'title' => 'Thumbnail',
+			),
+
+		)
+	));
 }
