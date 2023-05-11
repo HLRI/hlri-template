@@ -2506,3 +2506,7 @@ a.neighborhood-link {
   padding: .4rem 1rem;
   z-index: 10;
 }
+
+.neighborhood .owl-prev, .neighborhood .owl-next {
+  top: 44%;
+}
