@@ -23,7 +23,7 @@ jQuery(document).ready(function ($) {
         nav: true,
         navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 2000,
         autoplayTimeout: 2000,
         autoplayHoverPause: true,
         rtl: false,
