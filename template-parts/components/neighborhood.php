@@ -20,7 +20,7 @@ $terms = get_terms([
                         <?php foreach ($terms as $term) : ?>
 
                             <div class="wrap-neighborhood">
-                                <?php get_term_meta($term->id, 'category_image', true); ?>
+                                <?php get_term_meta($term->id, 'neighborhood_image', true); ?>
                                 <img src="<?= $image ?>" class="neighborhood-image" alt="">
                                 <div class="neighborhood-title">
                                     <?= $term->name ?>
