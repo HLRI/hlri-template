@@ -18,11 +18,10 @@ $terms = get_terms([
                 <div class="owl-carousel owl-theme neighborhood wrap-list">
                     <?php foreach ($terms as $term) :
                         $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
-                        var_dump($meta);
                     ?>
 
                         <div class="wrap-neighborhood">
-                            <img src="<?= $meta['opt-neighborhood-image']['src'] ?>" class="neighborhood-image" alt="<?= $meta['opt-neighborhood-image']['alt'] ?>">
+                            <img src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= $meta['opt-neighborhood-image']['alt'] ?>">
                             <div class="neighborhood-title">
                                 <?= $term->name ?>
                             </div>
