@@ -2518,9 +2518,9 @@ a.neighborhood-link {
   top: 25%;
   right: 10px;
   background: #f0f0f0;
-  width: 170px;
+  width: 132px;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2538,4 +2538,5 @@ a.neighborhood-link {
   text-align: center;
   /* box-shadow: inset 0px 0px 8px 3px #dddddd; */
   color: #6c6c6c;
+  font-size: 13px;
 }
