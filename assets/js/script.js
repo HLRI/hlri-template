@@ -258,6 +258,7 @@ jQuery(document).ready(function ($) {
     });
 
     $('.close-hlr-navigation').click(function(){
+        $('.close-hlr-navigation i').toggleClass('fa-arrow-right');
         $('.wrap-hlr-navigation').toggleClass('close-nav');
     });
 
