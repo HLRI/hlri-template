@@ -2542,3 +2542,14 @@ a.neighborhood-link {
   color: #6c6c6c;
   font-size: 13px;
 }
+
+.close-hlr-navigation {
+  position: absolute;
+  left: -22px;
+  top: 44%;
+  background: #f0f0f0;
+  padding: 6px;
+  z-index: 0;
+  color: #ffad00;
+  cursor: pointer;
+}
