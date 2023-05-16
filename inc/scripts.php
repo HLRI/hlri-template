@@ -214,7 +214,7 @@ function theme_footer()
             }).addTo(map);
 
             var customIcon = L.icon({
-                iconUrl: <?= HLR_THEME_ASSETS . 'images/pin.png' ?>,
+                iconUrl: '<?= HLR_THEME_ASSETS . 'images/pin.png' ?>',
                 iconSize: [50, 50],
                 iconAnchor: [25, 50]
             });
