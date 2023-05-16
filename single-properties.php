@@ -143,7 +143,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
     <?php if ($theme_options['opt-properties-status']) : ?>
         <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
-            <div class="row px-5 mt-5 properties-shortcode" id="rn">
+            <div class="row mt-5 properties-shortcode" id="rn">
                 <div class="col-12 mb-4">
                     <style>
                         <?php echo $theme_options['opt-properties-style'] ?>
