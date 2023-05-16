@@ -30,8 +30,8 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         </div>
     </div>
 
-    <div class="row mt-4 mb-2">
-        <div class="col-lg-6" id="ga">
+    <div class="row mt-4 mb-2" id="ga">
+        <div class="col-lg-6">
             <ul class="pgwSlideshow">
                 <?php foreach ($gallery_ids as $gallery_item_id) : ?>
                     <li><img src="<?= wp_get_attachment_url($gallery_item_id) ?>" alt="<?= wp_get_attachment_caption($gallery_item_id) ?>" data-large-src="<?= wp_get_attachment_url($gallery_item_id) ?>"></li>
