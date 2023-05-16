@@ -1,6 +1,6 @@
 <div class="wrap-hlr-navigation">
     <div class="close-hlr-navigation">
-        <i class="fa fa-arrow-left"></i>
+        <i class="fa fa-arrow-right"></i>
     </div>
     <div class="hlr-navigation">
         <a href="#ga" class="hlr-navigation-item">
