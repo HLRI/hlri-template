@@ -205,7 +205,9 @@ function theme_footer()
                 });
             });
 
-            var map = L.map('map').setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
+            var map = L.map('map', {
+                zoomControl: false
+            }).setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
 
             L.tileLayer('https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                 attribution: ''
