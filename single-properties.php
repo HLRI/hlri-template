@@ -31,7 +31,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     </div>
 
     <div class="row mt-4 mb-2">
-        <div class="col-lg-6">
+        <div class="col-lg-6" id="ga">
             <ul class="pgwSlideshow">
                 <?php foreach ($gallery_ids as $gallery_item_id) : ?>
                     <li><img src="<?= wp_get_attachment_url($gallery_item_id) ?>" alt="<?= wp_get_attachment_caption($gallery_item_id) ?>" data-large-src="<?= wp_get_attachment_url($gallery_item_id) ?>"></li>
@@ -50,7 +50,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         </div>
     </div>
 
-    <div class="row mt-2 mb-4">
+    <div class="row mt-2 mb-4" id="ov">
         <div class="col-12">
             <div class="content-profile"><?php the_content() ?></div>
         </div>
@@ -106,7 +106,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         <?php endforeach; ?>
     </div>
 
-    <div class="row mt-5 mb-4">
+    <div class="row mt-5 mb-4" id="pl">
         <div class="col-12">
             <div class="titr-list ml-0">
                 <h3 class="font-weight-bold">Price List</h3>
@@ -121,7 +121,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         <?php endforeach; ?>
     </div>
 
-    <div class="row mt-4 mb-4">
+    <div class="row mt-4 mb-4" id="fp">
         <div class="col-12">
             <div class="titr-list ml-0">
                 <h3 class="font-weight-bold">Floor Plans</h3>
@@ -143,7 +143,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
     <?php if ($theme_options['opt-properties-status']) : ?>
         <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
-            <div class="row px-5 mt-5 properties-shortcode">
+            <div class="row px-5 mt-5 properties-shortcode" id="rn">
                 <div class="col-12 mb-4">
                     <style>
                         <?php echo $theme_options['opt-properties-style'] ?>
