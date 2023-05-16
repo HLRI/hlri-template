@@ -55,7 +55,9 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             <div class="content-profile"><?php the_content() ?></div>
         </div>
     </div>
+</div>
 
+<div class="container-fluid px-lg-5">
     <div class="row mt-2 mb-4">
         <div class="col-12">
             <div class="rvs-container">
@@ -85,6 +87,9 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             </div>
         </div>
     </div>
+</div>
+
+<div class="container-fluid px-lg-5">
 
     <div class="row mt-5 mb-4">
         <div class="col-12">
@@ -180,7 +185,6 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             </div>
         </div>
     </div>
-
 
 </div>
 
