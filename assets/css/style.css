@@ -2513,7 +2513,7 @@ a.neighborhood-link {
 }
 
 
-.navigation {
+.hlr-navigation {
   position: fixed;
   top: 5%;
   right: 10px;
@@ -2526,10 +2526,11 @@ a.neighborhood-link {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  z-index: 999;
   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
-.navigation-item {
+.hlr-navigation-item {
   width: 100%;
   background: rgb(247 247 247);
   border-radius: 6px;

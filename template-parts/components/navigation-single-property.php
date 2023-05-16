@@ -1,17 +1,17 @@
-<div class="navigation">
-    <a href="#" class="navigation-item">
+<div class="hlr-navigation">
+    <a href="#" class="hlr-navigation-item">
         Gallery
     </a>
-    <a href="#" class="navigation-item">
+    <a href="#" class="hlr-navigation-item">
         Overview
     </a>
-    <a href="#" class="navigation-item">
+    <a href="#" class="hlr-navigation-item">
         Price List
     </a>
-    <a href="#" class="navigation-item">
+    <a href="#" class="hlr-navigation-item">
         Floor Plans
     </a>
-    <a href="#" class="navigation-item">
+    <a href="#" class="hlr-navigation-item">
         Register Now
     </a>
 </div>
