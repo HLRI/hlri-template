@@ -153,20 +153,20 @@ function theme_footer()
             // }
 
             // function fillInAddress() {
-                // var place = autocomplete.getPlace();
-                // var lat = place.geometry.location.lat();
-                // var lng = place.geometry.location.lng();
-                // for (var component in componentForm) {
-                //     document.getElementById(component).value = '';
-                //     document.getElementById(component).disabled = false;
-                // }
-                // for (var i = 0; i < place.address_components.length; i++) {
-                //     var addressType = place.address_components[i].types[0];
-                //     if (componentForm[addressType]) {
-                //         var val = place.address_components[i][componentForm[addressType]];
-                //         document.getElementById(addressType).value = val;
-                //     }
-                // }
+            // var place = autocomplete.getPlace();
+            // var lat = place.geometry.location.lat();
+            // var lng = place.geometry.location.lng();
+            // for (var component in componentForm) {
+            //     document.getElementById(component).value = '';
+            //     document.getElementById(component).disabled = false;
+            // }
+            // for (var i = 0; i < place.address_components.length; i++) {
+            //     var addressType = place.address_components[i].types[0];
+            //     if (componentForm[addressType]) {
+            //         var val = place.address_components[i][componentForm[addressType]];
+            //         document.getElementById(addressType).value = val;
+            //     }
+            // }
             // }
 
             // function geolocate() {
@@ -213,6 +213,8 @@ function theme_footer()
 
             L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>']).addTo(map);
             map.dragging.disable();
+            map.doubleClickZoom.disable();
+            map.boxZoom.disable();
             map.doubleClickZoom.disable();
 
             jQuery('.leaflet-control-attribution').remove();
