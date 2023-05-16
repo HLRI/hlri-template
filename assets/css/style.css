@@ -2553,6 +2553,12 @@ a.neighborhood-link {
   z-index: 0;
   color: #ffad00;
   cursor: pointer;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
 }
 
 .close-nav{
