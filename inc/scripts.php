@@ -212,6 +212,7 @@ function theme_footer()
             }).addTo(map);
 
             L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>']).addTo(map);
+            map.dragging.disable();
 
             jQuery('.leaflet-control-attribution').remove();
 
