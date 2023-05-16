@@ -213,7 +213,15 @@ function theme_footer()
                 attribution: ''
             }).addTo(map);
 
+            var customIcon = L.icon({
+                iconUrl: <?= HLR_THEME_ASSETS . 'images/pin.png' ?>,
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            });
+
+
             L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>']).addTo(map);
+
             map.dragging.disable();
             map.touchZoom.disable();
             map.doubleClickZoom.disable();
