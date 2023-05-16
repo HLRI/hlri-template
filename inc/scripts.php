@@ -217,7 +217,6 @@ function theme_footer()
             map.scrollWheelZoom.disable();
             map.boxZoom.disable();
             map.keyboard.disable();
-            $(".leaflet-control-zoom").css("visibility", "hidden");
 
             jQuery('.leaflet-control-attribution').remove();
 
