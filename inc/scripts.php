@@ -212,10 +212,12 @@ function theme_footer()
             }).addTo(map);
 
             L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>']).addTo(map);
-            map.dragging.disable();
+            map.touchZoom.disable();
             map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
             map.boxZoom.disable();
-            map.doubleClickZoom.disable();
+            map.keyboard.disable();
+            $(".leaflet-control-zoom").css("visibility", "hidden");
 
             jQuery('.leaflet-control-attribution').remove();
 
