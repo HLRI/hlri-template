@@ -258,7 +258,7 @@ jQuery(document).ready(function ($) {
     });
 
     $('.close-hlr-navigation').click(function(){
-        $('.close-hlr-navigation i').toggleClass('fa-arrow-left');
+        $('.close-hlr-navigation i').toggleClass('fa-arrow-left fa-arrow-right');
         $('.wrap-hlr-navigation').toggleClass('close-nav');
     });
 
