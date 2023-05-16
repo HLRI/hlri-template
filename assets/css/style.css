@@ -2522,6 +2522,7 @@ a.neighborhood-link {
   border-radius: 10px;
   padding: 10px;
   z-index: 999;
+  transition: all .3s;
 }
 
 .hlr-navigation {
@@ -2552,4 +2553,8 @@ a.neighborhood-link {
   z-index: 0;
   color: #ffad00;
   cursor: pointer;
+}
+
+.close-nav{
+  transform: translateX(142px);
 }
