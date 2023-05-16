@@ -57,7 +57,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     </div>
 </div>
 
-<div class="container-fluid px-lg-5 p-4" style="background: linear-gradient(45deg, #bf212f, #3a27bd);">
+<div class="container-fluid px-lg-5 py-4" style="background: linear-gradient(45deg, #bf212f, #3a27bd);">
     <div class="row mt-2 mb-4">
         <div class="col-12">
             <div class="rvs-container">
