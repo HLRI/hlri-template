@@ -2564,3 +2564,8 @@ a.neighborhood-link {
 .close-nav{
   transform: translateX(134px);
 }
+
+.card-form {
+  background: white;
+  padding: 10px 20px;
+}
