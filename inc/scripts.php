@@ -220,7 +220,7 @@ function theme_footer()
             });
 
 
-            L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>']).addTo(map);
+            L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], { icon: customIcon }).addTo(map);
 
             map.dragging.disable();
             map.touchZoom.disable();
