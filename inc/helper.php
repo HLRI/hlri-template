@@ -173,3 +173,5 @@ function get_post_count_taxonomy( $term_id, $taxonomy, $post_type ) {
     $posts = get_posts( $args );
     return count($posts);
   }
+
+

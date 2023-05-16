@@ -11,6 +11,9 @@ $developments = @get_post_meta(get_the_ID(), 'hlr_framework_properties_developme
 $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
 ?>
 
+
+<?php include HLR_THEME_PATH . 'template-parts/components/navigation-single-property.php' ?>
+
 <div class="container-fluid px-lg-5">
     <div class="row mt-10">
         <div class="col-12 col-sm-12 col-md-3 col-lg-2">
