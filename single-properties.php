@@ -186,7 +186,6 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         </div>
     </div>
 
-
     <div class="row my-4">
         <?php
         $terms = get_the_terms(get_the_ID(), 'category');
