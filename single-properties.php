@@ -148,7 +148,9 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                     <style>
                         <?php echo $theme_options['opt-properties-style'] ?>
                     </style>
-                    <?= do_shortcode($theme_options['opt-properties-shortcode']) ?>
+                    <div class="card-form">
+                        <?= do_shortcode($theme_options['opt-properties-shortcode']) ?>
+                    </div>
                 </div>
             </div>
         <?php endif; ?>
