@@ -1,5 +1,7 @@
 <div class="wrap-hlr-navigation">
-    <i class="fa fa-arrow-left"></i>
+    <div class="close-hlr-navigation">
+        <i class="fa fa-arrow-left"></i>
+    </div>
     <div class="hlr-navigation">
         <a href="#" class="hlr-navigation-item">
             Gallery
