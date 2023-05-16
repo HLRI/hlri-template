@@ -262,5 +262,11 @@ jQuery(document).ready(function ($) {
         $('.wrap-hlr-navigation').toggleClass('close-nav');
     });
 
+
+    $(function() {  
+        $("body").niceScroll();
+    });
+    
+
 });
 
