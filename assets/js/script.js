@@ -1,5 +1,14 @@
 jQuery(document).ready(function ($) {
 
+    if(localStorage.getItem('style-mode') == 'dark'){
+        $('#style-css').attr('href' , darkStyle).addClass('dark-mode');
+        localStorage.setItem('style-mode', 'dark');
+    }else{
+        $('#style-css').attr('href' , lightStyle).removeClass('dark-mode');
+        localStorage.setItem('style-mode', 'light');
+    }
+
+
     $(".listing-wrap").owlCarousel({
         responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 3, }, 1100: { items: 3 }, },
         loop: true,
@@ -276,8 +285,10 @@ jQuery(document).ready(function ($) {
     $('#switch-mode').click(function () {
         if($('#style-css').hasClass('dark-mode')){
             $('#style-css').attr('href' , lightStyle).removeClass('dark-mode');
+            localStorage.setItem('style-mode', 'light');
         }else{
             $('#style-css').attr('href' , darkStyle).addClass('dark-mode');
+            localStorage.setItem('style-mode', 'dark');
         }
         $('.sw-mode').toggleClass('d-none d-block');
     });
