@@ -233,7 +233,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         ?>
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
-                    <h3 class="font-weight-bold">Related Posts</h3>
+                    <h3 class="font-weight-bold">Related Properties</h3>
                 </div>
             </div>
 

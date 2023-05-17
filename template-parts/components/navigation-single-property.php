@@ -19,7 +19,7 @@
             Register Now
         </a>
         <a href="#rp" class="hlr-navigation-item">
-            Related Posts
+            Related Properties
         </a>
         <a href="#hp" class="hlr-navigation-item">
             New Projects
