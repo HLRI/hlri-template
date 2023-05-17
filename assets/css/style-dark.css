@@ -2595,3 +2595,7 @@ a.neighborhood-link {
   .card{
     background: #282828;
   }
+
+  .text-warning{
+    color: #e28e5c !important;
+  }
