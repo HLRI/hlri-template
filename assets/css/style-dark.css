@@ -72,7 +72,7 @@ textarea::placeholder {
     --main-color: #7c6f64;
     --selection-color: #ff6b4d;
     --primary-color: #6708ff;
-    --second-color: #f6f6f6;
+    --second-color: #7c6f64;
     --front-color: #00db58;
     --border-main: 6px;
     --modal-header-bg: #fafafa;
@@ -787,7 +787,7 @@ body * {
     border-color: #ccc;
     /* border-top-right-radius: 20px; */
     /* border-bottom-right-radius: 20px; */
-    background: #f6f6f6;
+    background: #7c6f64;
     border: none;
 }
 
@@ -801,7 +801,7 @@ body * {
     height: 30px;
     font-size: 13px;
     border: none;
-    background: #f6f6f6;
+    background: #7c6f64;
     box-shadow: 0px 2px 5px -4px #ccc;
     font-weight: bold;
     letter-spacing: 0.03em;
@@ -814,7 +814,7 @@ body * {
 .input-search:focus {
     box-shadow: unset !important;
     border-color: #ccc;
-    background: #f6f6f6;
+    background: #7c6f64;
 }
 
 .btn-search:focus {
@@ -1361,7 +1361,7 @@ a.icon-search:hover {
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: white;
+    color: #ffe7d9;
     font-size: 22px;
     gap: 6rem;
     z-index: 4;
@@ -1375,7 +1375,7 @@ a.icon-search:hover {
 }
 
 .post-meta a {
-    color: white;
+    color: #ffe7d9;
 
 }
 
@@ -1486,7 +1486,7 @@ a.icon-search:hover {
 }
 
 .card-post-sidebar-meta {
-    color: #bbb;
+    color: #b19f91;
     font-size: 10px;
 }
 
