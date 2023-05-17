@@ -3,9 +3,11 @@ jQuery(document).ready(function ($) {
     if(localStorage.getItem('style-mode') == 'dark'){
         $('#style-css').attr('href' , darkStyle).addClass('dark-mode');
         localStorage.setItem('style-mode', 'dark');
+        $('.sw-mode').toggleClass('d-none d-block');
     }else{
         $('#style-css').attr('href' , lightStyle).removeClass('dark-mode');
         localStorage.setItem('style-mode', 'light');
+        $('.sw-mode').toggleClass('d-none d-block');
     }
 
 
