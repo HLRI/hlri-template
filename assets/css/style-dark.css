@@ -2637,3 +2637,18 @@ label {
     color: #fff !important;
 }
 
+.modal-content {
+    background-color: #282828;
+}
+
+.form-control {
+    color: #7c6f64;
+    background-color: #32302f;
+    border: 1px solid #504945;
+}
+
+.form-control:focus {
+    color: #7c6f64;
+    background-color: #3c3836;
+    border-color: #7c6f64;
+}
