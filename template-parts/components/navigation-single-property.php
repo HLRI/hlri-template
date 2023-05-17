@@ -21,5 +21,8 @@
         <a href="#rp" class="hlr-navigation-item">
             Related Posts
         </a>
+        <a href="#hp" class="hlr-navigation-item">
+            New Projects
+        </a>
     </div>
 </div>
