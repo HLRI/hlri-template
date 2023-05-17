@@ -108,7 +108,7 @@ li {
 }
 
 body {
-  background: black;
+  background: #1d2021;
 }
 
 body * {
@@ -118,7 +118,7 @@ body * {
 
 
 .owl-theme .owl-nav button {
-  background: #fff none repeat scroll 0 0 !important;
+  background: #32302f none repeat scroll 0 0 !important;
   border-radius: 50% !important;
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .2);
   display: inline-block;
@@ -126,7 +126,7 @@ body * {
   text-align: center;
   text-transform: uppercase;
   width: 40px;
-  color: black;
+  color: #665c54;
 }
 
 .owl-theme .owl-nav .owl-prev {
@@ -196,8 +196,8 @@ body * {
 }
 
 .owl-theme .owl-nav [class*='owl-']:hover {
-  background: #f9f9f9 !important;
-  color: black;
+  background: #3c3836 !important;
+  color: #7c6f64;
 }
 
 .wrap-nav {
@@ -207,7 +207,7 @@ body * {
   justify-content: space-between;
   height: 30px;
   padding: 1.5rem 1rem;
-  background: white;
+  background: #282828;
 }
 
 .nav-item {
@@ -221,7 +221,7 @@ body * {
 }
 
 .nav-item>a:hover {
-  color: black !important;
+  color: #665c54 !important;
   font-weight: bold;
 }
 
@@ -238,7 +238,7 @@ body * {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #616161;
+  color: #665c54;
   transition: ease-in .3s;
   font-size: 22px;
   background: linear-gradient(225deg, #e6e6e6, #ffffff);
@@ -249,7 +249,7 @@ body * {
 .submenu {
   display: none;
   position: absolute;
-  background: #f8f8f8;
+  background: #3c3836;
   padding: .2rem 1rem;
   border-radius: 6px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -257,7 +257,7 @@ body * {
   height: auto;
   width: 256px;
   z-index: 999;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #665c54;
 }
 
 .sub-item,
@@ -266,12 +266,12 @@ body * {
 }
 
 .nav-item a {
-  color: black;
+  color: #504945;
   /* transition: ease-in .3s; */
 }
 
 .nav-item a:hover {
-  color: black;
+  color: #504945;
   /* transition: ease-out .3s; */
 }
 
@@ -282,7 +282,7 @@ body * {
 .submenu2 {
   display: none;
   position: absolute;
-  background: #f8f8f8;
+  background: #32302f;
   padding: .2rem 1rem;
   border-radius: 6px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -321,7 +321,7 @@ body * {
 
 .card-sidebar-slider {
   width: 100%;
-  background: white;
+  background: #1d2021;
   padding: .5rem;
   border-radius: var(--border-main);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
