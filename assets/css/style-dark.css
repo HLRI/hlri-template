@@ -2674,6 +2674,7 @@ label {
 }
 
 .wrap-bottom-login .forgot-pass {
+    text-decoration: none;
     color: #e28e5c;
 }
 
