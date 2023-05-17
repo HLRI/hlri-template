@@ -809,6 +809,7 @@ body * {
 
 .input-search::placeholder {
     font-size: 13px;
+    color: #7c6f64 !important;
 }
 
 .input-search:focus {
