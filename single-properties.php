@@ -162,8 +162,10 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     <?php if ($theme_options['opt-properties-status']) : ?>
         <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
             <div class="row mt-5 properties-shortcode" id="rn">
-                <div class="titr-list ml-2 mb-2">
-                    <h3 class="font-weight-bold">Register Now to get full package , book your unit</h3>
+                <div class="col-12">
+                    <div class="titr-list ml-0 mb-2">
+                        <h3 class="font-weight-bold">Register Now to get full package , book your unit</h3>
+                    </div>
                 </div>
                 <div class="col-12 mb-4">
                     <style>
