@@ -793,10 +793,10 @@ body * {
 
 .btn-search {
     border-left: none;
-    border-color: #b19f91;
+    border-color: #504945;
     /* border-top-right-radius: 20px; */
     /* border-bottom-right-radius: 20px; */
-    background: #504945;
+    background: #32302f;
 }
 
 .btn-search i {
