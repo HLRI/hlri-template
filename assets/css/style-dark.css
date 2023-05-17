@@ -824,8 +824,9 @@ body * {
 .input-search:focus {
     box-shadow: unset !important;
     border-color: #b19f91;
-    background: #504945;
+    background: #504945 !important;
     color: #b19f91;
+    border-right: none !important;
 }
 
 .btn-search:focus {
