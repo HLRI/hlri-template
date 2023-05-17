@@ -44,7 +44,7 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-  background: black;
+  background: #f8f7ff;
   /*   box-shadow: inset 0 0 5px grey;  */
 }
 
@@ -108,7 +108,7 @@ li {
 }
 
 body {
-  background: #f8f7ff;
+  background: black;
 }
 
 body * {
