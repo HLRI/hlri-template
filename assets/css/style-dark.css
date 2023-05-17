@@ -2657,7 +2657,12 @@ label {
     color: #b19f91;
 }
 
-.modal-content-login .modal-body-login .btn, .btn-orange-form {
+.modal-content-login .modal-body-login .btn {
     color: #7c6f64 !important;
     background: #3c3836 !important;
+}
+
+ .btn-orange-form {
+    color: #282828 !important;
+    background: #7c6f64 !important;
 }
