@@ -80,6 +80,7 @@ function theme_head()
         };
 
         var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
+        var lightStyle = '<?= HLR_THEME_ASSETS . 'css/style.css' ?>';
         
     </script>
 <?php

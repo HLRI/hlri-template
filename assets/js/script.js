@@ -274,7 +274,11 @@ jQuery(document).ready(function ($) {
     });
 
     $('#switch-mode').click(function () {
-        $('#style-css').attr('href' , darkStyle);
+        if($('#style-css').hasClass('dark-mode')){
+            $('#style-css').attr('href' , lightStyle).removeClass('dark-mode');
+        }else{
+            $('#style-css').attr('href' , darkStyle).addClass('dark-mode');
+        }
         $('.sw-mode').toggleClass('d-none d-block');
     });
 
