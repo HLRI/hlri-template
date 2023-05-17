@@ -595,15 +595,15 @@ body * {
 }
 
 .blog-category {
-    color: #f67f00;
-    background: #ffffffd6;
+    color: #e28e5c;
+    background: #7c6f64;
     padding: .1rem 0.4rem;
     border-radius: 6px;
     font-size: 10px;
 }
 
 .blog-category a {
-    color: #f67f00;
+    color: #e28e5c;
 }
 
 .blog-category i {
