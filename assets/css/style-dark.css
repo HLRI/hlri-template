@@ -207,7 +207,7 @@ body * {
   justify-content: space-between;
   height: 30px;
   padding: 1.5rem 1rem;
-  background: #282828;
+  background: #3c3836;
 }
 
 .nav-item {
@@ -266,12 +266,12 @@ body * {
 }
 
 .nav-item a {
-  color: #504945;
+  color: #665c54;
   /* transition: ease-in .3s; */
 }
 
 .nav-item a:hover {
-  color: #504945;
+  color: #7c6f64;
   /* transition: ease-out .3s; */
 }
 
