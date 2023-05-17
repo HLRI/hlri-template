@@ -2660,9 +2660,11 @@ label {
 .modal-content-login .modal-body-login .btn {
     color: #7c6f64 ;
     background: #3c3836 ;
+    box-shadow: none !important;
 }
 
  .btn-orange-form {
+    box-shadow: none !important;
     color: #282828 !important;
     background: #7c6f64 !important;
 }
