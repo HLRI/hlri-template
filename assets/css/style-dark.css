@@ -1546,15 +1546,15 @@ a.icon-search:hover {
 }
 
 .rvs-container {
-    background-color: #ffffff !important;
+    background-color: #282828 !important;
 }
 
 .rvs-container a.rvs-nav-item {
-    border-color: #e6e6e6 !important;
+    border-color: #3c3836 !important;
 }
 
 .rvs-container a.rvs-nav-item:hover {
-    background-color: #fdd274 !important;
+    background-color: #f19a67 !important;
 }
 
 .rvs-container a.rvs-nav-item.rvs-active {
@@ -1563,7 +1563,7 @@ a.icon-search:hover {
 
 .rvs-container a.rvs-nav-item.rvs-active,
 .rvs-container a.rvs-nav-item.rvs-active:first-child {
-    border-color: #e09900 !important;
+    border-color: #e28e5c !important;
 }
 
 .rvs-nav-item-title {
@@ -1571,7 +1571,7 @@ a.icon-search:hover {
 }
 
 .rvs-container a.rvs-play-video:hover {
-    border-color: #e09900 !important;
+    border-color: #e28e5c !important;
 }
 
 .rvs-container a.rvs-play-video:hover {
@@ -2633,40 +2633,3 @@ label {
     color: #fff !important;
 }
 
-
-.rvs-container,
-.rvs-container a.rvs-close,
-.rvs-container a.rvs-close:active,
-.rvs-container a.rvs-close:focus,
-.rvs-container a.rvs-close:hover,
-.rvs-container a.rvs-nav-next,
-.rvs-container a.rvs-nav-next:active,
-.rvs-container a.rvs-nav-next:focus,
-.rvs-container a.rvs-nav-next:hover,
-.rvs-container a.rvs-nav-prev,
-.rvs-container a.rvs-nav-prev:active,
-.rvs-container a.rvs-nav-prev:focus,
-.rvs-container a.rvs-nav-prev:hover,
-.rvs-container a.rvs-play-video,
-.rvs-container a.rvs-play-video:active,
-.rvs-container a.rvs-play-video:focus,
-.rvs-container a.rvs-play-video:hover,
-.rvs-item-text,
-.rvs-nav-item-title,
-.rvs-thumb-play .rvs-nav-item-thumb:before,
-.rvs-thumb-play .rvs-nav-item-thumb:hover:before {
-    color: #282828 !important;
-}
-
-.rvs-container a.rvs-play-video,
-.rvs-container a.rvs-play-video:active,
-.rvs-container a.rvs-play-video:focus,
-.rvs-container a.rvs-play-video:hover {
-    border-color: #282828 !important;
-}
-
-.rvs-light.rvs-container,
-.rvs-light.rvs-container a.rvs-nav-next,
-.rvs-light.rvs-container a.rvs-nav-prev {
-    background-color: #282828 !important;
-}
