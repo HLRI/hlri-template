@@ -81,7 +81,6 @@ function theme_head()
 
         var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
         var lightStyle = '<?= HLR_THEME_ASSETS . 'css/style.css' ?>';
-        
     </script>
 <?php
 }
@@ -90,10 +89,19 @@ function theme_head()
 add_action('wp_footer', 'theme_footer');
 function theme_footer()
 {
-?>
 
+?>
+    <?php $theme_options = get_option('hlr_framework'); ?>
+    <?php if ($theme_options['opt-fixed-menu']) : ?>
+        <script>
+            jQuery("#sticker").sticky({
+                topSpacing: 0,
+                zIndex: 999
+            });
+        </script>
+    <?php endif; ?>
+    
     <?php if (is_home()) : ?>
-        <?php $theme_options = get_option('hlr_framework'); ?>
         <?php if (!empty($theme_options['opt_homeleaderrealtycounter_items'])) : ?>
             <script>
                 function countup(elm, param) {
@@ -186,14 +194,7 @@ function theme_footer()
         </script>
     <?php endif; ?>
 
-    <?php if ($theme_options['opt-fixed-menu']) : ?>
-        <script>
-            jQuery("#sticker").sticky({
-                topSpacing: 0,
-                zIndex: 999
-            });
-        </script>
-    <?php endif; ?>
+
 
     <?php if (is_singular('properties')) :
         $locations = get_post_meta(get_the_ID(), 'hlr_framework_properties-location', true)['opt-map-properties'];
@@ -224,7 +225,9 @@ function theme_footer()
             });
 
 
-            L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], { icon: customIcon }).addTo(map);
+            L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], {
+                icon: customIcon
+            }).addTo(map);
 
             map.dragging.disable();
             map.touchZoom.disable();
