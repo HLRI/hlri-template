@@ -2668,3 +2668,15 @@ label {
     color: #282828 !important;
     background: #7c6f64 !important;
 }
+
+.wrap-bottom-login .forgot-pass {
+    color: #e28e5c;
+}
+
+.wrap-bottom-login .forgot-pass {
+    color: #e28e5c;
+}
+
+.wrap-bottom-login .forgot-pass:hover {
+    color: #e37d43;
+}
