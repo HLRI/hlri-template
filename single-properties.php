@@ -180,8 +180,8 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 </div>
 
 
-<div class="container-fluid">
-    <div class="row my-4">
+<div class="container-fluid my-4">
+    <div class="row">
         <?php
         $terms = get_the_terms(get_the_ID(), array('stage', 'type', 'city', 'neighborhood', 'group'));
         if ($terms) {
@@ -229,10 +229,13 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         }
         if ($peroperties->have_posts()) :
         ?>
-            <div class="col-12">
+            <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Related Posts</h3>
                 </div>
+            </div>
+
+            <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
                         <?php while ($peroperties->have_posts()) : $peroperties->the_post();
