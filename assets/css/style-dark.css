@@ -359,7 +359,7 @@ body * {
   padding: 4px calc(100vw/30) 4px 4px;
   /* box-shadow: rgb(161 161 161 / 10%) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
   box-shadow: 0px 1px 1px 0px #f3f3f3;
-  border: 1px solid #f0f0f0bc;
+  border: 1px solid #665c54;
 }
 
 .card-listing-image {
@@ -510,7 +510,7 @@ body * {
   border-radius: 10px;
   /* box-shadow: rgba(105, 105, 105, 0.1) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
   overflow: hidden;
-  border: 1px solid #f0f0f0bc;
+  border: 1px solid #665c54;
 }
 
 .card-single-blog {
@@ -521,7 +521,7 @@ body * {
   /* border-radius: 10px; */
   /* box-shadow: rgba(105, 105, 105, 0.1) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
   overflow: hidden;
-  border: 1px solid #f0f0f0bc;
+  border: 1px solid #665c54;
 }
 
 .card-blog-image img {
@@ -635,7 +635,7 @@ body * {
   gap: .5rem;
   overflow: hidden;
   /* box-shadow: rgb(161 161 161 / 10%) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
-  border: 1px solid #f0f0f0bc;
+  border: 1px solid #665c54;
 }
 
 .card-testimonials-image {
@@ -1435,7 +1435,7 @@ a.icon-search:hover {
 }
 
 .card {
-  border: 1px solid #f0f0f0bc;
+  border: 1px solid #665c54;
 }
 
 .card-post-sidebar {
