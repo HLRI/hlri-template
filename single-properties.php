@@ -195,7 +195,6 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             foreach ($terms as $item) {
                 $term_ids[] = $item->term_id;
             }
-            wp_die(print_r($term_ids));
 
             $args = array(
                 'post_type' => ['properties'],
@@ -205,17 +204,27 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                 'tax_query' => array(
                     'relation' => 'OR',
                     array(
-                        'taxonomy' => 'taxonomy1',
+                        'taxonomy' => 'stage',
                         'field' => 'term_id',
                         'terms' => $term_ids
                     ),
                     array(
-                        'taxonomy' => 'taxonomy2',
+                        'taxonomy' => 'type',
                         'field' => 'term_id',
                         'terms' => $term_ids
                     ),
                     array(
-                        'taxonomy' => 'taxonomy3',
+                        'taxonomy' => 'city',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'neighborhood',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'group',
                         'field' => 'term_id',
                         'terms' => $term_ids
                     )
