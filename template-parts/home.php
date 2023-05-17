@@ -1,5 +1,4 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
-<button type="button" id="mode-style">dark</button>
 <?php include(HLR_THEME_PATH . '/template-parts/components/slider.php'); ?>
 <?php include(HLR_THEME_PATH . '/template-parts/components/top-section.php'); ?>
 
