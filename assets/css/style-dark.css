@@ -348,7 +348,7 @@ body * {
 
 .card-listing {
   position: relative;
-  background: white;
+  background: #32302f;
   border-radius: 8px;
   width: 100%;
   height: 185px;
@@ -496,7 +496,7 @@ body * {
   position: relative;
   width: 300px;
   height: 350px;
-  background: white;
+  background: #32302f;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   overflow: hidden;
@@ -506,7 +506,7 @@ body * {
   position: relative;
   width: 100%;
   height: 350px;
-  background: white;
+  background: #32302f;
   border-radius: 10px;
   /* box-shadow: rgba(105, 105, 105, 0.1) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
   overflow: hidden;
@@ -517,7 +517,7 @@ body * {
   position: relative;
   width: 100%;
   height: auto;
-  background: white;
+  background: #32302f;
   /* border-radius: 10px; */
   /* box-shadow: rgba(105, 105, 105, 0.1) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
   overflow: hidden;
@@ -626,7 +626,7 @@ body * {
 
 .card-testimonials {
   width: 100%;
-  background: white;
+  background: #32302f;
   border-radius: 6px;
   padding: 1rem;
   display: flex;
@@ -691,7 +691,7 @@ body * {
 
 .card-countup {
   width: 100%;
-  /* background: white; */
+  /* background: #32302f; */
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -732,7 +732,7 @@ body * {
 }
 
 .footer {
-  background: white;
+  background: #32302f;
   border-top: 4px solid var(--main-color);
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -978,7 +978,7 @@ body * {
   color: #e7e6f1;
   font-size: 12px;
   margin-right: 6px;
-  background: white;
+  background: #32302f;
   padding: 4px;
   border-radius: 4px;
   box-shadow: 0px 2px 8px #e8e7ed;
@@ -1081,7 +1081,7 @@ a.icon-search:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: white;
+  background: #32302f;
   padding: .6rem .4rem;
   width: 100%;
 }
@@ -1156,7 +1156,7 @@ a.icon-search:hover {
 .card-profile-image {
   border-radius: 8px;
   width: 100%;
-  background: white;
+  background: #32302f;
   padding: 1rem;
 }
 
@@ -1174,7 +1174,7 @@ a.icon-search:hover {
 
 .content-profile {
   padding: 1rem;
-  background: white;
+  background: #32302f;
   border-left: 4px solid #ffad00;
   margin-top: 1rem;
 }
@@ -1187,7 +1187,7 @@ a.icon-search:hover {
 .content-info {
   display: block;
   padding: .5rem;
-  background: white;
+  background: #32302f;
   color: #888;
   border-left: 4px solid #ffad00;
   margin-bottom: .5rem;
@@ -1225,7 +1225,7 @@ a.icon-search:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #32302f;
   padding: 1.5rem 2rem;
   border-radius: 6px;
   box-shadow: 0px 1px 1px 0px #f3f3f3;
@@ -1413,7 +1413,7 @@ a.icon-search:hover {
 }
 
 .card-header.tab-card-header {
-  background: white;
+  background: #32302f;
   border: none;
 }
 
@@ -1496,7 +1496,7 @@ a.icon-search:hover {
 
 .card-properties-image {
   width: 200px;
-  background: white;
+  background: #32302f;
   padding: .5rem;
   border-bottom: 4px solid #e4e3ec;
 }
@@ -1560,7 +1560,7 @@ a.icon-search:hover {
 }
 
 .card-developments {
-  background: white;
+  background: #32302f;
   border-bottom: 3px solid #ffad00;
   padding: 1rem;
 }
@@ -1721,7 +1721,7 @@ a.icon-search:hover {
   position: fixed;
   left: 0;
   top: 26%;
-  background: white;
+  background: #32302f;
   width: auto;
   height: auto;
   display: inline-block;
@@ -1802,7 +1802,7 @@ a.icon-search:hover {
 }
 
 a.page-numbers {
-  background: white;
+  background: #32302f;
   padding: 5px 10px;
   border-radius: 4px;
   margin: 0 5px;
@@ -2148,7 +2148,7 @@ a.google-login {
 .menu-account-body {
   display: none;
   position: absolute;
-  background: white;
+  background: #32302f;
   padding: 10px;
   width: 200px;
   top: 42px;
@@ -2292,7 +2292,7 @@ a.google-login {
 .testimonials-body {
   width: 100%;
   border-radius: 6px;
-  background: white;
+  background: #32302f;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -2566,7 +2566,7 @@ a.neighborhood-link {
 }
 
 .card-form {
-  background: white;
+  background: #32302f;
   padding: 10px 20px;
 }
 
