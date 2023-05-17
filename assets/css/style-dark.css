@@ -805,6 +805,7 @@ body * {
     box-shadow: 0px 2px 5px -4px #3c3836;
     font-weight: bold;
     letter-spacing: 0.03em;
+    color: #b19f91;
 }
 
 .input-search::placeholder {
@@ -2431,7 +2432,7 @@ a.google-login {
 }
 
 .result-card {
-    background: #ffffff;
+    background: #3c3836;
     padding: 10px;
     width: 100%;
     border-radius: 4px;
@@ -2451,8 +2452,8 @@ a.google-login {
 h4.info-title {
     font-size: 20px;
     font-weight: bold;
-    color: #b2afc3;
-    border-bottom: 2px solid #b2afc3;
+    color: #b19f91;
+    border-bottom: 2px solid #b19f91;
     padding-bottom: 6px;
     margin: 16px 0 12px 0 !important;
 }
