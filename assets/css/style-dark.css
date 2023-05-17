@@ -96,7 +96,7 @@ a {
 }
 
 a:hover {
-    color: #f59d6a;
+    color: #e37d43;
     text-decoration: none;
 }
 
@@ -1284,7 +1284,7 @@ a.icon-search:hover {
 
 .top-section-button:hover {
     color: white;
-    background: #ffc446;
+    background: #e37d43;
 }
 
 .wrap-top-section-button {
@@ -1334,7 +1334,7 @@ a.icon-search:hover {
 }
 
 .btn-hlr:hover {
-    background: #ffc446;
+    background: #e37d43;
     color: white;
 }
 
