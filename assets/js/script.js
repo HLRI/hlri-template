@@ -274,6 +274,7 @@ jQuery(document).ready(function ($) {
     });
 
     $('#mode-style').click(function () {
+        console.log(darkStyle);
         $('#style-css').attr('href' , darkStyle);
     });
 
