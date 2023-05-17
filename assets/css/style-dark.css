@@ -92,11 +92,11 @@ textarea::placeholder {
 
 a {
   text-decoration: none;
-  color: var(--main-color);
+  color: #e28e5c;
 }
 
 a:hover {
-  color: var(--main-color);
+  color: #f59d6a;
   text-decoration: none;
 }
 
@@ -2570,4 +2570,6 @@ a.neighborhood-link {
   padding: 10px 20px;
 }
 
-
+.text-muted {
+    color: #3c3836!important;
+}
