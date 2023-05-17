@@ -20,7 +20,7 @@ $peroperties = new WP_Query($arg);
         <a href="<?= home_url('group/buy-with-5-percent-down') ?>" title="" class="view-more">View more</a>
     </div>
     <div class="d-flex justify-content-center">
-        <div class="testimonials-body" style="background: linear-gradient(124deg, rgba(59,116,155,1) 0%, rgba(128,183,222,1) 32%, rgba(59,116,155,1) 62%, rgba(59,116,155,1) 100%);">
+        <div class="testimonials-body" class="bg-box-slider">
             <div class="slide-progress"></div>
             <div class="owl-carousel owl-theme buy-with-10-percent-down  properties-category">
             <?php while ($peroperties->have_posts()) : $peroperties->the_post();

@@ -2570,4 +2570,6 @@ a.neighborhood-link {
   padding: 10px 20px;
 }
 
-
+.bg-box-slider {
+  background: linear-gradient(124deg, rgba(59, 116, 155, 1) 0%, rgba(128, 183, 222, 1) 32%, rgba(59, 116, 155, 1) 62%, rgba(59, 116, 155, 1) 100%);
+}
