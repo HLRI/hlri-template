@@ -18,5 +18,8 @@
         <a href="#rn" class="hlr-navigation-item">
             Register Now
         </a>
+        <a href="#rp" class="hlr-navigation-item">
+            Related Posts
+        </a>
     </div>
 </div>
