@@ -2655,18 +2655,18 @@ label {
 .rvs-nav-item-title,
 .rvs-thumb-play .rvs-nav-item-thumb:before,
 .rvs-thumb-play .rvs-nav-item-thumb:hover:before {
-    color: #282828;
+    color: #282828 !important;
 }
 
 .rvs-container a.rvs-play-video,
 .rvs-container a.rvs-play-video:active,
 .rvs-container a.rvs-play-video:focus,
 .rvs-container a.rvs-play-video:hover {
-    border-color: #282828;
+    border-color: #282828 !important;
 }
 
 .rvs-light.rvs-container,
 .rvs-light.rvs-container a.rvs-nav-next,
 .rvs-light.rvs-container a.rvs-nav-prev {
-    background-color: #282828;
+    background-color: #282828 !important;
 }
