@@ -207,7 +207,7 @@ body * {
   justify-content: space-between;
   height: 30px;
   padding: 1.5rem 1rem;
-  background: #3c3836;
+  background: #32302f;
 }
 
 .nav-item {
@@ -249,7 +249,7 @@ body * {
 .submenu {
   display: none;
   position: absolute;
-  background: #3c3836;
+  background: #32302f;
   padding: .2rem 1rem;
   border-radius: 6px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
