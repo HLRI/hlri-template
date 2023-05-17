@@ -44,7 +44,7 @@ h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
     color: #b19f91;
 }
 
@@ -1198,7 +1198,7 @@ a.icon-search:hover {
     color: #7c6f64;
 }
 
-.card-profile-details div h1{
+.card-profile-details div h1 {
     color: #b19f91;
 }
 
@@ -2631,4 +2631,42 @@ label {
 .wpcf7-submit {
     background: #e28e5c !important;
     color: #fff !important;
+}
+
+
+.rvs-container,
+.rvs-container a.rvs-close,
+.rvs-container a.rvs-close:active,
+.rvs-container a.rvs-close:focus,
+.rvs-container a.rvs-close:hover,
+.rvs-container a.rvs-nav-next,
+.rvs-container a.rvs-nav-next:active,
+.rvs-container a.rvs-nav-next:focus,
+.rvs-container a.rvs-nav-next:hover,
+.rvs-container a.rvs-nav-prev,
+.rvs-container a.rvs-nav-prev:active,
+.rvs-container a.rvs-nav-prev:focus,
+.rvs-container a.rvs-nav-prev:hover,
+.rvs-container a.rvs-play-video,
+.rvs-container a.rvs-play-video:active,
+.rvs-container a.rvs-play-video:focus,
+.rvs-container a.rvs-play-video:hover,
+.rvs-item-text,
+.rvs-nav-item-title,
+.rvs-thumb-play .rvs-nav-item-thumb:before,
+.rvs-thumb-play .rvs-nav-item-thumb:hover:before {
+    color: #282828;
+}
+
+.rvs-container a.rvs-play-video,
+.rvs-container a.rvs-play-video:active,
+.rvs-container a.rvs-play-video:focus,
+.rvs-container a.rvs-play-video:hover {
+    border-color: #282828;
+}
+
+.rvs-light.rvs-container,
+.rvs-light.rvs-container a.rvs-nav-next,
+.rvs-light.rvs-container a.rvs-nav-prev {
+    background-color: #282828;
 }
