@@ -2644,11 +2644,20 @@ label {
 .form-control {
     color: #7c6f64;
     background-color: #32302f;
-    border: 1px solid #504945;
+    border: 1px solid #504945 !important;
 }
 
 .form-control:focus {
     color: #7c6f64;
     background-color: #3c3836;
     border-color: #7c6f64;
+}
+
+.modal-body-login .input-icon {
+    color: #b19f91;
+}
+
+.modal-content-login .modal-body-login .btn, .btn-orange-form {
+    color: #7c6f64;
+    background: #3c3836;
 }
