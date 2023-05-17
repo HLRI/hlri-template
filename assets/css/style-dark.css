@@ -207,7 +207,7 @@ body * {
   justify-content: space-between;
   height: 30px;
   padding: 1.5rem 1rem;
-  background: #32302f;
+  background: #3c3836;
 }
 
 .nav-item {
@@ -264,12 +264,12 @@ body * {
 }
 
 .nav-item a {
-  color: #665c54;
+  color: #b19f91;
   /* transition: ease-in .3s; */
 }
 
 .nav-item a:hover {
-  color: #7c6f64;
+  color: #c0ad9e;
   /* transition: ease-out .3s; */
 }
 
@@ -990,17 +990,17 @@ body * {
 }
 
 .btn-signin {
-  background: #f7f7f7;
-  color: #525252;
-  font-size: .865rem;
-  padding: .3rem .6rem;
-  border-radius: 4px;
-  transition: all .3s;
+    background: #665c54;
+    color: #e28e5c;
+    font-size: .865rem;
+    padding: .3rem .6rem;
+    border-radius: 4px;
+    transition: all .3s;
 }
 
 .btn-signin:hover {
-  background: #f0f0f0;
-  color: #525252;
+    background: #7c7066;
+    color: #d68759;
 }
 
 .icon-btn:hover {
@@ -1636,11 +1636,7 @@ a.icon-search:hover {
 }
 
 .fa-instagram {
-  color: #f09433;
-  color: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  color: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  color: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+  color: #3c3836;
 }
 
 .fa-linkedin-square {
@@ -1720,7 +1716,7 @@ a.icon-search:hover {
   position: fixed;
   left: 0;
   top: 26%;
-  background: #32302f;
+  background: #665c54;
   width: auto;
   height: auto;
   display: inline-block;
