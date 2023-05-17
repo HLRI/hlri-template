@@ -358,7 +358,7 @@ body * {
   overflow: hidden;
   padding: 4px calc(100vw/30) 4px 4px;
   /* box-shadow: rgb(161 161 161 / 10%) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
-  box-shadow: 0px 1px 1px 0px #f3f3f3;
+  box-shadow: 0px 1px 1px 0px #7c6f64;
   border: 1px solid #665c54;
 }
 
@@ -1108,7 +1108,7 @@ a.icon-search:hover {
   height: 100%;
   background: transparent;
   border: none;
-  color: #f3f3f3;
+  color: #7c6f64;
 }
 
 .input-search-slider:focus {
@@ -1228,7 +1228,7 @@ a.icon-search:hover {
   background: #32302f;
   padding: 1.5rem 2rem;
   border-radius: 6px;
-  box-shadow: 0px 1px 1px 0px #f3f3f3;
+  box-shadow: 0px 1px 1px 0px #7c6f64;
 }
 
 .top-section-icon i {
