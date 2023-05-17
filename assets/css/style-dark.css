@@ -2658,8 +2658,8 @@ label {
 }
 
 .modal-content-login .modal-body-login .btn {
-    color: #7c6f64 !important;
-    background: #3c3836 !important;
+    color: #7c6f64 ;
+    background: #3c3836 ;
 }
 
  .btn-orange-form {
