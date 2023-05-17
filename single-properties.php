@@ -233,6 +233,9 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             $query = new WP_Query($args);
         }
 
+
+        dd($query->have_posts());
+        
         if ($query->have_posts()) :
         ?>
             <div class="related-posts">
