@@ -126,7 +126,11 @@ body * {
     text-align: center;
     text-transform: uppercase;
     width: 40px;
-    color: #665c54;
+    color: #e28e5c !important;
+}
+
+.owl-theme .owl-nav button:hover {
+    color: #282828 !important;
 }
 
 .owl-theme .owl-nav .owl-prev {
