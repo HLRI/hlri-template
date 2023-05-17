@@ -1570,7 +1570,7 @@ a.icon-search:hover {
     border-color: #e28e5c !important;
 }
 
-.rvs-container a.rvs-play-video:hover , small.rvs-nav-item-credits{
+.rvs-container a.rvs-play-video:hover ~ small.rvs-nav-item-credits:hover{
     background-color: #e28e5c !important;
     color: #32302f;
 }
