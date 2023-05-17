@@ -79,7 +79,8 @@ function theme_head()
             "url": "<?= admin_url('admin-ajax.php') ?>"
         };
 
-        var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style.css' ?>';
+        var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
+        
     </script>
 <?php
 }
