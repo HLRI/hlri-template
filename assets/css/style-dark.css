@@ -1186,7 +1186,11 @@ a.icon-search:hover {
 
 .card-profile-details .job {
     margin-left: 10px;
-    color: #ccc;
+    color: #7c6f64;
+}
+
+.card-profile-details div h1{
+    color: #b19f91;
 }
 
 .content-info {
@@ -1529,7 +1533,7 @@ a.icon-search:hover {
 .wrap-map {
     margin-top: .6rem;
     padding: .5rem;
-    border: 8px solid white;
+    border: 8px solid #7c6f64;
 }
 
 .rvs-container {
@@ -1590,7 +1594,7 @@ a.icon-search:hover {
     position: absolute;
     top: -21px;
     left: 0;
-    background: lightgreen;
+    background: #e28e5c;
     color: white;
     padding: .2rem .5rem;
     border-radius: 6px;
