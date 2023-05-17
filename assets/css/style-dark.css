@@ -2613,10 +2613,7 @@ a.neighborhood-link {
     color: #e28e5c !important;
 }
 
-.wpcf7-submit {
-    background: #e28e5c !important;
-    color: #fff !important;
-}
+
 
 .my-my-1 {
     border: 2px dashed #e28e5c !important;
@@ -2629,4 +2626,9 @@ a.neighborhood-link {
 
 label {
     color: #7c6f64 !important;
+}
+
+.wpcf7-submit {
+    background: #e28e5c !important;
+    color: #fff !important;
 }
