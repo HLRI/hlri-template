@@ -2577,3 +2577,14 @@ a.neighborhood-link {
     background: linear-gradient(124deg, #3c3836 0%, #7c6f64 32%, #3c3836 62%, #3c3836 100%);
 }
 
+#switch-mode {
+    width: 30px;
+    height: 30px;
+    background: #665c54;
+    color: #e28e5c;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

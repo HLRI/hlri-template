@@ -2577,8 +2577,11 @@ a.neighborhood-link {
 #switch-mode {
   width: 30px;
   height: 30px;
-  padding: 7px;
   background: #f7f7f7;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a5a5a;
 }

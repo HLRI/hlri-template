@@ -273,7 +273,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('#mode-style').click(function () {
+    $('#switch-mode').click(function () {
         $('#style-css').attr('href' , darkStyle);
     });
 
