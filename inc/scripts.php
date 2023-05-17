@@ -78,6 +78,8 @@ function theme_head()
         var AjaxHLR = {
             "url": "<?= admin_url('admin-ajax.php') ?>"
         };
+
+        var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style.css' ?>';
     </script>
 <?php
 }

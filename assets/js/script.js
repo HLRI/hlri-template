@@ -273,5 +273,10 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $('#mode-style').click(function () {
+        $('#style-css').attr('href' , darkStyle);
+    });
+
+
 });
 
