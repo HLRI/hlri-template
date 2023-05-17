@@ -823,9 +823,7 @@ body * {
 
 .input-search:focus {
     box-shadow: unset !important;
-    border-color: #b19f91;
-    background: #504945 !important;
-    color: #b19f91;
+    background-color: #32302f !important;
     border-right: none !important;
 }
 
@@ -2617,8 +2615,6 @@ a.neighborhood-link {
 .text-warning {
     color: #e28e5c !important;
 }
-
-
 
 .my-my-1 {
     border: 2px dashed #e28e5c !important;
