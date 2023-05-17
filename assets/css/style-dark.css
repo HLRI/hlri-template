@@ -59,8 +59,8 @@ p {
 }
 
 p {
-
     line-height: 2;
+    color: #8b7d72;
 }
 
 input::placeholder,
@@ -1421,20 +1421,20 @@ a.icon-search:hover {
 }
 
 .nav-tabs .nav-link.active {
-    color: #000000;
-    background-color: #fff;
-    border-bottom: 3px solid #fec20f;
+    color: #504945;
+    background-color: #282828;
+    border-bottom: 3px solid #e28e5c;
     font-weight: bold;
 }
 
 .nav-tabs .nav-link:hover {
     border-color: unset;
-    border-bottom: 3px solid #d6d6d6;
+    border-bottom: 3px solid #b19f91;
 }
 
 .nav-tabs .nav-link {
     border: none;
-    border-bottom: 3px solid #ccc;
+    border-bottom: 3px solid #7c6f64;
 }
 
 .card {
@@ -1448,13 +1448,13 @@ a.icon-search:hover {
     background: #665c54;
     border-radius: 4px;
     overflow: hidden;
-    border-right: 3px solid #eae9f0;
+    border-right: 3px solid #b19f91;
     /* box-shadow: rgb(172 172 172 / 20%) 0px 2px 8px 0px; */
     transition: all .3s;
 }
 
 .card-post-sidebar:hover {
-    background: #eae9f0;
+    background: #7c6f64;
 }
 
 .card-post-sidebar-image {
@@ -1480,7 +1480,7 @@ a.icon-search:hover {
 }
 
 .card-post-sidebar-title {
-    color: #888;
+    color: #282828;
     font-size: 12;
     margin-bottom: 6px;
 }
@@ -1695,13 +1695,13 @@ a.icon-search:hover {
 }
 
 .card-share-single {
-    background: #ffffffed;
+    background: #7c6f64;
     width: auto;
     height: auto;
     display: inline-block;
     border-radius: 8px;
-    border-left: 2px solid #fec20f;
-    border-right: 2px solid #d7d6e1;
+    border-left: 2px solid #e28e5c;
+    border-right: 2px solid #e28e5c;
     font-size: 24px;
     margin: 1rem 0;
 }
@@ -2587,4 +2587,8 @@ a.neighborhood-link {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .card{
+    background: #282828;
   }
