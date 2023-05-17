@@ -69,7 +69,7 @@ textarea::placeholder {
 }
 
 :root {
-  --main-color: #FEC20F;
+  --main-color: #7c6f64;
   --selection-color: #ff6b4d;
   --primary-color: #6708ff;
   --second-color: #f6f6f6;
@@ -404,7 +404,7 @@ body * {
 
 .titr-list h3 {
   /* font-family: 'Russo One', sans-serif; */
-  color: rgb(59 116 155);
+  color: 504945;
 }
 
 .view-more {
@@ -1913,7 +1913,7 @@ span.page-numbers {
 }
 
 .modal-body-login .title {
-  color: rgb(59 116 155);
+  color: 504945;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 1px;
