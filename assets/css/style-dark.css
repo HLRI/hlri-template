@@ -85,7 +85,7 @@ textarea::placeholder {
 }
 
 ::selection {
-  background: #f77c01;
+  background: #e28e5c;
   color: white;
 }
 
@@ -1066,7 +1066,7 @@ a.icon-search:hover {
   border-radius: 30px;
   padding: .6rem 1.8rem;
   color: white;
-  background: #f77c01;
+  background: #e28e5c;
   font-size: 22px;
   transition: all .3s;
 }
