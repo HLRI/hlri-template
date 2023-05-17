@@ -2331,23 +2331,23 @@ a.google-login {
 
 .lable-listing div:nth-child(1) {
   background: #504945;
-  color: #1f83e9;
+  color: #a79281;
   padding: 5px;
   border-radius: 6px;
   margin-bottom: 4px;
 }
 
 .lable-listing div:nth-child(2) {
-  background: #f6fff0;
-  color: #0dc50a;
+  background: #504945;
+  color: #a79281;
   padding: 5px;
   border-radius: 6px;
   margin-bottom: 4px;
 }
 
 .lable-listing div:nth-child(3) {
-  background: #fff6f6;
-  color: #f13636;
+  background: #504945;
+  color: #a79281;
   padding: 5px;
   border-radius: 6px;
   margin-bottom: 4px;
