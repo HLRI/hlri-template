@@ -2573,3 +2573,12 @@ a.neighborhood-link {
 .bg-box-slider {
   background: linear-gradient(124deg, rgba(59, 116, 155, 1) 0%, rgba(128, 183, 222, 1) 32%, rgba(59, 116, 155, 1) 62%, rgba(59, 116, 155, 1) 100%);
 }
+
+#switch-mode {
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  background: #f7f7f7;
+  border-radius: 50%;
+  cursor: pointer;
+}
