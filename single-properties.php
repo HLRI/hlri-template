@@ -188,30 +188,42 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
     <div class="row my-4">
         <?php
-        $terms = get_the_terms(get_the_ID(), 'category');
+        $terms = get_the_terms(get_the_ID(), array('stage', 'type', 'city', 'neighborhood', 'group'));
+            wp_die(var_dump($terms));
         if ($terms) {
-
-            $term_ids[] = 0;
+            $term_ids = array();
 
             foreach ($terms as $item) {
-
                 $term_ids[] = $item->term_id;
             }
+
+            $args = array(
+                'post_type' => ['properties'],
+                'post_status' => ['publish'],
+                'posts_per_page' => 6,
+                'post__not_in' => [get_the_ID()],
+                'tax_query' => array(
+                    'relation' => 'OR',
+                    array(
+                        'taxonomy' => 'taxonomy1',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'taxonomy2',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'taxonomy3',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    )
+                ),
+            );
+            $query = new WP_Query($args);
         }
-        $args = array(
-            'post_type' => ['properties'],
-            'post_status' => ['publish'],
-            'posts_per_page' => 6,
-            'post__not_in' => [get_the_ID()],
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'category',
-                    'field' => 'term_id',
-                    'terms' => $term_ids
-                )
-            ),
-        );
-        $query = new WP_Query($args);
+
         if ($query->have_posts()) :
         ?>
             <div class="related-posts">
