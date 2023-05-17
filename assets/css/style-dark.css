@@ -2520,7 +2520,7 @@ a.neighborhood-link {
     top: 25%;
     right: 10px;
     width: 154px;
-    background: #f0f0f0;
+    background: #7c6f64;
     border-radius: 10px;
     padding: 10px;
     z-index: 999;
@@ -2537,12 +2537,12 @@ a.neighborhood-link {
 
 .hlr-navigation-item {
     width: 100%;
-    background: rgb(247 247 247);
+    background: #665c54;
     border-radius: 6px;
     padding: 6px;
     text-align: center;
     /* box-shadow: inset 0px 0px 8px 3px #dddddd; */
-    color: #6c6c6c;
+    color: #e28e5c;
     font-size: 13px;
 }
 
@@ -2550,7 +2550,7 @@ a.neighborhood-link {
     position: absolute;
     left: -22px;
     top: 10%;
-    background: #f0f0f0;
+    background: #7c6f64;
     padding: 6px;
     z-index: 0;
     color: #e28e5c;
@@ -2590,12 +2590,30 @@ a.neighborhood-link {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  .card{
+.card {
     background: #282828;
-  }
+}
 
-  .text-warning{
+.text-warning {
     color: #e28e5c !important;
-  }
+}
+
+.wpcf7-submit {
+    background: #e28e5c !important;
+    color: #fff !important;
+}
+
+.my-my-1 {
+    border: 2px dashed #e28e5c !important;
+}
+
+.wpcf7-form-control {
+    background: #504945 !important;
+    color: #b19f91 !important;
+}
+
+label {
+    color: #7c6f64 !important;
+}
