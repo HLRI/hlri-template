@@ -232,13 +232,10 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             );
             $peroperties = new WP_Query($args);
         }
-
-
-        
         if ($peroperties->have_posts()) :
         ?>
-            <div class="related-posts">
-                <div class="titr-list mt-4">
+            <div class="col-12">
+                <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Related Posts</h3>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -308,6 +305,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                     </div>
                 </div>
             </div>
+
         <?php endif; ?>
     </div>
 
