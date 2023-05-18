@@ -2693,3 +2693,24 @@ label {
     font-weight: bold;
     color: #32302f;
 }
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    cursor: pointer;
+    background-color: #e28e5c;
+    color: #32302f;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 9999;
+  }
+  
+  #back-to-top i {
+    margin-top: 14px;
+    font-size: 20px;
+  }
