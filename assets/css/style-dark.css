@@ -1117,6 +1117,18 @@ a.icon-search:hover {
     overflow: hidden;
 }
 
+.form-control {
+    color: #7c6f64;
+    background-color: #32302f;
+    border: 1px solid #504945 !important;
+}
+
+.form-control:focus {
+    color: #7c6f64;
+    background-color: #3c3836;
+    border-color: #7c6f64;
+}
+
 .input-search-slider {
     height: 100%;
     background: transparent;
@@ -2636,18 +2648,6 @@ label {
 
 .modal-content {
     background-color: #282828;
-}
-
-.form-control {
-    color: #7c6f64;
-    background-color: #32302f;
-    border: 1px solid #504945 !important;
-}
-
-.form-control:focus {
-    color: #7c6f64;
-    background-color: #3c3836;
-    border-color: #7c6f64;
 }
 
 .modal-body-login .input-icon {
