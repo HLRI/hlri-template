@@ -20,13 +20,13 @@ $terms = get_terms([
                         $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
                     ?>
 
-                        <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" class="wrap-neighborhood">
+                        <div class="wrap-neighborhood">
                             <img src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= $meta['opt-neighborhood-image']['alt'] ?>">
                             <div class="neighborhood-title">
                                 <?= $term->name ?>
                             </div>
-                            <a class="neighborhood-link"><?= get_post_count_taxonomy($term->term_id,'neighborhood','properties') ?> Listing</a>
-                        </a>
+                            <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" class="neighborhood-link"><?= get_post_count_taxonomy($term->term_id,'neighborhood','properties') ?> Listing</a>
+                        </div>
 
                     <?php endforeach; ?>
                     <?php wp_reset_postdata(); ?>
