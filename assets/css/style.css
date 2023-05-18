@@ -2561,7 +2561,7 @@ a.neighborhood-link {
   height: 34px;
 }
 
-.close-nav{
+.close-nav {
   transform: translateX(154px);
 }
 
@@ -2574,7 +2574,7 @@ a.neighborhood-link {
   background: linear-gradient(124deg, rgba(59, 116, 155, 1) 0%, rgba(128, 183, 222, 1) 32%, rgba(59, 116, 155, 1) 62%, rgba(59, 116, 155, 1) 100%);
 }
 
-#switch-mode {
+.switch-mode {
   width: 30px;
   height: 30px;
   background: #f7f7f7;
