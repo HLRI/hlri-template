@@ -1655,13 +1655,13 @@ small.rvs-nav-item-credits {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #ffffffed;
+    background: #b19f91e8;
     padding: 1rem;
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    border-left: 2px solid #fec20f;
-    border-right: 2px solid #d7d6e1;
+    border-left: 2px solid #e28e5c;
+    border-right: 2px solid #e28e5c;
     transform: translateY(-208px);
     transition: all .3s;
     display: flex;
@@ -1727,7 +1727,7 @@ small.rvs-nav-item-credits {
     position: absolute;
     bottom: 6px;
     font-size: 14px;
-    color: #fd7a23;
+    color: #504945;
 }
 
 .card-share-single {
