@@ -1132,7 +1132,7 @@ a.icon-search:hover {
 .input-search-slider {
     height: 100%;
     background: #32302f;
-    border: none;
+    border: none !important;
     color: #7c6f64;
 }
 
