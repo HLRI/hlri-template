@@ -905,7 +905,7 @@ body * {
 }
 
 .color-text-sidebar {
-    color: var(--color-text-sidebar);
+    color: #7c6f64;
 }
 
 .modal-footer {
@@ -919,7 +919,7 @@ body * {
 
 .fontsize-icon-account {
     font-size: 1.2rem;
-    color: var(--icon-color-sidebar);
+    color: #f09764;
 }
 
 .navbar-toggler {}
@@ -944,7 +944,7 @@ body * {
     display: flex;
     /* background: #ebebeb; */
     padding: 10px 15px;
-    color: var(--color-text-sidebar);
+    color: #7c6f64;
     text-decoration: none;
     -webkit-transition: 0.2s linear;
     -moz-transition: 0.2s linear;
@@ -957,7 +957,7 @@ body * {
 
 .side-nav-dropdown ul li a:hover {
     /* background: #f8f8f8; */
-    color: var(--color-text-sidebar);
+    color: #7c6f64;
 }
 
 .side-nav-dropdown ul li a .fa {
@@ -979,7 +979,7 @@ body * {
 
 .side-nav-dropdown ul li ul li a:hover {
     /* background: #ebebeb; */
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #f09764;
 }
 
 
