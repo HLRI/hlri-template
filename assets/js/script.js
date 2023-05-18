@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
 
     if (localStorage.getItem('style-mode') == 'dark') {
+        $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
         $('#style-css').attr('href', darkStyle).addClass('dark-mode');
         localStorage.setItem('style-mode', 'dark');
         $('.sw-mode').toggleClass('d-none d-block');
@@ -285,12 +286,12 @@ jQuery(document).ready(function ($) {
     $('.switch-mode').click(function () {
         console.log('t');
         if ($('#style-css').hasClass('dark-mode')) {
-            $('#style-css').attr('href', lightStyle).removeClass('dark-mode');
             $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-light.png");
+            $('#style-css').attr('href', lightStyle).removeClass('dark-mode');
             localStorage.setItem('style-mode', 'light');
         } else {
-            $('#style-css').attr('href', darkStyle).addClass('dark-mode');
             $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
+            $('#style-css').attr('href', darkStyle).addClass('dark-mode');
             localStorage.setItem('style-mode', 'dark');
         }
         $('.sw-mode').toggleClass('d-none d-block');
