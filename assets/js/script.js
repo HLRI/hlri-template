@@ -286,11 +286,11 @@ jQuery(document).ready(function ($) {
         console.log('t');
         if ($('#style-css').hasClass('dark-mode')) {
             $('#style-css').attr('href', lightStyle).removeClass('dark-mode');
-            $("div.site-logo a img").attr('src',"assets/images/logo-light.png");
+            $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-light.png");
             localStorage.setItem('style-mode', 'light');
         } else {
             $('#style-css').attr('href', darkStyle).addClass('dark-mode');
-            $("div.site-logo a img").attr('src',"assets/images/logo-dark.png");
+            $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
             localStorage.setItem('style-mode', 'dark');
         }
         $('.sw-mode').toggleClass('d-none d-block');
