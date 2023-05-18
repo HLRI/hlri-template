@@ -89,7 +89,7 @@ function bookmark(element, post_id) {
                     title: 'Removed from your collection'
                 })
                 jQuery(element).css({
-                    color: '#3c3836'
+                    color: '#aaa'
                 });
             }
         }
@@ -133,7 +133,7 @@ function setLikeProperties(item, properties_id) {
                 //     title: 'Unliked successfully'
                 // })
                 jQuery(item).css({
-                    color: '#3c3836'
+                    color: '#aaa'
                 });
             }
             jQuery(item).parent().find('#like-total').html(response.total);
