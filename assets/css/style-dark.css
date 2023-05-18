@@ -1099,24 +1099,6 @@ a.icon-search:hover {
     width: 100%;
 }
 
-.wrap-search-slider {
-    position: relative;
-}
-
-.search-slider {
-    color: #fff;
-    width: 540px !important;
-    height: 46px;
-    background: #1b1b1b9e;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2px 12px 2px 2px;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
 .form-control {
     color: #7c6f64;
     background-color: #32302f;
@@ -1129,9 +1111,27 @@ a.icon-search:hover {
     border-color: #7c6f64;
 }
 
+.wrap-search-slider {
+    position: relative;
+}
+
+.search-slider {
+    color: #fff;
+    width: 540px !important;
+    height: 46px;
+    background: #32302f;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 12px 2px 2px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 .input-search-slider {
     height: 100%;
-    background: transparent;
+    background: #32302f;
     border: none;
     color: #7c6f64;
 }
