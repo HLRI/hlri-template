@@ -51,6 +51,11 @@ if (class_exists('CSF')) {
 								'type'  => 'text',
 								'title' => 'Slider title 2',
 							),
+							array(
+								'id'    => 'opt-slider-title-link',
+								'type'  => 'text',
+								'title' => 'Slider link',
+							),
 
 						),
 					),
