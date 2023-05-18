@@ -247,7 +247,9 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                             <div class="card-listing card-listing-v2">
 
                                 <div class="card-listing-image card-listing-image-v2">
-                                    <?php the_post_thumbnail() ?>
+                                    <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
+                                        <?php the_post_thumbnail() ?>
+                                    </a>
                                 </div>
 
 
@@ -359,7 +361,9 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                             <div class="card-listing card-listing-v2">
 
                                 <div class="card-listing-image card-listing-image-v2">
-                                    <?php the_post_thumbnail() ?>
+                                    <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
+                                        <?php the_post_thumbnail() ?>
+                                    </a>
                                 </div>
 
 

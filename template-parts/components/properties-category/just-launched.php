@@ -30,7 +30,9 @@ $peroperties = new WP_Query($arg);
                     <div class="card-listing">
 
                         <div class="card-listing-image">
-                            <?php the_post_thumbnail() ?>
+                            <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
+                                <?php the_post_thumbnail() ?>
+                            </a>
                         </div>
 
 
