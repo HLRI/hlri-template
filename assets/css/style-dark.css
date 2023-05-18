@@ -1129,6 +1129,11 @@ a.icon-search:hover {
     overflow: hidden;
 }
 
+.search-slider i{
+    color: #7c6f64;
+    font-size: 19px;
+}
+
 .input-search-slider {
     height: 100%;
     background: #32302f;
