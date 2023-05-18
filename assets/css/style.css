@@ -384,7 +384,7 @@ body * {
   width: 100%;
 }
 
-.card-listing-content h6 {
+.card-listing-content a h6 {
   /* font-weight: bold; */
   font-size: 16px;
 }
@@ -1582,7 +1582,7 @@ a.icon-search:hover {
 
 .update-label {
   position: absolute;
-  top: -21px;
+  top: -28px;
   left: 0;
   background: lightgreen;
   color: white;
@@ -2584,4 +2584,14 @@ a.neighborhood-link {
   align-items: center;
   justify-content: center;
   color: #5a5a5a;
+}
+
+.start-price {
+  background: #3b749b;
+  display: inline;
+  padding: 6px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
 }

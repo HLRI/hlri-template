@@ -24,7 +24,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         <div class="col-12 col-sm-12 col-md-9 col-lg-10 pl-0">
             <div class="card-profile-details p-0 position-relative">
                 <span class="update-label">Last Update : <?= get_the_modified_date('j F Y') ?></span>
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center justify-content-between mb-2">
                     <h1 class="mb-2"><?php the_title() ?></h1>
                     <div class="card-share-single my-0">
                         <div class="card-share-single-options">

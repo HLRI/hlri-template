@@ -395,7 +395,7 @@ body * {
     width: 100%;
 }
 
-.card-listing-content h6 {
+.card-listing-content a h6 {
     /* font-weight: bold; */
     font-size: 16px;
 }
@@ -1621,7 +1621,7 @@ small.rvs-nav-item-credits {
 
 .update-label {
     position: absolute;
-    top: -21px;
+    top: -28px;
     left: 0;
     background: #e28e5c;
     color: white;
@@ -2682,4 +2682,14 @@ label {
 
 .wrap-bottom-login .forgot-pass:hover {
     color: #e37d43;
+}
+
+.start-price {
+    background: #7c6f64;
+    display: inline;
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #32302f;
 }
