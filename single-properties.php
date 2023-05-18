@@ -254,11 +254,11 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                                 <div class="card-body-listing card-body-listing-v2">
 
                                     <div class="card-listing-content card-listing-content-v2">
-                                        <a href="<?= get_the_permalink() ?>">
+                                        <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
                                             <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                         </a>
                                         <div class="card-listing-description card-listing-description-v2">
-                                            <a href="<?= get_the_permalink() ?>">
+                                            <a href="<?= get_the_permalink() ?>" title="<?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>">
                                                 <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
                                             </a>
                                         </div>
@@ -364,12 +364,25 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
 
                                 <div class="card-body-listing card-body-listing-v2">
+
+
                                     <div class="card-listing-content card-listing-content-v2">
+                                        <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
+                                            <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
+                                        </a>
+                                        <div class="card-listing-description card-listing-description-v2">
+                                            <a href="<?= get_the_permalink() ?>" title="<?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>">
+                                                <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="card-listing-content card-listing-content-v2">
                                         <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                         <div class="card-listing-description card-listing-description-v2">
                                             <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="lable-listing lable-listing-v2">
                                         <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>

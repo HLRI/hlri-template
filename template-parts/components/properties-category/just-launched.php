@@ -37,11 +37,11 @@ $peroperties = new WP_Query($arg);
                         <div class="card-body-listing">
 
                             <div class="card-listing-content">
-                                <a href="<?= get_the_permalink() ?>">
+                                <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
                                     <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                 </a>
                                 <div class="card-listing-description">
-                                    <a href="<?= get_the_permalink() ?>">
+                                    <a href="<?= get_the_permalink() ?>" title="<?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>">
                                         <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
                                     </a>
                                 </div>
