@@ -1814,7 +1814,7 @@ small.rvs-nav-item-credits {
     height: 50px;
     position: absolute;
     font-size: 10px;
-    background: #7c6f64;
+    background: #b19f91;
     padding: .5rem;
     border-radius: 4px;
     left: 40px;
@@ -1832,7 +1832,7 @@ small.rvs-nav-item-credits {
     left: -9px;
     top: 15px;
     z-index: -1;
-    background: #ffecbf;
+    background: #b19f91;
     transform: rotate(45deg);
 }
 
