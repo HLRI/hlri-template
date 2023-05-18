@@ -53,7 +53,7 @@ if (class_exists('CSF')) {
 							),
 							array(
 								'id'    => 'opt-slider-title-link',
-								'type'  => 'text',
+								'type'  => 'link',
 								'title' => 'Slider link',
 							),
 
