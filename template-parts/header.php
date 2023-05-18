@@ -9,6 +9,10 @@
 
 <body <?php body_class(); ?>>
 
+    <a id="back-to-top" href="#">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+    
     <?php include(HLR_THEME_PATH . '/template-parts/components/main-menu.php'); ?>
 
     <?php
@@ -16,4 +20,4 @@
     $url = home_url($wp->request);
     ?>
 
-      <?php include(HLR_THEME_PATH . '/template-parts/components/share-float.php'); ?>
+    <?php include(HLR_THEME_PATH . '/template-parts/components/share-float.php'); ?>

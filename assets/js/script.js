@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
     if (localStorage.getItem('style-mode') == 'dark') {
-        $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
+        $("div.site-logo a img").attr('src', "/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
         $('#style-css').attr('href', darkStyle).addClass('dark-mode');
         localStorage.setItem('style-mode', 'dark');
         $('.sw-mode').toggleClass('d-none d-block');
@@ -283,18 +283,33 @@ jQuery(document).ready(function ($) {
             }, 1000);
         }
     });
+
     $('.switch-mode').click(function () {
         console.log('t');
         if ($('#style-css').hasClass('dark-mode')) {
-            $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-light.png");
+            $("div.site-logo a img").attr('src', "/wp-content/themes/homeleaderrealty/assets/images/logo-light.png");
             $('#style-css').attr('href', lightStyle).removeClass('dark-mode');
             localStorage.setItem('style-mode', 'light');
         } else {
-            $("div.site-logo a img").attr('src',"/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
+            $("div.site-logo a img").attr('src', "/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
             $('#style-css').attr('href', darkStyle).addClass('dark-mode');
             localStorage.setItem('style-mode', 'dark');
         }
         $('.sw-mode').toggleClass('d-none d-block');
     });
+
+    var btn = document.getElementById("back-to-top");
+    window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 100) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    });
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
 });
 
