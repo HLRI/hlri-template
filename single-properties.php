@@ -252,12 +252,25 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
 
                                 <div class="card-body-listing card-body-listing-v2">
+
                                     <div class="card-listing-content card-listing-content-v2">
+                                        <a href="<?= get_the_permalink() ?>">
+                                            <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
+                                        </a>
+                                        <div class="card-listing-description card-listing-description-v2">
+                                            <a href="<?= get_the_permalink() ?>">
+                                                <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- <div class="card-listing-content card-listing-content-v2">
                                         <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                         <div class="card-listing-description card-listing-description-v2">
                                             <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="lable-listing lable-listing-v2">
                                         <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
@@ -315,20 +328,20 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 <div class="container-fluid my-4" id="hp">
     <div class="row">
         <?php
-            $args = array(
-                'post_type' => ['properties'],
-                'post_status' => ['publish'],
-                'posts_per_page' => 6,
-                'tax_query' => [
-                    [
-                        'taxonomy' => 'group',
-                        'field' => 'term_id',
-                        'terms' => 31,
-                    ]
+        $args = array(
+            'post_type' => ['properties'],
+            'post_status' => ['publish'],
+            'posts_per_page' => 6,
+            'tax_query' => [
+                [
+                    'taxonomy' => 'group',
+                    'field' => 'term_id',
+                    'terms' => 31,
                 ]
-            );
-            $peroperties = new WP_Query($args);
-        
+            ]
+        );
+        $peroperties = new WP_Query($args);
+
         if ($peroperties->have_posts()) :
         ?>
             <div class="col-12 px-lg-5">

@@ -23,7 +23,7 @@ $peroperties = new WP_Query($arg);
         <div class="testimonials-body bg-box-slider">
             <div class="slide-progress"></div>
             <div class="owl-carousel owl-theme buy-with-10-percent-down  properties-category">
-            <?php while ($peroperties->have_posts()) : $peroperties->the_post();
+                <?php while ($peroperties->have_posts()) : $peroperties->the_post();
                     $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 ?>
                     <div class="card-listing">
@@ -34,12 +34,25 @@ $peroperties = new WP_Query($arg);
 
 
                         <div class="card-body-listing">
+
                             <div class="card-listing-content">
+                                <a href="<?= get_the_permalink() ?>">
+                                    <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
+                                </a>
+                                <div class="card-listing-description">
+                                    <a href="<?= get_the_permalink() ?>">
+                                        <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <!-- <div class="card-listing-content">
                                 <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                 <div class="card-listing-description">
                                     <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="lable-listing">
                                 <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
