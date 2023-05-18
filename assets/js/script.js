@@ -284,6 +284,7 @@ jQuery(document).ready(function ($) {
     });
 
     $('#switch-mode').click(function () {
+        console.log('t');
         if ($('#style-css').hasClass('dark-mode')) {
             $('#style-css').attr('href', lightStyle).removeClass('dark-mode');
             localStorage.setItem('style-mode', 'light');
