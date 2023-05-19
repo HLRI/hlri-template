@@ -9,7 +9,7 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
 <div class="container-fluid my-5">
     <div class="row">
         <div class="col-md-4 col-lg-4">
-            <div class="card-profile-image">
+            <div class="card-profile-image ml-lg-5">
                 <?php the_post_thumbnail() ?>
             </div>
         </div>
