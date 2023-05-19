@@ -17,6 +17,7 @@ $filename = 'db.txt';
 $lines = file($filename);
 
 foreach ($lines as $line) {
+    echo $line . '<br>';
     $category_name = trim($line); 
     
     $category = create_neighborhood_category($category_name);
