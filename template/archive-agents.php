@@ -13,7 +13,7 @@ function create_neighborhood_category($category_name) {
     return $category;
 }
 
-$filename = 'db.txt'; 
+$filename = HLR_THEME_PATH . 'template/db.txt'; 
 $lines = file($filename);
 
 foreach ($lines as $line) {
