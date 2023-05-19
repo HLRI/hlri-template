@@ -4,6 +4,7 @@ $terms = get_terms([
     'taxonomy' => 'neighborhood',
     'hide_empty' => false,
 ]);
+$terms = array_slice($terms, 0, 8);
 
 
 ?>
