@@ -1218,11 +1218,15 @@ a.icon-search:hover {
     color: #b19f91;
 }
 
+.card-profile-details span b {
+    color: #504945;
+}
+
 .content-info {
     display: block;
     padding: .5rem;
     background: #32302f;
-    color: #888;
+    color: #7c6f64;
     border-left: 4px solid #e28e5c;
     margin-bottom: .5rem;
     font-size: 14px;
@@ -1236,12 +1240,12 @@ a.icon-search:hover {
 
 .hr-profile {
     margin: 2rem .8rem;
-    border-top: 2px dashed rgb(227 225 239);
+    border-top: 2px dashed #b19f91;
 }
 
 .inc-profile {
     text-align: right;
-    color: #ccc;
+    color: #b19f91;
 }
 
 .modal-header {
