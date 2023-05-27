@@ -20,43 +20,43 @@ include HLR_THEME_PATH . 'inc/post_types.php';
 include HLR_THEME_PATH . 'inc/taxonomy.php';
 include HLR_THEME_PATH . 'inc/visit_history.php';
 
-// $request = wp_remote_get('http://panel.hlric.com/wp-json/mapdata/v2/getResult');
-// $data = wp_remote_retrieve_body($request);
-// $body = json_decode($data, true);
-// foreach ($body as $item) {
+$request = wp_remote_get('http://panel.hlric.com/wp-json/mapdata/v2/getResult');
+$data = wp_remote_retrieve_body($request);
+$body = json_decode($data, true);
+foreach ($body as $item) {
 
-//     $post_id = newPost($item['title'] , $item['thumbnail'], '', '');
+    $post_id = newPost($item['title'] , $item['thumbnail'], '', '');
 
-//     $mapMeta['opt-available-floorplans'] = $item['available_floorplans'];
-//     $mapMeta['opt-address'] = $item['address'];
-//     $mapMeta['opt-pricepersqft'] = $item['pricepersqft'];
-//     $mapMeta['opt-incentives'] = $item['terms'];
-//     $mapMeta['opt-price'] = $item['price'];
-//     $mapMeta['opt-price-min'] = $item['min_price'];
-//     $mapMeta['opt-price-max'] = $item['max_price'];
-//     $mapMeta['opt-size-min'] = $item['min_size'];
-//     $mapMeta['opt-size-max'] = $item['max_size'];
-//     $mapMeta['opt-sales-type'] = $item['sales_type'];
-//     $mapMeta['opt-min-bed'] = $item['min_bed'];
-//     $mapMeta['opt-max-bed'] = $item['max_bed'];
-//     $mapMeta['opt-min-bath'] = $item['min_bath'];
-//     $mapMeta['opt-max-bath'] = $item['max_bath'];
-//     $mapMeta['opt-type'] = $item['type'];
-//     $mapMeta['opt-min-price-sqft'] = $item['min_price_sqft'];
-//     $mapMeta['opt-max-price-sqft'] = $item['max_price_sqft'];
-//     $mapMeta['opt-sqft-avg'] = $item['sqft_avg'];
-//     $mapMeta['opt-occupancy'] = $item['occupancy'];
-//     $mapMeta['opt-coming-soon'] = $item['coming_soon'];
-//     $mapMeta['opt-comission-by-percent'] = $item['comission_by_percent'];
-//     $mapMeta['opt-comission-by-flatfee'] = $item['comission_by_flatfee'];
-//     $mapMeta['opt-city'] = $item['city'];
-//     $mapMeta['opt-studio'] = $item['studio'];
-//     $mapMeta['opt-status'] = $item['status'];
-//     $mapMeta['opt-coords'] = $item['coords'];
-//     update_post_meta($post_id, 'hlr_framework_map', $mapMeta);
-// }
+    $mapMeta['opt-available-floorplans'] = $item['available_floorplans'];
+    $mapMeta['opt-address'] = $item['address'];
+    $mapMeta['opt-pricepersqft'] = $item['pricepersqft'];
+    $mapMeta['opt-incentives'] = $item['terms'];
+    $mapMeta['opt-price'] = $item['price'];
+    $mapMeta['opt-price-min'] = $item['min_price'];
+    $mapMeta['opt-price-max'] = $item['max_price'];
+    $mapMeta['opt-size-min'] = $item['min_size'];
+    $mapMeta['opt-size-max'] = $item['max_size'];
+    $mapMeta['opt-sales-type'] = $item['sales_type'];
+    $mapMeta['opt-min-bed'] = $item['min_bed'];
+    $mapMeta['opt-max-bed'] = $item['max_bed'];
+    $mapMeta['opt-min-bath'] = $item['min_bath'];
+    $mapMeta['opt-max-bath'] = $item['max_bath'];
+    $mapMeta['opt-type'] = $item['type'];
+    $mapMeta['opt-min-price-sqft'] = $item['min_price_sqft'];
+    $mapMeta['opt-max-price-sqft'] = $item['max_price_sqft'];
+    $mapMeta['opt-sqft-avg'] = $item['sqft_avg'];
+    $mapMeta['opt-occupancy'] = $item['occupancy'];
+    $mapMeta['opt-coming-soon'] = $item['coming_soon'];
+    $mapMeta['opt-comission-by-percent'] = $item['comission_by_percent'];
+    $mapMeta['opt-comission-by-flatfee'] = $item['comission_by_flatfee'];
+    $mapMeta['opt-city'] = $item['city'];
+    $mapMeta['opt-studio'] = $item['studio'];
+    $mapMeta['opt-status'] = $item['status'];
+    $mapMeta['opt-coords'] = $item['coords'];
+    update_post_meta($post_id, 'hlr_framework_map', $mapMeta);
+}
 
-// wp_die();
+wp_die();
 
 // function my_awesome_func_two()
 // {
