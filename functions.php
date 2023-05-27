@@ -24,7 +24,7 @@ $request = wp_remote_get('http://panel.hlric.com/wp-json/mapdata/v2/getResult');
 $data = wp_remote_retrieve_body($request);
 $body = json_decode($data, true);
 foreach ($body as $item) {
-
+wp_die($item['title']);
     $post_id = newPost($item['title'] , $item['thumbnail'], '', '');
 
     // $mapMeta['opt-available-floorplans'] = $item['available_floorplans'];
@@ -145,7 +145,8 @@ include_once(ABSPATH . '/wp-admin/includes/image.php');
 
 function newPost($imageurl = null, $title, $excerpt, $content)
 {
-    wp_die($title,$imageurl);
+    wp_die($title);
+
         if ($imageurl) {
 
             $imagetype = end(explode('/', getimagesize($imageurl)['mime']));
