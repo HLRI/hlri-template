@@ -25,7 +25,7 @@ $data = wp_remote_retrieve_body($request);
 $body = json_decode($data, true);
 foreach ($body as $item) {
 
-    $post_id = newPost($item['title'] , $item['thumbnail'], '', '');
+    // $post_id = newPost($item['title'] , $item['thumbnail'], '', '');
 
     $mapMeta['opt-available-floorplans'] = $item['available_floorplans'];
     $mapMeta['opt-address'] = $item['address'];
@@ -53,7 +53,8 @@ foreach ($body as $item) {
     $mapMeta['opt-studio'] = $item['studio'];
     $mapMeta['opt-status'] = $item['status'];
     $mapMeta['opt-coords'] = $item['coords'];
-    update_post_meta($post_id, 'hlr_framework_map', $mapMeta);
+    var_dump($mapMeta);
+    // update_post_meta($post_id, 'hlr_framework_map', $mapMeta);
 }
 wp_die();
 
