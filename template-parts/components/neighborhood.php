@@ -22,7 +22,7 @@ $terms = array_slice($terms, 0, 8);
                     ?>
 
                         <div class="wrap-neighborhood">
-                            <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" title="<?= $meta['opt-neighborhood-image']['alt'] ?>" style="z-index: 1;width: 100%;height: 100%;">
+                            <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" title="<?= $meta['opt-neighborhood-image']['alt'] ?>">
                             <img src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= $meta['opt-neighborhood-image']['alt'] ?>">
                             </a><div class="neighborhood-title">
                                 <?= $term->name ?>
