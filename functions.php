@@ -25,7 +25,6 @@ $request = wp_remote_get('http://panel.hlric.com/wp-json/mapdata/v2/getResult');
     if (200 != $status) {
         $data = wp_remote_retrieve_body($request);
         $body = json_decode($data);
-        echo $body;
     }
     wp_die('g');
 
