@@ -691,7 +691,6 @@ if (class_exists('CSF')) {
 		)
 	);
 
-
 	$prefix = 'hlr_framework_properties_development_details';
 	CSF::createMetabox($prefix, array(
 		'title'     =>	'Development Details',
@@ -758,7 +757,6 @@ if (class_exists('CSF')) {
 		'post_type' =>	'properties'
 	));
 
-	// Create a section
 	CSF::createSection(
 		$prefix,
 		array(
@@ -818,6 +816,7 @@ if (class_exists('CSF')) {
 						'Preconstruction'  => 'Preconstruction',
 						'Assignment'  => 'Assignment',
 						'Resale'  => 'Resale',
+						'SoldOut'  => 'Sold Out',
 					),
 					'default'     => 'Comming soon'
 				),
@@ -850,7 +849,8 @@ if (class_exists('CSF')) {
 					'multiple'    => true,
 					'options'     => array(
 						'Detached'  => 'Detached',
-						'Townhouse'  => 'Townhouse',
+						'Freehold'  => 'Freehold',
+						'TownHouse'  => 'TownHouse',
 						'Condo'  => 'Condo',
 						'Commercial'  => 'Commercial',
 					),
@@ -883,18 +883,24 @@ if (class_exists('CSF')) {
 					'default' => 0,
 				),
 				array(
-					'id'     => 'opt-incentives',
-					'type'   => 'repeater',
-					'title'  => 'Incentives',
-					'fields' => array(
-
-						array(
-							'id'    => 'opt-incentives-item',
-							'type'  => 'text',
-							'title' => 'Incentive'
-						),
-
+					'id'          => 'opt-incentives',
+					'type'        => 'select',
+					'title'       => 'Incentives',
+					'placeholder' => 'Select an option',
+					'chosen'      => true,
+					'multiple'    => true,
+					'options'     => array(
+						'Rental_Program' => 'Rental Program',
+						'Five_Percent_Deposit' => '5% Ddeposit',
+						'Ten_Percent_Deposit' => '10% Deposit',
+						'Monthly_Payment_Deposit' => 'Monthly Payment Deposit',
+						'Free_Maintenance' => 'Free Maintenance',
+						'Free_Parking_and_Locker' => 'Free Parking and Locker',
+						'Off_Purchase_Price' => '$Off Purchase Price',
+						'Upgrade_Credit' => 'Upgrade Credit',
+						'Cash_Back' => 'Cash Back'
 					),
+					'default'     => ''
 				),
 				array(
 					'id'    => 'opt-comission-by-percent',
@@ -919,7 +925,7 @@ if (class_exists('CSF')) {
 				array(
 					'id'          => 'opt-status',
 					'type'        => 'select',
-					'title'       => 'Type',
+					'title'       => 'Sales Status',
 					'placeholder' => 'Select an option',
 					'chosen'      => true,
 					'multiple'    => false,
@@ -928,13 +934,11 @@ if (class_exists('CSF')) {
 						'available'  => 'available',
 						'sold out'  => 'sold out',
 					),
-					'default'     => 'available'
 				),
 				array(
 					'id'    => 'opt-coords',
 					'type'  => 'map',
 					'title' => 'Coords',
-					'address_field' => 'opt-address',
 					'default'     => array(
 						'address'   => '300 Richmond St W #300, Toronto',
 						'latitude'  => '43.6490596',
@@ -945,7 +949,6 @@ if (class_exists('CSF')) {
 						'scrollWheelZoom' => true,
 					)
 				),
-
 			)
 		)
 	);
