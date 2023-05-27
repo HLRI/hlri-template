@@ -20,19 +20,10 @@ include HLR_THEME_PATH . 'inc/post_types.php';
 include HLR_THEME_PATH . 'inc/taxonomy.php';
 include HLR_THEME_PATH . 'inc/visit_history.php';
 
-$request = wp_remote_get(
-    'http://panel.hlric.com/wp-json/mapdata/v2/getResult',
-    array(
-        'method'        => 'GET',
-        'timeout'       => 30,
-        'body'          => array(
-            'returnFormat'  => 'json',
-        ),
-    )
-);
+$request = wp_remote_get( 'http://panel.hlric.com/wp-json/mapdata/v2/getResult');
 $data = wp_remote_retrieve_body($request);
 $body = json_decode($data);
-var_dump($body) ;
+echo $body[0] ;
 
 // foreach ($body as $key => $item) {
 //     echo $item['post_id']. PHP_EOL;
