@@ -25,7 +25,7 @@ $data = wp_remote_retrieve_body($request);
 $body = json_decode($data, true);
 
 foreach ($body[0] as $key => $item) {
-    echo $item->post_id. PHP_EOL;
+    echo $item['post_id']. PHP_EOL;
 }
 
 // var_dump($body);
