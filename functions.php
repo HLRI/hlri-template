@@ -24,7 +24,7 @@ $request = wp_remote_get('http://panel.hlric.com/wp-json/mapdata/v2/getResult');
 $data = wp_remote_retrieve_body($request);
 $body = json_decode($data, true);
 foreach ($body as $item) {
-    // $post_id = newPost($item['thumbnail'], $item['title'], 'test', 'test');
+    $post_id = newPost($item['thumbnail'], $item['title'], 'test', 'test');
 
     // $mapMeta['opt-available-floorplans'] = $item['available_floorplans'];
     // $mapMeta['opt-address'] = $item['address'];
@@ -54,7 +54,7 @@ foreach ($body as $item) {
     // $mapMeta['opt-coords'] = $item['coords'];
     // update_post_meta($post_id, 'hlr_framework_map', $mapMeta);
 }
-// wp_die();
+wp_die();
 
 // function my_awesome_func_two()
 // {
@@ -140,10 +140,10 @@ foreach ($body as $item) {
 // });
 
 
-include_once(ABSPATH . '/wp-admin/includes/image.php');
 
 function newPost($imageurl = null, $title, $excerpt, $content)
 {
+    include_once(ABSPATH . '/wp-admin/includes/image.php');
 
     if ($imageurl) {
 
