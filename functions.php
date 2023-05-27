@@ -23,7 +23,7 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 $request = wp_remote_get( 'http://panel.hlric.com/wp-json/mapdata/v2/getResult');
 $data = wp_remote_retrieve_body($request);
 $body = json_decode($data, true);
-var_dump($body);
+var_dump($body[0]);
 // foreach ($body[0] as $key => $item) {
 //     echo $item['post_id']. PHP_EOL;
 // }
