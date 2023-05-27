@@ -55,7 +55,6 @@ foreach ($body as $item) {
     $mapMeta['opt-coords'] = $item['coords'];
     update_post_meta($post_id, 'hlr_framework_map', $mapMeta);
 }
-
 wp_die();
 
 // function my_awesome_func_two()
