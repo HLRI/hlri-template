@@ -32,7 +32,7 @@ $request = wp_remote_get(
 );
 $data = wp_remote_retrieve_body($request);
 $body = json_decode($data);
-echo $body;
+var_dump($body) ;
 
 // foreach ($body as $key => $item) {
 //     echo $item['post_id']. PHP_EOL;
