@@ -21,10 +21,9 @@ include HLR_THEME_PATH . 'inc/taxonomy.php';
 include HLR_THEME_PATH . 'inc/visit_history.php';
 
 $request = wp_remote_get('http://panel.hlric.com/wp-json/mapdata/v2/getResult');
-    $status = wp_remote_retrieve_response_code();
-    // if (200 != $status) {
-    //     $data = wp_remote_retrieve_body($request);
-    // }
+        $data = wp_remote_retrieve_body($request);
+        $body = json_decode($data);
+        echo $body;
     wp_die('g');
 
 // function my_awesome_func_two()
