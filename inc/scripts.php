@@ -99,10 +99,10 @@ function theme_footer()
                 zIndex: 999
             });
             jQuery("#navigation-sticker").sticky({
-                topSpacing: 50,
+                topSpacing: 48,
                 className: 'fixed-navigation',
                 responsiveWidth: true,
-                zIndex: 999
+                zIndex: 999,
             });
         </script>
     <?php endif; ?>
