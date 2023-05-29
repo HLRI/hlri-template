@@ -46,7 +46,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         </div>
     </div>
 </div>
-    <div class="container-fluid px-0">
+    <div class="container-fluid px-0 mt-4">
         <?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
     </div>
     <div class="container-fluid px-lg-5">
