@@ -155,7 +155,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         </div>
     <?php endif; ?>
 
-    <?php if (!empty($floorplans_ids)) : ?>
+    <?php if (!empty($floorplans_ids[0])) : ?>
         <div class="row my-4" id="fp">
             <div class="col-12">
                 <div class="titr-list ml-0">
