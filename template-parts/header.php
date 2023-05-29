@@ -12,7 +12,7 @@
     <a id="back-to-top" href="#">
         <i class="fa fa-chevron-up"></i>
     </a>
-    
+
     <?php include(HLR_THEME_COMPONENT . 'main-menu.php'); ?>
 
     <?php
@@ -20,4 +20,6 @@
     $url = home_url($wp->request);
     ?>
 
-    <?php include(HLR_THEME_COMPONENT . 'share-float.php'); ?>
+    <?php if (!is_singular()) : ?>
+        <?php include(HLR_THEME_COMPONENT . 'share-float.php'); ?>
+    <?php endif; ?>
