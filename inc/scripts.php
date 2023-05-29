@@ -99,7 +99,7 @@ function theme_footer()
                 zIndex: 999
             });
             jQuery("#navigation-sticker").sticky({
-                topSpacing: 100,
+                topSpacing: 50,
                 zIndex: 999
             });
         </script>
