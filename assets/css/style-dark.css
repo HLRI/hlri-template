@@ -2769,6 +2769,6 @@ label {
     background: none !important;
 }
 
-.sticker-sticky-wrapper{
+#sticker-sticky-wrapper{
     z-index:9999 !important;
 }
