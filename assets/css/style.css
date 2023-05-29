@@ -2628,3 +2628,15 @@ a.neighborhood-link {
   z-index: auto !important;
   opacity: 1;
 }
+
+.wrap-form label {
+  width: 100%;
+}
+
+.wrap-form {
+  gap: 10px;
+}
+
+.wpcf7-radio{
+  background: none !important;
+}
