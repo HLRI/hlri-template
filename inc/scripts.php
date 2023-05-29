@@ -100,6 +100,8 @@ function theme_footer()
             });
             jQuery("#navigation-sticker").sticky({
                 topSpacing: 50,
+                className: 'fixed-navigation',
+                responsiveWidth: true,
                 zIndex: 999
             });
         </script>
