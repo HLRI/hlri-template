@@ -57,7 +57,10 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             </div>
         <?php endif; ?>
 
-        <?php if (!empty($incentives)) : ?>
+        <?php if (!empty($incentives)) :
+            
+            var_dump($incentives);
+            ?>
             <div class="col-lg-6">
                 <div class="incentives">
                     <?php foreach ($incentives as $item) : ?>
