@@ -284,7 +284,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('.wrap-hlr-navigation-fixed').on('click', function (event) {
+    $('.hlr-navigation-item-fixed').on('click', function (event) {
         var target = $(this.getAttribute('href'));
         if (target.length) {
             event.preventDefault();
