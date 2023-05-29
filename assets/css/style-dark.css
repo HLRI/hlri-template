@@ -2558,7 +2558,6 @@ a.neighborhood-link {
     top: 45%;
 }
 
-
 .wrap-hlr-navigation {
     position: fixed;
     top: 25%;
@@ -2587,6 +2586,33 @@ a.neighborhood-link {
     text-align: center;
     /* box-shadow: inset 0px 0px 8px 3px #dddddd; */
     color: #e28e5c;
+    font-size: 13px;
+}
+
+
+.wrap-hlr-navigation-fixed {
+    width: 100%;
+    background: #7c6f64;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all .3s;
+}
+
+.hlr-navigation-fixed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hlr-navigation-item-fixed {
+    width: 100%;
+    background: #665c54;
+    color: #e28e5c;
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+    /* box-shadow: inset 0px 0px 8px 3px #dddddd; */
     font-size: 13px;
 }
 
