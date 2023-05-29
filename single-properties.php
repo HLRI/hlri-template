@@ -47,9 +47,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     </div>
 
     <div class="row mt-4 mb-2" id="ga">
-        <?php if (!empty($gallery_ids)) : 
-            var_dump($gallery_ids);
-            ?>
+        <?php if (count($gallery_ids) != 0) : ?>
             <div class="col-lg-6">
                 <ul class="pgwSlideshow">
                     <?php foreach ($gallery_ids as $gallery_item_id) : ?>
