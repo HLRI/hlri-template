@@ -98,6 +98,10 @@ function theme_footer()
                 topSpacing: 0,
                 zIndex: 999
             });
+            jQuery("#navigation-sticker").sticky({
+                topSpacing: 30,
+                zIndex: 999
+            });
         </script>
     <?php endif; ?>
     
