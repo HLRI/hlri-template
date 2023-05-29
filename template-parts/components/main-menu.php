@@ -81,7 +81,7 @@
                     </svg>
                 </div>
 
-                <?php include(HLR_THEME_PATH . '/template-parts/components/search-main-menu.php'); ?>
+                <?php include(HLR_THEME_COMPONENT . 'search-main-menu.php'); ?>
 
                 <div class="wrap-profile">
                     <?php if (is_user_logged_in()) :
@@ -127,4 +127,4 @@
 </nav>
 
 
-<?php include(HLR_THEME_PATH . '/template-parts/components/mobile-menu.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'mobile-menu.php'); ?>

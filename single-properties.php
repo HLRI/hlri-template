@@ -12,9 +12,8 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 ?>
 
 
-<?php include HLR_THEME_PATH . 'template-parts/components/navigation-single-property.php' ?>
-<?php include HLR_THEME_PATH . 'template-parts/components/navigation-single-fixed-on-scroll.php' ?>
-ghgh
+<?php include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
+<?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
 
 <div class="container-fluid px-lg-5">
     <div class="row mt-10">

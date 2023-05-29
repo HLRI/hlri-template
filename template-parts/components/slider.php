@@ -6,7 +6,7 @@
                     <h4 class="slider-title">Find Your Dreams Condo</h4>
                 </div>
 
-                <?php include(HLR_THEME_PATH . '/template-parts/components/search-slider.php'); ?>
+                <?php include(HLR_THEME_COMPONENT . 'search-slider.php'); ?>
 
                 <a target="_blank" href="https://hlric.com/" class="btn-slider">Search Condos on Map</a>
             </div>
