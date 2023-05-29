@@ -39,126 +39,143 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                     </div>
                 </div>
                 <div class="start-price">Starting from $571,990</div>
-                <div class="content-profile"><?php the_excerpt() ?></div>
+                <?php if (!empty(get_the_excerpt())) : ?>
+                    <div class="content-profile"><?php the_excerpt() ?></div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 
     <div class="row mt-4 mb-2" id="ga">
-        <div class="col-lg-6">
-            <ul class="pgwSlideshow">
-                <?php foreach ($gallery_ids as $gallery_item_id) : ?>
-                    <li><img src="<?= wp_get_attachment_url($gallery_item_id) ?>" alt="<?= wp_get_attachment_caption($gallery_item_id) ?>" data-large-src="<?= wp_get_attachment_url($gallery_item_id) ?>"></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-        <div class="col-lg-6">
-            <div class="incentives">
-                <?php foreach ($incentives as $item) : ?>
-                    <div class="content-info"><?php if (!empty($item['opt-icon-incentives'])) : ?><i class="<?= $item['opt-icon-incentives'] ?> icon-profile"></i><?php endif; ?><?= $item['opt-link-incentives'] ?></div>
-                <?php endforeach; ?>
+        <?php if (!empty($gallery_ids)) : ?>
+            <div class="col-lg-6">
+                <ul class="pgwSlideshow">
+                    <?php foreach ($gallery_ids as $gallery_item_id) : ?>
+                        <li><img src="<?= wp_get_attachment_url($gallery_item_id) ?>" alt="<?= wp_get_attachment_caption($gallery_item_id) ?>" data-large-src="<?= wp_get_attachment_url($gallery_item_id) ?>"></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
-            <div class="wrap-map">
-                <div id="map"></div>
-            </div>
-        </div>
-    </div>
+        <?php endif; ?>
 
-    <div class="row mt-2 mb-4" id="ov">
-        <div class="col-12">
-            <div class="content-profile"><?php the_content() ?></div>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid px-lg-5 py-4" style="background: linear-gradient(45deg, #bf212f, #3a27bd);">
-    <div class="row mt-2 mb-4">
-        <div class="col-12">
-            <div class="rvs-container">
-                <div class="rvs-item-container">
-                    <div class="rvs-item-stage">
-                        <?php foreach ($videos as $video) : ?>
-                            <div class="rvs-item" style="background-image: url('<?= $video['opt-video-thumbnail']['url'] ?>')">
-                                <p class="rvs-item-text"><?= $video['opt-video-title'] ?> <small>by Home Leader Realty</small></p>
-                                <a href="<?= $video['opt-video-url'] ?>" class="rvs-play-video"></a>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+        <?php if (!empty($incentives)) : ?>
+            <div class="col-lg-6">
+                <div class="incentives">
+                    <?php foreach ($incentives as $item) : ?>
+                        <div class="content-info"><?php if (!empty($item['opt-icon-incentives'])) : ?><i class="<?= $item['opt-icon-incentives'] ?> icon-profile"></i><?php endif; ?><?= $item['opt-link-incentives'] ?></div>
+                    <?php endforeach; ?>
                 </div>
-                <div class="rvs-nav-container">
-                    <a class="rvs-nav-prev"></a>
-                    <div class="rvs-nav-stage">
-                        <?php foreach ($videos as $video) : ?>
-                            <a class="rvs-nav-item">
-                                <span class="rvs-nav-item-thumb" style="background-image: url('<?= $video['opt-video-thumbnail']['url'] ?>')"></span>
-                                <h4 class="rvs-nav-item-title"><?= $video['opt-video-title'] ?></h4>
-                                <small class="rvs-nav-item-credits">by Home Leader Realty</small>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                    <a class="rvs-nav-next"></a>
+                <div class="wrap-map">
+                    <div id="map"></div>
                 </div>
             </div>
+        <?php endif; ?>
+    </div>
+
+    <?php if (!empty(get_the_content())) : ?>
+        <div class="row mt-2 mb-4" id="ov">
+            <div class="col-12">
+                <div class="content-profile"><?php the_content() ?></div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+</div>
+
+<?php if (!empty($videos)) : ?>
+    <div class="container-fluid px-lg-5 py-4" style="background: linear-gradient(45deg, #bf212f, #3a27bd);">
+        <div class="row mt-2 mb-4">
+            <div class="col-12">
+                <div class="rvs-container">
+                    <div class="rvs-item-container">
+                        <div class="rvs-item-stage">
+                            <?php foreach ($videos as $video) : ?>
+                                <div class="rvs-item" style="background-image: url('<?= $video['opt-video-thumbnail']['url'] ?>')">
+                                    <p class="rvs-item-text"><?= $video['opt-video-title'] ?> <small>by Home Leader Realty</small></p>
+                                    <a href="<?= $video['opt-video-url'] ?>" class="rvs-play-video"></a>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="rvs-nav-container">
+                        <a class="rvs-nav-prev"></a>
+                        <div class="rvs-nav-stage">
+                            <?php foreach ($videos as $video) : ?>
+                                <a class="rvs-nav-item">
+                                    <span class="rvs-nav-item-thumb" style="background-image: url('<?= $video['opt-video-thumbnail']['url'] ?>')"></span>
+                                    <h4 class="rvs-nav-item-title"><?= $video['opt-video-title'] ?></h4>
+                                    <small class="rvs-nav-item-credits">by Home Leader Realty</small>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                        <a class="rvs-nav-next"></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
 <div class="container-fluid px-lg-5">
-
-    <div class="row mt-5 mb-4">
-        <div class="col-12">
-            <div class="titr-list ml-0">
-                <h3 class="font-weight-bold">Development Details</h3>
-            </div>
-        </div>
-        <?php foreach ($developments as $development) : ?>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card-developments">
-                    <div class="card-developments-title">
-                        <?= $development['opt-development-details-title'] ?>
-                    </div>
-                    <div class="card-developments-content">
-                        <?= $development['opt-development-details-content'] ?>
-                    </div>
+    <?php if (!empty($developments)) : ?>
+        <div class="row mt-5 mb-4">
+            <div class="col-12">
+                <div class="titr-list ml-0">
+                    <h3 class="font-weight-bold">Development Details</h3>
                 </div>
             </div>
-        <?php endforeach; ?>
-    </div>
-
-    <div class="row mt-5 mb-4" id="pl">
-        <div class="col-12">
-            <div class="titr-list ml-0">
-                <h3 class="font-weight-bold">Price List</h3>
-            </div>
-        </div>
-        <?php foreach ($price_images as $image) : ?>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
-                <div class="image-price">
-                    <img src="<?= $image['opt-price-list-image']['url'] ?>" alt="<?= $image['opt-price-list-image']['alt'] ?>">
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-
-    <div class="row my-4" id="fp">
-        <div class="col-12">
-            <div class="titr-list ml-0">
-                <h3 class="font-weight-bold">Floor Plans</h3>
-            </div>
-        </div>
-
-        <div class="row px-4">
-            <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
-                <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
-                    <div class="card-floolplan">
-                        <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>" title="<?= wp_get_attachment_caption($floorplans_item_id) ?>" data-lightbox="roadtrip">
-                            <img class="img-floorplan" src="<?= wp_get_attachment_url($floorplans_item_id) ?>" alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
-                        </a>
+            <?php foreach ($developments as $development) : ?>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card-developments">
+                        <div class="card-developments-title">
+                            <?= $development['opt-development-details-title'] ?>
+                        </div>
+                        <div class="card-developments-content">
+                            <?= $development['opt-development-details-content'] ?>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
+    <?php endif; ?>
+
+    <?php if (!empty($price_images)) : ?>
+        <div class="row mt-5 mb-4" id="pl">
+            <div class="col-12">
+                <div class="titr-list ml-0">
+                    <h3 class="font-weight-bold">Price List</h3>
+                </div>
+            </div>
+            <?php foreach ($price_images as $image) : ?>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                    <div class="image-price">
+                        <img src="<?= $image['opt-price-list-image']['url'] ?>" alt="<?= $image['opt-price-list-image']['alt'] ?>">
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (!empty($floorplans_ids)) : ?>
+        <div class="row my-4" id="fp">
+            <div class="col-12">
+                <div class="titr-list ml-0">
+                    <h3 class="font-weight-bold">Floor Plans</h3>
+                </div>
+            </div>
+            <div class="row px-4">
+                <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
+                    <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
+                        <div class="card-floolplan">
+                            <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>" title="<?= wp_get_attachment_caption($floorplans_item_id) ?>" data-lightbox="roadtrip">
+                                <img class="img-floorplan" src="<?= wp_get_attachment_url($floorplans_item_id) ?>" alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
 
     <?php if ($theme_options['opt-properties-status']) : ?>
         <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
