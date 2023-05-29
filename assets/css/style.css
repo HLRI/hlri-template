@@ -2629,7 +2629,7 @@ a.neighborhood-link {
   opacity: 1;
 }
 
-.wrap-form label {
+.wrap-form label, .my-h-textarea label {
   width: 100%;
 }
 
