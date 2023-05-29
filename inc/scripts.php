@@ -96,13 +96,14 @@ function theme_footer()
         <script>
             jQuery("#sticker").sticky({
                 topSpacing: 0,
-                zIndex: 999
+                responsiveWidth: true,
+                zIndex: 9999
             });
             jQuery("#navigation-sticker").sticky({
                 topSpacing: 48,
                 className: 'fixed-navigation',
                 responsiveWidth: true,
-                zIndex: 999,
+                zIndex: 9999,
             });
         </script>
     <?php endif; ?>
