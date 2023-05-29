@@ -1499,6 +1499,7 @@ a.icon-search:hover {
   background: white;
   padding: .5rem;
   border-bottom: 4px solid #e4e3ec;
+  width:100%;
 }
 
 .card-properties-image img {
