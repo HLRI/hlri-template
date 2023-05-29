@@ -47,7 +47,9 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     </div>
 
     <div class="row mt-4 mb-2" id="ga">
-        <?php if (!empty($gallery_ids)) : ?>
+        <?php if (!empty($gallery_ids)) : 
+            var_dump($gallery_ids);
+            ?>
             <div class="col-lg-6">
                 <ul class="pgwSlideshow">
                     <?php foreach ($gallery_ids as $gallery_item_id) : ?>
@@ -57,10 +59,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             </div>
         <?php endif; ?>
 
-        <?php if (!empty($incentives)) :
-            
-            var_dump($incentives);
-            ?>
+        <?php if (!empty($incentives)) : ?>
             <div class="col-lg-6">
                 <div class="incentives">
                     <?php foreach ($incentives as $item) : ?>
