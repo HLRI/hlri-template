@@ -2528,7 +2528,7 @@ a.neighborhood-link {
   background: #f0f0f0;
   border-radius: 10px;
   padding: 10px;
-  z-index: 999;
+  z-index: 9999 !important;
   transition: all .3s;
 }
 
@@ -2574,6 +2574,7 @@ a.neighborhood-link {
   background: #f0f0f0;
   padding: 10px;
   transition: all .3s;
+  z-index: 9999 !important;
 }
 
 .hlr-navigation-fixed {
