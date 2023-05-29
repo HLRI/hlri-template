@@ -13,8 +13,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
-<?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
-
+<div id="navigation-fixed-location"></div>
 <div class="container-fluid px-lg-5">
     <div class="row mt-10">
         <div class="col-12 col-sm-12 col-md-3 col-lg-2">
@@ -46,7 +45,11 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
             </div>
         </div>
     </div>
-
+</div>
+    <div class="container-fluid px-0">
+        <?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
+    </div>
+    <div class="container-fluid px-lg-5">
     <div class="row mt-4 mb-2" id="ga">
         <?php if (!empty($gallery_ids[0])) : ?>
             <div class="col-lg-6">
