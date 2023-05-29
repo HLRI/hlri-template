@@ -25,22 +25,22 @@
         height: 280px;
         object-fit: cover;
     }
-	
-	.search-slider{
-        width: 220px !important;
-	}
-	
-	.search-result{
-		height: 112px;
-	}
 
-    .search-slider{
+    .search-slider {
         width: 220px !important;
-	}
-	
-	.search-result{
-		height: 112px;
-	}
+    }
+
+    .search-result {
+        height: 112px;
+    }
+
+    .search-slider {
+        width: 220px !important;
+    }
+
+    .search-result {
+        height: 112px;
+    }
 
     /* .input-search-slider {
         width: 220px !important;
@@ -194,15 +194,15 @@
         object-fit: cover;
     }
 
-	.search-slider{
+    .search-slider {
         width: 250px !important;
-	}
-	
-	.search-result{
-		height: 112px;
-	}
-	
-/*     .input-search-slider {
+    }
+
+    .search-result {
+        height: 112px;
+    }
+
+    /*     .input-search-slider {
         width: 250px !important;
     } */
 
@@ -354,15 +354,15 @@
         object-fit: cover;
     }
 
-	.search-slider{
+    .search-slider {
         width: 250px !important;
-	}
-	
-	.search-result{
-		height: 112px;
-	}
-	
-/*     .input-search-slider {
+    }
+
+    .search-result {
+        height: 112px;
+    }
+
+    /*     .input-search-slider {
         width: 250px !important;
     } */
 
@@ -484,6 +484,12 @@
     .more-v2 {
         top: 26% !important;
     }
+
+    .card-property-responsive {
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: center !important;
+    }
 }
 
 /* mobile */
@@ -513,16 +519,16 @@
         height: 280px;
         object-fit: cover;
     }
-	
-	.search-slider{
-        width: 300px !important;
-	}
-	
-	.search-result{
-		height: 112px;
-	}
 
-/*     .input-search-slider {
+    .search-slider {
+        width: 300px !important;
+    }
+
+    .search-result {
+        height: 112px;
+    }
+
+    /*     .input-search-slider {
         width: 300px !important;
     } */
 
@@ -634,13 +640,13 @@
         padding-right: 0.6rem;
     }
 
-    .search-slider{
+    .search-slider {
         width: 400px !important;
-	}
-	
-	.search-result{
-		height: 130px;
-	}
+    }
+
+    .search-result {
+        height: 130px;
+    }
 
     /* .input-search-slider {
         width: 400px !important;

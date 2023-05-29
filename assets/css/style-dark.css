@@ -1038,14 +1038,14 @@ body * {
 }
 
 a.icon-search {
-    background: #f7f7f7;
-    color: #978577978577;
+    background: #665c54;
+    color: #e28e5c;
     width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-right: 5px;
     border-radius: 4px;
     transition: all .3s;
