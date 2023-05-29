@@ -99,6 +99,11 @@ function theme_footer()
                 responsiveWidth: true,
                 zIndex: 9999
             });
+            jQuery("#sticker-mobile").sticky({
+                topSpacing: 0,
+                responsiveWidth: true,
+                zIndex: 9999
+            });
             jQuery("#navigation-sticker").sticky({
                 topSpacing: 48,
                 className: 'fixed-navigation',

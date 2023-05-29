@@ -21,7 +21,7 @@ foreach ($menuitems as $parent) {
     }
 }
 if (!empty($menuitems)) : ?>
-    <div id="sticker" class="container-fluid d-lg-none d-md-block d-lg-m-block">
+    <div id="sticker-mobile" class="container-fluid d-lg-none d-md-block d-lg-m-block">
         <div class="row">
             <div class="nav-buttons">
 
