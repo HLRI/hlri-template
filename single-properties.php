@@ -15,13 +15,13 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
 <div id="navigation-fixed-location"></div>
 <div class="container-fluid px-lg-5">
-    <div class="row mt-10">
+    <div class="row mt-10 header-property-responsive">
         <div class="col-12 col-sm-12 col-md-3 col-lg-2">
             <div class="card-properties-image">
                 <?php the_post_thumbnail() ?>
             </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-9 col-lg-10 pl-0">
+        <div class="col-12 col-sm-12 col-md-9 col-lg-10 pl-0 top-responsive">
             <div class="card-profile-details p-0 position-relative">
                 <span class="update-label">Last Update : <?= get_the_modified_date('j F Y') ?></span>
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">

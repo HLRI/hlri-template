@@ -164,6 +164,26 @@
     .more-v2 {
         top: 26% !important;
     }
+
+    .card-property-responsive {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: center !important;
+    }
+
+    .update-label {
+        top: -18px;
+        left: 0;
+    }
+
+    .top-responsive{
+        margin-top: 30px !important;
+        padding: 0 8px !important;
+    }
+
+    .header-property-responsive{
+        margin-top: 1rem !important;
+    }
 }
 
 /* medium mobile */
@@ -323,6 +343,26 @@
 
     .more-v2 {
         top: 26% !important;
+    }
+
+    .card-property-responsive {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: center !important;
+    }
+
+    .update-label {
+        top: -18px;
+        left: 0;
+    }
+
+    .top-responsive{
+        margin-top: 30px !important;
+        padding: 0 8px !important;
+    }
+
+    .header-property-responsive{
+        margin-top: 1rem !important;
     }
 }
 
@@ -487,8 +527,22 @@
 
     .card-property-responsive {
         flex-direction: column;
-        align-items: center !important;
+        align-items: start !important;
         justify-content: center !important;
+    }
+
+    .update-label {
+        top: -18px;
+        left: 0;
+    }
+
+    .top-responsive{
+        margin-top: 30px !important;
+        padding: 0 8px !important;
+    }
+
+    .header-property-responsive{
+        margin-top: 1rem !important;
     }
 }
 
@@ -624,6 +678,26 @@
     .card-listing-description-v2 {
         width: 144px;
     }
+
+    .card-property-responsive {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: center !important;
+    }
+
+    .update-label {
+        top: -18px;
+        left: 0;
+    }
+
+    .top-responsive{
+        margin-top: 30px !important;
+        padding: 0 8px !important;
+    }
+
+    .header-property-responsive{
+        margin-top: 1rem !important;
+    }
 }
 
 /* mobile landscape */
@@ -746,6 +820,26 @@
     .card-listing-description-v2 {
         width: 100%;
     }
+
+    .card-property-responsive {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: center !important;
+    }
+
+    .update-label {
+        top: -18px;
+        left: 0;
+    }
+
+    .top-responsive{
+        margin-top: 30px !important;
+        padding: 0 8px !important;
+    }
+
+    .header-property-responsive{
+        margin-top: 1rem !important;
+    }
 }
 
 /* tablet And ipad mini*/
@@ -839,7 +933,6 @@
     .titr-list h3 {
         font-size: 22px;
     }
-
 
     .card-listing-content-v2 {
         height: 68px;
