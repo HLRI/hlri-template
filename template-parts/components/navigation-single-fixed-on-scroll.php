@@ -1,4 +1,4 @@
-<div class="wrap-hlr-navigation-fixed">
+<div class="wrap-hlr-navigation-fixed" id="navigation-sticker">
 <!--    <div class="close-hlr-navigation">-->
 <!--        <i class="fa fa-arrow-right"></i>-->
 <!--    </div>-->
