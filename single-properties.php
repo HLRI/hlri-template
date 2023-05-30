@@ -200,7 +200,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                         <?= do_shortcode($theme_options['opt-properties-shortcode']) ?>
                     </div>
                 </div>
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-8 d-none d-lg-block">
                     <div class="form-image">
                         <img class="fit-form-image" src="<?= $theme_options['opt-properties-banner']['url'] ?>" alt="<?= $theme_options['opt-properties-banner']['alt'] ?>">
                     </div>
