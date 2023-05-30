@@ -25,7 +25,6 @@ function theme_scripts()
 
 
     wp_register_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array("jquery"), "1.0.0", true);
-    wp_register_script('jquery-sticky', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js', array("jquery"), "1.0.0", false);
     wp_register_script('owl-carousel', HLR_THEME_ASSETS . 'js/owl.carousel.min.js', array("jquery"), "1.0.0", true);
     wp_register_script('nicescroll', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js', array("jquery"), "1.0.0", true);
     wp_register_script('sweetalert2', HLR_THEME_ASSETS . 'js/sweetalert2@11.js', [], "1.0.0", true);
@@ -34,7 +33,6 @@ function theme_scripts()
     wp_register_script('HLR-ajax', HLR_THEME_ASSETS . 'js/ajax.js', [], "1.0.0", true);
 
     wp_enqueue_script('bootstrap-bundle');
-    wp_enqueue_script('jquery-sticky');
     wp_enqueue_script('owl-carousel');
     wp_enqueue_script('nicescroll');
     wp_enqueue_script('sweetalert2');
@@ -125,24 +123,6 @@ function theme_footer()
 
                 });
             });
-
-
-            // jQuery("#sticker").sticky({
-            //     topSpacing: 0,
-            //     responsiveWidth: true,
-            //     zIndex: 9999
-            // });
-            // jQuery("#sticker-mobile").sticky({
-            //     topSpacing: 0,
-            //     responsiveWidth: true,
-            //     zIndex: 9999
-            // });
-            // jQuery("#navigation-sticker").sticky({
-            //     topSpacing: 48,
-            //     className: 'fixed-navigation',
-            //     responsiveWidth: true,
-            //     zIndex: 9999,
-            // });
         </script>
     <?php endif; ?>
 
