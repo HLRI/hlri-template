@@ -2782,3 +2782,17 @@ label {
 .menu {
     z-index: 9999 !important;
 }
+
+.fixed-menu {
+    position: fixed;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.top-48{
+    top: 48;
+}

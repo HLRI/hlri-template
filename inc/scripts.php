@@ -92,7 +92,7 @@ function theme_footer()
 
 ?>
     <?php $theme_options = get_option('hlr_framework'); ?>
-    <?php if ($theme_options['opt-fixed-menu']) : ?>
+    <?php if ($theme_options['opt-fixed-menu top-0']) : ?>
         <script>
             jQuery(document).ready(function($) {
                 $(window).scroll(function() {
@@ -100,23 +100,23 @@ function theme_footer()
 
                     var sticker = $('#sticker');
                     if (scrollDistance > 0) {
-                        sticker.addClass('position-fixed').css({'z-index' : '999'});
+                        sticker.addClass('fixed-menu top-0');
                     } else {
-                        sticker.removeClass('position-fixed');
+                        sticker.removeClass('fixed-menu top-0');
                     }
 
                     var stickermobile = $('#sticker-mobile');
                     if (scrollDistance > 0) {
-                        stickermobile.addClass('position-fixed').css({'z-index' : '999'});
+                        stickermobile.addClass('fixed-menu top-0');
                     } else {
-                        stickermobile.removeClass('position-fixed');
+                        stickermobile.removeClass('fixed-menu top-0');
                     }
 
                     var navigationsticker = $('#navigation-sticker');
                     if (scrollDistance > 48) {
-                        navigationsticker.addClass('position-fixed fixed-navigation').css({'z-index' : '999'});
+                        navigationsticker.addClass('fixed-menu top-48 fixed-navigation');
                     } else {
-                        navigationsticker.removeClass('position-fixed');
+                        navigationsticker.removeClass('fixed-menu top-0');
                     }
 
                 });
