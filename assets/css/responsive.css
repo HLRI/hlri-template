@@ -176,30 +176,30 @@
         left: 0;
     }
 
-    .top-responsive{
+    .top-responsive {
         margin-top: 30px !important;
         padding: 0 8px !important;
     }
 
-    .header-property-responsive{
+    .header-property-responsive {
         margin-top: 1rem !important;
     }
 
-    .wrap-hlr-navigation-fixed{
+    .wrap-hlr-navigation-fixed {
         overflow-x: scroll;
     }
 
-    .hlr-navigation-item-fixed{
+    .hlr-navigation-item-fixed {
         flex-shrink: 0;
         width: 84px;
         font-size: 11px;
     }
 
-    .card-property-responsive{
+    .card-property-responsive {
         margin-bottom: 1rem !important;
     }
 
-    .card-property-responsive h1{
+    .card-property-responsive h1 {
         margin-top: 0.5rem !important;
     }
 }
@@ -374,30 +374,30 @@
         left: 0;
     }
 
-    .top-responsive{
+    .top-responsive {
         margin-top: 30px !important;
         padding: 0 8px !important;
     }
 
-    .header-property-responsive{
+    .header-property-responsive {
         margin-top: 1rem !important;
     }
 
-    .wrap-hlr-navigation-fixed{
+    .wrap-hlr-navigation-fixed {
         overflow-x: scroll;
     }
 
-    .hlr-navigation-item-fixed{
+    .hlr-navigation-item-fixed {
         flex-shrink: 0;
         width: 84px;
         font-size: 11px;
     }
 
-    .card-property-responsive{
+    .card-property-responsive {
         margin-bottom: 1rem !important;
     }
 
-    .card-property-responsive h1{
+    .card-property-responsive h1 {
         margin-top: 0.5rem !important;
     }
 }
@@ -572,33 +572,33 @@
         left: 0;
     }
 
-    .top-responsive{
+    .top-responsive {
         margin-top: 30px !important;
         padding: 0 8px !important;
     }
 
-    .header-property-responsive{
+    .header-property-responsive {
         margin-top: 1rem !important;
     }
 
-    .wrap-hlr-navigation-fixed{
+    .wrap-hlr-navigation-fixed {
         overflow-x: scroll;
     }
 
-    .hlr-navigation-item-fixed{
+    .hlr-navigation-item-fixed {
         flex-shrink: 0;
         width: 84px;
         font-size: 11px;
     }
 
-    .card-property-responsive{
+    .card-property-responsive {
         margin-bottom: 1rem !important;
     }
 
-    .card-property-responsive h1{
+    .card-property-responsive h1 {
         margin-top: 0.5rem !important;
     }
-    
+
 }
 
 /* mobile */
@@ -745,30 +745,30 @@
         left: 0;
     }
 
-    .top-responsive{
+    .top-responsive {
         margin-top: 30px !important;
         padding: 0 8px !important;
     }
 
-    .header-property-responsive{
+    .header-property-responsive {
         margin-top: 1rem !important;
     }
 
-    .wrap-hlr-navigation-fixed{
+    .wrap-hlr-navigation-fixed {
         overflow-x: scroll;
     }
 
-    .hlr-navigation-item-fixed{
+    .hlr-navigation-item-fixed {
         flex-shrink: 0;
         width: 84px;
         font-size: 11px;
     }
 
-    .card-property-responsive{
+    .card-property-responsive {
         margin-bottom: 1rem !important;
     }
 
-    .card-property-responsive h1{
+    .card-property-responsive h1 {
         margin-top: 0.5rem !important;
     }
 }
@@ -905,30 +905,30 @@
         left: 0;
     }
 
-    .top-responsive{
+    .top-responsive {
         margin-top: 30px !important;
         padding: 0 8px !important;
     }
 
-    .header-property-responsive{
+    .header-property-responsive {
         margin-top: 1rem !important;
     }
 
-    .wrap-hlr-navigation-fixed{
+    .wrap-hlr-navigation-fixed {
         overflow-x: scroll;
     }
 
-    .hlr-navigation-item-fixed{
+    .hlr-navigation-item-fixed {
         flex-shrink: 0;
         width: 84px;
         font-size: 11px;
     }
 
-    .card-property-responsive{
+    .card-property-responsive {
         margin-bottom: 1rem !important;
     }
 
-    .card-property-responsive h1{
+    .card-property-responsive h1 {
         margin-top: 0.5rem !important;
     }
 }
@@ -1048,6 +1048,10 @@
     }
 
     .card-profile-details {
+        margin-top: 4rem !important;
+    }
+
+    .content-profile {
         margin-top: 3rem !important;
     }
 }
