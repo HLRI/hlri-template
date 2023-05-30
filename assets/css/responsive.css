@@ -1043,8 +1043,12 @@
     }
 
     .update-label {
-        top: -18px;
+        top: -32px;
         left: 0;
+    }
+
+    .card-profile-details {
+        margin-top: 3rem !important;
     }
 }
 
