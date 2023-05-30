@@ -94,7 +94,7 @@ function theme_footer()
     <?php $theme_options = get_option('hlr_framework'); ?>
     <?php if ($theme_options['opt-fixed-menu']) : ?>
         <script>
-            $(document).ready(function($) {
+            jQuery(document).ready(function($) {
                 $(window).scroll(function() {
                     var scrollDistance = $(window).scrollTop();
 
