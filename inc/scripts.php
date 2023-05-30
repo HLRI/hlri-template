@@ -96,7 +96,9 @@ function theme_footer()
         <script>
             jQuery(document).ready(function($) {
                 $(window).scroll(function() {
+                    
                     var scrollDistance = $(window).scrollTop();
+                    var windowHeight = $(window).height();
 
                     var sticker = $('#sticker');
                     if (scrollDistance > 0) {
@@ -112,12 +114,9 @@ function theme_footer()
                         stickermobile.removeClass('fixed-menu top-0');
                     }
 
-                    var target = $("#navigation-sticker");
+                    var navigationsticker = $("#navigation-sticker");
                     var targetOffset = target.offset().top;
-                    var windowHeight = $(window).height();
-                    var scrollPos = $(window).scrollTop();
-
-                    if (scrollPos >= targetOffset - windowHeight && scrollPos <= targetOffset) {
+                    if (scrollDistance >= targetOffset - windowHeight && scrollDistance <= targetOffset) {
                         navigationsticker.addClass('fixed-menu top-48');
                     } else {
                         navigationsticker.removeClass('fixed-menu top-48');
