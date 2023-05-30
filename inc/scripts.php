@@ -100,21 +100,21 @@ function theme_footer()
 
                     var sticker = $('#sticker');
                     if (scrollDistance > 0) {
-                        sticker.addClass('position-fixed');
+                        sticker.addClass('position-fixed').css({'z-index' : '999'});
                     } else {
                         sticker.removeClass('position-fixed');
                     }
 
                     var stickermobile = $('#sticker-mobile');
                     if (scrollDistance > 0) {
-                        stickermobile.addClass('position-fixed');
+                        stickermobile.addClass('position-fixed').css({'z-index' : '999'});
                     } else {
                         stickermobile.removeClass('position-fixed');
                     }
 
                     var navigationsticker = $('#navigation-sticker');
                     if (scrollDistance > 48) {
-                        navigationsticker.addClass('position-fixed fixed-navigation');
+                        navigationsticker.addClass('position-fixed fixed-navigation').css({'z-index' : '999'});
                     } else {
                         navigationsticker.removeClass('position-fixed');
                     }
