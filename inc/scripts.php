@@ -102,7 +102,6 @@ function theme_footer()
                 $(window).scroll(function() {
                     
                     var scrollDistance = $(window).scrollTop();
-                    var windowHeight = $(window).height();
 
                     var sticker = $('#sticker');
                     if (scrollDistance > 0) {
@@ -118,9 +117,6 @@ function theme_footer()
                         stickermobile.removeClass('fixed-menu top-0');
                     }
 
-                    console.log('targetOffset',targetOffset);
-                    console.log('scrollDistance',scrollDistance);
-                    console.log('windowHeight',windowHeight);
                     if (scrollDistance >= targetOffset - 48) {
                         navigationsticker.addClass('fixed-menu top-48');
                     } else {
