@@ -184,6 +184,24 @@
     .header-property-responsive{
         margin-top: 1rem !important;
     }
+
+    .wrap-hlr-navigation-fixed{
+        overflow-x: scroll;
+    }
+
+    .hlr-navigation-item-fixed{
+        flex-shrink: 0;
+        width: 84px;
+        font-size: 11px;
+    }
+
+    .card-property-responsive{
+        margin-bottom: 1rem !important;
+    }
+
+    .card-property-responsive h1{
+        margin-top: 0.5rem !important;
+    }
 }
 
 /* medium mobile */
@@ -363,6 +381,24 @@
 
     .header-property-responsive{
         margin-top: 1rem !important;
+    }
+
+    .wrap-hlr-navigation-fixed{
+        overflow-x: scroll;
+    }
+
+    .hlr-navigation-item-fixed{
+        flex-shrink: 0;
+        width: 84px;
+        font-size: 11px;
+    }
+
+    .card-property-responsive{
+        margin-bottom: 1rem !important;
+    }
+
+    .card-property-responsive h1{
+        margin-top: 0.5rem !important;
     }
 }
 
@@ -551,7 +587,16 @@
 
     .hlr-navigation-item-fixed{
         flex-shrink: 0;
-        width: 100px;
+        width: 84px;
+        font-size: 11px;
+    }
+
+    .card-property-responsive{
+        margin-bottom: 1rem !important;
+    }
+
+    .card-property-responsive h1{
+        margin-top: 0.5rem !important;
     }
     
 }
@@ -708,6 +753,24 @@
     .header-property-responsive{
         margin-top: 1rem !important;
     }
+
+    .wrap-hlr-navigation-fixed{
+        overflow-x: scroll;
+    }
+
+    .hlr-navigation-item-fixed{
+        flex-shrink: 0;
+        width: 84px;
+        font-size: 11px;
+    }
+
+    .card-property-responsive{
+        margin-bottom: 1rem !important;
+    }
+
+    .card-property-responsive h1{
+        margin-top: 0.5rem !important;
+    }
 }
 
 /* mobile landscape */
@@ -849,6 +912,24 @@
 
     .header-property-responsive{
         margin-top: 1rem !important;
+    }
+
+    .wrap-hlr-navigation-fixed{
+        overflow-x: scroll;
+    }
+
+    .hlr-navigation-item-fixed{
+        flex-shrink: 0;
+        width: 84px;
+        font-size: 11px;
+    }
+
+    .card-property-responsive{
+        margin-bottom: 1rem !important;
+    }
+
+    .card-property-responsive h1{
+        margin-top: 0.5rem !important;
     }
 }
 
