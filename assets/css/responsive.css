@@ -544,6 +544,14 @@
     .header-property-responsive{
         margin-top: 1rem !important;
     }
+
+    .wrap-hlr-navigation-fixed{
+        overflow-x: scroll;
+    }
+
+    .hlr-navigation-item-fixed{
+        flex-shrink: 0;
+    }
 }
 
 /* mobile */
