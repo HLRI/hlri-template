@@ -92,7 +92,7 @@ function theme_footer()
 
 ?>
     <?php $theme_options = get_option('hlr_framework'); ?>
-    <?php if ($theme_options['opt-fixed-menu top-0']) : ?>
+    <?php if ($theme_options['opt-fixed-menu']) : ?>
         <script>
             jQuery(document).ready(function($) {
                 $(window).scroll(function() {
@@ -100,7 +100,6 @@ function theme_footer()
 
                     var sticker = $('#sticker');
                     if (scrollDistance > 0) {
-                        console.log('ss');
                         sticker.addClass('fixed-menu top-0');
                     } else {
                         sticker.removeClass('fixed-menu top-0');
