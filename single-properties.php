@@ -12,7 +12,8 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 ?>
 
 
-<?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
+<?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' 
+?>
 <div id="navigation-fixed-location"></div>
 <div class="container-fluid px-lg-5">
     <div class="row mt-10 header-property-responsive">
@@ -46,10 +47,10 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         </div>
     </div>
 </div>
-    <div class="container-fluid px-0 mt-4">
-        <?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
-    </div>
-    <div class="container-fluid px-lg-5">
+<div class="container-fluid px-0 mt-4">
+    <?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
+</div>
+<div class="container-fluid px-lg-5">
     <div class="row mt-4 mb-2" id="ga">
         <?php if (!empty($gallery_ids[0])) : ?>
             <div class="col-lg-6">
@@ -166,16 +167,18 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                     <h3 class="font-weight-bold">Floor Plans</h3>
                 </div>
             </div>
-            <div class="row px-4">
-                <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
-                    <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
-                        <div class="card-floolplan">
-                            <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>" title="<?= wp_get_attachment_caption($floorplans_item_id) ?>" data-lightbox="roadtrip">
-                                <img class="img-floorplan" src="<?= wp_get_attachment_url($floorplans_item_id) ?>" alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
-                            </a>
+            <div class="container-fluid">
+                <div class="row px-4">
+                    <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
+                        <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
+                            <div class="card-floolplan">
+                                <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>" title="<?= wp_get_attachment_caption($floorplans_item_id) ?>" data-lightbox="roadtrip">
+                                    <img class="img-floorplan" src="<?= wp_get_attachment_url($floorplans_item_id) ?>" alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     <?php endif; ?>
