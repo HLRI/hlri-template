@@ -2572,7 +2572,7 @@ a.neighborhood-link {
 
 .wrap-hlr-navigation-fixed {
   width: 100%;
-  background: #f0f0f0;
+  background-color: #d2e0e0;
   padding: 10px;
   transition: all .3s;
   z-index: 9999 !important;
