@@ -433,6 +433,12 @@ if (class_exists('CSF')) {
 				'default' => false
 			),
 			array(
+				'id'      => 'opt-properties-banner',
+				'type'    => 'media',
+				'title'   => 'Banner',
+				'library' => 'image',
+			),
+			array(
 				'id'      => 'opt-properties-shortcode',
 				'type'  => 'text',
 				'title'   => 'Shortcode',
