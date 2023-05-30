@@ -1539,7 +1539,7 @@ a.icon-search:hover {
     background: #32302f;
     padding: .5rem;
     /* border-bottom: 4px solid #665c54; */
-    width:100%;
+    width: 100%;
 }
 
 .card-properties-image img {
@@ -2760,7 +2760,8 @@ label {
     opacity: 1;
 }
 
-.wrap-form label, .my-h-textarea label {
+.wrap-form label,
+.my-h-textarea label {
     width: 100%;
 }
 
@@ -2768,12 +2769,16 @@ label {
     gap: 10px;
 }
 
-.wpcf7-radio{
+.wpcf7-radio {
     background: none !important;
 }
 
-.fit-form-image{
+.fit-form-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.menu {
+    z-index: 9999 !important;
 }

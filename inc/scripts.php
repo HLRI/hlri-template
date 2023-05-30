@@ -94,25 +94,54 @@ function theme_footer()
     <?php $theme_options = get_option('hlr_framework'); ?>
     <?php if ($theme_options['opt-fixed-menu']) : ?>
         <script>
-            jQuery("#sticker").sticky({
-                topSpacing: 0,
-                responsiveWidth: true,
-                zIndex: 9999
+            $(document).ready(function($) {
+                $(window).scroll(function() {
+                    var scrollDistance = $(window).scrollTop();
+
+                    var sticker = $('#sticker');
+                    if (scrollDistance > 0) {
+                        sticker.addClass('position-fixed');
+                    } else {
+                        sticker.removeClass('position-fixed');
+                    }
+
+                    var sticker = $('#sticker-mobile');
+                    if (scrollDistance > 0) {
+                        sticker.addClass('position-fixed');
+                    } else {
+                        sticker.removeClass('position-fixed');
+                    }
+
+                    var sticker = $('#navigation-sticker');
+                    if (scrollDistance > 48) {
+                        sticker.addClass('position-fixed fixed-navigation');
+                    } else {
+                        sticker.removeClass('position-fixed');
+                    }
+
+                });
             });
-            jQuery("#sticker-mobile").sticky({
-                topSpacing: 0,
-                responsiveWidth: true,
-                zIndex: 9999
-            });
-            jQuery("#navigation-sticker").sticky({
-                topSpacing: 48,
-                className: 'fixed-navigation',
-                responsiveWidth: true,
-                zIndex: 9999,
-            });
+
+
+            // jQuery("#sticker").sticky({
+            //     topSpacing: 0,
+            //     responsiveWidth: true,
+            //     zIndex: 9999
+            // });
+            // jQuery("#sticker-mobile").sticky({
+            //     topSpacing: 0,
+            //     responsiveWidth: true,
+            //     zIndex: 9999
+            // });
+            // jQuery("#navigation-sticker").sticky({
+            //     topSpacing: 48,
+            //     className: 'fixed-navigation',
+            //     responsiveWidth: true,
+            //     zIndex: 9999,
+            // });
         </script>
     <?php endif; ?>
-    
+
     <?php if (is_home()) : ?>
         <?php if (!empty($theme_options['opt_homeleaderrealtycounter_items'])) : ?>
             <script>
