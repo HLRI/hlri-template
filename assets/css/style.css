@@ -1498,8 +1498,10 @@ a.icon-search:hover {
   width: 200px;
   background: white;
   padding: .5rem;
-  border-bottom: 4px solid #e4e3ec;
-  width:100%;
+  /* border-bottom: 4px solid #e4e3ec; */
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .card-properties-image img {
@@ -2675,3 +2677,27 @@ a.neighborhood-link {
     height: 100%;
     object-fit: cover;
 }
+
+/* .card-properties-image:after {
+  content: '';
+  width: 90%;
+  height: 80%;
+  position: absolute;
+  top: -22px;
+  background: #3e9cdd;
+  z-index: -1;
+  left: -8px;
+  border-top-left-radius: 25%;
+}
+
+.card-properties-image:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 2px;
+  background: #f9bd40;
+  z-index: -2;
+  right: -3px;
+  border-bottom-right-radius: 25%;
+} */

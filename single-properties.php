@@ -51,7 +51,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     <?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
 </div>
 <div class="container-fluid px-lg-5">
-    <div class="row mt-4 mb-2" id="ga">
+    <div class="row mt-4 mb-2" id="Gallery">
         <?php if (!empty($gallery_ids[0])) : ?>
             <div class="col-lg-6">
                 <ul class="pgwSlideshow">
@@ -77,7 +77,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     </div>
 
     <?php if (!empty(get_the_content())) : ?>
-        <div class="row mt-2 mb-4" id="ov">
+        <div class="row mt-2 mb-4" id="Overview">
             <div class="col-12">
                 <div class="content-profile"><?php the_content() ?></div>
             </div>
@@ -144,7 +144,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     <?php endif; ?>
 
     <?php if (!empty($price_images)) : ?>
-        <div class="row mt-5 mb-4" id="pl">
+        <div class="row mt-5 mb-4" id="PriceList">
             <div class="col-12">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Price List</h3>
@@ -161,7 +161,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     <?php endif; ?>
 
     <?php if (!empty($floorplans_ids[0])) : ?>
-        <div class="row my-4" id="fp">
+        <div class="row my-4" id="FloorPlans">
             <div class="col-12">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Floor Plans</h3>
@@ -186,7 +186,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
     <?php if ($theme_options['opt-properties-status']) : ?>
         <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
-            <div class="row mt-5 properties-shortcode" id="rn">
+            <div class="row mt-5 properties-shortcode" id="RegisterNow">
                 <div class="col-12">
                     <div class="titr-list ml-0 mb-2">
                         <h3 class="font-weight-bold">Register Now to get full package , book your unit</h3>

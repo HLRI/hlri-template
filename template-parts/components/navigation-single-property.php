@@ -3,19 +3,19 @@
         <i class="fa fa-arrow-right"></i>
     </div>
     <div class="hlr-navigation">
-        <a href="#ga" class="hlr-navigation-item">
+        <a href="#Gallery" class="hlr-navigation-item">
             Gallery
         </a>
-        <a href="#ov" class="hlr-navigation-item">
+        <a href="#Overview" class="hlr-navigation-item">
             Overview
         </a>
-        <a href="#pl" class="hlr-navigation-item">
+        <a href="#PriceList" class="hlr-navigation-item">
             Price List
         </a>
-        <a href="#fp" class="hlr-navigation-item">
+        <a href="#FloorPlans" class="hlr-navigation-item">
             Floor Plans
         </a>
-        <a href="#rn" class="hlr-navigation-item">
+        <a href="#RegisterNow" class="hlr-navigation-item">
             Register Now
         </a>
         <a href="#rp" class="hlr-navigation-item">
