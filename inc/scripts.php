@@ -115,7 +115,7 @@ function theme_footer()
                     }
 
                     var navigationsticker = $("#navigation-sticker");
-                    var targetOffset = target.offset().top;
+                    var targetOffset = navigationsticker.offset().top;
                     if (scrollDistance >= targetOffset - windowHeight && scrollDistance <= targetOffset) {
                         navigationsticker.addClass('fixed-menu top-48');
                     } else {
