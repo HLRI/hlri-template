@@ -112,8 +112,12 @@ function theme_footer()
                         stickermobile.removeClass('fixed-menu top-0');
                     }
 
-                    var navigationsticker = $('#navigation-sticker');
-                    if (scrollDistance > 48) {
+                    var target = $("#navigation-sticker");
+                    var targetOffset = target.offset().top;
+                    var windowHeight = $(window).height();
+                    var scrollPos = $(window).scrollTop();
+
+                    if (scrollPos >= targetOffset - windowHeight && scrollPos <= targetOffset) {
                         navigationsticker.addClass('fixed-menu top-48');
                     } else {
                         navigationsticker.removeClass('fixed-menu top-48');
