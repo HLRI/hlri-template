@@ -211,6 +211,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 
 </div>
 
+
 <div class="container-fluid my-4" id="rp">
     <div class="row">
         <?php
