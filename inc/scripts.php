@@ -95,6 +95,10 @@ function theme_footer()
     <?php if ($theme_options['opt-fixed-menu']) : ?>
         <script>
             jQuery(document).ready(function($) {
+
+                var navigationsticker = $("#navigation-sticker");
+                var targetOffset = navigationsticker.offset().top;
+
                 $(window).scroll(function() {
                     
                     var scrollDistance = $(window).scrollTop();
@@ -114,8 +118,6 @@ function theme_footer()
                         stickermobile.removeClass('fixed-menu top-0');
                     }
 
-                    var navigationsticker = $("#navigation-sticker");
-                    var targetOffset = navigationsticker.offset().top;
                     console.log('targetOffset',targetOffset);
                     console.log('scrollDistance',scrollDistance);
                     console.log('windowHeight',windowHeight);
