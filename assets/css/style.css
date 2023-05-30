@@ -757,8 +757,8 @@ body * {
 
 .copyright {
   border-top: 2px solid #c9c8d1;
-  background: #f8f7ff;
-  color: #bcbbc3;
+  background: #d2e0e0;
+  color: #000000;
   font-size: 12px;
 }
 
@@ -1176,7 +1176,7 @@ a.icon-search:hover {
   padding: 1rem;
   background: white;
   border-left: 4px solid #ffad00;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .card-profile-details .job {
@@ -2574,7 +2574,7 @@ a.neighborhood-link {
 
 .wrap-hlr-navigation-fixed {
   width: 100%;
-  background: #f0f0f0;
+  background-color: #d2e0e0;
   padding: 10px;
   transition: all .3s;
   z-index: 9999 !important;
