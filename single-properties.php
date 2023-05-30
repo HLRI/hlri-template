@@ -17,7 +17,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
 <div id="navigation-fixed-location"></div>
 <div class="container-fluid px-lg-5">
     <div class="row mt-10 header-property-responsive">
-        <div class="col-12 col-sm-12 col-md-3 col-lg-2">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-2 d-flex align-items-center">
             <div class="card-properties-image">
                 <?php the_post_thumbnail() ?>
             </div>
