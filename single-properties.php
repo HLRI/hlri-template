@@ -159,7 +159,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         </div>
     <?php endif; ?>
 
-    <!-- <?php if (!empty($floorplans_ids[0])) : ?>
+    <?php if (!empty($floorplans_ids[0])) : ?>
         <div class="row my-4" id="fp">
             <div class="col-12">
                 <div class="titr-list ml-0">
@@ -178,7 +178,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                 <?php endforeach; ?>
             </div>
         </div>
-    <?php endif; ?> -->
+    <?php endif; ?>
 
 
     <?php if ($theme_options['opt-properties-status']) : ?>
@@ -202,7 +202,6 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     <?php endif; ?>
 
 </div>
-
 
 <div class="container-fluid my-4" id="rp">
     <div class="row">
@@ -347,7 +346,6 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
     </div>
 </div>
 
-
 <div class="container-fluid my-4" id="hp">
     <div class="row">
         <?php
@@ -460,6 +458,5 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
         <?php endif; ?>
     </div>
 </div>
-
 
 <?php get_footer(); ?>
