@@ -105,18 +105,18 @@ function theme_footer()
                         sticker.removeClass('position-fixed');
                     }
 
-                    var sticker = $('#sticker-mobile');
+                    var stickermobile = $('#sticker-mobile');
                     if (scrollDistance > 0) {
-                        sticker.addClass('position-fixed');
+                        stickermobile.addClass('position-fixed');
                     } else {
-                        sticker.removeClass('position-fixed');
+                        stickermobile.removeClass('position-fixed');
                     }
 
-                    var sticker = $('#navigation-sticker');
+                    var navigationsticker = $('#navigation-sticker');
                     if (scrollDistance > 48) {
-                        sticker.addClass('position-fixed fixed-navigation');
+                        navigationsticker.addClass('position-fixed fixed-navigation');
                     } else {
-                        sticker.removeClass('position-fixed');
+                        navigationsticker.removeClass('position-fixed');
                     }
 
                 });
