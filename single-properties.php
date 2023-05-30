@@ -192,7 +192,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                         <h3 class="font-weight-bold">Register Now to get full package , book your unit</h3>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-12 col-lg-6">
                     <style>
                         <?php echo $theme_options['opt-properties-style'] ?>
                     </style>
@@ -200,7 +200,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                         <?= do_shortcode($theme_options['opt-properties-shortcode']) ?>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-12 col-lg-6">
                     <div class="form-image">
                         <img src="<?= $theme_options['opt-properties-banner']['url'] ?>" alt="<?= $theme_options['opt-properties-banner']['alt'] ?>">
                     </div>
