@@ -2796,3 +2796,7 @@ label {
 .top-48{
     top: 48;
 }
+
+.modal-footer {
+    border-top: 2px solid #665c54 !important;
+}
