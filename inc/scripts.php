@@ -114,9 +114,9 @@ function theme_footer()
 
                     var navigationsticker = $('#navigation-sticker');
                     if (scrollDistance > 48) {
-                        navigationsticker.addClass('fixed-menu top-48 fixed-navigation');
+                        navigationsticker.addClass('fixed-menu top-48');
                     } else {
-                        navigationsticker.removeClass('fixed-menu top-0');
+                        navigationsticker.removeClass('fixed-menu top-48');
                     }
 
                 });
