@@ -100,6 +100,7 @@ function theme_footer()
 
                     var sticker = $('#sticker');
                     if (scrollDistance > 0) {
+                        console.log('ss');
                         sticker.addClass('fixed-menu top-0');
                     } else {
                         sticker.removeClass('fixed-menu top-0');
