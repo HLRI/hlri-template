@@ -2722,3 +2722,8 @@ a.neighborhood-link {
 .top-48{
   top: 48;
 }
+
+.form-image {
+  max-width: 756px;
+  margin: 0 auto;
+}

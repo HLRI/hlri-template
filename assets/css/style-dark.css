@@ -2800,3 +2800,8 @@ label {
 .modal-footer {
     border-top: 2px solid #665c54 !important;
 }
+
+.form-image {
+    max-width: 756px;
+    margin: 0 auto;
+}
