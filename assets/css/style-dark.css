@@ -2771,3 +2771,9 @@ label {
 .wpcf7-radio{
     background: none !important;
 }
+
+.fit-form-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
