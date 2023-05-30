@@ -1538,7 +1538,7 @@ a.icon-search:hover {
     width: 200px;
     background: #32302f;
     padding: .5rem;
-    border-bottom: 4px solid #665c54;
+    /* border-bottom: 4px solid #665c54; */
     width:100%;
 }
 
