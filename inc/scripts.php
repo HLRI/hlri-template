@@ -93,34 +93,14 @@ function theme_footer()
     <?php if ($theme_options['opt-fixed-menu']) : ?>
         <script>
             jQuery(document).ready(function($) {
-
-                var navigationsticker = $("#navigation-sticker");
-                var targetOffset = navigationsticker.offset().top;
-
                 $(window).scroll(function() {
-                    
                     var scrollDistance = $(window).scrollTop();
-
                     var sticker = $('#sticker');
                     if (scrollDistance > 0) {
                         sticker.addClass('fixed-menu top-0');
                     } else {
                         sticker.removeClass('fixed-menu top-0');
                     }
-
-                    var stickermobile = $('#sticker-mobile');
-                    if (scrollDistance > 0) {
-                        stickermobile.addClass('fixed-menu top-0');
-                    } else {
-                        stickermobile.removeClass('fixed-menu top-0');
-                    }
-
-                    if (scrollDistance >= targetOffset - 48) {
-                        navigationsticker.addClass('fixed-menu top-48');
-                    } else {
-                        navigationsticker.removeClass('fixed-menu top-48');
-                    }
-
                 });
             });
         </script>
@@ -249,7 +229,6 @@ function theme_footer()
                 iconAnchor: [25, 50]
             });
 
-
             L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], {
                 icon: customIcon
             }).addTo(map);
@@ -270,6 +249,26 @@ function theme_footer()
                 'wrapAround': true,
                 'maxHeight': 500
             })
+
+            jQuery(document).ready(function($) {
+                var navigationsticker = $("#navigation-sticker");
+                var targetOffset = navigationsticker.offset().top;
+                $(window).scroll(function() {
+                    var scrollDistance = $(window).scrollTop();
+                    var stickermobile = $('#sticker-mobile');
+                    if (scrollDistance > 0) {
+                        stickermobile.addClass('fixed-menu top-0');
+                    } else {
+                        stickermobile.removeClass('fixed-menu top-0');
+                    }
+
+                    if (scrollDistance >= targetOffset - 48) {
+                        navigationsticker.addClass('fixed-menu top-48');
+                    } else {
+                        navigationsticker.removeClass('fixed-menu top-48');
+                    }
+                });
+            });
         </script>
     <?php endif; ?>
 
