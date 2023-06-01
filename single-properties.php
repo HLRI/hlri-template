@@ -55,6 +55,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                     <?php if ($property_id != $post_id) : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php
+                                            wp_die('ss');
                                             switch ($i) {
                                                 case 1:
                                                     $status = 'Poor';
@@ -83,7 +84,6 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                                 </li>
                                             <?php endif; ?>
                                         <?php endfor; ?>
-
                                     <?php else : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php if ($i < $rates) : ?>
