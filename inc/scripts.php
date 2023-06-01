@@ -254,7 +254,7 @@ function theme_footer()
 
                 var navigationsticker = $("#navigation-sticker");
                 var targetOffset = navigationsticker.offset().top;
-                
+
                 $(window).scroll(function() {
                     var scrollDistance = $(window).scrollTop();
                     var stickermobile = $('#sticker-mobile');
@@ -289,6 +289,8 @@ function theme_footer()
 
                 $('#stars li').on('click', function() {
                     var onStar = parseInt($(this).data('value'), 10);
+
+                    console.log(onStar);
                     var stars = $(this).parent().children('li.star');
                     for (i = 0; i < stars.length; i++) {
                         $(stars[i]).removeClass('selected');
@@ -297,6 +299,9 @@ function theme_footer()
                         $(stars[i]).addClass('selected');
                     }
                 });
+
+
+               
 
             });
         </script>

@@ -41,7 +41,6 @@ function getlatestpost()
     exit();
 }
 
-
 add_action('wp_ajax_nopriv_getpopularpost', 'getpopularpost');
 add_action('wp_ajax_getpopularpost', 'getpopularpost');
 function getpopularpost()
@@ -97,10 +96,9 @@ function getpopularpost()
     exit();
 }
 
-
-add_action('wp_ajax_nopriv_propertoesFavorites', 'propertoesFavorites');
-add_action('wp_ajax_propertoesFavorites', 'propertoesFavorites');
-function propertoesFavorites()
+add_action('wp_ajax_nopriv_propertiesFavorites', 'propertiesFavorites');
+add_action('wp_ajax_propertiesFavorites', 'propertiesFavorites');
+function propertiesFavorites()
 {
     if (!is_user_logged_in()) {
         wp_send_json([
@@ -109,7 +107,7 @@ function propertoesFavorites()
     }
 
 
-    $favorites = get_user_meta(get_current_user_id(), 'propertoes_favorites', true);
+    $favorites = get_user_meta(get_current_user_id(), 'properties_favorites', true);
 
 
 
@@ -118,7 +116,7 @@ function propertoesFavorites()
             if (($key = array_search($_POST['post_id'], $favorites)) !== false) {
                 unset($favorites[$key]);
             }
-            update_user_meta(get_current_user_id(), 'propertoes_favorites', $favorites);
+            update_user_meta(get_current_user_id(), 'properties_favorites', $favorites);
 
             wp_send_json([
                 'status' => 'removed'
@@ -131,13 +129,39 @@ function propertoesFavorites()
         $favorites[] = $_POST['post_id'];
     }
 
-    update_user_meta(get_current_user_id(), 'propertoes_favorites', $favorites);
+    update_user_meta(get_current_user_id(), 'properties_favorites', $favorites);
 
     wp_send_json([
         'status' => 'added'
     ]);
 }
 
+add_action('wp_ajax_nopriv_propertiesRating', 'propertiesRating');
+add_action('wp_ajax_propertiesRating', 'propertiesRating');
+function propertiesRating()
+{
+    if (!is_user_logged_in()) {
+        wp_send_json([
+            'status' => 'notLogin'
+        ]);
+    }
+
+    $total_rates = get_post_meta($_POST['post_id'], 'properties_total_rates', true);
+    $user_rates = get_post_meta($_POST['post_id'], 'properties_user_rates', true);
+
+    if (!empty($total_rates) && !empty($user_rates)) {
+        $total_rates = $total_rates + $_POST['rate'];
+        $user_rates = $user_rates + 1;
+        update_post_meta($_POST['post_id'], 'properties_total_rates', $total_rates);
+        update_post_meta($_POST['post_id'], 'properties_user_rates', $user_rates);
+        update_user_meta(get_current_user_id(), 'properties_rated', $_POST['post_id']);
+    }
+
+    wp_send_json([
+        'status' => 'added'
+    ]);
+    
+}
 
 add_action('wp_ajax_set_like_properties', 'set_like_properties');
 add_action('wp_ajax_nopriv_set_like_properties', 'set_like_properties');
@@ -181,7 +205,6 @@ function set_like_properties()
     }
 }
 
-
 add_action('wp_ajax_nopriv_ajax_login', 'ajax_login');
 function ajax_login()
 {
@@ -220,8 +243,6 @@ function ajax_login()
     }
     exit();
 }
-
-
 
 add_action('wp_ajax_nopriv_ajax_register', 'ajax_register');
 function ajax_register()
@@ -351,8 +372,6 @@ function ajax_forgot_password()
 
     die();
 }
-
-
 
 add_action('wp_ajax_hlr_search', 'hlr_search');
 add_action('wp_ajax_nopriv_hlr_search', 'hlr_search');

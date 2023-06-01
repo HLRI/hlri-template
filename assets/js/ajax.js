@@ -45,7 +45,6 @@ jQuery(document).ready(function ($) {
 
 });
 
-
 function bookmark(element, post_id) {
 
     const Toast = Swal.mixin({
@@ -64,7 +63,7 @@ function bookmark(element, post_id) {
         type: "post",
         url: '/wp-admin/admin-ajax.php',
         data: {
-            'action': 'propertoesFavorites',
+            'action': 'propertiesFavorites',
             'post_id': post_id
         },
         success: function (data) {
@@ -247,7 +246,7 @@ jQuery('#submit-forgot-password').on('click', function (e) {
 
 function hlr_search() {
     var query = jQuery('.keyword').val();
-    if(query == null || query == ''){
+    if (query == null || query == '') {
         jQuery('.search-result').removeClass('d-block');
         return;
     }
@@ -299,7 +298,7 @@ function hlr_search() {
 function hlr_search_mobile() {
 
     var query = jQuery('.keyword-mobile').val();
-    if(query == null || query == ''){
+    if (query == null || query == '') {
         jQuery('.search-result').removeClass('d-block');
         return;
     }

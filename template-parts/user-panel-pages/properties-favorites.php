@@ -1,11 +1,11 @@
 <?php
 
-if (empty(get_user_meta(get_current_user_id(), 'propertoes_favorites', true))) {
+if (empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
     $post_ids = -1;
 } else {
-    $post_ids = get_user_meta(get_current_user_id(), 'propertoes_favorites', true);
+    $post_ids = get_user_meta(get_current_user_id(), 'properties_favorites', true);
 }
-// dd(get_user_meta(get_current_user_id(), 'propertoes_favorites', true));
+// dd(get_user_meta(get_current_user_id(), 'properties_favorites', true));
 $arg = [
     'post_type' => 'properties',
     'author' => get_current_user_id(),
@@ -42,7 +42,7 @@ $peroperties = new WP_Query($arg);
                         <div class="card-listing-options">
                             <i class="mdi mdi-heart"></i>
                             <i class="mdi mdi-share"></i>
-                            <i <?= in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'propertoes_favorites', true)) ? ' style="color:#9de450" ' : '' ?> role="button" onclick="bookmark(this,<?= get_the_ID() ?>)" class="mdi mdi-bookmark"></i>
+                            <i <?= in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' ?> role="button" onclick="bookmark(this,<?= get_the_ID() ?>)" class="mdi mdi-bookmark"></i>
                         </div>
                     </div>
                     <a target="_blank" href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="more">more</a>
