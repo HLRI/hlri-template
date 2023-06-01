@@ -51,11 +51,14 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                <?php if (empty($property_id)) : ?>
+                                <?php if (empty($property_id)) : 
+                                    
+                                    wp_die($property_id);
+                                    
+                                    ?>
                                     <?php if ($property_id != $post_id) : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php
-                                            wp_die('ss');
                                             switch ($i) {
                                                 case 1:
                                                     $status = 'Poor';
