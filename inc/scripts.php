@@ -271,10 +271,11 @@ function theme_footer()
                     }
                 });
 
-                $('#stars.star').on('mouseover', function() {
+                $('#stars .star').on('mouseover', function() {
+                    console.log('a');
                     var onStar = parseInt($(this).data('value'), 10);
                     $(this).parent().children('li.star').each(function(e) {
-                        console.log('11');
+                        console.log('b');
                         if (e < onStar) {
                             $(this).addClass('hover');
                         } else {
@@ -288,7 +289,7 @@ function theme_footer()
                     });
                 });
 
-                $('#stars.star').on('click', function() {
+                $('#stars .star').on('click', function() {
                     var onStar = parseInt($(this).data('value'), 10);
                     var stars = $(this).parent().children('li.star');
                     for (i = 0; i < stars.length; i++) {
