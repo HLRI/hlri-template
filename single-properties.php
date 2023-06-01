@@ -14,8 +14,6 @@ $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
 $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
 $rates = round($total_rates / $user_rates);
 $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
-
-wp_die(empty($property_id));
 ?>
 
 
@@ -53,7 +51,7 @@ wp_die(empty($property_id));
                         <span>Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                <?php if (!isset($property_id) && empty($property_id)) : ?>
+                                <?php if (empty($property_id)) : ?>
                                     <?php if ($property_id != $post_id) : ?>
                                         <li class="star" title="Poor" data-value="1">
                                             <i class="fa fa-star fa-fw"></i>
