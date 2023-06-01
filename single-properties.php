@@ -14,6 +14,8 @@ $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
 $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
 $rates = round($total_rates / $user_rates);
 $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
+
+wp_die($property_id, $post_id);
 ?>
 
 
@@ -82,7 +84,6 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                         </li>
                                     <?php endfor; ?>
                                 <?php endif; ?>
-
                             </ul>
                         </div>
                     </div>
