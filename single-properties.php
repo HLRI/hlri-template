@@ -16,6 +16,7 @@ $rates = round($total_rates / $user_rates);
 $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 
 echo $post_id;
+echo $property_id;
 wp_die('hhh');
 ?>
 
