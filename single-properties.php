@@ -43,6 +43,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                     <div class="start-price">Starting from $571,990</div>
                     <div class="rating-section">
+                        <span>Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
                                 <li class="star" title="Poor" data-value="1">
@@ -64,7 +65,7 @@ $price_images = @get_post_meta(get_the_ID(), 'hlr_framework_properties_price_lis
                         </div>
                     </div>
                 </div>
-                
+
                 <?php if (!empty(get_the_excerpt())) : ?>
                     <div class="content-profile"><?php the_excerpt() ?></div>
                 <?php endif; ?>
