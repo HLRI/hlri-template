@@ -289,8 +289,6 @@ function theme_footer()
 
                 $('#stars li').on('click', function() {
                     var onStar = parseInt($(this).data('value'), 10);
-
-                    console.log(onStar);
                     var stars = $(this).parent().children('li.star');
                     for (i = 0; i < stars.length; i++) {
                         $(stars[i]).removeClass('selected');
@@ -298,11 +296,47 @@ function theme_footer()
                     for (i = 0; i < onStar; i++) {
                         $(stars[i]).addClass('selected');
                     }
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'bottom-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    jQuery.ajax({
+                        type: "post",
+                        url: '/wp-admin/admin-ajax.php',
+                        data: {
+                            'action': 'propertiesRating',
+                            'post_id': post_id
+                        },
+                        success: function(data) {
+                            if (data.status == 'notLogin') {
+
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: 'To submit your rating, you need to login first'
+                                })
+
+                            } else if (data.status == 'added') {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'Your rating has been saved'
+                                })
+                                jQuery(element).css({
+                                    color: '#9de450'
+                                });
+                            }
+                        }
+                    });
+
                 });
-
-
-               
-
             });
         </script>
     <?php endif; ?>
