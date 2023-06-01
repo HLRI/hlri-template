@@ -314,7 +314,7 @@ function theme_footer()
                         url: '/wp-admin/admin-ajax.php',
                         data: {
                             'action': 'propertiesRating',
-                            'post_id': post_id
+                            'post_id': get_the_ID()
                         },
                         success: function(data) {
                             if (data.status == 'notLogin') {
