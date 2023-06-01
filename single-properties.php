@@ -51,9 +51,9 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                <?php if (empty($property_id)) : 
+                                <?php wp_die($property_id); if (empty($property_id)) : 
                                     
-                                    wp_die($property_id);
+                                    
                                     
                                     ?>
                                     <?php if ($property_id != $post_id) : ?>
