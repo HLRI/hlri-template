@@ -273,7 +273,9 @@ function theme_footer()
 
                 $('#stars .star').on('mouseover', function() {
                     var onStar = parseInt($(this).data('value'), 10);
+                    console.log('onStar', onStar);
                     $(this).parent().children('li.star').each(function(e) {
+                        console.log('e', e);
                         if (e < onStar) {
                             console.log('a');
                             $(this).addClass('hover');
