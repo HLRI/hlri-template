@@ -2753,3 +2753,13 @@ a.neighborhood-link {
 .rating-stars ul>li.star.selected>i.fa {
   color: #FF912C;
 }
+
+.rating-section {
+  display: flex;
+  align-items: center;
+}
+
+.rating-section span {
+  color: #3b749b;
+  margin-right: 6px;
+}

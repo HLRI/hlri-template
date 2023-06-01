@@ -2823,3 +2823,14 @@ label {
 .rating-stars ul>li.star.selected>i.fa {
   color: #e28e5c;
 }
+
+.rating-section {
+    display: flex;
+    align-items: center;
+}
+
+.rating-section span {
+    color: #b19f91;
+    margin-right: 6px;
+}
+
