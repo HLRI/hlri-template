@@ -332,9 +332,6 @@ function theme_footer()
                                     icon: 'success',
                                     title: 'Your rating has been saved'
                                 })
-                                jQuery(element).css({
-                                    color: '#9de450'
-                                });
                             }
                         }
                     });
@@ -351,7 +348,6 @@ function theme_footer()
 function admin_enqueue($hook)
 {
     wp_register_style('style-admin', HLR_THEME_ASSETS . 'css/style-admin.css');
-
     if ($hook == 'post-new.php') {
         if ($_GET['post_type'] == 'properties') {
             wp_enqueue_style('style-admin');
