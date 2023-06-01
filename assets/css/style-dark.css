@@ -2808,7 +2808,7 @@ label {
 
 .rating-stars ul>li.star {
   display: inline-block;
-
+  cursor: pointer;
 }
 
 .rating-stars ul>li.star>i.fa {
