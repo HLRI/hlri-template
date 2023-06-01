@@ -96,6 +96,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                 <?php endif; ?>
                             </ul>
                         </div>
+                        <span>Votes : <?= $user_rates ?></span>
                     </div>
                 </div>
 
