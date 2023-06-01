@@ -327,6 +327,7 @@ function theme_footer()
                                 })
 
                             } else if (data.status == 'added') {
+                                $('#votes').html(data.votes + ' votes');
                                 Toast.fire({
                                     icon: 'success',
                                     title: 'Your rating has been saved'

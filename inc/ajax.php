@@ -164,7 +164,8 @@ function propertiesRating()
     }
 
     wp_send_json([
-        'status' => 'added'
+        'status' => 'added',
+        'votes' => $user_rates
     ]);
 
 }
