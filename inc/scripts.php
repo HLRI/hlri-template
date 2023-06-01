@@ -319,9 +319,7 @@ function theme_footer()
                         success: function(data) {
                             if (data.status == 'notLogin') {
 
-                                const modal = document.getElementById('login-modal');
-                                modal.style.display = 'block';
-
+                                $('#login-modal').modal('show');
 
                                 Toast.fire({
                                     icon: 'error',
