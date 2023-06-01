@@ -2754,6 +2754,7 @@ a.neighborhood-link {
   color: #FF912C;
 }
 
+
 .rating-section {
   display: flex;
   align-items: center;
@@ -2762,4 +2763,18 @@ a.neighborhood-link {
 .rating-section span {
   color: #3b749b;
   margin-right: 6px;
+}
+
+.rating-stars ul>li.star-rated {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.rating-stars ul>li.star-rated>i.fa {
+  font-size: 1.5em;
+  color: #ccc;
+}
+
+.rating-stars ul>li.star-rated.selected>i.fa {
+  color: #FF912C;
 }

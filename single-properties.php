@@ -71,11 +71,11 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                     <?php else : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php if ($i < $rates) : ?>
-                                                <li class="star selected">
+                                                <li class="star-rated selected">
                                                     <i class="fa fa-star fa-fw"></i>
                                                 </li>
                                             <?php else : ?>
-                                                <li class="star">
+                                                <li class="star-rated">
                                                     <i class="fa fa-star fa-fw"></i>
                                                 </li>
                                             <?php endif; ?>
@@ -84,11 +84,11 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                 <?php else : ?>
                                     <?php for ($i = 0; $i < 5; $i++) : ?>
                                         <?php if ($i < $rates) : ?>
-                                            <li class="star selected">
+                                            <li class="star-rated selected">
                                                 <i class="fa fa-star fa-fw"></i>
                                             </li>
                                         <?php else : ?>
-                                            <li class="star">
+                                            <li class="star-rated">
                                                 <i class="fa fa-star fa-fw"></i>
                                             </li>
                                         <?php endif; ?>

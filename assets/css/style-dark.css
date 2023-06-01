@@ -2793,7 +2793,7 @@ label {
     top: 0;
 }
 
-.top-48{
+.top-48 {
     top: 48;
 }
 
@@ -2807,21 +2807,21 @@ label {
 }
 
 .rating-stars ul>li.star {
-  display: inline-block;
-  cursor: pointer;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .rating-stars ul>li.star>i.fa {
-  font-size: 1.5em;
-  color: #665c54;
+    font-size: 1.5em;
+    color: #665c54;
 }
 
 .rating-stars ul>li.star.hover>i.fa {
-  color: #b19f91;
+    color: #b19f91;
 }
 
 .rating-stars ul>li.star.selected>i.fa {
-  color: #e28e5c;
+    color: #e28e5c;
 }
 
 .rating-section {
@@ -2834,3 +2834,16 @@ label {
     margin-right: 6px;
 }
 
+.rating-stars ul>li.star-rated {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.rating-stars ul>li.star-rated>i.fa {
+    font-size: 1.5em;
+    color: #665c54;
+}
+
+.rating-stars ul>li.star-rated.selected>i.fa {
+    color: #e28e5c;
+}
