@@ -69,17 +69,29 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                             <i class="fa fa-star fa-fw"></i>
                                         </li>
                                     <?php else : ?>
-                                        <?php for ($i = 0; $i < $rates; $i++) : ?>
-                                            <li class="star selected">
-                                                <i class="fa fa-star fa-fw"></i>
-                                            </li>
+                                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                                            <?php if ($i < $rates) : ?>
+                                                <li class="star selected">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php else : ?>
+                                                <li class="star">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php endif; ?>
                                         <?php endfor; ?>
                                     <?php endif; ?>
                                 <?php else : ?>
-                                    <?php for ($i = 0; $i < $rates; $i++) : ?>
-                                        <li class="star selected">
-                                            <i class="fa fa-star fa-fw"></i>
-                                        </li>
+                                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                                        <?php if ($i < $rates) : ?>
+                                            <li class="star selected">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="star">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php endif; ?>
                                     <?php endfor; ?>
                                 <?php endif; ?>
                             </ul>
