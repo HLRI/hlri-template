@@ -215,32 +215,31 @@ function theme_footer()
                 });
             });
 
-            var map = L.map('map', {
-                zoomControl: false
-            }).setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
+            try {
+                var map = L.map('map', {
+                    zoomControl: false
+                }).setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
+                L.tileLayer('https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                    attribution: ''
+                }).addTo(map);
+                var customIcon = L.icon({
+                    iconUrl: '<?= HLR_THEME_ASSETS . 'images/pin.png' ?>',
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 50]
+                });
+                L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], {
+                    icon: customIcon
+                }).addTo(map);
+                map.dragging.disable();
+                map.touchZoom.disable();
+                map.doubleClickZoom.disable();
+                map.scrollWheelZoom.disable();
+                map.boxZoom.disable();
+                map.keyboard.disable();
+                jQuery('.leaflet-control-attribution').remove();
+            } catch (error) {
 
-            L.tileLayer('https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                attribution: ''
-            }).addTo(map);
-
-            var customIcon = L.icon({
-                iconUrl: '<?= HLR_THEME_ASSETS . 'images/pin.png' ?>',
-                iconSize: [50, 50],
-                iconAnchor: [25, 50]
-            });
-
-            L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], {
-                icon: customIcon
-            }).addTo(map);
-
-            map.dragging.disable();
-            map.touchZoom.disable();
-            map.doubleClickZoom.disable();
-            map.scrollWheelZoom.disable();
-            map.boxZoom.disable();
-            map.keyboard.disable();
-
-            jQuery('.leaflet-control-attribution').remove();
+            }
 
             jQuery('.rvs-container').rvslider();
 
