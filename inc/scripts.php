@@ -287,7 +287,7 @@ function theme_footer()
                     });
                 });
 
-                $('#stars li').on('click', function() {
+                $('#stars .star').on('click', function() {
                     var onStar = parseInt($(this).data('value'), 10);
                     var stars = $(this).parent().children('li.star');
                     for (i = 0; i < stars.length; i++) {
