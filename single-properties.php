@@ -51,11 +51,6 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                <?php wp_die($property_id); if (empty($property_id)) : 
-                                    
-                                    
-                                    
-                                    ?>
                                     <?php if ($property_id != $post_id) : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php
@@ -100,19 +95,6 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                             <?php endif; ?>
                                         <?php endfor; ?>
                                     <?php endif; ?>
-                                <?php else : ?>
-                                    <?php for ($i = 0; $i < 5; $i++) : ?>
-                                        <?php if ($i < $rates) : ?>
-                                            <li class="star-rated selected">
-                                                <i class="fa fa-star fa-fw"></i>
-                                            </li>
-                                        <?php else : ?>
-                                            <li class="star-rated">
-                                                <i class="fa fa-star fa-fw"></i>
-                                            </li>
-                                        <?php endif; ?>
-                                    <?php endfor; ?>
-                                <?php endif; ?>
                             </ul>
                         </div>
                         <?php if (!empty($user_rates)) : ?>
