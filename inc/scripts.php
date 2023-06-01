@@ -271,7 +271,7 @@ function theme_footer()
                     }
                 });
 
-                $('#stars li').on('mouseover', function() {
+                $('#stars .star').on('mouseover', function() {
                     var onStar = parseInt($(this).data('value'), 10);
                     $(this).parent().children('li.star').each(function(e) {
                         if (e < onStar) {
