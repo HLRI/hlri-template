@@ -2836,7 +2836,6 @@ label {
 
 .rating-stars ul>li.star-rated {
     display: inline-block;
-    cursor: pointer;
 }
 
 .rating-stars ul>li.star-rated>i.fa {
