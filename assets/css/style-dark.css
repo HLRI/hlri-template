@@ -2829,10 +2829,15 @@ label {
     align-items: center;
 }
 
-.rating-section span {
+.rating {
     color: #b19f91;
     margin-right: 6px;
-}
+  }
+  
+  .votes {
+    color: #b19f91;
+    margin-left: 6px;
+  }
 
 .rating-stars ul>li.star-rated {
     display: inline-block;

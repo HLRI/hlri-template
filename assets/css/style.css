@@ -2754,15 +2754,19 @@ a.neighborhood-link {
   color: #FF912C;
 }
 
-
 .rating-section {
   display: flex;
   align-items: center;
 }
 
-.rating-section span {
+.rating {
   color: #3b749b;
   margin-right: 6px;
+}
+
+.votes {
+  color: #3b749b;
+  margin-left: 6px;
 }
 
 .rating-stars ul>li.star-rated {

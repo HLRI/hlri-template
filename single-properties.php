@@ -48,7 +48,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                     <div class="start-price">Starting from $571,990</div>
                     <div class="rating-section">
-                        <span>Rating : </span>
+                        <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
                                 <?php if (empty($property_id)) : ?>
@@ -97,7 +97,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                             </ul>
                         </div>
                         <?php if (!empty($user_rates)) : ?>
-                            <span>Votes : <?= $user_rates ?></span>
+                            <span class="votes">Votes : <?= $user_rates ?></span>
                         <?php endif; ?>
                     </div>
                 </div>
