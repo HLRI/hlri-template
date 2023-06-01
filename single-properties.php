@@ -97,7 +97,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                             </ul>
                         </div>
                         <?php if (!empty($user_rates)) : ?>
-                            <span class="votes">Votes : <?= $user_rates ?></span>
+                             | <span class="votes"> <?= $user_rates ?> votes</span>
                         <?php endif; ?>
                     </div>
                 </div>
