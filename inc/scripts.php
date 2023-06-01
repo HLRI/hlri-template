@@ -319,6 +319,10 @@ function theme_footer()
                         success: function(data) {
                             if (data.status == 'notLogin') {
 
+                                const modal = document.getElementById('login-modal');
+                                modal.style.display = 'block';
+
+
                                 Toast.fire({
                                     icon: 'error',
                                     title: 'To submit your rating, you need to login first'
