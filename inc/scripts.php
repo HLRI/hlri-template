@@ -254,7 +254,7 @@ function theme_footer()
 
                 var navigationsticker = $("#navigation-sticker");
                 var targetOffset = navigationsticker.offset().top;
-                
+
                 $(window).scroll(function() {
                     var scrollDistance = $(window).scrollTop();
                     var stickermobile = $('#sticker-mobile');
@@ -271,32 +271,7 @@ function theme_footer()
                     }
                 });
 
-                $('#stars li').on('mouseover', function() {
-                    var onStar = parseInt($(this).data('value'), 10);
-                    $(this).parent().children('li.star').each(function(e) {
-                        if (e < onStar) {
-                            $(this).addClass('hover');
-                        } else {
-                            $(this).removeClass('hover');
-                        }
-                    });
-
-                }).on('mouseout', function() {
-                    $(this).parent().children('li.star').each(function(e) {
-                        $(this).removeClass('hover');
-                    });
-                });
-
-                $('#stars li').on('click', function() {
-                    var onStar = parseInt($(this).data('value'), 10);
-                    var stars = $(this).parent().children('li.star');
-                    for (i = 0; i < stars.length; i++) {
-                        $(stars[i]).removeClass('selected');
-                    }
-                    for (i = 0; i < onStar; i++) {
-                        $(stars[i]).addClass('selected');
-                    }
-                });
+               
 
             });
         </script>
