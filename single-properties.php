@@ -53,21 +53,37 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                             <ul id="stars">
                                 <?php if (empty($property_id)) : ?>
                                     <?php if ($property_id != $post_id) : ?>
-                                        <li class="star" title="Poor" data-value="1">
-                                            <i class="fa fa-star fa-fw"></i>
-                                        </li>
-                                        <li class="star" title="Fair" data-value="2">
-                                            <i class="fa fa-star fa-fw"></i>
-                                        </li>
-                                        <li class="star" title="Good" data-value="3">
-                                            <i class="fa fa-star fa-fw"></i>
-                                        </li>
-                                        <li class="star" title="Excellent" data-value="4">
-                                            <i class="fa fa-star fa-fw"></i>
-                                        </li>
-                                        <li class="star" title="WOW!!!" data-value="5">
-                                            <i class="fa fa-star fa-fw"></i>
-                                        </li>
+                                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                                            <?php
+                                            switch ($i) {
+                                                case 1:
+                                                    $status = 'Poor';
+                                                    break;
+                                                case 2:
+                                                    $status = 'Fair';
+                                                    break;
+                                                case 3:
+                                                    $status = 'Good';
+                                                    break;
+                                                case 4:
+                                                    $status = 'Excellent';
+                                                    break;
+                                                default:
+                                                    $status = 'WOW';
+                                                    break;
+                                            }
+                                            ?>
+                                            <?php if ($i < $rates) : ?>
+                                                <li class="star selected">
+                                                    <i class="fa fa-star fa-fw" title="<?= $status ?> data-value="<?= $i + 1 ?>"></i>
+                                                </li>
+                                            <?php else : ?>
+                                                <li class="star">
+                                                    <i class="fa fa-star fa-fw" title="<?= $status ?> data-value="<?= $i + 1 ?>"></i>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+
                                     <?php else : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php if ($i < $rates) : ?>
@@ -97,7 +113,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                             </ul>
                         </div>
                         <?php if (!empty($user_rates)) : ?>
-                             <span class="votes"> <?= $user_rates ?> votes</span>
+                            <span class="votes"> <?= $user_rates ?> votes</span>
                         <?php endif; ?>
                     </div>
                 </div>
