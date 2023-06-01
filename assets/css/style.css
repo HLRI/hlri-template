@@ -2767,6 +2767,8 @@ a.neighborhood-link {
 .votes {
   color: #3b749b;
   margin-left: 6px;
+  border-left: 1px solid #3b749b;
+  padding-left: 14px;
 }
 
 .rating-stars ul>li.star-rated {

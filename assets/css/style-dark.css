@@ -2832,12 +2832,14 @@ label {
 .rating {
     color: #b19f91;
     margin-right: 6px;
-  }
-  
-  .votes {
+}
+
+.votes {
     color: #b19f91;
     margin-left: 6px;
-  }
+    border-left: 1px solid #b19f91;
+    padding-left: 14px;
+}
 
 .rating-stars ul>li.star-rated {
     display: inline-block;
