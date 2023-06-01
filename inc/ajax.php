@@ -150,6 +150,9 @@ function propertiesRating()
     $user_rates = get_post_meta($_POST['post_id'], 'properties_user_rates', true);
 
     if (!empty($total_rates) && !empty($user_rates)) {
+        wp_send_json( [
+            'data' => 'ddd'
+        ] );
         $total_rates = $total_rates + $_POST['rate'];
         $user_rates = $user_rates + 1;
         update_post_meta($_POST['post_id'], 'properties_total_rates', $total_rates);
@@ -160,7 +163,7 @@ function propertiesRating()
     wp_send_json([
         'status' => 'added'
     ]);
-    
+
 }
 
 add_action('wp_ajax_set_like_properties', 'set_like_properties');
