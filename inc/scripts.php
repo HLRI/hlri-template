@@ -272,13 +272,13 @@ function theme_footer()
                 });
 
                 $('#stars .star').on('mouseover', function() {
-                    console.log('a');
                     var onStar = parseInt($(this).data('value'), 10);
                     $(this).parent().children('li.star').each(function(e) {
-                        console.log('b');
                         if (e < onStar) {
+                            console.log('a');
                             $(this).addClass('hover');
                         } else {
+                            console.log('b');
                             $(this).removeClass('hover');
                         }
                     });
