@@ -150,11 +150,14 @@ function propertiesRating()
     $user_rates = get_post_meta($_POST['post_id'], 'properties_user_rates', true);
 
     if (!empty($total_rates) && !empty($user_rates)) {
-        wp_send_json( [
-            'data' => 'ddd'
-        ] );
         $total_rates = $total_rates + $_POST['rate'];
         $user_rates = $user_rates + 1;
+        update_post_meta($_POST['post_id'], 'properties_total_rates', $total_rates);
+        update_post_meta($_POST['post_id'], 'properties_user_rates', $user_rates);
+        update_user_meta(get_current_user_id(), 'properties_rated', $_POST['post_id']);
+    }else{
+        $total_rates = $_POST['rate'];
+        $user_rates = 1;
         update_post_meta($_POST['post_id'], 'properties_total_rates', $total_rates);
         update_post_meta($_POST['post_id'], 'properties_user_rates', $user_rates);
         update_user_meta(get_current_user_id(), 'properties_rated', $_POST['post_id']);
