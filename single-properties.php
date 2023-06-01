@@ -74,12 +74,12 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                             }
                                             ?>
                                             <?php if ($i < $rates) : ?>
-                                                <li class="star selected">
-                                                    <i class="fa fa-star fa-fw" title="<?= $status ?>" data-value="<?= $i + 1 ?>"></i>
+                                                <li class="star selected" data-value="<?= $i + 1 ?>">
+                                                    <i class="fa fa-star fa-fw" title="<?= $status ?>"></i>
                                                 </li>
                                             <?php else : ?>
-                                                <li class="star">
-                                                    <i class="fa fa-star fa-fw" title="<?= $status ?>" data-value="<?= $i + 1 ?>"></i>
+                                                <li class="star" data-value="<?= $i + 1 ?>">
+                                                    <i class="fa fa-star fa-fw" title="<?= $status ?>"></i>
                                                 </li>
                                             <?php endif; ?>
                                         <?php endfor; ?>
