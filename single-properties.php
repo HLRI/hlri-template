@@ -46,7 +46,9 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                    <div class="start-price">Starting from $571,990</div>
+                    <?php if (!empty($mdata['opt-price-min'])) : ?>
+                        <div class="start-price">Starting from $<?= number_format($mdata['opt-price-min']) ?></div>
+                    <?php endif; ?>
                     <div class="rating-section">
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
