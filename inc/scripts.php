@@ -89,6 +89,7 @@ function theme_head()
                         "ratingValue": "<?= $rates ?>",
                         "bestRating": "5"
                     }
+                    "reviewCount": "<?= $user_rates ?>"
                 }
             </script>
         <?php endif; ?>
