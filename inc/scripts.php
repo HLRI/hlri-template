@@ -80,52 +80,6 @@ function theme_head()
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         $rates = round($total_rates / $user_rates);
 
-        $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
-        if ($terms) {
-            $term_ids = array();
-
-            foreach ($terms as $item) {
-                $term_ids[] = $item->term_id;
-            }
-
-            $args = array(
-                'post_type' => ['properties'],
-                'post_status' => ['publish'],
-                'posts_per_page' => 6,
-                'post__not_in' => [$post_id],
-                'tax_query' => array(
-                    'relation' => 'OR',
-                    array(
-                        'taxonomy' => 'stage',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'type',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'city',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'neighborhood',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'group',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    )
-                ),
-            );
-            $peroperties = new WP_Query($args);
-            $peroperties_single = $peroperties;
-        }
-        // if ($peroperties->have_posts()) :
     ?>
             <!-- <script type="application/ld+json">
                 {
@@ -155,11 +109,9 @@ function theme_head()
                     ]
                 }
             </script> -->
-            <!-- <?php wp_reset_postdata(); ?> -->
-        <?php 
-    // endif; 
-    ?>
-    <?php endif; ?>
+         
+    
+        <?php endif; ?>
 
 
     <script>
