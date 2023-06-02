@@ -129,8 +129,8 @@ function theme_head()
         <script type="application/ld+json">
             {
                 "@context": "http://schema.org",
-                "@type": "<?= get_the_title() ?>",
-                "name": "Imperia Condominiums",
+                "@type": "LocalBusiness",
+                "name": "<?= get_the_title() ?>",
                 "description": "<?= get_the_excerpt() ?>",
                 "priceRange": "Starting at $365,100",
                 "aggregateRating": {
