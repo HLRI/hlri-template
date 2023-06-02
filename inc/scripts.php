@@ -125,9 +125,9 @@ function theme_head()
             $peroperties = new WP_Query($args);
             $peroperties_single = $peroperties;
         }
-        if ($peroperties->have_posts()) :
+        // if ($peroperties->have_posts()) :
     ?>
-            <script type="application/ld+json">
+            <!-- <script type="application/ld+json">
                 {
                     "title": "<?= get_the_title() ?>",
                     "description": "<?= get_the_excerpt() ?>",
@@ -154,9 +154,11 @@ function theme_head()
                         <?php endwhile; ?>
                     ]
                 }
-            </script>
-            <?php wp_reset_postdata(); ?>
-        <?php endif; ?>
+            </script> -->
+            <!-- <?php wp_reset_postdata(); ?> -->
+        <?php 
+    // endif; 
+    ?>
     <?php endif; ?>
 
 
