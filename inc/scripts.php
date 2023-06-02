@@ -75,56 +75,56 @@ function theme_head()
 
     <?php if (is_singular('properties')) :
 
-        $post_id = get_the_ID();
-        $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
-        $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
-        $rates = round($total_rates / $user_rates);
+        // $post_id = get_the_ID();
+        // $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
+        // $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
+        // $rates = round($total_rates / $user_rates);
 
-        $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
-        if ($terms) {
-            $term_ids = array();
+        // $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
+        // if ($terms) {
+        //     $term_ids = array();
 
-            foreach ($terms as $item) {
-                $term_ids[] = $item->term_id;
-            }
+        //     foreach ($terms as $item) {
+        //         $term_ids[] = $item->term_id;
+        //     }
 
-            $args = array(
-                'post_type' => ['properties'],
-                'post_status' => ['publish'],
-                'posts_per_page' => 6,
-                'post__not_in' => [$post_id],
-                'tax_query' => array(
-                    'relation' => 'OR',
-                    array(
-                        'taxonomy' => 'stage',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'type',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'city',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'neighborhood',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'group',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    )
-                ),
-            );
-            $peroperties = new WP_Query($args);
-        }
-        if ($peroperties->have_posts()) :
+        //     $args = array(
+        //         'post_type' => ['properties'],
+        //         'post_status' => ['publish'],
+        //         'posts_per_page' => 6,
+        //         'post__not_in' => [$post_id],
+        //         'tax_query' => array(
+        //             'relation' => 'OR',
+        //             array(
+        //                 'taxonomy' => 'stage',
+        //                 'field' => 'term_id',
+        //                 'terms' => $term_ids
+        //             ),
+        //             array(
+        //                 'taxonomy' => 'type',
+        //                 'field' => 'term_id',
+        //                 'terms' => $term_ids
+        //             ),
+        //             array(
+        //                 'taxonomy' => 'city',
+        //                 'field' => 'term_id',
+        //                 'terms' => $term_ids
+        //             ),
+        //             array(
+        //                 'taxonomy' => 'neighborhood',
+        //                 'field' => 'term_id',
+        //                 'terms' => $term_ids
+        //             ),
+        //             array(
+        //                 'taxonomy' => 'group',
+        //                 'field' => 'term_id',
+        //                 'terms' => $term_ids
+        //             )
+        //         ),
+        //     );
+        //     $peroperties = new WP_Query($args);
+        // }
+        // if ($peroperties->have_posts()) :
     ?>
             <script type="application/ld+json">
                 {
@@ -133,7 +133,9 @@ function theme_head()
                     "image": "<?= get_the_post_thumbnail_url() ?>",
                 }
             </script>
-        <?php endif; ?>
+        <?php 
+    // endif; 
+    ?>
     <?php endif; ?>
 
 
