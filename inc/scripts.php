@@ -135,11 +135,11 @@ function theme_head()
                         "@type": "Review",
                         "reviewRating": {
                             "@type": "Rating",
-                            "ratingValue": "<?= $rates ?>",
+                            "ratingValue": "<?= !empty($rates) ? $rates : 0 ?>",
                             "bestRating": "5",
                             "worstRating": "1",
-                        }
-                        "reviewCount": "<?= $user_rates ?>"
+                        },
+                        "reviewCount": "<?= !empty($user_rates) ? $user_rates : 0 ?>"
                     },
                     "image": "<?= get_the_post_thumbnail_url() ?>",
                     "related_posts": [
