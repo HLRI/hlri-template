@@ -136,7 +136,8 @@ function theme_head()
                         "reviewRating": {
                             "@type": "Rating",
                             "ratingValue": "<?= $rates ?>",
-                            "bestRating": "5"
+                            "bestRating": "5",
+                            "worstRating": "1",
                         },
                         "reviewCount": "<?= $user_rates ?>"
                     },
