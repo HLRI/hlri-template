@@ -131,28 +131,28 @@ function theme_head()
                     "title": "<?= get_the_title() ?>",
                     "description": "<?= get_the_excerpt() ?>",
                     "rating": {
-                        "@context": "http://schema.org",
+                        "@context": "https://schema.org/",
                         "@type": "Review",
                         "reviewRating": {
                             "@type": "Rating",
-                            "ratingValue": "<?= !is_nan($rates) ? $rates : 0 ?>",
-                            "bestRating": "5",
-                            "worstRating": "1",
-                        },
-                        "reviewCount": "<?= !empty($user_rates) ? $user_rates : 0 ?>"
+                            "ratingValue": <?= !is_nan($rates) ? $rates : 0 ?>,
+                            "worstRating": 1,
+                            "bestRating": 5,
+                            "reviewAspect": "Ambiance",
+                            "reviewCount": "<?= !empty($user_rates) ? $user_rates : 0 ?>"
+                        }
                     },
-                },
-                "image": "<?= get_the_post_thumbnail_url() ?>",
-                "related_posts": [
-                    <?php while ($peroperties->have_posts()) : $peroperties->the_post();
-                    ?> {
-                            "title": "<?= get_the_title() ?>",
-                            "description": "<?= get_the_excerpt() ?>",
-                            "image": "<?= get_the_post_thumbnail_url() ?>"
-                        },
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
-                ]
+                    "image": "<?= get_the_post_thumbnail_url() ?>",
+                    "related_posts": [
+                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
+                        ?> {
+                                "title": "<?= get_the_title() ?>",
+                                "description": "<?= get_the_excerpt() ?>",
+                                "image": "<?= get_the_post_thumbnail_url() ?>"
+                            },
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    ]
                 }
             </script>
         <?php endif; ?>
