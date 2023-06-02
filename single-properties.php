@@ -1,9 +1,6 @@
 <?php get_header(); ?>
 <?php
-wp_die(var_dump('sddd',$post_id));
-?>
-
-<?php
+$post_id = get_the_ID();
 $theme_options = get_option('hlr_framework');
 $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
 $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
@@ -13,6 +10,9 @@ $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', tr
 $videos = @get_post_meta($post_id, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
 $developments = @get_post_meta($post_id, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
 $price_images = @get_post_meta($post_id, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
+$total_rates = get_post_meta($post_id, 'properties_total_rates', true);
+$user_rates = get_post_meta($post_id, 'properties_user_rates', true);
+$rates = round($total_rates / $user_rates);
 $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 ?>
 
@@ -276,7 +276,53 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 
 <div class="container-fluid my-4" id="rp">
     <div class="row">
-        <?php if ($peroperties_single->have_posts()) : ?>
+        <?php
+        $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
+        if ($terms) {
+            $term_ids = array();
+
+            foreach ($terms as $item) {
+                $term_ids[] = $item->term_id;
+            }
+
+            $args = array(
+                'post_type' => ['properties'],
+                'post_status' => ['publish'],
+                'posts_per_page' => 6,
+                'post__not_in' => [$post_id],
+                'tax_query' => array(
+                    'relation' => 'OR',
+                    array(
+                        'taxonomy' => 'stage',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'type',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'city',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'neighborhood',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'group',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    )
+                ),
+            );
+            $peroperties = new WP_Query($args);
+        }
+        if ($peroperties->have_posts()) :
+        ?>
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Related Properties</h3>
@@ -286,7 +332,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
             <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                        <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
+                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
                             $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
@@ -373,7 +419,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 <div class="container-fluid my-4" id="hp">
     <div class="row">
         <?php
-        $args_single = array(
+        $args = array(
             'post_type' => ['properties'],
             'post_status' => ['publish'],
             'posts_per_page' => 6,
@@ -385,9 +431,9 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                 ]
             ]
         );
-        $peroperties_single = new WP_Query($args_single);
+        $peroperties = new WP_Query($args);
 
-        if ($peroperties_single->have_posts()) :
+        if ($peroperties->have_posts()) :
         ?>
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
@@ -398,7 +444,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
             <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                        <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
+                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
                             $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
