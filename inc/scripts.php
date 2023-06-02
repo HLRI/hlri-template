@@ -137,8 +137,8 @@ function theme_head()
                     "@type": "AggregateRating",
                     "bestRating": "5",
                     "worstRating": "1",
-                    "ratingCount": "<?= !empty($user_rates) ? $user_rates : 0  ?>",
-                    "ratingValue": "<?= !is_nan($rates) ? $rates : 0  ?>"
+                    "ratingCount": "<?= !empty($user_rates) ? $user_rates : 1  ?>",
+                    "ratingValue": "<?= !is_nan($rates) ? $rates : 1  ?>"
                 },
                 "image": "<?= get_the_post_thumbnail_url() ?>",
                 "url": "<?= get_the_permalink() ?>"
