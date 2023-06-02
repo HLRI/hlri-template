@@ -75,11 +75,11 @@ function theme_head()
 
     <?php if (is_singular('properties')) :
 
-        $total_rates = get_post_meta(get_the_ID(), 'properties_total_rates', true);
-        $user_rates = get_post_meta(get_the_ID(), 'properties_user_rates', true);
+        $post_id = get_the_ID();
+        $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
+        $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         $rates = round($total_rates / $user_rates);
 
-        <?php
         $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
         if ($terms) {
             $term_ids = array();
@@ -125,8 +125,8 @@ function theme_head()
             $peroperties = new WP_Query($args);
         }
         if ($peroperties->have_posts()) :
-        ?>
     ?>
+            ?>
             <script type="application/ld+json">
                 {
                     "title": "<?= get_the_title() ?>",
@@ -146,19 +146,18 @@ function theme_head()
                     "related_posts": [
                         <?php while ($peroperties->have_posts()) : $peroperties->the_post();
                             $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
-                        ?>
-                        {
-                            "title": "<?= get_the_title() ?>",
-                            "description": "<?= get_the_excerpt() ?>",
-                            "image": "<?= get_the_post_thumbnail_url() ?>"
-                        }
+                        ?> {
+                                "title": "<?= get_the_title() ?>",
+                                "description": "<?= get_the_excerpt() ?>",
+                                "image": "<?= get_the_post_thumbnail_url() ?>"
+                            }
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
 
                     ]
                 }
             </script>
-    <?php endif; ?>
+        <?php endif; ?>
     <?php endif; ?>
 
 
