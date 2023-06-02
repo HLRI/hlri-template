@@ -490,7 +490,9 @@ if ($peroperties_single->have_posts()) :
                                         <?php if (!empty($mdata['opt-size-min'])) : ?>
                                             <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
                                         <?php endif; ?>
-                                        <div>2781 Yonge St</div>
+                                        <?php if (!empty($mdata['opt-address'])) : ?>
+                                            <div><?= $mdata['opt-address'] ?></div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
