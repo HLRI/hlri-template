@@ -270,7 +270,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 
 </div>
 <?php
-wp_die(var_dump($peroperties_single));
+wp_die(var_dump($post_id));
 ?>
 
 <div class="container-fluid my-4" id="rp">
@@ -286,7 +286,7 @@ wp_die(var_dump($peroperties_single));
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
                         <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
-                            $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
+                            $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
 
@@ -318,11 +318,11 @@ wp_die(var_dump($peroperties_single));
                                     </div> -->
 
                                     <div class="lable-listing lable-listing-v2">
-                                        <?php if (!empty($mdata_single['opt-min-price-sqft'])) : ?>
-                                            <div><?= "$" . $mdata_single['opt-min-price-sqft'] . " to " . "$" . $mdata_single['opt-max-price-sqft'] ?></div>
+                                        <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
+                                            <div><?= "$" . $mdata['opt-min-price-sqft'] . " to " . "$" . $mdata['opt-max-price-sqft'] ?></div>
                                         <?php endif; ?>
-                                        <?php if (!empty($mdata_single['opt-size-min'])) : ?>
-                                            <div><?= $mdata_single['opt-size-min'] . " - " . $mdata_single['opt-size-max'] . " Sq Ft | " . $mdata_single['opt-occupancy'] ?></div>
+                                        <?php if (!empty($mdata['opt-size-min'])) : ?>
+                                            <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
                                         <?php endif; ?>
                                         <div>2781 Yonge St</div>
                                     </div>
@@ -398,7 +398,7 @@ wp_die(var_dump($peroperties_single));
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
                         <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
-                            $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
+                            $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
 
@@ -431,11 +431,11 @@ wp_die(var_dump($peroperties_single));
                                     </div> -->
 
                                     <div class="lable-listing lable-listing-v2">
-                                        <?php if (!empty($mdata_single['opt-min-price-sqft'])) : ?>
-                                            <div><?= "$" . $mdata_single['opt-min-price-sqft'] . " to " . "$" . $mdata_single['opt-max-price-sqft'] ?></div>
+                                        <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
+                                            <div><?= "$" . $mdata['opt-min-price-sqft'] . " to " . "$" . $mdata['opt-max-price-sqft'] ?></div>
                                         <?php endif; ?>
-                                        <?php if (!empty($mdata_single['opt-size-min'])) : ?>
-                                            <div><?= $mdata_single['opt-size-min'] . " - " . $mdata_single['opt-size-max'] . " Sq Ft | " . $mdata_single['opt-occupancy'] ?></div>
+                                        <?php if (!empty($mdata['opt-size-min'])) : ?>
+                                            <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
                                         <?php endif; ?>
                                         <div>2781 Yonge St</div>
                                     </div>
