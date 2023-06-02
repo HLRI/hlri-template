@@ -280,7 +280,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
 
 <?php
 $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
-if ($terms) {
+if (!empty($terms)) {
     $term_ids = array();
 
     foreach ($terms as $item) {
