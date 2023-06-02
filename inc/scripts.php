@@ -123,6 +123,7 @@ function theme_head()
                 ),
             );
             $peroperties = new WP_Query($args);
+            $peroperties_single = new WP_Query($args);
         }
         if ($peroperties->have_posts()) :
     ?>
