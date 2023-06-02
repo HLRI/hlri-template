@@ -135,7 +135,7 @@ function theme_head()
                         "@type": "Review",
                         "reviewRating": {
                             "@type": "Rating",
-                            "ratingValue": "<?= !empty($rates) ? $rates : 0 ?>",
+                            "ratingValue": "<?= !is_nan($rates) ? $rates : 0 ?>",
                             "bestRating": "5",
                             "worstRating": "1",
                         },
