@@ -130,20 +130,7 @@ function theme_head()
                 {
                     "title": "<?= get_the_title() ?>",
                     "description": "<?= get_the_excerpt() ?>",
-                    "rating": {
-                        "@context": "https://schema.org/",
-                        "@type": "Review",
-                        "reviewRating": {
-                            "@type": "Rating",
-                            "ratingValue": <?= !is_nan($rates) ? $rates : 0 ?>,
-                            "worstRating": 1,
-                            "bestRating": 5,
-                            "reviewAspect": "Ambiance",
-                            "reviewCount": "<?= !empty($user_rates) ? $user_rates : 0 ?>"
-                        }
-                    },
                     "image": "<?= get_the_post_thumbnail_url() ?>",
-                    
                 }
             </script>
         <?php endif; ?>
