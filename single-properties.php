@@ -14,6 +14,8 @@ $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
 $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
 $rates = round($total_rates / $user_rates);
 $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
+$mdata_single = get_post_meta(get_current_user_id(), 'hlr_framework_mapdata', true);
+
 ?>
 
 
@@ -47,7 +49,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                     <?php if (!empty($mdata['opt-price-min'])) : ?>
-                        <div class="start-price">Starting from $<?= number_format($mdata['opt-price-min']) ?></div>
+                        <div class="start-price">Starting from $<?= number_format($mdata_single['opt-price-min']) ?></div>
                     <?php endif; ?>
                     <div class="rating-section">
                         <span class="rating">Rating : </span>
