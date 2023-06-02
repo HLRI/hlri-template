@@ -48,7 +48,7 @@ $mdata_single = get_post_meta(get_current_user_id(), 'hlr_framework_mapdata', tr
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                    <?php if (!empty($mdata['opt-price-min'])) : ?>
+                    <?php if (!empty($mdata_single['opt-price-min'])) : ?>
                         <div class="start-price">Starting from $<?= number_format($mdata_single['opt-price-min']) ?></div>
                     <?php endif; ?>
                     <div class="rating-section">
