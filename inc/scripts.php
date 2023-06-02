@@ -130,7 +130,7 @@ function theme_head()
                 {
                     "title": "<?= get_the_title() ?>",
                     "description": "<?= get_the_excerpt() ?>",
-                    "image": "<?= get_the_post_thumbnail_url() ?>",
+                    "image": "<?= get_the_post_thumbnail_url() ?>"
                 }
             </script>
         <?php 
