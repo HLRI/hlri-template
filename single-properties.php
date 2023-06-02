@@ -343,7 +343,6 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                     </a>
                                 </div>
 
-
                                 <div class="card-body-listing card-body-listing-v2">
 
                                     <div class="card-listing-content card-listing-content-v2">

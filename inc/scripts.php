@@ -78,21 +78,87 @@ function theme_head()
         $total_rates = get_post_meta(get_the_ID(), 'properties_total_rates', true);
         $user_rates = get_post_meta(get_the_ID(), 'properties_user_rates', true);
         $rates = round($total_rates / $user_rates);
-        if (!empty($total_rates) && !empty($user_rates)) :
+
+        <?php
+        $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
+        if ($terms) {
+            $term_ids = array();
+
+            foreach ($terms as $item) {
+                $term_ids[] = $item->term_id;
+            }
+
+            $args = array(
+                'post_type' => ['properties'],
+                'post_status' => ['publish'],
+                'posts_per_page' => 6,
+                'post__not_in' => [$post_id],
+                'tax_query' => array(
+                    'relation' => 'OR',
+                    array(
+                        'taxonomy' => 'stage',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'type',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'city',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'neighborhood',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    ),
+                    array(
+                        'taxonomy' => 'group',
+                        'field' => 'term_id',
+                        'terms' => $term_ids
+                    )
+                ),
+            );
+            $peroperties = new WP_Query($args);
+        }
+        if ($peroperties->have_posts()) :
+        ?>
     ?>
             <script type="application/ld+json">
                 {
-                    "@context": "http://schema.org",
-                    "@type": "Review",
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "<?= $rates ?>",
-                        "bestRating": "5"
-                    }
-                    "reviewCount": "<?= $user_rates ?>"
+                    "title": "<?= get_the_title() ?>",
+                    "description": "<?= get_the_excerpt() ?>",
+                    "rating": {
+                        "@context": "http://schema.org",
+                        "@type": "Review",
+                        "reviewRating": {
+                            "@type": "Rating",
+                            "ratingValue": "<?= $rates ?>",
+                            "bestRating": "5"
+                        },
+                        "reviewCount": "<?= $user_rates ?>"
+                    },
+                    "image": "<?= get_the_post_thumbnail_url() ?>",
+                    "category": "<?= get_the_category() ?>",
+                    "related_posts": [
+                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
+                            $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
+                        ?>
+                        {
+                            "title": "<?= get_the_title() ?>",
+                            "description": "<?= get_the_excerpt() ?>",
+                            "image": "<?= get_the_post_thumbnail_url() ?>"
+                        }
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+
+                    ]
                 }
             </script>
-        <?php endif; ?>
+    <?php endif; ?>
     <?php endif; ?>
 
 
