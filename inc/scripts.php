@@ -142,7 +142,7 @@ function theme_head()
                         "reviewCount": "<?= $user_rates ?>"
                     },
                     "image": "<?= get_the_post_thumbnail_url() ?>",
-                    "category": "<?= get_the_category() ?>",
+                    "category": "<?php the_category() ?>",
                     "related_posts": [
                         <?php while ($peroperties->have_posts()) : $peroperties->the_post();
                             $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
