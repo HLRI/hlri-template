@@ -81,35 +81,6 @@ function theme_head()
         $rates = round($total_rates / $user_rates);
 
     ?>
-            <!-- <script type="application/ld+json">
-                {
-                    "title": "<?= get_the_title() ?>",
-                    "description": "<?= get_the_excerpt() ?>",
-                    "rating": {
-                        "@context": "http://schema.org",
-                        "@type": "Review",
-                        "reviewRating": {
-                            "@type": "Rating",
-                            "ratingValue": "<?= $rates ?>",
-                            "bestRating": "5",
-                            "worstRating": "1",
-                        },
-                        "reviewCount": "<?= $user_rates ?>"
-                    },
-                    "image": "<?= get_the_post_thumbnail_url() ?>",
-                    "related_posts": [
-                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
-                            $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
-                        ?> {
-                                "title": "<?= get_the_title() ?>",
-                                "description": "<?= get_the_excerpt() ?>",
-                                "image": "<?= get_the_post_thumbnail_url() ?>"
-                            },
-                        <?php endwhile; ?>
-                    ]
-                }
-            </script> -->
-         
     
         <?php endif; ?>
 
