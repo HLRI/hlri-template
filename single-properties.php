@@ -360,6 +360,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                             </div>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
+                        <?php wp_reset_query(); ?>
                     </div>
                 </div>
             </div>
