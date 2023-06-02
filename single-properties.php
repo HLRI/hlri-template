@@ -269,12 +269,13 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
     <?php endif; ?>
 
 </div>
+<?php
+wp_die(var_dump($peroperties_single));
+?>
 
 <div class="container-fluid my-4" id="rp">
     <div class="row">
-        <?php
-        if ($peroperties_single->have_posts()) :
-        ?>
+        <?php if ($peroperties_single->have_posts()) : ?>
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Related Properties</h3>
