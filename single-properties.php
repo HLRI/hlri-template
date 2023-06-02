@@ -187,7 +187,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
     </div>
 <?php endif; ?>
 
-<div class="container-fluid px-lg-5">
+<div class="container-fluid px-lg-5 mb-4">
     <?php if (!empty($developments)) : ?>
         <div class="row mt-5 mb-4">
             <div class="col-12">
