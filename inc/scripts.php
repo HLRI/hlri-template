@@ -82,7 +82,7 @@ function theme_head()
 
     ?>
 
-        <script type="application/ld+json">
+        <!-- <script type="application/ld+json">
             {
                 "@context": "http://schema.org",
                 "@type": "LocalBusiness",
@@ -105,7 +105,7 @@ function theme_head()
                 "image": "<?= get_the_post_thumbnail_url() ?>",
                 "url": "<?= get_the_permalink() ?>"
             }
-        </script>
+        </script> -->
 
     <?php endif; ?>
 

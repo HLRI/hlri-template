@@ -1,4 +1,29 @@
 <?php get_header(); ?>
+
+
+<div itemscope itemtype="http://schema.org/LocalBusiness">
+<h2 itemprop="name">36 Birch Avenue Townhomes</h2>
+<div itemprop="description"></div>
+<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+<span itemprop="addressLocality">Ville-Marie</span>,
+<span itemprop="addressRegion">QC</span>,
+<span itemprop="streetAddress">1430, rue de Bleury</span>
+</div>
+<div itemprop="priceRange">Starting at $3,250,000</div>
+<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+<meta itemprop="bestRating" content="5" />
+<meta itemprop="worstRating" content="1" />
+<span itemprop="ratingCount">1</span>
+<span itemprop="ratingValue">4</span>
+</div>
+<div itemprop="image">
+<img src="https://hlrtest.hlric.com/wp-content/uploads/2023/05/270520231685209856.jpeg" alt="Townhome Image">
+</div>
+<div itemprop="url">
+<a href="https://hlrtest.hlric.com/properties/36-birch-avenue-townhomes/">More information</a>
+</div>
+</div>
+
 <?php
 $post_id = get_the_ID();
 $theme_options = get_option('hlr_framework');
