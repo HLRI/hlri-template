@@ -86,6 +86,12 @@ function theme_head()
                 "@type": "LocalBusiness",
                 "name": "<?= get_the_title() ?>",
                 "description": "<?= get_the_excerpt() ?>",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Ville-Marie",
+                    "addressRegion": "QC",
+                    "streetAddress": "1430, rue de Bleury"
+                }
                 "priceRange": "Starting at $365,100",
                 "aggregateRating": {
                     "@type": "AggregateRating",
