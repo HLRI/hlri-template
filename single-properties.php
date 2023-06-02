@@ -277,6 +277,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 <div class="container-fluid my-4" id="rp">
     <div class="row">
         <?php
+        wp_die(var_dump($terms));
         $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
         if ($terms) {
             $term_ids = array();

@@ -152,7 +152,6 @@ function theme_head()
                             },
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
-
                     ]
                 }
             </script>
