@@ -156,7 +156,6 @@ function theme_head()
                 }
             </script>
             <?php wp_reset_postdata(); ?>
-            <?php wp_reset_query(); ?>
         <?php endif; ?>
     <?php endif; ?>
 
