@@ -1,18 +1,14 @@
 <?php get_header(); ?>
 <?php
-$post_id_single = get_the_ID();
 $theme_options = get_option('hlr_framework');
-$galleries = get_post_meta($post_id_single, 'hlr_framework_properties', true);
-$floorplans = get_post_meta($post_id_single, 'hlr_framework_properties-floorplan', true);
+$galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
+$floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
 $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
 $floorplans_ids = explode(',', $floorplans['opt-gallery-properties-floorplan']);
-$incentives = @get_post_meta($post_id_single, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
-$videos = @get_post_meta($post_id_single, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
-$developments = @get_post_meta($post_id_single, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
-$price_images = @get_post_meta($post_id_single, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
-$total_rates = get_post_meta($post_id_single, 'properties_total_rates', true);
-$user_rates = get_post_meta($post_id_single, 'properties_user_rates', true);
-$rates = round($total_rates / $user_rates);
+$incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
+$videos = @get_post_meta($post_id, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
+$developments = @get_post_meta($post_id, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
+$price_images = @get_post_meta($post_id, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
 $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 ?>
 
@@ -34,13 +30,13 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                     <h1 class="mb-2"><?php the_title() ?></h1>
                     <div class="card-share-single my-0">
                         <div class="card-share-single-options">
-                            <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
-                            <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
-                            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_excerpt() ?>"><i class="fa fa-linkedin-square"></i></a>
-                            <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
-                            <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
-                            <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
-                            <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
+                            <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
+                            <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink($post_id, 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
+                            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink($post_id, 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_excerpt() ?>"><i class="fa fa-linkedin-square"></i></a>
+                            <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
+                            <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink($post_id, 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
+                            <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink($post_id, 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
+                            <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +47,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                <?php if ($property_id != $post_id_single) : ?>
+                                <?php if ($property_id != $post_id) : ?>
                                     <?php for ($i = 0; $i < 5; $i++) : ?>
                                         <?php
                                         switch ($i + 1) {
@@ -277,7 +273,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 <div class="container-fluid my-4" id="rp">
     <div class="row">
         <?php
-        $terms_single = get_the_terms($post_id_single, array('stage', 'type', 'city', 'neighborhood', 'group'));
+        $terms_single = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
         if ($terms_single) {
             $term_ids_single = array();
 
@@ -289,7 +285,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                 'post_type' => ['properties'],
                 'post_status' => ['publish'],
                 'posts_per_page' => 6,
-                'post__not_in' => [$post_id_single],
+                'post__not_in' => [$post_id],
                 'tax_query' => array(
                     'relation' => 'OR',
                     array(
@@ -333,7 +329,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
                         <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
-                            $mdata_single = get_post_meta($post_id_single, 'hlr_framework_mapdata', true);
+                            $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
 
@@ -380,29 +376,29 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                 <div class="more more-v2">
                                     <div class="card-listing-options">
                                         <div>
-                                            <i onclick="setLikeProperties(this, <?= $post_id_single ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[$post_id_single]) ? ' style="color:red" ' : '' ?>></i>
+                                            <i onclick="setLikeProperties(this, <?= $post_id ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[$post_id]) ? ' style="color:red" ' : '' ?>></i>
                                             <span class="text-muted" id="like-total">
-                                                <?php if (!empty(get_post_meta($post_id_single, 'total_like', true))) : ?>
-                                                    <?= get_post_meta($post_id_single, 'total_like', true)   ?>
+                                                <?php if (!empty(get_post_meta($post_id, 'total_like', true))) : ?>
+                                                    <?= get_post_meta($post_id, 'total_like', true)   ?>
                                                 <?php endif; ?>
                                             </span>
                                         </div>
 
                                         <i role="button" class="fa fa-share-alt"></i>
-                                        <i <?= is_user_logged_in() ? in_array($post_id_single, get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= $post_id_single ?>)" class="fa fa-bookmark"></i>
+                                        <i <?= is_user_logged_in() ? in_array($post_id, get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= $post_id ?>)" class="fa fa-bookmark"></i>
                                     </div>
                                     <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>
 
                                 </div>
 
                                 <div class="card-share">
-                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
-                                    <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
-                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_content() ?>"><i class="fa fa-linkedin-square"></i></a>
-                                    <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
-                                    <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
-                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
-                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
+                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
+                                    <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink($post_id, 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
+                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink($post_id, 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_content() ?>"><i class="fa fa-linkedin-square"></i></a>
+                                    <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
+                                    <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink($post_id, 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
+                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink($post_id, 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
+                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
                                     <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
                                 </div>
                             </div>
@@ -445,7 +441,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
                         <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
-                            $mdata_single = get_post_meta($post_id_single, 'hlr_framework_mapdata', true);
+                            $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
 
@@ -493,29 +489,29 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                 <div class="more more-v2">
                                     <div class="card-listing-options">
                                         <div>
-                                            <i onclick="setLikeProperties(this, <?= $post_id_single ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[$post_id_single]) ? ' style="color:red" ' : '' ?>></i>
+                                            <i onclick="setLikeProperties(this, <?= $post_id ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[$post_id]) ? ' style="color:red" ' : '' ?>></i>
                                             <span class="text-muted" id="like-total">
-                                                <?php if (!empty(get_post_meta($post_id_single, 'total_like', true))) : ?>
-                                                    <?= get_post_meta($post_id_single, 'total_like', true)   ?>
+                                                <?php if (!empty(get_post_meta($post_id, 'total_like', true))) : ?>
+                                                    <?= get_post_meta($post_id, 'total_like', true)   ?>
                                                 <?php endif; ?>
                                             </span>
                                         </div>
 
                                         <i role="button" class="fa fa-share-alt"></i>
-                                        <i <?= is_user_logged_in() ? in_array($post_id_single, get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= $post_id_single ?>)" class="fa fa-bookmark"></i>
+                                        <i <?= is_user_logged_in() ? in_array($post_id, get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= $post_id ?>)" class="fa fa-bookmark"></i>
                                     </div>
                                     <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>
 
                                 </div>
 
                                 <div class="card-share">
-                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
-                                    <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
-                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_content() ?>"><i class="fa fa-linkedin-square"></i></a>
-                                    <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
-                                    <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
-                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
-                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink($post_id_single, 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
+                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
+                                    <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink($post_id, 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
+                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink($post_id, 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_content() ?>"><i class="fa fa-linkedin-square"></i></a>
+                                    <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
+                                    <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink($post_id, 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
+                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink($post_id, 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
+                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink($post_id, 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
                                     <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
                                 </div>
                             </div>
