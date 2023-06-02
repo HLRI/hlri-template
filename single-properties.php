@@ -278,61 +278,60 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
 
 </div>
 
-<div class="container-fluid my-4" id="rp">
-    <div class="row">
-        <?php
-        $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
-        if ($terms) {
-            $term_ids = array();
+<?php
+$terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
+if ($terms) {
+    $term_ids = array();
 
-            foreach ($terms as $item) {
-                $term_ids[] = $item->term_id;
-            }
+    foreach ($terms as $item) {
+        $term_ids[] = $item->term_id;
+    }
 
-            $args = array(
-                'post_type' => ['properties'],
-                'post_status' => ['publish'],
-                'posts_per_page' => 6,
-                'post__not_in' => [$post_id],
-                'tax_query' => array(
-                    'relation' => 'OR',
-                    array(
-                        'taxonomy' => 'stage',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'type',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'city',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'neighborhood',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    ),
-                    array(
-                        'taxonomy' => 'group',
-                        'field' => 'term_id',
-                        'terms' => $term_ids
-                    )
-                ),
-            );
-            $peroperties_single = new WP_Query($args);
-        }
-        if ($peroperties_single->have_posts()) :
-        ?>
+    $args = array(
+        'post_type' => ['properties'],
+        'post_status' => ['publish'],
+        'posts_per_page' => 6,
+        'post__not_in' => [$post_id],
+        'tax_query' => array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'stage',
+                'field' => 'term_id',
+                'terms' => $term_ids
+            ),
+            array(
+                'taxonomy' => 'type',
+                'field' => 'term_id',
+                'terms' => $term_ids
+            ),
+            array(
+                'taxonomy' => 'city',
+                'field' => 'term_id',
+                'terms' => $term_ids
+            ),
+            array(
+                'taxonomy' => 'neighborhood',
+                'field' => 'term_id',
+                'terms' => $term_ids
+            ),
+            array(
+                'taxonomy' => 'group',
+                'field' => 'term_id',
+                'terms' => $term_ids
+            )
+        ),
+    );
+    $peroperties_single = new WP_Query($args);
+}
+if ($peroperties_single->have_posts()) :
+?>
+    <div class="container-fluid my-4" id="rp">
+        <div class="row">
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Related Properties</h3>
                 </div>
             </div>
-
             <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
@@ -415,36 +414,36 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                     </div>
                 </div>
             </div>
-
-        <?php endif; ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>
 
-<div class="container-fluid my-4" id="hp">
-    <div class="row">
-        <?php
-        $args = array(
-            'post_type' => ['properties'],
-            'post_status' => ['publish'],
-            'posts_per_page' => 6,
-            'tax_query' => [
-                [
-                    'taxonomy' => 'group',
-                    'field' => 'term_id',
-                    'terms' => 31,
-                ]
-            ]
-        );
-        $peroperties_single = new WP_Query($args);
 
-        if ($peroperties_single->have_posts()) :
-        ?>
+
+<?php
+$args = array(
+    'post_type' => ['properties'],
+    'post_status' => ['publish'],
+    'posts_per_page' => 6,
+    'tax_query' => [
+        [
+            'taxonomy' => 'group',
+            'field' => 'term_id',
+            'terms' => 31,
+        ]
+    ]
+);
+$peroperties_single = new WP_Query($args);
+
+if ($peroperties_single->have_posts()) :
+?>
+    <div class="container-fluid my-4" id="hp">
+        <div class="row">
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">This Month Hot New Projects</h3>
                 </div>
             </div>
-
             <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
@@ -528,9 +527,8 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                     </div>
                 </div>
             </div>
-
-        <?php endif; ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>
