@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 <?php
+wp_die(var_dump('sddd',$post_id));
+?>
+
+<?php
 $theme_options = get_option('hlr_framework');
 $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
 $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
@@ -269,9 +273,6 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
     <?php endif; ?>
 
 </div>
-<?php
-wp_die(var_dump($post_id));
-?>
 
 <div class="container-fluid my-4" id="rp">
     <div class="row">
