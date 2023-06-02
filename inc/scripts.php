@@ -141,7 +141,7 @@ function theme_head()
                     "ratingValue": "<?= !is_nan($rates) ? $rates : 0  ?>"
                 },
                 "image": "<?= get_the_post_thumbnail_url() ?>",
-                "url": "<?= get_the_permalink() ?>",
+                "url": "<?= get_the_permalink() ?>"
             }
         </script>
         <?php
