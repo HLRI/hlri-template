@@ -273,6 +273,50 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 <div class="container-fluid my-4" id="rp">
     <div class="row">
         <?php
+        $terms_single = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
+        if ($terms_single) {
+            $term_ids_single = array();
+
+            foreach ($terms_single as $item) {
+                $term_ids_single[] = $item->term_id;
+            }
+
+            $args_single = array(
+                'post_type' => ['properties'],
+                'post_status' => ['publish'],
+                'posts_per_page' => 6,
+                'post__not_in' => [$post_id],
+                'tax_query' => array(
+                    'relation' => 'OR',
+                    array(
+                        'taxonomy' => 'stage',
+                        'field' => 'term_id',
+                        'terms' => $term_ids_single
+                    ),
+                    array(
+                        'taxonomy' => 'type',
+                        'field' => 'term_id',
+                        'terms' => $term_ids_single
+                    ),
+                    array(
+                        'taxonomy' => 'city',
+                        'field' => 'term_id',
+                        'terms' => $term_ids_single
+                    ),
+                    array(
+                        'taxonomy' => 'neighborhood',
+                        'field' => 'term_id',
+                        'terms' => $term_ids_single
+                    ),
+                    array(
+                        'taxonomy' => 'group',
+                        'field' => 'term_id',
+                        'terms' => $term_ids_single
+                    )
+                ),
+            );
+            $peroperties_single = new WP_Query($args_single);
+        }
         if ($peroperties_single->have_posts()) :
         ?>
             <div class="col-12 px-lg-5">
