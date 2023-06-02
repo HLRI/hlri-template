@@ -262,7 +262,6 @@ function theme_footer()
                     } else {
                         stickermobile.removeClass('fixed-menu top-0');
                     }
-
                     if (scrollDistance >= targetOffset - 48) {
                         navigationsticker.addClass('fixed-menu top-48');
                     } else {
@@ -279,7 +278,6 @@ function theme_footer()
                             $(this).removeClass('hover');
                         }
                     });
-
                 }).on('mouseout', function() {
                     $(this).parent().children('li.star').each(function(e) {
                         $(this).removeClass('hover');
@@ -332,11 +330,17 @@ function theme_footer()
                                     icon: 'success',
                                     title: 'Your rating has been saved'
                                 })
+                            } else if (data.status == 'exists') {
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: 'You have already voted for this item'
+                                })
                             }
                         }
                     });
 
                 });
+
             });
         </script>
     <?php endif; ?>

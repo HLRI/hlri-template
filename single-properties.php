@@ -54,7 +54,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                                     <?php if ($property_id != $post_id) : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php
-                                            switch ($i) {
+                                            switch ($i+1) {
                                                 case 1:
                                                     $status = 'Poor';
                                                     break;

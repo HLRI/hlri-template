@@ -146,6 +146,13 @@ function propertiesRating()
         ]);
     }
 
+    $property_id = get_user_meta($_POST['post_id'], 'properties_rated', true);
+    if ($property_id == $_POST['post_id']){
+        wp_send_json([
+            'status' => 'exists',
+        ]);
+    }
+
     $total_rates = get_post_meta($_POST['post_id'], 'properties_total_rates', true);
     $user_rates = get_post_meta($_POST['post_id'], 'properties_user_rates', true);
 
