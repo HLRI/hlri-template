@@ -142,7 +142,6 @@ function theme_head()
                         "reviewCount": "<?= $user_rates ?>"
                     },
                     "image": "<?= get_the_post_thumbnail_url() ?>",
-                    "category": "<?php the_category() ?>",
                     "related_posts": [
                         <?php while ($peroperties->have_posts()) : $peroperties->the_post();
                             $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
@@ -150,7 +149,7 @@ function theme_head()
                                 "title": "<?= get_the_title() ?>",
                                 "description": "<?= get_the_excerpt() ?>",
                                 "image": "<?= get_the_post_thumbnail_url() ?>"
-                            }
+                            },
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
 
