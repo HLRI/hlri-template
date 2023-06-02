@@ -138,7 +138,7 @@ function theme_head()
                             "ratingValue": "<?= $rates ?>",
                             "bestRating": "5",
                             "worstRating": "1",
-                        },
+                        }
                         "reviewCount": "<?= $user_rates ?>"
                     },
                     "image": "<?= get_the_post_thumbnail_url() ?>",
