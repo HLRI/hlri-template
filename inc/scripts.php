@@ -72,6 +72,29 @@ add_action('wp_head', 'theme_head');
 function theme_head()
 {
 ?>
+
+    <?php if (is_singular('properties')) :
+
+        $total_rates = get_post_meta(get_the_ID(), 'properties_total_rates', true);
+        $user_rates = get_post_meta(get_the_ID(), 'properties_user_rates', true);
+        $rates = round($total_rates / $user_rates);
+        if (!empty($total_rates) && !empty($user_rates)) :
+    ?>
+            <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "<?= $rates ?>",
+                        "bestRating": "5"
+                    }
+                }
+            </script>
+        <?php endif; ?>
+    <?php endif; ?>
+
+
     <script>
         var AjaxHLR = {
             "url": "<?= admin_url('admin-ajax.php') ?>"
@@ -237,9 +260,7 @@ function theme_footer()
                 map.boxZoom.disable();
                 map.keyboard.disable();
                 jQuery('.leaflet-control-attribution').remove();
-            } catch (error) {
-
-            }
+            } catch (error) {}
 
             jQuery('.rvs-container').rvslider();
 

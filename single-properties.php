@@ -51,50 +51,50 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                    <?php if ($property_id != $post_id) : ?>
-                                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                                            <?php
-                                            switch ($i+1) {
-                                                case 1:
-                                                    $status = 'Poor';
-                                                    break;
-                                                case 2:
-                                                    $status = 'Fair';
-                                                    break;
-                                                case 3:
-                                                    $status = 'Good';
-                                                    break;
-                                                case 4:
-                                                    $status = 'Excellent';
-                                                    break;
-                                                default:
-                                                    $status = 'WOW';
-                                                    break;
-                                            }
-                                            ?>
-                                            <?php if ($i < $rates) : ?>
-                                                <li class="star selected" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
-                                                    <i class="fa fa-star fa-fw" ></i>
-                                                </li>
-                                            <?php else : ?>
-                                                <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
-                                                    <i class="fa fa-star fa-fw"></i>
-                                                </li>
-                                            <?php endif; ?>
-                                        <?php endfor; ?>
-                                    <?php else : ?>
-                                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                                            <?php if ($i < $rates) : ?>
-                                                <li class="star-rated selected">
-                                                    <i class="fa fa-star fa-fw"></i>
-                                                </li>
-                                            <?php else : ?>
-                                                <li class="star-rated">
-                                                    <i class="fa fa-star fa-fw"></i>
-                                                </li>
-                                            <?php endif; ?>
-                                        <?php endfor; ?>
-                                    <?php endif; ?>
+                                <?php if ($property_id != $post_id) : ?>
+                                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                                        <?php
+                                        switch ($i + 1) {
+                                            case 1:
+                                                $status = 'Poor';
+                                                break;
+                                            case 2:
+                                                $status = 'Fair';
+                                                break;
+                                            case 3:
+                                                $status = 'Good';
+                                                break;
+                                            case 4:
+                                                $status = 'Excellent';
+                                                break;
+                                            default:
+                                                $status = 'WOW';
+                                                break;
+                                        }
+                                        ?>
+                                        <?php if ($i < $rates) : ?>
+                                            <li class="star selected" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                <?php else : ?>
+                                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                                        <?php if ($i < $rates) : ?>
+                                            <li class="star-rated selected">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="star-rated">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                <?php endif; ?>
                             </ul>
                         </div>
                         <?php if (!empty($user_rates)) : ?>
