@@ -76,9 +76,9 @@ function theme_head()
     <?php if (is_singular('properties')) :
 
         // $post_id = get_the_ID();
-        // $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
-        // $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
-        // $rates = round($total_rates / $user_rates);
+        $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
+        $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
+        $rates = round($total_rates / $user_rates);
 
         // $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
         // if ($terms) {
@@ -126,16 +126,27 @@ function theme_head()
         // }
         // if ($peroperties->have_posts()) :
     ?>
-            <script type="application/ld+json">
-                {
-                    "title": "<?= get_the_title() ?>",
-                    "description": "<?= get_the_excerpt() ?>",
-                    "image": "<?= get_the_post_thumbnail_url() ?>"
-                }
-            </script>
-        <?php 
-    // endif; 
-    ?>
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "<?= get_the_title() ?>",
+                "name": "Imperia Condominiums",
+                "description": "<?= get_the_excerpt() ?>",
+                "priceRange": "Starting at $365,100",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "bestRating": "5",
+                    "worstRating": "1",
+                    "ratingCount": "<?= !empty($user_rates) ? $user_rates : 0  ?>",
+                    "ratingValue": "<?= !is_nan($rates) ? $rates : 0  ?>"
+                },
+                "image": "<?= get_the_post_thumbnail_url() ?>",
+                "url": "<?= get_the_permalink() ?>",
+            }
+        </script>
+        <?php
+        // endif; 
+        ?>
     <?php endif; ?>
 
 
