@@ -368,13 +368,15 @@ if (!empty($terms)) :
                                     </div> -->
 
                                         <div class="lable-listing lable-listing-v2">
-                                            <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
-                                                <div><?= "$" . $mdata['opt-min-price-sqft'] . " to " . "$" . $mdata['opt-max-price-sqft'] ?></div>
+                                            <?php if (!empty($mdata['opt-min-price'])) : ?>
+                                                <div><?= "$" . $mdata['opt-min-price'] . " to " . "$" . $mdata['opt-max-price'] ?></div>
                                             <?php endif; ?>
                                             <?php if (!empty($mdata['opt-size-min'])) : ?>
                                                 <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
                                             <?php endif; ?>
-                                            <div>2781 Yonge St</div>
+                                            <?php if (!empty($mdata['opt-address'])) : ?>
+                                                <div><?= $mdata['opt-address'] ?></div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
