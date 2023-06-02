@@ -74,7 +74,7 @@ function theme_head()
 ?>
 
     <?php if (is_singular('properties')) :
-
+        $post_id = get_the_ID();
         $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         $rates = round($total_rates / $user_rates);
