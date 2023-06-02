@@ -126,7 +126,6 @@ function theme_head()
         }
         if ($peroperties->have_posts()) :
     ?>
-            ?>
             <script type="application/ld+json">
                 {
                     "title": "<?= get_the_title() ?>",
