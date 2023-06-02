@@ -277,7 +277,6 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 <div class="container-fluid my-4" id="rp">
     <div class="row">
         <?php
-        wp_die(var_dump($terms));
         $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
         if ($terms) {
             $term_ids = array();
@@ -320,9 +319,9 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                     )
                 ),
             );
-            $peroperties = new WP_Query($args);
+            $peroperties_single = new WP_Query($args);
         }
-        if ($peroperties->have_posts()) :
+        if ($peroperties_single->have_posts()) :
         ?>
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
@@ -333,7 +332,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
             <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
+                        <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
                             $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
@@ -432,9 +431,9 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
                 ]
             ]
         );
-        $peroperties = new WP_Query($args);
+        $peroperties_single = new WP_Query($args);
 
-        if ($peroperties->have_posts()) :
+        if ($peroperties_single->have_posts()) :
         ?>
             <div class="col-12 px-lg-5">
                 <div class="titr-list ml-0">
@@ -445,7 +444,7 @@ $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
             <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
+                        <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
                             $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
