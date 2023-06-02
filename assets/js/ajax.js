@@ -49,7 +49,7 @@ function bookmark(element, post_id) {
 
     const Toast = Swal.mixin({
         toast: true,
-        position: 'bottom-end',
+        position: 'bottom-start',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
@@ -99,7 +99,7 @@ function setLikeProperties(item, properties_id) {
 
     const Toast = Swal.mixin({
         toast: true,
-        position: 'bottom-end',
+        position: 'bottom-start',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
