@@ -123,6 +123,7 @@ function theme_head()
                 ),
             );
             $peroperties = new WP_Query($args);
+            $peroperties_single = $peroperties;
         }
         if ($peroperties->have_posts()) :
     ?>
@@ -142,11 +143,18 @@ function theme_head()
                         "reviewCount": "<?= $user_rates ?>"
                     },
                     "image": "<?= get_the_post_thumbnail_url() ?>",
-                   
+                    "related_posts": [
+                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
+                            $mdata = get_post_meta($post_id, 'hlr_framework_mapdata', true);
+                        ?> {
+                                "title": "<?= get_the_title() ?>",
+                                "description": "<?= get_the_excerpt() ?>",
+                                "image": "<?= get_the_post_thumbnail_url() ?>"
+                            },
+                        <?php endwhile; ?>
+                    ]
                 }
             </script>
-            <?php wp_reset_postdata(); ?>
-            <?php wp_reset_query(); ?>
         <?php endif; ?>
     <?php endif; ?>
 
