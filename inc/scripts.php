@@ -78,6 +78,8 @@ function theme_head()
         $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         $rates = round($total_rates / $user_rates);
+        $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
+
     ?>
 
         <script type="application/ld+json">
@@ -91,8 +93,8 @@ function theme_head()
                     "addressLocality": "Ville-Marie",
                     "addressRegion": "QC",
                     "streetAddress": "1430, rue de Bleury"
-                }
-                "priceRange": "Starting at $365,100",
+                },
+                "priceRange": "Starting at $<?= number_format($mdata_single['opt-price-min']) ?>",
                 "aggregateRating": {
                     "@type": "AggregateRating",
                     "bestRating": "5",
