@@ -141,17 +141,18 @@ function theme_head()
                         },
                         "reviewCount": "<?= !empty($user_rates) ? $user_rates : 0 ?>"
                     },
-                    "image": "<?= get_the_post_thumbnail_url() ?>",
-                    "related_posts": [
-                        <?php while ($peroperties->have_posts()) : $peroperties->the_post();
-                        ?> {
-                                "title": "<?= get_the_title() ?>",
-                                "description": "<?= get_the_excerpt() ?>",
-                                "image": "<?= get_the_post_thumbnail_url() ?>"
-                            },
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
-                    ]
+                },
+                "image": "<?= get_the_post_thumbnail_url() ?>",
+                "related_posts": [
+                    <?php while ($peroperties->have_posts()) : $peroperties->the_post();
+                    ?> {
+                            "title": "<?= get_the_title() ?>",
+                            "description": "<?= get_the_excerpt() ?>",
+                            "image": "<?= get_the_post_thumbnail_url() ?>"
+                        },
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                ]
                 }
             </script>
         <?php endif; ?>
