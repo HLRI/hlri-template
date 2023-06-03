@@ -2728,7 +2728,8 @@ label {
     background: #7c6f64;
     display: inline;
     padding: 6px 18px;
-    border-radius: 6px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     font-size: 13px;
     font-weight: bold;
     color: #32302f;
