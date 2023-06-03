@@ -21,6 +21,16 @@ include HLR_THEME_PATH . 'inc/taxonomy.php';
 include HLR_THEME_PATH . 'inc/visit_history.php';
 
 
+function disable_taxonomy_multiselect() {
+    // Replace "taxonomy_name" with the actual name of your taxonomy
+    $taxonomy = 'city';
+
+    // Replace "post" with the appropriate post type if the taxonomy is not associated with the "post" post type
+    remove_meta_box('tagsdiv-' . $taxonomy, 'peroperties', 'normal');
+    add_meta_box('tagsdiv-' . $taxonomy, $taxonomy, 'post_categories_meta_box', 'peroperties', 'side', 'core');
+}
+add_action('init', 'disable_taxonomy_multiselect');
+
 // function my_awesome_func_two()
 // {
 //     $args = array(
