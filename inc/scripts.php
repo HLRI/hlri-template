@@ -79,7 +79,7 @@ function theme_head()
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         $rates = round($total_rates / $user_rates);
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
-
+        $theme_option = get_option('hlr_framework');
     ?>
 
         <script type="application/ld+json">
@@ -90,10 +90,11 @@ function theme_head()
                 "description": "<?= get_the_excerpt() ?>",
                 "address": {
                     "@type": "PostalAddress",
-                    "addressLocality": "Ville-Marie",
-                    "addressRegion": "QC",
-                    "streetAddress": "1430, rue de Bleury"
+                    "addressLocality": "<?= $mdata_single['opt-city'] ?>",
+                    "addressRegion": "ON",
+                    "streetAddress": "<?= $mdata_single['opt-address'] ?>"
                 },
+                "telephone":"<?= $theme_option['opt-schema-phone'] ?>",
                 "priceRange": "Starting at $<?= number_format($mdata_single['opt-price-min']) ?>",
                 "aggregateRating": {
                     "@type": "AggregateRating",

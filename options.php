@@ -502,6 +502,18 @@ if (class_exists('CSF')) {
 		)
 	));
 
+	CSF::createSection($prefix, array(
+		'id'			=>	'schema',
+		'title'			=>	'Schema Data',
+		'fields'	=>	array(
+			array(
+				'id'    => 'opt-schema-phone',
+				'type'  => 'text',
+				'title' => 'Schema Phone'
+			),
+		)
+	));
+
 
 	//============================//
 	$prefix = '_prefix_menu_options';
