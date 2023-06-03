@@ -1749,14 +1749,17 @@ small.rvs-nav-item-credits {
 }
 
 .card-share-single-options {
-    height: 50px;
-    padding: 1rem;
+    height: 32px;
+    padding: .5rem;
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 1rem;
 }
 
+.card-share-single-options a {
+    font-size: 18px;
+}
 
 .card-share-float {
     position: fixed;
