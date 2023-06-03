@@ -80,6 +80,8 @@ function theme_head()
         $rates = round($total_rates / $user_rates);
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
         $theme_option = get_option('hlr_framework');
+        $city = wp_get_post_terms($post_id, 'city',  array("fields" => "names"));
+
     ?>
 
         <script type="application/ld+json">
@@ -90,7 +92,7 @@ function theme_head()
                 "description": "<?= get_the_excerpt() ?>",
                 "address": {
                     "@type": "PostalAddress",
-                    "addressLocality": "<?= $mdata_single['opt-city'] ?>",
+                    "addressLocality": "<?= $city ?>",
                     "addressRegion": "ON",
                     "streetAddress": "<?= $mdata_single['opt-address'] ?>"
                 },
