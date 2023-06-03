@@ -48,9 +48,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                    <?php if (!empty($mdata_single['opt-price-min'])) : ?>
-                        <div class="start-price">Starting from $<?= number_format($mdata_single['opt-price-min']) ?></div>
-                    <?php endif; ?>
+                   
                     <div class="rating-section">
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
@@ -105,6 +103,11 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                             <span class="votes"> <?= $user_rates ?> votes</span>
                         <?php endif; ?>
                     </div>
+
+                    <?php if (!empty($mdata_single['opt-price-min'])) : ?>
+                        <div class="start-price">Starting from $<?= number_format($mdata_single['opt-price-min']) ?></div>
+                    <?php endif; ?>
+
                 </div>
 
                 <?php if (!empty(get_the_excerpt())) : ?>
