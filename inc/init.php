@@ -16,10 +16,12 @@ function custom_menus() {
  }
  add_action( 'init', 'custom_menus' );
 
-
  function disable_taxonomy_multiselect() {
+    // Replace "taxonomy_name" with the actual name of your taxonomy
     $taxonomy = 'city';
-    $taxonomy_object = get_taxonomy($taxonomy);
-    $taxonomy_object->meta_box_cb = 'post_categories_meta_box';
+
+    // Replace "post" with the appropriate post type if the taxonomy is not associated with the "post" post type
+    remove_meta_box('tagsdiv-' . $taxonomy, 'peroperties', 'normal');
+    add_meta_box('tagsdiv-' . $taxonomy, $taxonomy, 'post_categories_meta_box', 'peroperties', 'side', 'core');
 }
-add_action('init', 'disable_taxonomy_multiselect');
+add_action('admin_menu', 'disable_taxonomy_multiselect');
