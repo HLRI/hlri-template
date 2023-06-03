@@ -20,7 +20,7 @@ function Staff()
     'rewrite' => array(
       'slug' => 'staff',
       'with_front' => false,
-      'hierarchical' => true
+      'hierarchical' => false
     ),
   ));
 }
@@ -47,7 +47,7 @@ function Stage()
     'rewrite' => array(
       'slug' => 'stage',
       'with_front' => false,
-      'hierarchical' => true
+      'hierarchical' => false
     ),
   ));
 }
@@ -74,7 +74,7 @@ function Type()
     'rewrite' => array(
       'slug' => 'type',
       'with_front' => false,
-      'hierarchical' => true
+      'hierarchical' => false
     ),
   ));
 }
@@ -128,7 +128,7 @@ function Neighborhood ()
     'rewrite' => array(
       'slug' => 'neighborhood',
       'with_front' => false,
-      'hierarchical' => true
+      'hierarchical' => false
     ),
   ));
 }
@@ -155,7 +155,7 @@ function group ()
     'rewrite' => array(
       'slug' => 'group',
       'with_front' => false,
-      'hierarchical' => true
+      'hierarchical' => false
     ),
   ));
 }
