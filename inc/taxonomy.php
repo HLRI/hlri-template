@@ -101,7 +101,7 @@ function City()
     'rewrite' => array(
       'slug' => 'city',
       'with_front' => false,
-      'hierarchical' => true
+      'hierarchical' => false
     ),
   ));
 }
