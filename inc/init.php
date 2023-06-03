@@ -15,3 +15,11 @@ function custom_menus() {
     register_nav_menus( $locations );
  }
  add_action( 'init', 'custom_menus' );
+
+
+ function disable_taxonomy_multiselect() {
+    $taxonomy = 'city';
+    $taxonomy_object = get_taxonomy($taxonomy);
+    $taxonomy_object->meta_box_cb = 'post_categories_meta_box';
+}
+add_action('init', 'disable_taxonomy_multiselect');
