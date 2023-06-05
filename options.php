@@ -1057,9 +1057,8 @@ if (class_exists('CSF')) {
 					'chosen'      => true,
 					'multiple'    => true,
 					'options'     => array(
-						'Platinum_Access' => 'Platinum Access',
-						'VIP_Selling' => 'VIP Selling',
-						'Platinum_Access_&_Selling' => 'Platinum Access & Selling',
+						'Registering_for_Platinum_Access' => 'Registering for Platinum Access',
+						'Launched_Exclusive_units_in_hand' => 'Launched Exclusive units in hand'
 					),
 					'default'     => ''
 				),
