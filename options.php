@@ -1083,6 +1083,7 @@ if (class_exists('CSF')) {
 				array(
 					'id'    => 'opt-pdf-files',
 					'type'  => 'upload',
+					'library'      => 'pdf',
 					'title' => 'PDF Files',
 				),
 			)
