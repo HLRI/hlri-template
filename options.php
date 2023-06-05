@@ -1008,8 +1008,8 @@ if (class_exists('CSF')) {
 					'type'       => 'button_set',
 					'title'      => 'Parking',
 					'options'    => array(
-						true  => 'Enabled',
-						false => 'Disabled',
+						true  => 'Yes',
+						false => 'No',
 					),
 					'default'    => false
 				),
@@ -1018,8 +1018,8 @@ if (class_exists('CSF')) {
 					'type'       => 'button_set',
 					'title'      => 'Locker',
 					'options'    => array(
-						true  => 'Enabled',
-						false => 'Disabled',
+						true  => 'Yes',
+						false => 'No',
 					),
 					'default'    => false
 				),
