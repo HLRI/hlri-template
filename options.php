@@ -795,6 +795,11 @@ if (class_exists('CSF')) {
 					'title' => 'Address'
 				),
 				array(
+					'id'    => 'opt-street-address',
+					'type'  => 'text',
+					'title' => 'Street Address'
+				),
+				array(
 					'id'    => 'opt-pricepersqft',
 					'type'  => 'text',
 					'title' => 'Pricepersqft'

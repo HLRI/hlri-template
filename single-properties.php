@@ -131,7 +131,6 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </ul>
             </div>
         <?php endif; ?>
-
         <?php if (!empty($incentives)) : ?>
             <div class="col-lg-6">
                 <div class="incentives">
