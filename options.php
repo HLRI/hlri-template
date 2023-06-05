@@ -1066,16 +1066,6 @@ if (class_exists('CSF')) {
 					'default'     => ''
 				),
 				array(
-					'id'    => 'opt-appson',
-					'type'  => 'number',
-					'title' => 'Average Price per SQFT of Neghborhood',
-				),
-				array(
-					'id'    => 'opt-appsoc',
-					'type'  => 'number',
-					'title' => 'Average Price per SQFT of City',
-				),
-				array(
 					'id'    => 'opt-apps',
 					'type'  => 'number',
 					'title' => 'Average Price per SQFT',
@@ -1110,7 +1100,28 @@ if (class_exists('CSF')) {
 				'library'	=>	'image',
 				'title' => 'Thumbnail',
 			),
+			array(
+				'id'    => 'opt-neighborhood-appson',
+				'type'  => 'number',
+				'title' => 'Average Price per SQFT',
+			),
+		)
+	));
 
+
+	$prefix = 'city_options';
+	CSF::createTaxonomyOptions($prefix, array(
+		'taxonomy'  => 'city',
+		'data_type' => 'serialize'
+	));
+
+	CSF::createSection($prefix, array(
+		'fields' => array(
+			array(
+				'id'    => 'opt-city-appsoc',
+				'type'  => 'number',
+				'title' => 'Average Price per SQFT',
+			),
 		)
 	));
 }
