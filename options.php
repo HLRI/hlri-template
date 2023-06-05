@@ -1077,7 +1077,7 @@ if (class_exists('CSF')) {
 							'id'    => 'opt-pdf-files',
 							'type'  => 'upload',
 							'library'      => 'pdf',
-							'title' => 'PDF Files',
+							'title' => 'PDF File',
 						),
 
 					),
