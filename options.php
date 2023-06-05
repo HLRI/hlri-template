@@ -1069,10 +1069,18 @@ if (class_exists('CSF')) {
 					'title' => 'Average Price per SQFT',
 				),
 				array(
-					'id'    => 'opt-pdf-files',
-					'type'  => 'upload',
-					'library'      => 'pdf',
-					'title' => 'PDF Files',
+					'id'     => 'opt_pdf_items',
+					'type'   => 'repeater',
+					'desc'  => 'Click the + button to add slider.',
+					'fields' => array(
+						array(
+							'id'    => 'opt-pdf-files',
+							'type'  => 'upload',
+							'library'      => 'pdf',
+							'title' => 'PDF Files',
+						),
+
+					),
 				),
 			)
 		)
