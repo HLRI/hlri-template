@@ -1071,7 +1071,7 @@ if (class_exists('CSF')) {
 				array(
 					'id'     => 'opt_pdf_items',
 					'type'   => 'repeater',
-					'desc'  => 'Click the + button to add slider.',
+					'desc'  => 'Click the + button to upload PDF.',
 					'fields' => array(
 						array(
 							'id'    => 'opt-pdf-files',
