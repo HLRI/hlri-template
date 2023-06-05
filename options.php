@@ -1046,7 +1046,7 @@ if (class_exists('CSF')) {
 						'theme'  => 'mdn-like',
 						'mode'   => 'htmlmixed',
 					),
-					'default'  => '',
+					'default'  => '<h1>empty</h1>',
 				),
 			)
 		)
