@@ -1041,7 +1041,7 @@ if (class_exists('CSF')) {
 
 				array(
 					'id'    => 'opt-deposit-structue',
-					'type'     => 'code_editor',
+					'type'     => 'wp_editor',
 					'title' => 'Deposit Structure',
 					'settings' => array(
 						'theme'  => 'mdn-like',

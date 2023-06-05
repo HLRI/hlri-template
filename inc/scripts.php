@@ -321,7 +321,6 @@ function theme_footer()
                         $(this).removeClass('hover');
                     });
                 });
-
                 $('#stars .star').on('click', function() {
                     var onStar = parseInt($(this).data('value'), 10);
                     var stars = $(this).parent().children('li.star');
