@@ -1038,6 +1038,7 @@ if (class_exists('CSF')) {
 					'type'  => 'number',
 					'title' => 'Monthly Fees',
 				),
+
 				array(
 					'id'    => 'opt-deposit-structue',
 					'type'     => 'code_editor',
@@ -1047,6 +1048,42 @@ if (class_exists('CSF')) {
 						'mode'   => 'htmlmixed',
 					),
 					'default'  => '',
+				),
+				array(
+					'id'          => 'opt-substage',
+					'type'        => 'select',
+					'title'       => 'Sub Stage',
+					'placeholder' => 'Select an option',
+					'chosen'      => true,
+					'multiple'    => true,
+					'options'     => array(
+						'1'  => '1',
+						'2'  => '2',
+						'3'  => '3',
+						'4'  => '4',
+						'5'  => '5',
+					),
+					'default'     => ''
+				),
+				array(
+					'id'    => 'opt-appson',
+					'type'  => 'number',
+					'title' => 'Average Price per SQFT of Neghborhood',
+				),
+				array(
+					'id'    => 'opt-appsoc',
+					'type'  => 'number',
+					'title' => 'Average Price per SQFT of City',
+				),
+				array(
+					'id'    => 'opt-apps',
+					'type'  => 'number',
+					'title' => 'Average Price per SQFT',
+				),
+				array(
+					'id'    => 'opt-pdf-files',
+					'type'  => 'upload',
+					'title' => 'PDF Files',
 				),
 			)
 		)
