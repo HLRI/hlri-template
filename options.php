@@ -972,6 +972,82 @@ if (class_exists('CSF')) {
 						'scrollWheelZoom' => true,
 					)
 				),
+				array(
+					'id'    => 'opt-map-link',
+					'type'  => 'link',
+					'title' => 'Link to Map',
+				),
+				array(
+					'id'    => 'opt-developer',
+					'type'  => 'text',
+					'title' => 'Developer',
+				),
+				array(
+					'id'    => 'opt-architect',
+					'type'  => 'text',
+					'title' => 'Architect',
+				),
+				array(
+					'id'    => 'opt-interior-designer',
+					'type'  => 'text',
+					'title' => 'Interior Designer',
+				),
+				array(
+					'id'    => 'opt-floors',
+					'type'  => 'number',
+					'title' => 'Floors',
+				),
+				array(
+					'id'    => 'opt-suites',
+					'type'  => 'number',
+					'title' => 'Suites',
+				),
+
+				array(
+					'id'         => 'opt-parking',
+					'type'       => 'button_set',
+					'title'      => 'Parking',
+					'options'    => array(
+						true  => 'Enabled',
+						false => 'Disabled',
+					),
+					'default'    => false
+				),
+				array(
+					'id'         => 'opt-locker',
+					'type'       => 'button_set',
+					'title'      => 'Locker',
+					'options'    => array(
+						true  => 'Enabled',
+						false => 'Disabled',
+					),
+					'default'    => false
+				),
+				array(
+					'id'    => 'opt-parking-price',
+					'type'  => 'number',
+					'title' => 'Parking Price',
+				),
+				array(
+					'id'    => 'opt-locker-price',
+					'type'  => 'number',
+					'title' => 'Locker Price',
+				),
+				array(
+					'id'    => 'opt-mt-fees',
+					'type'  => 'number',
+					'title' => 'Monthly Fees',
+				),
+				array(
+					'id'    => 'opt-deposit-structue',
+					'type'     => 'code_editor',
+					'title' => 'Deposit Structure',
+					'settings' => array(
+						'theme'  => 'mdn-like',
+						'mode'   => 'htmlmixed',
+					),
+					'default'  => '',
+				),
 			)
 		)
 	);
