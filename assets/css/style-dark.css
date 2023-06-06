@@ -2918,3 +2918,40 @@ button.btn.btn-link:hover {
 .card-header {
     background: none;
 }
+
+.square-foot-head {
+    font-size: 14px;
+    color: #b19f91;
+    margin-bottom: .4rem;
+  }
+  
+  .square-foot-price {
+    margin-bottom: 1.8rem;
+  }
+  
+  .square-foot-price span {
+    font-size: 56px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .square-foot-title {
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .square-foot-title {
+    margin-bottom: 1rem;
+  }
+  
+  .square-foot-item {
+    margin-bottom: 1rem;
+  }
+  
+  .square-foot-item .name {
+    color: #665c54;
+  }
+
+  .square-foot-item .value {
+    color: #b19f91;
+  }
