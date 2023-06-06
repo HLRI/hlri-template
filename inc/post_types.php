@@ -119,7 +119,7 @@ function floorplans()
 {
 
     $labels = array(
-        'name'                  => _x('floorplans', 'floorplans General Name', 'text_domain'),
+        'name'                  => _x('Floorplans', 'floorplans General Name', 'text_domain'),
         'singular_name'         => _x('floorplan', 'floorplan Singular Name', 'text_domain'),
         'menu_name'             => __('floorplans', 'text_domain'),
         'name_admin_bar'        => __('floorplans', 'text_domain'),
