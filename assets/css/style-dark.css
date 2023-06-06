@@ -2888,6 +2888,7 @@ label {
     font-size: 18px;
 }
 
-.border{
-    border-color: #665c54;
-  }
+.border {
+    border-color: #665c54 !important;
+    border-radius: 4px !important;
+}

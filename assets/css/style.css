@@ -2819,5 +2819,6 @@ a.neighborhood-link {
 }
 
 .border{
-  border-color: #ccc;
+  border-color: #ccc !important;
+  border-radius: 4px !important;
 }
