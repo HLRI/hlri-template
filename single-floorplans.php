@@ -12,7 +12,7 @@ $theme_options = get_option('hlr_framework');
                 <div class="col-lg-8 d-flex align-items-center h2">
                     <h1>Presidential Floor Plan</h1>
                 </div>
-                <div class="col-lg-4 text-right>
+                <div class="col-lg-4 text-right">
                     <div class="floorplan-price">
                         From <span class="from-price">$594,900</span>
                     </div>
