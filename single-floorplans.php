@@ -1,4 +1,7 @@
 <?php get_header(); ?>
+<?php
+$theme_options = get_option('hlr_framework');
+?>
 
 <div class="container-fluid px-5 my-4">
     <div class="row">
