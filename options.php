@@ -1178,6 +1178,11 @@ if (class_exists('CSF')) {
 					'title' => 'Floor Range'
 				),
 				array(
+					'id'    => 'opt-floorplans-price-from',
+					'type'  => 'text',
+					'title' => 'Price (From)'
+				),
+				array(
 					'id'    => 'opt-floorplans-price-per',
 					'type'  => 'text',
 					'title' => 'Price Per Sq.Ft.'
