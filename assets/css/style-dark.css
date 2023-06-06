@@ -2902,6 +2902,8 @@ button.btn.btn-link {
     color: #e28e5c;
     outline: none;
     box-shadow: none;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 #headingOne{

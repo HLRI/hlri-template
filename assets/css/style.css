@@ -2818,12 +2818,12 @@ a.neighborhood-link {
   font-size: 18px;
 }
 
-.border{
+.border {
   border-color: #ccc !important;
   border-radius: 4px !important;
 }
 
-#accordion{
+#accordion {
   width: 100%;
 }
 
@@ -2832,8 +2832,10 @@ button.btn.btn-link {
   color: #FF912C;
   outline: none;
   box-shadow: none;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-#headingOne{
+#headingOne {
   border-bottom: unset;
 }
