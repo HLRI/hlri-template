@@ -2810,9 +2810,10 @@ a.neighborhood-link {
 
 .floorplan-item .title-item {
   color: #ccc;
+  font-size: 16px;
 }
 
 .floorplan-item .content-item {
   color: #000;
-  font-size: 16px;
+  font-size: 18px;
 }

@@ -2880,9 +2880,10 @@ label {
 
 .floorplan-item .title-item {
     color: #665c54;
+    font-size: 16px;
 }
 
 .floorplan-item .content-item {
     color: #b19f91;
-    font-size: 16px;
+    font-size: 18px;
 }
