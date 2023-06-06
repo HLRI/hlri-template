@@ -86,7 +86,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         </div>
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="row">
+                            <div class="row mt-4">
                                 <div class="col-lg-4">1</div>
                                 <div class="col-lg-4">2</div>
                                 <div class="col-lg-4">3</div>
