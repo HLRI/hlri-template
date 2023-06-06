@@ -2857,3 +2857,7 @@ label {
 .rating-stars ul>li.star-rated.selected>i.fa {
     color: #e28e5c;
 }
+
+.image-floorplan img {
+    width: 100%;
+}

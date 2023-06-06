@@ -2787,3 +2787,7 @@ a.neighborhood-link {
 .rating-stars ul>li.star-rated.selected>i.fa {
   color: #FF912C;
 }
+
+.image-floorplan img {
+  width: 100%;
+}
