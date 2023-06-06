@@ -106,7 +106,7 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 
 function custom_post_type1_permalink($permalink, $post, $leavename) {
     if ($post->post_type == 'properties') {
-        $permalink = home_url('/properties/' . $post->post_name . '/test');
+        $permalink = home_url('/properties/' . $post->post_name . '/test2');
     }
     return $permalink;
 }
