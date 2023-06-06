@@ -37,6 +37,36 @@ $theme_options = get_option('hlr_framework');
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3">
+                    <div class="floorplan-item">
+                        <div class="title-item">
+                            SQ.FT.
+                        </div>
+                        <div class="content-item">
+                            797 sq.ft.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="floorplan-item">
+                        <div class="title-item">
+                            SQ.FT.
+                        </div>
+                        <div class="content-item">
+                            797 sq.ft.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="floorplan-item">
+                        <div class="title-item">
+                            SQ.FT.
+                        </div>
+                        <div class="content-item">
+                            797 sq.ft.
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
