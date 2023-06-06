@@ -2829,11 +2829,16 @@ a.neighborhood-link {
 
 button.btn.btn-link {
   text-decoration: none;
-  color: #FF912C;
+  color: #000;
   outline: none;
   box-shadow: none;
   font-weight: bold;
   font-size: 20px;
+  transition: all .3s;
+}
+
+button.btn.btn-link:hover {
+  color: #FF912C;
 }
 
 #headingOne {

@@ -2899,13 +2899,18 @@ label {
 
 button.btn.btn-link {
     text-decoration: none;
-    color: #e28e5c;
+    color: #b19f91;
     outline: none;
     box-shadow: none;
     font-weight: bold;
     font-size: 20px;
+    transition: all .3s;
 }
 
-#headingOne{
+button.btn.btn-link:hover {
+    color: #FF912C;
+}
+
+#headingOne {
     border-bottom: unset;
 }
