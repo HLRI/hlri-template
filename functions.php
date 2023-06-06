@@ -102,3 +102,13 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 //         'callback' => 'my_awesome_func_two',
 //     ));
 // });
+
+
+function custom_post_type1_permalink($permalink, $post, $leavename) {
+    if ($post->post_type == 'properties') {
+        $permalink = home_url('/properties/' . $post->post_name . '/test');
+    }
+    return $permalink;
+}
+add_filter('properties_link', 'custom_post_type1_permalink', 10, 3);
+flush_rewrite_rules();
