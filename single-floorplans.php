@@ -120,32 +120,28 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="square-foot-wrap">
-                                        <div class="square-foot-head">THIS FLOOR PLAN</div>
-                                        <div class="square-foot-price"><span>$746</span>/sq.ft</div>
-                                        <div class="square-foot-title">Suite Details</div>
+                                        <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
+                                        <div class="square-foot-price"><span>$868</span>/sq.ft</div>
+                                        <div class="square-foot-title">Prices</div>
                                         <div class="square-foot-item">
-                                            <span class="name">Suite Name : </span>
-                                            <span class="value">Presidential</span>
+                                            <span class="name">Price (From) : </span>
+                                            <span class="value">Price (From)</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">Beds : </span>
-                                            <span class="value">2 Bed</span>
+                                            <span class="name">Price Per Sq.Ft : </span>
+                                            <span class="value">$746/sq.ft</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">Baths : </span>
-                                            <span class="value">2 Bath</span>
+                                            <span class="name">Mt. Fees per Month : </span>
+                                            <span class="value">$422.41 ($0.53/sq.ft)</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">View : </span>
-                                            <span class="value">East/West</span>
+                                            <span class="name">Parking : </span>
+                                            <span class="value">$50,000</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">Interior Size : </span>
-                                            <span class="value">797 sq.ft.</span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Floor Range : </span>
-                                            <span class="value">-</span>
+                                            <span class="name">Locker : </span>
+                                            <span class="value">$5,000</span>
                                         </div>
                                     </div>
                                 </div>
