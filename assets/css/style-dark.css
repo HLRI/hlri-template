@@ -2892,3 +2892,18 @@ label {
     border-color: #665c54 !important;
     border-radius: 4px !important;
 }
+
+#accordion {
+    width: 100%;
+}
+
+button.btn.btn-link {
+    text-decoration: none;
+    color: #e28e5c;
+    outline: none;
+    box-shadow: none;
+}
+
+#headingOne{
+    border-bottom: unset;
+}
