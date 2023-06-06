@@ -2861,3 +2861,12 @@ label {
 .image-floorplan img {
     width: 100%;
 }
+
+.floorplan-header {
+    color: #b19f91;
+}
+
+.floorplan-price .from-price {
+    font-weight: bold;
+    font-size: 26px;
+}

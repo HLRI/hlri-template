@@ -8,11 +8,13 @@ $theme_options = get_option('hlr_framework');
     <div class="row">
         <div class="col-lg-8">
 
-            <div class="row">
-                <div class="col-lg-8">Presidential Floor Plan</div>
+            <div class="row floorplan-header">
+                <div class="col-lg-8">
+                    Presidential Floor Plan
+                </div>
                 <div class="col-lg-4">
-                    <div>
-                        From $594,900
+                    <div class="floorplan-price">
+                        From <span class="from-price">$594,900</span>
                     </div>
                     <div>
                         $746/sq.ft

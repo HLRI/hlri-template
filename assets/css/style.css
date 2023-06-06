@@ -2791,3 +2791,12 @@ a.neighborhood-link {
 .image-floorplan img {
   width: 100%;
 }
+
+.floorplan-header{
+  color: #000000;
+}
+
+.floorplan-price .from-price {
+  font-weight: bold;
+  font-size: 26px;
+}
