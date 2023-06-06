@@ -118,8 +118,68 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">2</div>
-                                <div class="col-lg-4">3</div>
+                                <div class="col-lg-4">
+                                    <div class="square-foot-wrap">
+                                        <div class="square-foot-head">THIS FLOOR PLAN</div>
+                                        <div class="square-foot-price"><span>$746</span>/sq.ft</div>
+                                        <div class="square-foot-title">Suite Details</div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Suite Name : </span>
+                                            <span class="value">Presidential</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Beds : </span>
+                                            <span class="value">2 Bed</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Baths : </span>
+                                            <span class="value">2 Bath</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">View : </span>
+                                            <span class="value">East/West</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Interior Size : </span>
+                                            <span class="value">797 sq.ft.</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Floor Range : </span>
+                                            <span class="value">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="square-foot-wrap">
+                                        <div class="square-foot-head">THIS FLOOR PLAN</div>
+                                        <div class="square-foot-price"><span>$746</span>/sq.ft</div>
+                                        <div class="square-foot-title">Suite Details</div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Suite Name : </span>
+                                            <span class="value">Presidential</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Beds : </span>
+                                            <span class="value">2 Bed</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Baths : </span>
+                                            <span class="value">2 Bath</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">View : </span>
+                                            <span class="value">East/West</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Interior Size : </span>
+                                            <span class="value">797 sq.ft.</span>
+                                        </div>
+                                        <div class="square-foot-item">
+                                            <span class="name">Floor Range : </span>
+                                            <span class="value">-</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
