@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="image-floorplan">
-               <?php the_post_thumbnail_url('normal', ['class' => 'img-fluid']) ?>
+               <?php the_post_thumbnail('normal', ['class' => 'img-fluid']) ?>
             </div>
         </div>
         <div class="col-lg-4">2</div>
