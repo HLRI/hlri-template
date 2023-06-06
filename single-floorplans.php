@@ -76,8 +76,8 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 
             <div class="row mt-3">
                 <div id="accordion">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
+                    <div class="">
+                        <div class="card-header p-0" id="headingOne">
                             <h5 class="mb-0">
                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Price Per Square Foot
