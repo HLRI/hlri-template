@@ -1085,7 +1085,7 @@ if (class_exists('CSF')) {
 		)
 	);
 
-
+	//============================//
 	$prefix = 'neighborhood_options';
 	CSF::createTaxonomyOptions($prefix, array(
 		'taxonomy'  => 'neighborhood',
@@ -1113,7 +1113,7 @@ if (class_exists('CSF')) {
 		)
 	));
 
-
+	//============================//
 	$prefix = 'city_options';
 	CSF::createTaxonomyOptions($prefix, array(
 		'taxonomy'  => 'city',
@@ -1129,4 +1129,80 @@ if (class_exists('CSF')) {
 			),
 		)
 	));
+
+
+	//============================//
+	$prefix = 'hlr_framework_floorplans';
+	CSF::createMetabox($prefix, array(
+		'title'     =>	'Floorplan Information',
+		'post_type' =>	'floorplans'
+	));
+
+	CSF::createSection(
+		$prefix,
+		array(
+			'fields'	=>	array(
+				array(
+					'id'    => 'opt-floorplans-suite-name',
+					'type'  => 'text',
+					'title' => 'Suite Name'
+				),
+				array(
+					'id'    => 'opt-floorplans-beds',
+					'type'  => 'text',
+					'title' => 'Beds'
+				),
+				array(
+					'id'    => 'opt-floorplans-baths',
+					'type'  => 'text',
+					'title' => 'Baths'
+				),
+				array(
+					'id'    => 'opt-floorplans-size',
+					'type'  => 'text',
+					'title' => 'Size'
+				),
+				array(
+					'id'    => 'opt-floorplans-view',
+					'type'  => 'text',
+					'title' => 'View'
+				),
+				array(
+					'id'    => 'opt-floorplans-interior-size',
+					'type'  => 'text',
+					'title' => 'Interior Size'
+				),
+				array(
+					'id'    => 'opt-floorplans-floor-range',
+					'type'  => 'text',
+					'title' => 'Floor Range'
+				),
+				array(
+					'id'    => 'opt-floorplans-price-per',
+					'type'  => 'text',
+					'title' => 'Price Per Sq.Ft.'
+				),
+				array(
+					'id'    => 'opt-floorplans-mt-fees-per-month',
+					'type'  => 'text',
+					'title' => 'Mt. Fees per Month'
+				),
+				array(
+					'id'    => 'opt-floorplans-parking',
+					'type'  => 'text',
+					'title' => 'Parking'
+				),
+				array(
+					'id'    => 'opt-floorplans-locker',
+					'type'  => 'text',
+					'title' => 'Locker'
+				),
+				array(
+					'id'    => 'opt-floorplans-deposit-structure',
+					'type'  => 'wp_editor',
+					'title' => 'Deposit Structure'
+				),
+			)
+		)
+	);
 }
