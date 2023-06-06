@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <?php
 $theme_options = get_option('hlr_framework');
+$floorplans = get_post_meta($post_id, 'hlr_framework_floorplans', true);
 ?>
 
 <div class="container-fluid px-5 my-4">
@@ -10,14 +11,14 @@ $theme_options = get_option('hlr_framework');
 
             <div class="row floorplan-header mb-5">
                 <div class="col-lg-8 d-flex align-items-center">
-                    <h1 class="font-weight-bold h2">Presidential Floor Plan</h1>
+                    <h1 class="font-weight-bold h2"><?php the_title() ?></h1>
                 </div>
                 <div class="col-lg-4 text-right">
                     <div class="floorplan-price">
-                        From <span class="from-price">$594,900</span>
+                        From <span class="from-price"><?= $floorplans['opt-floorplans-price-from'] ?></span>
                     </div>
                     <div>
-                        $746/sq.ft
+                        <?= $floorplans['opt-floorplans-price-per'] ?>
                     </div>
                 </div>
             </div>
@@ -37,37 +38,37 @@ $theme_options = get_option('hlr_framework');
                             SQ.FT.
                         </div>
                         <div class="content-item">
-                            797 sq.ft.
+                            <?= $floorplans['opt-floorplans-interior-size'] ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
-                            SQ.FT.
+                            TYPE
                         </div>
                         <div class="content-item">
-                            797 sq.ft.
+                            <?= $floorplans['opt-floorplans-beds'] ?>, <?= $floorplans['opt-floorplans-baths'] ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
-                            SQ.FT.
+                            EXPOSURE
                         </div>
                         <div class="content-item">
-                            797 sq.ft.
+                            <?= $floorplans['opt-floorplans-view'] ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
-                            SQ.FT.
+                            FLOOR RANGE
                         </div>
                         <div class="content-item">
-                            797 sq.ft.
+                            <?= $floorplans['opt-floorplans-floor-range'] ?>
                         </div>
                     </div>
                 </div>
