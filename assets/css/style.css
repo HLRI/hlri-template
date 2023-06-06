@@ -2817,3 +2817,7 @@ a.neighborhood-link {
   color: #000;
   font-size: 18px;
 }
+
+.border{
+  border-color: #ccc;
+}
