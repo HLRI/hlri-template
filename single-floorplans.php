@@ -9,8 +9,8 @@ $theme_options = get_option('hlr_framework');
         <div class="col-lg-8">
 
             <div class="row">
-                <div class="col-lg-9">Presidential Floor Plan</div>
-                <div class="col-lg-3">
+                <div class="col-lg-8">Presidential Floor Plan</div>
+                <div class="col-lg-4">
                     <div>
                         From $594,900
                     </div>
