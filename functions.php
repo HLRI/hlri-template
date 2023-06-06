@@ -104,12 +104,3 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 // });
 
 
-function custom_post_type1_permalink($permalink, $post, $leavename) {
-    if ($post->post_type == 'properties') {
-        wp_die('ddd');
-        $permalink = home_url('/properties/' . $post->post_name . '/test2');
-    }
-    return $permalink;
-}
-add_filter('properties_link', 'custom_post_type1_permalink', 10, 3);
-flush_rewrite_rules();
