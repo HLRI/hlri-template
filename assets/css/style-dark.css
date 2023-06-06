@@ -2952,6 +2952,6 @@ button.btn.btn-link:hover {
     color: #665c54;
   }
 
-  .square-foot-item .value {
+  .square-foot-item .value , .square-foot-price, .square-foot-title {
     color: #b19f91;
   }
