@@ -2844,3 +2844,7 @@ button.btn.btn-link:hover {
 #headingOne {
   border-bottom: unset;
 }
+
+.card-header{
+  background: none;
+}
