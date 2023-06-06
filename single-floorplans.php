@@ -10,13 +10,20 @@ $theme_options = get_option('hlr_framework');
 
             <div class="row">
                 <div class="col-lg-10">Presidential Floor Plan</div>
-                <div class="col-lg-2">$746/sq.ft</div>
+                <div class="col-lg-2">
+                    <div>
+                        From $594,900
+                    </div>
+                    <div>
+                        $746/sq.ft
+                    </div>
+                </div>
             </div>
 
             <div class="image-floorplan">
                 <?php the_post_thumbnail() ?>
             </div>
-            
+
         </div>
         <div class="col-lg-4">
             <?php if ($theme_options['opt-properties-status']) : ?>
