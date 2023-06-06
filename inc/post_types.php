@@ -96,7 +96,7 @@ function properties()
         'labels'                => $labels,
         'supports'              => ['title', 'excerpt', 'editor', 'thumbnail'],
         // 'taxonomies'            => array( ''),
-        'hierarchical'          => false,
+        'hierarchical'          => true,
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,
