@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php
 $theme_options = get_option('hlr_framework');
-$floorplans = get_post_meta($post_id, 'hlr_framework_floorplans', true);
+$floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 ?>
 
 <div class="container-fluid px-5 my-4">
