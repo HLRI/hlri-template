@@ -93,27 +93,27 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         <div class="square-foot-price"><span>$746</span>/sq.ft</div>
                                         <div class="square-foot-title">Suite Details</div>
                                         <div class="square-foot-item">
-                                            <span class="name">Suite Name</span>
+                                            <span class="name">Suite Name : </span>
                                             <span class="value">Presidential</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">Beds</span>
+                                            <span class="name">Beds : </span>
                                             <span class="value">2 Bed</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">Baths</span>
+                                            <span class="name">Baths : </span>
                                             <span class="value">2 Bath</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">View</span>
+                                            <span class="name">View : </span>
                                             <span class="value">East/West</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">Interior Size</span>
+                                            <span class="name">Interior Size : </span>
                                             <span class="value">797 sq.ft.</span>
                                         </div>
                                         <div class="square-foot-item">
-                                            <span class="name">Floor Range</span>
+                                            <span class="name">Floor Range : </span>
                                             <span class="value">-</span>
                                         </div>
                                     </div>
