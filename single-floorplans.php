@@ -126,23 +126,23 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         <div class="square-foot-title">Prices</div>
                                         <div class="square-foot-item">
                                             <span class="name">Price (From) : </span>
-                                            <span class="value">Price (From)</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-price-from'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Price Per Sq.Ft : </span>
-                                            <span class="value">$746/sq.ft</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-price-per'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Mt. Fees per Month : </span>
-                                            <span class="value">$422.41 ($0.53/sq.ft)</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-mt-fees-per-month'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Parking : </span>
-                                            <span class="value">$50,000</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-parking'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Locker : </span>
-                                            <span class="value">$5,000</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-locker'] ?></span>
                                         </div>
                                     </div>
                                 </div>
