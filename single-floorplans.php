@@ -90,31 +90,32 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                 <div class="col-lg-4">
                                     <div class="square-foot-wrap">
                                         <div class="square-foot-head">THIS FLOOR PLAN</div>
-                                        <div class="square-foot-price"><span>$746</span>/sq.ft</div>
+                                        <?php $data = explode('/', $floorplans['opt-floorplans-price-per']) ?> ?>
+                                        <div class="square-foot-price"><span><?= $data[0] ?></span>/<?= $data[1] ?></div>
                                         <div class="square-foot-title">Suite Details</div>
                                         <div class="square-foot-item">
                                             <span class="name">Suite Name : </span>
-                                            <span class="value">Presidential</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-suite-name'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Beds : </span>
-                                            <span class="value">2 Bed</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-beds'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Baths : </span>
-                                            <span class="value">2 Bath</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-baths'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">View : </span>
-                                            <span class="value">East/West</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-view'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Interior Size : </span>
-                                            <span class="value">797 sq.ft.</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-interior-size'] ?></span>
                                         </div>
                                         <div class="square-foot-item">
                                             <span class="name">Floor Range : </span>
-                                            <span class="value">-</span>
+                                            <span class="value"><?= $floorplans['opt-floorplans-floor-range'] ?></span>
                                         </div>
                                     </div>
                                 </div>
