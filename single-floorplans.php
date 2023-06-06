@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container my-4">
+<div class="container-fluid my-4">
     <div class="row">
         <div class="col-lg-8">
             <div class="image-floorplan">
