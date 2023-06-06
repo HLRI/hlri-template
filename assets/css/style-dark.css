@@ -2870,3 +2870,19 @@ label {
     font-weight: bold;
     font-size: 28px;
 }
+
+.floorplan-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 4px;
+}
+
+.floorplan-item .title-item {
+    color: #665c54;
+}
+
+.floorplan-item .content-item {
+    color: #b19f91;
+    font-size: 16px;
+}

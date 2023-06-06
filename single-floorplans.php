@@ -26,6 +26,19 @@ $theme_options = get_option('hlr_framework');
                 <?php the_post_thumbnail() ?>
             </div>
 
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="floorplan-item">
+                        <div class="title-item">
+                            SQ.FT.
+                        </div>
+                        <div class="content-item">
+                            797 sq.ft.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="col-lg-4">
             <?php if ($theme_options['opt-properties-status']) : ?>

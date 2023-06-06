@@ -2792,11 +2792,27 @@ a.neighborhood-link {
   width: 100%;
 }
 
-.floorplan-header{
+.floorplan-header {
   color: #000000;
 }
 
 .floorplan-price .from-price {
   font-weight: bold;
   font-size: 28px;
+}
+
+.floorplan-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 4px;
+}
+
+.floorplan-item .title-item {
+  color: #ccc;
+}
+
+.floorplan-item .content-item {
+  color: #000;
+  font-size: 16px;
 }
