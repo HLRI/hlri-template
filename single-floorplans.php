@@ -23,8 +23,10 @@ $theme_options = get_option('hlr_framework');
             </div>
 
             <div class="row">
-                <div class="image-floorplan">
-                    <?php the_post_thumbnail() ?>
+                <div class="col-12">
+                    <div class="image-floorplan">
+                        <?php the_post_thumbnail() ?>
+                    </div>
                 </div>
             </div>
 
