@@ -7,8 +7,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 <div class="container-fluid px-0 px-lg-5 my-4">
 
     <div class="row">
-        <div class="col-lg-8 px-4 px-lg-0">
-
+        <div class="col-lg-8 px-5 px-lg-0">
             <div class="row floorplan-header mb-5">
                 <div class="col-lg-8 d-flex align-items-center">
                     <h1 class="font-weight-bold h2"><?php the_title() ?></h1>
@@ -88,7 +87,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="row mt-4">
-                                    <div class="col-lg-4 mb-3 mb-lg-0">
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">THIS FLOOR PLAN</div>
                                             <?php $data = explode('/', $floorplans['opt-floorplans-price-per']) ?>
@@ -120,7 +119,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 mb-3 mb-lg-0">
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
                                             <div class="square-foot-price"><span>$868</span>/sq.ft</div>
@@ -147,7 +146,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 mb-3 mb-lg-0">
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                             <div class="square-foot-price"><span>$0</span>/sq.ft</div>
@@ -161,9 +160,8 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="col-lg-4 mt-5 mt-lg-0 px-4 px-lg-0">
+        <div class="col-lg-4 mt-5 mt-lg-0 px-5 px-lg-0">
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
