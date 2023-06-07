@@ -151,15 +151,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                         <div class="square-foot-price"><span>$0</span>/sq.ft</div>
                                         <div class="square-foot-title">Deposit Structure</div>
-                                        <div class="square-foot-item">
-                                            <span class="value">(10%)</span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="value">$24,000.00 On Signing</span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="value">Balance to 10% - 365 days</span>
-                                        </div>
+                                        <?php echo $floorplans['opt-floorplans-deposit-structure']; ?>
                                     </div>
                                 </div>
                             </div>
