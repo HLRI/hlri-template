@@ -163,7 +163,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             </div>
 
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 mt-5 mt-lg-0">
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
