@@ -5,7 +5,6 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 ?>
 
 <div class="container-fluid px-lg-5 my-4">
-
     <div class="row">
         <div class="col-lg-8 px-4 px-lg-0">
             <div class="row floorplan-header mb-5">
@@ -180,6 +179,5 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
         </div>
     </div>
 </div>
-
 
 <?php get_footer(); ?>
