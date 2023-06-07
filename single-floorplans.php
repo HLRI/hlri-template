@@ -21,8 +21,12 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div>
             </div>
 
-            <div class="image-floorplan">
-                <?php the_post_thumbnail() ?>
+            <div class="row">
+                <div class="col-12">
+                    <div class="image-floorplan">
+                        <?php the_post_thumbnail() ?>
+                    </div>
+                </div>
             </div>
 
 
