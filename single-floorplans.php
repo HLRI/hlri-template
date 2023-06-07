@@ -4,7 +4,7 @@ $theme_options = get_option('hlr_framework');
 $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 ?>
 
-<div class="container-fluid px-2 px-lg-5 my-4">
+<div class="container-fluid px-3 px-lg-5 my-4">
 
     <div class="row">
         <div class="col-lg-8">
@@ -31,7 +31,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div>
             </div>
 
-            <div class="row mt-4 p-4 border">
+            <div class="row mt-4 p-lg-4 border">
                 <div class="col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
