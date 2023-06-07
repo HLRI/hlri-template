@@ -173,3 +173,32 @@ function floorplans() {
 add_action('init', 'floorplans', 0);
 
 
+// Render the custom meta box content
+function custom_render_floorplans_meta_box( $post ) {
+    $floorplans = get_posts( array(
+        'post_type' => 'floorplans',
+        'numberposts' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'post_status' => 'publish',
+    ) );
+
+    $selected_floorplans = get_post_meta( $post->ID, 'floorplans', true );
+
+    wp_nonce_field( 'floorplans_meta_box', 'floorplans_meta_box_nonce' );
+
+    echo '<ul>';
+
+    foreach ( $floorplans as $floorplan ) {
+        $checked = ( is_array( $selected_floorplans ) && in_array( $floorplan->ID, $selected_floorplans ) ) ? 'checked' : '';
+
+        echo '<li>';
+        echo '<label>';
+        echo '<input type="checkbox" name="floorplans[]" value="' . esc_attr( $floorplan->ID ) . '" ' . esc_attr( $checked ) . '>';
+        echo esc_html( $floorplan->post_title );
+        echo '</label>';
+        echo '</li>';
+    }
+
+    echo '</ul>';
+}
