@@ -32,7 +32,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             </div>
 
             <div class="row mt-4 p-lg-4 border">
-                <div class="col-lg-3">
+                <div class="col-6 col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
                             SQ.FT.
@@ -42,7 +42,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-6 col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
                             TYPE
@@ -52,7 +52,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-6 col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
                             EXPOSURE
@@ -62,7 +62,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-6 col-lg-3">
                     <div class="floorplan-item">
                         <div class="title-item">
                             FLOOR RANGE
