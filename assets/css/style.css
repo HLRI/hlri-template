@@ -2809,7 +2809,7 @@ a.neighborhood-link {
 }
 
 .floorplan-item .title-item {
-  color: #ccc;
+  color: #aaa;
   font-size: 16px;
 }
 
@@ -2819,7 +2819,7 @@ a.neighborhood-link {
 }
 
 .border {
-  border-color: #ccc !important;
+  border-color: #aaa !important;
   border-radius: 4px !important;
 }
 
@@ -2851,7 +2851,7 @@ button.btn.btn-link:hover {
 
 .square-foot-head {
   font-size: 14px;
-  color: #ccc;
+  color: #aaa;
   margin-bottom: .4rem;
 }
 
@@ -2879,5 +2879,5 @@ button.btn.btn-link:hover {
 }
 
 .square-foot-item .name {
-  color: #ccc;
+  color: #aaa;
 }

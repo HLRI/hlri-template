@@ -90,7 +90,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                 <div class="col-lg-4">
                                     <div class="square-foot-wrap">
                                         <div class="square-foot-head">THIS FLOOR PLAN</div>
-                                        <?php $data = explode('/', $floorplans['opt-floorplans-price-per']) ?> ?>
+                                        <?php $data = explode('/', $floorplans['opt-floorplans-price-per']) ?>
                                         <div class="square-foot-price"><span><?= $data[0] ?></span>/<?= $data[1] ?></div>
                                         <div class="square-foot-title">Suite Details</div>
                                         <div class="square-foot-item">
