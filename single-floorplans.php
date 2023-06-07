@@ -75,83 +75,85 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             </div>
 
             <div class="row mt-3">
-                <div id="accordion">
-                    <div class="">
-                        <div class="card-header p-0" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link px-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Price Per Square Foot
-                                </button>
-                            </h5>
-                        </div>
+                <div class="col-12">
+                    <div id="accordion">
+                        <div class="">
+                            <div class="card-header p-0" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link px-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Price Per Square Foot
+                                    </button>
+                                </h5>
+                            </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="row mt-4">
-                                <div class="col-lg-4">
-                                    <div class="square-foot-wrap">
-                                        <div class="square-foot-head">THIS FLOOR PLAN</div>
-                                        <?php $data = explode('/', $floorplans['opt-floorplans-price-per']) ?>
-                                        <div class="square-foot-price"><span><?= $data[0] ?></span>/<?= $data[1] ?></div>
-                                        <div class="square-foot-title">Suite Details</div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Suite Name : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-suite-name'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Beds : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-beds'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Baths : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-baths'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">View : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-view'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Interior Size : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-interior-size'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Floor Range : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-floor-range'] ?></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="square-foot-wrap">
-                                        <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
-                                        <div class="square-foot-price"><span>$868</span>/sq.ft</div>
-                                        <div class="square-foot-title">Prices</div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Price (From) : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-price-from'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Price Per Sq.Ft : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-price-per'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Mt. Fees per Month : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-mt-fees-per-month'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Parking : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-parking'] ?></span>
-                                        </div>
-                                        <div class="square-foot-item">
-                                            <span class="name">Locker : </span>
-                                            <span class="value"><?= $floorplans['opt-floorplans-locker'] ?></span>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="row mt-4">
+                                    <div class="col-lg-4">
+                                        <div class="square-foot-wrap">
+                                            <div class="square-foot-head">THIS FLOOR PLAN</div>
+                                            <?php $data = explode('/', $floorplans['opt-floorplans-price-per']) ?>
+                                            <div class="square-foot-price"><span><?= $data[0] ?></span>/<?= $data[1] ?></div>
+                                            <div class="square-foot-title">Suite Details</div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Suite Name : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-suite-name'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Beds : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-beds'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Baths : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-baths'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">View : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-view'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Interior Size : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-interior-size'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Floor Range : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-floor-range'] ?></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="square-foot-wrap">
-                                        <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
-                                        <div class="square-foot-price"><span>$0</span>/sq.ft</div>
-                                        <div class="square-foot-title">Deposit Structure</div>
-                                        <?php echo $floorplans['opt-floorplans-deposit-structure']; ?>
+                                    <div class="col-lg-4">
+                                        <div class="square-foot-wrap">
+                                            <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
+                                            <div class="square-foot-price"><span>$868</span>/sq.ft</div>
+                                            <div class="square-foot-title">Prices</div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Price (From) : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-price-from'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Price Per Sq.Ft : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-price-per'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Mt. Fees per Month : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-mt-fees-per-month'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Parking : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-parking'] ?></span>
+                                            </div>
+                                            <div class="square-foot-item">
+                                                <span class="name">Locker : </span>
+                                                <span class="value"><?= $floorplans['opt-floorplans-locker'] ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="square-foot-wrap">
+                                            <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
+                                            <div class="square-foot-price"><span>$0</span>/sq.ft</div>
+                                            <div class="square-foot-title">Deposit Structure</div>
+                                            <?php echo $floorplans['opt-floorplans-deposit-structure']; ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
