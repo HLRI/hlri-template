@@ -6,7 +6,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 
 <div class="container-fluid px-lg-5 my-4">
     <div class="row">
-        <div class="col-lg-8 px-4 px-lg-0">
+        <div class="col-lg-8 px-4">
             <div class="row floorplan-header mb-5">
                 <div class="col-lg-8 d-flex align-items-center">
                     <h1 class="font-weight-bold h2"><?php the_title() ?></h1>
@@ -160,7 +160,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 px-4 px-lg-0">
+        <div class="col-lg-4 px-4">
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
