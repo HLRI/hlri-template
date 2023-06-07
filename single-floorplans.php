@@ -6,12 +6,12 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 
 <div class="container-fluid px-lg-5 my-4">
     <div class="row">
-        <div class="col-lg-8 px-4">
-            <div class="row floorplan-header mb-5">
-                <div class="col-lg-8 d-flex align-items-center">
+        <div class="col-lg-9 px-4">
+            <div class="row floorplan-header mb-4">
+                <div class="col-lg-8 d-flex align-items-center px-lg-0">
                     <h1 class="font-weight-bold h2"><?php the_title() ?></h1>
                 </div>
-                <div class="col-lg-4 text-right">
+                <div class="col-lg-4 text-right px-lg-0">
                     <div class="floorplan-price">
                         From <span class="from-price"><?= $floorplans['opt-floorplans-price-from'] ?></span>
                     </div>
@@ -22,12 +22,13 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             </div>
 
             <div class="row">
-                <div class="col-12 px-0">
+                <div class="col-12 px-lg-0">
                     <div class="image-floorplan">
                         <?php the_post_thumbnail() ?>
                     </div>
                 </div>
             </div>
+
 
             <div class="row mt-4 p-lg-4 border py-4">
                 <div class="col-6 col-lg-3 mb-3 mb-lg-0">
@@ -73,7 +74,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             </div>
 
             <div class="row mt-3">
-                <div class="col-12">
+                <div class="col-12 px-lg-0">
                     <div id="accordion">
                         <div class="">
                             <div class="card-header p-0" id="headingOne">
@@ -160,12 +161,12 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 px-4">
+        <div class="col-lg-3 pl-lg-4 pr-lg-0 px-4">
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
                         <div class="titr-list ml-0 mb-2 pb-1 mr-0">
-                            <h3 class="font-weight-bold h4 mb-0">Register Now to get full package , book your unit</h3>
+                            <h3 class="font-weight-bold h5 mb-0 text-center">Register Now to get full package , book your unit</h3>
                         </div>
                         <style>
                             <?php echo $theme_options['opt-properties-style'] ?>
@@ -181,4 +182,3 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 </div>
 
 <?php get_footer(); ?>
-
