@@ -7,7 +7,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 <div class="container-fluid px-lg-5 my-4">
     <div class="row">
         <div class="col-lg-9 px-4">
-            <div class="row floorplan-header mb-5">
+            <div class="row floorplan-header mb-4">
                 <div class="col-lg-8 d-flex align-items-center px-lg-0">
                     <h1 class="font-weight-bold h2"><?php the_title() ?></h1>
                 </div>
