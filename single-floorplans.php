@@ -166,7 +166,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
                         <div class="titr-list ml-0 mb-2 pb-1 mr-0">
-                            <h3 class="font-weight-bold h5 mb-0">Register Now to get full package , book your unit</h3>
+                            <h3 class="font-weight-bold h5 mb-0 text-center">Register Now to get full package , book your unit</h3>
                         </div>
                         <style>
                             <?php echo $theme_options['opt-properties-style'] ?>
