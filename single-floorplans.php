@@ -31,7 +31,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div>
             </div>
 
-            <div class="row mt-4 p-lg-4 border">
+            <div class="row mt-4 p-lg-4 border py-4">
                 <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                     <div class="floorplan-item">
                         <div class="title-item">
