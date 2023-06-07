@@ -57,9 +57,7 @@ function agents()
 add_action('init', 'agents', 0);
 
 
-function properties()
-{
-
+function properties() {
     $labels = array(
         'name'                  => _x('Properties', 'properties General Name', 'text_domain'),
         'singular_name'         => _x('property', 'property Singular Name', 'text_domain'),
@@ -90,6 +88,7 @@ function properties()
         'filter_items_list'     => __('Filter items list', 'text_domain'),
 
     );
+
     $args = array(
         'label'                 => __('Properties', 'text_domain'),
         'description'           => __('properties Description', 'text_domain'),
@@ -110,14 +109,13 @@ function properties()
         'capability_type'       => 'post',
         'menu_icon'   => 'dashicons-analytics',
     );
+
     register_post_type('properties', $args);
 }
 add_action('init', 'properties', 0);
 
 
-function floorplans()
-{
-
+function floorplans() {
     $labels = array(
         'name'                  => _x('Floorplans', 'floorplans General Name', 'text_domain'),
         'singular_name'         => _x('floorplan', 'floorplan Singular Name', 'text_domain'),
@@ -148,6 +146,7 @@ function floorplans()
         'filter_items_list'     => __('Filter items list', 'text_domain'),
 
     );
+
     $args = array(
         'label'                 => __('floorplans', 'text_domain'),
         'description'           => __('floorplans Description', 'text_domain'),
@@ -168,6 +167,9 @@ function floorplans()
         'capability_type'       => 'post',
         'menu_icon'   => 'dashicons-analytics',
     );
+
     register_post_type('floorplans', $args);
 }
 add_action('init', 'floorplans', 0);
+
+
