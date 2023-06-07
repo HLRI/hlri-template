@@ -21,13 +21,10 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12 px-0">
-                    <div class="image-floorplan">
-                        <?php the_post_thumbnail() ?>
-                    </div>
-                </div>
+            <div class="image-floorplan">
+                <?php the_post_thumbnail() ?>
             </div>
+
 
             <div class="row mt-4 p-lg-4 border py-4">
                 <div class="col-6 col-lg-3 mb-3 mb-lg-0">
@@ -160,7 +157,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 px-4">
+        <div class="col-lg-4 pl-lg-4 pr-lg-0 px-4">
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
@@ -181,4 +178,3 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 </div>
 
 <?php get_footer(); ?>
-
