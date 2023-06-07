@@ -8,10 +8,10 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
     <div class="row">
         <div class="col-lg-8 px-4">
             <div class="row floorplan-header mb-5">
-                <div class="col-lg-8 d-flex align-items-center px-0">
+                <div class="col-lg-8 d-flex align-items-center px-lg-0">
                     <h1 class="font-weight-bold h2"><?php the_title() ?></h1>
                 </div>
-                <div class="col-lg-4 text-right px-0">
+                <div class="col-lg-4 text-right px-lg-0">
                     <div class="floorplan-price">
                         From <span class="from-price"><?= $floorplans['opt-floorplans-price-from'] ?></span>
                     </div>
@@ -22,7 +22,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             </div>
 
             <div class="row">
-                <div class="col-12 px-0">
+                <div class="col-12 px-lg-0">
                     <div class="image-floorplan">
                         <?php the_post_thumbnail() ?>
                     </div>
@@ -74,7 +74,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             </div>
 
             <div class="row mt-3">
-                <div class="col-12">
+                <div class="col-12 px-lg-0">
                     <div id="accordion">
                         <div class="">
                             <div class="card-header p-0" id="headingOne">
