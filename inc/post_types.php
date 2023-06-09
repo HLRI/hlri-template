@@ -278,11 +278,13 @@ function custom_save_property_association_meta( $post_id ) {
     if ( isset( $_POST['associated_property'] ) ) {
         update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
     } else {
-        // If no associated property is selected, display an error message
-        wp_die( 'Please select an associated property for the floorplan.', 'Error' );
+        // No associated property selected, display an error message and prevent saving
+        $error_message = 'Please select an associated property.';
+        wp_die( $error_message, 'Error', array( 'response' => 400 ) );
     }
 }
 add_action( 'save_post_floorplans', 'custom_save_property_association_meta' );
+
 
 
 // Modify the floorplans query to include the associated property
