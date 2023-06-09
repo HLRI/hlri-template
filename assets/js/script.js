@@ -324,10 +324,7 @@ jQuery(document).ready(function ($) {
 
 
 
-    dataTable = $("#example").DataTable({
-       
-
-    });
+    dataTable = $("#example").DataTable({});
 
     $('.filter-checkbox').on('change', function (e) {
         var searchTerms = []
@@ -342,8 +339,7 @@ jQuery(document).ready(function ($) {
     $('.status-dropdown').on('change', function (e) {
         var status = $(this).val();
         $('.status-dropdown').val(status)
-        console.log(status)
-        dataTable.column(7).search(status).draw();
+        dataTable.column(6).search(status).draw();
     })
 
 
