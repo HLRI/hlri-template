@@ -326,11 +326,10 @@ add_action('admin_footer', 'add_custom_validation_script');
 
 function checkIfItsFloorplanAdd($hook)
 {
-    die();
     $post_type = get_post_type($_GET['post']);
     if ($hook == 'post-new.php') {
         if ($post_type == 'floorplans') {
-
+            die();
         }
     } elseif ($hook == 'post.php') {
         if ($post_type == 'floorplans') {
