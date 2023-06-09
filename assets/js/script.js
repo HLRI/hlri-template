@@ -321,5 +321,36 @@ jQuery(document).ready(function ($) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
+
+
+    
+     dataTable = $("#example").DataTable({
+      "columnDefs": [
+            {
+                "targets": [7],
+                "visible": false
+            }
+        ]
+      
+    });
+  
+    $('.filter-checkbox').on('change', function(e){
+      var searchTerms = []
+      $.each($('.filter-checkbox'), function(i,elem){
+        if($(elem).prop('checked')){
+          searchTerms.push("^" + $(this).val() + "$")
+        }
+      })
+      dataTable.column(1).search(searchTerms.join('|'), true, false, true).draw();
+    });
+  
+    $('.status-dropdown').on('change', function(e){
+      var status = $(this).val();
+      $('.status-dropdown').val(status)
+      console.log(status)
+      dataTable.column(7).search(status).draw();
+    })
+
+
 });
 
