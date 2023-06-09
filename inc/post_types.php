@@ -305,15 +305,7 @@ function add_custom_validation_script() {
                     return;
                 }
 
-                // Update the preview link with the correct URL structure
-                var previewLink = $('a#sample-permalink');
-                var previewURL = previewLink.attr('href');
-                var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');
-                permalink = permalink.replace(/\/floorplans\/[^\/]+\//, '/floorplans/' + floorPlanName.toLowerCase().replace(/\s+/g, '-') + '/');
-                previewLink.attr('href', permalink);
 
-                // If validation passes, proceed with the form submission
-                $(this).unbind('submit').submit();
             });
         });
     </script>
