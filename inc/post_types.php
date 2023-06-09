@@ -350,10 +350,6 @@ function custom_modify_floorplans_query( $query ) {
 }
 add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
 
-add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
-
-add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
-
 // Render associated floorplans on the floorplan edit screen
 function custom_render_associated_floorplans() {
     global $post;
