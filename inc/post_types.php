@@ -192,29 +192,6 @@ function custom_render_floorplans_meta_box( $post ) {
         )
     ) );
 
-    if ( ! empty( $floorplans ) ) {
-        echo '<table>';
-        echo '<tr><th>View</th><th>Bed</th><th>Bath</th><th>Price</th></tr>';
-
-        foreach ( $floorplans as $floorplan ) {
-            $view = get_post_meta( $floorplan->ID, 'view', true );
-            $bed = get_post_meta( $floorplan->ID, 'bed', true );
-            $bath = get_post_meta( $floorplan->ID, 'bath', true );
-            $price = get_post_meta( $floorplan->ID, 'price', true );
-
-            echo '<tr>';
-            echo '<td>' . esc_html( $view ) . '</td>';
-            echo '<td>' . esc_html( $bed ) . '</td>';
-            echo '<td>' . esc_html( $bath ) . '</td>';
-            echo '<td>' . esc_html( $price ) . '</td>';
-            echo '</tr>';
-        }
-
-        echo '</table>';
-    } else {
-        echo '<p>No floorplans associated with this property.</p>';
-    }
-
     // Display associated floorplans as links
     $associated_floorplans = get_posts( array(
         'post_type' => 'floorplans',
