@@ -1146,12 +1146,13 @@ if (class_exists('CSF')) {
 					'id'          => 'opt-floorplans-status',
 					'type'        => 'select',
 					'title'       => 'Status',
+					'validate' => 'csf_validate_require',
 					'placeholder' => 'Select an option',
 					'options'     => array(
 						'sold_out'  => 'Sold Out',
 						'available'  => 'Available',
 					),
-					'default'     => 'available'
+					'default'     => 'available',
 				),
 				array(
 					'id'    => 'opt-floorplans-suite-name',
