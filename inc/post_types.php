@@ -256,7 +256,6 @@ function custom_render_property_association_meta_box( $post ) {
     echo '</select>';
 }
 
-
 // Add custom meta box to the floorplans edit screen
 function custom_add_property_association_meta_box() {
     add_meta_box(
@@ -269,7 +268,6 @@ function custom_add_property_association_meta_box() {
     );
 }
 add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
-
 
 // Save the associated property when the floorplan is saved
 function custom_save_property_association_meta( $post_id ) {
@@ -300,7 +298,6 @@ function custom_modify_floorplans_query( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
-
 
 // Render associated floorplans on the floorplan edit screen
 function custom_render_associated_floorplans() {
@@ -385,6 +382,8 @@ function custom_add_associated_floorplans_meta_box() {
     );
 }
 add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
+
+// Save associated floorplans meta
 function custom_save_floorplans_meta( $post_id ) {
     if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
         return;
