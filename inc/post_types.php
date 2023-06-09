@@ -313,6 +313,7 @@ function custom_render_associated_floorplans() {
         echo 'No floorplans associated with this property.';
     }
 }
+
 function custom_save_floorplans_meta( $post_id ) {
     if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
         return;
@@ -331,5 +332,6 @@ function custom_save_floorplans_meta( $post_id ) {
         }
     }
 }
+
 add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
 
