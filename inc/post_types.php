@@ -393,22 +393,20 @@ function custom_render_associated_floorplans() {
 }
 
 
-
-
 // Modify the floorplans permalink structure
 function custom_modify_floorplans_permalink($permalink, $post) {
     if ($post->post_type === 'floorplans') {
         $associated_property = get_post_meta($post->ID, 'associated_property', true);
         $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
-        $property_url = home_url("/properties/$property_name/");
         $floorplan_slug = $post->post_name;
 
-        $permalink = $property_url . "floorplans/$floorplan_slug/";
+        $permalink = home_url("/properties/$property_name/floorplans/$floorplan_slug/");
     }
 
     return $permalink;
 }
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
+
 
 
 // Register additional rewrite rules for the modified floorplans permalink structure
