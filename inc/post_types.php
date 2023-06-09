@@ -289,11 +289,10 @@ function add_custom_validation_script() {
         jQuery(document).ready(function($) {
             // Handle the form submission
             $('form#post').on('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
-
                 // Check if an associated property is selected
                 var associatedProperty = $('select#associated_property').val();
                 if (!associatedProperty) {
+                    event.preventDefault(); // Prevent the default form submission
                     alert('Please select an associated property.');
                     return;
                 }
