@@ -322,14 +322,14 @@ function add_custom_validation_script() {
 add_action('admin_footer', 'add_custom_validation_script');
 
 
-function override_post_status($data, $postarr) {
-    // Check if the post type is 'post' or any other custom post type
-    if ($data['post_type'] === 'post' || $data['post_type'] === 'your_custom_post_type') {
-        // Set the post status to 'publish' to override any other changes
-        $data['post_status'] = 'publish';
-    }
-    return $data;
-}
+//function override_post_status($data, $postarr) {
+//    // Check if the post type is 'post' or any other custom post type
+//    if ($data['post_type'] === 'post' || $data['post_type'] === 'your_custom_post_type') {
+//        // Set the post status to 'publish' to override any other changes
+//        $data['post_status'] = 'publish';
+//    }
+//    return $data;
+//}
 //add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
 
 
@@ -345,7 +345,7 @@ function custom_display_error_message() {
 }
 
 // Hook into admin_notices action to display the error message
-//add_action( 'admin_notices', 'custom_display_error_message' );
+add_action( 'admin_notices', 'custom_display_error_message' );
 
 
 
@@ -363,7 +363,7 @@ function custom_modify_floorplans_query( $query ) {
         $query->set( 'rewrite', array( 'slug' => 'properties', 'with_front' => false ) );
     }
 }
-//add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
+add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
 
 // Render associated floorplans on the floorplan edit screen
 function custom_render_associated_floorplans() {
@@ -420,7 +420,7 @@ function custom_modify_floorplans_permalink($permalink, $post) {
 
     return $permalink;
 }
-//add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
+add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 
 
 
@@ -428,14 +428,14 @@ function custom_modify_floorplans_permalink($permalink, $post) {
 function custom_add_rewrite_rules() {
     add_rewrite_rule( '^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top' );
 }
-//add_action( 'init', 'custom_add_rewrite_rules' );
+add_action( 'init', 'custom_add_rewrite_rules' );
 
 // Flush rewrite rules when the associated property is saved or updated
 function custom_flush_rewrite_rules() {
     flush_rewrite_rules();
 }
-//add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
-//add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
+add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
+add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 // Add the associated floorplans meta box to the floorplan edit screen
 function custom_add_associated_floorplans_meta_box() {
@@ -448,7 +448,7 @@ function custom_add_associated_floorplans_meta_box() {
         'default'
     );
 }
-//add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
+add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
 
 // Save associated floorplans meta
 function custom_save_floorplans_meta( $post_id ) {
@@ -469,7 +469,7 @@ function custom_save_floorplans_meta( $post_id ) {
         }
     }
 }
-//add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
+add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
 
 // Move associated floorplans to trash when a property is moved to trash
 function custom_trash_associated_floorplans( $post_id ) {
@@ -491,7 +491,7 @@ function custom_trash_associated_floorplans( $post_id ) {
         }
     }
 }
-//add_action( 'trashed_post', 'custom_trash_associated_floorplans' );
+add_action( 'trashed_post', 'custom_trash_associated_floorplans' );
 
 // Delete associated floorplans from trash when a property is deleted from trash
 function custom_delete_associated_floorplans( $post_id ) {
@@ -514,5 +514,5 @@ function custom_delete_associated_floorplans( $post_id ) {
         }
     }
 }
-//add_action( 'delete_post', 'custom_delete_associated_floorplans' );
+add_action( 'delete_post', 'custom_delete_associated_floorplans' );
 
