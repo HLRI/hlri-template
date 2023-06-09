@@ -173,6 +173,8 @@ function floorplans() {
 add_action('init', 'floorplans', 0);
 
 
+
+
 // Render the custom meta box content on the properties edit screen
 function custom_render_floorplans_meta_box( $post ) {
     $floorplans = get_posts( array(
@@ -226,27 +228,71 @@ function custom_add_floorplans_meta_box() {
     );
 }
 add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
-function custom_save_floorplans_meta( $post_id ) {
-    if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
+
+// Add custom meta box to the floorplans edit screen for property association
+function custom_render_property_association_meta_box( $post ) {
+    wp_nonce_field( 'custom_floorplan_property_association', 'custom_floorplan_property_nonce' );
+
+    $associated_property = get_post_meta( $post->ID, 'associated_property', true );
+    $properties = get_posts( array(
+        'post_type' => 'properties',
+        'numberposts' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'post_status' => 'publish'
+    ) );
+
+    echo '<label for="associated_property">Associated Property:</label>';
+    echo '<select name="associated_property" id="associated_property">';
+    echo '<option value="">Select Property</option>';
+
+    foreach ( $properties as $property ) {
+        $selected = selected( $associated_property, $property->ID, false );
+        echo '<option value="' . esc_attr( $property->ID ) . '"' . $selected . '>' . esc_html( $property->post_title ) . '</option>';
+    }
+
+    echo '</select>';
+}
+
+// Save the associated property when the floorplan is saved
+function custom_save_property_association_meta( $post_id ) {
+    if ( ! isset( $_POST['custom_floorplan_property_nonce'] ) || ! wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
         return;
     }
 
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+    if ( isset( $_POST['associated_property'] ) ) {
+        update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
+    }
+}
+add_action( 'save_post_floorplans', 'custom_save_property_association_meta' );
+
+// Add the custom meta box to the floorplans edit screen
+function custom_add_property_association_meta_box() {
+    add_meta_box(
+        'property_association_meta_box',
+        'Property Association',
+        'custom_render_property_association_meta_box',
+        'floorplans',
+        'side',
+        'default'
+    );
+}
+add_action( 'add_meta_boxes', 'custom_add_property_association_meta_box' );
+
+// Modify the floorplans query to include the associated property
+function custom_modify_floorplans_query( $query ) {
+    if ( ! is_admin() || ! $query->is_main_query() ) {
         return;
     }
 
-    if ( isset( $_POST['post_type'] ) && 'properties' === $_POST['post_type'] ) {
-        if ( isset( $_POST['floorplans'] ) ) {
-            $floorplans = array_map( 'intval', $_POST['floorplans'] );
-            update_post_meta( $post_id, 'floorplans', $floorplans );
+    if ( $query->get( 'post_type' ) === 'floorplans' ) {
+        $associated_property = get_query_var( 'property' );
 
-            // Update the parent property for each selected floorplan
-            foreach ( $floorplans as $floorplan_id ) {
-                update_post_meta( $floorplan_id, 'property', $post_id );
-            }
-        } else {
-            delete_post_meta( $post_id, 'floorplans' );
+        if ( $associated_property ) {
+            $query->set( 'meta_key', 'associated_property' );
+            $query->set( 'meta_value', $associated_property );
+            $query->set( 'meta_compare', '=' );
         }
     }
 }
-add_action( 'save_post', 'custom_save_floorplans_meta' );
+add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
