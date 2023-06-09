@@ -345,7 +345,6 @@ function custom_render_associated_floorplans() {
         ) );
 
         if ( $floorplans ) {
-            echo '<h2 class="hndle"><span>Associated Floorplans</span></h2>';
             echo '<div class="inside">';
             echo '<ul>';
             foreach ( $floorplans as $floorplan ) {
