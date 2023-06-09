@@ -325,12 +325,7 @@ jQuery(document).ready(function ($) {
 
 
     dataTable = $("#example").DataTable({
-        "columnDefs": [
-            {
-                "targets": [6],
-                "visible": false
-            }
-        ]
+       
 
     });
 

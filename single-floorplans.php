@@ -180,7 +180,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             <?php endif; ?>
         </div>
     </div>
-    <div class="row">
+    <div class="container-fluid px-0">
         <div class="content">
             <div class="row">
                 <div class="col-8">
