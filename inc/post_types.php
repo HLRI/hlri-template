@@ -366,8 +366,8 @@ function custom_render_associated_floorplans() {
 // Add the associated floorplans meta box to the floorplan edit screen
 function custom_add_associated_floorplans_meta_box() {
     add_meta_box(
-        'associated_floorplans_meta_box',
-//        'Associated Floorplans',
+//        'associated_floorplans_meta_box',
+        'Associated Floorplans',
         'custom_render_associated_floorplans',
         'floorplans',
         'normal',
