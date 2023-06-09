@@ -3,7 +3,6 @@
 $theme_options = get_option('hlr_framework');
 $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 ?>
-<link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 <div class="container-fluid px-lg-5 my-4">
     <div class="row">
         <div class="col-lg-9 px-4">
