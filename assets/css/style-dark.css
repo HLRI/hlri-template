@@ -2973,3 +2973,7 @@ button.btn.btn-link:hover {
 .status-color-danger {
     background: #cf3f3f;
 }
+
+.dataTables_wrapper .dataTables_info {
+    padding-top: 1rem;
+}

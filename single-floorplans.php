@@ -220,7 +220,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div> -->
             </div>
         </div>
-        <table id="example" class="table py-4">
+        <table id="example" class="table pt-4">
             <thead>
                 <tr>
                     <th></th>
