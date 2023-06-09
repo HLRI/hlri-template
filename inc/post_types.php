@@ -345,7 +345,6 @@ function custom_render_associated_floorplans() {
         ) );
 
         if ( $floorplans ) {
-            echo '<div class="postbox">';
             echo '<h2 class="hndle"><span>Associated Floorplans</span></h2>';
             echo '<div class="inside">';
             echo '<ul>';
@@ -353,7 +352,6 @@ function custom_render_associated_floorplans() {
                 echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
             }
             echo '</ul>';
-            echo '</div>';
             echo '</div>';
         } else {
             echo '<p>No floorplans associated with this property.</p>';
