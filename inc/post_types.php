@@ -295,17 +295,32 @@ function custom_modify_floorplans_query( $query ) {
             $query->set( 'meta_value', $associated_property );
             $query->set( 'meta_compare', '=' );
         } else {
-            // Exclude floorplans without an associated property
+            // Exclude floorplans without an associated property or with a deleted associated property
             $query->set( 'meta_query', array(
-                'relation' => 'OR',
+                'relation' => 'AND',
                 array(
-                    'key'     => 'associated_property',
-                    'compare' => 'NOT EXISTS',
+                    'relation' => 'OR',
+                    array(
+                        'key' => 'associated_property',
+                        'compare' => 'NOT EXISTS',
+                    ),
+                    array(
+                        'key' => 'associated_property',
+                        'value' => '',
+                        'compare' => '=',
+                    ),
                 ),
                 array(
-                    'key'     => 'associated_property',
-                    'value'   => '',
-                    'compare' => '=',
+                    'relation' => 'OR',
+                    array(
+                        'key' => 'associated_property',
+                        'compare' => 'EXISTS',
+                    ),
+                    array(
+                        'key' => 'associated_property',
+                        'value' => 0,
+                        'compare' => '=',
+                    ),
                 ),
             ) );
         }
