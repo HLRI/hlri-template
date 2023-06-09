@@ -1145,7 +1145,7 @@ if (class_exists('CSF')) {
 				array(
 					'id'          => 'opt-floorplans-status',
 					'type'        => 'select',
-					'title'       => 'Select',
+					'title'       => 'Status',
 					'placeholder' => 'Select an option',
 					'options'     => array(
 						'sold-out'  => 'Sold Out',
