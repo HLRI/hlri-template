@@ -302,32 +302,32 @@ function custom_render_associated_floorplans() {
     global $post;
 
     // Get the associated property for the current floorplan
-    $associated_property = get_post_meta( $post->ID, 'associated_property', true );
+    $associated_property = get_post_meta($post->ID, 'associated_property', true);
+    $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
+    $property_url = home_url("/properties/$property_name/");
 
-    if ( $associated_property ) {
+    if ($associated_property) {
         // Get the associated floorplans for the current property
-        $floorplans = get_posts( array(
+        $floorplans = get_posts(array(
             'post_type' => 'floorplans',
             'numberposts' => -1,
             'meta_query' => array(
                 array(
                     'key' => 'associated_property',
                     'value' => $associated_property,
-                    'compare' => '='
-                )
-            )
-        ) );
+                    'compare' => '=',
+                ),
+            ),
+        ));
 
-        if ( $floorplans ) {
+        if ($floorplans) {
             echo '<style>.rightDf{float: right;display: inline-block;}.flIl{border: 1px solid #cfcfcf;padding: 10px 10px 10px 15px;border-radius: 5px;background-color: #f8f8f8;font-size: 16px;color: #ae0c0c;box-shadow: 1px 2px 3px #e9e9e9;margin-bottom: 9px;}</style><div class="inside">';
             echo '<ul style="margin-top:30px;">';
-            foreach ( $floorplans as $floorplan ) {
-                $property_slug = sanitize_title_with_dashes( get_the_title( $associated_property ) );
-                $floorplan_slug = sanitize_title_with_dashes( $floorplan->post_title );
-                $property_url = home_url( "properties/{$property_slug}/" );
-                $floorplan_url = $property_url . "floorplans/{$floorplan_slug}/";
+            foreach ($floorplans as $floorplan) {
+                $floorplan_slug = $floorplan->post_name;
+                $floorplan_link = $property_url . "floorplans/$floorplan_slug/";
 
-                echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . $floorplan_url . '">View</a></div></li>';
+                echo '<li class="flIl"><span>' . esc_html($floorplan->post_title) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link($floorplan->ID) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . esc_url($floorplan_link) . '">View</a></div></li>';
             }
             echo '</ul>';
             echo '</div>';
@@ -341,27 +341,26 @@ function custom_render_associated_floorplans() {
 
 
 
+
 // Modify the floorplans permalink structure
 function custom_modify_floorplans_permalink($permalink, $post) {
     if ($post->post_type === 'floorplans') {
         $associated_property = get_post_meta($post->ID, 'associated_property', true);
-        $property_slug = '';
-        if ($associated_property) {
-            $property_slug = get_post_field('post_name', $associated_property);
-        }
+        $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
+        $property_url = home_url("/properties/$property_name/");
+        $floorplan_slug = $post->post_name;
 
-        if ($property_slug) {
-            $permalink = home_url("/$property_slug/floorplans/" . $post->post_name . '/');
-        }
+        $permalink = $property_url . "floorplans/$floorplan_slug/";
     }
 
     return $permalink;
 }
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 
+
 // Register additional rewrite rules for the modified floorplans permalink structure
 function custom_add_rewrite_rules() {
-    add_rewrite_rule( '^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?associated_property=$matches[1]&floorplans=$matches[2]', 'top' );
+    add_rewrite_rule( '^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top' );
 }
 add_action( 'init', 'custom_add_rewrite_rules' );
 
