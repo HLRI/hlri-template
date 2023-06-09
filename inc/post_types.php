@@ -288,16 +288,62 @@ function add_custom_validation_script() {
     <script>
         jQuery(document).ready(function($) {
             // Handle the form submission
-            $('select#associated_property').on('change', function(event){
-                console.log('onchange for select');
-                var associatedProperty = $(this).val();
-                var floorPlanName = $('input#title').val();
-                var previewLink = $('a#sample-permalink');
-                var previewURL = previewLink.attr('href');
-                var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');
-                permalink = permalink.replace(/\/floorplans\/[^\/]+\//, '/floorplans/' + floorPlanName.toLowerCase().replace(/\s+/g, '-') + '/');
-                previewLink.attr('href', permalink);
+            jQuery(document).ready(function($) {
+                // Attach event listener to the associated field
+                $('#associated_property').on('change', function() {
+                    // Get the selected associated property ID
+                    var associatedPropertyID = $(this).val();
+
+                    // Perform validation
+                    if (associatedPropertyID) {
+                        // Check if the associated property exists
+                        $.ajax({
+                            url: ajaxurl, // Assuming ajaxurl is defined in your script
+                            type: 'POST',
+                            data: {
+                                action: 'validate_associated_property',
+                                associatedPropertyID: associatedPropertyID,
+                                nonce: ajax_nonce // Assuming ajax_nonce is defined in your script
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    // Validation passed, update the associated property
+                                    // Perform other necessary tasks
+
+                                    // Regenerate the permalink
+                                    $.ajax({
+                                        url: ajaxurl, // Assuming ajaxurl is defined in your script
+                                        type: 'POST',
+                                        data: {
+                                            action: 'regenerate_permalink',
+                                            postID: postID, // Assuming postID is defined in your script
+                                            nonce: ajax_nonce // Assuming ajax_nonce is defined in your script
+                                        },
+                                        success: function(response) {
+                                            if (response.success) {
+                                                // Permalink regenerated successfully
+                                            } else {
+                                                // Permalink regeneration failed
+                                            }
+                                        },
+                                        error: function(xhr, status, error) {
+                                            // Handle error
+                                        }
+                                    });
+                                } else {
+                                    // Validation failed, display error message
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                // Handle error
+                            }
+                        });
+                    } else {
+                        // Empty associated property, perform necessary tasks
+                    }
+                });
             });
+
             $('form#post').on('submit', function(event) {
                 // Check if an associated property is selected
                 var associatedProperty = $('select#associated_property').val();
