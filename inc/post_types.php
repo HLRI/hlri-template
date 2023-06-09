@@ -288,6 +288,13 @@ function add_custom_validation_script() {
     <script>
         jQuery(document).ready(function($) {
             // Handle the form submission
+            $('#associated_property').on('change'), function(event){
+                var previewLink = $('a#sample-permalink');
+                var previewURL = previewLink.attr('href');
+                var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');
+                permalink = permalink.replace(/\/floorplans\/[^\/]+\//, '/floorplans/' + floorPlanName.toLowerCase().replace(/\s+/g, '-') + '/');
+                previewLink.attr('href', permalink);
+            }
             $('form#post').on('submit', function(event) {
                 // Check if an associated property is selected
                 var associatedProperty = $('select#associated_property').val();
@@ -296,16 +303,20 @@ function add_custom_validation_script() {
                     alert('Please select an associated property.');
                     return;
                 }
-
                 // Check if a floor plan name is entered
                 var floorPlanName = $('input#title').val();
+                var floorPlanName = $('select#title').val();
                 if (!floorPlanName) {
                     event.preventDefault(); // Prevent the default form submission
                     alert('Please enter a floor plan name.');
                     return;
+                } else if (!floorPlanName && !associatedProperty){
+                    event.preventDefault(); // Prevent the default form submission
                 }
+                // Update the preview link with the correct URL structure
 
-
+                // If validation passes, proceed with the form submission
+                $(this).unbind('submit').submit();
             });
         });
     </script>
