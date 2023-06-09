@@ -297,6 +297,21 @@ function add_custom_validation_script() {
                     return;
                 }
 
+                // Check if a floor plan name is entered
+                var floorPlanName = $('input#title').val();
+                if (!floorPlanName) {
+                    event.preventDefault(); // Prevent the default form submission
+                    alert('Please enter a floor plan name.');
+                    return;
+                }
+
+                // Update the preview link with the correct URL structure
+                var previewLink = $('a#sample-permalink');
+                var previewURL = previewLink.attr('href');
+                var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');
+                permalink = permalink.replace(/\/floorplans\/[^\/]+\//, '/floorplans/' + floorPlanName.toLowerCase().replace(/\s+/g, '-') + '/');
+                previewLink.attr('href', permalink);
+
                 // If validation passes, proceed with the form submission
                 $(this).unbind('submit').submit();
             });
@@ -305,6 +320,7 @@ function add_custom_validation_script() {
     <?php
 }
 add_action('admin_footer', 'add_custom_validation_script');
+
 
 function override_post_status($data, $postarr) {
     // Check if the post type is 'post' or any other custom post type
