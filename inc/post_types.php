@@ -238,7 +238,7 @@ add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 function custom_render_property_association_meta_box( $post ) {
     wp_nonce_field( 'custom_floorplan_property_association', 'custom_floorplan_property_nonce' );
 
-    $associated_property = get_post_meta( $post->ID, 'associated_property', true );
+    $associated_property = isset( $_GET['associated_property'] ) ? intval( $_GET['associated_property'] ) : '';
     $properties = get_posts( array(
         'post_type' => 'properties',
         'numberposts' => -1,
@@ -255,6 +255,10 @@ function custom_render_property_association_meta_box( $post ) {
         $selected = selected( $associated_property, $property->ID, false );
         echo '<option value="' . esc_attr( $property->ID ) . '"' . $selected . '>' . esc_html( $property->post_title ) . '</option>';
     }
+
+    echo '</select>';
+}
+
 
     echo '</select>';
 }
