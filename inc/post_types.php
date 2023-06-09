@@ -280,7 +280,7 @@ function custom_save_property_association_meta( $post_id ) {
     }
 }
 // Hook into the save_post action
-//add_action( 'save_post', 'custom_save_property_association_meta' );
+add_action( 'save_post', 'custom_save_property_association_meta' );
 
 
 function add_custom_validation_script() {
