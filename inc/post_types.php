@@ -408,11 +408,20 @@ add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
 // Delete associated floorplans when a property is deleted
 function custom_delete_associated_floorplans( $post_id ) {
     if ( get_post_type( $post_id ) === 'properties' ) {
-        $floorplans = get_post_meta( $post_id, 'floorplans', true );
-        if ( ! empty( $floorplans ) ) {
-            foreach ( $floorplans as $floorplan ) {
-                wp_delete_post( $floorplan, true ); // Set the second parameter to 'true' to force delete the post
-            }
+        $associated_floorplans = get_posts( array(
+            'post_type' => 'floorplans',
+            'numberposts' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'associated_property',
+                    'value' => $post_id,
+                    'compare' => '=',
+                ),
+            ),
+        ) );
+
+        foreach ( $associated_floorplans as $floorplan ) {
+            wp_delete_post( $floorplan->ID, true ); // Set the second parameter to 'true' to force delete the post
         }
     }
 }
