@@ -271,24 +271,23 @@ add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_b
 
 
 // Save the associated property when the floorplan is saved
-function custom_save_property_association_meta( $post_id ) {
-    if ( ! isset( $_POST['custom_floorplan_property_nonce'] ) || ! wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
+function custom_save_property_association_meta($post_id) {
+    if (!isset($_POST['custom_floorplan_property_nonce']) || !wp_verify_nonce($_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association')) {
         return;
     }
 
-    if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
-        update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
+    if (isset($_POST['associated_property']) && !empty($_POST['associated_property'])) {
+        update_post_meta($post_id, 'associated_property', $_POST['associated_property']);
     } else {
-        // No associated property selected, prevent publishing and display an error message
+        // No associated property selected, prevent saving the floorplan and display an error message
         $error_message = 'Please select an associated property.';
-        add_filter( 'redirect_post_location', function( $location ) use ( $error_message ) {
-            return add_query_arg( 'error', urlencode( $error_message ), $location );
-        } );
+        wp_die($error_message);
     }
 }
 
 // Hook into the save_post action with a higher priority (e.g., 20)
-add_action( 'save_post', 'custom_save_property_association_meta', 20 );
+add_action('save_post', 'custom_save_property_association_meta', 20);
+
 
 // Display error message on the edit page
 function custom_display_error_message() {
