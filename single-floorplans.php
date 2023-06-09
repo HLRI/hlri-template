@@ -1088,5 +1088,4 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
         </div>
     </div>
 </div>
-<script src="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"></script>
 <?php get_footer(); ?>
