@@ -259,10 +259,6 @@ function custom_render_property_association_meta_box( $post ) {
     echo '</select>';
 }
 
-
-    echo '</select>';
-}
-
 // Add custom meta box to the floorplans edit screen
 function custom_add_property_association_meta_box() {
     add_meta_box(
