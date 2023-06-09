@@ -275,16 +275,21 @@ function custom_save_property_association_meta( $post_id ) {
         return;
     }
 
-    if ( isset( $_POST['associated_property'] ) ) {
+    if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
         update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
     } else {
-        // No associated property selected, prevent saving and display an error message
-        wp_die( 'Please select an associated property.', 'Error', array( 'response' => 400 ) );
+        // No associated property selected, display an error message and prevent saving
+        $error_message = 'Please select an associated property.';
+        add_filter( 'redirect_post_location', function( $location ) use ( $error_message ) {
+            return add_query_arg( 'message', urlencode( $error_message ), $location );
+        });
+        wp_die( $error_message, 'Error', array( 'response' => 400 ) );
     }
 }
 
 // Hook into the save_post action
 add_action( 'save_post', 'custom_save_property_association_meta' );
+
 
 
 
