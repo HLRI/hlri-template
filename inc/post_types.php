@@ -271,26 +271,21 @@ add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_b
 
 
 // Save the associated property when the floorplan is saved
-function custom_save_property_association_meta( $data, $postarr ) {
+function custom_save_property_association_meta( $post_id ) {
     if ( isset( $_POST['custom_floorplan_property_nonce'] ) && wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
         if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
-            $data['post_type'] = 'floorplans'; // Set the post type to 'floorplans' to save as a floorplan
-            update_post_meta( $postarr['ID'], 'associated_property', $_POST['associated_property'] );
+            update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
         } else {
             // No associated property selected, prevent saving and display an error message
-            $data = null;
             $error_message = 'Please select an associated property.';
-            add_filter( 'redirect_post_location', function( $location ) use ( $error_message ) {
-                return add_query_arg( 'error', urlencode( $error_message ), $location );
-            } );
-            add_filter( 'wp_insert_post_empty_content', '__return_true' );
+            wp_die( $error_message, 'Error', array( 'response' => 400 ) );
         }
     }
-    return $data;
 }
 
-// Hook into the wp_insert_post_data filter
-add_filter( 'wp_insert_post_data', 'custom_save_property_association_meta', 10, 2 );
+// Hook into the save_post action
+add_action( 'save_post', 'custom_save_property_association_meta' );
+
 
 
 
