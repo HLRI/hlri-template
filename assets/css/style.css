@@ -2886,7 +2886,7 @@ button.btn.btn-link:hover {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .status-color-success {
