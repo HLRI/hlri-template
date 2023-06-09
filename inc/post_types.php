@@ -322,21 +322,7 @@ function add_custom_validation_script() {
 add_action('admin_footer', 'add_custom_validation_script');
 
 
-function admin_enqueue($hook)
-{
 
-    $post_type = get_post_type($_GET['post']);
-    if ($hook == 'post-new.php') {
-        if ($post_type == 'floorplans') {
-
-        }
-    } elseif ($hook == 'post.php') {
-        if ($post_type == 'floorplans') {
-
-        }
-    }
-}
-add_action('admin_enqueue_scripts', 'admin_enqueue');
 
 
 
