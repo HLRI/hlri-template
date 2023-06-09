@@ -183,7 +183,19 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
     <div class="container-fluid px-0">
         <div class="content">
             <div class="row">
-                <div class="col-8">
+                <div class="col-12">
+                    <div class="btn-group submitter-group float-right">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Status</div>
+                        </div>
+                        <select class="form-control status-dropdown">
+                            <option value="">All</option>
+                            <option value="Sold Out">Sold Out</option>
+                            <option value="Available">Available</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <div class="col-8">
                     <div class="filter-wrapper">
                         <input type="checkbox" class="filter-checkbox" value="Software Engineer" /> Software Engineer
                         <input type="checkbox" class="filter-checkbox" value="Accountant" /> Accountant
@@ -202,7 +214,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                             <option value="Available">Available</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <table id="example" class="table">
