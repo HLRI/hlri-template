@@ -180,9 +180,12 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             <?php endif; ?>
         </div>
     </div>
-    <div class="container-fluid px-0">
+    <div class="container-fluid px-0 mt-lg-5 mt-2">
         <div class="content">
-            <div class="row">
+            <div class="row mb-lg-4 mb-2">
+                <div class="col-12 mb-4">
+                    <h4 class="font-weight-bold h3">Browse more Imperia Condos by Truman Floor Plans</h4>
+                </div>
                 <div class="col-12">
                     <div class="btn-group submitter-group float-left">
                         <div class="input-group-prepend">
@@ -217,7 +220,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </div> -->
             </div>
         </div>
-        <table id="example" class="table">
+        <table id="example" class="table pt-4">
             <thead>
                 <tr>
                     <th></th>
