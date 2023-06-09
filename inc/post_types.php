@@ -281,12 +281,26 @@ function custom_save_property_association_meta( $post_id ) {
     } else {
         // No associated property selected, prevent publishing and display an error message
         $error_message = 'Please select an associated property.';
-        wp_die( $error_message, 'Error', array( 'response' => 400 ) );
+        add_filter( 'redirect_post_location', function( $location ) use ( $error_message ) {
+            return add_query_arg( 'error', urlencode( $error_message ), $location );
+        } );
     }
 }
 
 // Hook into the save_post action with a higher priority (e.g., 20)
 add_action( 'save_post', 'custom_save_property_association_meta', 20 );
+
+// Display error message on the edit page
+function custom_display_error_message() {
+    if ( isset( $_GET['error'] ) ) {
+        $error_message = urldecode( $_GET['error'] );
+        echo '<div class="error"><p>' . esc_html( $error_message ) . '</p></div>';
+    }
+}
+
+// Hook into admin_notices action to display the error message
+add_action( 'admin_notices', 'custom_display_error_message' );
+
 
 
 
