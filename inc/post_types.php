@@ -427,9 +427,9 @@ function custom_trash_associated_floorplans( $post_id ) {
 }
 add_action( 'trashed_post', 'custom_trash_associated_floorplans' );
 
-// Delete associated floorplans permanently when a property is deleted from the trash
+// Delete associated floorplans from trash when a property is deleted from trash
 function custom_delete_associated_floorplans( $post_id ) {
-    if ( get_post_type( $post_id ) === 'properties' && get_post_status( $post_id ) === false ) {
+    if ( get_post_type( $post_id ) === 'properties' && get_post_status( $post_id ) === 'trash' ) {
         $associated_floorplans = get_posts( array(
             'post_type' => 'floorplans',
             'numberposts' => -1,
@@ -440,6 +440,7 @@ function custom_delete_associated_floorplans( $post_id ) {
                     'compare' => '=',
                 ),
             ),
+            'post_status' => 'trash',
         ) );
 
         foreach ( $associated_floorplans as $floorplan ) {
@@ -448,3 +449,4 @@ function custom_delete_associated_floorplans( $post_id ) {
     }
 }
 add_action( 'delete_post', 'custom_delete_associated_floorplans' );
+
