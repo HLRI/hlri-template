@@ -184,7 +184,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
         <div class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="btn-group submitter-group float-right">
+                    <div class="btn-group submitter-group float-left">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Status</div>
                         </div>
