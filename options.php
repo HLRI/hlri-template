@@ -1143,6 +1143,17 @@ if (class_exists('CSF')) {
 		array(
 			'fields'	=>	array(
 				array(
+					'id'          => 'opt-floorplans-status',
+					'type'        => 'select',
+					'title'       => 'Select',
+					'placeholder' => 'Select an option',
+					'options'     => array(
+						'sold-out'  => 'Sold Out',
+						'available'  => 'Available',
+					),
+					'default'     => 'available'
+				),
+				array(
 					'id'    => 'opt-floorplans-suite-name',
 					'type'  => 'text',
 					'title' => 'Suite Name'
