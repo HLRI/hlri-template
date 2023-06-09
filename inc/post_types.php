@@ -289,6 +289,8 @@ function add_custom_validation_script() {
         jQuery(document).ready(function($) {
             // Handle the form submission
             $('#associated_property').on('change', function(event){
+                var associatedProperty = $('select#associated_property').val();
+                var floorPlanName = $('input#title').val();
                 var previewLink = $('a#sample-permalink');
                 var previewURL = previewLink.attr('href');
                 var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');
@@ -305,7 +307,6 @@ function add_custom_validation_script() {
                 }
                 // Check if a floor plan name is entered
                 var floorPlanName = $('input#title').val();
-                var floorPlanName = $('select#title').val();
                 if (!floorPlanName) {
                     event.preventDefault(); // Prevent the default form submission
                     alert('Please enter a floor plan name.');
