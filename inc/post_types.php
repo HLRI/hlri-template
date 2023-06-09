@@ -288,7 +288,7 @@ function add_custom_validation_script() {
     <script>
         jQuery(document).ready(function($) {
             // Handle the form submission
-            $('#associated_property').on('change', function(event){
+            $('select#associated_property').on('change', function(event){
                 console.log('onchange for select');
                 var associatedProperty = $(this).val();
                 var floorPlanName = $('input#title').val();
