@@ -377,8 +377,8 @@ function admin_enqueue($hook)
         }
     }
 }
-//add_action('admin_enqueue_scripts', 'admin_enqueue');
-add_action('admin_footer', 'admin_enqueue');
+add_action('admin_enqueue_scripts', 'admin_enqueue');
+//add_action('admin_footer', 'admin_enqueue');
 
 
 
