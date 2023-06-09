@@ -299,20 +299,40 @@ add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
 function custom_render_associated_floorplans() {
     global $post;
 
-    // Get the associated floorplans for the current property
-    $floorplans = get_post_meta( $post->ID, 'floorplans', true );
+    // Get the associated property for the current floorplan
+    $associated_property = get_post_meta( $post->ID, 'associated_property', true );
 
-    if ( $floorplans ) {
-        echo '<ul>';
-        foreach ( $floorplans as $floorplan_id ) {
-            $floorplan = get_post( $floorplan_id );
-            echo '<li><a href="' . get_edit_post_link( $floorplan_id ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+    if ( $associated_property ) {
+        $floorplans = get_posts( array(
+            'post_type' => 'floorplans',
+            'numberposts' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC',
+            'post_status' => 'publish',
+            'meta_query' => array(
+                array(
+                    'key' => 'associated_property',
+                    'value' => $associated_property,
+                    'compare' => '='
+                )
+            )
+        ) );
+
+        if ( $floorplans ) {
+            echo '<ul>';
+            foreach ( $floorplans as $floorplan ) {
+                echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+            }
+            echo '</ul>';
+        } else {
+            echo 'No floorplans associated with this property.';
         }
-        echo '</ul>';
     } else {
-        echo 'No floorplans associated with this property.';
+        echo 'No associated property found for this floorplan.';
     }
 }
+add_action('admin_init', 'custom_render_associated_floorplans');
+
 
 function custom_save_floorplans_meta( $post_id ) {
     if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
@@ -332,6 +352,5 @@ function custom_save_floorplans_meta( $post_id ) {
         }
     }
 }
-
 add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
 
