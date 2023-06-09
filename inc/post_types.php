@@ -185,7 +185,7 @@ function custom_render_floorplans_meta_box( $post ) {
         'post_status' => 'publish',
         'meta_query' => array(
             array(
-                'key' => 'property',
+                'key' => 'associated_property',
                 'value' => $post->ID,
                 'compare' => '='
             )
@@ -213,6 +213,30 @@ function custom_render_floorplans_meta_box( $post ) {
         echo '</table>';
     } else {
         echo '<p>No floorplans associated with this property.</p>';
+    }
+
+    // Display associated floorplans as links
+    $associated_floorplans = get_posts( array(
+        'post_type' => 'floorplans',
+        'numberposts' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'associated_property',
+                'value' => $post->ID,
+                'compare' => '='
+            )
+        )
+    ) );
+
+    if ( $associated_floorplans ) {
+        echo '<p>Associated Floorplans:</p>';
+        echo '<ul>';
+        foreach ( $associated_floorplans as $floorplan ) {
+            echo '<li><a href="' . get_permalink( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+        }
+        echo '</ul>';
+    } else {
+        echo '<p>No associated floorplans found for this property.</p>';
     }
 }
 
