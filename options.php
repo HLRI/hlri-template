@@ -1148,7 +1148,7 @@ if (class_exists('CSF')) {
 					'title'       => 'Status',
 					'placeholder' => 'Select an option',
 					'options'     => array(
-						'sold-out'  => 'Sold Out',
+						'sold_out'  => 'Sold Out',
 						'available'  => 'Available',
 					),
 					'default'     => 'available'
