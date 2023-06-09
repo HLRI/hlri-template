@@ -271,37 +271,24 @@ add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_b
 
 
 // Save the associated property when the floorplan is saved
-function custom_save_property_association_meta( $post_id, $post ) {
-    // Verify this is not an autosave routine
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+function custom_save_property_association_meta( $post_id ) {
+    if ( ! isset( $_POST['custom_floorplan_property_nonce'] ) || ! wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
         return;
     }
 
-    // Check the post type to make sure it's a floorplan
-    if ( 'floorplan' !== $post->post_type ) {
-        return;
-    }
-
-    // You should check nonces and permissions here
-    if ( ! current_user_can( 'edit_page', $post_id ) ) {
-        return;
-    }
-
-    // Get the associated property field value
-    $associated_property = isset( $_POST['associated_property'] ) ? $_POST['associated_property'] : '';
-
-    // If the associated property is empty, display an error message and stop the saving process
-    if ( empty( $associated_property ) ) {
+    if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
+        update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
+    } else {
+        // No associated property selected, prevent publishing and display an error message
         $error_message = 'Please select an associated property.';
-        wp_redirect( add_query_arg( 'error', urlencode( $error_message ), get_edit_post_link( $post_id ) ) );
-        exit;
+        add_filter( 'redirect_post_location', function( $location ) use ( $error_message ) {
+            return add_query_arg( 'error', urlencode( $error_message ), $location );
+        } );
     }
-
-    // Save the associated property
-    update_post_meta( $post_id, 'associated_property', $associated_property );
 }
-add_action( 'save_post', 'custom_save_property_association_meta', 10, 2 );
 
+// Hook into the save_post action with a higher priority (e.g., 20)
+add_action( 'save_post', 'custom_save_property_association_meta', 20 );
 
 // Display error message on the edit page
 function custom_display_error_message() {
@@ -310,6 +297,8 @@ function custom_display_error_message() {
         echo '<div class="error"><p>' . esc_html( $error_message ) . '</p></div>';
     }
 }
+
+// Hook into admin_notices action to display the error message
 add_action( 'admin_notices', 'custom_display_error_message' );
 
 
