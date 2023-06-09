@@ -232,7 +232,6 @@ function custom_add_floorplans_meta_box() {
 add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 
 // Add custom meta box to the floorplans edit screen for property association
-// Add custom meta box to the floorplans edit screen for property association
 function custom_render_property_association_meta_box($post)
 {
     wp_nonce_field('custom_floorplan_property_association', 'custom_floorplan_property_nonce');
@@ -247,16 +246,37 @@ function custom_render_property_association_meta_box($post)
     ));
 
     echo '<label for="associated_property">Associated Property:</label>';
-    echo '<select name="associated_property" id="associated_property">';
-    echo '<option value="">Select Property</option>';
+    echo '<input type="text" name="associated_property_search" id="associated_property_search" placeholder="Search for a property">';
+    echo '<div id="associated_property_results">';
 
     foreach ($properties as $property) {
         $selected = selected($associated_property, $property->ID, false);
-        echo '<option value="' . esc_attr($property->ID) . '"' . $selected . '>' . esc_html($property->post_title) . '</option>';
+        echo '<label><input type="radio" name="associated_property" value="' . esc_attr($property->ID) . '"' . $selected . '> ' . esc_html($property->post_title) . '</label><br>';
     }
 
-    echo '</select>';
+    echo '</div>';
 }
+
+// Add the JavaScript code to the admin footer
+function custom_admin_footer_script()
+{
+    echo '<script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $("#associated_property_search").on("input", function () {
+                var searchTerm = $(this).val().toLowerCase();
+                $("#associated_property_results label").each(function () {
+                    var propertyTitle = $(this).text().toLowerCase();
+                    if (propertyTitle.indexOf(searchTerm) !== -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>';
+}
+add_action('admin_footer', 'custom_admin_footer_script');
 
 // Add custom meta box to the floorplans edit screen
 function custom_add_property_association_meta_box()
