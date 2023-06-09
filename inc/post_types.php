@@ -345,10 +345,10 @@ function custom_render_associated_floorplans() {
         ) );
 
         if ( $floorplans ) {
-            echo '<style>.flIl{border: 1px solid rebeccapurple;padding: 10px;border-radius: 5px;background-color: #f2e5ff;font-size: 16px;}</style><div class="inside">';
+            echo '<style>.rightDf{float: right;display: inline-block;}.flIl{border: 1px solid rebeccapurple;padding: 10px;border-radius: 5px;background-color: #f2e5ff;font-size: 16px;}</style><div class="inside">';
             echo '<ul>';
             foreach ( $floorplans as $floorplan ) {
-                echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div><a href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a href="' . get_post_permalink( $floorplan->ID ) . '">View</a></div></li>';
+                echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div><a class="button button-small" href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a class="button button-small" href="' . get_post_permalink( $floorplan->ID ) . '">View</a></div></li>';
             }
             echo '</ul>';
             echo '</div>';
