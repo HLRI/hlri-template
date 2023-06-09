@@ -202,3 +202,29 @@ function custom_render_floorplans_meta_box( $post ) {
 
     echo '</ul>';
 }
+
+// Save the selected floorplans
+function custom_save_floorplans_meta( $post_id ) {
+    if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
+        return;
+    }
+
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    if ( isset( $_POST['post_type'] ) && 'properties' === $_POST['post_type'] ) {
+        if ( isset( $_POST['floorplans'] ) ) {
+            $floorplans = array_map( 'intval', $_POST['floorplans'] );
+            update_post_meta( $post_id, 'floorplans', $floorplans );
+
+            // Update the parent property for each selected floorplan
+            foreach ( $floorplans as $floorplan_id ) {
+                update_post_meta( $floorplan_id, 'property', $post_id );
+            }
+        } else {
+            delete_post_meta( $post_id, 'floorplans' );
+        }
+    }
+}
+add_action( 'save_post', 'custom_save_floorplans_meta' );
