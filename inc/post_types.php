@@ -275,10 +275,6 @@ function custom_save_property_association_meta( $post_id ) {
     if ( isset( $_POST['custom_floorplan_property_nonce'] ) && wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
         if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
             update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
-        } else {
-            // No associated property selected, prevent saving and display an error message
-            $error_message = 'Please select an associated property.';
-            wp_die( $error_message, 'Error', array( 'response' => 400 ) );
         }
     }
 }
@@ -286,6 +282,30 @@ function custom_save_property_association_meta( $post_id ) {
 // Hook into the save_post action
 add_action( 'save_post', 'custom_save_property_association_meta' );
 
+
+function add_custom_validation_script() {
+    ?>
+    <script>
+        jQuery(document).ready(function($) {
+            // Handle the form submission
+            $('form#post').on('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Check if an associated property is selected
+                var associatedProperty = $('select#associated_property').val();
+                if (!associatedProperty) {
+                    alert('Please select an associated property.');
+                    return;
+                }
+
+                // If validation passes, proceed with the form submission
+                $(this).unbind('submit').submit();
+            });
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'add_custom_validation_script');
 
 
 
