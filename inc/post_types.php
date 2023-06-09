@@ -330,7 +330,7 @@ function override_post_status($data, $postarr) {
     }
     return $data;
 }
-add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
+//add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
 
 
 
