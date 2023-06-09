@@ -229,7 +229,7 @@ function custom_add_floorplans_meta_box() {
         'default'
     );
 }
-add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
+//add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 
 // Add custom meta box to the floorplans edit screen for property association
 function custom_render_property_association_meta_box( $post ) {
@@ -267,20 +267,20 @@ function custom_add_property_association_meta_box() {
         'default'
     );
 }
-add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
+//add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
 
 
-//// Save the associated property when the floorplan is saved
-//function custom_save_property_association_meta( $post_id ) {
-//    if ( isset( $_POST['custom_floorplan_property_nonce'] ) && wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
-//        if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
-//            update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
-//        }
-//    }
-//}
-
+// Save the associated property when the floorplan is saved
+function custom_save_property_association_meta( $post_id ) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return false;
+    if ( isset( $_POST['custom_floorplan_property_nonce'] ) && wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
+        if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
+            update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
+        }
+    }
+}
 // Hook into the save_post action
-add_action( 'save_post', 'custom_save_property_association_meta' );
+//add_action( 'save_post', 'custom_save_property_association_meta' );
 
 
 function add_custom_validation_script() {
@@ -319,7 +319,7 @@ function add_custom_validation_script() {
     </script>
     <?php
 }
-add_action('admin_footer', 'add_custom_validation_script');
+//add_action('admin_footer', 'add_custom_validation_script');
 
 
 function override_post_status($data, $postarr) {
@@ -330,7 +330,7 @@ function override_post_status($data, $postarr) {
     }
     return $data;
 }
-add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
+//add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
 
 
 
@@ -345,7 +345,7 @@ function custom_display_error_message() {
 }
 
 // Hook into admin_notices action to display the error message
-add_action( 'admin_notices', 'custom_display_error_message' );
+//add_action( 'admin_notices', 'custom_display_error_message' );
 
 
 
@@ -363,7 +363,7 @@ function custom_modify_floorplans_query( $query ) {
         $query->set( 'rewrite', array( 'slug' => 'properties', 'with_front' => false ) );
     }
 }
-add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
+//add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
 
 // Render associated floorplans on the floorplan edit screen
 function custom_render_associated_floorplans() {
@@ -420,7 +420,7 @@ function custom_modify_floorplans_permalink($permalink, $post) {
 
     return $permalink;
 }
-add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
+//add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 
 
 
@@ -428,14 +428,14 @@ add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 function custom_add_rewrite_rules() {
     add_rewrite_rule( '^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top' );
 }
-add_action( 'init', 'custom_add_rewrite_rules' );
+//add_action( 'init', 'custom_add_rewrite_rules' );
 
 // Flush rewrite rules when the associated property is saved or updated
 function custom_flush_rewrite_rules() {
     flush_rewrite_rules();
 }
-add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
-add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
+//add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
+//add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 // Add the associated floorplans meta box to the floorplan edit screen
 function custom_add_associated_floorplans_meta_box() {
@@ -448,7 +448,7 @@ function custom_add_associated_floorplans_meta_box() {
         'default'
     );
 }
-add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
+//add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
 
 // Save associated floorplans meta
 function custom_save_floorplans_meta( $post_id ) {
@@ -469,7 +469,7 @@ function custom_save_floorplans_meta( $post_id ) {
         }
     }
 }
-add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
+//add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
 
 // Move associated floorplans to trash when a property is moved to trash
 function custom_trash_associated_floorplans( $post_id ) {
@@ -491,7 +491,7 @@ function custom_trash_associated_floorplans( $post_id ) {
         }
     }
 }
-add_action( 'trashed_post', 'custom_trash_associated_floorplans' );
+//add_action( 'trashed_post', 'custom_trash_associated_floorplans' );
 
 // Delete associated floorplans from trash when a property is deleted from trash
 function custom_delete_associated_floorplans( $post_id ) {
@@ -514,5 +514,5 @@ function custom_delete_associated_floorplans( $post_id ) {
         }
     }
 }
-add_action( 'delete_post', 'custom_delete_associated_floorplans' );
+//add_action( 'delete_post', 'custom_delete_associated_floorplans' );
 
