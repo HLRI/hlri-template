@@ -288,44 +288,13 @@ function custom_modify_floorplans_query( $query ) {
     }
 
     if ( $query->get( 'post_type' ) === 'floorplans' ) {
-        $associated_property = get_query_var( 'property' );
-
-        if ( $associated_property ) {
-            $query->set( 'meta_key', 'associated_property' );
-            $query->set( 'meta_value', $associated_property );
-            $query->set( 'meta_compare', '=' );
-        } else {
-            // Exclude floorplans without an associated property or with a deleted associated property
-            $query->set( 'meta_query', array(
-                'relation' => 'AND',
-                array(
-                    'relation' => 'OR',
-                    array(
-                        'key' => 'associated_property',
-                        'compare' => 'NOT EXISTS',
-                    ),
-                    array(
-                        'key' => 'associated_property',
-                        'value' => '',
-                        'compare' => '=',
-                    ),
-                ),
-                array(
-                    'relation' => 'OR',
-                    array(
-                        'key' => 'associated_property',
-                        'compare' => 'EXISTS',
-                    ),
-                    array(
-                        'key' => 'associated_property',
-                        'value' => 0,
-                        'compare' => '=',
-                    ),
-                ),
-            ) );
-        }
+        $query->set( 'rewrite', array( 'slug' => 'properties', 'with_front' => false ) );
     }
 }
+add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
+
+add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
+
 add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
 
 // Render associated floorplans on the floorplan edit screen
@@ -333,38 +302,42 @@ function custom_render_associated_floorplans() {
     global $post;
 
     // Get the associated property for the current floorplan
-    $associated_property = get_post_meta( $post->ID, 'associated_property', true );
+    $associated_property = get_post_meta($post->ID, 'associated_property', true);
+    $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
+    $property_url = home_url("/properties/$property_name/");
 
-    if ( $associated_property && get_post_status( $associated_property ) === 'publish' ) {
+    if ($associated_property) {
         // Get the associated floorplans for the current property
-        $floorplans = get_posts( array(
+        $floorplans = get_posts(array(
             'post_type' => 'floorplans',
             'numberposts' => -1,
             'meta_query' => array(
                 array(
                     'key' => 'associated_property',
                     'value' => $associated_property,
-                    'compare' => '='
-                )
-            )
-        ) );
+                    'compare' => '=',
+                ),
+            ),
+        ));
 
-        if ( $floorplans ) {
-            // Display associated floorplans
+        if ($floorplans) {
             echo '<style>.rightDf{float: right;display: inline-block;}.flIl{border: 1px solid #cfcfcf;padding: 10px 10px 10px 15px;border-radius: 5px;background-color: #f8f8f8;font-size: 16px;color: #ae0c0c;box-shadow: 1px 2px 3px #e9e9e9;margin-bottom: 9px;}</style><div class="inside">';
             echo '<ul style="margin-top:30px;">';
-            foreach ( $floorplans as $floorplan ) {
-                $property_name = get_post_field( 'post_name', $associated_property ); // Get the slug of the associated property
-                $floorplan_link = home_url( "/properties/$property_name/floorplans/" . $floorplan->post_name . '/' ); // Create the floorplan link
+            foreach ($floorplans as $floorplan) {
+                $floorplan_slug = $floorplan->post_name;
+                $floorplan_link = $property_url . "floorplans/$floorplan_slug/";
 
-                echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . esc_url( $floorplan_link ) . '">View</a></div></li>';
+                echo '<li class="flIl"><span>' . esc_html($floorplan->post_title) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link($floorplan->ID) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . esc_url($floorplan_link) . '">View</a></div></li>';
             }
             echo '</ul>';
             echo '</div>';
+        } else {
+            echo '<p>No floorplans associated with this property.</p>';
         }
+    } else {
+        echo '<p>No associated property found for this floorplan.</p>';
     }
 }
-
 
 
 
