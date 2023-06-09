@@ -324,7 +324,8 @@ function custom_render_associated_floorplans() {
             foreach ( $floorplans as $floorplan ) {
                 $property_slug = sanitize_title_with_dashes( get_the_title( $associated_property ) );
                 $floorplan_slug = sanitize_title_with_dashes( $floorplan->post_title );
-                $floorplan_url = home_url( "properties/{$property_slug}/floorplans/{$floorplan_slug}/" );
+                $property_url = home_url( "properties/{$property_slug}/" );
+                $floorplan_url = $property_url . "floorplans/{$floorplan_slug}/";
 
                 echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . $floorplan_url . '">View</a></div></li>';
             }
