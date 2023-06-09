@@ -283,6 +283,7 @@ function custom_save_property_association_meta( $data, $postarr ) {
             add_filter( 'redirect_post_location', function( $location ) use ( $error_message ) {
                 return add_query_arg( 'error', urlencode( $error_message ), $location );
             } );
+            add_filter( 'wp_insert_post_empty_content', '__return_true' );
         }
     }
     return $data;
@@ -290,6 +291,7 @@ function custom_save_property_association_meta( $data, $postarr ) {
 
 // Hook into the wp_insert_post_data filter
 add_filter( 'wp_insert_post_data', 'custom_save_property_association_meta', 10, 2 );
+
 
 
 
