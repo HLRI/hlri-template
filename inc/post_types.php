@@ -345,37 +345,46 @@ function custom_render_associated_floorplans() {
         ) );
 
         if ( $floorplans ) {
-            echo '<div style="border: 1px solid #ccc; padding: 10px; margin-top: 20px;">';
-            echo '<h3>Associated Floorplans:</h3>';
-            echo '<ul style="list-style-type: disc; margin-left: 20px;">';
+            echo '<div class="postbox">';
+            echo '<h2 class="hndle"><span>Associated Floorplans</span></h2>';
+            echo '<div class="inside">';
+            echo '<ul>';
             foreach ( $floorplans as $floorplan ) {
                 echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
             }
             echo '</ul>';
             echo '</div>';
+            echo '</div>';
         } else {
+            echo '<div class="postbox">';
+            echo '<div class="inside">';
             echo '<p>No floorplans associated with this property.</p>';
+            echo '</div>';
+            echo '</div>';
         }
     } else {
+        echo '<div class="postbox">';
+        echo '<div class="inside">';
         echo '<p>No associated property found for this floorplan.</p>';
+        echo '</div>';
+        echo '</div>';
     }
 }
 
 // Add the associated floorplans meta box to the floorplan edit screen
 function custom_add_associated_floorplans_meta_box() {
-    add_action( 'edit_form_after_title', 'custom_render_associated_floorplans' );
+    add_meta_box(
+        'associated_floorplans_meta_box',
+        'Associated Floorplans',
+        'custom_render_associated_floorplans',
+        'floorplans',
+        'normal',
+        'default'
+    );
 }
 add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
 
 
-
-
-
-// Add the associated floorplans meta box to the floorplan edit screen
-function custom_add_associated_floorplans_meta_box() {
-    add_action( 'edit_form_after_title', 'custom_render_associated_floorplans' );
-}
-add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
 
 
 function custom_save_floorplans_meta( $post_id ) {
