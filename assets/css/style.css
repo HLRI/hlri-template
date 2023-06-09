@@ -2899,5 +2899,5 @@ button.btn.btn-link:hover {
 }
 
 .dataTables_wrapper .dataTables_info {
-  padding-top: 1rem;
+  padding-top: 1rem !important;
 }
