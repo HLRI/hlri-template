@@ -348,7 +348,7 @@ function custom_render_associated_floorplans() {
             echo '<div class="inside">';
             echo '<ul>';
             foreach ( $floorplans as $floorplan ) {
-                echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a>  <br>  <a href="' . get_post_permalink( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+                echo '<li><span>' . esc_html( $floorplan->post_title ) . '</span> <a href="' . get_edit_post_link( $floorplan->ID ) . '">edit</a>  <span>  </span>  <a href="' . get_post_permalink( $floorplan->ID ) . '">view</a></li>';
             }
             echo '</ul>';
             echo '</div>';
