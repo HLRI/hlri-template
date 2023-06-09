@@ -173,7 +173,7 @@ function floorplans() {
 add_action('init', 'floorplans', 0);
 
 
-// Render the custom meta box content
+// Render the custom meta box content on the properties edit screen
 function custom_render_floorplans_meta_box( $post ) {
     $floorplans = get_posts( array(
         'post_type' => 'floorplans',
@@ -181,29 +181,51 @@ function custom_render_floorplans_meta_box( $post ) {
         'orderby' => 'title',
         'order' => 'ASC',
         'post_status' => 'publish',
+        'meta_query' => array(
+            array(
+                'key' => 'property',
+                'value' => $post->ID,
+                'compare' => '='
+            )
+        )
     ) );
 
-    $selected_floorplans = get_post_meta( $post->ID, 'floorplans', true );
+    if ( ! empty( $floorplans ) ) {
+        echo '<table>';
+        echo '<tr><th>View</th><th>Bed</th><th>Bath</th><th>Price</th></tr>';
 
-    wp_nonce_field( 'floorplans_meta_box', 'floorplans_meta_box_nonce' );
+        foreach ( $floorplans as $floorplan ) {
+            $view = get_post_meta( $floorplan->ID, 'view', true );
+            $bed = get_post_meta( $floorplan->ID, 'bed', true );
+            $bath = get_post_meta( $floorplan->ID, 'bath', true );
+            $price = get_post_meta( $floorplan->ID, 'price', true );
 
-    echo '<ul>';
+            echo '<tr>';
+            echo '<td>' . esc_html( $view ) . '</td>';
+            echo '<td>' . esc_html( $bed ) . '</td>';
+            echo '<td>' . esc_html( $bath ) . '</td>';
+            echo '<td>' . esc_html( $price ) . '</td>';
+            echo '</tr>';
+        }
 
-    foreach ( $floorplans as $floorplan ) {
-        $checked = ( is_array( $selected_floorplans ) && in_array( $floorplan->ID, $selected_floorplans ) ) ? 'checked' : '';
-
-        echo '<li>';
-        echo '<label>';
-        echo '<input type="checkbox" name="floorplans[]" value="' . esc_attr( $floorplan->ID ) . '" ' . esc_attr( $checked ) . '>';
-        echo esc_html( $floorplan->post_title );
-        echo '</label>';
-        echo '</li>';
+        echo '</table>';
+    } else {
+        echo '<p>No floorplans associated with this property.</p>';
     }
-
-    echo '</ul>';
 }
 
-// Save the selected floorplans
+// Add the custom meta box to the properties edit screen
+function custom_add_floorplans_meta_box() {
+    add_meta_box(
+        'floorplans_meta_box',
+        'Floorplans',
+        'custom_render_floorplans_meta_box',
+        'properties',
+        'normal',
+        'default'
+    );
+}
+add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 function custom_save_floorplans_meta( $post_id ) {
     if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
         return;
