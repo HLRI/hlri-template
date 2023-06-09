@@ -360,6 +360,12 @@ function custom_modify_floorplans_permalink($permalink, $post) {
 }
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 
+// Register additional rewrite rules for the modified floorplans permalink structure
+function custom_add_rewrite_rules() {
+    add_rewrite_rule('^([^/]+)/floorplans/([^/]+)/?$', 'index.php?associated_property=$matches[1]&floorplans=$matches[2]', 'top');
+}
+add_action('init', 'custom_add_rewrite_rules');
+
 // Flush rewrite rules when the associated property is saved or updated
 function custom_flush_rewrite_rules() {
     flush_rewrite_rules();
