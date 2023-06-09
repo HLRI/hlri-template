@@ -345,18 +345,31 @@ function custom_render_associated_floorplans() {
         ) );
 
         if ( $floorplans ) {
-            echo '<ul>';
+            echo '<div style="border: 1px solid #ccc; padding: 10px; margin-top: 20px;">';
+            echo '<h3>Associated Floorplans:</h3>';
+            echo '<ul style="list-style-type: disc; margin-left: 20px;">';
             foreach ( $floorplans as $floorplan ) {
                 echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
             }
             echo '</ul>';
+            echo '</div>';
         } else {
-            echo 'No floorplans associated with this property.';
+            echo '<p>No floorplans associated with this property.</p>';
         }
     } else {
-        echo 'No associated property found for this floorplan.';
+        echo '<p>No associated property found for this floorplan.</p>';
     }
 }
+
+// Add the associated floorplans meta box to the floorplan edit screen
+function custom_add_associated_floorplans_meta_box() {
+    add_action( 'edit_form_after_title', 'custom_render_associated_floorplans' );
+}
+add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
+
+
+
+
 
 // Add the associated floorplans meta box to the floorplan edit screen
 function custom_add_associated_floorplans_meta_box() {
