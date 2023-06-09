@@ -279,11 +279,9 @@ function custom_save_property_association_meta( $post_id ) {
     if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
         update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
     } else {
-        // No associated property selected, prevent publishing and display an error message
+        // No associated property selected, prevent saving and display an error message
         $error_message = 'Please select an associated property.';
-        add_filter( 'redirect_post_location', function( $location ) use ( $error_message ) {
-            return add_query_arg( 'error', urlencode( $error_message ), $location );
-        } );
+        wp_die( esc_html( $error_message ) );
     }
 }
 
