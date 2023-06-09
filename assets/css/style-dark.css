@@ -2923,35 +2923,52 @@ button.btn.btn-link:hover {
     font-size: 14px;
     color: #b19f91;
     margin-bottom: .4rem;
-  }
-  
-  .square-foot-price {
+}
+
+.square-foot-price {
     margin-bottom: 1.8rem;
-  }
-  
-  .square-foot-price span {
+}
+
+.square-foot-price span {
     font-size: 56px;
     font-weight: bold;
     margin-right: 20px;
-  }
-  
-  .square-foot-title {
+}
+
+.square-foot-title {
     font-weight: bold;
     font-size: 30px;
-  }
-  
-  .square-foot-title {
-    margin-bottom: 1rem;
-  }
-  
-  .square-foot-item {
-    margin-bottom: 1rem;
-  }
-  
-  .square-foot-item .name {
-    color: #665c54;
-  }
+}
 
-  .square-foot-item .value , .square-foot-price, .square-foot-title {
+.square-foot-title {
+    margin-bottom: 1rem;
+}
+
+.square-foot-item {
+    margin-bottom: 1rem;
+}
+
+.square-foot-item .name {
+    color: #665c54;
+}
+
+.square-foot-item .value,
+.square-foot-price,
+.square-foot-title {
     color: #b19f91;
-  }
+}
+
+.status-floorplan {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.status-color-success {
+    background: #5dae44;
+}
+
+.status-color-danger {
+    background: #cf3f3f;
+}
