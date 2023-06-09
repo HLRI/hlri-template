@@ -232,32 +232,35 @@ function custom_add_floorplans_meta_box() {
 add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 
 // Add custom meta box to the floorplans edit screen for property association
-function custom_render_property_association_meta_box( $post ) {
-    wp_nonce_field( 'custom_floorplan_property_association', 'custom_floorplan_property_nonce' );
+// Add custom meta box to the floorplans edit screen for property association
+function custom_render_property_association_meta_box($post)
+{
+    wp_nonce_field('custom_floorplan_property_association', 'custom_floorplan_property_nonce');
 
-    $associated_property = isset( $_GET['associated_property'] ) ? intval( $_GET['associated_property'] ) : '';
-    $properties = get_posts( array(
+    $associated_property = isset($_GET['associated_property']) ? intval($_GET['associated_property']) : '';
+    $properties = get_posts(array(
         'post_type' => 'properties',
         'numberposts' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
         'post_status' => 'publish'
-    ) );
+    ));
 
     echo '<label for="associated_property">Associated Property:</label>';
     echo '<select name="associated_property" id="associated_property">';
     echo '<option value="">Select Property</option>';
 
-    foreach ( $properties as $property ) {
-        $selected = selected( $associated_property, $property->ID, false );
-        echo '<option value="' . esc_attr( $property->ID ) . '"' . $selected . '>' . esc_html( $property->post_title ) . '</option>';
+    foreach ($properties as $property) {
+        $selected = selected($associated_property, $property->ID, false);
+        echo '<option value="' . esc_attr($property->ID) . '"' . $selected . '>' . esc_html($property->post_title) . '</option>';
     }
 
     echo '</select>';
 }
 
 // Add custom meta box to the floorplans edit screen
-function custom_add_property_association_meta_box() {
+function custom_add_property_association_meta_box()
+{
     add_meta_box(
         'property_association_meta_box',
         'Property Association',
@@ -267,7 +270,8 @@ function custom_add_property_association_meta_box() {
         'default'
     );
 }
-add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
+add_action('add_meta_boxes_floorplans', 'custom_add_property_association_meta_box');
+
 
 
 // Save the associated property when the floorplan is saved
@@ -350,11 +354,6 @@ function custom_add_associated_floorplans_meta_box() {
     );
 }
 add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
-
-
-
-
-
 function custom_save_floorplans_meta( $post_id ) {
     if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
         return;
