@@ -342,7 +342,33 @@ function custom_render_associated_floorplans() {
     }
 }
 
+// Add custom rewrite rule for floorplans permalink
+function custom_add_floorplans_rewrite_rule() {
+    add_rewrite_rule(
+        '^([^/]+)/floorplans/([^/]+)/?$',
+        'index.php?floorplans=$matches[2]',
+        'top'
+    );
+}
+add_action('init', 'custom_add_floorplans_rewrite_rule');
 
+// Modify the floorplans permalink structure
+function custom_modify_floorplans_permalink($permalink, $post) {
+    if ($post->post_type === 'floorplans') {
+        $associated_property = get_post_meta($post->ID, 'associated_property', true);
+        $property_slug = '';
+        if ($associated_property) {
+            $property_slug = get_post_field('post_name', $associated_property);
+        }
+
+        if ($property_slug) {
+            $permalink = str_replace('%propertyname%', $property_slug, $permalink);
+        }
+    }
+
+    return $permalink;
+}
+add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 
 // Add the associated floorplans meta box to the floorplan edit screen
 function custom_add_associated_floorplans_meta_box() {
