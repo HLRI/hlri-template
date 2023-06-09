@@ -244,7 +244,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         <div class="d-none">
                             Available
                         </div>
-                        <span class="status-floorplan <?= $floorplans['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                        <span class="status-floorplan status-color-success"></span>
                     </td>
                 </tr>
                 <tr>
@@ -255,9 +255,10 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                     <td>2011/04/25</td>
                     <td>$320,800</td>
                     <td>
-                        <div class="badge status-badge badge-light">
+                        <div class="d-none">
                             Sold Out
                         </div>
+                        <span class="status-floorplan status-color-danger"></span>
                     </td>
                 </tr>
             </tbody>
