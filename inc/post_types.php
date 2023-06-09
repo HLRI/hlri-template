@@ -172,9 +172,6 @@ function floorplans() {
 }
 add_action('init', 'floorplans', 0);
 
-
-
-
 // Render the custom meta box content on the properties edit screen
 function custom_render_floorplans_meta_box( $post ) {
     $floorplans = get_posts( array(
@@ -235,6 +232,7 @@ function custom_add_floorplans_meta_box() {
 add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 
 // Add custom meta box to the floorplans edit screen for property association
+// Add custom meta box to the floorplans edit screen for property association
 function custom_render_property_association_meta_box( $post ) {
     wp_nonce_field( 'custom_floorplan_property_association', 'custom_floorplan_property_nonce' );
 
@@ -248,16 +246,66 @@ function custom_render_property_association_meta_box( $post ) {
     ) );
 
     echo '<label for="associated_property">Associated Property:</label>';
-    echo '<select name="associated_property" id="associated_property">';
-    echo '<option value="">Select Property</option>';
+    echo '<input type="text" name="property_search" id="property_search" value="" placeholder="Search for a property">';
+    echo '<div id="property_results"></div>';
 
-    foreach ( $properties as $property ) {
-        $selected = selected( $associated_property, $property->ID, false );
-        echo '<option value="' . esc_attr( $property->ID ) . '"' . $selected . '>' . esc_html( $property->post_title ) . '</option>';
+    echo '<input type="hidden" name="associated_property" id="associated_property" value="' . esc_attr( $associated_property ) . '">';
+
+    echo '<script>
+        jQuery(document).ready(function($) {
+            $("#property_search").on("input", function() {
+                var searchValue = $(this).val();
+                $.ajax({
+                    url: ajaxurl,
+                    type: "POST",
+                    data: {
+                        action: "property_search",
+                        search: searchValue
+                    },
+                    success: function(response) {
+                        $("#property_results").html(response);
+                    }
+                });
+            });
+
+            $("#property_results").on("click", ".property-item", function() {
+                var propertyId = $(this).data("property-id");
+                var propertyTitle = $(this).text();
+                $("#associated_property").val(propertyId);
+                $("#property_search").val(propertyTitle);
+                $("#property_results").empty();
+            });
+        });
+    </script>';
+}
+// AJAX callback for property search
+function property_search_callback() {
+    if ( isset( $_POST['search'] ) ) {
+        $search_query = sanitize_text_field( $_POST['search'] );
+
+        $properties = get_posts( array(
+            'post_type' => 'properties',
+            'numberposts' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC',
+            'post_status' => 'publish',
+            's' => $search_query
+        ) );
+
+        if ( $properties ) {
+            foreach ( $properties as $property ) {
+                echo '<div class="property-item" data-property-id="' . esc_attr( $property->ID ) . '">' . esc_html( $property->post_title ) . '</div>';
+            }
+        } else {
+            echo '<div class="property-item">No properties found.</div>';
+        }
     }
 
-    echo '</select>';
+    die();
 }
+add_action( 'wp_ajax_property_search', 'property_search_callback' );
+add_action( 'wp_ajax_nopriv_property_search', 'property_search_callback' );
+
 
 // Add custom meta box to the floorplans edit screen
 function custom_add_property_association_meta_box() {
