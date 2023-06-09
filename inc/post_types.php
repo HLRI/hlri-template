@@ -300,24 +300,36 @@ function custom_render_associated_floorplans() {
     global $post;
 
     // Get the associated floorplans for the current property
-    $floorplans = get_posts( array(
-        'post_type'      => 'floorplans',
-        'posts_per_page' => -1,
-        'meta_query'     => array(
-            array(
-                'key'   => 'associated_property',
-                'value' => $post->ID,
-            ),
-        ),
-    ) );
+    $floorplans = get_post_meta( $post->ID, 'floorplans', true );
 
     if ( $floorplans ) {
         echo '<ul>';
-        foreach ( $floorplans as $floorplan ) {
-            echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+        foreach ( $floorplans as $floorplan_id ) {
+            $floorplan = get_post( $floorplan_id );
+            echo '<li><a href="' . get_edit_post_link( $floorplan_id ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
         }
         echo '</ul>';
     } else {
         echo 'No floorplans associated with this property.';
     }
 }
+function custom_save_floorplans_meta( $post_id ) {
+    if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
+        return;
+    }
+
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    if ( isset( $_POST['post_type'] ) && 'properties' === $_POST['post_type'] ) {
+        if ( isset( $_POST['floorplans'] ) ) {
+            $floorplans = array_map( 'intval', $_POST['floorplans'] );
+            update_post_meta( $post_id, 'floorplans', $floorplans );
+        } else {
+            delete_post_meta( $post_id, 'floorplans' );
+        }
+    }
+}
+add_action( 'save_post_properties', 'custom_save_floorplans_meta' );
+
