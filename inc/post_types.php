@@ -290,6 +290,7 @@ function add_custom_validation_script() {
             // Handle the form submission
             $('input#title').on('change', function(event){
                 event.preventDefault();
+                return;
             });
             $('form#post').on('submit', function(event) {
                 // Check if an associated property is selected
