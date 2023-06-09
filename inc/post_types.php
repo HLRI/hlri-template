@@ -280,14 +280,6 @@ function custom_save_property_association_meta( $post_id ) {
 }
 add_action( 'save_post_floorplans', 'custom_save_property_association_meta' );
 
-// Add the custom meta box to the floorplans edit screen
-// Add the custom meta box to the properties edit screen
-function custom_add_associated_floorplans_meta_box() {
-    add_action( 'edit_form_after_title', 'custom_render_associated_floorplans' );
-}
-add_action( 'add_meta_boxes', 'custom_add_associated_floorplans_meta_box' );
-
-
 // Modify the floorplans query to include the associated property
 function custom_modify_floorplans_query( $query ) {
     if ( ! is_admin() || ! $query->is_main_query() ) {
@@ -305,34 +297,49 @@ function custom_modify_floorplans_query( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
+
+
+// Render associated floorplans on the floorplan edit screen
 function custom_render_associated_floorplans() {
     global $post;
 
-    // Get the associated floorplans for the current property
-    $floorplans = get_posts( array(
-        'post_type' => 'floorplans',
-        'numberposts' => -1,
-        'meta_query' => array(
-            array(
-                'key' => 'associated_property',
-                'value' => $post->ID,
-                'compare' => '='
-            )
-        )
-    ) );
+    // Get the associated property for the current floorplan
+    $associated_property = get_post_meta( $post->ID, 'associated_property', true );
 
-    if ( $floorplans ) {
-        echo '<ul>';
-        foreach ( $floorplans as $floorplan ) {
-            echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+    if ( $associated_property ) {
+        // Get the associated floorplans for the current property
+        $floorplans = get_posts( array(
+            'post_type' => 'floorplans',
+            'numberposts' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'associated_property',
+                    'value' => $associated_property,
+                    'compare' => '='
+                )
+            )
+        ) );
+
+        if ( $floorplans ) {
+            echo '<ul>';
+            foreach ( $floorplans as $floorplan ) {
+                echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+            }
+            echo '</ul>';
+        } else {
+            echo 'No floorplans associated with this property.';
         }
-        echo '</ul>';
     } else {
-        echo 'No floorplans associated with this property.';
+        echo 'No associated property found for this floorplan.';
     }
 }
 
-add_action( 'add_meta_boxes', 'custom_add_associated_floorplans_meta_box' );
+// Add the associated floorplans meta box to the floorplan edit screen
+function custom_add_associated_floorplans_meta_box() {
+    add_action( 'edit_form_after_title', 'custom_render_associated_floorplans' );
+}
+add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
+
 
 function custom_save_floorplans_meta( $post_id ) {
     if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
