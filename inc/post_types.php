@@ -267,17 +267,12 @@ function custom_save_property_association_meta( $post_id ) {
 add_action( 'save_post_floorplans', 'custom_save_property_association_meta' );
 
 // Add the custom meta box to the floorplans edit screen
-function custom_add_property_association_meta_box() {
-    add_meta_box(
-        'property_association_meta_box',
-        'Property Association',
-        'custom_render_property_association_meta_box',
-        'floorplans',
-        'side',
-        'default'
-    );
+// Add the custom meta box to the properties edit screen
+function custom_add_associated_floorplans_meta_box() {
+    add_action( 'edit_form_after_title', 'custom_render_associated_floorplans' );
 }
-add_action( 'add_meta_boxes', 'custom_add_property_association_meta_box' );
+add_action( 'add_meta_boxes', 'custom_add_associated_floorplans_meta_box' );
+
 
 // Modify the floorplans query to include the associated property
 function custom_modify_floorplans_query( $query ) {
@@ -300,20 +295,30 @@ function custom_render_associated_floorplans() {
     global $post;
 
     // Get the associated floorplans for the current property
-    $floorplans = get_post_meta( $post->ID, 'floorplans', true );
+    $floorplans = get_posts( array(
+        'post_type' => 'floorplans',
+        'numberposts' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'associated_property',
+                'value' => $post->ID,
+                'compare' => '='
+            )
+        )
+    ) );
 
     if ( $floorplans ) {
         echo '<ul>';
-        foreach ( $floorplans as $floorplan_id ) {
-            $floorplan = get_post( $floorplan_id );
-            echo '<li><a href="' . get_edit_post_link( $floorplan_id ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+        foreach ( $floorplans as $floorplan ) {
+            echo '<li><a href="' . get_edit_post_link( $floorplan->ID ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
         }
         echo '</ul>';
     } else {
         echo 'No floorplans associated with this property.';
     }
 }
-add_action('admin_init', 'custom_render_associated_floorplans');
+
+add_action( 'add_meta_boxes', 'custom_add_associated_floorplans_meta_box' );
 
 function custom_save_floorplans_meta( $post_id ) {
     if ( ! isset( $_POST['floorplans_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['floorplans_meta_box_nonce'], 'floorplans_meta_box' ) ) {
