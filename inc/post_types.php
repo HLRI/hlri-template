@@ -289,7 +289,8 @@ function add_custom_validation_script() {
         jQuery(document).ready(function($) {
             // Handle the form submission
             $('#associated_property').on('change', function(event){
-                var associatedProperty = $('select#associated_property').val();
+                console.log('onchange for select');
+                var associatedProperty = $(this).val();
                 var floorPlanName = $('input#title').val();
                 var previewLink = $('a#sample-permalink');
                 var previewURL = previewLink.attr('href');
