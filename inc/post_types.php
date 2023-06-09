@@ -356,18 +356,10 @@ function custom_render_associated_floorplans() {
             echo '</div>';
             echo '</div>';
         } else {
-            echo '<div class="postbox">';
-            echo '<div class="inside">';
             echo '<p>No floorplans associated with this property.</p>';
-            echo '</div>';
-            echo '</div>';
         }
     } else {
-        echo '<div class="postbox">';
-        echo '<div class="inside">';
         echo '<p>No associated property found for this floorplan.</p>';
-        echo '</div>';
-        echo '</div>';
     }
 }
 
@@ -383,6 +375,7 @@ function custom_add_associated_floorplans_meta_box() {
     );
 }
 add_action( 'add_meta_boxes_floorplans', 'custom_add_associated_floorplans_meta_box' );
+
 
 
 
