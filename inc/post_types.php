@@ -231,91 +231,30 @@ function custom_add_floorplans_meta_box() {
 }
 add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 
-
-// AJAX callback to get associated property title
-function get_associated_property_callback() {
-    if (isset($_POST['propertyId'])) {
-        $propertyId = intval($_POST['propertyId']);
-        $property = get_post($propertyId);
-        echo $property->post_title;
-    }
-
-    die();
-}
-add_action('wp_ajax_get_associated_property', 'get_associated_property_callback');
-add_action('wp_ajax_nopriv_get_associated_property', 'get_associated_property_callback');
-
 // Add custom meta box to the floorplans edit screen for property association
-function custom_render_property_association_meta_box($post)
-{
-    wp_nonce_field('custom_floorplan_property_association', 'custom_floorplan_property_nonce');
+function custom_render_property_association_meta_box( $post ) {
+    wp_nonce_field( 'custom_floorplan_property_association', 'custom_floorplan_property_nonce' );
 
-    $associated_property = isset($_GET['associated_property']) ? intval($_GET['associated_property']) : '';
-    $properties = get_posts(array(
+    $associated_property = isset( $_GET['associated_property'] ) ? intval( $_GET['associated_property'] ) : '';
+    $properties = get_posts( array(
         'post_type' => 'properties',
         'numberposts' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
         'post_status' => 'publish'
-    ));
+    ) );
 
     echo '<label for="associated_property">Associated Property:</label>';
-    echo '<input type="text" name="property_search" id="property_search" value="" placeholder="Search for a property">';
-    echo '<div id="property_results"></div>';
+    echo '<select name="associated_property" id="associated_property">';
+    echo '<option value="">Select Property</option>';
 
-    echo '<input type="hidden" name="associated_property" id="associated_property" value="' . esc_attr($associated_property) . '">';
+    foreach ( $properties as $property ) {
+        $selected = selected( $associated_property, $property->ID, false );
+        echo '<option value="' . esc_attr( $property->ID ) . '"' . $selected . '>' . esc_html( $property->post_title ) . '</option>';
+    }
 
-    echo '<script>
-        jQuery(document).ready(function($) {
-            // Initialize the search box
-            $("#property_search").on("input", function() {
-                var searchValue = $(this).val();
-                $.ajax({
-                    url: ajaxurl,
-                    type: "POST",
-                    data: {
-                        action: "property_search",
-                        search: searchValue
-                    },
-                    success: function(response) {
-                        $("#property_results").html(response);
-                    }
-                });
-            });
-
-            // Handle click event on property search results
-            $("#property_results").on("click", ".property-item", function() {
-                var propertyId = $(this).data("property-id");
-                var propertyTitle = $(this).text();
-                $("#associated_property").val(propertyId);
-                $("#property_search").val(propertyTitle);
-                $("#property_results").empty();
-            });
-
-            // Pre-select associated property if available
-            var associatedProperty = $("#associated_property").val();
-            if (associatedProperty) {
-                $.ajax({
-                    url: ajaxurl,
-                    type: "POST",
-                    data: {
-                        action: "get_associated_property",
-                        propertyId: associatedProperty
-                    },
-                    success: function(response) {
-                        if (response) {
-                            $("#property_search").val(response);
-                        }
-                    }
-                });
-            }
-        });
-    </script>';
+    echo '</select>';
 }
-
-
-
-
 
 // Add custom meta box to the floorplans edit screen
 function custom_add_property_association_meta_box() {
