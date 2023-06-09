@@ -216,13 +216,13 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
         <table id="example" class="table">
             <thead>
                 <tr>
-                    <th></th>
+                    <th>33</th>
                     <th>Suite Name</th>
                     <th>Suite Type</th>
                     <th>Size</th>
                     <th>View</th>
                     <th>Price</th>
-                    <th></th>
+                    <th>44</th>
                 </tr>
             </thead>
             <tbody>
