@@ -198,16 +198,8 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         </div>
                         <select class="form-control status-dropdown">
                             <option value="">All</option>
-                            <option value="DRF">Draft</option>
-                            <option value="PCH">Pending Review</option>
-                            <option value="PAU">Pending Authorisation</option>
-                            <option value="Received">Received</option>
-                            <option value="Processing">Processing</option>
-                            <option value="Query">Query</option>
-                            <option value="Approved">Approved</option>
-                            <option value="Rejected">Rejected</option>
-                            <option value="Amended">Amended</option>
-                            <option value="Cancelled">Cancelled</option>
+                            <option value="Sold Out">Sold Out</option>
+                            <option value="Available">Available</option>
                         </select>
                     </div>
                 </div>
@@ -216,13 +208,13 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
         <table id="example" class="table">
             <thead>
                 <tr>
-                    <th>33</th>
+                    <th></th>
                     <th>Suite Name</th>
                     <th>Suite Type</th>
                     <th>Size</th>
                     <th>View</th>
                     <th>Price</th>
-                    <th>44</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -235,7 +227,20 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                     <td>$320,800</td>
                     <td>
                         <div class="badge status-badge badge-light">
-                            Draft
+                            Available
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>$320,800</td>
+                    <td>
+                        <div class="badge status-badge badge-light">
+                            Sold Out
                         </div>
                     </td>
                 </tr>
