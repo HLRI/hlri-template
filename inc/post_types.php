@@ -229,7 +229,7 @@ function custom_add_floorplans_meta_box() {
         'default'
     );
 }
-//add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
+add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 
 // Add custom meta box to the floorplans edit screen for property association
 function custom_render_property_association_meta_box( $post ) {
@@ -267,7 +267,7 @@ function custom_add_property_association_meta_box() {
         'default'
     );
 }
-//add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
+add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
 
 
 // Save the associated property when the floorplan is saved
@@ -319,7 +319,7 @@ function add_custom_validation_script() {
     </script>
     <?php
 }
-//add_action('admin_footer', 'add_custom_validation_script');
+add_action('admin_footer', 'add_custom_validation_script');
 
 
 function override_post_status($data, $postarr) {
@@ -330,7 +330,7 @@ function override_post_status($data, $postarr) {
     }
     return $data;
 }
-//add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
+add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
 
 
 
