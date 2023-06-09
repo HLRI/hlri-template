@@ -235,7 +235,7 @@ add_action( 'add_meta_boxes', 'custom_add_floorplans_meta_box' );
 function custom_render_property_association_meta_box( $post ) {
     wp_nonce_field( 'custom_floorplan_property_association', 'custom_floorplan_property_nonce' );
 
-    $associated_property = isset( $_GET['associated_property'] ) ? intval( $_GET['associated_property'] ) : '';
+    $associated_property = isset( $_GET['associated_property'] ) ? intval( $_GET['associated_property'] ) : get_post_meta( $post->ID, 'associated_property', true );
     $properties = get_posts( array(
         'post_type' => 'properties',
         'numberposts' => -1,
@@ -255,6 +255,7 @@ function custom_render_property_association_meta_box( $post ) {
 
     echo '</select>';
 }
+
 
 // Add custom meta box to the floorplans edit screen
 function custom_add_property_association_meta_box() {
