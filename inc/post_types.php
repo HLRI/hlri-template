@@ -324,9 +324,8 @@ add_action('admin_footer', 'add_custom_validation_script');
 
 
 
-function admin_enqueue($hook)
+function checkIfItsFloorplanAdd($hook)
 {
-    dd($hook);
     $post_type = get_post_type($_GET['post']);
     if ($hook == 'post-new.php') {
         if ($post_type == 'floorplans') {
@@ -338,7 +337,7 @@ function admin_enqueue($hook)
         }
     }
 }
-add_action('admin_enqueue_scripts', 'admin_enqueue');
+add_action('admin_enqueue_scripts', 'checkIfItsFloorplanAdd');
 
 
 
