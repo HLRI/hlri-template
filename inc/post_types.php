@@ -288,13 +288,13 @@ function add_custom_validation_script() {
     <script>
         jQuery(document).ready(function($) {
             // Handle the form submission
-            $('#associated_property').on('change'), function(event){
+            $('#associated_property').on('change', function(event){
                 var previewLink = $('a#sample-permalink');
                 var previewURL = previewLink.attr('href');
                 var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');
                 permalink = permalink.replace(/\/floorplans\/[^\/]+\//, '/floorplans/' + floorPlanName.toLowerCase().replace(/\s+/g, '-') + '/');
                 previewLink.attr('href', permalink);
-            }
+            });
             $('form#post').on('submit', function(event) {
                 // Check if an associated property is selected
                 var associatedProperty = $('select#associated_property').val();
