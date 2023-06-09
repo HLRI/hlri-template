@@ -307,6 +307,17 @@ function add_custom_validation_script() {
 }
 add_action('admin_footer', 'add_custom_validation_script');
 
+function override_post_status($data, $postarr) {
+    // Check if the post type is 'post' or any other custom post type
+    if ($data['post_type'] === 'post' || $data['post_type'] === 'your_custom_post_type') {
+        // Set the post status to 'publish' to override any other changes
+        $data['post_status'] = 'publish';
+    }
+    return $data;
+}
+add_filter('wp_insert_post_data', 'override_post_status', 10, 2);
+
+
 
 
 
