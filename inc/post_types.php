@@ -325,7 +325,7 @@ function custom_render_associated_floorplans() {
             echo '<ul style="margin-top:30px;">';
             foreach ( $floorplans as $floorplan ) {
                 $property_name = get_post_field( 'post_name', $associated_property ); // Get the slug of the associated property
-                $floorplan_link = home_url( $property_name . 'properties/floorplans/' . $floorplan->post_name . '/' ); // Create the floorplan link
+                $floorplan_link = home_url( $property_name . '/properties/floorplans/' . $floorplan->post_name . '/' ); // Create the floorplan link
 
                 echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . esc_url( $floorplan_link ) . '">View</a></div></li>';
             }
