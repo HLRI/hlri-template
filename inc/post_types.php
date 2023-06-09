@@ -254,6 +254,20 @@ function custom_render_property_association_meta_box( $post ) {
     echo '</select>';
 }
 
+// Add custom meta box to the floorplans edit screen
+function custom_add_property_association_meta_box() {
+    add_meta_box(
+        'property_association_meta_box',
+        'Property Association',
+        'custom_render_property_association_meta_box',
+        'floorplans',
+        'side',
+        'default'
+    );
+}
+add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
+
+
 // Save the associated property when the floorplan is saved
 function custom_save_property_association_meta( $post_id ) {
     if ( ! isset( $_POST['custom_floorplan_property_nonce'] ) || ! wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
