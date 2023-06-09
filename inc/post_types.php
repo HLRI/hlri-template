@@ -270,56 +270,56 @@ function custom_add_property_association_meta_box() {
 add_action( 'add_meta_boxes_floorplans', 'custom_add_property_association_meta_box' );
 
 
-// Save the associated property when the floorplan is saved
-function custom_save_property_association_meta( $post_id ) {
-    if ( isset( $_POST['custom_floorplan_property_nonce'] ) && wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
-        if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
-            update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
-        }
-    }
-}
+//// Save the associated property when the floorplan is saved
+//function custom_save_property_association_meta( $post_id ) {
+//    if ( isset( $_POST['custom_floorplan_property_nonce'] ) && wp_verify_nonce( $_POST['custom_floorplan_property_nonce'], 'custom_floorplan_property_association' ) ) {
+//        if ( isset( $_POST['associated_property'] ) && ! empty( $_POST['associated_property'] ) ) {
+//            update_post_meta( $post_id, 'associated_property', $_POST['associated_property'] );
+//        }
+//    }
+//}
 
 // Hook into the save_post action
 add_action( 'save_post', 'custom_save_property_association_meta' );
 
 
-//function add_custom_validation_script() {
-//    ?>
-<!--    <script>-->
-<!--        jQuery(document).ready(function($) {-->
-<!--            // Handle the form submission-->
-<!--            $('form#post').on('submit', function(event) {-->
-<!--                // Check if an associated property is selected-->
-<!--                var associatedProperty = $('select#associated_property').val();-->
-<!--                if (!associatedProperty) {-->
-<!--                    event.preventDefault(); // Prevent the default form submission-->
-<!--                    alert('Please select an associated property.');-->
-<!--                    return;-->
-<!--                }-->
-<!---->
-<!--                // Check if a floor plan name is entered-->
-<!--                var floorPlanName = $('input#title').val();-->
-<!--                if (!floorPlanName) {-->
-<!--                    event.preventDefault(); // Prevent the default form submission-->
-<!--                    alert('Please enter a floor plan name.');-->
-<!--                    return;-->
-<!--                }-->
-<!---->
-<!--                // Update the preview link with the correct URL structure-->
-<!--                var previewLink = $('a#sample-permalink');-->
-<!--                var previewURL = previewLink.attr('href');-->
-<!--                var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');-->
-<!--                permalink = permalink.replace(/\/floorplans\/[^\/]+\//, '/floorplans/' + floorPlanName.toLowerCase().replace(/\s+/g, '-') + '/');-->
-<!--                previewLink.attr('href', permalink);-->
-<!---->
-<!--                // If validation passes, proceed with the form submission-->
-<!--                $(this).unbind('submit').submit();-->
-<!--            });-->
-<!--        });-->
-<!--    </script>-->
-<!--    --><?php
-//}
-//add_action('admin_footer', 'add_custom_validation_script');
+function add_custom_validation_script() {
+    ?>
+    <script>
+        jQuery(document).ready(function($) {
+            // Handle the form submission
+            $('form#post').on('submit', function(event) {
+                // Check if an associated property is selected
+                var associatedProperty = $('select#associated_property').val();
+                if (!associatedProperty) {
+                    event.preventDefault(); // Prevent the default form submission
+                    alert('Please select an associated property.');
+                    return;
+                }
+
+                // Check if a floor plan name is entered
+                var floorPlanName = $('input#title').val();
+                if (!floorPlanName) {
+                    event.preventDefault(); // Prevent the default form submission
+                    alert('Please enter a floor plan name.');
+                    return;
+                }
+
+                // Update the preview link with the correct URL structure
+                var previewLink = $('a#sample-permalink');
+                var previewURL = previewLink.attr('href');
+                var permalink = previewURL.replace(/\/properties\/\d+\//, '/properties/' + associatedProperty + '/');
+                permalink = permalink.replace(/\/floorplans\/[^\/]+\//, '/floorplans/' + floorPlanName.toLowerCase().replace(/\s+/g, '-') + '/');
+                previewLink.attr('href', permalink);
+
+                // If validation passes, proceed with the form submission
+                $(this).unbind('submit').submit();
+            });
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'add_custom_validation_script');
 
 
 function override_post_status($data, $postarr) {
