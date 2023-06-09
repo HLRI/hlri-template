@@ -327,8 +327,8 @@ function custom_render_associated_floorplans() {
             echo '<style>.rightDf{float: right;display: inline-block;}.flIl{border: 1px solid #cfcfcf;padding: 10px 10px 10px 15px;border-radius: 5px;background-color: #f8f8f8;font-size: 16px;color: #ae0c0c;box-shadow: 1px 2px 3px #e9e9e9;margin-bottom: 9px;}</style><div class="inside">';
             echo '<ul style="margin-top:30px;">';
             foreach ( $floorplans as $floorplan ) {
-                $property_name = get_the_title( $associated_property ); // Get the title of the associated property
-                $floorplan_link = get_permalink( $associated_property ) . 'floorplans/' . $floorplan->post_name . '/'; // Create the floorplan link
+                $property_name = get_post_field( 'post_name', $associated_property ); // Get the slug of the associated property
+                $floorplan_link = home_url( $property_name . '/floorplans/' . $floorplan->post_name . '/' ); // Create the floorplan link
 
                 echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . esc_url( $floorplan_link ) . '">View</a></div></li>';
             }
@@ -341,6 +341,7 @@ function custom_render_associated_floorplans() {
         echo '<p>No associated property found for this floorplan.</p>';
     }
 }
+
 
 
 // Add the associated floorplans meta box to the floorplan edit screen
