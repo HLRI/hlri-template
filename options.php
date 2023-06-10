@@ -1183,7 +1183,7 @@ if (class_exists('CSF')) {
 					'title' => 'Size',
 					'min'     => 0,
 					'max'     => 20000,
-					'step'    => 0.5,
+					'step'    => 1,
 					'default' => 0,
 				),
 				array(
