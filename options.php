@@ -1210,8 +1210,8 @@ if (class_exists('CSF')) {
 					'type'  => 'slider',
 					'title' => 'Interior Size',
 					'min'   => 0,
-					'max'   => 100,
-					'step'  => 0.5,
+					'max'   => 20000,
+					'step'  => 1,
 					'default' => 0,
 				),
 				array(
