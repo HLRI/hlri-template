@@ -357,7 +357,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                                 <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
                                 <div class="wrap-head-floorplan">
                                     <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                    <?php the_post_thumbnail('normal', ['width' => '50px', 'height' => '50px']) ?>
+                                    <?php the_post_thumbnail('thumbnail') ?>
                                 </div>
                             </td>
                             <td><?= $floor['opt-floorplans-suite-name'] ?></td>
