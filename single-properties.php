@@ -318,7 +318,8 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </div> -->
             </div>
         </div>
-        <table id="example" class="table pt-4">
+      <div class="card-form">
+      <table id="example" class="table pt-4">
             <thead>
                 <tr>
                     <th></th>
@@ -376,6 +377,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 ?>
             </tbody>
         </table>
+      </div>
     </div>
 </div>
 
