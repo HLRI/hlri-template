@@ -2917,6 +2917,7 @@ select {
   border: none;
   border-top-left-radius: unset !important;
   border-bottom-left-radius: unset !important;
+  box-shadow: none;
 }
 
 .btn-status-floorplan {
