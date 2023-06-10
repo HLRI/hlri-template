@@ -116,7 +116,7 @@ add_action( 'save_post', 'custom_save_property_association_meta' );
 
 function add_custom_validation_script() {
     ?>
-    ehsan
+    <script src="ehsan"></script>
     <script src="<?= HLR_THEME_ASSETS . 'js/validation-admin.js' ?>"></script>
     <?php
 }
