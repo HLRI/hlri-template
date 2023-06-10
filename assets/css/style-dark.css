@@ -3000,3 +3000,7 @@ table {
     color: #b19f91 !important;
     background: #665c54 !important;
 }
+
+#example_filter label input{
+    color: #b19f91 !important;
+}
