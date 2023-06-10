@@ -48,7 +48,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                   
+
                     <div class="rating-section">
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
@@ -346,6 +346,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
 
                 if ($associated_floorplans) :
                     foreach ($associated_floorplans as $floorplan) :
+                        $floor = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
                 ?>
                         <tr>
                             <td>Tiger Nixon</td>
@@ -358,7 +359,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                                 <div class="d-none">
                                     Available
                                 </div>
-                                <span class="status-floorplan status-color-success"></span>
+                                <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
                             </td>
                         </tr>
                 <?php
