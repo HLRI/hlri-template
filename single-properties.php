@@ -367,7 +367,11 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                             </td>
                             <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
                             <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
-                            <td><?= '$' . $floor['opt-floorplans-price-from'] ?></td>
+                            <td>
+                            <div class="font-weight-bold"><?= '$' . $floor['opt-floorplans-price-from'] ?></div>
+                                <small><?= '$' . $floor['opt-floorplans-price-per'] . '/sq.ft' ?></small>
+
+                            </td>
                             <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
                         </tr>
                 <?php

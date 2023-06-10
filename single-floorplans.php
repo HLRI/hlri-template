@@ -275,7 +275,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                 <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
                                 <td>
                                     <div class="font-weight-bold"><?= '$' . $floor['opt-floorplans-price-from'] ?></div>
-                                    <small><?= '$' . $floorplans['opt-floorplans-price-per'] . '/sq.ft' ?></small>
+                                    <small><?= '$' . $floor['opt-floorplans-price-per'] . '/sq.ft' ?></small>
                                 </td>
                                 <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
                             </tr>
