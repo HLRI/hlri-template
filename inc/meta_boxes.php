@@ -121,14 +121,15 @@ function add_custom_validation_script() {
 }
 function checkIfItsFloorplanAdd($hook)
 {
-    die('22');
-
     $post_type = get_post_type($_GET['post']);
     if ($hook == 'post-new.php') {
+        die('1')
         if ($post_type == 'floorplans') {
             add_action('admin_footer', 'add_custom_validation_script');
         }
     } elseif ($hook == 'post.php') {
+        die('2')
+
         if ($post_type == 'floorplans') {
 
         }
