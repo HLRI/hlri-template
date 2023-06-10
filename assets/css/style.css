@@ -2913,7 +2913,7 @@ button.btn.btn-link:hover {
   height: 50px;
 }
 
-#example_filter label input{
+select {
   border: none;
   border-top-left-radius: unset !important;
   border-bottom-left-radius: unset !important;

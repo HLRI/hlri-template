@@ -2999,10 +2999,6 @@ table {
  select {
     color: #b19f91 !important;
     background: #665c54 !important;
-}
-
-#example_filter label input{
-    color: #b19f91 !important;
     border: none;
     border-top-left-radius: unset !important;
     border-bottom-left-radius: unset !important;
