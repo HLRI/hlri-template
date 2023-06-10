@@ -335,6 +335,8 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 $associated_floorplans = get_posts(array(
                     'post_type' => 'floorplans',
                     'numberposts' => -1,
+                    'orderby'   => 'meta_value',
+                    'order' => 'DESC',
                     'meta_query' => array(
                         array(
                             'key' => 'associated_property',
@@ -343,24 +345,24 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         )
                     )
                 ));
-
+wp_die(var_dump($associated_floorplans));
                 if ($associated_floorplans) :
                     foreach ($associated_floorplans as $floorplan) :
                         $floor = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
                 ?>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
                             <td>
                                 <div class="d-none">
                                     Available
                                 </div>
                                 <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
                             </td>
+                            <td><? $floor['opt-floorplans-suite-name'] ?></td>
+                            <td>-</td>
+                            <td><? $floor['opt-floorplans-size'] ?></td>
+                            <td><? $floor['opt-floorplans-view'] ?></td>
+                            <td><?= $floor['opt-floorplans-price-from'] ?></td>
+                            <td><a target="_blank" href="">More Info</a></td>
                         </tr>
                 <?php
                     endforeach;
