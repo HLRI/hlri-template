@@ -332,7 +332,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
             </thead>
             <tbody>
                 <?php
-                $associated_floorplans = get_posts(array(
+                $args = array(
                     'post_type' => 'floorplans',
                     'numberposts' => -1,
                     'orderby'   => 'meta_value',
@@ -344,16 +344,18 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                             'compare' => '='
                         )
                     )
-                ));
-wp_die(var_dump($associated_floorplans));
-                if ($associated_floorplans) :
-                    foreach ($associated_floorplans as $floorplan) :
-                        $floor = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
+                );
+
+                $associated_floorplans = new WP_Query( ${args} );
+                if ($associated_floorplans->have_posts()) :
+                    while ($associated_floorplans->have_posts()) : 
+                        $associated_floorplans->the_post();
+                        $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 ?>
                         <tr>
                             <td>
                                 <div class="d-none">
-                                    Available
+                                <?= $floor['opt-floorplans-status'] == 'available' ? 'available' : 'Sold Out' ?>
                                 </div>
                                 <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
                             </td>
@@ -364,10 +366,11 @@ wp_die(var_dump($associated_floorplans));
                             <td><?= $floor['opt-floorplans-size'] .' SQFT'?></td>
                             <td><?= implode(',',$floor['opt-floorplans-view']) ?></td>
                             <td><?= '$'.$floor['opt-floorplans-price-from'] ?></td>
-                            <td><a target="_blank" href="">More Info</a></td>
+                            <td><a target="_blank" href="<?php the_permalink(  ) ?>">More Info</a></td>
                         </tr>
                 <?php
-                    endforeach;
+                    endwhile;
+                    wp_reset_postdata();
                 endif;
                 ?>
             </tbody>
