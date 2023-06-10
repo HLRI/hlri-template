@@ -357,11 +357,13 @@ wp_die(var_dump($associated_floorplans));
                                 </div>
                                 <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
                             </td>
-                            <td><? $floor['opt-floorplans-suite-name'] ?></td>
-                            <td><? $floor['opt-floorplans-beds'] ?> Beds, <? $floor['opt-floorplans-baths'] ?> Baths</td>
-                            <td><? $floor['opt-floorplans-size'] ?> SQFT</td>
-                            <td><? $floor['opt-floorplans-view'] ?></td>
-                            <td><?= $floor['opt-floorplans-price-from'] ?></td>
+                            <td><?= $floor['opt-floorplans-suite-name'] ?></td>
+                            <td>
+                                <?= $floor['opt-floorplans-beds'] . ' Beds' ?> , <?= $floor['opt-floorplans-baths'] . ' Baths' ?>
+                            </td>
+                            <td><?= $floor['opt-floorplans-size'] .' SQFT'?></td>
+                            <td><?= implode(',',$floor['opt-floorplans-view']) ?></td>
+                            <td><?= '$'.$floor['opt-floorplans-price-from'] ?></td>
                             <td><a target="_blank" href="">More Info</a></td>
                         </tr>
                 <?php
