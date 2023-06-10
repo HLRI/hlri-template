@@ -115,6 +115,7 @@ add_action( 'save_post', 'custom_save_property_association_meta' );
 /*==================================================================================*/
 
 function add_custom_validation_script() {
+    die('d');
     ?>
     <script src="<?= HLR_THEME_ASSETS . 'js/validation-admin.js' ?>"></script>
     <?php
