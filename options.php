@@ -1160,29 +1160,59 @@ if (class_exists('CSF')) {
 					'title' => 'Suite Name'
 				),
 				array(
-					'id'    => 'opt-floorplans-beds',
-					'type'  => 'text',
-					'title' => 'Beds'
+					'id'      => 'opt-floorplans-beds',
+					'type'    => 'slider',
+					'title'   => 'Beds',
+					'min'     => 0,
+					'max'     => 100,
+					'step'    => 0.5,
+					'default' => 0,
 				),
 				array(
-					'id'    => 'opt-floorplans-baths',
-					'type'  => 'text',
-					'title' => 'Baths'
+					'id'      => 'opt-floorplans-baths',
+					'type'  => 'slider',
+					'title' => 'Baths',
+					'min'     => 0,
+					'max'     => 100,
+					'step'    => 0.5,
+					'default' => 0,
 				),
 				array(
-					'id'    => 'opt-floorplans-size',
-					'type'  => 'text',
-					'title' => 'Size'
+					'id'      => 'opt-floorplans-size',
+					'type'  => 'slider',
+					'title' => 'Size',
+					'min'     => 0,
+					'max'     => 100,
+					'step'    => 0.5,
+					'default' => 0,
 				),
 				array(
-					'id'    => 'opt-floorplans-view',
-					'type'  => 'text',
-					'title' => 'View'
+					'id'          => 'opt-floorplans-view',
+					'type'        => 'select',
+					'title'       => 'Type',
+					'placeholder' => 'Select an option',
+					'chosen'      => true,
+					'multiple'    => true,
+					'options'     => array(
+						'East'  => 'East',
+						'West'  => 'West',
+						'North'  => 'North',
+						'South'  => 'South',
+						'North East'  => 'North East',
+						'North West'  => 'North West',
+						'South East'  => 'South East',
+						'South West'  => 'South West',
+					),
+					'default'     => ''
 				),
 				array(
 					'id'    => 'opt-floorplans-interior-size',
-					'type'  => 'text',
-					'title' => 'Interior Size'
+					'type'  => 'slider',
+					'title' => 'Interior Size',
+					'min'   => 0,
+					'max'   => 100,
+					'step'  => 0.5,
+					'default' => 0,
 				),
 				array(
 					'id'    => 'opt-floorplans-floor-range',
@@ -1191,12 +1221,12 @@ if (class_exists('CSF')) {
 				),
 				array(
 					'id'    => 'opt-floorplans-price-from',
-					'type'  => 'text',
+					'type'  => 'number',
 					'title' => 'Price (From)'
 				),
 				array(
 					'id'    => 'opt-floorplans-price-per',
-					'type'  => 'text',
+					'type'  => 'number',
 					'title' => 'Price Per Sq.Ft.'
 				),
 				array(
