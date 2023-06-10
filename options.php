@@ -1182,7 +1182,7 @@ if (class_exists('CSF')) {
 					'type'  => 'slider',
 					'title' => 'Size',
 					'min'     => 0,
-					'max'     => 100,
+					'max'     => 20000,
 					'step'    => 0.5,
 					'default' => 0,
 				),
