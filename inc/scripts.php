@@ -69,7 +69,7 @@ function theme_scripts()
         wp_enqueue_script('lightbox2');
     }
 
-    if (is_singular('floorplans')) {
+    if (is_singular('floorplans') || is_singular('properties')) {
         wp_enqueue_style('datatables');
         wp_enqueue_script('datatables');
     }
