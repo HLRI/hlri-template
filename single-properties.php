@@ -318,7 +318,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </div> -->
             </div>
         </div>
-      <div class="card-form">
+      <div class="card-form py-4">
       <table id="example" class="table pt-4">
             <thead>
                 <tr>
