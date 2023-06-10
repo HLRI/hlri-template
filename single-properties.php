@@ -346,25 +346,28 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                     )
                 );
 
-                $associated_floorplans = new WP_Query( ${args} );
+                $associated_floorplans = new WP_Query(${args});
                 if ($associated_floorplans->have_posts()) :
-                    while ($associated_floorplans->have_posts()) : 
+                    while ($associated_floorplans->have_posts()) :
                         $associated_floorplans->the_post();
                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 ?>
                         <tr>
                             <td>
                                 <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                                <div class="wrap-head-floorplan">
+                                    <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                                    <?php the_post_thumbnail('normal', ['width' => '50px', 'height' => '50px']) ?>
+                                </div>
                             </td>
                             <td><?= $floor['opt-floorplans-suite-name'] ?></td>
                             <td>
                                 <?= $floor['opt-floorplans-beds'] . ' Beds' ?> , <?= $floor['opt-floorplans-baths'] . ' Baths' ?>
                             </td>
-                            <td><?= $floor['opt-floorplans-size'] .' SQFT'?></td>
-                            <td><?= implode(' / ',$floor['opt-floorplans-view']) ?></td>
-                            <td><?= '$'.$floor['opt-floorplans-price-from'] ?></td>
-                            <td><a target="_blank" href="<?php the_permalink(  ) ?>">More Info</a></td>
+                            <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
+                            <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
+                            <td><?= '$' . $floor['opt-floorplans-price-from'] ?></td>
+                            <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
                         </tr>
                 <?php
                     endwhile;
