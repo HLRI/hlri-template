@@ -125,11 +125,11 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                             <div class="square-foot-title">Prices</div>
                                             <div class="square-foot-item">
                                                 <span class="name">Price (From) : </span>
-                                                <span class="value"><?= $floorplans['opt-floorplans-price-from'] ?></span>
+                                                <span class="value"><?= '$' . $floorplans['opt-floorplans-price-from'] ?></span>
                                             </div>
                                             <div class="square-foot-item">
                                                 <span class="name">Price Per Sq.Ft : </span>
-                                                <span class="value"><?= $floorplans['opt-floorplans-price-per'] ?></span>
+                                                <span class="value"><?= '$' . $floorplans['opt-floorplans-price-per'] . '/sq.ft' ?></span>
                                             </div>
                                             <div class="square-foot-item">
                                                 <span class="name">Mt. Fees per Month : </span>
