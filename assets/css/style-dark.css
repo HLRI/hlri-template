@@ -3003,4 +3003,15 @@ table {
 
 #example_filter label input{
     color: #b19f91 !important;
+    border: none;
+    border-top-left-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+}
+
+.btn-status-floorplan {
+    background: #32302f;
+    color: #b19f91;
+    border: none;
+    border-top-right-radius: unset !important;
+    border-bottom-right-radius: unset !important;
 }

@@ -190,7 +190,7 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 <div class="col-12">
                     <div class="btn-group submitter-group float-left">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">Status</div>
+                            <div class="input-group-text btn-status-floorplan">Status</div>
                         </div>
                         <select class="form-control status-dropdown">
                             <option value="">All</option>

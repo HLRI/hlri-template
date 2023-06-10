@@ -287,7 +287,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 <div class="col-12">
                     <div class="btn-group submitter-group float-left">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">Status</div>
+                            <div class="input-group-text btn-status-floorplan">Status</div>
                         </div>
                         <select class="form-control status-dropdown">
                             <option value="">All</option>

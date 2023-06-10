@@ -2912,3 +2912,15 @@ button.btn.btn-link:hover {
   width: 50px;
   height: 50px;
 }
+
+#example_filter label input{
+  border: none;
+  border-top-left-radius: unset !important;
+  border-bottom-left-radius: unset !important;
+}
+
+.btn-status-floorplan {
+  border: none;
+  border-top-right-radius: unset !important;
+  border-bottom-right-radius: unset !important;
+}
