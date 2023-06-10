@@ -364,7 +364,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                                 <?= $floor['opt-floorplans-beds'] . ' Beds' ?> , <?= $floor['opt-floorplans-baths'] . ' Baths' ?>
                             </td>
                             <td><?= $floor['opt-floorplans-size'] .' SQFT'?></td>
-                            <td><?= implode(',',$floor['opt-floorplans-view']) ?></td>
+                            <td><?= implode(' / ',$floor['opt-floorplans-view']) ?></td>
                             <td><?= '$'.$floor['opt-floorplans-price-from'] ?></td>
                             <td><a target="_blank" href="<?php the_permalink(  ) ?>">More Info</a></td>
                         </tr>
