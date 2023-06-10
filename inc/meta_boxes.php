@@ -1,5 +1,5 @@
 <?php
-
+wp_die('dd');
 // Render the custom meta box content on the properties edit screen
 function custom_render_floorplans_meta_box( $post ) {
     $floorplans = get_posts( array(
