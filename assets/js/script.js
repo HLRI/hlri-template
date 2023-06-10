@@ -339,7 +339,7 @@ jQuery(document).ready(function ($) {
     $('.status-dropdown').on('change', function (e) {
         var status = $(this).val();
         $('.status-dropdown').val(status)
-        dataTable.column(6).search(status).draw();
+        dataTable.column(0).search(status).draw();
     })
 
 
