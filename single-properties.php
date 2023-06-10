@@ -318,66 +318,67 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </div> -->
             </div>
         </div>
-      <div class="card-form py-4">
-      <table id="example" class="table pt-4">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Suite Name</th>
-                    <th>Suite Type</th>
-                    <th>Size</th>
-                    <th>View</th>
-                    <th>Price</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $args = array(
-                    'post_type' => 'floorplans',
-                    'numberposts' => -1,
-                    'orderby'   => 'meta_value',
-                    'order' => 'DESC',
-                    'meta_query' => array(
-                        array(
-                            'key' => 'associated_property',
-                            'value' => get_the_ID(),
-                            'compare' => '='
-                        )
-                    )
-                );
+        <div class="card-form py-4">
+            <table id="example" class="table pt-4">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Suite Name</th>
+                        <th>Suite Type</th>
+                        <th>Size</th>
+                        <th>View</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $associated_property = get_post_meta(get_the_ID(), 'associated_property', true);
+                    $args = array(
+                        'post_type' => 'floorplans',
+                        'numberposts' => -1,
+                        'orderby'   => 'meta_value',
+                        'order' => 'DESC',
+                        'meta_query' => array(
+                            array(
+                                'key' => 'associated_property',
+                                'value' => $associated_property,
+                                'compare' => '=',
+                            ),
+                        ),
+                    );
 
-                $associated_floorplans = new WP_Query(${args});
-                if ($associated_floorplans->have_posts()) :
-                    while ($associated_floorplans->have_posts()) :
-                        $associated_floorplans->the_post();
-                        $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                ?>
-                        <tr>
-                            <td>
-                                <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                <div class="wrap-head-floorplan">
-                                    <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                    <?php the_post_thumbnail('thumbnail') ?>
-                                </div>
-                            </td>
-                            <td><?= $floor['opt-floorplans-suite-name'] ?></td>
-                            <td>
-                                <?= $floor['opt-floorplans-beds'] . ' Beds' ?> , <?= $floor['opt-floorplans-baths'] . ' Baths' ?>
-                            </td>
-                            <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
-                            <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
-                            <td><?= '$' . $floor['opt-floorplans-price-from'] ?></td>
-                            <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
-                        </tr>
-                <?php
-                    endwhile;
-                    wp_reset_postdata();
-                endif;
-                ?>
-            </tbody>
-        </table>
-      </div>
+                    $associated_floorplans = new WP_Query(${args});
+                    if ($associated_floorplans->have_posts()) :
+                        while ($associated_floorplans->have_posts()) :
+                            $associated_floorplans->the_post();
+                            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                    ?>
+                            <tr>
+                                <td>
+                                    <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
+                                    <div class="wrap-head-floorplan">
+                                        <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                                        <?php the_post_thumbnail('thumbnail') ?>
+                                    </div>
+                                </td>
+                                <td><?= $floor['opt-floorplans-suite-name'] ?></td>
+                                <td>
+                                    <?= $floor['opt-floorplans-beds'] . ' Beds' ?> , <?= $floor['opt-floorplans-baths'] . ' Baths' ?>
+                                </td>
+                                <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
+                                <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
+                                <td><?= '$' . $floor['opt-floorplans-price-from'] ?></td>
+                                <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
+                            </tr>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    endif;
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
