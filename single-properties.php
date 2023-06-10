@@ -334,6 +334,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 <tbody>
                     <?php
                     $associated_property = get_post_meta(get_the_ID(), 'associated_property', true);
+                    wp_die(var_dump($associated_property));
                     $args = array(
                         'post_type' => 'floorplans',
                         'numberposts' => -1,
