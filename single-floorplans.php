@@ -273,7 +273,10 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                 </td>
                                 <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
                                 <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
-                                <td><?= '$' . $floor['opt-floorplans-price-from'] ?></td>
+                                <td>
+                                    <?= '$' . $floor['opt-floorplans-price-from'] ?>
+                                    <div class="h6"><?= '$' . $floorplans['opt-floorplans-price-per'] . '/sq.ft' ?></div>
+                                </td>
                                 <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
                             </tr>
                     <?php
