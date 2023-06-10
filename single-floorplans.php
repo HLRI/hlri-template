@@ -233,34 +233,40 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                    <td>
-                        <div class="d-none">
-                            Available
-                        </div>
-                        <span class="status-floorplan status-color-success"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                    <td>
-                        <div class="d-none">
-                            Sold Out
-                        </div>
-                        <span class="status-floorplan status-color-danger"></span>
-                    </td>
-                </tr>
+                <?php
+                $associated_floorplans = get_posts(array(
+                    'post_type' => 'floorplans',
+                    'numberposts' => -1,
+                    'meta_query' => array(
+                        array(
+                            'key' => 'associated_property',
+                            'value' => get_the_ID(),
+                            'compare' => '='
+                        )
+                    )
+                ));
+
+                if ($associated_floorplans) :
+                    foreach ($associated_floorplans as $floorplan) :
+                ?>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>
+                                <div class="d-none">
+                                    Available
+                                </div>
+                                <span class="status-floorplan status-color-success"></span>
+                            </td>
+                        </tr>
+                <?php
+                    endforeach;
+                endif;
+                ?>
             </tbody>
         </table>
     </div>
