@@ -1,5 +1,5 @@
 <?php
-wp_die('dd');
+
 // Render the custom meta box content on the properties edit screen
 function custom_render_floorplans_meta_box( $post ) {
     $floorplans = get_posts( array(
@@ -115,13 +115,14 @@ add_action( 'save_post', 'custom_save_property_association_meta' );
 /*==================================================================================*/
 
 function add_custom_validation_script() {
-    die('d');
     ?>
     <script src="<?= HLR_THEME_ASSETS . 'js/validation-admin.js' ?>"></script>
     <?php
 }
 function checkIfItsFloorplanAdd($hook)
 {
+    die('22');
+
     $post_type = get_post_type($_GET['post']);
     if ($hook == 'post-new.php') {
         if ($post_type == 'floorplans') {
