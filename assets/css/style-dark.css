@@ -2995,3 +2995,8 @@ button.btn.btn-link:hover {
 table {
     color: #b19f91 !important;
 }
+
+ select {
+    color: #b19f91 !important;
+    background: #665c54 !important;
+}
