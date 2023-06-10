@@ -355,7 +355,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         <tr>
                             <td>
                                 <div class="d-none">
-                                <?= $floor['opt-floorplans-status'] == 'available' ? 'available' : 'Sold Out' ?>
+                                <?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?>
                                 </div>
                                 <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
                             </td>
