@@ -2996,7 +2996,7 @@ table {
     color: #b19f91 !important;
 }
 
-#example_filter label input{
+#example_filter label input {
     color: #b19f91 !important;
 }
 
@@ -3019,5 +3019,9 @@ select {
 
 table.dataTable tbody td {
     vertical-align: middle !important;
+    text-align: center !important;
+}
+
+table.dataTable thead tr th {
     text-align: center !important;
 }
