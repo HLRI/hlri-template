@@ -116,6 +116,7 @@ add_action( 'save_post', 'custom_save_property_association_meta' );
 
 function add_custom_validation_script() {
     ?>
+    ehsan
     <script src="<?= HLR_THEME_ASSETS . 'js/validation-admin.js' ?>"></script>
     <?php
 }
@@ -124,8 +125,6 @@ function checkIfItsFloorplanAdd($hook)
     $post_type = get_post_type($_GET['post']);
     if ($hook == 'post-new.php') {
         if ($post_type == 'floorplans') {
-            die('1=');
-
             add_action('admin_footer', 'add_custom_validation_script');
         }
     } elseif ($hook == 'post.php') {
