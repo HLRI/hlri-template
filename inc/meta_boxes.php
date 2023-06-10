@@ -123,8 +123,9 @@ function checkIfItsFloorplanAdd($hook)
 {
     $post_type = get_post_type($_GET['post']);
     if ($hook == 'post-new.php') {
-        die('1');
         if ($post_type == 'floorplans') {
+            die('1=');
+
             add_action('admin_footer', 'add_custom_validation_script');
         }
     } elseif ($hook == 'post.php') {
