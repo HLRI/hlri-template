@@ -71,11 +71,17 @@ $property = new WP_Query(${args});
                 <div class="col-12 px-lg-0">
                     <div class="image-floorplan">
                         <?php
-                        if (!empty($floorplans['opt-developer'])) {
-                            $title_img = strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']);
-                        } else {
-                            $title_img = strtoupper(get_the_title());
-                        }
+                        while ($property->have_posts()) : $property->the_post();
+                            $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+
+                            if (!empty($floorplans['opt-developer'])) {
+                                $title_img = strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']);
+                            } else {
+                                $title_img = strtoupper(get_the_title());
+                            }
+                        endwhile;
+                        wp_reset_postdata();
+                        wp_reset_query();
 
                         if (!empty($floorplans['opt-floorplans-price-from'])) {
                             $fp = 'From $' . $floorplans['opt-floorplans-price-from'];
