@@ -60,12 +60,12 @@ $property = new WP_Query(${args});
                 <div class="col-lg-4 text-right px-lg-0">
                     <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                         <div class="floorplan-price">
-                            From <span class="from-price"><?= '$' . $floorplans['opt-floorplans-price-from'] ?></span>
+                            From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($floorplans['opt-floorplans-price-per'])) : ?>
                         <div>
-                            <?= '$' . $floorplans['opt-floorplans-price-per'] . '/sq.ft' ?>
+                            <?= '$' . number_format($floorplans['opt-floorplans-price-per']) . '/sq.ft' ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -87,7 +87,7 @@ $property = new WP_Query(${args});
                         wp_reset_query();
 
                         if (!empty($floorplans['opt-floorplans-price-from'])) {
-                            $fp = 'From $' . $floorplans['opt-floorplans-price-from'];
+                            $fp = 'From $' . number_format($floorplans['opt-floorplans-price-from']);
                         } else {
                             $fp = '';
                         }
@@ -195,7 +195,7 @@ $property = new WP_Query(${args});
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">THIS FLOOR PLAN</div>
                                             <?php if (!empty($floorplans['opt-floorplans-price-per'])) : ?>
-                                                <div class="square-foot-price"><span><?= '$' . $floorplans['opt-floorplans-price-per'] ?></span>/sq.ft</div>
+                                                <div class="square-foot-price"><span><?= '$' . number_format($floorplans['opt-floorplans-price-per']) ?></span>/sq.ft</div>
                                             <?php endif; ?>
                                             <div class="square-foot-title">Suite Details</div>
                                             <?php if (!empty($floorplans['opt-floorplans-suite-name'])) : ?>
@@ -244,13 +244,13 @@ $property = new WP_Query(${args});
                                             <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                                                 <div class="square-foot-item">
                                                     <span class="name">Price (From) : </span>
-                                                    <span class="value"><?= '$' . $floorplans['opt-floorplans-price-from'] ?></span>
+                                                    <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                                                 </div>
                                             <?php endif; ?>
                                             <?php if (!empty($floorplans['opt-floorplans-price-per'])) : ?>
                                                 <div class="square-foot-item">
                                                     <span class="name">Price Per Sq.Ft : </span>
-                                                    <span class="value"><?= '$' . $floorplans['opt-floorplans-price-per'] . '/sq.ft' ?></span>
+                                                    <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-per']) . '/sq.ft' ?></span>
                                                 </div>
                                             <?php endif; ?>
                                             <?php if (!empty($floorplans['opt-floorplans-mt-fees-per-month'])) : ?>
@@ -402,8 +402,8 @@ $property = new WP_Query(${args});
                                 <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
                                 <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
                                 <td>
-                                    <div class="font-weight-bold"><?= '$' . $floor['opt-floorplans-price-from'] ?></div>
-                                    <small><?= '$' . $floor['opt-floorplans-price-per'] . '/sq.ft' ?></small>
+                                    <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
+                                    <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
                                 </td>
                                 <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
                             </tr>
