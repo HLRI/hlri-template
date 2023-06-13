@@ -34,7 +34,7 @@ $property = new WP_Query(${args});
                         $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
                             <div >
-                                <h3 class="font-weight-bold h5"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h3>
+                                <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
                             </div>
                         <?php 
                         endwhile; 
