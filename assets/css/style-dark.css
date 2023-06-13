@@ -3025,3 +3025,7 @@ table.dataTable tbody td {
 table.dataTable thead tr th {
     text-align: center !important;
 }
+
+.image-floorplan img {
+    height: auto !important;
+}
