@@ -111,7 +111,7 @@ $property = new WP_Query(${args});
                         $info =  $sq . ' ' . $bed . ' ' . $baths . ' ' . $view;
 
                         ?>
-                        <a href="<?= get_the_post_thumbnail_url() ?>" title="<center> <?= $title_img ?> <br> <?= $fp ?> <br> <?= $info ?></center>" data-lightbox="roadtrip">
+                        <a href="<?= get_the_post_thumbnail_url() ?>" title="<center> <?= $title_img ?> <br><br> <?= $fp ?> <br><br> <?= $info ?></center>" data-lightbox="roadtrip">
                             <img class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="test aly">
                         </a>
                     </div>
