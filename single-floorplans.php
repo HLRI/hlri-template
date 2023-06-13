@@ -33,8 +33,8 @@ $property = new WP_Query(${args});
                         while ($property->have_posts()) : $property->the_post() ;
                         $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
-                            <div>
-                                <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
+                            <div >
+                                <h3 class="font-weight-bold"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h3>
                             </div>
                         <?php 
                         endwhile; 
