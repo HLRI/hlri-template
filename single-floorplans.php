@@ -70,7 +70,7 @@ $property = new WP_Query(${args});
             <div class="row">
                 <div class="col-12 px-lg-0">
                     <div class="image-floorplan">
-                        <a href="<?= get_the_post_thumbnail_url() ?>" title="test title" data-lightbox="roadtrip">
+                        <a href="<?= get_the_post_thumbnail_url() ?>" title="test title <br> test" data-lightbox="roadtrip">
                             <img class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="test aly">
                         </a>
                     </div>
