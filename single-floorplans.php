@@ -34,7 +34,10 @@ $property = new WP_Query(${args});
                             <div>
                                 <?php the_title() ?>
                             </div>
-                        <?php endwhile; ?>
+                        <?php 
+                        endwhile; 
+                        wp_reset_postdata();
+                        ?>
                     <?php endif; ?>
                     <div class="d-flex align-items-center">
                         <?php if (!empty($floorplans['opt-floorplans-status'])) : ?>
