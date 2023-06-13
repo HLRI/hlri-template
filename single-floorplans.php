@@ -37,6 +37,7 @@ $property = new WP_Query(${args});
                         <?php 
                         endwhile; 
                         wp_reset_postdata();
+                        wp_reset_query();
                         ?>
                     <?php endif; ?>
                     <div class="d-flex align-items-center">
