@@ -34,7 +34,7 @@ $property = new WP_Query(${args});
                             $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
                             <div>
-                                <?php if (!empty($floorplans['opt-developer'])) : ?>
+                                <?php if (!empty($mdata_single['opt-developer'])) : ?>
                                     <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
                                 <?php else : ?>
                                     <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4>
@@ -73,8 +73,7 @@ $property = new WP_Query(${args});
                         <?php
                         while ($property->have_posts()) : $property->the_post();
                             $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-
-                            if (!empty($floorplans['opt-developer'])) {
+                            if (!empty($mdata_single['opt-developer'])) {
                                 $title_img = strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']);
                             } else {
                                 $title_img = strtoupper(get_the_title());
