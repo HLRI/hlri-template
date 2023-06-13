@@ -1189,7 +1189,7 @@ if (class_exists('CSF')) {
 				array(
 					'id'          => 'opt-floorplans-view',
 					'type'        => 'select',
-					'title'       => 'Type',
+					'title'       => 'View',
 					'placeholder' => 'Select an option',
 					'chosen'      => true,
 					'multiple'    => true,
