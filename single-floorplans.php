@@ -70,7 +70,48 @@ $property = new WP_Query(${args});
             <div class="row">
                 <div class="col-12 px-lg-0">
                     <div class="image-floorplan">
-                        <a href="<?= get_the_post_thumbnail_url() ?>" title="test title <br> test" data-lightbox="roadtrip">
+                        <?php
+                        if (!empty($floorplans['opt-developer'])) {
+                            $title_img = strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']);
+                        } else {
+                            $title_img = strtoupper(get_the_title());
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-price-from'])) {
+                            $fp = '$' . $floorplans['opt-floorplans-price-from'];
+                        } else {
+                            $fp = '';
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-interior-size'])) {
+                            $sq = $floorplans['opt-floorplans-interior-size'] . 'sq.ft';
+                        } else {
+                            $sq = '';
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-beds'])) {
+                            $bed = $floorplans['opt-floorplans-beds'] . ' Bed';
+                        } else {
+                            $bed = '';
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-baths'])) {
+                            $baths = $floorplans['opt-floorplans-baths'] . ' Bath';
+                        } else {
+                            $baths = '';
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-view'])) {
+                            $view = implode('/', $floorplans['opt-floorplans-view']);
+                        } else {
+                            $view = '';
+                        }
+
+
+                        $info =  $sq . ' ' . $bed . ' ' . $baths . ' ' . $view;
+
+                        ?>
+                        <a href="<?= get_the_post_thumbnail_url() ?>" title="<center> <?= $title_img ?> <br> <?= $fp ?> <br> <?= $info ?></center>" data-lightbox="roadtrip">
                             <img class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="test aly">
                         </a>
                     </div>
