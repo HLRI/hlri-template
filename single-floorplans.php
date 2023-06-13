@@ -275,8 +275,8 @@ $property = new WP_Query(${args});
                                     </div>
                                     <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
+                                            <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                             <?php if (!empty($avgn)) : ?>
-                                                <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                                 <div class="square-foot-price"><span>$<?= $avgn ?></span>/sq.ft</div>
                                             <?php endif; ?>
                                             <?php if (!empty($floorplans['opt-floorplans-deposit-structure'])) : ?>
