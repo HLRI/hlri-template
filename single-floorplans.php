@@ -19,7 +19,6 @@ $args = array(
     'numberposts' => 1,
     'p' => $pid
 );
-
 $property = new WP_Query(${args});
 
 ?>
@@ -30,9 +29,12 @@ $property = new WP_Query(${args});
             <div class="row floorplan-header mb-4">
                 <div class="col-lg-8 px-lg-0">
                     <?php if ($property->have_posts()) : ?>
-                        <?php while ($property->have_posts()) : $property->the_post() ?>
+                        <?php 
+                        while ($property->have_posts()) : $property->the_post() ;
+                        $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                        ?>
                             <div>
-                                <?php the_title() ?>
+                                <?php the_title() . ' by ' . $mdata_single['opt-developer'] ?>
                             </div>
                         <?php 
                         endwhile; 
