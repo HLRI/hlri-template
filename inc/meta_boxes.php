@@ -130,7 +130,7 @@ function checkIfItsFloorplanAdd($hook)
         //die('2');
 
         if ($post_type == 'floorplans') {
-
+            add_action('admin_footer', 'add_custom_validation_script');
         }
     }
 }
