@@ -4,29 +4,24 @@ $theme_options = get_option('hlr_framework');
 $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 $associated_property = get_post_meta(get_the_ID(), 'associated_property', true);
 
-$args = array(
-    'post_type' => 'floorplans',
-    'numberposts' => -1,
-    'orderby'   => 'meta_value',
-    'order' => 'DESC',
-    'meta_query' => array(
-        array(
-            'key' => 'associated_property',
-            'value' => $associated_property,
-            'compare' => '=',
-        ),
-    )
-);
 
-$associated_floorplans = new WP_Query(${args});
 
 
 global $wpdb;
 $post_id = get_the_ID();
-$tbl = $wpdb->prefix.'postmeta';
-$prepare_guery = $wpdb->prepare( "SELECT post_id FROM $tbl where meta_key ='associated_property' AND post_id = '$post_id'" );
-$get_values = $wpdb->get_col( $prepare_guery );
-wp_die(var_dump(get_post_meta($get_values[0],'associated_property', true)));
+$tbl = $wpdb->prefix . 'postmeta';
+$prepare_guery = $wpdb->prepare("SELECT post_id FROM $tbl where meta_key ='associated_property' AND post_id = '$post_id'");
+$get_values = $wpdb->get_col($prepare_guery);
+$pid = get_post_meta($get_values[0], 'associated_property', true);
+
+$args = array(
+    'post_type' => 'properties',
+    'numberposts' => 1,
+    'p' => $pid
+);
+
+$property = new WP_Query(${args});
+
 ?>
 <div class="container-fluid px-lg-5 my-4">
     <div class="row">
@@ -34,8 +29,8 @@ wp_die(var_dump(get_post_meta($get_values[0],'associated_property', true)));
 
             <div class="row floorplan-header mb-4">
                 <div class="col-lg-8 px-lg-0">
-                    <?php if ($associated_floorplans->have_posts()) : ?>
-                        <?php while ($associated_floorplans->have_posts()) : $associated_floorplans->the_post() ?>
+                    <?php if ($property->have_posts()) : ?>
+                        <?php while ($property->have_posts()) : $property->the_post() ?>
                             <div>
                                 <?php the_title() ?>
                             </div>
@@ -308,6 +303,21 @@ wp_die(var_dump(get_post_meta($get_values[0],'associated_property', true)));
                 </thead>
                 <tbody>
                     <?php
+                    $args = array(
+                        'post_type' => 'floorplans',
+                        'numberposts' => -1,
+                        'orderby'   => 'meta_value',
+                        'order' => 'DESC',
+                        'meta_query' => array(
+                            array(
+                                'key' => 'associated_property',
+                                'value' => $associated_property,
+                                'compare' => '=',
+                            ),
+                        )
+                    );
+
+                    $associated_floorplans = new WP_Query(${args});
                     if ($associated_floorplans->have_posts()) :
                         while ($associated_floorplans->have_posts()) :
                             $associated_floorplans->the_post();
