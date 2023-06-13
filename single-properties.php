@@ -363,7 +363,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                             </td>
                             <td><?= $floor['opt-floorplans-suite-name'] ?></td>
                             <td>
-                                <?= $floor['opt-floorplans-beds'] . ' Beds' ?> , <?= $floor['opt-floorplans-baths'] . ' Baths' ?>
+                                <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
                             </td>
                             <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
                             <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
