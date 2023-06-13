@@ -19,6 +19,8 @@ $args = array(
 );
 
 $associated_floorplans = new WP_Query(${args});
+
+wp_die(var_dump(get_post_meta( 'associated_property', true )));
 ?>
 <div class="container-fluid px-lg-5 my-4">
     <div class="row">
@@ -34,7 +36,9 @@ $associated_floorplans = new WP_Query(${args});
                         <?php endwhile; ?>
                     <?php endif; ?>
                     <div class="d-flex align-items-center">
-                        <span class="status-floorplan <?= $floorplans['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                        <?php if (!empty($floorplans['opt-floorplans-status'])) : ?>
+                            <span class="status-floorplan <?= $floorplans['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                        <?php endif; ?>
                         <h1 class="font-weight-bold h2"><?php the_title() ?></h1>
                     </div>
                 </div>
@@ -173,8 +177,8 @@ $associated_floorplans = new WP_Query(${args});
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
                                             <div class="square-foot-price"><span>$868</span>/sq.ft</div>
-                                            <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                                             <div class="square-foot-title">Prices</div>
+                                            <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                                                 <div class="square-foot-item">
                                                     <span class="name">Price (From) : </span>
                                                     <span class="value"><?= '$' . $floorplans['opt-floorplans-price-from'] ?></span>
