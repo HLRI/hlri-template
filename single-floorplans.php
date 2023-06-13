@@ -78,7 +78,7 @@ $property = new WP_Query(${args});
                         }
 
                         if (!empty($floorplans['opt-floorplans-price-from'])) {
-                            $fp = '$' . $floorplans['opt-floorplans-price-from'];
+                            $fp = 'From $' . $floorplans['opt-floorplans-price-from'];
                         } else {
                             $fp = '';
                         }
