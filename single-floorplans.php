@@ -173,8 +173,8 @@ $associated_floorplans = new WP_Query(${args});
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
                                             <div class="square-foot-price"><span>$868</span>/sq.ft</div>
-                                            <div class="square-foot-title">Prices</div>
                                             <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                            <div class="square-foot-title">Prices</div>
                                                 <div class="square-foot-item">
                                                     <span class="name">Price (From) : </span>
                                                     <span class="value"><?= '$' . $floorplans['opt-floorplans-price-from'] ?></span>
