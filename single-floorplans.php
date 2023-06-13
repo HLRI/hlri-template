@@ -29,15 +29,19 @@ $property = new WP_Query(${args});
             <div class="row floorplan-header mb-4">
                 <div class="col-lg-8 px-lg-0">
                     <?php if ($property->have_posts()) : ?>
-                        <?php 
-                        while ($property->have_posts()) : $property->the_post() ;
-                        $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                        <?php
+                        while ($property->have_posts()) : $property->the_post();
+                            $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
-                            <div >
-                                <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
+                            <div>
+                                <?php if (!empty($floorplans['opt-developer'])) : ?>
+                                    <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
+                                <?php else : ?>
+                                    <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4>
+                                <?php endif; ?>
                             </div>
-                        <?php 
-                        endwhile; 
+                        <?php
+                        endwhile;
                         wp_reset_postdata();
                         wp_reset_query();
                         ?>
