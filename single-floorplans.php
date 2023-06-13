@@ -34,7 +34,7 @@ $property = new WP_Query(${args});
                         foreach(get_the_terms(get_the_ID(), 'neighborhood') as $term){
                             $total_neighborhood[] =  get_term_meta($term->term_id, 'neighborhood_options', true)['opt-neighborhood-appson'] . '<br>';
                         }
-                        die($total_neighborhood);
+                        die(var_dump($total_neighborhood));
                             $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
                             <div>
