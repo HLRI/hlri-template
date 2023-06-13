@@ -61,11 +61,14 @@ function theme_scripts()
         wp_enqueue_style('pgwslideshow');
         wp_enqueue_style('leaflet');
         wp_enqueue_style('rvslider');
-        wp_enqueue_style('lightbox2');
 
         wp_enqueue_script('pgwslideshow');
         wp_enqueue_script('rvslider');
         wp_enqueue_script('leaflet');
+    }
+
+    if (is_singular('floorplans') || is_singular('properties')) {
+        wp_enqueue_style('lightbox2');
         wp_enqueue_script('lightbox2');
     }
 
@@ -73,7 +76,6 @@ function theme_scripts()
         wp_enqueue_style('datatables');
         wp_enqueue_script('datatables');
     }
-
 }
 
 add_action('wp_head', 'theme_head');
@@ -81,7 +83,7 @@ function theme_head()
 {
 ?>
 
-   
+
     <?php if (is_singular('properties')) :
         $post_id = get_the_ID();
         $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
@@ -104,7 +106,7 @@ function theme_head()
                     "addressRegion": "ON",
                     "streetAddress": "<?= $mdata_single['opt-address'] ?>"
                 },
-                "telephone":"<?= $theme_option['opt-schema-phone'] ?>",
+                "telephone": "<?= $theme_option['opt-schema-phone'] ?>",
                 "priceRange": "Starting at $<?= number_format($mdata_single['opt-price-min']) ?>",
                 "aggregateRating": {
                     "@type": "AggregateRating",
