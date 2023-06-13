@@ -27,7 +27,7 @@ $tbl = $wpdb->prefix.'postmeta';
 $prepare_guery = $wpdb->prepare( "SELECT post_id FROM $tbl where meta_key ='associated_property' AND post_id = '$post_id'" );
 $get_values = $wpdb->get_col( $prepare_guery );
 
-wp_die(var_dump(get_post_meta($get_values,'associated_property')));
+wp_die(var_dump(get_post_meta($get_values,'associated_property', true)));
 ?>
 <div class="container-fluid px-lg-5 my-4">
     <div class="row">
