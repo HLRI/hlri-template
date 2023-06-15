@@ -7,7 +7,7 @@
                 <?php if (!empty($theme_options['opt-menu-logo']['url'])) : ?>
                     <div class="site-logo">
                         <a target="_self" href="<?= home_url('/') ?>" title="<?= $theme_options['opt-menu-logo']['alt'] ?>">
-                            <img src="<?= $theme_options['opt-menu-logo']['url'] ?>" alt="<?= $theme_options['opt-menu-logo']['alt'] ?>" title="<?= $theme_options['opt-menu-logo']['alt'] ?>">
+                            <img loading="lazy" src="<?= $theme_options['opt-menu-logo']['url'] ?>" alt="<?= $theme_options['opt-menu-logo']['alt'] ?>" title="<?= $theme_options['opt-menu-logo']['alt'] ?>">
                         </a>
                     </div>
                 <?php endif; ?>
@@ -97,7 +97,7 @@
                         <div class="menu-account">
 
                             <div class="menu-account-profile">
-                                <img class="image-profile" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image">
+                                <img loading="lazy" class="image-profile" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image">
                             </div>
                             <span class="menu-account-name">
                                 <?= $user_meta->user_nicename ?>

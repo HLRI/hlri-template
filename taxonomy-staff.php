@@ -24,14 +24,14 @@ if ($profiles->have_posts()) : ?>
         <div class="row">
             <div class="col-12 px-2">
                 <div class="titr-list ml-0 mb-2">
-                    <h3 class="font-weight-bold">All <?= strtoupper($term->name).'S' ?></h3>
+                    <h3 class="font-weight-bold">All <?= strtoupper($term->name) . 'S' ?></h3>
                 </div>
             </div>
             <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
                 <div class="col-6 col-sm-4 col-md-4 col-lg-2 px-2">
                     <div class="card-teams">
                         <div class="job-position"><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></div>
-                        <?php the_post_thumbnail() ?>
+                        <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                         <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>"><?php the_title() ?></a>
                     </div>
                 </div>

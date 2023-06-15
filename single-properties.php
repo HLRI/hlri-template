@@ -26,7 +26,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
     <div class="row mt-10 header-property-responsive">
         <div class="col-12 col-sm-12 col-md-3 col-lg-2 d-flex align-items-center">
             <div class="card-properties-image">
-                <?php the_post_thumbnail() ?>
+                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-9 col-lg-10 pl-0 top-responsive">
@@ -126,7 +126,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
             <div class="col-lg-6">
                 <ul class="pgwSlideshow">
                     <?php foreach ($gallery_ids as $gallery_item_id) : ?>
-                        <li><img src="<?= wp_get_attachment_url($gallery_item_id) ?>" alt="<?= wp_get_attachment_caption($gallery_item_id) ?>" data-large-src="<?= wp_get_attachment_url($gallery_item_id) ?>"></li>
+                        <li><img loading="lazy" src="<?= wp_get_attachment_url($gallery_item_id) ?>" alt="<?= wp_get_attachment_caption($gallery_item_id) ?>" data-large-src="<?= wp_get_attachment_url($gallery_item_id) ?>"></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -222,7 +222,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
             <?php foreach ($price_images as $image) : ?>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                     <div class="image-price">
-                        <img src="<?= $image['opt-price-list-image']['url'] ?>" alt="<?= $image['opt-price-list-image']['alt'] ?>">
+                        <img loading="lazy" src="<?= $image['opt-price-list-image']['url'] ?>" alt="<?= $image['opt-price-list-image']['alt'] ?>">
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -242,7 +242,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
                             <div class="card-floolplan">
                                 <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>" title="<?= wp_get_attachment_caption($floorplans_item_id) ?>" data-lightbox="roadtrip">
-                                    <img class="img-floorplan" src="<?= wp_get_attachment_url($floorplans_item_id) ?>" alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
+                                    <img loading="lazy" class="img-floorplan" src="<?= wp_get_attachment_url($floorplans_item_id) ?>" alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
                                 </a>
                             </div>
                         </div>
@@ -271,7 +271,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </div>
                 <div class="col-12 col-lg-8 d-none d-lg-block">
                     <div class="form-image">
-                        <img class="fit-form-image" src="<?= $theme_options['opt-properties-banner']['url'] ?>" alt="<?= $theme_options['opt-properties-banner']['alt'] ?>">
+                        <img loading="lazy" class="fit-form-image" src="<?= $theme_options['opt-properties-banner']['url'] ?>" alt="<?= $theme_options['opt-properties-banner']['alt'] ?>">
                     </div>
                 </div>
             </div>
@@ -318,70 +318,70 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                 </div> -->
             </div>
         </div>
-      <div class="card-form py-4">
-      <table id="example" class="table pt-4">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Suite Name</th>
-                    <th>Suite Type</th>
-                    <th>Size</th>
-                    <th>View</th>
-                    <th>Price</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $args = array(
-                    'post_type' => 'floorplans',
-                    'numberposts' => -1,
-                    'orderby'   => 'meta_value',
-                    'order' => 'DESC',
-                    'meta_query' => array(
-                        array(
-                            'key' => 'associated_property',
-                            'value' => get_the_ID(),
-                            'compare' => '='
+        <div class="card-form py-4">
+            <table id="example" class="table pt-4">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Suite Name</th>
+                        <th>Suite Type</th>
+                        <th>Size</th>
+                        <th>View</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $args = array(
+                        'post_type' => 'floorplans',
+                        'numberposts' => -1,
+                        'orderby'   => 'meta_value',
+                        'order' => 'DESC',
+                        'meta_query' => array(
+                            array(
+                                'key' => 'associated_property',
+                                'value' => get_the_ID(),
+                                'compare' => '='
+                            )
                         )
-                    )
-                );
+                    );
 
-                $associated_floorplans = new WP_Query(${args});
-                if ($associated_floorplans->have_posts()) :
-                    while ($associated_floorplans->have_posts()) :
-                        $associated_floorplans->the_post();
-                        $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                ?>
-                        <tr>
-                            <td>
-                                <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                <div class="wrap-head-floorplan">
-                                    <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                    <?php the_post_thumbnail('thumbnail') ?>
-                                </div>
-                            </td>
-                            <td><?= $floor['opt-floorplans-suite-name'] ?></td>
-                            <td>
-                                <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
-                            </td>
-                            <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
-                            <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
-                            <td>
-                            <div class="font-weight-bold"><?= '$' . $floor['opt-floorplans-price-from'] ?></div>
-                                <small><?= '$' . $floor['opt-floorplans-price-per'] . '/sq.ft' ?></small>
+                    $associated_floorplans = new WP_Query(${args});
+                    if ($associated_floorplans->have_posts()) :
+                        while ($associated_floorplans->have_posts()) :
+                            $associated_floorplans->the_post();
+                            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                    ?>
+                            <tr>
+                                <td>
+                                    <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
+                                    <div class="wrap-head-floorplan">
+                                        <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                                        <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
+                                    </div>
+                                </td>
+                                <td><?= $floor['opt-floorplans-suite-name'] ?></td>
+                                <td>
+                                    <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                </td>
+                                <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
+                                <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
+                                <td>
+                                    <div class="font-weight-bold"><?= '$' . $floor['opt-floorplans-price-from'] ?></div>
+                                    <small><?= '$' . $floor['opt-floorplans-price-per'] . '/sq.ft' ?></small>
 
-                            </td>
-                            <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
-                        </tr>
-                <?php
-                    endwhile;
-                    wp_reset_postdata();
-                endif;
-                ?>
-            </tbody>
-        </table>
-      </div>
+                                </td>
+                                <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
+                            </tr>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    endif;
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -449,7 +449,7 @@ if (!empty($terms)) :
 
                                     <div class="card-listing-image card-listing-image-v2">
                                         <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
-                                            <?php the_post_thumbnail() ?>
+                                            <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                                         </a>
                                     </div>
 
@@ -564,7 +564,7 @@ if ($peroperties_single->have_posts()) :
 
                                 <div class="card-listing-image card-listing-image-v2">
                                     <a href="<?= get_the_permalink() ?>" title="<?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
-                                        <?php the_post_thumbnail() ?>
+                                        <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                                     </a>
                                 </div>
 

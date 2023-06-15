@@ -17,7 +17,7 @@ $profiles = new WP_Query($arg);
                 <div class="titr-list">
                     <h3 class="font-weight-bold">DEDICATED AGENTS</h3>
                     <?php if (!empty($theme_options['opt-homeleaderrealtylinkviews-agents-link']['url'])) : ?>
-                    <a href="<?= $theme_options['opt-homeleaderrealtylinkviews-agents-link']['url'] ?>" title="<?= $theme_options['opt-homeleaderrealtylinkviews-agents-link']['alt'] ?>" class="view-more">View more</a>
+                        <a href="<?= $theme_options['opt-homeleaderrealtylinkviews-agents-link']['url'] ?>" title="<?= $theme_options['opt-homeleaderrealtylinkviews-agents-link']['alt'] ?>" class="view-more">View more</a>
                     <?php endif; ?>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -26,7 +26,7 @@ $profiles = new WP_Query($arg);
                         <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
                             <div class="card-teams">
                                 <div class="job-position"><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></div>
-                                <?php the_post_thumbnail() ?>
+                                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                                 <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>"><?php the_title() ?></a>
                             </div>
                         <?php endwhile; ?>

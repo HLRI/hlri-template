@@ -7,7 +7,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $args = array(
     'post_type'        => 'post',
-    'posts_per_page'   => get_option( 'posts_per_page' ),
+    'posts_per_page'   => get_option('posts_per_page'),
     'paged' => $paged,
 );
 $query = new WP_Query($args);
@@ -38,7 +38,7 @@ $query = new WP_Query($args);
                             <div class="date-blog"><i class="fa fa-calendar"></i> <span><?= get_the_date() ?></span></div>
                         </div>
                         <div class="card-blog-image">
-                            <?php the_post_thumbnail() ?>
+                            <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                         </div>
                         <div class="card-blog-content">
                             <h3 class="text-black"><?= strlen(get_the_title())  > 55 ? substr(get_the_title(), 0, 55) . '...' : get_the_title() ?></h3>
@@ -64,24 +64,24 @@ $query = new WP_Query($args);
         <?php endif; ?>
     </div>
 
-   <div class="mt-5 row d-flex align-items-center justify-content-center">
-   <?php
-    echo paginate_links(array(
-        'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-        'total'        => $query->max_num_pages,
-        'current'      => max(1, get_query_var('paged')),
-        'format'       => '?paged=%#%',
-        'show_all'     => false,
-        'type'         => 'plain',
-        'end_size'     => 2,
-        'mid_size'     => 1,
-        'prev_next'    => true,
-        'prev_text'    => sprintf('<i></i> %1$s', __('Newer Posts', 'text-domain')),
-        'next_text'    => sprintf('%1$s <i></i>', __('Older Posts', 'text-domain')),
-        'add_args'     => false,
-        'add_fragment' => '',
-    ));
-    ?>
-   </div>
+    <div class="mt-5 row d-flex align-items-center justify-content-center">
+        <?php
+        echo paginate_links(array(
+            'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+            'total'        => $query->max_num_pages,
+            'current'      => max(1, get_query_var('paged')),
+            'format'       => '?paged=%#%',
+            'show_all'     => false,
+            'type'         => 'plain',
+            'end_size'     => 2,
+            'mid_size'     => 1,
+            'prev_next'    => true,
+            'prev_text'    => sprintf('<i></i> %1$s', __('Newer Posts', 'text-domain')),
+            'next_text'    => sprintf('%1$s <i></i>', __('Older Posts', 'text-domain')),
+            'add_args'     => false,
+            'add_fragment' => '',
+        ));
+        ?>
+    </div>
 </div>
 <?php get_footer() ?>

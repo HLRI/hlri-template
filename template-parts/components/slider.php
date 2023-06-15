@@ -16,16 +16,16 @@
                 foreach ($theme_options['opt-slider-fieldset']['opt_slider_items'] as $item) :
                 ?>
                     <div class="carousel-item <?= $i == 0 ? 'active' : ''  ?>">
-                        <img class="d-block w-100 item-slider" src="<?= $item['opt-slider-image']['url'] ?>" alt="<?= $item['opt-slider-link']['alt'] ?>">
+                        <img loading="lazy" class="d-block w-100 item-slider" src="<?= $item['opt-slider-image']['url'] ?>" alt="<?= $item['opt-slider-link']['alt'] ?>">
                         <div class="carousel-caption d-none d-md-block">
-                                <a href="<?= $item['opt-slider-title-link']['url'] ?>" title="<?= $item['opt-slider-title1'] ?>">
-                                    <?php if (!empty($item['opt-slider-title1'])) : ?>
-                                        <h5><?= $item['opt-slider-title1'] ?></h5>
-                                    <?php endif; ?>
-                                    <?php if (!empty($item['opt-slider-title2'])) : ?>
-                                        <h4><?= $item['opt-slider-title2'] ?></h4>
-                                    <?php endif; ?>
-                                </a>
+                            <a href="<?= $item['opt-slider-title-link']['url'] ?>" title="<?= $item['opt-slider-title1'] ?>">
+                                <?php if (!empty($item['opt-slider-title1'])) : ?>
+                                    <h5><?= $item['opt-slider-title1'] ?></h5>
+                                <?php endif; ?>
+                                <?php if (!empty($item['opt-slider-title2'])) : ?>
+                                    <h4><?= $item['opt-slider-title2'] ?></h4>
+                                <?php endif; ?>
+                            </a>
                         </div>
                     </div>
                 <?php

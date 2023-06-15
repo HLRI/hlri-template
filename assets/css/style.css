@@ -1733,7 +1733,7 @@ a.icon-search:hover {
   height: auto;
   display: inline-block;
   font-size: 24px;
-  z-index: 10;
+  z-index: 50;
   transform: translateX(-50px);
   transition: all .3s;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

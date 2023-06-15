@@ -32,7 +32,7 @@ $peroperties = new WP_Query($arg);
             <div class="col-lg-4 mb-3">
                 <div class="card-listing">
                     <div class="card-listing-image">
-                        <?php the_post_thumbnail() ?>
+                        <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                     </div>
                     <div class="card-listing-content">
                         <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>

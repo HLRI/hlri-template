@@ -37,29 +37,30 @@ $user_info = wp_get_current_user();
 </head>
 <style>
     .nav-item .nav-link.active {
-    color: #ffd502 !important;
-}
+        color: #ffd502 !important;
+    }
 </style>
+
 <body>
     <div class="container-scroller">
 
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="<?= home_url( '/' ) ?>"><img src="<?php $logo = get_theme_mod('custom_logo');
-                                                                                                                $image = wp_get_attachment_image_src($logo, 'full');
-                                                                                                                $image_url = $image[0];
-                                                                                                                echo $image_url;
-                                                                                                                ?>" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="<?= home_url( '/' ) ?>"><img src="<?= get_site_icon_url() ?>" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="<?= home_url('/') ?>"><img loading="lazy" src="<?php $logo = get_theme_mod('custom_logo');
+                                                                                                            $image = wp_get_attachment_image_src($logo, 'full');
+                                                                                                            $image_url = $image[0];
+                                                                                                            echo $image_url;
+                                                                                                            ?>" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="<?= home_url('/') ?>"><img loading="lazy" src="<?= get_site_icon_url() ?>" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="mdi mdi-menu"></span>
                 </button>
-               
+
                 <ul class="navbar-nav navbar-nav-right">
-                   
+
                     <li class="nav-item d-none d-lg-block full-screen-link">
                         <a class="nav-link">
                             <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -75,7 +76,7 @@ $user_info = wp_get_current_user();
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image" class="profile-pic">
+                                    <img loading="lazy" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
@@ -85,7 +86,7 @@ $user_info = wp_get_current_user();
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image" class="profile-pic">
+                                    <img loading="lazy" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
@@ -95,7 +96,7 @@ $user_info = wp_get_current_user();
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image" class="profile-pic">
+                                    <img loading="lazy" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
@@ -161,7 +162,7 @@ $user_info = wp_get_current_user();
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image">
+                                <img loading="lazy" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -190,7 +191,7 @@ $user_info = wp_get_current_user();
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="<?= get_avatar_url(get_current_user_id()) ?>" alt="profile">
+                                <img loading="lazy" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>
@@ -207,7 +208,7 @@ $user_info = wp_get_current_user();
                         </a>
                     </li>
                     <li class="nav-item">
-                     <a class="nav-link" href="?page-url=properties-favorites">
+                        <a class="nav-link" href="?page-url=properties-favorites">
                             <span class="menu-title">Favorite Properties</span>
                             <i class="mdi mdi-bookmark menu-icon"></i>
                         </a>
@@ -268,7 +269,7 @@ $user_info = wp_get_current_user();
                     }
 
                     ?>
-                   
+
 
                 </div>
                 <!-- content-wrapper ends -->

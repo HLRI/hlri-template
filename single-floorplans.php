@@ -121,7 +121,7 @@ $property = new WP_Query(${args});
 
                         ?>
                         <a href="<?= get_the_post_thumbnail_url() ?>" title="<center> <?= $title_img ?> <br><br> <?= $fp ?> <br><br> <?= $info ?></center>" data-lightbox="roadtrip">
-                            <img class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="test aly">
+                            <img loading="lazy" class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="test aly">
                         </a>
                     </div>
                 </div>
@@ -392,7 +392,7 @@ $property = new WP_Query(${args});
                                     <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
                                     <div class="wrap-head-floorplan">
                                         <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                        <?php the_post_thumbnail('thumbnail') ?>
+                                        <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
                                     </div>
                                 </td>
                                 <td><?= $floor['opt-floorplans-suite-name'] ?></td>

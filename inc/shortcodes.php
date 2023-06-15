@@ -26,7 +26,7 @@ function testimonials($param)
                         <div class="wrap-testimonials">
                             <div class="card-testimonials">
                                 <div class="card-testimonials-image">
-                                    <img src="<?= $item['opt-testimonial-image']['url'] ?>" alt="<?= $item['opt-testimonial-image']['alt'] ?>">
+                                    <img loading="lazy" src="<?= $item['opt-testimonial-image']['url'] ?>" alt="<?= $item['opt-testimonial-image']['alt'] ?>">
                                 </div>
                                 <h3 class="card-testimonials-title"><?= $item['opt-testimonial-title'] ?></h3>
                             </div>

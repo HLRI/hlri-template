@@ -10,7 +10,7 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
     <div class="row">
         <div class="col-md-4 col-lg-4">
             <div class="card-profile-image ml-lg-5">
-                <?php the_post_thumbnail() ?>
+                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
             </div>
         </div>
         <div class="col-md-8 col-lg-8">

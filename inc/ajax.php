@@ -16,7 +16,7 @@ function getlatestpost()
 
             <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>" target="_blank" class="card-post-sidebar mb-2">
                 <div class="card-post-sidebar-image">
-                    <?php the_post_thumbnail()  ?>
+                    <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                 </div>
                 <div class="card-post-sidebar-content">
                     <div class="card-post-sidebar-title">
@@ -147,7 +147,7 @@ function propertiesRating()
     }
 
     $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
-    if ($property_id == $_POST['post_id']){
+    if ($property_id == $_POST['post_id']) {
         wp_send_json([
             'status' => 'exists',
         ]);
@@ -162,7 +162,7 @@ function propertiesRating()
         update_post_meta($_POST['post_id'], 'properties_total_rates', $total_rates);
         update_post_meta($_POST['post_id'], 'properties_user_rates', $user_rates);
         update_user_meta(get_current_user_id(), 'properties_rated', $_POST['post_id']);
-    }else{
+    } else {
         $total_rates = $_POST['rate'];
         $user_rates = 1;
         update_post_meta($_POST['post_id'], 'properties_total_rates', $total_rates);
@@ -174,7 +174,6 @@ function propertiesRating()
         'status' => 'added',
         'votes' => $user_rates
     ]);
-
 }
 
 add_action('wp_ajax_set_like_properties', 'set_like_properties');

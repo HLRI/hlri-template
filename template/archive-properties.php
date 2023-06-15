@@ -54,7 +54,7 @@ $peroperties = new WP_Query($arg);
                                         <div class="card-listing card-listing-v2">
 
                                             <div class="card-listing-image card-listing-image-v2">
-                                                <?php the_post_thumbnail() ?>
+                                                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                                             </div>
 
 

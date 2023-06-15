@@ -21,7 +21,7 @@ if ($profiles->have_posts()) : ?>
                 <div class="col-6 col-sm-4 col-md-4 col-lg-2 px-2">
                     <div class="card-teams">
                         <div class="job-position"><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></div>
-                        <?php the_post_thumbnail() ?>
+                        <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                         <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>"><?php the_title() ?></a>
                     </div>
                 </div>
@@ -53,4 +53,3 @@ if ($profiles->have_posts()) : ?>
     </div>
 <?php endif; ?>
 <?php get_footer(); ?>
-

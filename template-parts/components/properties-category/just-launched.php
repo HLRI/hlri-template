@@ -31,7 +31,7 @@ $peroperties = new WP_Query($arg);
 
                         <div class="card-listing-image">
                             <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">
-                                <?php the_post_thumbnail() ?>
+                                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
                             </a>
                         </div>
 

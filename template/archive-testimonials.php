@@ -13,21 +13,21 @@ if (!empty($theme_options['opt_testimonial_items'])) :
             <?php
             foreach ($theme_options['opt_testimonial_items'] as $item) {
             ?>
-                    <div class="col-lg-3 px-2">
-                        <div class="wrap-testimonials">
-                            <div class="card-testimonials">
-                                <div class="card-testimonials-image">
-                                    <img src="<?= $item['opt-testimonial-image']['url'] ?>" alt="<?= $item['opt-testimonial-image']['alt'] ?>">
-                                </div>
-                                <h3 class="card-testimonials-title"><?= $item['opt-testimonial-title'] ?></h3>
+                <div class="col-lg-3 px-2">
+                    <div class="wrap-testimonials">
+                        <div class="card-testimonials">
+                            <div class="card-testimonials-image">
+                                <img loading="lazy" src="<?= $item['opt-testimonial-image']['url'] ?>" alt="<?= $item['opt-testimonial-image']['alt'] ?>">
                             </div>
-                            <div class="card-testimonials-content">
-                                <p>
-                                    <?= $item['opt-testimonial-content'] ?>
-                                </p>
-                            </div>
+                            <h3 class="card-testimonials-title"><?= $item['opt-testimonial-title'] ?></h3>
+                        </div>
+                        <div class="card-testimonials-content">
+                            <p>
+                                <?= $item['opt-testimonial-content'] ?>
+                            </p>
                         </div>
                     </div>
+                </div>
             <?php
                 $i++;
             }
