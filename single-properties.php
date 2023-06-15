@@ -363,14 +363,32 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                                 </td>
                                 <td><?= $floor['opt-floorplans-suite-name'] ?></td>
                                 <td>
-                                    <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                    <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
+                                        <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                    <?php else : ?>
+                                        -
+                                    <?php endif; ?>
                                 </td>
-                                <td><?= $floor['opt-floorplans-size'] . ' SQFT' ?></td>
+                                <td>
+                                    <?php if (!empty($floor['opt-floorplans-size'])) : ?>
+                                        <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
+                                    <?php else : ?>
+                                        -
+                                    <?php endif; ?>
+                                </td>
                                 <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
                                 <td>
-                                    <div class="font-weight-bold"><?= '$' . $floor['opt-floorplans-price-from'] ?></div>
-                                    <small><?= '$' . $floor['opt-floorplans-price-per'] . '/sq.ft' ?></small>
+                                    <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
+                                        <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
+                                    <?php else : ?>
+                                        -
+                                    <?php endif; ?>
 
+                                    <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
+                                        <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
+                                    <?php else : ?>
+                                        -
+                                    <?php endif; ?>
                                 </td>
                                 <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
                             </tr>
