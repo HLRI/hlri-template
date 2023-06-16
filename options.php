@@ -914,7 +914,7 @@ if (class_exists('CSF')) {
 					'multiple'    => true,
 					'options'     => array(
 						'Rental_Program' => 'Rental Program',
-						'Five_Percent_Deposit' => '5% Ddeposit',
+						'Five_Percent_Deposit' => '5% Deposit',
 						'Ten_Percent_Deposit' => '10% Deposit',
 						'Monthly_Payment_Deposit' => 'Monthly Payment Deposit',
 						'Free_Maintenance' => 'Free Maintenance',
