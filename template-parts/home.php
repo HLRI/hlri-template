@@ -6,11 +6,14 @@
 
 <div class="container-fluid mb-5 mt-5">
     <div class="row px-2 px-lg-4">
-        
+
         <div class="col-lg-4">
             <div class="skeleton">
                 <div class="skeleton-left">
-                    <div class="line h17 w40 m10"></div>
+                    <div class="line h25 w75 m10"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
                     <div class="line"></div>
                     <div class="line h8 w50"></div>
                     <div class="line  w75"></div>
