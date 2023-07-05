@@ -87,8 +87,7 @@ $peroperties = new WP_Query($arg);
                     <?php //while ($peroperties->have_posts()) : $peroperties->the_post();
                     //$mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     ?>
-                    <div class="card-listing card-listing-v2">
-                    </div>
+                    
                     <?php //endwhile; 
                     ?>
                     <?php //wp_reset_postdata(); 

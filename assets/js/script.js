@@ -359,6 +359,9 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
+                $.each(data, function (index, item) { 
+                     $('.wrap-list').html('<div class="card-listing card-listing-v2">card</div>');
+                });
                 $('.loading').hide();
                 $('.data-show').show();
             }
