@@ -12,8 +12,7 @@
                 <div class="skeleton-left">
                     <div class="line h25 w75 m10"></div>
                     <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
+                    <div class="line h8 w50"></div>
                     <div class="line"></div>
                     <div class="line h8 w50"></div>
                     <div class="line  w75"></div>
