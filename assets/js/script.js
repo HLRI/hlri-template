@@ -359,7 +359,7 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
-
+console.log(document.cookie);
                 $.each(data, function (index, item) {
 
                     var maxPriceSqft = '';
