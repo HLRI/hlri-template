@@ -377,7 +377,7 @@ jQuery(document).ready(function ($) {
                         '                                        </a>' +
                         '                                        <div class="card-listing-description card-listing-description-v2">' +
                         '                                            <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                        '                                                <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . \'...\' : strip_tags(get_the_content()) ?>' +
+                        item.post_title +
                         '                                            </a>' +
                         '                                        </div>' +
                         '                                    </div>' +

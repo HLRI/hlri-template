@@ -439,15 +439,16 @@ function hlr_search()
 
 
 // Rest Api
-add_action('rest_api_init' , 'create_routes');
-function create_routes(){
+add_action('rest_api_init', 'create_routes');
+function create_routes()
+{
     register_rest_route('hlri-ajax', 'get-properties', [
         'methods' => 'GET',
         'callback' => 'getProperties'
     ]);
 }
-function getProperties(WP_REST_Request $request){
-    sleep(4);
+function getProperties(WP_REST_Request $request)
+{
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',
@@ -460,10 +461,19 @@ function getProperties(WP_REST_Request $request){
             ]
         ]
     ];
-    
+
     $peroperties = new WP_Query($arg);
 
+    while ($peroperties->have_posts()) {
+        $items[] = [
+            'post' => $peroperties->the_post(),
+            'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)
+        ];
+        // $peroperties->the_post();
+        // $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+    }
+
     return new WP_REST_Response([
-        'list' => $peroperties->posts
+        'list' => $items
     ], 200);
 }
