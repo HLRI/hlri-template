@@ -185,6 +185,7 @@ jQuery(document).ready(function ($) {
     $('.fa-share-alt').click(function () {
         $(this).parents('.card-listing').find('.card-share').addClass('opened');
     });
+    
     $('.share-close').click(function () {
         $(this).parent().removeClass('opened');
     });
