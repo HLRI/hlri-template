@@ -473,7 +473,7 @@ function getProperties(WP_REST_Request $request)
                 $bookColor = '#9de450';
             }
         } else {
-            $bookColor = '';
+            $bookColor = '#9de450';
         }
         $items[] = [
             'post' => $peroperties->post,
