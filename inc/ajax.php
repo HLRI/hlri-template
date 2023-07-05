@@ -447,7 +447,22 @@ function create_routes(){
     ]);
 }
 function getProperties(WP_REST_Request $request){
+    $arg = [
+        'post_type' => 'properties',
+        'post_status' => 'publish',
+        'posts_per_page' => 8,
+        'tax_query' => [
+            [
+                'taxonomy' => 'group',
+                'field' => 'term_id',
+                'terms' => 19,
+            ]
+        ]
+    ];
+    
+    $peroperties = new WP_Query($arg);
+
     return new WP_REST_Response([
-        'list' => 'test'
+        'list' => $peroperties->posts
     ], 200);
 }
