@@ -467,7 +467,7 @@ function getProperties(WP_REST_Request $request)
     while ($peroperties->have_posts()) {
         $peroperties->the_post();
         $items[] = [
-            'post' => $peroperties->the_post(),
+            'post' => $peroperties->post,
             'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)
         ];
         // $peroperties->the_post();
