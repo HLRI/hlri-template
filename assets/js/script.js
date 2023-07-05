@@ -352,7 +352,7 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('commingsoon', () => ({
         showContent: false,
         loading: true,
-        commingsoonList : [],
+        commingsoons : [],
         init() {
 
             fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
@@ -366,7 +366,7 @@ document.addEventListener('alpine:init', () => {
                 .then(
                     (data) => {
                         console.log(data.list);
-                        this.commingsoonList = data.list;
+                        this.commingsoons = data.list;
                         this.showContent = true;
                         this.loading = false;
                     }
