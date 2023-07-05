@@ -182,10 +182,15 @@ jQuery(document).ready(function ($) {
         interval: 12000
     });
 
-    $('.fa-share-alt').click(function () {
+    // $('.fa-share-alt').click(function () {
+    //     $(this).parents('.card-listing').find('.card-share').addClass('opened');
+    // });
+
+
+    $(document).on('click', '.fa-share-alt', function () {
         $(this).parents('.card-listing').find('.card-share').addClass('opened');
     });
-    
+
     $('.share-close').click(function () {
         $(this).parent().removeClass('opened');
     });
