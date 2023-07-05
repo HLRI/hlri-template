@@ -360,12 +360,14 @@ jQuery(document).ready(function ($) {
             (content) => {
                 var data = content.list;
                 $.each(data, function (index, item) {
-                    console.log(getCookie(item.post.ID));
+
+
 
                     var maxPriceSqft = '';
                     var minSize = '';
                     var address = '';
                     var totalLike = '';
+                    var likeColor = '';
 
                     if (item.metadata['opt-min-price-sqft'] != '') {
                         maxPriceSqft = '<div>$' + item.metadata['opt-min-price-sqft'] + ' to  $' + item.metadata['opt-max-price-sqft'] + '</div>';
@@ -383,6 +385,9 @@ jQuery(document).ready(function ($) {
                         totalLike = item.total_like;
                     }
 
+                    if (getCookie(item.post.ID) == 'isset') {
+                        likeColor = 'red'
+                    }
 
                     $(".listing-wrap").owlCarousel('add',
                         '<div class="card-listing card-listing-v2">' +
@@ -420,7 +425,7 @@ jQuery(document).ready(function ($) {
                         '                                <div class="more more-v2">' +
                         '                                    <div class="card-listing-options">' +
                         '                                        <div>' +
-                        '                                            <i onclick="setLikeProperties(this, ' + item.post.ID + ')" role="button" class="fa fa-heart"></i>' +
+                        '                                            <i onclick="setLikeProperties(this, ' + item.post.ID + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
                         '                                            <span class="text-muted" id="like-total">' +
 
                         totalLike +
