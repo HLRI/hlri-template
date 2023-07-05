@@ -323,7 +323,7 @@ jQuery(document).ready(function ($) {
 
 
 
-
+try {
     dataTable = $("#example").DataTable({});
 
     $('.filter-checkbox').on('change', function (e) {
@@ -341,6 +341,11 @@ jQuery(document).ready(function ($) {
         $('.status-dropdown').val(status)
         dataTable.column(0).search(status).draw();
     })
+} catch (error) {
+    
+}
+
+  
 
 
 });
