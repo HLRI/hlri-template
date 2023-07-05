@@ -359,7 +359,6 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
-                console.log(data);
                 $.each(data, function (index, item) {
                     $(".listing-wrap").owlCarousel('add',
                         '<div class="card-listing card-listing-v2">' +
@@ -374,11 +373,11 @@ jQuery(document).ready(function ($) {
                         '' +
                         '                                    <div class="card-listing-content card-listing-content-v2">' +
                         '                                        <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                        '                                            <h6 class="text-black">' + item.post_title + '</h6>' +
+                        '                                            <h6 class="text-black">' + item.post.post_title + '</h6>' +
                         '                                        </a>' +
                         '                                        <div class="card-listing-description card-listing-description-v2">' +
                         '                                            <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                        item.post_title +
+                        item.post.post_excerpt +
                         '                                            </a>' +
                         '                                        </div>' +
                         '                                    </div>' +
