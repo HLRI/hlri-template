@@ -365,7 +365,7 @@ jQuery(document).ready(function ($) {
                     var minSize = '';
 
                     if (item.metadata['opt-min-price-sqft'] != '') {
-                        maxPriceSqft = '<div>"$" . ' + item.metadata['opt-min-price-sqft'] + " to " + "$" + item.metadata['opt-max-price-sqft'] + '</div>';
+                        maxPriceSqft = '<div>"$"' + item.metadata['opt-min-price-sqft'] + " to " + "$" + item.metadata['opt-max-price-sqft'] + '</div>';
                     }
 
                     if (item.metadata['opt-size-min'] != '') {
