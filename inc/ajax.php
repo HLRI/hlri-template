@@ -463,7 +463,7 @@ function getProperties(WP_REST_Request $request)
     ];
 
     $peroperties = new WP_Query($arg);
-    sleep(10);
+
     while ($peroperties->have_posts()) {
         $peroperties->the_post();
         $items[] = [
