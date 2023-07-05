@@ -85,15 +85,13 @@ $peroperties = new WP_Query($arg);
                     <a href="<?= home_url('group/coming-soon') ?>" title="" class="view-more">View more</a>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <div class=" ">
+                    <div class="owl-carousel owl-theme listing-wrap wrap-list">
                         <?php //while ($peroperties->have_posts()) : $peroperties->the_post();
                         //$mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
-                        <template x-for="(commingsoon, index) in commingsoons" :key="index">
-                            <div class="card-listing card-listing-v2">
+                            <div class="card-listing card-listing-v2" x-for="(commingsoon, index) in commingsoons" :key="index">
                                 <h2 x-text="commingsoon.post_title"></h2>
                             </div>
-                        </template>
                         <?php //endwhile; 
                         ?>
                         <?php //wp_reset_postdata(); 
