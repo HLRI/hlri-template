@@ -359,6 +359,7 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
+
                 $.each(data, function (index, item) {
 
                     console.log(item.post);
@@ -427,8 +428,7 @@ jQuery(document).ready(function ($) {
                         '                                            </span>' +
                         '                                        </div>' +
                         '' +
-                        '                                        <i role="button" class="fa fa-share-alt"></i>' +
-                        '                                        <i class="fa fa-bookmark"></i>' +
+                        '                                        <i onClick="testg()" role="button" class="fa fa-share-alt"></i>' +
                         '                                    </div>' +
                         '                                    <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>' +
                         '' +
@@ -447,6 +447,7 @@ jQuery(document).ready(function ($) {
                         '                                </div>'
                     ).owlCarousel('update')
                 });
+
                 $('.loading').fadeOut(500);
                 $('.data-show').fadeIn(600);
             }
@@ -456,3 +457,6 @@ jQuery(document).ready(function ($) {
 });
 
 
+function testg(){
+    alert('dd');
+}
