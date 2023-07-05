@@ -386,6 +386,8 @@ var app = new Vue({
     },
     methods: {
         getPosts() {
+        console.log('333');
+
             fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
                 .then(
                     (response) => {
@@ -404,7 +406,6 @@ var app = new Vue({
         }
     },
     created () {
-        console.log('s');
         this.getPosts();
     }
 })
