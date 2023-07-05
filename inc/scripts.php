@@ -31,6 +31,7 @@ function theme_scripts()
     wp_register_script('sweetalert2', HLR_THEME_ASSETS . 'js/sweetalert2@11.js', [], "1.0.0", true);
     wp_register_script('HLR-googleapis', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDRDql7G99eM5ij1iv2XjBX3GBw1TollJc&libraries=places&callback=initAutocomplete', [], "1.0.0", true);
     wp_register_script('datatables', 'https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js', array("jquery"), "1.0.0", true);
+    wp_register_script('alpinejs',  '//unpkg.com/alpinejs', [], "", true);
     wp_register_script('HLR-script', HLR_THEME_ASSETS . 'js/script.js', [], "1.0.0", true);
     wp_register_script('HLR-ajax', HLR_THEME_ASSETS . 'js/ajax.js', [], "1.0.0", true);
 
@@ -39,6 +40,7 @@ function theme_scripts()
     wp_enqueue_script('nicescroll');
     wp_enqueue_script('sweetalert2');
     // wp_enqueue_script('HLR-googleapis');
+    wp_enqueue_script('alpinejs');
     wp_enqueue_script('HLR-script');
     wp_enqueue_script('HLR-ajax');
 
