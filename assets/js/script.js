@@ -404,6 +404,7 @@ var app = new Vue({
         }
     },
     created: function () {
+        console.log('s');
         this.getPosts();
     }
 })
