@@ -468,7 +468,8 @@ function getProperties(WP_REST_Request $request)
         $peroperties->the_post();
         $items[] = [
             'post' => $peroperties->post,
-            'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)
+            'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true),
+            'total_like' => get_post_meta(get_the_ID(), 'total_like', true)
         ];
         // $peroperties->the_post();
         // $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);

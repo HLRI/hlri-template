@@ -364,6 +364,7 @@ jQuery(document).ready(function ($) {
                     var maxPriceSqft = '';
                     var minSize = '';
                     var address = '';
+                    var totalLike = '';
 
                     if (item.metadata['opt-min-price-sqft'] != '') {
                         maxPriceSqft = '<div>$' + item.metadata['opt-min-price-sqft'] + ' to  $' + item.metadata['opt-max-price-sqft'] + '</div>';
@@ -375,6 +376,10 @@ jQuery(document).ready(function ($) {
 
                     if (item.metadata['opt-address'] != '') {
                         address = '<div>' + item.metadata['opt-address'] + '</div>';
+                    }
+
+                    if (item.total_like != '') {
+                        totalLike = item.total_like;
                     }
 
 
@@ -416,9 +421,8 @@ jQuery(document).ready(function ($) {
                         '                                        <div>' +
                         '                                            <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? \' style="color:red" \' : \'\' ?>></i>' +
                         '                                            <span class="text-muted" id="like-total">' +
-                        '                                                <?php if (!empty(get_post_meta(get_the_ID(), \'total_like\', true))) : ?>' +
-                        '                                                    <?= get_post_meta(get_the_ID(), \'total_like\', true)   ?>' +
-                        '                                                <?php endif; ?>' +
+
+                        totalLike +
                         '                                            </span>' +
                         '                                        </div>' +
                         '' +
