@@ -352,6 +352,7 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('commingsoon', () => ({
         showContent: false,
         loading: true,
+        commingsoon : [],
         commingsoons : [],
         init() {
 
