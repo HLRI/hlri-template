@@ -362,7 +362,6 @@ jQuery(document).ready(function ($) {
 
                 $.each(data, function (index, item) {
 
-                    console.log(item.post);
                     var maxPriceSqft = '';
                     var minSize = '';
                     var address = '';
@@ -421,7 +420,7 @@ jQuery(document).ready(function ($) {
                         '                                <div class="more more-v2">' +
                         '                                    <div class="card-listing-options">' +
                         '                                        <div>' +
-                        '                                            <i role="button" class="fa fa-heart"></i>' +
+                        '                                            <i onclick="setLikeProperties(this, '+ item.post.ID +')" role="button" class="fa fa-heart"></i>' +
                         '                                            <span class="text-muted" id="like-total">' +
 
                         totalLike +
