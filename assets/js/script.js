@@ -397,7 +397,6 @@ var app = new Vue({
                 )
                 .then(
                     (content) => {
-                        console.log(content);
                         this.commingsoons = content.list;
                         this.showContent = true;
                         this.loading = false;
