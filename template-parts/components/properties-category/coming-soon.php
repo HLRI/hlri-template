@@ -89,7 +89,7 @@ $peroperties = new WP_Query($arg);
                         <?php //while ($peroperties->have_posts()) : $peroperties->the_post();
                         //$mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
-                        <template x-for="commingsoonItem in commingsoonList" :key="commingsoonItem.ID">
+                        <template x-for="(commingsoonItem, index) in commingsoonList" :key="index">
                             <div class="card-listing card-listing-v2">
                                 <h2 x-text="commingsoonItem.post_title"></h2>
                             </div>
