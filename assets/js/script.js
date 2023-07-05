@@ -348,17 +348,15 @@ jQuery(document).ready(function ($) {
 
 });
 
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('commingsoon', () => ({
-            showContent: false,
-            loading: true,
-            init() {
-                setTimeout(() => {
-                    this.showContent = false;
-                    this.loading = true;
-                }, 4000);
-            },
-        }))
-    })
-</script>
+document.addEventListener('alpine:init', () => {
+    Alpine.data('commingsoon', () => ({
+        showContent: false,
+        loading: true,
+        init() {
+            setTimeout(() => {
+                this.showContent = false;
+                this.loading = true;
+            }, 4000);
+        },
+    }))
+})
