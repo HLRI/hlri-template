@@ -366,7 +366,6 @@ document.addEventListener('alpine:init', () => {
                 )
                 .then(
                     (data) => {
-                        console.log(data.list);
                         this.commingsoons = data.list;
                         this.showContent = true;
                         this.loading = false;
