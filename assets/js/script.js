@@ -361,6 +361,7 @@ jQuery(document).ready(function ($) {
                 var data = content.list;
                 $.each(data, function (index, item) {
 
+                    console.log(item.post);
                     var maxPriceSqft = '';
                     var minSize = '';
                     var address = '';
@@ -387,7 +388,7 @@ jQuery(document).ready(function ($) {
                         '<div class="card-listing card-listing-v2">' +
                         '<div class="card-listing-image card-listing-image-v2">' +
                         '                                    <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                        '                                       image' +
+                        '                                       <img src="'+ item.post.post_title +'" >' +
                         '                                    </a>' +
                         '                                </div>' +
                         '' +
