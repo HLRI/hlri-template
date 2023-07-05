@@ -18,11 +18,8 @@ $peroperties = new WP_Query($arg);
 ?>
 <?php //if ($peroperties->have_posts()) : 
 ?>
-    <div id="app">
-
-<div x-data="commingsoon">
-
-    <div class="container-fluid mb-5 mt-5" x-show="loading">
+<div id="app">
+    <div class="container-fluid mb-5 mt-5" v-show="loading">
         <div class="row">
             <div class="col-12">
                 <div class="titr-list">
@@ -78,7 +75,7 @@ $peroperties = new WP_Query($arg);
         </div>
     </div>
 
-    <div class="container-fluid my-5" x-show="showContent">
+    <div class="container-fluid my-5" v-show="showContent">
         <div class="row">
             <div class="col-lg-12">
                 <div class="titr-list">
@@ -90,9 +87,9 @@ $peroperties = new WP_Query($arg);
                         <?php //while ($peroperties->have_posts()) : $peroperties->the_post();
                         //$mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
-                            <div class="card-listing card-listing-v2" v-for="(commingsoon, index) in commingsoons" :key="index">
-                                <h2>{{commingsoon.post_title}}</h2>
-                            </div>
+                        <div class="card-listing card-listing-v2" v-for="(commingsoon, index) in commingsoons" :key="index">
+                            <h2>{{commingsoon.post_title}}</h2>
+                        </div>
                         <?php //endwhile; 
                         ?>
                         <?php //wp_reset_postdata(); 
@@ -102,9 +99,7 @@ $peroperties = new WP_Query($arg);
             </div>
         </div>
     </div>
-
 </div>
-    </div>
 
 <?php //endif; 
 ?>
