@@ -353,6 +353,18 @@ document.addEventListener('alpine:init', () => {
         showContent: false,
         loading: true,
         init() {
+
+            fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
+                .then(
+                    (response) => {
+                        console.log(response);
+                        response.json()
+                    }
+                )
+                .then(
+                    
+                );
+
             setTimeout(() => {
                 this.showContent = true;
                 this.loading = false;
