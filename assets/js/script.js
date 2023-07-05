@@ -359,12 +359,11 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
-                $.each(data, function (index, item) { 
-                     $('.wrap-list').append('<div class="card-listing card-listing-v2">card</div>');
+                $.each(data, function (index, item) {
+                    $(".listing-wrap").owlCarousel('add', '<div class="card-listing card-listing-v2">card</div>').owlCarousel('update')
                 });
                 $('.loading').hide();
                 $('.data-show').show();
-                $(".listing-wrap").owlCarousel('update')
             }
         );
 
