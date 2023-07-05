@@ -11,22 +11,22 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $(".listing-wrap").owlCarousel({
-        responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 3, }, 1100: { items: 3 }, },
-        loop: true,
-        nav: true,
-        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-        autoplay: false,
-        autoplaySpeed: 1000,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        rtl: false,
-        center: false,
-        dots: false,
-        // autoWidth: true,
-        lazyLoad: true,
-        margin: 5,
-    });
+    // $(".listing-wrap").owlCarousel({
+    //     responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 3, }, 1100: { items: 3 }, },
+    //     loop: true,
+    //     nav: true,
+    //     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+    //     autoplay: false,
+    //     autoplaySpeed: 1000,
+    //     autoplayTimeout: 2000,
+    //     autoplayHoverPause: true,
+    //     rtl: false,
+    //     center: false,
+    //     dots: false,
+    //     // autoWidth: true,
+    //     lazyLoad: true,
+    //     margin: 5,
+    // });
 
     $(".neighborhood").owlCarousel({
         responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 4, }, 1100: { items: 4 }, },
@@ -400,6 +400,22 @@ var app = new Vue({
                         this.commingsoons = content.list;
                         this.showContent = true;
                         this.loading = false;
+                        $(".listing-wrap").owlCarousel({
+                            responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 3, }, 1100: { items: 3 }, },
+                            loop: true,
+                            nav: true,
+                            navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+                            autoplay: false,
+                            autoplaySpeed: 1000,
+                            autoplayTimeout: 2000,
+                            autoplayHoverPause: true,
+                            rtl: false,
+                            center: false,
+                            dots: false,
+                            // autoWidth: true,
+                            lazyLoad: true,
+                            margin: 5,
+                        });
                     }
                 );
         }
