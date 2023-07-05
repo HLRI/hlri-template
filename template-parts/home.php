@@ -5,50 +5,52 @@
 <?php include(HLR_THEME_COMPONENT . 'neighborhood.php'); ?>
 <button @click="open = true">Expand</button>
 
-<div class="container-fluid mb-5 mt-5" x-data="{ open: false }">
-    <div class="row px-2 px-lg-4">
-        <div class="col-lg-4">
-            <div class="skeleton">
-                <div class="skeleton-left flex1">
-                    <div class="square"></div>
-                </div>
-                <div class="skeleton-right flex2">
-                    <div class="line h25 w75 m10"></div>
-                    <div class="line"></div>
-                    <div class="line h8 w50"></div>
-                    <div class="line"></div>
-                    <div class="line h8 w50"></div>
-                    <div class="line  w75"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="skeleton">
-                <div class="skeleton-left flex1">
-                    <div class="square"></div>
-                </div>
-                <div class="skeleton-right flex2">
-                    <div class="line h25 w75 m10"></div>
-                    <div class="line"></div>
-                    <div class="line h8 w50"></div>
-                    <div class="line"></div>
-                    <div class="line h8 w50"></div>
-                    <div class="line  w75"></div>
+<div x-data="{ open: false }">
+    <div class="container-fluid mb-5 mt-5" x-show="open">
+        <div class="row px-2 px-lg-4">
+            <div class="col-lg-4">
+                <div class="skeleton">
+                    <div class="skeleton-left flex1">
+                        <div class="square"></div>
+                    </div>
+                    <div class="skeleton-right flex2">
+                        <div class="line h25 w75 m10"></div>
+                        <div class="line"></div>
+                        <div class="line h8 w50"></div>
+                        <div class="line"></div>
+                        <div class="line h8 w50"></div>
+                        <div class="line  w75"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="skeleton">
-                <div class="skeleton-left flex1">
-                    <div class="square"></div>
+            <div class="col-lg-4">
+                <div class="skeleton">
+                    <div class="skeleton-left flex1">
+                        <div class="square"></div>
+                    </div>
+                    <div class="skeleton-right flex2">
+                        <div class="line h25 w75 m10"></div>
+                        <div class="line"></div>
+                        <div class="line h8 w50"></div>
+                        <div class="line"></div>
+                        <div class="line h8 w50"></div>
+                        <div class="line  w75"></div>
+                    </div>
                 </div>
-                <div class="skeleton-right flex2">
-                    <div class="line h25 w75 m10"></div>
-                    <div class="line"></div>
-                    <div class="line h8 w50"></div>
-                    <div class="line"></div>
-                    <div class="line h8 w50"></div>
-                    <div class="line  w75"></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="skeleton">
+                    <div class="skeleton-left flex1">
+                        <div class="square"></div>
+                    </div>
+                    <div class="skeleton-right flex2">
+                        <div class="line h25 w75 m10"></div>
+                        <div class="line"></div>
+                        <div class="line h8 w50"></div>
+                        <div class="line"></div>
+                        <div class="line h8 w50"></div>
+                        <div class="line  w75"></div>
+                    </div>
                 </div>
             </div>
         </div>
