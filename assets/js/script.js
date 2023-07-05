@@ -354,8 +354,8 @@ document.addEventListener('alpine:init', () => {
         loading: true,
         init() {
             setTimeout(() => {
-                this.showContent = false;
-                this.loading = true;
+                this.showContent = true;
+                this.loading = false;
             }, 4000);
         },
     }))
