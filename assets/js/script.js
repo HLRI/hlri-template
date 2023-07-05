@@ -434,6 +434,7 @@ jQuery(document).ready(function ($) {
                         '                                        </div>' +
                         '' +
                         '                                        <i role="button" class="fa fa-share-alt"></i>' +
+                        '<i role="button" onclick="bookmark(this,' + item.post.ID + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
                         '                                    </div>' +
                         '                                    <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>' +
                         '' +

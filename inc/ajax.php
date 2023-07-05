@@ -466,11 +466,21 @@ function getProperties(WP_REST_Request $request)
 
     while ($peroperties->have_posts()) {
         $peroperties->the_post();
+        if (is_user_logged_in()) {
+            if (in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
+                $bookColor = '#9de450';
+            } else {
+                $bookColor = '';
+            }
+        } else {
+            $bookColor = '';
+        }
         $items[] = [
             'post' => $peroperties->post,
             'url_image' => get_the_post_thumbnail_url(),
             'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true),
-            'total_like' => get_post_meta(get_the_ID(), 'total_like', true)
+            'total_like' => get_post_meta(get_the_ID(), 'total_like', true),
+            'bookColor' => $bookColor
         ];
         // $peroperties->the_post();
         // $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
