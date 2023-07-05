@@ -357,7 +357,9 @@ document.addEventListener('alpine:init', () => {
             fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
                 .then(
                     (response) => {
-                        console.log(response);
+                        if(response.status == 200){
+                            console.log(response.status);
+                        }
                         response.json()
                     }
                 )
