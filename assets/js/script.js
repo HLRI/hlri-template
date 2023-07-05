@@ -24,7 +24,6 @@ jQuery(document).ready(function ($) {
         center: false,
         dots: false,
         // autoWidth: true,
-        lazyLoad: true,
         margin: 5,
     });
 
@@ -41,7 +40,6 @@ jQuery(document).ready(function ($) {
         center: false,
         dots: false,
         // autoWidth: true,
-        lazyLoad: true,
         margin: 10,
     });
 
