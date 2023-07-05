@@ -82,8 +82,8 @@ $peroperties = new WP_Query($arg);
                     <h3 class="font-weight-bold">Coming Soon</h3>
                     <a href="<?= home_url('group/coming-soon') ?>" title="" class="view-more">View more</a>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div class="owl-carousel owl-theme listing-wrap wrap-list" v-if="commingsoons.length > 0">
+                <div class="d-flex justify-content-center" v-if="commingsoons.length > 0">
+                    <div class="owl-carousel owl-theme listing-wrap wrap-list">
                         <?php //while ($peroperties->have_posts()) : $peroperties->the_post();
                         //$mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
