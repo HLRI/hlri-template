@@ -352,8 +352,8 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('commingsoon', () => ({
         showContent: false,
         loading: true,
-        commingsoon : [],
-        commingsoons : [],
+        commingsoon: [],
+        commingsoons: [],
         init() {
 
             fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
@@ -373,4 +373,37 @@ document.addEventListener('alpine:init', () => {
                 );
         },
     }))
+})
+
+
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        showContent: false,
+        loading: true,
+        commingsoons: [],
+    },
+    methods: {
+        getPosts() {
+            fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
+                .then(
+                    (response) => {
+                        if (response.status == 200) {
+                            return response.json();
+                        }
+                    }
+                )
+                .then(
+                    (data) => {
+                        this.commingsoons = data.list;
+                        this.showContent = true;
+                        this.loading = false;
+                    }
+                );
+        }
+    },
+    created: function () {
+        this.getPosts();
+    }
 })

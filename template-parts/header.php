@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> id="app">
 
     <a id="back-to-top" href="#">
         <i class="fa fa-chevron-up"></i>

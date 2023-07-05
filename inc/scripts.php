@@ -82,7 +82,7 @@ function theme_head()
 {
 ?>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 
     <?php if (is_singular('properties')) :
         $post_id = get_the_ID();
