@@ -359,7 +359,7 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
-console.log(document.cookie);
+                console.log(getCookie(item.post.ID));
                 $.each(data, function (index, item) {
 
                     var maxPriceSqft = '';
@@ -388,7 +388,7 @@ console.log(document.cookie);
                         '<div class="card-listing card-listing-v2">' +
                         '<div class="card-listing-image card-listing-image-v2">' +
                         '                                    <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                        '                                       <img src="'+ item.url_image +'" >' +
+                        '                                       <img src="' + item.url_image + '" >' +
                         '                                    </a>' +
                         '                                </div>' +
                         '' +
@@ -420,7 +420,7 @@ console.log(document.cookie);
                         '                                <div class="more more-v2">' +
                         '                                    <div class="card-listing-options">' +
                         '                                        <div>' +
-                        '                                            <i onclick="setLikeProperties(this, '+ item.post.ID +')" role="button" class="fa fa-heart"></i>' +
+                        '                                            <i onclick="setLikeProperties(this, ' + item.post.ID + ')" role="button" class="fa fa-heart"></i>' +
                         '                                            <span class="text-muted" id="like-total">' +
 
                         totalLike +
@@ -456,6 +456,20 @@ console.log(document.cookie);
 });
 
 
-function testg(){
-    alert('dd');
+
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
