@@ -432,7 +432,7 @@ jQuery(document).ready(function ($) {
                         '                                            </span>' +
                         '                                        </div>' +
                         '' +
-                        '                                        <i onClick="testg()" role="button" class="fa fa-share-alt"></i>' +
+                        '                                        <i role="button" class="fa fa-share-alt"></i>' +
                         '                                    </div>' +
                         '                                    <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>' +
                         '' +
