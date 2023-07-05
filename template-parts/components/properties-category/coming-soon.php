@@ -20,7 +20,13 @@ $peroperties = new WP_Query($arg);
     <div x-data="{ loading: true , showContent : false }">
 
         <div class="container-fluid mb-5 mt-5" x-show="loading">
-            <div class="row px-2 px-lg-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="titr-list">
+                        <h3 class="font-weight-bold">Coming Soon</h3>
+                        <a href="<?= home_url('group/coming-soon') ?>" title="" class="view-more">View more</a>
+                    </div>
+                </div>
                 <div class="col-lg-4">
                     <div class="skeleton">
                         <div class="skeleton-left flex1">
