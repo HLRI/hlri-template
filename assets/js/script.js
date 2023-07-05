@@ -359,8 +359,8 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
-                console.log(getCookie(item.post.ID));
                 $.each(data, function (index, item) {
+                    console.log(getCookie(item.post.ID));
 
                     var maxPriceSqft = '';
                     var minSize = '';
