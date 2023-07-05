@@ -435,3 +435,19 @@ function hlr_search()
 
     die();
 }
+
+
+
+// Rest Api
+add_action('rest_api_init' , 'create_routes');
+function create_routes(){
+    register_rest_route('hlri-ajax', 'get-properties', [
+        'methods' => 'GET',
+        'callback' => 'getProperties'
+    ]);
+}
+function getProperties(WP_REST_Request $request){
+    return new WP_REST_Response([
+        'list' => 'test'
+    ], 200);
+}
