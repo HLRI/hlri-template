@@ -447,7 +447,7 @@ jQuery(document).ready(function ($) {
                     ).owlCarousel('update')
                 });
                 $('.loading').hide();
-                $('.data-show').show();
+                $('.data-show').fadeIn();
             }
         );
 
