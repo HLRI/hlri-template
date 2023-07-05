@@ -468,6 +468,7 @@ function getProperties(WP_REST_Request $request)
         $peroperties->the_post();
         $items[] = [
             'post' => $peroperties->post,
+            'url_image' => get_the_post_thumbnail_url(),
             'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true),
             'total_like' => get_post_meta(get_the_ID(), 'total_like', true)
         ];

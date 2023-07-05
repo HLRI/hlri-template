@@ -388,7 +388,7 @@ jQuery(document).ready(function ($) {
                         '<div class="card-listing card-listing-v2">' +
                         '<div class="card-listing-image card-listing-image-v2">' +
                         '                                    <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                        '                                       <img src="'+ item.post.post_title +'" >' +
+                        '                                       <img src="'+ item.url_image +'" >' +
                         '                                    </a>' +
                         '                                </div>' +
                         '' +
