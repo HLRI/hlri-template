@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body <?php body_class(); ?> id="app">
+<body <?php body_class(); ?>>
+    <div id="app">
+        <a id="back-to-top" href="#">
+            <i class="fa fa-chevron-up"></i>
+        </a>
 
-    <a id="back-to-top" href="#">
-        <i class="fa fa-chevron-up"></i>
-    </a>
+        <?php include(HLR_THEME_COMPONENT . 'main-menu.php'); ?>
 
-    <?php include(HLR_THEME_COMPONENT . 'main-menu.php'); ?>
+        <?php
+        global $wp;
+        $url = home_url($wp->request);
+        ?>
 
-    <?php
-    global $wp;
-    $url = home_url($wp->request);
-    ?>
-
-    <?php if (!is_singular()) : ?>
-        <?php include(HLR_THEME_COMPONENT . 'share-float.php'); ?>
-    <?php endif; ?>
+        <?php if (!is_singular()) : ?>
+            <?php include(HLR_THEME_COMPONENT . 'share-float.php'); ?>
+        <?php endif; ?>
