@@ -383,9 +383,9 @@ jQuery(document).ready(function ($) {
                         '                                    </div>' +
                         '' +
                         '                                    <div class="lable-listing lable-listing-v2">' +
-                        '                                        <?php if (!empty($mdata[\'opt-min-price-sqft\'])) : ?>' +
-                        '                                            <div>"$" . ' + item.metadata['opt-min-price-sqft'] + " to " + "$"  + item.metadata['opt-max-price-sqft'] + '</div>' +
-                        '                                        <?php endif; ?>' +
+
+                        '                                         '+ false ? '   <div>"$" . ' + item.metadata['opt-min-price-sqft'] + " to " + "$"  + item.metadata['opt-max-price-sqft'] + '</div>' : '' +
+
                         '                                        <?php if (!empty($mdata[\'opt-size-min\'])) : ?>' +
                         '                                            <div><?= $mdata[\'opt-size-min\'] . " - " . $mdata[\'opt-size-max\'] . " Sq Ft | " . $mdata[\'opt-occupancy\'] ?></div>' +
                         '                                        <?php endif; ?>' +
