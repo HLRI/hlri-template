@@ -400,7 +400,7 @@ var app = new Vue({
                         this.commingsoons = content.list;
                         this.showContent = true;
                         this.loading = false;
-                        $(".listing-wrap").owlCarousel({
+                        jQuery(".listing-wrap").owlCarousel({
                             responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 3, }, 1100: { items: 3 }, },
                             loop: true,
                             nav: true,
