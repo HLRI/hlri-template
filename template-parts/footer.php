@@ -80,7 +80,6 @@ $posts = new WP_Query($arg);
     </div>
 </div>
 
-</div>
 
 <?php $theme_options = get_option('hlr_framework'); ?>
 
@@ -90,7 +89,7 @@ $posts = new WP_Query($arg);
         <?php echo $theme_options['opt-popup-style'] ?>
     </style>
 
-    <?php include HLR_THEME_PATH . 'template-parts/components/popup.php' ?>
+   <?php include HLR_THEME_PATH.'template-parts/components/popup.php' ?>
 
     <script>
         jQuery(window).on('load', function() {
@@ -100,8 +99,8 @@ $posts = new WP_Query($arg);
 <?php endif; ?>
 
 
-<?php include HLR_THEME_PATH . 'template-parts/components/search-mobile.php' ?>
-<?php include HLR_THEME_PATH . 'template-parts/components/login-popup.php' ?>
+   <?php include HLR_THEME_PATH.'template-parts/components/search-mobile.php' ?>
+   <?php include HLR_THEME_PATH.'template-parts/components/login-popup.php' ?>
 
 </body>
 

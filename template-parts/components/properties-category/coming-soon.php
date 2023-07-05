@@ -18,6 +18,7 @@ $peroperties = new WP_Query($arg);
 ?>
 <?php //if ($peroperties->have_posts()) : 
 ?>
+    <div id="app">
 
 <div x-data="commingsoon">
 
@@ -103,6 +104,7 @@ $peroperties = new WP_Query($arg);
     </div>
 
 </div>
+    </div>
 
 <?php //endif; 
 ?>

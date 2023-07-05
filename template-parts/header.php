@@ -8,7 +8,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div id="app">
         <a id="back-to-top" href="#">
             <i class="fa fa-chevron-up"></i>
         </a>
