@@ -357,14 +357,15 @@ document.addEventListener('alpine:init', () => {
             fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
                 .then(
                     (response) => {
-                        if(response.status == 200){
-                            console.log(response.status);
+                        if (response.status == 200) {
+                            return response.json();
                         }
-                        response.json()
                     }
                 )
                 .then(
-                    
+                    (data) => {
+                        console.log(data);
+                    }
                 );
 
             setTimeout(() => {
