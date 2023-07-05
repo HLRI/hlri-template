@@ -380,7 +380,6 @@ document.addEventListener('alpine:init', () => {
 var app = new Vue({
     el: '#app',
     data: {
-        isData: false,
         showContent: false,
         loading: true,
         commingsoons: [],
@@ -401,7 +400,6 @@ var app = new Vue({
                         this.commingsoons = content.list;
                         this.showContent = true;
                         this.loading = false;
-                        this.isData = true;
                     }
                 );
         }
