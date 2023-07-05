@@ -419,7 +419,7 @@ jQuery(document).ready(function ($) {
                         '                                <div class="more more-v2">' +
                         '                                    <div class="card-listing-options">' +
                         '                                        <div>' +
-                        '                                            <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? \' style="color:red" \' : \'\' ?>></i>' +
+                        '                                            <i role="button" class="fa fa-heart"></i>' +
                         '                                            <span class="text-muted" id="like-total">' +
 
                         totalLike +
@@ -427,6 +427,7 @@ jQuery(document).ready(function ($) {
                         '                                        </div>' +
                         '' +
                         '                                        <i role="button" class="fa fa-share-alt"></i>' +
+                        '                                        <i class="fa fa-bookmark"></i>' +
                         '                                    </div>' +
                         '                                    <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>' +
                         '' +
