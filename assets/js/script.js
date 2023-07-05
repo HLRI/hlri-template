@@ -363,6 +363,7 @@ jQuery(document).ready(function ($) {
 
                     var maxPriceSqft = '';
                     var minSize = '';
+                    var address = '';
 
                     if (item.metadata['opt-min-price-sqft'] != '') {
                         maxPriceSqft = '<div>$' + item.metadata['opt-min-price-sqft'] + ' to  $' + item.metadata['opt-max-price-sqft'] + '</div>';
@@ -370,6 +371,10 @@ jQuery(document).ready(function ($) {
 
                     if (item.metadata['opt-size-min'] != '') {
                         minSize = '<div>' + item.metadata['opt-size-min'] + ' - ' + item.metadata['opt-size-max'] + ' Sq Ft | ' + item.metadata['opt-occupancy'] + '</div>';
+                    }
+
+                    if (item.metadata['opt-address'] != '') {
+                        address = '<div>' + item.metadata['opt-address'] + '</div>';
                     }
 
 
@@ -400,9 +405,7 @@ jQuery(document).ready(function ($) {
                         maxPriceSqft +
 
                         minSize +
-                        '                                        <?php if (!empty($mdata[\'opt-address\'])) : ?>' +
-                        '                                            <div><?= $mdata[\'opt-address\'] ?></div>' +
-                        '                                        <?php endif; ?>' +
+                        address +
                         '                                    </div>' +
                         '                                </div>' +
                         '' +
