@@ -360,6 +360,14 @@ jQuery(document).ready(function ($) {
             (content) => {
                 var data = content.list;
                 $.each(data, function (index, item) {
+
+                    var maxPriceSqft = '';
+
+                    if (item.metadata['opt-min-price-sqft'] != '') {
+                        maxPriceSqft = '<div>"$" . ' + item.metadata['opt-min-price-sqft'] + " to " + "$" + item.metadata['opt-max-price-sqft'] + '</div>'
+                    }
+
+
                     $(".listing-wrap").owlCarousel('add',
                         '<div class="card-listing card-listing-v2">' +
                         '<div class="card-listing-image card-listing-image-v2">' +
@@ -384,7 +392,7 @@ jQuery(document).ready(function ($) {
                         '' +
                         '                                    <div class="lable-listing lable-listing-v2">' +
 
-                        '                                         '+ false ? '   <div>"$" . ' + item.metadata['opt-min-price-sqft'] + " to " + "$"  + item.metadata['opt-max-price-sqft'] + '</div>' : '' +
+                        maxPriceSqft +
 
                         '                                        <?php if (!empty($mdata[\'opt-size-min\'])) : ?>' +
                         '                                            <div><?= $mdata[\'opt-size-min\'] . " - " . $mdata[\'opt-size-max\'] . " Sq Ft | " . $mdata[\'opt-occupancy\'] ?></div>' +
