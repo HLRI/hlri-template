@@ -17,7 +17,7 @@ $peroperties = new WP_Query($arg);
 ?>
 <?php if ($peroperties->have_posts()) : ?>
 
-    <div x-data="{ loading: true , showContent : false }">
+    <div x-data="commingsoon">
 
         <div class="container-fluid mb-5 mt-5" x-show="loading">
             <div class="row">

@@ -323,30 +323,42 @@ jQuery(document).ready(function ($) {
 
 
 
-try {
-    dataTable = $("#example").DataTable({});
+    try {
+        dataTable = $("#example").DataTable({});
 
-    $('.filter-checkbox').on('change', function (e) {
-        var searchTerms = []
-        $.each($('.filter-checkbox'), function (i, elem) {
-            if ($(elem).prop('checked')) {
-                searchTerms.push("^" + $(this).val() + "$")
-            }
+        $('.filter-checkbox').on('change', function (e) {
+            var searchTerms = []
+            $.each($('.filter-checkbox'), function (i, elem) {
+                if ($(elem).prop('checked')) {
+                    searchTerms.push("^" + $(this).val() + "$")
+                }
+            })
+            dataTable.column(1).search(searchTerms.join('|'), true, false, true).draw();
+        });
+
+        $('.status-dropdown').on('change', function (e) {
+            var status = $(this).val();
+            $('.status-dropdown').val(status)
+            dataTable.column(0).search(status).draw();
         })
-        dataTable.column(1).search(searchTerms.join('|'), true, false, true).draw();
-    });
+    } catch (error) {
 
-    $('.status-dropdown').on('change', function (e) {
-        var status = $(this).val();
-        $('.status-dropdown').val(status)
-        dataTable.column(0).search(status).draw();
-    })
-} catch (error) {
-    
-}
-
-  
+    }
 
 
 });
 
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('commingsoon', () => ({
+            showContent: false,
+            loading: true,
+            init() {
+                setTimeout(() => {
+                    this.showContent = false;
+                    this.loading = true;
+                }, 4000);
+            },
+        }))
+    })
+</script>
