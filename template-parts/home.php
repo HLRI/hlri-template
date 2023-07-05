@@ -3,10 +3,10 @@
 <?php include(HLR_THEME_COMPONENT . 'top-section.php'); ?>
 
 <?php include(HLR_THEME_COMPONENT . 'neighborhood.php'); ?>
+<button @click="open = true">Expand</button>
 
-<div class="container-fluid mb-5 mt-5">
+<div class="container-fluid mb-5 mt-5" x-data="{ open: false }">
     <div class="row px-2 px-lg-4">
-
         <div class="col-lg-4">
             <div class="skeleton">
                 <div class="skeleton-left flex1">
