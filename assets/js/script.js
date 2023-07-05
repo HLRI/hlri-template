@@ -352,6 +352,7 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('commingsoon', () => ({
         showContent: false,
         loading: true,
+        commingsoonList : [],
         init() {
 
             fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
@@ -364,14 +365,11 @@ document.addEventListener('alpine:init', () => {
                 )
                 .then(
                     (data) => {
-                        console.log(data);
+                        this.commingsoonList = data.list;
+                        this.showContent = true;
+                        this.loading = false;
                     }
                 );
-
-            setTimeout(() => {
-                this.showContent = true;
-                this.loading = false;
-            }, 10000);
         },
     }))
 })
