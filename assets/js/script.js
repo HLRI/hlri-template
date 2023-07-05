@@ -360,7 +360,7 @@ jQuery(document).ready(function ($) {
             (content) => {
                 var data = content.list;
                 $('.loading').hide();
-                $('.data-show').hide();
+                $('.data-show').show();
             }
         );
 
