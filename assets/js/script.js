@@ -403,7 +403,7 @@ var app = new Vue({
                 );
         }
     },
-    created: function () {
+    created () {
         console.log('s');
         this.getPosts();
     }
