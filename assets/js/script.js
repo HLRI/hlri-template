@@ -386,7 +386,6 @@ var app = new Vue({
     },
     methods: {
         getPosts() {
-        console.log('333');
 
             fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
                 .then(
@@ -397,8 +396,9 @@ var app = new Vue({
                     }
                 )
                 .then(
-                    (data) => {
-                        this.commingsoons = data.list;
+                    (content) => {
+                        console.log(content);
+                        this.commingsoons = content.list;
                         this.showContent = true;
                         this.loading = false;
                     }
