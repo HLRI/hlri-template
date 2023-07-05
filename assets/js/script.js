@@ -346,81 +346,25 @@ jQuery(document).ready(function ($) {
     }
 
 
+    $('.data-show').hide();
+
+    fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
+        .then(
+            (response) => {
+                if (response.status == 200) {
+                    return response.json();
+                }
+            }
+        )
+        .then(
+            (content) => {
+                var data = content.list;
+                $('.loading').hide();
+                $('.data-show').hide();
+            }
+        );
+
+
 });
 
-document.addEventListener('alpine:init', () => {
-    Alpine.data('commingsoon', () => ({
-        showContent: false,
-        loading: true,
-        commingsoon: [],
-        commingsoons: [],
-        init() {
 
-            fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
-                .then(
-                    (response) => {
-                        if (response.status == 200) {
-                            return response.json();
-                        }
-                    }
-                )
-                .then(
-                    (data) => {
-                        this.commingsoons = data.list;
-                        this.showContent = true;
-                        this.loading = false;
-                    }
-                );
-        },
-    }))
-})
-
-
-
-var app = new Vue({
-    el: '#app',
-    data: {
-        showContent: false,
-        loading: true,
-        commingsoons: [],
-    },
-    methods: {
-        getPosts() {
-
-            fetch('https://hlrtest.hlric.com/wp-json/hlri-ajax/get-properties')
-                .then(
-                    (response) => {
-                        if (response.status == 200) {
-                            return response.json();
-                        }
-                    }
-                )
-                .then(
-                    (content) => {
-                        this.commingsoons = content.list;
-                        this.showContent = true;
-                        this.loading = false;
-                        jQuery(".listing-wrap").owlCarousel({
-                            responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 3, }, 1100: { items: 3 }, },
-                            loop: true,
-                            nav: true,
-                            navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-                            autoplay: false,
-                            autoplaySpeed: 1000,
-                            autoplayTimeout: 2000,
-                            autoplayHoverPause: true,
-                            rtl: false,
-                            center: false,
-                            dots: false,
-                            // autoWidth: true,
-                            lazyLoad: true,
-                            margin: 5,
-                        });
-                    }
-                );
-        }
-    },
-    created () {
-        this.getPosts();
-    }
-})

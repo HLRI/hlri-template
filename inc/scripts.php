@@ -82,7 +82,6 @@ function theme_head()
 {
 ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 
     <?php if (is_singular('properties')) :
         $post_id = get_the_ID();
