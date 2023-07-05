@@ -358,6 +358,7 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
+                console.log(data);
                 $.each(data, function (index, item) {
 
 
