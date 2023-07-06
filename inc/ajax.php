@@ -488,7 +488,7 @@ function getProperties(WP_REST_Request $request)
         } else {
             $bookColor = '';
         }
-        $ids[] = get_the_ID();
+        $ids[] = $bookColor;
         $items[] = [
             'post' => $peroperties->post,
             'url_image' => get_the_post_thumbnail_url(),
