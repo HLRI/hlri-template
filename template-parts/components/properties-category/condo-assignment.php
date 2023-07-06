@@ -7,7 +7,7 @@ $arg = [
 ];
 
 $peroperties = new WP_Query($arg);
-wp_die($peroperties);
+wp_die(var_dump($peroperties));
 
 ?>
 <?php if ($peroperties->have_posts()) : ?>
