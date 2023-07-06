@@ -62,5 +62,5 @@ function change_wp_json_prefix_url($slug)
 function get_custom_users_data()
 {
     $header = getallheaders();
-    checkToken($header);
+    return checkToken($header);
 }
