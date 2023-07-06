@@ -51,7 +51,9 @@ function change_wp_json_prefix_url($slug)
 }
 
 
-function do_anything($username, $user) {
-    wp_die(var_dump($user->ID));
+function setTokenAfterLogin($username, $user) {
+    $user_id = $user->ID;
+    $user_token = get_user_meta($user_id, "api_token", true);
+    setcookie( 'uthlri', $user_token, time() + (3600 * 24), COOKIEPATH, COOKIE_DOMAIN );
 }
-add_action('wp_login', 'do_anything', 10, 2);
+add_action('wp_login', 'setTokenAfterLogin', 10, 2);
