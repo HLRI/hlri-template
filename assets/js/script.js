@@ -347,7 +347,7 @@ jQuery(document).ready(function ($) {
 
     $('.data-show').hide();
 
-    fetch('https://hlrtest.hlric.com/api/hlri-ajax/get-properties')
+    fetch('https://hlrtest.hlric.com/api/v1/get-properties')
         .then(
             (response) => {
                 if (response.status == 200) {
