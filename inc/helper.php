@@ -180,7 +180,7 @@ function checkToken()
     $header = getallheaders();
 
     if (array_key_exists("Authorization", $header) === false) {
-        return new WP_Error('error', 'Token Not found', array('status' => 404));
+        return new WP_REST_Response(['message' => 'Token Not found'], 404);
     }
 
     $user = get_users([
@@ -200,6 +200,6 @@ function checkToken()
         ];
         return new WP_REST_Response($result, 200);
     } else {
-        return new WP_Error('error', 'Token is wrong', array('status' => 404));
+        return new WP_REST_Response(['message' => 'Token is wrong'], 401);
     }
 }
