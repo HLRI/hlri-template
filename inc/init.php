@@ -65,7 +65,7 @@ function setTokenAfterLogin($username, $user)
 }
 add_action('wp_login', 'setTokenAfterLogin', 10, 2);
 
-// add_action('init', 'setpropertiesquery');
+add_action('init', 'setpropertiesquery');
 function setpropertiesquery()
 {
     $args = [
@@ -79,12 +79,13 @@ function setpropertiesquery()
     while ($peroperties->have_posts()) {
         $peroperties->the_post();
 
-        $terms_ids = wp_get_object_terms( get_the_ID(), 'group', array( 'fields' => 'ids' ) );
+        $terms_ids = wp_get_object_terms(get_the_ID(), 'group', array('fields' => 'ids'));
 
         $items[] = [
             'id' => get_the_ID(),
             'title' => strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title(),
             'content' => strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()),
+            'permalink' => get_the_permalink(),
             'thumbnail_url' => get_the_post_thumbnail_url(),
             'term_ids' => $terms_ids,
             'metadata' => [
@@ -100,5 +101,4 @@ function setpropertiesquery()
     }
 
     update_option('properties_data', $items, 'no');
-
 }
