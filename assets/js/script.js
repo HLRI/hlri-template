@@ -345,7 +345,7 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $('.data-show-data-show-commingsoon').hide();
+    $('.data-show-commingsoon').hide();
     $('.data-show-buy-with-5-percent-down').hide();
     var token = getCookie('uthlri');
    
