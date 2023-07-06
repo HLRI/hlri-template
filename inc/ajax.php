@@ -125,8 +125,7 @@ function propertiesFavorites()
             $favorites = $_POST['post_id'];
         }
     } else {
-        $favorites = [];
-        $favorites[] = $_POST['post_id'];
+        $favorites = array_merge($favorites, $_POST['post_id']);
     }
 
     update_user_meta(get_current_user_id(), 'properties_favorites', $favorites);
@@ -456,11 +455,11 @@ function getProperties(WP_REST_Request $request)
         $is_login = true;
     }
 
-    wp_send_json([
-        'data' => in_array(3654, get_user_meta($auth_user->data['id'], 'properties_favorites', true)),
-        'user_id' => $auth_user->data['id'],
-        'user_meta' => get_user_meta($auth_user->data['id'], 'properties_favorites', true)
-    ]);
+    // wp_send_json([
+    //     'data' => in_array(3654, get_user_meta($auth_user->data['id'], 'properties_favorites', true)),
+    //     'user_id' => $auth_user->data['id'],
+    //     'user_meta' => get_user_meta($auth_user->data['id'], 'properties_favorites', true)
+    // ]);
 
     $arg = [
         'post_type' => 'properties',
@@ -489,7 +488,7 @@ function getProperties(WP_REST_Request $request)
             $bookColor = '';
         }
 
-        $dt[] = [get_the_ID(), in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))];
+        // $dt[] = [get_the_ID(), in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))];
 
         $items[] = [
             'post' => $peroperties->post,
@@ -503,6 +502,6 @@ function getProperties(WP_REST_Request $request)
     }
 
     return new WP_REST_Response([
-        'list' => $dt
+        'list' => $items
     ], 200);
 }
