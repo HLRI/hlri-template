@@ -378,8 +378,8 @@ jQuery(document).ready(function ($) {
                     address = '<div>' + post.metadata['opt-address'] + '</div>';
                 }
 
-                if (post.total_like != '') {
-                    totalLike = post.total_like;
+                if (post.metadata['total_like'] != '') {
+                    totalLike = post.metadata['total_like'];
                 }
 
                 if (getCookie(post.id) == 'isset') {
