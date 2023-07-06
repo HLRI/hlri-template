@@ -15,3 +15,10 @@ function custom_menus() {
     register_nav_menus( $locations );
  }
  add_action( 'init', 'custom_menus' );
+
+
+ add_action('manage_users_columns','wp_add_user_column');
+function wp_add_user_column($columns) {
+    $columns['user_auth_key'] = "Api token";
+    return $columns;
+}

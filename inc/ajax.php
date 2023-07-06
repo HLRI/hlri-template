@@ -470,10 +470,10 @@ function getProperties(WP_REST_Request $request)
             if (in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
                 $bookColor = '#9de450';
             } else {
-                $bookColor = '#9de450';
+                $bookColor = '';
             }
         } else {
-            $bookColor = '#9de450';
+            $bookColor = '';
         }
         $items[] = [
             'post' => $peroperties->post,
