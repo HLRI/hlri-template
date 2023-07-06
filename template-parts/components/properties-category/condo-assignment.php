@@ -3,11 +3,16 @@ $arg = [
     'post_type' => 'properties',
     'post_status' => 'publish',
     'posts_per_page' => 8,
-    
+    'tax_query' => [
+        [
+            'taxonomy' => 'group',
+            'field' => 'term_id',
+            'terms' => 23,
+        ]
+    ]
 ];
 
 $peroperties = new WP_Query($arg);
-wp_die(var_dump($peroperties));
 
 ?>
 <?php if ($peroperties->have_posts()) : ?>
