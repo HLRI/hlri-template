@@ -449,7 +449,7 @@ function getProperties(WP_REST_Request $request)
 {
 
     wp_send_json( [
-        'data' => $request
+        'data' => $_GET
     ] );
 
     $auth_user = checkToken();
