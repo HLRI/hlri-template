@@ -189,7 +189,7 @@ function checkToken()
         'number' => 1
     ]);
     if (count($user) == 1) {
-        return new WP_REST_Response(['id' => $user[0]], 200);
+        return new WP_REST_Response(['id' => $user[0]->ID], 200);
     } else {
         return new WP_REST_Response(['message' => 'Token is wrong'], 401);
     }
