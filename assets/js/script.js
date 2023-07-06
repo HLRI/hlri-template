@@ -355,8 +355,10 @@ jQuery(document).ready(function ($) {
             "Authorization": token
         },
         success: function (json) {
-            var data = json.list;
-            $.each(data, function (index, item) {
+            var list = json.list;
+            $.each(list, function (index, item) {
+
+                var post = item.data;
 
                 var maxPriceSqft = '';
                 var minSize = '';
@@ -364,23 +366,23 @@ jQuery(document).ready(function ($) {
                 var totalLike = '';
                 var likeColor = '';
 
-                if (item.metadata['opt-min-price-sqft'] != '') {
-                    maxPriceSqft = '<div>$' + item.metadata['opt-min-price-sqft'] + ' to  $' + item.metadata['opt-max-price-sqft'] + '</div>';
+                if (post.metadata['opt-min-price-sqft'] != '') {
+                    maxPriceSqft = '<div>$' + post.metadata['opt-min-price-sqft'] + ' to  $' + post.metadata['opt-max-price-sqft'] + '</div>';
                 }
 
-                if (item.metadata['opt-size-min'] != '') {
-                    minSize = '<div>' + item.metadata['opt-size-min'] + ' - ' + item.metadata['opt-size-max'] + ' Sq Ft | ' + item.metadata['opt-occupancy'] + '</div>';
+                if (post.metadata['opt-size-min'] != '') {
+                    minSize = '<div>' + post.metadata['opt-size-min'] + ' - ' + post.metadata['opt-size-max'] + ' Sq Ft | ' + post.metadata['opt-occupancy'] + '</div>';
                 }
 
-                if (item.metadata['opt-address'] != '') {
-                    address = '<div>' + item.metadata['opt-address'] + '</div>';
+                if (post.metadata['opt-address'] != '') {
+                    address = '<div>' + post.metadata['opt-address'] + '</div>';
                 }
 
-                if (item.total_like != '') {
-                    totalLike = item.total_like;
+                if (post.total_like != '') {
+                    totalLike = post.total_like;
                 }
 
-                if (getCookie(item.post.ID) == 'isset') {
+                if (getCookie(post.id) == 'isset') {
                     likeColor = 'red'
                 }
 
@@ -388,7 +390,7 @@ jQuery(document).ready(function ($) {
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
                     '                                    <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                    '                                       <img src="' + item.url_image + '" >' +
+                    '                                       <img src="' + post.thumbnail_url + '" >' +
                     '                                    </a>' +
                     '                                </div>' +
                     '' +
@@ -397,11 +399,11 @@ jQuery(document).ready(function ($) {
                     '' +
                     '                                    <div class="card-listing-content card-listing-content-v2">' +
                     '                                        <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                    '                                            <h6 class="text-black">' + item.post.post_title + '</h6>' +
+                    '                                            <h6 class="text-black">' + post.title + '</h6>' +
                     '                                        </a>' +
                     '                                        <div class="card-listing-description card-listing-description-v2">' +
                     '                                            <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">' +
-                    item.post.post_excerpt +
+                    post.excerpt +
                     '                                            </a>' +
                     '                                        </div>' +
                     '                                    </div>' +
@@ -420,7 +422,7 @@ jQuery(document).ready(function ($) {
                     '                                <div class="more more-v2">' +
                     '                                    <div class="card-listing-options">' +
                     '                                        <div>' +
-                    '                                            <i onclick="setLikeProperties(this, ' + item.post.ID + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
+                    '                                            <i onclick="setLikeProperties(this, ' + post.id + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
                     '                                            <span class="text-muted" id="like-total">' +
 
                     totalLike +
@@ -428,7 +430,7 @@ jQuery(document).ready(function ($) {
                     '                                        </div>' +
                     '' +
                     '                                        <i role="button" class="fa fa-share-alt"></i>' +
-                    '<i role="button" onclick="bookmark(this,' + item.post.ID + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
+                    '<i role="button" onclick="bookmark(this,' + post.id + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
                     '                                    </div>' +
                     '                                    <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>' +
                     '' +
