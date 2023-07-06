@@ -346,7 +346,7 @@ jQuery(document).ready(function ($) {
 
 
     $('.data-show-commingsoon').hide();
-    $('.data-show-buy-with-5-percent-down').hide();
+    $('.data-show-buy-with-five-percent-down').hide();
     var token = getCookie('uthlri');
    
   
@@ -456,7 +456,7 @@ jQuery(document).ready(function ($) {
                 ).owlCarousel('update')
             });
             $('.loading-commingsoon').fadeOut(500);
-            $('.data-show').fadeIn(600);
+            $('.data-show-commingsoon').fadeIn(600);
             $('.loading-commingsoon').remove();
         },
         error: function (xhr, status, errorThrown) {
