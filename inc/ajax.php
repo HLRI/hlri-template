@@ -451,6 +451,7 @@ function getProperties(WP_REST_Request $request)
 {
 
     $auth_user = checkToken();
+    $auth_user = json_encode($auth_user);
     if($auth_user['status'] == 404){
         wp_send_json( [
             'data' => 'test'
