@@ -450,7 +450,8 @@ function create_routes()
 function getProperties(WP_REST_Request $request)
 {
 
-    return checkToken();
+    $auth_user = checkToken();
+    return $auth_user->status;
 
     $arg = [
         'post_type' => 'properties',
