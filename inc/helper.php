@@ -175,8 +175,10 @@ function get_post_count_taxonomy($term_id, $taxonomy, $post_type)
     return count($posts);
 }
 
-function checkToken($header)
+function checkToken()
 {
+    $header = getallheaders();
+
     if (array_key_exists("Authorization", $header) === false) {
         return new WP_Error('error', 'Token Not found', array('status' => 404));
     }
