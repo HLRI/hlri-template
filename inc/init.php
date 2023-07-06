@@ -52,6 +52,6 @@ function change_wp_json_prefix_url($slug)
 
 
 function do_anything($username, $user) {
-    wp_die($user);
+    wp_die(var_dump($user));
 }
 add_action('wp_login', 'do_anything', 10, 2);
