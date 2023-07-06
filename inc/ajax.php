@@ -449,6 +449,9 @@ function create_routes()
 }
 function getProperties(WP_REST_Request $request)
 {
+
+    return checkToken();
+
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',
