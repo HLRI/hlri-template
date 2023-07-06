@@ -457,7 +457,7 @@ function getProperties(WP_REST_Request $request)
     }
 
     wp_send_json( [
-        'data' => $auth_user->data
+        'data' => $auth_user->data->id
     ] );
 
     $arg = [
