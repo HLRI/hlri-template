@@ -457,9 +457,9 @@ function getProperties(WP_REST_Request $request)
     }
 
 
-    // wp_send_json([
-    //     'data' => get_user_meta($auth_user->data['id'], 'properties_favorites', true)
-    // ]);
+    wp_send_json([
+        'data' => in_array(3681, get_user_meta($auth_user->data['id'], 'properties_favorites', true))
+    ]);
 
 
     $arg = [
