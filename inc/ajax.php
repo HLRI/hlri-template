@@ -120,7 +120,7 @@ function propertiesFavorites()
                 'status' => 'removed'
             ]);
         } else {
-            $favorites = $_POST['post_id'];
+            array_push($favorites, $_POST['post_id']);
         }
     } else {
         array_push($favorites, $_POST['post_id']);
