@@ -450,10 +450,9 @@ jQuery(document).ready(function ($) {
                 ).owlCarousel('update')
             });
             setTimeout(() => {
-                
+                $('.loading').fadeOut(500);
+                $('.data-show').fadeIn(600);    
             }, 2000);
-            $('.loading').fadeOut(500);
-            $('.data-show').fadeIn(600);
         },
         error: function (xhr, status, errorThrown) {
             xhr.status;
