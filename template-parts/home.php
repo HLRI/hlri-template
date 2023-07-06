@@ -7,19 +7,11 @@
 
 
 
-<div class="container-fluid mb-5 mt-5">
-    <div class="row px-2 px-lg-4">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-2 mb-4 mb-lg-0">
-            <?php include(HLR_THEME_COMPONENT . 'properties-category/just-launched.php'); ?>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-2 mb-4 mb-lg-0">
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-2 mb-4 mb-lg-0">
-            <?php include(HLR_THEME_COMPONENT . 'properties-category/buy-with-10-percent-down.php'); ?>
-        </div>
-    </div>
-</div>
+
+
+<?php include(HLR_THEME_COMPONENT . 'properties-category/just-launched.php'); ?>
 <?php include(HLR_THEME_COMPONENT . 'properties-category/buy-with-5-percent-down.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'properties-category/buy-with-10-percent-down.php'); ?>
 <?php include(HLR_THEME_COMPONENT . 'properties-category/coming-soon.php'); ?>
 <?php include(HLR_THEME_COMPONENT . 'properties-category/condo-assignment.php'); ?>
 <?php include(HLR_THEME_COMPONENT . 'personal-list.php'); ?>
