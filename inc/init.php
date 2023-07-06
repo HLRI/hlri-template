@@ -86,6 +86,7 @@ function setpropertiesquery()
             'title' => strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title(),
             'content' => strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()),
             'permalink' => get_the_permalink(),
+            'shortlink' => wp_get_shortlink(get_the_ID(), 'post', true),
             'thumbnail_url' => get_the_post_thumbnail_url(),
             'term_ids' => $terms_ids,
             'metadata' => [
