@@ -59,7 +59,7 @@ function setTokenAfterLogin($username, $user)
     if (!empty($token) && isset($oken)) {
         setcookie('uthlri', $token, time() + (3600 * 24), COOKIEPATH, COOKIE_DOMAIN);
     }else{
-        $user_token = update_user_meta($user_id, "api_token", true);
+        $user_token = update_user_meta($user_id, "api_token", wp_generate_password(50, false));
         setcookie('uthlri', $user_token, time() + (3600 * 24), COOKIEPATH, COOKIE_DOMAIN);    
     }
 }
