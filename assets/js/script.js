@@ -359,7 +359,8 @@ jQuery(document).ready(function ($) {
             $.each(list, function (index, item) {
 
                 var post = item.data;
-
+                console.log(post);
+                return;
                 var maxPriceSqft = '';
                 var minSize = '';
                 var address = '';
