@@ -108,7 +108,7 @@ function propertiesFavorites()
 
 
     $favorites = get_user_meta(get_current_user_id(), 'properties_favorites', true);
-    $favorites = array_push($favorites, $_POST['post_id']);
+    $favorites = $_POST['post_id'];
 
     wp_send_json( [
         'data' => $favorites
