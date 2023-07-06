@@ -44,22 +44,14 @@ function user_posts_count_column_content($output, $column_name, $user_id)
 }
 
 
-add_action('rest_api_init', 'add_custom_users_api');
-function add_custom_users_api()
-{
-    register_rest_route('method', '/get_user/', array(
-        'methods' => 'GET',
-        'callback' => 'get_custom_users_data',
-    ));
-}
-
 add_filter('rest_url_prefix', 'change_wp_json_prefix_url');
 function change_wp_json_prefix_url($slug)
 {
     return 'api';
 }
 
-function get_custom_users_data()
-{
-    return checkToken($header);
+
+function do_anything($data) {
+    wp_die($data);
 }
+add_action('wp_login', 'do_anything');
