@@ -451,12 +451,9 @@ function getProperties(WP_REST_Request $request)
 {
 
     $auth_user = checkToken();
-    if($auth_user->status == 401){
-        return $auth_user;
-    } 
-    
-    if($auth_user->status == 200){
-
+    $is_login = false;
+    if ($auth_user->status == 401 && $auth_user->status == 404) {
+        $is_login = true;
     }
 
     $arg = [
@@ -476,8 +473,8 @@ function getProperties(WP_REST_Request $request)
 
     while ($peroperties->have_posts()) {
         $peroperties->the_post();
-        if (is_user_logged_in()) {
-            if (in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
+        if ($is_login) {
+            if (in_array(get_the_ID(), get_user_meta($auth_user->id, 'properties_favorites', true))) {
                 $bookColor = '#9de450';
             } else {
                 $bookColor = '';
