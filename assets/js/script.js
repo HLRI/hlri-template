@@ -358,10 +358,8 @@ jQuery(document).ready(function ($) {
         .then(
             (content) => {
                 var data = content.list;
-                console.log(data);
+                console.log(getCookie('uthlri'));
                 $.each(data, function (index, item) {
-
-
 
                     var maxPriceSqft = '';
                     var minSize = '';

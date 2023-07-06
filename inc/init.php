@@ -51,9 +51,15 @@ function change_wp_json_prefix_url($slug)
 }
 
 
-function setTokenAfterLogin($username, $user) {
-    $user_id = $user->ID;
-    $user_token = get_user_meta($user_id, "api_token", true);
-    setcookie( 'uthlri', $user_token, time() + (3600 * 24), COOKIEPATH, COOKIE_DOMAIN );
+function setTokenAfterLogin($username, $user)
+{
+    $token = get_user_meta($user_id, "api_token", true);
+    if (!empty($token) && isset($oken)) {
+        setcookie('uthlri', $token, time() + (3600 * 24), COOKIEPATH, COOKIE_DOMAIN);
+    }else{
+        $user_id = $user->ID;
+        $user_token = update_user_meta($user_id, "api_token", true);
+        setcookie('uthlri', $user_token, time() + (3600 * 24), COOKIEPATH, COOKIE_DOMAIN);    
+    }
 }
 add_action('wp_login', 'setTokenAfterLogin', 10, 2);
