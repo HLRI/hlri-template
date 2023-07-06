@@ -456,6 +456,12 @@ function getProperties(WP_REST_Request $request)
         $is_login = true;
     }
 
+
+    wp_send_json([
+        'data' => get_user_meta($auth_user->data['id'], 'properties_favorites', true)
+    ]);
+
+
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',
