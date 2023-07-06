@@ -389,7 +389,7 @@ jQuery(document).ready(function ($) {
                 $(".listing-wrap").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
-                    '                                    <a href="' + post.permalink + '" title="<?= get_the_title() ?>">' +
+                    '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
                     '                                       <img src="' + post.thumbnail_url + '" >' +
                     '                                    </a>' +
                     '                                </div>' +
@@ -398,11 +398,11 @@ jQuery(document).ready(function ($) {
                     '                                <div class="card-body-listing card-body-listing-v2">' +
                     '' +
                     '                                    <div class="card-listing-content card-listing-content-v2">' +
-                    '                                        <a href="' + post.permalink + '" title="<?= get_the_title() ?>">' +
+                    '                                        <a href="' + post.permalink + '" title="' + post.title + '">' +
                     '                                            <h6 class="text-black">' + post.title + '</h6>' +
                     '                                        </a>' +
                     '                                        <div class="card-listing-description card-listing-description-v2">' +
-                    '                                            <a href="' + post.permalink + '" title="<?= get_the_title() ?>">' +
+                    '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
                     post.excerpt +
                     '                                            </a>' +
                     '                                        </div>' +
@@ -437,13 +437,13 @@ jQuery(document).ready(function ($) {
                     '                                </div>' +
                     '' +
                     '                                <div class="card-share">' +
-                    '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink(get_the_ID(), \'post\', true) ?>"><i class="fa fa-facebook-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), \'post\', true) ?>&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), \'post\', true) ?>?ref=linkedin&title=' + post.title + '&summary=<?php the_content() ?>"><i class="fa fa-linkedin-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), \'post\', true) ?>"><i class="fa fa-whatsapp"></i></a>' +
-                    '                                    <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), \'post\', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), \'post\', true) ?>&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
-                    '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), \'post\', true) ?>"><i class="fa fa-twitter-square"></i></a>' +
+                    '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
+                    '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
+                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.excerpt + '"><i class="fa fa-linkedin-square"></i></a>' +
+                    '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
+                    '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
+                    '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
+                    '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' + post.shortlink + '"><i class="fa fa-twitter-square"></i></a>' +
                     '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
                     '                                </div>' +
                     '                                </div>'
