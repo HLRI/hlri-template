@@ -458,7 +458,8 @@ function getProperties(WP_REST_Request $request)
 
 
     wp_send_json([
-        'data' => !$auth_user->status == 401 && !$auth_user->status == 404
+        'data' => !$auth_user->status == 401 && !$auth_user->status == 404,
+        'status' => $auth_user->status,
     ]);
 
 
