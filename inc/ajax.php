@@ -454,48 +454,66 @@ function getProperties(WP_REST_Request $request)
         $is_login = true;
     }
 
+    $peroperties = get_option('properties_data');
 
-    $arg = [
-        'post_type' => 'properties',
-        'post_status' => 'publish',
-        'posts_per_page' => 8,
-        'tax_query' => [
-            [
-                'taxonomy' => 'group',
-                'field' => 'term_id',
-                'terms' => 19,
-            ]
-        ]
-    ];
+    foreach ($peroperties as $property) {
+        if (in_array(19, $property->term_ids)) {
 
-    $peroperties = new WP_Query($arg);
-
-    
-
-    while ($peroperties->have_posts()) {
-        $peroperties->the_post();
-        if ($is_login) {
-            if (in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
-                $bookColor = '#9de450';
+            if ($is_login) {
+                if (in_array($property->id, get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                    $bookColor = '#9de450';
+                } else {
+                    $bookColor = '';
+                }
             } else {
                 $bookColor = '';
             }
-        } else {
-            $bookColor = '';
+
+            $items[] = [
+                'data' => $property,
+                'bookColor' => $bookColor
+            ];
         }
-
-        // $dt[] = [get_the_ID(), in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))];
-
-        $items[] = [
-            'post' => $peroperties->post,
-            'url_image' => get_the_post_thumbnail_url(),
-            'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true),
-            'total_like' => get_post_meta(get_the_ID(), 'total_like', true),
-            'bookColor' => $bookColor
-        ];
-        // $peroperties->the_post();
-        // $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
     }
+
+
+    // $arg = [
+    //     'post_type' => 'properties',
+    //     'post_status' => 'publish',
+    //     'posts_per_page' => 8,
+    //     'tax_query' => [
+    //         [
+    //             'taxonomy' => 'group',
+    //             'field' => 'term_id',
+    //             'terms' => 19,
+    //         ]
+    //     ]
+    // ];
+
+    // $peroperties = new WP_Query($arg);
+
+    // while ($peroperties->have_posts()) {
+    //     $peroperties->the_post();
+    //     if ($is_login) {
+    //         if (in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+    //             $bookColor = '#9de450';
+    //         } else {
+    //             $bookColor = '';
+    //         }
+    //     } else {
+    //         $bookColor = '';
+    //     }
+
+    //     $items[] = [
+    //         'post' => $peroperties->post,
+    //         'url_image' => get_the_post_thumbnail_url(),
+    //         'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true),
+    //         'total_like' => get_post_meta(get_the_ID(), 'total_like', true),
+    //         'bookColor' => $bookColor
+    //     ];
+    // }
+
+
 
     return new WP_REST_Response([
         'list' => $items
