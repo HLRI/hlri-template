@@ -451,7 +451,7 @@ function getProperties(WP_REST_Request $request)
 {
 
     $auth_user = checkToken();
-    return $auth_user;
+    return json_encode($auth_user)['status'];
 
     $arg = [
         'post_type' => 'properties',
