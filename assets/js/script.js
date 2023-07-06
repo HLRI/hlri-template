@@ -353,7 +353,7 @@ jQuery(document).ready(function ($) {
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
         dataType: "json",
         headers: {
-            "Authorization": btoa(token)
+            "Authorization": token
         },
         success: function (json) {
             var data = json.list;
