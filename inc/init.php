@@ -99,6 +99,6 @@ function setpropertiesquery()
         ];
     }
 
-    update_option('properties_data', $items, 'no')
+    update_option('properties_data', $items, 'no');
 
 }
