@@ -65,7 +65,7 @@ function setTokenAfterLogin($username, $user)
 }
 add_action('wp_login', 'setTokenAfterLogin', 10, 2);
 
-add_action('init', 'setpropertiesquery');
+// add_action('init', 'setpropertiesquery');
 function setpropertiesquery()
 {
     $args = [
