@@ -456,10 +456,6 @@ function getProperties(WP_REST_Request $request)
         $is_login = true;
     }
 
-    wp_send_json( [
-        'data' => $auth_user->data['id']
-    ] );
-
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',
@@ -478,7 +474,7 @@ function getProperties(WP_REST_Request $request)
     while ($peroperties->have_posts()) {
         $peroperties->the_post();
         if ($is_login) {
-            if (in_array(get_the_ID(), get_user_meta($auth_user->id, 'properties_favorites', true))) {
+            if (in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
                 $bookColor = '#9de450';
             } else {
                 $bookColor = '';
