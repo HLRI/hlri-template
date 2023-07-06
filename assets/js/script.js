@@ -449,6 +449,9 @@ jQuery(document).ready(function ($) {
                     '                                </div>'
                 ).owlCarousel('update')
             });
+            setTimeout(() => {
+                
+            }, 2000);
             $('.loading').fadeOut(500);
             $('.data-show').fadeIn(600);
         },
