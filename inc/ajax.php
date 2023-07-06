@@ -484,6 +484,9 @@ function getProperties(WP_REST_Request $request)
         } else {
             $bookColor = '';
         }
+
+        $dt[] = [get_the_ID(), in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))];
+
         $items[] = [
             'post' => $peroperties->post,
             'url_image' => get_the_post_thumbnail_url(),
@@ -496,6 +499,6 @@ function getProperties(WP_REST_Request $request)
     }
 
     return new WP_REST_Response([
-        'list' => $items
+        'list' => $dt
     ], 200);
 }
