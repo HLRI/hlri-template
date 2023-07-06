@@ -411,7 +411,7 @@ jQuery(document).ready(function ($) {
                     '                                        </a>' +
                     '                                        <div class="card-listing-description card-listing-description-v2">' +
                     '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    post.excerpt +
+                    post.content +
                     '                                            </a>' +
                     '                                        </div>' +
                     '                                    </div>' +
@@ -447,7 +447,7 @@ jQuery(document).ready(function ($) {
                     '                                <div class="card-share">' +
                     '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
                     '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.excerpt + '"><i class="fa fa-linkedin-square"></i></a>' +
+                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
                     '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
                     '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
                     '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
@@ -526,7 +526,7 @@ jQuery(document).ready(function ($) {
                     '                                        </a>' +
                     '                                        <div class="card-listing-description card-listing-description-v2">' +
                     '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    post.excerpt +
+                    post.content +
                     '                                            </a>' +
                     '                                        </div>' +
                     '                                    </div>' +
@@ -562,7 +562,7 @@ jQuery(document).ready(function ($) {
                     '                                <div class="card-share">' +
                     '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
                     '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.excerpt + '"><i class="fa fa-linkedin-square"></i></a>' +
+                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
                     '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
                     '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
                     '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
@@ -643,7 +643,7 @@ jQuery(document).ready(function ($) {
                     '                                        </a>' +
                     '                                        <div class="card-listing-description card-listing-description-v2">' +
                     '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    post.excerpt +
+                    post.content +
                     '                                            </a>' +
                     '                                        </div>' +
                     '                                    </div>' +
@@ -679,7 +679,7 @@ jQuery(document).ready(function ($) {
                     '                                <div class="card-share">' +
                     '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
                     '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.excerpt + '"><i class="fa fa-linkedin-square"></i></a>' +
+                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
                     '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
                     '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
                     '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
@@ -760,7 +760,7 @@ jQuery(document).ready(function ($) {
                     '                                        </a>' +
                     '                                        <div class="card-listing-description card-listing-description-v2">' +
                     '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    post.excerpt +
+                    post.content +
                     '                                            </a>' +
                     '                                        </div>' +
                     '                                    </div>' +
@@ -796,7 +796,7 @@ jQuery(document).ready(function ($) {
                     '                                <div class="card-share">' +
                     '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
                     '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.excerpt + '"><i class="fa fa-linkedin-square"></i></a>' +
+                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
                     '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
                     '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
                     '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
