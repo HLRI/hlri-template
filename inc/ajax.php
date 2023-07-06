@@ -123,7 +123,8 @@ function propertiesFavorites()
             array_push($favorites, $_POST['post_id']);
         }
     } else {
-        $favorites[] = $_POST['post_id'];
+        $favorites = [];
+        $favorites = $_POST['post_id'];
     }
 
     update_user_meta(get_current_user_id(), 'properties_favorites', $favorites);
