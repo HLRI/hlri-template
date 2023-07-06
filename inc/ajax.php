@@ -457,9 +457,9 @@ function getProperties(WP_REST_Request $request)
     }
 
 
-    wp_send_json([
-        'data' => in_array('3681', get_user_meta($auth_user->data['id'], 'properties_favorites', true))
-    ]);
+    // wp_send_json([
+    //     'data' => in_array('3681', get_user_meta($auth_user->data['id'], 'properties_favorites', true))
+    // ]);
 
 
     $arg = [
@@ -488,6 +488,7 @@ function getProperties(WP_REST_Request $request)
         } else {
             $bookColor = '';
         }
+        $ids[] = get_the_ID();
         $items[] = [
             'post' => $peroperties->post,
             'url_image' => get_the_post_thumbnail_url(),
@@ -500,6 +501,6 @@ function getProperties(WP_REST_Request $request)
     }
 
     return new WP_REST_Response([
-        'list' => $items
+        'list' => $ids
     ], 200);
 }
