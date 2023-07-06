@@ -44,44 +44,23 @@ function user_posts_count_column_content($output, $column_name, $user_id)
 }
 
 
-add_action( 'rest_api_init', 'add_custom_users_api');
-function add_custom_users_api(){
-	register_rest_route( 'method', '/get_user/', array(
-		'methods' => 'GET',
-		'callback' => 'get_custom_users_data',
-	));
+add_action('rest_api_init', 'add_custom_users_api');
+function add_custom_users_api()
+{
+    register_rest_route('method', '/get_user/', array(
+        'methods' => 'GET',
+        'callback' => 'get_custom_users_data',
+    ));
 }
 
-add_filter( 'rest_url_prefix', 'change_wp_json_prefix_url');
-function change_wp_json_prefix_url( $slug ) {
-	return 'api';
+add_filter('rest_url_prefix', 'change_wp_json_prefix_url');
+function change_wp_json_prefix_url($slug)
+{
+    return 'api';
 }
 
-function get_custom_users_data(){
+function get_custom_users_data()
+{
     $header = getallheaders();
-    if (array_key_exists("Authorization",$header) ===false)
-    {
-        return new WP_Error( 'error', 'Token Not found', array( 'status' => 404 ) );
-    }
-    
-    $user = get_users([
-       'meta_key' => 'api_token',
-       'meta_value' => $header['Authorization'],
-       'number' => 1
-    ]);
-    if(count($user) ==1) {
-    
-        $result = [
-          'status' => 'yes',
-          'data' => [
-            'name' => $user[0]->display_name,
-            'date_register' => date("Y-m-d", $user[0]->user_registered, "eng"),
-            'email' => $user[0]->user_email,
-          ]
-        ];
-        return new WP_REST_Response($result, 200);
-    
-    } else {
-        return new WP_Error( 'error', 'Token is wrong', array( 'status' => 404 ) );
-    }
-    }
+    checkToken($header);
+}

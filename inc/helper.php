@@ -158,20 +158,46 @@ function sign_in_with_microsoft($input = '')
 }
 
 
-function get_post_count_taxonomy( $term_id, $taxonomy, $post_type ) {
+function get_post_count_taxonomy($term_id, $taxonomy, $post_type)
+{
     $args = array(
-      'post_type' => $post_type,
-      'posts_per_page' => -1,
-      'tax_query' => array(
-        array(
-          'taxonomy' => $taxonomy,
-          'field' => 'id',
-          'terms' => $term_id,
+        'post_type' => $post_type,
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => $taxonomy,
+                'field' => 'id',
+                'terms' => $term_id,
+            )
         )
-      )
     );
-    $posts = get_posts( $args );
+    $posts = get_posts($args);
     return count($posts);
-  }
+}
 
+function checkToken($header)
+{
+    if (array_key_exists("Authorization", $header) === false) {
+        return new WP_Error('error', 'Token Not found', array('status' => 404));
+    }
 
+    $user = get_users([
+        'meta_key' => 'api_token',
+        'meta_value' => $header['Authorization'],
+        'number' => 1
+    ]);
+    if (count($user) == 1) {
+
+        $result = [
+            'status' => 'yes',
+            'data' => [
+                'name' => $user[0]->display_name,
+                'date_register' => date("Y-m-d", $user[0]->user_registered, "eng"),
+                'email' => $user[0]->user_email,
+            ]
+        ];
+        return new WP_REST_Response($result, 200);
+    } else {
+        return new WP_Error('error', 'Token is wrong', array('status' => 404));
+    }
+}
