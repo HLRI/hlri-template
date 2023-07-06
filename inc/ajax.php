@@ -456,6 +456,8 @@ function getProperties(WP_REST_Request $request)
         $is_login = true;
     }
 
+    return $auth_user->id;
+
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',

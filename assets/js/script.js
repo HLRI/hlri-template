@@ -347,7 +347,6 @@ jQuery(document).ready(function ($) {
 
     $('.data-show').hide();
     var token = getCookie('uthlri');
-    console.log(token);
     $.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
