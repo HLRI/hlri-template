@@ -72,13 +72,6 @@ function setpropertiesquery()
         'post_type' => 'properties',
         'post_status' => 'publish',
         'posts_per_page' => -1,
-        'tax_query' => [
-            [
-                'taxonomy' => 'group',
-                'field' => 'term_id',
-                'terms' => 19,
-            ]
-        ]
     ];
 
     $peroperties = new WP_Query($args);
