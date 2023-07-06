@@ -65,7 +65,7 @@
         <a href="<?= home_url('group/buy-with-5-percent-down') ?>" title="" class="view-more">View more</a>
             </div>
             <div class="d-flex justify-content-center">
-                <div class="owl-carousel owl-theme listing-wrap wrap-list .buy-with-five-percent-down">
+                <div class="owl-carousel owl-theme listing-wrap wrap-list buy-with-five-percent-down">
 
                 </div>
             </div>
