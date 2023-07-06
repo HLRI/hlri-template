@@ -56,7 +56,7 @@ function setTokenAfterLogin($username, $user)
     $user_id = $user->ID;
 
     $token = get_user_meta($user_id, "api_token", true);
-    if (!empty($token) && isset($oken)) {
+    if (!empty($token) && isset($token)) {
         setcookie('uthlri', $token, time() + (3600 * 24), COOKIEPATH, COOKIE_DOMAIN);
     }else{
         $user_token = update_user_meta($user_id, "api_token", wp_generate_password(50, false));
