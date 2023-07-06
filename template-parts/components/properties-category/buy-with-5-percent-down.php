@@ -1,7 +1,7 @@
 
 
 
-<div class="container-fluid mb-5 mt-5 loading-buy-with-5-percent-down">
+<div class="container-fluid mb-5 mt-5 loading-buy-with-five-percent-down">
     <div class="row">
         <div class="col-12">
             <div class="titr-list">
@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div class="container-fluid my-5 data-show-buy-with-5-percent-down">
+<div class="container-fluid my-5 data-show-buy-with-five-percent-down">
     <div class="row">
         <div class="col-lg-12">
             <div class="titr-list">
@@ -65,7 +65,7 @@
         <a href="<?= home_url('group/buy-with-5-percent-down') ?>" title="" class="view-more">View more</a>
             </div>
             <div class="d-flex justify-content-center">
-                <div class="owl-carousel owl-theme listing-wrap wrap-list .buy-with-5-percent-down">
+                <div class="owl-carousel owl-theme listing-wrap wrap-list .buy-with-five-percent-down">
 
                 </div>
             </div>

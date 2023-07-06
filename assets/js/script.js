@@ -394,7 +394,7 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
-                $(".buy-with-5-percent-down").owlCarousel('add',
+                $(".buy-with-five-percent-down").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
                     '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
@@ -457,9 +457,9 @@ jQuery(document).ready(function ($) {
                     '                                </div>'
                 ).owlCarousel('update')
             });
-            $('.loading-buy-with-5-percent-down').fadeOut(500);
-            $('.data-show-buy-with-5-percent-down').fadeIn(600);
-            $('.loading-buy-with-5-percent-down').remove();
+            $('.loading-buy-with-five-percent-down').fadeOut(500);
+            $('.data-show-buy-with-five-percent-down').fadeIn(600);
+            $('.loading-buy-with-five-percent-down').remove();
 
         },
         error: function (xhr, status, errorThrown) {
