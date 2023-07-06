@@ -448,6 +448,10 @@ function create_routes()
 function getProperties(WP_REST_Request $request)
 {
 
+    wp_send_json( [
+        'data' => $request
+    ] );
+
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {

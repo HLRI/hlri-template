@@ -1,25 +1,6 @@
-<?php
-/*
-$arg = [
-    'post_type' => 'properties',
-    'post_status' => 'publish',
-    'posts_per_page' => 8,
-    'tax_query' => [
-        [
-            'taxonomy' => 'group',
-            'field' => 'term_id',
-            'terms' => 19,
-        ]
-    ]
-];
 
-$peroperties = new WP_Query($arg);
-*/
-?>
-<?php //if ($peroperties->have_posts()) : 
-?>
 
-<div class="container-fluid mb-5 mt-5 loading">
+<div class="container-fluid mb-5 mt-5 loading-commingsoon">
     <div class="row">
         <div class="col-12">
             <div class="titr-list">
@@ -75,7 +56,7 @@ $peroperties = new WP_Query($arg);
     </div>
 </div>
 
-<div class="container-fluid my-5 data-show">
+<div class="container-fluid my-5 data-show-commingsoon">
     <div class="row">
         <div class="col-lg-12">
             <div class="titr-list">
@@ -83,20 +64,10 @@ $peroperties = new WP_Query($arg);
                 <a href="<?= home_url('group/coming-soon') ?>" title="" class="view-more">View more</a>
             </div>
             <div class="d-flex justify-content-center">
-                <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                    <?php //while ($peroperties->have_posts()) : $peroperties->the_post();
-                    //$mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                    ?>
+                <div class="owl-carousel owl-theme listing-wrap wrap-list .commingsoon">
                     
-                    <?php //endwhile; 
-                    ?>
-                    <?php //wp_reset_postdata(); 
-                    ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<?php //endif; 
-?>
