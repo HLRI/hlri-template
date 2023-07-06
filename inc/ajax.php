@@ -442,7 +442,7 @@ function hlr_search()
 add_action('rest_api_init', 'create_routes');
 function create_routes()
 {
-    register_rest_route('hlri-ajax', 'get-properties', [
+    register_rest_route('v1', 'get-properties', [
         'methods' => 'GET',
         'callback' => 'getProperties'
     ]);
