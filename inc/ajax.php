@@ -108,11 +108,6 @@ function propertiesFavorites()
 
 
     $favorites = get_user_meta(get_current_user_id(), 'properties_favorites', true);
-    // $favorites = $_POST['post_id'];
-    array_push($favorites, $_POST['post_id']);
-    wp_send_json( [
-        'data' => $favorites
-    ]);
 
     if (!empty($favorites)) {
         if (in_array($_POST['post_id'], $favorites)) {
@@ -128,7 +123,7 @@ function propertiesFavorites()
             $favorites = $_POST['post_id'];
         }
     } else {
-        $favorites = array_push($favorites, $_POST['post_id']);
+        array_push($favorites, $_POST['post_id']);
     }
 
     update_user_meta(get_current_user_id(), 'properties_favorites', $favorites);
