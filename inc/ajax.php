@@ -448,10 +448,6 @@ function create_routes()
 function getProperties(WP_REST_Request $request)
 {
 
-    wp_send_json( [
-        'data' => $_GET
-    ] );
-
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {
@@ -460,7 +456,7 @@ function getProperties(WP_REST_Request $request)
 
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
-        if (in_array(19, $property['term_ids'])) {
+        if (in_array($_GET['term_id'], $property['term_ids'])) {
             if ($is_login) {
                 if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
                     $bookColor = '#9de450';
