@@ -454,11 +454,6 @@ function getProperties(WP_REST_Request $request)
         $is_login = true;
     }
 
-    // wp_send_json([
-    //     'data' => in_array(3654, get_user_meta($auth_user->data['id'], 'properties_favorites', true)),
-    //     'user_id' => $auth_user->data['id'],
-    //     'user_meta' => get_user_meta($auth_user->data['id'], 'properties_favorites', true)
-    // ]);
 
     $arg = [
         'post_type' => 'properties',
@@ -474,6 +469,8 @@ function getProperties(WP_REST_Request $request)
     ];
 
     $peroperties = new WP_Query($arg);
+
+    
 
     while ($peroperties->have_posts()) {
         $peroperties->the_post();
