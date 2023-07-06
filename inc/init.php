@@ -99,5 +99,6 @@ function setpropertiesquery()
         ];
     }
 
-    wp_die(var_dump($items));
+    update_option('properties_data', $items, 'no')
+
 }
