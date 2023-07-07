@@ -455,10 +455,12 @@ function getProperties(WP_REST_Request $request)
     }
 
     $i = 0;
-    $items = [];
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
         if ($i < $_GET['page']) {
+            wp_send_json( [
+                'data' => '1'
+            ] );
             if (in_array($_GET['term_id'], $property['term_ids'])) {
                 if ($is_login) {
                     if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
