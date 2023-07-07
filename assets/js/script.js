@@ -345,7 +345,7 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $('.data-show-commingsoon').hide();
+    // $('.data-show-commingsoon').hide();
     $('.data-show-buy-with-five-percent-down').hide();
     $('.data-show-buy-with-10-percent-down').hide();
     $('.data-show-just-launched').hide();
@@ -394,6 +394,7 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
+                $(".commingsoon").html('');
                 $(".commingsoon").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
@@ -457,9 +458,9 @@ jQuery(document).ready(function ($) {
                     '                                </div>'
                 ).owlCarousel('update')
             });
-            $('.loading-commingsoon').fadeOut(500);
-            $('.data-show-commingsoon').fadeIn(600);
-            $('.loading-commingsoon').remove();
+            // $('.loading-commingsoon').fadeOut(500);
+            // $('.data-show-commingsoon').fadeIn(600);
+            // $('.loading-commingsoon').remove();
         },
         error: function (xhr, status, errorThrown) {
             xhr.status;
