@@ -454,10 +454,10 @@ function getProperties(WP_REST_Request $request)
     if ($auth_user->status != 401 && $auth_user->status != 404) {
         $is_login = true;
     }
-
+    $items = [];
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
-        // if ($i < $_GET['page']) {
+        if ($i < $_GET['page']) {
             if (in_array($_GET['term_id'], $property['term_ids'])) {
                 if ($is_login) {
                     if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
@@ -468,12 +468,16 @@ function getProperties(WP_REST_Request $request)
                 } else {
                     $bookColor = '';
                 }
-                $items[] = [
+                $items = [
                     'data' => $property,
                     'bookColor' => $bookColor
                 ];
             }
-        // }
+        } else {
+            return new WP_REST_Response([
+                'list' => $items
+            ], 200);
+        }
         $i++;
     }
 
