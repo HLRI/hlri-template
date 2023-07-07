@@ -364,7 +364,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
         '                        </div>' +
         '                    </div>').owlCarousel('update');
 
-        jQuery.ajax({
+    jQuery.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
         dataType: "json",
@@ -376,7 +376,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
             'page': totalProperty
         },
         success: function (json) {
-            
+
             var list = json.list;
 
             var indexToRemove = 0;
@@ -483,6 +483,8 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
             xhr.responseText;
         }
     });
+
+    console.log('12');
 
 }
 
