@@ -457,8 +457,7 @@ function getProperties(WP_REST_Request $request)
 
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
-        if ($i < $_GET['page']) {
-
+        // if ($i < $_GET['page']) {
             if (in_array($_GET['term_id'], $property['term_ids'])) {
                 if ($is_login) {
                     if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
@@ -474,7 +473,7 @@ function getProperties(WP_REST_Request $request)
                     'bookColor' => $bookColor
                 ];
             }
-        }
+        // }
         $i++;
     }
 
