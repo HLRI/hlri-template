@@ -363,7 +363,7 @@ jQuery(document).ready(function ($) {
     '                            <div class="line h8 w50"></div>'+
     '                            <div class="line  w75"></div>'+
     '                        </div>'+
-    '                    </div>')
+    '                    </div>').owlCarousel('update');
     $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
     '                        <div class="skeleton-left flex1">'+
     '                            <div class="square"></div>'+
@@ -376,7 +376,7 @@ jQuery(document).ready(function ($) {
     '                            <div class="line h8 w50"></div>'+
     '                            <div class="line  w75"></div>'+
     '                        </div>'+
-    '                    </div>')
+    '                    </div>').owlCarousel('update');
     $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
     '                        <div class="skeleton-left flex1">'+
     '                            <div class="square"></div>'+
@@ -389,21 +389,9 @@ jQuery(document).ready(function ($) {
     '                            <div class="line h8 w50"></div>'+
     '                            <div class="line  w75"></div>'+
     '                        </div>'+
-    '                    </div>')
+    '                    </div>').owlCarousel('update');
    
-  '<div class="skeleton">'+
-'                        <div class="skeleton-left flex1">'+
-'                            <div class="square"></div>'+
-'                        </div>'+
-'                        <div class="skeleton-right flex2">'+
-'                            <div class="line h25 w75 m10"></div>'+
-'                            <div class="line"></div>'+
-'                            <div class="line h8 w50"></div>'+
-'                            <div class="line"></div>'+
-'                            <div class="line h8 w50"></div>'+
-'                            <div class="line  w75"></div>'+
-'                        </div>'+
-'                    </div>'
+ 
     $.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
@@ -446,7 +434,7 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
-                $(".skeleton").owlCarousel('remove');
+                $(".skeleton").owlCarousel('remove').owlCarousel('update');
                 $(".commingsoon").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
