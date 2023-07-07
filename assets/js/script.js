@@ -488,7 +488,6 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        $("." + className).owlCarousel('update');
     }
 
 
