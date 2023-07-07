@@ -350,8 +350,60 @@ jQuery(document).ready(function ($) {
     $('.data-show-buy-with-10-percent-down').hide();
     $('.data-show-just-launched').hide();
     var token = getCookie('uthlri');
+
+    $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
+    '                        <div class="skeleton-left flex1">'+
+    '                            <div class="square"></div>'+
+    '                        </div>'+
+    '                        <div class="skeleton-right flex2">'+
+    '                            <div class="line h25 w75 m10"></div>'+
+    '                            <div class="line"></div>'+
+    '                            <div class="line h8 w50"></div>'+
+    '                            <div class="line"></div>'+
+    '                            <div class="line h8 w50"></div>'+
+    '                            <div class="line  w75"></div>'+
+    '                        </div>'+
+    '                    </div>')
+    $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
+    '                        <div class="skeleton-left flex1">'+
+    '                            <div class="square"></div>'+
+    '                        </div>'+
+    '                        <div class="skeleton-right flex2">'+
+    '                            <div class="line h25 w75 m10"></div>'+
+    '                            <div class="line"></div>'+
+    '                            <div class="line h8 w50"></div>'+
+    '                            <div class="line"></div>'+
+    '                            <div class="line h8 w50"></div>'+
+    '                            <div class="line  w75"></div>'+
+    '                        </div>'+
+    '                    </div>')
+    $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
+    '                        <div class="skeleton-left flex1">'+
+    '                            <div class="square"></div>'+
+    '                        </div>'+
+    '                        <div class="skeleton-right flex2">'+
+    '                            <div class="line h25 w75 m10"></div>'+
+    '                            <div class="line"></div>'+
+    '                            <div class="line h8 w50"></div>'+
+    '                            <div class="line"></div>'+
+    '                            <div class="line h8 w50"></div>'+
+    '                            <div class="line  w75"></div>'+
+    '                        </div>'+
+    '                    </div>')
    
-  
+  '<div class="skeleton">'+
+'                        <div class="skeleton-left flex1">'+
+'                            <div class="square"></div>'+
+'                        </div>'+
+'                        <div class="skeleton-right flex2">'+
+'                            <div class="line h25 w75 m10"></div>'+
+'                            <div class="line"></div>'+
+'                            <div class="line h8 w50"></div>'+
+'                            <div class="line"></div>'+
+'                            <div class="line h8 w50"></div>'+
+'                            <div class="line  w75"></div>'+
+'                        </div>'+
+'                    </div>'
     $.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
@@ -394,7 +446,7 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
-                $(".commingsoon .skeleton").remove();
+                $(".commingsoon").html('');
                 $(".commingsoon").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
