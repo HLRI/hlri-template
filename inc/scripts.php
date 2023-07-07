@@ -82,6 +82,16 @@ function theme_head()
 {
 ?>
 
+    <?php if (is_home()) : ?>
+        <script>
+            var token = getCookie('uthlri');
+            getPropertiesRestApi('commingsoon', 6, 19, token);
+            getPropertiesRestApi('just-launched', 6, 20, token);
+            getPropertiesRestApi('buy-with-five-percent-down', 6, 21, token);
+            getPropertiesRestApi('buy-with-10-percent-down', 6, 22, token);
+        </script>
+    <?php endif; ?>
+
 
     <?php if (is_singular('properties')) :
         $post_id = get_the_ID();
@@ -92,7 +102,6 @@ function theme_head()
         $theme_option = get_option('hlr_framework');
         $city = wp_get_post_terms($post_id, 'city',  array("fields" => "names"));
     ?>
-
         <script type="application/ld+json">
             {
                 "@context": "http://schema.org",
@@ -118,7 +127,6 @@ function theme_head()
                 "url": "<?= get_the_permalink() ?>"
             }
         </script>
-
     <?php endif; ?>
 
 
@@ -157,13 +165,6 @@ function theme_footer()
     <?php endif; ?>
 
     <?php if (is_home()) : ?>
-        <script>
-            var token = getCookie('uthlri');
-            getPropertiesRestApi('commingsoon', 6, 19, token);
-            getPropertiesRestApi('just-launched', 6, 20, token);
-            getPropertiesRestApi('buy-with-five-percent-down', 6, 21, token);
-            getPropertiesRestApi('buy-with-10-percent-down', 6, 22, token);
-        </script>
         <?php if (!empty($theme_options['opt_homeleaderrealtycounter_items'])) : ?>
             <script>
                 function countup(elm, param) {

@@ -346,8 +346,6 @@ jQuery(document).ready(function ($) {
 
 
 
-    
-
     function getPropertiesRestApi(className, totalProperty, termID, token) {
 
         $("." + className).owlCarousel('add', '<div class="skeleton">' +
