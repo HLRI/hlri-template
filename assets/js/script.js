@@ -434,7 +434,7 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
-                var indexToRemove = 2;
+                var indexToRemove = 0;
                 $(".commingsoon").trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
                 
 
