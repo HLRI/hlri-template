@@ -347,10 +347,10 @@ jQuery(document).ready(function ($) {
 
   
     var token = getCookie('uthlri');
-    getPropertiesRestApi('commingsoon', 1, 19, token);
-    getPropertiesRestApi('just-launched', 1, 20, token);
-    getPropertiesRestApi('buy-with-five-percent-down', 1, 21, token);
-    getPropertiesRestApi('buy-with-10-percent-down', 1, 22, token);
+    getPropertiesRestApi('commingsoon', 6, 19, token);
+    getPropertiesRestApi('just-launched', 6, 20, token);
+    getPropertiesRestApi('buy-with-five-percent-down', 6, 21, token);
+    getPropertiesRestApi('buy-with-10-percent-down', 6, 22, token);
 
     function getPropertiesRestApi(className, totalProperty, termID, token) {
 
@@ -381,8 +381,8 @@ jQuery(document).ready(function ($) {
             },
             success: function (json) {
                 var list = json.list;
-                var indexToRemove = 0;
-                $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+                // var indexToRemove = 0;
+                // $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
 
                 $.each(list, function (index, item) {
 
