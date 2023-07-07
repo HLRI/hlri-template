@@ -484,8 +484,6 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
         }
     });
 
-    console.log('12');
-
 }
 
 function getCookie(cname) {
