@@ -12,7 +12,7 @@ jQuery(".listing-wrap").owlCarousel({
     dots: false,
     // autoWidth: true,
     margin: 5,
-}).owlCarousel('update');
+});
 var token = getCookie('uthlri');
 getPropertiesRestApi('just-launched', 6, 20, token);
 getPropertiesRestApi('buy-with-five-percent-down', 6, 21, token);
