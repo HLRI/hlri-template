@@ -446,6 +446,7 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
+                $(".skeleton").owlCarousel('remove');
                 $(".commingsoon").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
