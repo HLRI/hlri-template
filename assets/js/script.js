@@ -367,6 +367,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
     jQuery.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
+        async: false,
         dataType: "json",
         headers: {
             "Authorization": token
