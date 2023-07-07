@@ -447,7 +447,7 @@ function create_routes()
 }
 function getProperties(WP_REST_Request $request)
 {
-
+    $i = 0;
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {
@@ -456,6 +456,9 @@ function getProperties(WP_REST_Request $request)
 
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
+        if (!$i < $_GET['page']) {
+            return;
+        }
         if (in_array($_GET['term_id'], $property['term_ids'])) {
             if ($is_login) {
                 if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
@@ -471,6 +474,7 @@ function getProperties(WP_REST_Request $request)
                 'bookColor' => $bookColor
             ];
         }
+        $i++;
     }
 
 
