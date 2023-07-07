@@ -457,11 +457,8 @@ function getProperties(WP_REST_Request $request)
     $i = 0;
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
-        if ($i < $_GET['page']) {
-            wp_send_json( [
-                'data' => '1'
-            ] );
-            if (in_array($_GET['term_id'], $property['term_ids'])) {
+        if (in_array($_GET['term_id'], $property['term_ids'])) {
+            if ($i < $_GET['page']) {
                 if ($is_login) {
                     if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
                         $bookColor = '#9de450';
@@ -475,6 +472,8 @@ function getProperties(WP_REST_Request $request)
                     'data' => $property,
                     'bookColor' => $bookColor
                 ];
+            }else{
+                break;
             }
         }
         $i++;
