@@ -351,47 +351,47 @@ jQuery(document).ready(function ($) {
     $('.data-show-just-launched').hide();
     var token = getCookie('uthlri');
 
-    $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
-    '                        <div class="skeleton-left flex1">'+
-    '                            <div class="square"></div>'+
-    '                        </div>'+
-    '                        <div class="skeleton-right flex2">'+
-    '                            <div class="line h25 w75 m10"></div>'+
-    '                            <div class="line"></div>'+
-    '                            <div class="line h8 w50"></div>'+
-    '                            <div class="line"></div>'+
-    '                            <div class="line h8 w50"></div>'+
-    '                            <div class="line  w75"></div>'+
-    '                        </div>'+
-    '                    </div>').owlCarousel('update');
-    $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
-    '                        <div class="skeleton-left flex1">'+
-    '                            <div class="square"></div>'+
-    '                        </div>'+
-    '                        <div class="skeleton-right flex2">'+
-    '                            <div class="line h25 w75 m10"></div>'+
-    '                            <div class="line"></div>'+
-    '                            <div class="line h8 w50"></div>'+
-    '                            <div class="line"></div>'+
-    '                            <div class="line h8 w50"></div>'+
-    '                            <div class="line  w75"></div>'+
-    '                        </div>'+
-    '                    </div>').owlCarousel('update');
-    $(".commingsoon").owlCarousel('add', '<div class="skeleton">'+
-    '                        <div class="skeleton-left flex1">'+
-    '                            <div class="square"></div>'+
-    '                        </div>'+
-    '                        <div class="skeleton-right flex2">'+
-    '                            <div class="line h25 w75 m10"></div>'+
-    '                            <div class="line"></div>'+
-    '                            <div class="line h8 w50"></div>'+
-    '                            <div class="line"></div>'+
-    '                            <div class="line h8 w50"></div>'+
-    '                            <div class="line  w75"></div>'+
-    '                        </div>'+
-    '                    </div>').owlCarousel('update');
-   
- 
+    $(".commingsoon").owlCarousel('add', '<div class="skeleton">' +
+        '                        <div class="skeleton-left flex1">' +
+        '                            <div class="square"></div>' +
+        '                        </div>' +
+        '                        <div class="skeleton-right flex2">' +
+        '                            <div class="line h25 w75 m10"></div>' +
+        '                            <div class="line"></div>' +
+        '                            <div class="line h8 w50"></div>' +
+        '                            <div class="line"></div>' +
+        '                            <div class="line h8 w50"></div>' +
+        '                            <div class="line  w75"></div>' +
+        '                        </div>' +
+        '                    </div>').owlCarousel('update');
+    $(".commingsoon").owlCarousel('add', '<div class="skeleton">' +
+        '                        <div class="skeleton-left flex1">' +
+        '                            <div class="square"></div>' +
+        '                        </div>' +
+        '                        <div class="skeleton-right flex2">' +
+        '                            <div class="line h25 w75 m10"></div>' +
+        '                            <div class="line"></div>' +
+        '                            <div class="line h8 w50"></div>' +
+        '                            <div class="line"></div>' +
+        '                            <div class="line h8 w50"></div>' +
+        '                            <div class="line  w75"></div>' +
+        '                        </div>' +
+        '                    </div>').owlCarousel('update');
+    $(".commingsoon").owlCarousel('add', '<div class="skeleton">' +
+        '                        <div class="skeleton-left flex1">' +
+        '                            <div class="square"></div>' +
+        '                        </div>' +
+        '                        <div class="skeleton-right flex2">' +
+        '                            <div class="line h25 w75 m10"></div>' +
+        '                            <div class="line"></div>' +
+        '                            <div class="line h8 w50"></div>' +
+        '                            <div class="line"></div>' +
+        '                            <div class="line h8 w50"></div>' +
+        '                            <div class="line  w75"></div>' +
+        '                        </div>' +
+        '                    </div>').owlCarousel('update');
+
+
     $.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
@@ -399,8 +399,8 @@ jQuery(document).ready(function ($) {
         headers: {
             "Authorization": token
         },
-        data:{
-            'term_id' : 19
+        data: {
+            'term_id': 19
         },
         success: function (json) {
             var list = json.list;
@@ -434,7 +434,8 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
-                $(".skeleton").owlCarousel('remove').owlCarousel('update');
+                var owlCarousel = jQuery(".commingsoon").data('owlCarousel');
+                owlCarousel.removeItem(1);
                 $(".commingsoon").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
@@ -507,7 +508,7 @@ jQuery(document).ready(function ($) {
             xhr.responseText;
         }
     });
- 
+
     $.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
@@ -515,8 +516,8 @@ jQuery(document).ready(function ($) {
         headers: {
             "Authorization": token
         },
-        data:{
-            'term_id' : 21
+        data: {
+            'term_id': 21
         },
         success: function (json) {
             var list = json.list;
@@ -624,7 +625,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
- 
+
     $.ajax({
         type: "GET",
         url: 'https://hlrtest.hlric.com/api/v1/get-properties',
@@ -632,8 +633,8 @@ jQuery(document).ready(function ($) {
         headers: {
             "Authorization": token
         },
-        data:{
-            'term_id' : 22
+        data: {
+            'term_id': 22
         },
         success: function (json) {
             var list = json.list;
@@ -749,8 +750,8 @@ jQuery(document).ready(function ($) {
         headers: {
             "Authorization": token
         },
-        data:{
-            'term_id' : 20
+        data: {
+            'term_id': 20
         },
         success: function (json) {
             var list = json.list;
