@@ -32,6 +32,7 @@ function theme_scripts()
     wp_register_script('HLR-googleapis', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDRDql7G99eM5ij1iv2XjBX3GBw1TollJc&libraries=places&callback=initAutocomplete', [], "1.0.0", true);
     wp_register_script('datatables', 'https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js', array("jquery"), "1.0.0", true);
     wp_register_script('HLR-script', HLR_THEME_ASSETS . 'js/script.js', [], "1.0.0", true);
+    wp_register_script('HLR-home-script', HLR_THEME_ASSETS . 'js/home-script.js', [], "1.0.0", true);
     wp_register_script('HLR-ajax', HLR_THEME_ASSETS . 'js/ajax.js', [], "1.0.0", true);
     wp_enqueue_script('bootstrap-bundle');
     wp_enqueue_script('owl-carousel');
@@ -75,6 +76,10 @@ function theme_scripts()
         wp_enqueue_style('datatables');
         wp_enqueue_script('datatables');
     }
+
+    if (is_home()) {
+        wp_enqueue_script('HLR-home-script');
+    }
 }
 
 add_action('wp_head', 'theme_head');
@@ -83,7 +88,7 @@ function theme_head()
 ?>
 
     <?php if (is_home()) : ?>
-       
+
     <?php endif; ?>
 
 
@@ -159,13 +164,6 @@ function theme_footer()
     <?php endif; ?>
 
     <?php if (is_home()) : ?>
-        <script>
-            var token = getCookie('uthlri');
-            getPropertiesRestApi('commingsoon', 6, 19, token);
-            getPropertiesRestApi('just-launched', 6, 20, token);
-            getPropertiesRestApi('buy-with-five-percent-down', 6, 21, token);
-            getPropertiesRestApi('buy-with-10-percent-down', 6, 22, token);
-        </script>
         <?php if (!empty($theme_options['opt_homeleaderrealtycounter_items'])) : ?>
             <script>
                 function countup(elm, param) {
