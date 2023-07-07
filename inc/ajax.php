@@ -448,12 +448,13 @@ function create_routes()
 function getProperties(WP_REST_Request $request)
 {
 
-    $i = 0;
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {
         $is_login = true;
     }
+
+    $i = 0;
     $items = [];
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
@@ -473,10 +474,6 @@ function getProperties(WP_REST_Request $request)
                     'bookColor' => $bookColor
                 ];
             }
-        } else {
-            return new WP_REST_Response([
-                'list' => $items
-            ], 200);
         }
         $i++;
     }
