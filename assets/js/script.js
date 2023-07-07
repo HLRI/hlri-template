@@ -382,6 +382,9 @@ jQuery(document).ready(function ($) {
             },
             success: function (json) {
                 var list = json.list;
+                var indexToRemove = 0;
+                $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+
                 $.each(list, function (index, item) {
 
                     var post = item.data;
@@ -412,8 +415,6 @@ jQuery(document).ready(function ($) {
                         likeColor = 'red'
                     }
 
-                    var indexToRemove = 0;
-                    $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
 
 
                     $("." + className).owlCarousel('add',
