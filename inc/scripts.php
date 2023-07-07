@@ -83,13 +83,7 @@ function theme_head()
 ?>
 
     <?php if (is_home()) : ?>
-        <script>
-            var token = getCookie('uthlri');
-            getPropertiesRestApi('commingsoon', 6, 19, token);
-            getPropertiesRestApi('just-launched', 6, 20, token);
-            getPropertiesRestApi('buy-with-five-percent-down', 6, 21, token);
-            getPropertiesRestApi('buy-with-10-percent-down', 6, 22, token);
-        </script>
+       
     <?php endif; ?>
 
 
@@ -142,7 +136,7 @@ function theme_head()
 }
 
 
-add_action('wp_footer', 'theme_footer');
+add_action('wp_footer', 'theme_footer', 10);
 function theme_footer()
 {
 
@@ -165,6 +159,13 @@ function theme_footer()
     <?php endif; ?>
 
     <?php if (is_home()) : ?>
+        <script>
+            var token = getCookie('uthlri');
+            getPropertiesRestApi('commingsoon', 6, 19, token);
+            getPropertiesRestApi('just-launched', 6, 20, token);
+            getPropertiesRestApi('buy-with-five-percent-down', 6, 21, token);
+            getPropertiesRestApi('buy-with-10-percent-down', 6, 22, token);
+        </script>
         <?php if (!empty($theme_options['opt_homeleaderrealtycounter_items'])) : ?>
             <script>
                 function countup(elm, param) {
