@@ -351,27 +351,23 @@ jQuery(document).ready(function ($) {
     var token = getCookie('uthlri');
 
 
-    getPropertiesRestApi('commingsoon', 2, 2, 19, token);
+    getPropertiesRestApi('commingsoon', 2, 19, token);
 
-    function getPropertiesRestApi(className, totalCardLoading, totalProperty, termID, token) {
+    function getPropertiesRestApi(className, totalProperty, termID, token) {
 
-        for (var i = 0; i < totalCardLoading; i++) {
-            $("." + className).owlCarousel('add', '<div class="skeleton">' +
-                '                        <div class="skeleton-left flex1">' +
-                '                            <div class="square"></div>' +
-                '                        </div>' +
-                '                        <div class="skeleton-right flex2">' +
-                '                            <div class="line h25 w75 m10"></div>' +
-                '                            <div class="line"></div>' +
-                '                            <div class="line h8 w50"></div>' +
-                '                            <div class="line"></div>' +
-                '                            <div class="line h8 w50"></div>' +
-                '                            <div class="line  w75"></div>' +
-                '                        </div>' +
-                '                    </div>').owlCarousel('update');
-        }
-
-
+        $("." + className).owlCarousel('add', '<div class="skeleton">' +
+            '                        <div class="skeleton-left flex1">' +
+            '                            <div class="square"></div>' +
+            '                        </div>' +
+            '                        <div class="skeleton-right flex2">' +
+            '                            <div class="line h25 w75 m10"></div>' +
+            '                            <div class="line"></div>' +
+            '                            <div class="line h8 w50"></div>' +
+            '                            <div class="line"></div>' +
+            '                            <div class="line h8 w50"></div>' +
+            '                            <div class="line  w75"></div>' +
+            '                        </div>' +
+            '                    </div>').owlCarousel('update');
 
         $.ajax({
             type: "GET",
@@ -417,10 +413,10 @@ jQuery(document).ready(function ($) {
                     }
 
                     var indexToRemove = 0;
-                    $("." + $className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+                    $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
 
 
-                    $("." + $className).owlCarousel('add',
+                    $("." + className).owlCarousel('add',
                         '<div class="card-listing card-listing-v2">' +
                         '<div class="card-listing-image card-listing-image-v2">' +
                         '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +

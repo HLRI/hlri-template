@@ -1,4 +1,3 @@
-
 <div class="container-fluid my-5">
     <div class="row">
         <div class="col-lg-12">
@@ -8,7 +7,6 @@
             </div>
             <div class="d-flex justify-content-center">
                 <div class="owl-carousel owl-theme listing-wrap wrap-list commingsoon">
-                    
                 </div>
             </div>
         </div>
