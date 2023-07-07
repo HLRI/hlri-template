@@ -479,9 +479,6 @@ jQuery(document).ready(function ($) {
                         '                                </div>'
                     ).owlCarousel('update')
                 });
-                // $('.loading-commingsoon').fadeOut(500);
-                // $('.data-show-commingsoon').fadeIn(600);
-                // $('.loading-commingsoon').remove();
             },
             error: function (xhr, status, errorThrown) {
                 xhr.status;
