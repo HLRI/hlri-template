@@ -468,7 +468,7 @@ function getProperties(WP_REST_Request $request)
                 } else {
                     $bookColor = '';
                 }
-                $items = [
+                $items[] = [
                     'data' => $property,
                     'bookColor' => $bookColor
                 ];
