@@ -434,8 +434,10 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
-                var owlCarousel = jQuery(".commingsoon").data('owlCarousel');
-                owlCarousel.removeItem(1);
+                var indexToRemove = 2;
+                $(".commingsoon").trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+                
+
                 $(".commingsoon").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
