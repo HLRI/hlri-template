@@ -345,7 +345,7 @@ jQuery(document).ready(function ($) {
     }
 
 
-  
+
     var token = getCookie('uthlri');
     getPropertiesRestApi('commingsoon', 6, 19, token);
     getPropertiesRestApi('just-launched', 6, 20, token);
@@ -354,59 +354,19 @@ jQuery(document).ready(function ($) {
 
     function getPropertiesRestApi(className, totalProperty, termID, token) {
 
-        $("." + className).owlCarousel('add', '<div class="skeleton">' +
-            '                        <div class="skeleton-left flex1">' +
-            '                            <div class="square"></div>' +
-            '                        </div>' +
-            '                        <div class="skeleton-right flex2">' +
-            '                            <div class="line h25 w75 m10"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line  w75"></div>' +
-            '                        </div>' +
-            '                    </div>').owlCarousel('update');
-              $("." + className).owlCarousel('add', '<div class="skeleton">' +
-            '                        <div class="skeleton-left flex1">' +
-            '                            <div class="square"></div>' +
-            '                        </div>' +
-            '                        <div class="skeleton-right flex2">' +
-            '                            <div class="line h25 w75 m10"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line  w75"></div>' +
-            '                        </div>' +
-            '                    </div>').owlCarousel('update');
-              $("." + className).owlCarousel('add', '<div class="skeleton">' +
-            '                        <div class="skeleton-left flex1">' +
-            '                            <div class="square"></div>' +
-            '                        </div>' +
-            '                        <div class="skeleton-right flex2">' +
-            '                            <div class="line h25 w75 m10"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line  w75"></div>' +
-            '                        </div>' +
-            '                    </div>').owlCarousel('update');
-              $("." + className).owlCarousel('add', '<div class="skeleton">' +
-            '                        <div class="skeleton-left flex1">' +
-            '                            <div class="square"></div>' +
-            '                        </div>' +
-            '                        <div class="skeleton-right flex2">' +
-            '                            <div class="line h25 w75 m10"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line"></div>' +
-            '                            <div class="line h8 w50"></div>' +
-            '                            <div class="line  w75"></div>' +
-            '                        </div>' +
-            '                    </div>').owlCarousel('update');
-            
+        // $("." + className).owlCarousel('add', '<div class="skeleton">' +
+        //     '                        <div class="skeleton-left flex1">' +
+        //     '                            <div class="square"></div>' +
+        //     '                        </div>' +
+        //     '                        <div class="skeleton-right flex2">' +
+        //     '                            <div class="line h25 w75 m10"></div>' +
+        //     '                            <div class="line"></div>' +
+        //     '                            <div class="line h8 w50"></div>' +
+        //     '                            <div class="line"></div>' +
+        //     '                            <div class="line h8 w50"></div>' +
+        //     '                            <div class="line  w75"></div>' +
+        //     '                        </div>' +
+        //     '                    </div>').owlCarousel('update');
 
         $.ajax({
             type: "GET",
@@ -421,8 +381,9 @@ jQuery(document).ready(function ($) {
             },
             success: function (json) {
                 var list = json.list;
-                var indexToRemove = 0;
-                $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+                
+                // var indexToRemove = 0;
+                // $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
 
                 $.each(list, function (index, item) {
 
