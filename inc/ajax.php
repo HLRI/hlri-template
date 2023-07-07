@@ -447,7 +447,7 @@ function create_routes()
 }
 function getProperties(WP_REST_Request $request)
 {
-   
+
     $i = 0;
     $auth_user = checkToken();
     $is_login = false;
@@ -457,23 +457,25 @@ function getProperties(WP_REST_Request $request)
 
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
-        if (!($i < $_GET['page'] )) {
-            break;
-        }
-        if (in_array($_GET['term_id'], $property['term_ids'])) {
-            if ($is_login) {
-                if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
-                    $bookColor = '#9de450';
+        if ($i < $_GET['page']) {
+
+            if (in_array($_GET['term_id'], $property['term_ids'])) {
+                if ($is_login) {
+                    if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                        $bookColor = '#9de450';
+                    } else {
+                        $bookColor = '';
+                    }
                 } else {
                     $bookColor = '';
                 }
-            } else {
-                $bookColor = '';
+                $items[] = [
+                    'data' => $property,
+                    'bookColor' => $bookColor
+                ];
             }
-            $items[] = [
-                'data' => $property,
-                'bookColor' => $bookColor
-            ];
+        }else{
+            break;
         }
         $i++;
     }
@@ -515,7 +517,7 @@ function getProperties(WP_REST_Request $request)
     //     ];
     // }
 
-   
+
 
     return new WP_REST_Response([
         'list' => $items
