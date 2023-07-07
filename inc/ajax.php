@@ -458,7 +458,7 @@ function getProperties(WP_REST_Request $request)
     $peroperties = get_option('properties_data');
     foreach ($peroperties as $property) {
         if (!($i < $_GET['page'] )) {
-            return;
+            break;
         }
         if (in_array($_GET['term_id'], $property['term_ids'])) {
             if ($is_login) {
@@ -515,9 +515,7 @@ function getProperties(WP_REST_Request $request)
     //     ];
     // }
 
-    wp_send_json( [
-        'data' => $items
-    ] );
+   
 
     return new WP_REST_Response([
         'list' => $items
