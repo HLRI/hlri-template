@@ -472,11 +472,9 @@ function getProperties(WP_REST_Request $request)
                     'data' => $property,
                     'bookColor' => $bookColor
                 ];
-            }else{
-                break;
             }
+            $i++;
         }
-        $i++;
     }
 
 
