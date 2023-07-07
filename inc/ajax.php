@@ -449,7 +449,7 @@ function getProperties(WP_REST_Request $request)
 {
 
     wp_send_json( [
-        'data' => 1 < $_GET['page']
+        'data' => 2 < $_GET['page']
     ] );
 
 
