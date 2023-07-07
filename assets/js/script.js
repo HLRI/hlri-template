@@ -488,353 +488,353 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $.ajax({
-        type: "GET",
-        url: 'https://hlrtest.hlric.com/api/v1/get-properties',
-        dataType: "json",
-        headers: {
-            "Authorization": token
-        },
-        data: {
-            'term_id': 21
-        },
-        success: function (json) {
-            var list = json.list;
-            $.each(list, function (index, item) {
+    // $.ajax({
+    //     type: "GET",
+    //     url: 'https://hlrtest.hlric.com/api/v1/get-properties',
+    //     dataType: "json",
+    //     headers: {
+    //         "Authorization": token
+    //     },
+    //     data: {
+    //         'term_id': 21
+    //     },
+    //     success: function (json) {
+    //         var list = json.list;
+    //         $.each(list, function (index, item) {
 
-                var post = item.data;
+    //             var post = item.data;
 
-                var maxPriceSqft = '';
-                var minSize = '';
-                var address = '';
-                var totalLike = '';
-                var likeColor = '';
+    //             var maxPriceSqft = '';
+    //             var minSize = '';
+    //             var address = '';
+    //             var totalLike = '';
+    //             var likeColor = '';
 
-                if (post.metadata['opt-min-price-sqft'] != '') {
-                    maxPriceSqft = '<div>$' + post.metadata['opt-min-price-sqft'] + ' to  $' + post.metadata['opt-max-price-sqft'] + '</div>';
-                }
+    //             if (post.metadata['opt-min-price-sqft'] != '') {
+    //                 maxPriceSqft = '<div>$' + post.metadata['opt-min-price-sqft'] + ' to  $' + post.metadata['opt-max-price-sqft'] + '</div>';
+    //             }
 
-                if (post.metadata['opt-size-min'] != '') {
-                    minSize = '<div>' + post.metadata['opt-size-min'] + ' - ' + post.metadata['opt-size-max'] + ' Sq Ft | ' + post.metadata['opt-occupancy'] + '</div>';
-                }
+    //             if (post.metadata['opt-size-min'] != '') {
+    //                 minSize = '<div>' + post.metadata['opt-size-min'] + ' - ' + post.metadata['opt-size-max'] + ' Sq Ft | ' + post.metadata['opt-occupancy'] + '</div>';
+    //             }
 
-                if (post.metadata['opt-address'] != '') {
-                    address = '<div>' + post.metadata['opt-address'] + '</div>';
-                }
+    //             if (post.metadata['opt-address'] != '') {
+    //                 address = '<div>' + post.metadata['opt-address'] + '</div>';
+    //             }
 
-                if (post.metadata['total_like'] != '') {
-                    totalLike = post.metadata['total_like'];
-                }
+    //             if (post.metadata['total_like'] != '') {
+    //                 totalLike = post.metadata['total_like'];
+    //             }
 
-                if (getCookie(post.id) == 'isset') {
-                    likeColor = 'red'
-                }
+    //             if (getCookie(post.id) == 'isset') {
+    //                 likeColor = 'red'
+    //             }
 
-                $(".buy-with-five-percent-down").owlCarousel('add',
-                    '<div class="card-listing card-listing-v2">' +
-                    '<div class="card-listing-image card-listing-image-v2">' +
-                    '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    '                                       <img src="' + post.thumbnail_url + '" >' +
-                    '                                    </a>' +
-                    '                                </div>' +
-                    '' +
-                    '' +
-                    '                                <div class="card-body-listing card-body-listing-v2">' +
-                    '' +
-                    '                                    <div class="card-listing-content card-listing-content-v2">' +
-                    '                                        <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    '                                            <h6 class="text-black">' + post.title + '</h6>' +
-                    '                                        </a>' +
-                    '                                        <div class="card-listing-description card-listing-description-v2">' +
-                    '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    post.content +
-                    '                                            </a>' +
-                    '                                        </div>' +
-                    '                                    </div>' +
-                    '' +
-                    '                                    <div class="lable-listing lable-listing-v2">' +
+    //             $(".buy-with-five-percent-down").owlCarousel('add',
+    //                 '<div class="card-listing card-listing-v2">' +
+    //                 '<div class="card-listing-image card-listing-image-v2">' +
+    //                 '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 '                                       <img src="' + post.thumbnail_url + '" >' +
+    //                 '                                    </a>' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '' +
+    //                 '                                <div class="card-body-listing card-body-listing-v2">' +
+    //                 '' +
+    //                 '                                    <div class="card-listing-content card-listing-content-v2">' +
+    //                 '                                        <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 '                                            <h6 class="text-black">' + post.title + '</h6>' +
+    //                 '                                        </a>' +
+    //                 '                                        <div class="card-listing-description card-listing-description-v2">' +
+    //                 '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 post.content +
+    //                 '                                            </a>' +
+    //                 '                                        </div>' +
+    //                 '                                    </div>' +
+    //                 '' +
+    //                 '                                    <div class="lable-listing lable-listing-v2">' +
 
-                    maxPriceSqft +
+    //                 maxPriceSqft +
 
-                    minSize +
-                    address +
-                    '                                    </div>' +
-                    '                                </div>' +
-                    '' +
-                    '' +
-                    '' +
-                    '                                <div class="more more-v2">' +
-                    '                                    <div class="card-listing-options">' +
-                    '                                        <div>' +
-                    '                                            <i onclick="setLikeProperties(this, ' + post.id + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
-                    '                                            <span class="text-muted" id="like-total">' +
+    //                 minSize +
+    //                 address +
+    //                 '                                    </div>' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '' +
+    //                 '' +
+    //                 '                                <div class="more more-v2">' +
+    //                 '                                    <div class="card-listing-options">' +
+    //                 '                                        <div>' +
+    //                 '                                            <i onclick="setLikeProperties(this, ' + post.id + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
+    //                 '                                            <span class="text-muted" id="like-total">' +
 
-                    totalLike +
-                    '                                            </span>' +
-                    '                                        </div>' +
-                    '' +
-                    '                                        <i role="button" class="fa fa-share-alt"></i>' +
-                    '<i role="button" onclick="bookmark(this,' + post.id + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
-                    '                                    </div>' +
-                    '                                    <a href="' + post.permalink + '" title="' + post.title + '" class="">more</a>' +
-                    '' +
-                    '                                </div>' +
-                    '' +
-                    '                                <div class="card-share">' +
-                    '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
-                    '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
-                    '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' + post.shortlink + '"><i class="fa fa-twitter-square"></i></a>' +
-                    '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
-                    '                                </div>' +
-                    '                                </div>'
-                ).owlCarousel('update')
-            });
-            $('.loading-buy-with-five-percent-down').fadeOut(500);
-            $('.data-show-buy-with-five-percent-down').fadeIn(600);
-            $('.loading-buy-with-five-percent-down').remove();
+    //                 totalLike +
+    //                 '                                            </span>' +
+    //                 '                                        </div>' +
+    //                 '' +
+    //                 '                                        <i role="button" class="fa fa-share-alt"></i>' +
+    //                 '<i role="button" onclick="bookmark(this,' + post.id + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
+    //                 '                                    </div>' +
+    //                 '                                    <a href="' + post.permalink + '" title="' + post.title + '" class="">more</a>' +
+    //                 '' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '                                <div class="card-share">' +
+    //                 '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' + post.shortlink + '"><i class="fa fa-twitter-square"></i></a>' +
+    //                 '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
+    //                 '                                </div>' +
+    //                 '                                </div>'
+    //             ).owlCarousel('update')
+    //         });
+    //         $('.loading-buy-with-five-percent-down').fadeOut(500);
+    //         $('.data-show-buy-with-five-percent-down').fadeIn(600);
+    //         $('.loading-buy-with-five-percent-down').remove();
 
-        },
-        error: function (xhr, status, errorThrown) {
-            xhr.status;
-            xhr.responseText;
-        }
-    });
+    //     },
+    //     error: function (xhr, status, errorThrown) {
+    //         xhr.status;
+    //         xhr.responseText;
+    //     }
+    // });
 
-    $.ajax({
-        type: "GET",
-        url: 'https://hlrtest.hlric.com/api/v1/get-properties',
-        dataType: "json",
-        headers: {
-            "Authorization": token
-        },
-        data: {
-            'term_id': 22
-        },
-        success: function (json) {
-            var list = json.list;
-            $.each(list, function (index, item) {
+    // $.ajax({
+    //     type: "GET",
+    //     url: 'https://hlrtest.hlric.com/api/v1/get-properties',
+    //     dataType: "json",
+    //     headers: {
+    //         "Authorization": token
+    //     },
+    //     data: {
+    //         'term_id': 22
+    //     },
+    //     success: function (json) {
+    //         var list = json.list;
+    //         $.each(list, function (index, item) {
 
-                var post = item.data;
+    //             var post = item.data;
 
-                var maxPriceSqft = '';
-                var minSize = '';
-                var address = '';
-                var totalLike = '';
-                var likeColor = '';
+    //             var maxPriceSqft = '';
+    //             var minSize = '';
+    //             var address = '';
+    //             var totalLike = '';
+    //             var likeColor = '';
 
-                if (post.metadata['opt-min-price-sqft'] != '') {
-                    maxPriceSqft = '<div>$' + post.metadata['opt-min-price-sqft'] + ' to  $' + post.metadata['opt-max-price-sqft'] + '</div>';
-                }
+    //             if (post.metadata['opt-min-price-sqft'] != '') {
+    //                 maxPriceSqft = '<div>$' + post.metadata['opt-min-price-sqft'] + ' to  $' + post.metadata['opt-max-price-sqft'] + '</div>';
+    //             }
 
-                if (post.metadata['opt-size-min'] != '') {
-                    minSize = '<div>' + post.metadata['opt-size-min'] + ' - ' + post.metadata['opt-size-max'] + ' Sq Ft | ' + post.metadata['opt-occupancy'] + '</div>';
-                }
+    //             if (post.metadata['opt-size-min'] != '') {
+    //                 minSize = '<div>' + post.metadata['opt-size-min'] + ' - ' + post.metadata['opt-size-max'] + ' Sq Ft | ' + post.metadata['opt-occupancy'] + '</div>';
+    //             }
 
-                if (post.metadata['opt-address'] != '') {
-                    address = '<div>' + post.metadata['opt-address'] + '</div>';
-                }
+    //             if (post.metadata['opt-address'] != '') {
+    //                 address = '<div>' + post.metadata['opt-address'] + '</div>';
+    //             }
 
-                if (post.metadata['total_like'] != '') {
-                    totalLike = post.metadata['total_like'];
-                }
+    //             if (post.metadata['total_like'] != '') {
+    //                 totalLike = post.metadata['total_like'];
+    //             }
 
-                if (getCookie(post.id) == 'isset') {
-                    likeColor = 'red'
-                }
+    //             if (getCookie(post.id) == 'isset') {
+    //                 likeColor = 'red'
+    //             }
 
-                $(".buy-with-10-percent-down").owlCarousel('add',
-                    '<div class="card-listing card-listing-v2">' +
-                    '<div class="card-listing-image card-listing-image-v2">' +
-                    '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    '                                       <img src="' + post.thumbnail_url + '" >' +
-                    '                                    </a>' +
-                    '                                </div>' +
-                    '' +
-                    '' +
-                    '                                <div class="card-body-listing card-body-listing-v2">' +
-                    '' +
-                    '                                    <div class="card-listing-content card-listing-content-v2">' +
-                    '                                        <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    '                                            <h6 class="text-black">' + post.title + '</h6>' +
-                    '                                        </a>' +
-                    '                                        <div class="card-listing-description card-listing-description-v2">' +
-                    '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    post.content +
-                    '                                            </a>' +
-                    '                                        </div>' +
-                    '                                    </div>' +
-                    '' +
-                    '                                    <div class="lable-listing lable-listing-v2">' +
+    //             $(".buy-with-10-percent-down").owlCarousel('add',
+    //                 '<div class="card-listing card-listing-v2">' +
+    //                 '<div class="card-listing-image card-listing-image-v2">' +
+    //                 '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 '                                       <img src="' + post.thumbnail_url + '" >' +
+    //                 '                                    </a>' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '' +
+    //                 '                                <div class="card-body-listing card-body-listing-v2">' +
+    //                 '' +
+    //                 '                                    <div class="card-listing-content card-listing-content-v2">' +
+    //                 '                                        <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 '                                            <h6 class="text-black">' + post.title + '</h6>' +
+    //                 '                                        </a>' +
+    //                 '                                        <div class="card-listing-description card-listing-description-v2">' +
+    //                 '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 post.content +
+    //                 '                                            </a>' +
+    //                 '                                        </div>' +
+    //                 '                                    </div>' +
+    //                 '' +
+    //                 '                                    <div class="lable-listing lable-listing-v2">' +
 
-                    maxPriceSqft +
+    //                 maxPriceSqft +
 
-                    minSize +
-                    address +
-                    '                                    </div>' +
-                    '                                </div>' +
-                    '' +
-                    '' +
-                    '' +
-                    '                                <div class="more more-v2">' +
-                    '                                    <div class="card-listing-options">' +
-                    '                                        <div>' +
-                    '                                            <i onclick="setLikeProperties(this, ' + post.id + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
-                    '                                            <span class="text-muted" id="like-total">' +
+    //                 minSize +
+    //                 address +
+    //                 '                                    </div>' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '' +
+    //                 '' +
+    //                 '                                <div class="more more-v2">' +
+    //                 '                                    <div class="card-listing-options">' +
+    //                 '                                        <div>' +
+    //                 '                                            <i onclick="setLikeProperties(this, ' + post.id + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
+    //                 '                                            <span class="text-muted" id="like-total">' +
 
-                    totalLike +
-                    '                                            </span>' +
-                    '                                        </div>' +
-                    '' +
-                    '                                        <i role="button" class="fa fa-share-alt"></i>' +
-                    '<i role="button" onclick="bookmark(this,' + post.id + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
-                    '                                    </div>' +
-                    '                                    <a href="' + post.permalink + '" title="' + post.title + '" class="">more</a>' +
-                    '' +
-                    '                                </div>' +
-                    '' +
-                    '                                <div class="card-share">' +
-                    '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
-                    '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
-                    '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' + post.shortlink + '"><i class="fa fa-twitter-square"></i></a>' +
-                    '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
-                    '                                </div>' +
-                    '                                </div>'
-                ).owlCarousel('update')
-            });
-            $('.loading-buy-with-10-percent-down').fadeOut(500);
-            $('.data-show-buy-with-10-percent-down').fadeIn(600);
-            $('.loading-buy-with-10-percent-down').remove();
+    //                 totalLike +
+    //                 '                                            </span>' +
+    //                 '                                        </div>' +
+    //                 '' +
+    //                 '                                        <i role="button" class="fa fa-share-alt"></i>' +
+    //                 '<i role="button" onclick="bookmark(this,' + post.id + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
+    //                 '                                    </div>' +
+    //                 '                                    <a href="' + post.permalink + '" title="' + post.title + '" class="">more</a>' +
+    //                 '' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '                                <div class="card-share">' +
+    //                 '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' + post.shortlink + '"><i class="fa fa-twitter-square"></i></a>' +
+    //                 '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
+    //                 '                                </div>' +
+    //                 '                                </div>'
+    //             ).owlCarousel('update')
+    //         });
+    //         $('.loading-buy-with-10-percent-down').fadeOut(500);
+    //         $('.data-show-buy-with-10-percent-down').fadeIn(600);
+    //         $('.loading-buy-with-10-percent-down').remove();
 
-        },
-        error: function (xhr, status, errorThrown) {
-            xhr.status;
-            xhr.responseText;
-        }
-    });
+    //     },
+    //     error: function (xhr, status, errorThrown) {
+    //         xhr.status;
+    //         xhr.responseText;
+    //     }
+    // });
 
-    $.ajax({
-        type: "GET",
-        url: 'https://hlrtest.hlric.com/api/v1/get-properties',
-        dataType: "json",
-        headers: {
-            "Authorization": token
-        },
-        data: {
-            'term_id': 20
-        },
-        success: function (json) {
-            var list = json.list;
-            $.each(list, function (index, item) {
+    // $.ajax({
+    //     type: "GET",
+    //     url: 'https://hlrtest.hlric.com/api/v1/get-properties',
+    //     dataType: "json",
+    //     headers: {
+    //         "Authorization": token
+    //     },
+    //     data: {
+    //         'term_id': 20
+    //     },
+    //     success: function (json) {
+    //         var list = json.list;
+    //         $.each(list, function (index, item) {
 
-                var post = item.data;
+    //             var post = item.data;
 
-                var maxPriceSqft = '';
-                var minSize = '';
-                var address = '';
-                var totalLike = '';
-                var likeColor = '';
+    //             var maxPriceSqft = '';
+    //             var minSize = '';
+    //             var address = '';
+    //             var totalLike = '';
+    //             var likeColor = '';
 
-                if (post.metadata['opt-min-price-sqft'] != '') {
-                    maxPriceSqft = '<div>$' + post.metadata['opt-min-price-sqft'] + ' to  $' + post.metadata['opt-max-price-sqft'] + '</div>';
-                }
+    //             if (post.metadata['opt-min-price-sqft'] != '') {
+    //                 maxPriceSqft = '<div>$' + post.metadata['opt-min-price-sqft'] + ' to  $' + post.metadata['opt-max-price-sqft'] + '</div>';
+    //             }
 
-                if (post.metadata['opt-size-min'] != '') {
-                    minSize = '<div>' + post.metadata['opt-size-min'] + ' - ' + post.metadata['opt-size-max'] + ' Sq Ft | ' + post.metadata['opt-occupancy'] + '</div>';
-                }
+    //             if (post.metadata['opt-size-min'] != '') {
+    //                 minSize = '<div>' + post.metadata['opt-size-min'] + ' - ' + post.metadata['opt-size-max'] + ' Sq Ft | ' + post.metadata['opt-occupancy'] + '</div>';
+    //             }
 
-                if (post.metadata['opt-address'] != '') {
-                    address = '<div>' + post.metadata['opt-address'] + '</div>';
-                }
+    //             if (post.metadata['opt-address'] != '') {
+    //                 address = '<div>' + post.metadata['opt-address'] + '</div>';
+    //             }
 
-                if (post.metadata['total_like'] != '') {
-                    totalLike = post.metadata['total_like'];
-                }
+    //             if (post.metadata['total_like'] != '') {
+    //                 totalLike = post.metadata['total_like'];
+    //             }
 
-                if (getCookie(post.id) == 'isset') {
-                    likeColor = 'red'
-                }
+    //             if (getCookie(post.id) == 'isset') {
+    //                 likeColor = 'red'
+    //             }
 
-                $(".just-launched").owlCarousel('add',
-                    '<div class="card-listing card-listing-v2">' +
-                    '<div class="card-listing-image card-listing-image-v2">' +
-                    '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    '                                       <img src="' + post.thumbnail_url + '" >' +
-                    '                                    </a>' +
-                    '                                </div>' +
-                    '' +
-                    '' +
-                    '                                <div class="card-body-listing card-body-listing-v2">' +
-                    '' +
-                    '                                    <div class="card-listing-content card-listing-content-v2">' +
-                    '                                        <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    '                                            <h6 class="text-black">' + post.title + '</h6>' +
-                    '                                        </a>' +
-                    '                                        <div class="card-listing-description card-listing-description-v2">' +
-                    '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    post.content +
-                    '                                            </a>' +
-                    '                                        </div>' +
-                    '                                    </div>' +
-                    '' +
-                    '                                    <div class="lable-listing lable-listing-v2">' +
+    //             $(".just-launched").owlCarousel('add',
+    //                 '<div class="card-listing card-listing-v2">' +
+    //                 '<div class="card-listing-image card-listing-image-v2">' +
+    //                 '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 '                                       <img src="' + post.thumbnail_url + '" >' +
+    //                 '                                    </a>' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '' +
+    //                 '                                <div class="card-body-listing card-body-listing-v2">' +
+    //                 '' +
+    //                 '                                    <div class="card-listing-content card-listing-content-v2">' +
+    //                 '                                        <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 '                                            <h6 class="text-black">' + post.title + '</h6>' +
+    //                 '                                        </a>' +
+    //                 '                                        <div class="card-listing-description card-listing-description-v2">' +
+    //                 '                                            <a href="' + post.permalink + '" title="' + post.title + '">' +
+    //                 post.content +
+    //                 '                                            </a>' +
+    //                 '                                        </div>' +
+    //                 '                                    </div>' +
+    //                 '' +
+    //                 '                                    <div class="lable-listing lable-listing-v2">' +
 
-                    maxPriceSqft +
+    //                 maxPriceSqft +
 
-                    minSize +
-                    address +
-                    '                                    </div>' +
-                    '                                </div>' +
-                    '' +
-                    '' +
-                    '' +
-                    '                                <div class="more more-v2">' +
-                    '                                    <div class="card-listing-options">' +
-                    '                                        <div>' +
-                    '                                            <i onclick="setLikeProperties(this, ' + post.id + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
-                    '                                            <span class="text-muted" id="like-total">' +
+    //                 minSize +
+    //                 address +
+    //                 '                                    </div>' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '' +
+    //                 '' +
+    //                 '                                <div class="more more-v2">' +
+    //                 '                                    <div class="card-listing-options">' +
+    //                 '                                        <div>' +
+    //                 '                                            <i onclick="setLikeProperties(this, ' + post.id + ')" role="button" class="fa fa-heart" style="color:' + likeColor + '"></i>' +
+    //                 '                                            <span class="text-muted" id="like-total">' +
 
-                    totalLike +
-                    '                                            </span>' +
-                    '                                        </div>' +
-                    '' +
-                    '                                        <i role="button" class="fa fa-share-alt"></i>' +
-                    '<i role="button" onclick="bookmark(this,' + post.id + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
-                    '                                    </div>' +
-                    '                                    <a href="' + post.permalink + '" title="' + post.title + '" class="">more</a>' +
-                    '' +
-                    '                                </div>' +
-                    '' +
-                    '                                <div class="card-share">' +
-                    '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
-                    '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
-                    '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
-                    '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' + post.shortlink + '"><i class="fa fa-twitter-square"></i></a>' +
-                    '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
-                    '                                </div>' +
-                    '                                </div>'
-                ).owlCarousel('update')
-            });
-            $('.loading-just-launched').fadeOut(500);
-            $('.data-show-just-launched').fadeIn(600);
-            $('.loading-just-launched').remove();
+    //                 totalLike +
+    //                 '                                            </span>' +
+    //                 '                                        </div>' +
+    //                 '' +
+    //                 '                                        <i role="button" class="fa fa-share-alt"></i>' +
+    //                 '<i role="button" onclick="bookmark(this,' + post.id + ')" class="fa fa-bookmark" style="color:' + item.bookColor + '"></i>' +
+    //                 '                                    </div>' +
+    //                 '                                    <a href="' + post.permalink + '" title="' + post.title + '" class="">more</a>' +
+    //                 '' +
+    //                 '                                </div>' +
+    //                 '' +
+    //                 '                                <div class="card-share">' +
+    //                 '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' + post.shortlink + '&media=' + post.thumbnail_url + '&description=' + post.title + '"><i class="fa fa-pinterest"></i></a>' +
+    //                 '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' + post.shortlink + '"><i class="fa fa-twitter-square"></i></a>' +
+    //                 '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
+    //                 '                                </div>' +
+    //                 '                                </div>'
+    //             ).owlCarousel('update')
+    //         });
+    //         $('.loading-just-launched').fadeOut(500);
+    //         $('.data-show-just-launched').fadeIn(600);
+    //         $('.loading-just-launched').remove();
 
-        },
-        error: function (xhr, status, errorThrown) {
-            xhr.status;
-            xhr.responseText;
-        }
-    });
+    //     },
+    //     error: function (xhr, status, errorThrown) {
+    //         xhr.status;
+    //         xhr.responseText;
+    //     }
+    // });
 
 
 });
