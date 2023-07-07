@@ -381,8 +381,8 @@ jQuery(document).ready(function ($) {
             },
             success: function (json) {
                 var list = json.list;
-                // var indexToRemove = 0;
-                // $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
+                var indexToRemove = 0;
+                $("." + className).trigger('remove.owl.carousel', [indexToRemove]).trigger('refresh.owl.carousel');
 
                 $.each(list, function (index, item) {
 
