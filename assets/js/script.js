@@ -394,7 +394,7 @@ jQuery(document).ready(function ($) {
                     likeColor = 'red'
                 }
 
-                // $(".commingsoon").html('');
+                $(".commingsoon .skeleton").remove();
                 $(".commingsoon").owlCarousel('add',
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
