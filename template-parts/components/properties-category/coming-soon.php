@@ -7,6 +7,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <div class="owl-carousel owl-theme listing-wrap wrap-list commingsoon">
+                    <div></div>
                 </div>
             </div>
         </div>
