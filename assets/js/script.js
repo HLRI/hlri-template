@@ -351,7 +351,7 @@ jQuery(document).ready(function ($) {
     var token = getCookie('uthlri');
 
 
-    getPropertiesRestApi('commingsoon', 2, 19, token);
+    getPropertiesRestApi('commingsoon', 1, 19, token);
 
     function getPropertiesRestApi(className, totalProperty, termID, token) {
 
