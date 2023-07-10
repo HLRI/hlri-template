@@ -1,5 +1,14 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
-
+<?php include(HLR_THEME_COMPONENT . 'slider.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'top-section.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'neighborhood.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'properties-category/just-launched.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'properties-category/buy-with-5-percent-down.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'properties-category/buy-with-10-percent-down.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'properties-category/coming-soon.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'properties-category/condo-assignment.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'personal-list.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'counter.php'); ?>
 
 
 <!-- <div class="container-fluid my-5">
