@@ -16,7 +16,7 @@
                 foreach ($theme_options['opt-slider-fieldset']['opt_slider_items'] as $item) :
                 ?>
                     <div class="carousel-item <?= $i == 0 ? 'active' : ''  ?>">
-                        <img loading="lazy" class="d-block w-100 item-slider" src="<?= $item['opt-slider-image']['url'] ?>" alt="<?= $item['opt-slider-link']['alt'] ?>">
+                        <img class="d-block w-100 item-slider" src="<?= $item['opt-slider-image']['url'] ?>" alt="<?= $item['opt-slider-link']['alt'] ?>">
                         <div class="carousel-caption d-none d-md-block">
                             <a href="<?= $item['opt-slider-title-link']['url'] ?>" title="<?= $item['opt-slider-title1'] ?>">
                                 <?php if (!empty($item['opt-slider-title1'])) : ?>
