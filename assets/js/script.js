@@ -369,6 +369,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
         headers: {
             "Authorization": token
         },
+        async: false,
         data: {
             'term_id': termID,
             'page': totalProperty
