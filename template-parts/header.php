@@ -1,4 +1,5 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
+<!DOCTYPE>
 <html <?php language_attributes(); ?>>
 
 <head>
