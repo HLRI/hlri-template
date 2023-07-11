@@ -476,7 +476,6 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
                 ).owlCarousel('update')
             });
             jQuery('.owl-carousel').trigger('refresh.owl.carousel');
-            console.log('ejra');
         },
         error: function (xhr, status, errorThrown) {
             xhr.status;
