@@ -167,7 +167,7 @@ function theme_footer()
         <?php if (!empty($theme_options['opt_homeleaderrealtycounter_items'])) : ?>
             <script>
                 jQuery('.owl-carousel').trigger('refresh.owl.carousel');
-
+console.log('ejra1');
                 function countup(elm, param) {
                     var start = 0;
                     var intval = setInterval(() => {
