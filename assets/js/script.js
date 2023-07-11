@@ -369,7 +369,6 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
         headers: {
             "Authorization": token
         },
-        async: false,
         data: {
             'term_id': termID,
             'page': totalProperty
@@ -476,6 +475,8 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
                     '                                </div>'
                 ).owlCarousel('update')
             });
+            jQuery('.owl-carousel').trigger('refresh.owl.carousel');
+            console.log('ejra');
         },
         error: function (xhr, status, errorThrown) {
             xhr.status;
