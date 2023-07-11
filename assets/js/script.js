@@ -483,6 +483,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
     });
 
     jQuery('.owl-carousel').trigger('refresh.owl.carousel');
+    console.log('ejra');
 }
 
 
