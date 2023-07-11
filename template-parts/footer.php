@@ -101,7 +101,8 @@ $posts = new WP_Query($arg);
 
 <?php include HLR_THEME_PATH . 'template-parts/components/search-mobile.php' ?>
 <?php include HLR_THEME_PATH . 'template-parts/components/login-popup.php' ?>
-<script>jQuery('.owl-carousel').trigger('refresh.owl.carousel');</script>
+<script>jQuery('.owl-carousel').trigger('refresh.owl.carousel');
+console.log('ejra shod');</script>
 
 <?php wp_footer(); ?>
 
