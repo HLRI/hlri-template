@@ -101,7 +101,6 @@ function setpropertiesquery()
             ],
         ];
     }
-
     update_option('properties_data', $items, 'no');
 }
 
@@ -120,25 +119,14 @@ function disable_emojis() {
 }
 add_action( 'init', 'disable_emojis' );
 
- 
-
 function disable_emojis_tinymce( $plugins ) {
     if ( is_array( $plugins ) ) {
         return array_diff( $plugins, array( 'wpemoji' ) );
     }
-
- 
-
     return array();
 }
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
-
- 
-
     if ( 'dns-prefetch' == $relation_type ) {
-
- 
-
         // Strip out any URLs referencing the WordPress.org emoji location
         $emoji_svg_url_bit = 'https://s.w.org/images/core/emoji/';
         foreach ( $urls as $key => $url ) {
@@ -146,12 +134,6 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
                 unset( $urls[$key] );
             }
         }
-
- 
-
     }
-
- 
-
     return $urls;
 }
