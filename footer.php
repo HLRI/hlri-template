@@ -6,5 +6,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 
 echo "<script>jQuery('.owl-carousel').trigger('refresh.owl.carousel');</script>";
 
+wp_footer();
+
 ?>
 
