@@ -507,6 +507,3 @@ function getCookie(cname) {
 }
 
 
-jQuery(document).ready(function ($) {
-    $('style').detach();
-});

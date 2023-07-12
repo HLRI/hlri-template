@@ -24,7 +24,7 @@ function theme_scripts()
     // wp_enqueue_style('imagehover');
     wp_enqueue_style('style');
     wp_enqueue_style('responsive');
-    wp_enqueue_style('extra');
+    // wp_enqueue_style('extra');
 
 
     wp_register_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array("jquery"), "1.0.0", true);
