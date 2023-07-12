@@ -507,6 +507,6 @@ function getCookie(cname) {
 }
 
 
-$.each(jQuery('style'), function (indexInArray, valueOfElement) { 
+jQuery.each(jQuery('style'), function (indexInArray, valueOfElement) { 
     console.log(valueOfElement);
 });
