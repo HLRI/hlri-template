@@ -13,6 +13,7 @@ function theme_scripts()
     wp_register_style('imagehover', HLR_THEME_ASSETS . 'css/imagehover.css');
     wp_register_style('style', HLR_THEME_ASSETS . 'css/style.css');
     wp_register_style('responsive', HLR_THEME_ASSETS . 'css/responsive.css');
+    wp_register_style('extra', HLR_THEME_ASSETS . 'css/extra-css.css');
 
     wp_enqueue_style('bootstrap');
     wp_enqueue_style('owl-carousel');
@@ -23,6 +24,7 @@ function theme_scripts()
     // wp_enqueue_style('imagehover');
     wp_enqueue_style('style');
     wp_enqueue_style('responsive');
+    wp_enqueue_style('extra');
 
 
     wp_register_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', array("jquery"), "1.0.0", true);
