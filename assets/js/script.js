@@ -507,4 +507,4 @@ function getCookie(cname) {
 }
 
 
-console.log(jQuery('style'));
+console.log(jQuery('style[type="text/css"]'));
