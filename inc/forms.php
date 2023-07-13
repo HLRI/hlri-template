@@ -61,6 +61,7 @@ function hlr_contact_form()
                     brokerage = '';
                 } else {
                     jQuery('.brokerage').addClass('d-none');
+                    brokerage = 'No Brokerage';
                 }
             }
         });
