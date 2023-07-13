@@ -543,14 +543,13 @@ function getForm(WP_REST_Request $request)
     ]);
 
     $validation->setMessages([
-        'fname:required' => 'The First Name required',
-        'fname:required' => 'The First Name required',
+        'fname:required' => 'The First Name is required',
         'fname:min' => 'The First Name minimum is 3',
         'fname:max' => 'The First Name maximum is 10',
         'lname:required' => 'The Last Name is required',
         'lname:min' => 'The Last Name minimum is 3',
         'lname:max' => 'The Last Name maximum is 10',
-        'brokerage:required' => 'The Brokerage Name required',
+        'brokerage:required' => 'The Brokerage Name is required',
     ]);
 
     $validation->validate();
