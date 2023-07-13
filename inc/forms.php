@@ -20,7 +20,7 @@ function hlr_contact_form()
             </div>
             <div class="col-6 my-3">
                 <label for="phone">Phone Number</label>
-                <input class="form-control" type="text" name="emaiphonel" id="phone">
+                <input class="form-control" type="text" name="phone" id="phone">
             </div>
             <div class="col-12 my-3">
                 <p><label for="realtor">Are you a realtor?</label></p>
