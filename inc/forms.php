@@ -52,12 +52,11 @@ function hlr_contact_form()
     </div>
 
     <script>
-        console.log(jQuery('input[name="realtor"]').val());
         jQuery('input[name="realtor"]').click(function() {
             if (jQuery(this).is(':checked')) {
-                if(jQuery(this).val() == 1){
+                if (jQuery(this).val() == 1) {
                     jQuery('.brokerage').removeClass('d-none');
-                }else{
+                } else {
                     jQuery('.brokerage').addClass('d-none');
                 }
             }
@@ -65,11 +64,14 @@ function hlr_contact_form()
 
         jQuery('#send').click(function() {
 
+            var brokerage = 'No Brokerage';
             jQuery('.input-error').remove();
             jQuery('.input-error').remove();
             jQuery('.success-message').addClass('d-none');
             jQuery('.success-message small').text('');
-
+            if (jQuery('input[name="realtor"]').val() == 1) {
+                brokerage = '';
+            }
             jQuery.ajax({
                 type: "POST",
                 url: 'https://hlrtest.hlric.com/api/v1/get-form',
@@ -79,6 +81,7 @@ function hlr_contact_form()
                     'lname': jQuery('input[name="lname"]').val(),
                     'email': jQuery('input[name="email"]').val(),
                     'phone': jQuery('input[name="phone"]').val(),
+                    'brokerage': brokerage,
                 },
                 success: function(response) {
                     if (response.status == 'errors') {
