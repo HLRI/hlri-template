@@ -538,9 +538,7 @@ function getForm(WP_REST_Request $request)
     
     if ($validation->fails()) {
         $errors = $validation->errors();
-        return new WP_REST_Response([
-            'errors' => $errors->firstOfAll()
-        ], 400);
+        return $errors->firstOfAll();
     } else {
         return new WP_REST_Response([
             'status' => 'ok'
