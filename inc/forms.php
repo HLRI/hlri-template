@@ -52,13 +52,14 @@ function hlr_contact_form()
     </div>
 
     <script>
+        jQuery('input[name="realtor"]').click(function() {
+            if (jQuery(this).is(':checked')) {
+                alert(jQuery(this).val());
+            }
+        });
+
         jQuery('#send').click(function() {
 
-            jQuery('input[name="realtor"]').click(function() {
-                if (jQuery(this).is(':checked')) {
-                    alert(jQuery(this).val());
-                }
-            });
             jQuery('.input-error').remove();
             jQuery('.success-message').addClass('d-none');
             jQuery('.success-message small').text('');
