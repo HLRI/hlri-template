@@ -31,6 +31,7 @@ function hlr_contact_form()
                 dataType: "json",
                 data: {
                     'name': jQuery('input[name="name"]').val(),
+                    'email': jQuery('input[name="email"]').val(),
                 },
                 success: function(response) {
                     if (response.status == 'errors') {
