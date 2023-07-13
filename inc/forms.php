@@ -9,7 +9,7 @@ function hlr_contact_form()
             <div class="col-12">
                 <div class="my-4">
                     <label for="name">name</label>
-                    <input type="text" name="name" placeholder="name">
+                    <input class="form-control" type="text" name="name" placeholder="name">
                 </div>
             </div>
         </div>
