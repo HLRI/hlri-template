@@ -22,10 +22,8 @@ function hlr_contact_form()
                 <label for="phone">Phone Number</label>
                 <input class="form-control" type="text" name="emaiphonel" id="phone">
             </div>
-
             <div class="col-12 my-4">
                 <p><label for="realtor">Are you a realtor?</label></p>
-                <!-- <br> -->
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="realtor" id="realtor1" value="1">
                     <label class="form-check-label" for="realtor1">Yes</label>
@@ -34,6 +32,10 @@ function hlr_contact_form()
                     <input class="form-check-input" type="radio" name="realtor" id="realtor2" value="0">
                     <label class="form-check-label" for="realtor2">No</label>
                 </div>
+            </div>
+            <div class="col-12 my-4">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="30" rows="10"></textarea>
             </div>
             <div class="my-4">
                 <button id="send" class="btn btn-primary">Send</button>
