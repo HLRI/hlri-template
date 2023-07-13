@@ -73,7 +73,7 @@ function hlr_contact_form()
             jQuery('.success-message').addClass('d-none');
             jQuery('.success-message small').text('');
             if (brokerage == '') {
-                brokerage = jQuery('.brokerage').val();
+                brokerage = jQuery('#brokerage').val();
             }
             console.log(brokerage);
             jQuery.ajax({
