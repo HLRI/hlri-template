@@ -534,6 +534,7 @@ function getForm(WP_REST_Request $request)
     $validator = new Validator;
     $validation = $validator->make($_POST + $_FILES, [
         'name' => 'required',
+        'email' => 'required|email',
     ]);
 
     $validation->validate();

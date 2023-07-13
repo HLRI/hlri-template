@@ -12,6 +12,10 @@ function hlr_contact_form()
                     <input class="form-control" type="text" name="name" placeholder="name" id="name">
                 </div>
                 <div class="my-4">
+                    <label for="name">email</label>
+                    <input class="form-control" type="text" name="email" placeholder="name" id="email">
+                </div>
+                <div class="my-4">
                     <button id="send" class="btn btn-primary">send</button>
                 </div>
             </div>
