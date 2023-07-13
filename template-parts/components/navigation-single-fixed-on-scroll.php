@@ -9,12 +9,16 @@
         <a href="#Gallery" class="hlr-navigation-item-fixed">
             Gallery
         </a>
-        <a href="#PriceList" class="hlr-navigation-item-fixed">
-            Price List
-        </a>
-        <a href="#FloorPlans" class="hlr-navigation-item-fixed">
-            Floor Plans
-        </a>
+        <?php if (!empty($price_images)) : ?>
+            <a href="#PriceList" class="hlr-navigation-item-fixed">
+                Price List
+            </a>
+        <?php endif; ?>
+        <?php if (!empty($floorplans_ids[0])) : ?>
+            <a href="#FloorPlans" class="hlr-navigation-item-fixed">
+                Floor Plans
+            </a>
+        <?php endif; ?>
         <a href="#RegisterNow" class="hlr-navigation-item-fixed">
             Register Now
         </a>
