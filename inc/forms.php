@@ -63,6 +63,7 @@ function hlr_contact_form()
                     'fname': jQuery('input[name="fname"]').val(),
                     'lname': jQuery('input[name="lname"]').val(),
                     'email': jQuery('input[name="email"]').val(),
+                    'phone': jQuery('input[name="phone"]').val(),
                 },
                 success: function(response) {
                     if (response.status == 'errors') {
