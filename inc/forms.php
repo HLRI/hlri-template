@@ -12,23 +12,25 @@ function hlr_contact_form()
                     <input class="form-control" type="text" name="name" placeholder="name">
                 </div>
                 <div class="my-4">
-                    <button class="btn btn-primary">send</button>
+                    <button id="send" class="btn btn-primary">send</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        jQuery.ajax({
-            type: "POST",
-            url: 'https://hlrtest.hlric.com/api/v1/get-form',
-            dataType: "json",
-            data: {
-                'name': jQuery('input[name="name"]').val(),
-            },
-            success: function(response) {
-                console.log(response);
-            }
+        jQuery('#send').click(function() {
+            jQuery.ajax({
+                type: "POST",
+                url: 'https://hlrtest.hlric.com/api/v1/get-form',
+                dataType: "json",
+                data: {
+                    'name': jQuery('input[name="name"]').val(),
+                },
+                success: function(response) {
+                    console.log(response);
+                }
+            });
         });
     </script>
 <?php
