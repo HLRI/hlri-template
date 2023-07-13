@@ -547,7 +547,8 @@ function getForm(WP_REST_Request $request)
         ]);
     } else {
         wp_send_json([
-            'status' => 'ok'
+            'data' => 'Thanks for getting in touch, a platinum broker will be contact you soon to answer all questions.',
+            'status' => 'success'
         ]);
     }
 }

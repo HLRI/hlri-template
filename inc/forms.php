@@ -18,6 +18,10 @@ function hlr_contact_form()
                 <div class="my-4">
                     <button id="send" class="btn btn-primary">send</button>
                 </div>
+
+                <div class="my-4 d-none success-message">
+                    <small class="text-success"></small>
+                </div>
             </div>
         </div>
     </div>
@@ -38,6 +42,9 @@ function hlr_contact_form()
                         jQuery.each(response.data, function(index, error) {
                             jQuery('#' + index).after('<small class="text-danger input-error">' + error + '</small>');
                         });
+                    }else if(response.status == 'success'){
+                        jQuery('.success-message').removeClass('d-none');
+                        jQuery('.success-message small').text(response.data);
                     }
                 }
             });
