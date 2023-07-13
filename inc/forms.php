@@ -52,13 +52,13 @@ function hlr_contact_form()
     </div>
 
     <script>
-
-var brokerage = 'No Brokerage';
+        var brokerage = 'No Brokerage';
 
         jQuery('input[name="realtor"]').click(function() {
             if (jQuery(this).is(':checked')) {
                 if (jQuery(this).val() == 1) {
                     jQuery('.brokerage').removeClass('d-none');
+                    brokerage = '';
                 } else {
                     jQuery('.brokerage').addClass('d-none');
                 }
@@ -71,8 +71,8 @@ var brokerage = 'No Brokerage';
             jQuery('.input-error').remove();
             jQuery('.success-message').addClass('d-none');
             jQuery('.success-message small').text('');
-            if (jQuery('input[name="realtor"]').val() == 1) {
-                brokerage = '';
+            if (brokerage == '') {
+                brokerage = jQuery('.brokerage').val();
             }
             console.log(brokerage);
             jQuery.ajax({
