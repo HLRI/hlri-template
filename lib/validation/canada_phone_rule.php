@@ -4,7 +4,7 @@ use Rakit\Validation\Rule;
 
 class CanadaPhone extends Rule
 {
-    protected $message = ":attribute :value has been used";
+    protected $message = ":value is not a valid Canadian phone number!";
 
 
     public function check($value): bool
