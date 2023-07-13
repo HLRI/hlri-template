@@ -6,29 +6,47 @@ function hlr_contact_form()
 ?>
     <div class="container">
         <div class="row py-5">
-            <div class="col-12">
-                <div class="my-4">
-                    <label for="name">name</label>
-                    <input class="form-control" type="text" name="name" placeholder="name" id="name">
-                </div>
-                <div class="my-4">
-                    <label for="name">email</label>
-                    <input class="form-control" type="text" name="email" placeholder="email" id="email">
-                </div>
-                <div class="my-4">
-                    <button id="send" class="btn btn-primary">send</button>
-                </div>
+            <div class="col-6 my-4">
+                <label for="fname">First Name</label>
+                <input class="form-control" type="text" name="fname" id="fname">
+            </div>
+            <div class="col-6 my-4">
+                <label for="lname">Last Name</label>
+                <input class="form-control" type="text" name="lname" id="lname">
+            </div>
+            <div class="col-6 my-4">
+                <label for="email">Email</label>
+                <input class="form-control" type="text" name="email" id="email">
+            </div>
+            <div class="col-6 my-4">
+                <label for="phone">Phone Number</label>
+                <input class="form-control" type="text" name="emaiphonel" id="phone">
+            </div>
 
-                <div class="my-4 d-none success-message">
-                    <small class="text-success"></small>
+            <div class="col-12 my-4">
+                <label for="realtor">Are you a realtor?</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
                 </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+            </div>
+            <div class="my-4">
+                <button id="send" class="btn btn-primary">Send</button>
+            </div>
+
+            <div class="my-4 d-none success-message">
+                <small class="text-success"></small>
             </div>
         </div>
     </div>
 
     <script>
         jQuery('#send').click(function() {
-            
+
             jQuery('.input-error').remove();
             jQuery('.success-message').addClass('d-none');
             jQuery('.success-message small').text('');
