@@ -72,6 +72,7 @@ function hlr_contact_form()
             if (jQuery('input[name="realtor"]').val() == 1) {
                 brokerage = '';
             }
+            console.log(brokerage);
             jQuery.ajax({
                 type: "POST",
                 url: 'https://hlrtest.hlric.com/api/v1/get-form',
