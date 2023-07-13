@@ -52,6 +52,7 @@ function hlr_contact_form()
     </div>
 
     <script>
+        console.log(jQuery('input[name="realtor"]').val());
         jQuery('input[name="realtor"]').click(function() {
             if (jQuery(this).is(':checked')) {
                 if(jQuery(this).val() == 1){

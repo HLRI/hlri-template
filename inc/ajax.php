@@ -539,7 +539,7 @@ function getForm(WP_REST_Request $request)
         'lname' => 'required|min:3|max:10',
         'email' => 'required|email',
         'phone' => 'required|canadaphone',
-        'brokerage' => 'nullable',
+        'brokerage' => 'required',
     ]);
 
     $validation->setMessages([
