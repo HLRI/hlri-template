@@ -546,8 +546,8 @@ function getForm(WP_REST_Request $request)
             'status' => 'errors'
         ]);
     } else {
-        return new WP_REST_Response([
+        wp_send_json([
             'status' => 'ok'
-        ], 200);
+        ]);
     }
 }
