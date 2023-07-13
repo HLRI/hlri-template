@@ -60,7 +60,8 @@ function hlr_contact_form()
                 url: 'https://hlrtest.hlric.com/api/v1/get-form',
                 dataType: "json",
                 data: {
-                    'name': jQuery('input[name="name"]').val(),
+                    'fname': jQuery('input[name="fname"]').val(),
+                    'lname': jQuery('input[name="lname"]').val(),
                     'email': jQuery('input[name="email"]').val(),
                 },
                 success: function(response) {
