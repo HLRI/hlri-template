@@ -35,7 +35,7 @@ function hlr_contact_form()
             </div>
             <div class="col-12 my-4">
                 <label for="message">Message</label>
-                <textarea class="form-control" name="message" id="message" rows="10"></textarea>
+                <textarea class="form-control" name="message" id="message" rows="5"></textarea>
             </div>
             <div class="my-4">
                 <button id="send" class="btn btn-primary">Send</button>
