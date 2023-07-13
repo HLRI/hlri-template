@@ -1,5 +1,5 @@
 <?php
-
+use Rakit\Validation\Validator;
 add_action('wp_ajax_nopriv_getlatestpost', 'getlatestpost');
 add_action('wp_ajax_getlatestpost', 'getlatestpost');
 function getlatestpost()
@@ -528,7 +528,23 @@ function getProperties(WP_REST_Request $request)
 
 function getForm(WP_REST_Request $request)
 {
-    return new WP_REST_Response([
-        'status' => 'ok'
-    ], 200);
+
+    $validator = new Validator;
+    $validation = $validator->make($_POST + $_FILES, [
+        'name' => 'required',
+    ]);
+    
+    $validation->validate();
+    
+    if ($validation->fails()) {
+        $errors = $validation->errors();
+        return new WP_REST_Response([
+            'errors' => $errors->firstOfAll()
+        ], 400);
+    } else {
+        return new WP_REST_Response([
+            'status' => 'ok'
+        ], 200);
+    }
+
 }

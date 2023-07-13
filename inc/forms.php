@@ -17,5 +17,19 @@ function hlr_contact_form()
             </div>
         </div>
     </div>
+
+    <script>
+        jQuery.ajax({
+            type: "POST",
+            url: 'https://hlrtest.hlric.com/api/v1/get-form',
+            dataType: "json",
+            data: {
+                'name': jQuery('input[name="name"]').val(),
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    </script>
 <?php
 }
