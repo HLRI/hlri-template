@@ -54,12 +54,17 @@ function hlr_contact_form()
     <script>
         jQuery('input[name="realtor"]').click(function() {
             if (jQuery(this).is(':checked')) {
-                alert(jQuery(this).val());
+                if(jQuery(this).val() == 1){
+                    jQuery('.brokerage').removeClass('d-none');
+                }else{
+                    jQuery('.brokerage').addClass('d-none');
+                }
             }
         });
 
         jQuery('#send').click(function() {
 
+            jQuery('.input-error').remove();
             jQuery('.input-error').remove();
             jQuery('.success-message').addClass('d-none');
             jQuery('.success-message small').text('');
