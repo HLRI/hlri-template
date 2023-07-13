@@ -33,6 +33,9 @@ function hlr_contact_form()
                     <label class="form-check-label" for="realtor1">Yes</label>
                 </div>
             </div>
+            <div class="col-12 my-2 d-none brokerage">
+                <input class="form-control" type="text" placeholder="Your Brokerage Name" name="Brokerage" id="Brokerage">
+            </div>
             <div class="col-12 my-3">
                 <label for="message">Message</label>
                 <textarea class="form-control" name="message" id="message" rows="5"></textarea>
@@ -51,6 +54,11 @@ function hlr_contact_form()
     <script>
         jQuery('#send').click(function() {
 
+            jQuery('input[name="realtor"]').click(function() {
+                if (jQuery(this).is(':checked')) {
+                    alert(jQuery(this).val());
+                }
+            });
             jQuery('.input-error').remove();
             jQuery('.success-message').addClass('d-none');
             jQuery('.success-message small').text('');
