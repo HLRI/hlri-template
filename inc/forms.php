@@ -25,12 +25,12 @@ function hlr_contact_form()
             <div class="col-12 my-3">
                 <p><label for="realtor">Are you a realtor?</label></p>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="realtor" id="realtor1" value="1">
-                    <label class="form-check-label" for="realtor1">Yes</label>
+                    <input class="form-check-input" type="radio" name="realtor" id="realtor2" value="0" checked>
+                    <label class="form-check-label" for="realtor2">No</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="realtor" id="realtor2" value="0">
-                    <label class="form-check-label" for="realtor2">No</label>
+                    <input class="form-check-input" type="radio" name="realtor" id="realtor1" value="1">
+                    <label class="form-check-label" for="realtor1">Yes</label>
                 </div>
             </div>
             <div class="col-12 my-3">
