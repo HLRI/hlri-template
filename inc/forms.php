@@ -52,6 +52,9 @@ function hlr_contact_form()
     </div>
 
     <script>
+
+var brokerage = 'No Brokerage';
+
         jQuery('input[name="realtor"]').click(function() {
             if (jQuery(this).is(':checked')) {
                 if (jQuery(this).val() == 1) {
@@ -64,7 +67,6 @@ function hlr_contact_form()
 
         jQuery('#send').click(function() {
 
-            var brokerage = 'No Brokerage';
             jQuery('.input-error').remove();
             jQuery('.input-error').remove();
             jQuery('.success-message').addClass('d-none');
