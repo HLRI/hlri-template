@@ -28,7 +28,11 @@ function hlr_contact_form()
                     'name': jQuery('input[name="name"]').val(),
                 },
                 success: function(response) {
-                    console.log(response);
+                    if (response.status == 'errors') {
+                        $.each(response.data, function(index, error) {
+                            $('#' + index).after('<small class="text-danger">' + error + '</small>');
+                        });
+                    }
                 }
             });
         });

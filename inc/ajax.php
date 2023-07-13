@@ -1,5 +1,7 @@
 <?php
+
 use Rakit\Validation\Validator;
+
 add_action('wp_ajax_nopriv_getlatestpost', 'getlatestpost');
 add_action('wp_ajax_getlatestpost', 'getlatestpost');
 function getlatestpost()
@@ -533,16 +535,18 @@ function getForm(WP_REST_Request $request)
     $validation = $validator->make($_POST + $_FILES, [
         'name' => 'required',
     ]);
-    
+
     $validation->validate();
-    
+
     if ($validation->fails()) {
         $errors = $validation->errors();
-        return $errors->firstOfAll();
+        wp_send_json([
+            'data' => $errors->firstOfAll(),
+            'status' => 'errors'
+        ]);
     } else {
         return new WP_REST_Response([
             'status' => 'ok'
         ], 200);
     }
-
 }
