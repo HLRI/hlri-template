@@ -531,9 +531,13 @@ function getProperties(WP_REST_Request $request)
 function getForm(WP_REST_Request $request)
 {
 
-    $validator = new Validator;
+    $validator = new Validator([
+        'fname' => ':attribute harus diisi',
+        'email' => ':email tidak valid',
+    ]);   
+    
     $validator->addValidator('canadaphone', new CanadaPhone());
-
+  
     $validation = $validator->make($_POST + $_FILES, [
         'fname' => 'required|min:3|max:1',
         'lname' => 'required|min:3|max:10',
