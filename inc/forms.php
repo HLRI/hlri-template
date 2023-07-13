@@ -24,7 +24,7 @@ function hlr_contact_form()
 
     <script>
         jQuery('#send').click(function() {
-            jQuery('small').remove();
+            jQuery('.input-error').remove();
             jQuery.ajax({
                 type: "POST",
                 url: 'https://hlrtest.hlric.com/api/v1/get-form',
@@ -35,7 +35,7 @@ function hlr_contact_form()
                 success: function(response) {
                     if (response.status == 'errors') {
                         jQuery.each(response.data, function(index, error) {
-                            jQuery('#' + index).after('<small class="text-danger">' + error + '</small>');
+                            jQuery('#' + index).after('<small class="text-danger input-error">' + error + '</small>');
                         });
                     }
                 }
