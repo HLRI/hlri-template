@@ -194,3 +194,16 @@ function checkToken()
         return new WP_REST_Response(['message' => 'Token is wrong'], 401);
     }
 }
+
+
+function validatePhoneNumber($phoneNumber)
+{
+
+    $canadaPattern = '/^\+?1?\s*\(?(?:(?:[2-9][0-9]{2})\)?[-.\s]?){2}(?:[0-9]{4})$/';
+    $cleanedNumber = preg_replace('/\D/', '', $phoneNumber);
+    if (preg_match($canadaPattern, $cleanedNumber)) {
+        return true;
+    } else {
+        return false;
+    }
+}

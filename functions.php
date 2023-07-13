@@ -9,6 +9,7 @@ include 'constant.php';
 
 include HLR_THEME_PATH . 'inc/match_elementor.php';
 include HLR_THEME_PATH . '/lib/validation/vendor/autoload.php';
+include HLR_THEME_PATH . '/lib/validation/canada_phone_rule.php';
 include HLR_THEME_PATH . '/lib/vendor/autoload.php';
 include HLR_THEME_PATH . 'lib/codestar/codestar-framework.php';
 include HLR_THEME_PATH . 'inc/validate_codestar.php';
