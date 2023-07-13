@@ -535,7 +535,7 @@ function getForm(WP_REST_Request $request)
     $validator->addValidator('canadaphone', new CanadaPhone());
 
     $validation = $validator->make($_POST + $_FILES, [
-        'fname' => 'required|min:3|max:1',
+        'fname' => 'required|min:3|max:10',
         'lname' => 'required|min:3|max:10',
         'email' => 'required|email',
         'phone' => 'required|canadaphone',
@@ -543,7 +543,12 @@ function getForm(WP_REST_Request $request)
 
     $validation->setMessages([
         'fname:required' => 'The First Name required',
+        'fname:required' => 'The First Name required',
+        'fname:min' => 'The First Name minimum is 3',
+        'fname:max' => 'The First Name maximum is 10',
         'lname:required' => 'The Last Name is required',
+        'lname:min' => 'The Last Name minimum is 3',
+        'lname:max' => 'The Last Name maximum is 10',
     ]);
 
     $validation->validate();
