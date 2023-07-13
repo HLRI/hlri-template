@@ -6,7 +6,9 @@ if (!defined('ABSPATH')) {
 
 
 include 'constant.php';
+
 include HLR_THEME_PATH . 'inc/match_elementor.php';
+include HLR_THEME_PATH . '/lib/formbuilder/vendor/autoload.php';
 include HLR_THEME_PATH . '/lib/vendor/autoload.php';
 include HLR_THEME_PATH . 'lib/codestar/codestar-framework.php';
 include HLR_THEME_PATH . 'inc/validate_codestar.php';
@@ -16,6 +18,7 @@ include HLR_THEME_PATH . 'inc/init.php';
 include HLR_THEME_PATH . 'inc/helper.php';
 include HLR_THEME_PATH . 'inc/scripts.php';
 include HLR_THEME_PATH . 'inc/ajax.php';
+include HLR_THEME_PATH . 'inc/forms.php';
 include HLR_THEME_PATH . 'inc/shortcodes.php';
 include HLR_THEME_PATH . 'inc/post_types.php';
 include HLR_THEME_PATH . 'inc/meta_boxes.php';

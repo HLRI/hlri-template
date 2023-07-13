@@ -444,6 +444,11 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'getProperties'
     ]);
+
+    register_rest_route('v1', 'get-form', [
+        'methods' => 'POST',
+        'callback' => 'getForm'
+    ]);
 }
 function getProperties(WP_REST_Request $request)
 {
@@ -517,5 +522,13 @@ function getProperties(WP_REST_Request $request)
 
     return new WP_REST_Response([
         'list' => $items
+    ], 200);
+}
+
+
+function getForm(WP_REST_Request $request)
+{
+    return new WP_REST_Response([
+        'status' => 'ok'
     ], 200);
 }
