@@ -542,7 +542,7 @@ function getForm(WP_REST_Request $request)
     if ($validation->fails()) {
         $errors = $validation->errors();
         wp_send_json([
-            'data' => $errors->firstOfAll(),
+            'data' => $_POST,
             'status' => 'errors'
         ]);
     } else {
