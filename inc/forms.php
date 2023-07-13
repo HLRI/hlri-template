@@ -34,7 +34,7 @@ function hlr_contact_form()
                 </div>
             </div>
             <div class="col-6 my-2 d-none brokerage">
-                <input class="form-control" type="text" placeholder="Your Brokerage Name" name="brokerage" id="Brokerage">
+                <input class="form-control" type="text" placeholder="Your Brokerage Name" name="brokerage" id="brokerage">
             </div>
             <div class="col-12 my-3">
                 <label for="message">Message</label>
