@@ -24,6 +24,7 @@ function hlr_contact_form()
 
     <script>
         jQuery('#send').click(function() {
+            jQuery('small').remove();
             jQuery.ajax({
                 type: "POST",
                 url: 'https://hlrtest.hlric.com/api/v1/get-form',
