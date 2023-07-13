@@ -8,7 +8,6 @@ if (!defined('ABSPATH')) {
 include 'constant.php';
 
 include HLR_THEME_PATH . 'inc/match_elementor.php';
-include HLR_THEME_PATH . '/lib/formbuilder/vendor/autoload.php';
 include HLR_THEME_PATH . '/lib/vendor/autoload.php';
 include HLR_THEME_PATH . 'lib/codestar/codestar-framework.php';
 include HLR_THEME_PATH . 'inc/validate_codestar.php';
