@@ -13,7 +13,7 @@ function hlr_contact_form()
                 </div>
                 <div class="my-4">
                     <label for="name">email</label>
-                    <input class="form-control" type="text" name="email" placeholder="name" id="email">
+                    <input class="form-control" type="text" name="email" placeholder="email" id="email">
                 </div>
                 <div class="my-4">
                     <button id="send" class="btn btn-primary">send</button>
