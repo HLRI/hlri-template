@@ -6,7 +6,7 @@ function hlr_contact_form()
     $form = new Formr\Formr('bootstrap');
     ?>
     <div class="container">
-        <div class="row">
+        <div class="row py-5">
             <div class="col-12">
                 <?php $form->create_form('Name, Email, Comments|textarea'); ?>
             </div>
