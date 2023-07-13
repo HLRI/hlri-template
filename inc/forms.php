@@ -24,7 +24,8 @@ function hlr_contact_form()
             </div>
 
             <div class="col-12 my-4">
-                <label for="realtor">Are you a realtor?</label><br>
+                <p><label for="realtor">Are you a realtor?</label></p>
+                <!-- <br> -->
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="realtor" id="realtor1" value="1">
                     <label class="form-check-label" for="realtor1">Yes</label>
