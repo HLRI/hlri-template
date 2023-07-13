@@ -29,8 +29,8 @@ function hlr_contact_form()
                 },
                 success: function(response) {
                     if (response.status == 'errors') {
-                        $.each(response.data, function(index, error) {
-                            $('#' + index).after('<small class="text-danger">' + error + '</small>');
+                        jQuery.each(response.data, function(index, error) {
+                            jQuery('#' + index).after('<small class="text-danger">' + error + '</small>');
                         });
                     }
                 }
