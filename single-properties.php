@@ -16,7 +16,21 @@ $rates = round($total_rates / $user_rates);
 $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
 $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
 
-?>
+$args = array(
+    'post_type' => 'floorplans',
+    'numberposts' => -1,
+    'orderby'   => 'meta_value',
+    'order' => 'DESC',
+    'meta_query' => array(
+        array(
+            'key' => 'associated_property',
+            'value' => get_the_ID(),
+            'compare' => '='
+        )
+    )
+);
+$associated_floorplans = new WP_Query(${args}); ?>
+
 
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' 
@@ -230,7 +244,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
     <?php endif; ?>
 
     <?php if (!empty($floorplans_ids[0])) : ?>
-        <div class="row my-4" id="FloorPlans">
+        <!-- <div class="row my-4" >
             <div class="col-12">
                 <div class="titr-list ml-0">
                     <h3 class="font-weight-bold">Floor Plans</h3>
@@ -249,7 +263,7 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                     <?php endforeach; ?>
                 </div>
             </div>
-        </div>
+        </div> -->
     <?php endif; ?>
 
 
@@ -278,25 +292,30 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
         <?php endif; ?>
     <?php endif; ?>
 
-    <div class="container-fluid px-0 mt-lg-5 mt-2">
-        <div class="content">
-            <div class="row mb-lg-4 mb-2">
-                <div class="col-12 mb-4">
-                    <h4 class="font-weight-bold h3">Browse more Imperia Condos by Truman Floor Plans</h4>
-                </div>
-                <div class="col-12">
-                    <div class="btn-group submitter-group float-left">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text btn-status-floorplan">Status</div>
-                        </div>
-                        <select class="form-control status-dropdown">
-                            <option value="">All</option>
-                            <option value="Sold Out">Sold Out</option>
-                            <option value="Available">Available</option>
-                        </select>
+
+
+
+
+    <?php if ($associated_floorplans->have_posts()) : ?>
+        <div class="container-fluid px-0 mt-lg-5 mt-2" id="FloorPlans">
+            <div class="content">
+                <div class="row mb-lg-4 mb-2">
+                    <div class="col-12 mb-4">
+                        <h4 class="font-weight-bold h3">Browse more Imperia Condos by Truman Floor Plans</h4>
                     </div>
-                </div>
-                <!-- <div class="col-8">
+                    <div class="col-12">
+                        <div class="btn-group submitter-group float-left">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text btn-status-floorplan">Status</div>
+                            </div>
+                            <select class="form-control status-dropdown">
+                                <option value="">All</option>
+                                <option value="Sold Out">Sold Out</option>
+                                <option value="Available">Available</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="col-8">
                     <div class="filter-wrapper">
                         <input type="checkbox" class="filter-checkbox" value="Software Engineer" /> Software Engineer
                         <input type="checkbox" class="filter-checkbox" value="Accountant" /> Accountant
@@ -316,43 +335,27 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                         </select>
                     </div>
                 </div> -->
+                </div>
             </div>
-        </div>
-        <div class="card-form py-4">
-            <table id="example" class="table pt-4">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Suite Name</th>
-                        <th>Suite Type</th>
-                        <th>Size</th>
-                        <th>View</th>
-                        <th>Price</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $args = array(
-                        'post_type' => 'floorplans',
-                        'numberposts' => -1,
-                        'orderby'   => 'meta_value',
-                        'order' => 'DESC',
-                        'meta_query' => array(
-                            array(
-                                'key' => 'associated_property',
-                                'value' => get_the_ID(),
-                                'compare' => '='
-                            )
-                        )
-                    );
-
-                    $associated_floorplans = new WP_Query(${args});
-                    if ($associated_floorplans->have_posts()) :
+            <div class="card-form py-4">
+                <table id="example" class="table pt-4">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Suite Name</th>
+                            <th>Suite Type</th>
+                            <th>Size</th>
+                            <th>View</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                         while ($associated_floorplans->have_posts()) :
                             $associated_floorplans->the_post();
                             $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                    ?>
+                        ?>
                             <tr>
                                 <td>
                                     <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
@@ -392,15 +395,15 @@ $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
                                 </td>
                                 <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
                             </tr>
-                    <?php
+                        <?php
                         endwhile;
                         wp_reset_postdata();
-                    endif;
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
 </div>
 
 <?php
