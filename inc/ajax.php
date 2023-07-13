@@ -550,6 +550,7 @@ function getForm(WP_REST_Request $request)
         'lname:required' => 'The Last Name is required',
         'lname:min' => 'The Last Name minimum is 3',
         'lname:max' => 'The Last Name maximum is 10',
+        'brokerage:required' => 'The Brokerage Name required',
     ]);
 
     $validation->validate();
