@@ -111,6 +111,8 @@ $peroperties = new WP_Query($args);
     }).draw();
 
     jQuery(document).ready(function(){
-        jQuery('.loading').removeClass('loading');
+        setTimeout(() => {
+            jQuery('.loading').removeClass('loading');   
+        }, 1000);
     });
 </script>
