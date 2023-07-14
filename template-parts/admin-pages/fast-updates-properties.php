@@ -10,7 +10,7 @@ $peroperties = new WP_Query($args);
 
 <div class="wrap">
     <h1><?= $title ?></h1>
-    <?php if ($peroperties_single->have_posts()) : ?>
+    <?php if ($peroperties->have_posts()) : ?>
         <table class="wp-list-table widefat fixed striped table-view-list">
             <thead>
                 <tr>
@@ -20,11 +20,18 @@ $peroperties = new WP_Query($args);
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
+                <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
+
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                <?php
+                endwhile;
+                wp_reset_postdata();
+                wp_reset_query();
+                ?>
             </tbody>
         </table>
     <?php endif; ?>
