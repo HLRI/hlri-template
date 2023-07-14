@@ -959,6 +959,16 @@ if (class_exists('CSF')) {
 					),
 				),
 				array(
+					'id'         => 'opt-project-status',
+					'type'       => 'button_set',
+					'title'      => 'Project Status',
+					'options'    => array(
+						true  => 'Close',
+						false => 'Open',
+					),
+					'default'    => false
+				),
+				array(
 					'id'    => 'opt-coords',
 					'type'  => 'map',
 					'title' => 'Coords',
@@ -1002,7 +1012,6 @@ if (class_exists('CSF')) {
 					'type'  => 'number',
 					'title' => 'Suites',
 				),
-
 				array(
 					'id'         => 'opt-parking',
 					'type'       => 'button_set',
