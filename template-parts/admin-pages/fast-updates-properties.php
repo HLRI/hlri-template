@@ -16,7 +16,7 @@ $peroperties = new WP_Query($args);
 <div class="wrap">
     <h1><?= $title ?></h1><br>
     <?php if ($peroperties->have_posts()) : ?>
-        <table style="margin: 20px 0;" class="wp-list-table widefat fixed striped table-view-list" id="table">
+        <table style="margin-bottom: 20px;" class="wp-list-table widefat fixed striped table-view-list" id="table">
             <thead>
                 <tr>
                     <th>Property Name</th>
