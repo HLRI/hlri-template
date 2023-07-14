@@ -15,8 +15,9 @@ if (isset($_POST['btn-set'])) {
 
 
         $data = json_encode($meta);
-        
-
+        $file = fopen(HLR_THEME_PATH. "template-parts/admin-pages/backup.json", "w") or die("Unable to open file!");
+        fwrite($file, $data);
+        fclose($file);
     }
     $success = true;
 }
@@ -58,6 +59,7 @@ $peroperties = new WP_Query($args);
         <?php endif; ?>
         <div class="wrap-button">
             <button name="btn-set" type="submit" class="button button-primary">Update</button>
+            <a href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-primary">Download Backup</a>
         </div>
         <?php if ($peroperties->have_posts()) : ?>
             <table style="margin-bottom: 20px;" class="wp-list-table widefat fixed striped table-view-list" id="table">
