@@ -15,6 +15,9 @@ $peroperties = new WP_Query($args);
 </style>
 <div class="wrap">
     <h1><?= $title ?></h1><br>
+    <div class="wrap-button">
+        <button type="submit" class="button button-primary">Update</button>
+    </div>
     <?php if ($peroperties->have_posts()) : ?>
         <table style="margin-bottom: 20px;" class="wp-list-table widefat fixed striped table-view-list" id="table">
             <thead>
