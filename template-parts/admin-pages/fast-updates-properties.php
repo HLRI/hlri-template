@@ -2,7 +2,7 @@
 $args = array(
     'post_type' => 'properties',
     'post_status' => 'publish',
-    'posts_per_page' => 20
+    'posts_per_page' => -1,
 
 );
 $peroperties = new WP_Query($args);
@@ -38,5 +38,7 @@ $peroperties = new WP_Query($args);
 </div>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
-    dataTable = jQuery("#table").DataTable({});
+    dataTable = jQuery("#table").DataTable({
+        "pageLength": 50
+    });
 </script>
