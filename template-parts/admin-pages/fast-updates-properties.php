@@ -73,7 +73,7 @@ if (isset($_POST['btn-set'])) {
         }
         $meta = get_post_meta($item['id'], 'hlr_framework_mapdata', true);
         $meta['opt-project-status'] = $status;
-        $meta['opt-price'] = strval(2000);
+        $meta['opt-price'] = strval($item['opt-price'],);
         update_post_meta($item['id'], 'hlr_framework_mapdata', $meta);
     }
 }
