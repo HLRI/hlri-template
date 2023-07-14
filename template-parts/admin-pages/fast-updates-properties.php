@@ -14,7 +14,9 @@ $peroperties = new WP_Query($args);
         margin-bottom: 20px;
     }
 
-    #table_length , #table_info , #table_paginate{
+    #table_length,
+    #table_info,
+    #table_paginate {
         display: none;
     }
 
@@ -62,8 +64,9 @@ $peroperties = new WP_Query($args);
 
 <?php
 
-if(isset($_POST['btn-set'])){
-    wp_die(var_dump($_POST));
+if (isset($_POST['btn-set'])) {
+
+    echo $_POST['ids'] . $_POST['opt-project-status'] . $_POST['opt-price'] . "<hr>";
 }
 
 ?>
