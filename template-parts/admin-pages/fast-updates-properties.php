@@ -40,6 +40,9 @@ $peroperties = new WP_Query($args);
             </tbody>
         </table>
     <?php endif; ?>
+    <div class="wrap-button">
+        <button type="submit" class="button button-primary">Update</button>
+    </div>
 </div>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
