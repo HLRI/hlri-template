@@ -2,7 +2,7 @@
 $args = array(
     'post_type' => 'properties',
     'post_status' => 'publish',
-    'posts_per_page' => -1,
+    'posts_per_page' => 20
 
 );
 $peroperties = new WP_Query($args);
