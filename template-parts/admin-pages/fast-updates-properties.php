@@ -43,10 +43,10 @@ $peroperties = new WP_Query($args);
                     <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
                         <?php $meta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true); ?>
                         <tr>
-                            <input type="hidden" name="ids[test]" value="<?= get_the_ID() ?>">
+                            <input type="hidden" name="ids[test][]" value="<?= get_the_ID() ?>">
                             <td><?php the_title() ?></td>
-                            <td><input <?= $meta['opt-project-status'] ? 'checked' : '' ?> type="checkbox" name="opt-project-status[test]"></td>
-                            <td><input type="text" value="<?= $meta['opt-price'] ?>" name="opt-price[test]"></td>
+                            <td><input <?= $meta['opt-project-status'] ? 'checked' : '' ?> type="checkbox" name="opt-project-status[test][]"></td>
+                            <td><input type="text" value="<?= $meta['opt-price'] ?>" name="opt-price[test][]"></td>
                         </tr>
                     <?php
                     endwhile;
