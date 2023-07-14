@@ -40,7 +40,7 @@ $peroperties = new WP_Query($args);
     }
 
     .loading {
-        display: none;
+        display: none !important;
     }
 
     /* .wrap-button {
