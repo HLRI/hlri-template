@@ -69,6 +69,5 @@ if(isset($_POST['btn-set'])){
 <script>
     dataTable = jQuery("#table").DataTable({
         "pageLength": 50,
-        "EnableViewState" : true
     });
 </script>
