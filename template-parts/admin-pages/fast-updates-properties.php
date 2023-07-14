@@ -84,7 +84,6 @@ if (isset($_POST['btn-set'])) {
 <script>
     dataTable = jQuery("#table").DataTable({
         pageLength: 10,
-    });
-    dataTable.ajax.reload();
+    }).draw();
 
 </script>
