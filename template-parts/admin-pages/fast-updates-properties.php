@@ -1,6 +1,6 @@
 <?php
 
-<?php
+
 
 if (isset($_POST['btn-set'])) {
     foreach($_POST['data'] as $item){
@@ -15,7 +15,7 @@ if (isset($_POST['btn-set'])) {
     }
 }
 
-?>
+
 
 $args = array(
     'post_type' => 'properties',
