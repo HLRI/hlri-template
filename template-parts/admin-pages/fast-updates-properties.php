@@ -48,7 +48,7 @@ $peroperties = new WP_Query($args);
         <h1><?= $title ?></h1><br>
         <?php if ($success) : ?>
             <div id="message" class="updated notice is-dismissible">
-                <p>Data updated successfully</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+                <p>Data updated successfully</p>
             </div>
         <?php endif; ?>
         <div class="wrap-button">
