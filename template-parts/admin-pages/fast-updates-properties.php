@@ -43,9 +43,9 @@ $peroperties = new WP_Query($args);
                     <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
                         <?php $meta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true); ?>
                         <tr>
-                            <input type="hidden" name="data[<?= get_the_ID() ?>][ids]" value="<?= get_the_ID() ?>">
+                            <input type="hidden" name="data[<?= get_the_ID() ?>][id]" value="<?= get_the_ID() ?>">
                             <td><?php the_title() ?></td>
-                            <td><input <?= $meta['opt-project-status'] ? 'checked' : '' ?> type="checkbox" name="data[<?= get_the_ID() ?>][opt-project-status]"></td>
+                            <td><input <?= $meta['opt-project-status'] ? 'checked' : '' ?> type="checkbox" name="data[<?= get_the_ID() ?>][opt-project-status]" value="true"></td>
                             <td><input type="text" value="<?= $meta['opt-price'] ?>" name="data[<?= get_the_ID() ?>][opt-price]"></td>
                         </tr>
                     <?php
@@ -66,10 +66,14 @@ $peroperties = new WP_Query($args);
 
 if (isset($_POST['btn-set'])) {
 
-    wp_die(var_dump($_POST['data']));
-    // foreach($_POST as $item){
-
-    // }
+    foreach($_POST['data'] as $item){
+        $status = true;
+        if(!isset($item['opt-project-status'])){
+            $status = false;
+        }
+        $meta = get_post_meta($item['id'], 'hlr_framework_mapdata', true);
+        wp_die(var_dump($meta));
+    }
     // echo $_POST['ids'] . $_POST['opt-project-status'] . $_POST['opt-price'] . "<hr>";
 }
 
