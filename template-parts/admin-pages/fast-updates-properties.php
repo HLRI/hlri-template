@@ -52,6 +52,8 @@ $peroperties = new WP_Query($args);
                 <p>Data updated successfully</p>
             </div>
         <?php endif; ?>
+        <small style="color:red;font-weight: bold;">Make sure to download the backup before making any changes!</small>
+
         <div class="wrap-button">
             <button name="btn-set" type="submit" class="button button-primary">Update</button>
             <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-primary">Download Backup</a>
