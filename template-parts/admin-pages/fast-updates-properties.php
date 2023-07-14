@@ -14,13 +14,13 @@ $peroperties = new WP_Query($args);
         margin-bottom: 20px;
     }
 
-    #table_length{
+    #table_length , #table_info , #table_paginate{
         display: none;
     }
 
-    .wrap-button {
+    /* .wrap-button {
         margin-bottom: 20px;
-    }
+    } */
 </style>
 <form action="" method="post">
     <div class="wrap">
