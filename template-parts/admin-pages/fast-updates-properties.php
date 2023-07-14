@@ -70,6 +70,5 @@ if(isset($_POST['btn-set'])){
     dataTable = jQuery("#table").DataTable({
         pageLength: 10,
         ordering: false,
-        paging: false,
     });
 </script>
