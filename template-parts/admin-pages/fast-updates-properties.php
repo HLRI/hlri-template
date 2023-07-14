@@ -55,7 +55,7 @@ $peroperties = new WP_Query($args);
 
         <div class="wrap-button">
             <button name="btn-set" type="submit" class="button button-primary">Update</button>
-            <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-primary">Download Backup</a>
+            <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-success">Download Backup</a>
         </div>
         <div style="color: red; font-weight: bold; font-size: 15px; padding: 6px 0;">Make sure to download the backup before making any changes!</div>
 
