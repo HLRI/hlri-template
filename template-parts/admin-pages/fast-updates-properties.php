@@ -24,7 +24,7 @@ $peroperties = new WP_Query($args);
                     <?php $meta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true); ?>
                     <tr>
                         <td><?php the_title() ?></td>
-                        <td><input type="checkbox" name="" id=""></td>
+                        <td><input <?= $meta['opt-project-status'] ? 'checked' : '' ?> type="checkbox" name="" id=""></td>
                         <td><input type="text" value="<?= $meta['opt-price'] ?>"></td>
                     </tr>
                 <?php
