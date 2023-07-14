@@ -1,4 +1,22 @@
 <?php
+
+<?php
+
+if (isset($_POST['btn-set'])) {
+    foreach($_POST['data'] as $item){
+        $status = true;
+        if(!isset($item['opt-project-status'])){
+            $status = false;
+        }
+        $meta = get_post_meta($item['id'], 'hlr_framework_mapdata', true);
+        $meta['opt-project-status'] = $status;
+        $meta['opt-price'] = strval($item['opt-price'],);
+        update_post_meta($item['id'], 'hlr_framework_mapdata', $meta);
+    }
+}
+
+?>
+
 $args = array(
     'post_type' => 'properties',
     'post_status' => 'publish',
@@ -62,22 +80,7 @@ $peroperties = new WP_Query($args);
     </div>
 </form>
 
-<?php
 
-if (isset($_POST['btn-set'])) {
-    foreach($_POST['data'] as $item){
-        $status = true;
-        if(!isset($item['opt-project-status'])){
-            $status = false;
-        }
-        $meta = get_post_meta($item['id'], 'hlr_framework_mapdata', true);
-        $meta['opt-project-status'] = $status;
-        $meta['opt-price'] = strval($item['opt-price'],);
-        update_post_meta($item['id'], 'hlr_framework_mapdata', $meta);
-    }
-}
-
-?>
 
 
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
