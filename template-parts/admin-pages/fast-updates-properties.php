@@ -45,8 +45,8 @@ $peroperties = new WP_Query($args);
                         <tr>
                             <input type="hidden" name="ids[]" value="<?= get_the_ID() ?>">
                             <td><?php the_title() ?></td>
-                            <td><input <?= $meta['opt-project-status'] ? 'checked' : '' ?> type="checkbox" name="opt-project-status[]"></td>
-                            <td><input type="text" value="<?= $meta['opt-price'] ?>" name="opt-price[]"></td>
+                            <td><input <?= $meta['opt-project-status'] ? 'checked' : '' ?> type="checkbox" name="opt-project-status[test][]"></td>
+                            <td><input type="text" value="<?= $meta['opt-price'] ?>" name="opt-price[test][]"></td>
                         </tr>
                     <?php
                     endwhile;
