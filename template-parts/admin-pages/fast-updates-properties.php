@@ -45,12 +45,12 @@ $peroperties = new WP_Query($args);
 </style>
 <form action="" method="post">
     <div class="wrap">
+        <h1><?= $title ?></h1><br>
         <?php if ($success) : ?>
             <div id="message" class="updated notice is-dismissible">
                 <p>Data updated successfully</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
             </div>
         <?php endif; ?>
-        <h1><?= $title ?></h1><br>
         <div class="wrap-button">
             <button name="btn-set" type="submit" class="button button-primary">Update</button>
         </div>
