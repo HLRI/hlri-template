@@ -39,17 +39,8 @@ $peroperties = new WP_Query($args);
         display: none;
     }
 
-    .loading:before {
-        content: 'wait! , Loading ...';
-        background: #d3d3d300;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    .loading {
+        display: none;
     }
 
     /* .wrap-button {
@@ -57,7 +48,7 @@ $peroperties = new WP_Query($args);
     } */
 </style>
 <form action="" method="post">
-    <div class="wrap loading">
+    <div class="wrap">
         <h1><?= $title ?></h1><br>
         <?php if ($success) : ?>
             <div id="message" class="updated notice is-dismissible">
@@ -67,9 +58,9 @@ $peroperties = new WP_Query($args);
 
         <div class="wrap-button">
             <button name="btn-set" type="submit" class="button button-primary">Update</button>
-            <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-success">Download Backup</a>
+            <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-success loading">Download Backup</a>
         </div>
-        <div style="color: red; font-weight: bold; font-size: 15px; padding: 6px 0;">Make sure to download the backup before making any changes!</div>
+        <div style="color: red; font-weight: bold; font-size: 15px; padding: 6px 0;" class="loading">Make sure to download the backup before making any changes!</div>
 
         <?php if ($peroperties->have_posts()) : ?>
             <table style="margin-bottom: 20px;" class="wp-list-table widefat fixed striped table-view-list" id="table">
@@ -120,6 +111,6 @@ $peroperties = new WP_Query($args);
     }).draw();
 
     jQuery(document).ready(function(){
-        jQuery('.wrap').removeClass('loading');
+        jQuery('.loading').removeClass('loading');
     });
 </script>
