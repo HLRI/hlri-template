@@ -65,7 +65,6 @@ $peroperties = new WP_Query($args);
 <?php
 
 if (isset($_POST['btn-set'])) {
-
     foreach($_POST['data'] as $item){
         $status = true;
         if(!isset($item['opt-project-status'])){
@@ -83,7 +82,7 @@ if (isset($_POST['btn-set'])) {
 
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
-    dataTable = jQuery("#table").DataTable({
+    jQuery("#table").DataTable({
         pageLength: 10,
-    });
+    }).ajax.reload();
 </script>
