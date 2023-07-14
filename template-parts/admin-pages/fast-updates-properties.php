@@ -68,6 +68,8 @@ if(isset($_POST['btn-set'])){
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
     dataTable = jQuery("#table").DataTable({
-        "pageLength": 50,
+        "pageLength": 10,
+        ordering: false,
+        paging: false,
     });
 </script>
