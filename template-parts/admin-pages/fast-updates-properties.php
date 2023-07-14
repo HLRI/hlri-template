@@ -12,6 +12,16 @@ if (isset($_POST['btn-set'])) {
         $meta['opt-project-status'] = $status;
         $meta['opt-price'] = strval($item['opt-price'],);
         update_post_meta($item['id'], 'hlr_framework_mapdata', $meta);
+
+
+        $data = json_encode($meta);
+        header('Content-Type: application/json');
+        header('Content-Disposition: attachment; filename=data.json');
+        header('Expires: 0'); //No caching allowed
+        header('Cache-Control: must-revalidate');
+        header('Content-Length: ' . strlen($data));
+        file_put_contents('php://output', $data);
+
     }
     $success = true;
 }
