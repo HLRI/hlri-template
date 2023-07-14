@@ -963,8 +963,8 @@ if (class_exists('CSF')) {
 					'type'       => 'button_set',
 					'title'      => 'Project Status',
 					'options'    => array(
-						true  => 'Close',
 						false => 'Open',
+						true  => 'Close',
 					),
 					'default'    => false
 				),
