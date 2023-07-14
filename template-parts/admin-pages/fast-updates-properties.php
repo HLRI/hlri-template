@@ -12,6 +12,9 @@ $peroperties = new WP_Query($args);
     #table_length , #table_filter{
         margin-bottom: 20px;
     }
+    .wrap-button{
+        margin-bottom: 20px;
+    }
 </style>
 <div class="wrap">
     <h1><?= $title ?></h1><br>
