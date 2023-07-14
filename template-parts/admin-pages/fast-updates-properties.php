@@ -14,18 +14,18 @@ $peroperties = new WP_Query($args);
         <table class="wp-list-table widefat fixed striped table-view-list">
             <thead>
                 <tr>
-                    <th>test</th>
-                    <th>test</th>
-                    <th>test</th>
+                    <th>Property Name</th>
+                    <th>Close</th>
+                    <th>Price</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
-
+                <?php $meta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata' ,true); ?>
                     <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td><?php the_title() ?></td>
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td><input type="text" value="<?= $meta['opt-price'] ?>"></td>
                     </tr>
                 <?php
                 endwhile;
