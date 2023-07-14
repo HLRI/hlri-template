@@ -59,7 +59,7 @@ $peroperties = new WP_Query($args);
 <?php
 
 if(isset($_POST['btn-set'])){
-    
+    wp_die(var_dump($_POST));
 }
 
 ?>
