@@ -67,7 +67,10 @@ $peroperties = new WP_Query($args);
                 </thead>
                 <tbody>
                     <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
-                        <?php $meta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true); ?>
+                        <?php 
+                        $meta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                        $data_backup[] = $meta;
+                         ?>
                         <tr>
                             <input type="hidden" name="data[<?= get_the_ID() ?>][id]" value="<?= get_the_ID() ?>">
                             <td><?php the_title() ?></td>
@@ -76,6 +79,10 @@ $peroperties = new WP_Query($args);
                         </tr>
                     <?php
                     endwhile;
+                    $data = json_encode($data_backup);
+                    $file = fopen(HLR_THEME_PATH. "template-parts/admin-pages/backup.json", "w") or die("Unable to open file!");
+                    fwrite($file, $data);
+                    fclose($file);
                     wp_reset_postdata();
                     wp_reset_query();
                     ?>
