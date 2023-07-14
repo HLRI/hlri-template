@@ -11,7 +11,7 @@ $peroperties = new WP_Query($args);
 <div class="wrap">
     <h1><?= $title ?></h1><br>
     <?php if ($peroperties->have_posts()) : ?>
-        <table class="wp-list-table widefat fixed striped table-view-list">
+        <table class="wp-list-table widefat fixed striped table-view-list" id="table">
             <thead>
                 <tr>
                     <th>Property Name</th>
@@ -37,3 +37,6 @@ $peroperties = new WP_Query($args);
     <?php endif; ?>
 </div>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script>
+    dataTable = jQuery("#table").DataTable({});
+</script>

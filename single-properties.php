@@ -31,8 +31,6 @@ $args = array(
 );
 $associated_floorplans = new WP_Query(${args}); ?>
 
-
-
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' 
 ?>
 <div id="navigation-fixed-location"></div>
