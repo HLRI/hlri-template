@@ -8,6 +8,11 @@ $args = array(
 $peroperties = new WP_Query($args);
 ?>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<style>
+    #table_length , #table_filter{
+        margin-bottom: 20px;
+    }
+</style>
 <div class="wrap">
     <h1><?= $title ?></h1><br>
     <?php if ($peroperties->have_posts()) : ?>
