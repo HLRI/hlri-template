@@ -66,7 +66,11 @@ $peroperties = new WP_Query($args);
 
 if (isset($_POST['btn-set'])) {
 
-    echo $_POST['ids'] . $_POST['opt-project-status'] . $_POST['opt-price'] . "<hr>";
+    wp_die(var_dump($_POST));
+    // foreach($_POST as $item){
+
+    // }
+    // echo $_POST['ids'] . $_POST['opt-project-status'] . $_POST['opt-price'] . "<hr>";
 }
 
 ?>
