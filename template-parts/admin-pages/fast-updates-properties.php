@@ -12,7 +12,6 @@ if (isset($_POST['btn-set'])) {
         $meta['opt-project-status'] = $status;
         $meta['opt-price'] = strval($item['opt-price'],);
         update_post_meta($item['id'], 'hlr_framework_mapdata', $meta);
-
     }
     $success = true;
 }
@@ -40,12 +39,30 @@ $peroperties = new WP_Query($args);
         display: none;
     }
 
+    .loading:before {
+        content: 'wait! , Loading ...';
+        background: #d3d3d300;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        color: #2271b1;
+    }
+
     /* .wrap-button {
         margin-bottom: 20px;
     } */
 </style>
 <form action="" method="post">
-    <div class="wrap">
+    <div class="wrap loading">
         <h1><?= $title ?></h1><br>
         <?php if ($success) : ?>
             <div id="message" class="updated notice is-dismissible">
@@ -70,10 +87,10 @@ $peroperties = new WP_Query($args);
                 </thead>
                 <tbody>
                     <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
-                        <?php 
+                        <?php
                         $meta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         $data_backup[] = $meta;
-                         ?>
+                        ?>
                         <tr>
                             <input type="hidden" name="data[<?= get_the_ID() ?>][id]" value="<?= get_the_ID() ?>">
                             <td><?php the_title() ?></td>
@@ -83,7 +100,7 @@ $peroperties = new WP_Query($args);
                     <?php
                     endwhile;
                     $data = json_encode($data_backup);
-                    $file = fopen(HLR_THEME_PATH. "template-parts/admin-pages/backup.json", "w") or die("Unable to open file!");
+                    $file = fopen(HLR_THEME_PATH . "template-parts/admin-pages/backup.json", "w") or die("Unable to open file!");
                     fwrite($file, $data);
                     fclose($file);
                     wp_reset_postdata();
@@ -106,4 +123,8 @@ $peroperties = new WP_Query($args);
     dataTable = jQuery("#table").DataTable({
         pageLength: 10,
     }).draw();
+
+    jQuery(document).ready(function(){
+        jQuery('.wrap').removeClass('loading');
+    });
 </script>
