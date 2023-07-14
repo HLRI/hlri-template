@@ -1,11 +1,11 @@
 <?php
 
-
+$success = false;
 
 if (isset($_POST['btn-set'])) {
-    foreach($_POST['data'] as $item){
+    foreach ($_POST['data'] as $item) {
         $status = true;
-        if(!isset($item['opt-project-status'])){
+        if (!isset($item['opt-project-status'])) {
             $status = false;
         }
         $meta = get_post_meta($item['id'], 'hlr_framework_mapdata', true);
@@ -13,6 +13,7 @@ if (isset($_POST['btn-set'])) {
         $meta['opt-price'] = strval($item['opt-price'],);
         update_post_meta($item['id'], 'hlr_framework_mapdata', $meta);
     }
+    $success = true;
 }
 
 
@@ -44,6 +45,11 @@ $peroperties = new WP_Query($args);
 </style>
 <form action="" method="post">
     <div class="wrap">
+        <?php if ($success) : ?>
+            <div id="message" class="updated notice is-dismissible">
+                <p>Data updated successfully</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+            </div>
+        <?php endif; ?>
         <h1><?= $title ?></h1><br>
         <div class="wrap-button">
             <button name="btn-set" type="submit" class="button button-primary">Update</button>
@@ -88,5 +94,4 @@ $peroperties = new WP_Query($args);
     dataTable = jQuery("#table").DataTable({
         pageLength: 10,
     }).draw();
-
 </script>
