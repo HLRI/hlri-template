@@ -50,11 +50,6 @@ $peroperties = new WP_Query($args);
         left: 0;
         right: 0;
         bottom: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 25px;
-        color: #2271b1;
     }
 
     /* .wrap-button {
