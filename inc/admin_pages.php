@@ -9,9 +9,5 @@ function add_admin_menu()
 function page_view_fast_update()
 {
     global $title;
-?>
-    <div class="wrap">
-        <h1><?= $title ?></h1>
-    </div>
-<?php
+    include HLR_THEME_PATH . 'template-parts/admin-pages/fast-updates-properties.php';
 }
