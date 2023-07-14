@@ -14,6 +14,10 @@ $peroperties = new WP_Query($args);
         margin-bottom: 20px;
     }
 
+    #table_length{
+        display: none;
+    }
+
     .wrap-button {
         margin-bottom: 20px;
     }
@@ -69,6 +73,5 @@ if(isset($_POST['btn-set'])){
 <script>
     dataTable = jQuery("#table").DataTable({
         pageLength: 10,
-        ordering: false,
     });
 </script>
