@@ -33,7 +33,7 @@ function hlr_contact_form()
                     <label class="form-check-label" for="realtor1">Yes</label>
                 </div>
             </div>
-            <div class="col-6 my-2 d-none brokerage">
+            <div class="col-12 my-2 d-none brokerage">
                 <input class="form-control" type="text" placeholder="Your Brokerage Name" name="brokerage" id="brokerage">
             </div>
             <div class="col-12 my-2">
