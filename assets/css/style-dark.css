@@ -3041,7 +3041,8 @@ table.dataTable thead tr th {
 }
 
 .card-form small {
-    font-size: 12px !important;
+    margin-top: 2px;
+    font-size: 11px !important;
 }
 
 .text-danger{
