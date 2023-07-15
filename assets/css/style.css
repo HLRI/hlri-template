@@ -1962,6 +1962,10 @@ span.page-numbers {
 }
 
 .modal-body-login .form-group .form-control::placeholder {
+  color: #b7b7b7;
+}
+
+#brokerage::placeholder {
   color: #b7b7b7 !important;
 }
 
