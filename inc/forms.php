@@ -51,54 +51,62 @@ function hlr_contact_form()
         </div>
     </div>
 
-    <script>
-        var brokerage = 'No Brokerage';
 
-        jQuery('input[name="realtor"]').click(function() {
-            if (jQuery(this).is(':checked')) {
-                if (jQuery(this).val() == 1) {
-                    jQuery('.brokerage').removeClass('d-none');
-                    brokerage = '';
-                } else {
-                    jQuery('.brokerage').addClass('d-none');
-                    brokerage = 'No Brokerage';
-                }
-            }
-        });
+    <?php
 
-        jQuery('#send').click(function() {
+    add_action('wp_footer', 'form_scripts');
+    function form_scripts()
+    {
+    ?>
+        <script>
+            var brokerage = 'No Brokerage';
 
-            jQuery('.input-error').remove();
-            jQuery('.input-error').remove();
-            jQuery('.success-message').addClass('d-none');
-            jQuery('.success-message small').text('');
-            if (brokerage == '') {
-                brokerage = jQuery('#brokerage').val();
-            }
-            console.log(brokerage);
-            jQuery.ajax({
-                type: "POST",
-                url: 'https://hlrtest.hlric.com/api/v1/get-form',
-                dataType: "json",
-                data: {
-                    'fname': jQuery('input[name="fname"]').val(),
-                    'lname': jQuery('input[name="lname"]').val(),
-                    'email': jQuery('input[name="email"]').val(),
-                    'phone': jQuery('input[name="phone"]').val(),
-                    'brokerage': brokerage,
-                },
-                success: function(response) {
-                    if (response.status == 'errors') {
-                        jQuery.each(response.data, function(index, error) {
-                            jQuery('#' + index).after('<small class="text-danger input-error">' + error + '</small>');
-                        });
-                    } else if (response.status == 'success') {
-                        jQuery('.success-message').removeClass('d-none');
-                        jQuery('.success-message small').text(response.data);
+            jQuery('input[name="realtor"]').click(function() {
+                if (jQuery(this).is(':checked')) {
+                    if (jQuery(this).val() == 1) {
+                        jQuery('.brokerage').removeClass('d-none');
+                        brokerage = '';
+                    } else {
+                        jQuery('.brokerage').addClass('d-none');
+                        brokerage = 'No Brokerage';
                     }
                 }
             });
-        });
-    </script>
+
+            jQuery('#send').click(function() {
+
+                jQuery('.input-error').remove();
+                jQuery('.input-error').remove();
+                jQuery('.success-message').addClass('d-none');
+                jQuery('.success-message small').text('');
+                if (brokerage == '') {
+                    brokerage = jQuery('#brokerage').val();
+                }
+                console.log(brokerage);
+                jQuery.ajax({
+                    type: "POST",
+                    url: 'https://hlrtest.hlric.com/api/v1/get-form',
+                    dataType: "json",
+                    data: {
+                        'fname': jQuery('input[name="fname"]').val(),
+                        'lname': jQuery('input[name="lname"]').val(),
+                        'email': jQuery('input[name="email"]').val(),
+                        'phone': jQuery('input[name="phone"]').val(),
+                        'brokerage': brokerage,
+                    },
+                    success: function(response) {
+                        if (response.status == 'errors') {
+                            jQuery.each(response.data, function(index, error) {
+                                jQuery('#' + index).after('<small class="text-danger input-error">' + error + '</small>');
+                            });
+                        } else if (response.status == 'success') {
+                            jQuery('.success-message').removeClass('d-none');
+                            jQuery('.success-message small').text(response.data);
+                        }
+                    }
+                });
+            });
+        </script>
 <?php
+    }
 }
