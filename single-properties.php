@@ -270,7 +270,11 @@ $associated_floorplans = new WP_Query(${args}); ?>
             <div class="row mt-5 properties-shortcode" id="RegisterNow">
                 <div class="col-12">
                     <div class="titr-list ml-0 mb-2">
-                        <h3 class="font-weight-bold">Register Now to get full package , book your unit</h3>
+                        <?php if ($mdata_single['opt-project-status']) : ?>
+                            <h3 class="font-weight-bold">Fill the Form to get latest available Listings in This building</h3>
+                        <?php else : ?>
+                            <h3 class="font-weight-bold">Register Now to get full package , book your unit</h3>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
