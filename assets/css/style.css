@@ -1962,7 +1962,7 @@ span.page-numbers {
 }
 
 .modal-body-login .form-group .form-control::placeholder {
-  color: #b7b7b7;
+  color: #b7b7b7 !important;
 }
 
 .modal-body-login .form-group .form-group.checkbox {

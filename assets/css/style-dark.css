@@ -1999,7 +1999,7 @@ span.page-numbers {
 }
 
 .modal-body-login .form-group .form-control::placeholder {
-    color: #7c6f64;
+    color: #7c6f64 !important;
 }
 
 .modal-body-login .form-group .form-group.checkbox {
