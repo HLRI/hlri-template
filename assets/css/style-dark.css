@@ -3049,3 +3049,7 @@ table.dataTable thead tr th {
 .text-danger{
     color: #FF912C !important;
 }
+
+input[type='radio'] {
+    accent-color: #FF912C;
+}
