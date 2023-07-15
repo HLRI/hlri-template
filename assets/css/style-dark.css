@@ -2003,6 +2003,10 @@ span.page-numbers {
     color: #7c6f64 !important;
 }
 
+#brokerage::placeholder {
+    color: #7c6f64 !important;
+}
+
 .modal-body-login .form-group .form-group.checkbox {
     width: 130px;
     margin-top: 0;
