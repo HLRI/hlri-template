@@ -1278,6 +1278,7 @@ a.icon-search:hover {
   color: white;
   padding: .4rem 1rem;
   transition: all .3s;
+  cursor: pointer;
 }
 
 .top-section-button:hover {
