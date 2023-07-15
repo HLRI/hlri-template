@@ -3055,3 +3055,7 @@ table.dataTable thead tr th {
      background-position: 468px 0;
  }
 }
+
+.card-form small{
+  font-size: 12px;
+}

@@ -3039,3 +3039,7 @@ table.dataTable thead tr th {
 .image-floorplan img {
     height: auto !important;
 }
+
+.card-form small {
+    font-size: 12px;
+}
