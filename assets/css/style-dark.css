@@ -3050,6 +3050,6 @@ table.dataTable thead tr th {
     color: #FF912C !important;
 }
 
-input[type='radio'] {
+input[type='radio'], input[type='checkbox'] {
     accent-color: #FF912C;
 }
