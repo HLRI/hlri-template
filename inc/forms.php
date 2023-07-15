@@ -77,7 +77,7 @@ function hlr_contact_form()
 
             jQuery('#send').click(function() {
 
-                jQuery('#send').html('<span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span> <span class="sr-only">Processing...</span>');
+                jQuery('#send').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> <span class="sr-only">Processing...</span>');
 
                 jQuery('.input-error').remove();
                 jQuery('.input-error').remove();
