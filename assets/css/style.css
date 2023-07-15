@@ -1966,7 +1966,7 @@ span.page-numbers {
 }
 
 .form-control{
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 #brokerage::placeholder {
