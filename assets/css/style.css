@@ -1965,6 +1965,10 @@ span.page-numbers {
   color: #b7b7b7;
 }
 
+.form-control{
+  box-shadow: none;
+}
+
 #brokerage::placeholder {
   color: #b7b7b7 !important;
 }

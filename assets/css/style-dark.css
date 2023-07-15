@@ -2003,6 +2003,10 @@ span.page-numbers {
     color: #7c6f64 !important;
 }
 
+.form-control {
+    box-shadow: none;
+}
+
 #brokerage::placeholder {
     color: #7c6f64 !important;
 }
