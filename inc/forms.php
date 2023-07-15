@@ -42,7 +42,7 @@ function hlr_contact_form()
             </div>
 
             <div class="col-12 my-2">
-                <button id="send" class="btn-block top-section-button">Send</button>
+                <a id="send" class="btn-block top-section-button">Send</a>
             </div>
 
             <div class="col-12 my-2 d-none success-message">
