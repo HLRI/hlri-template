@@ -100,6 +100,7 @@ function hlr_contact_form()
                     },
                     success: function(response) {
                         if (response.status == 'errors') {
+                            jQuery('#send').html('Send');
                             jQuery.each(response.data, function(index, error) {
                                 jQuery('#' + index).after('<small class="text-danger input-error">' + error + '</small>');
                             });
