@@ -3043,3 +3043,7 @@ table.dataTable thead tr th {
 .card-form small {
     font-size: 12px;
 }
+
+.text-danger{
+    color: #FF912C !important;
+}
