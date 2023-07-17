@@ -117,3 +117,4 @@ function my_custom_query_modifications($query) {
 }
 
 add_action('pre_get_posts', 'my_custom_query_modifications');
+
