@@ -120,7 +120,7 @@ function simple_cache_db_query($query) {
         $result = $wpdb->get_results($query);
         wp_cache_set($cache_key, $result);
     }
-    return $result;
+    // return $result;
 }
 
 // حذف کش دیتابیس بعد از آپدیت، ایجاد یا حذف پست
