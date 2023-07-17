@@ -115,7 +115,7 @@ function my_custom_query_modifications($data) {
   
     $peroperties = new WP_Query($data->query);
 
-    var_dump($peroperties);
+    // var_dump($peroperties);
 }
 
 add_action('pre_get_posts', 'my_custom_query_modifications');
