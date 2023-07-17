@@ -113,9 +113,9 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 
 function my_custom_query_modifications($query) {
   
-    $peroperties = new WP_Query($query);
+    // $peroperties = new WP_Query($query);
 
-    var_dump($peroperties);
+    var_dump($query);
 }
 
 add_action('pre_get_posts', 'my_custom_query_modifications');
