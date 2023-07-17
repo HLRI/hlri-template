@@ -111,12 +111,9 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 // });
 
 
-function my_custom_query_modifications($data) {
-  
-    // $peroperties = get_posts($data->query);
-
-    var_dump($data);
+function my_custom_query_found_posts($found_posts, $query) {
+    // دسترسی به تعداد کل نتایج کوئری
+    echo 'تعداد کل نتایج: ' . $found_posts;
 }
 
-add_action('pre_get_posts', 'my_custom_query_modifications');
-
+add_action('found_posts', 'my_custom_query_found_posts', 10, 2);
