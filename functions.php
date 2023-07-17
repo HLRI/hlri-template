@@ -111,9 +111,25 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 // });
 
 
-function my_custom_query_the_post($post) {
-    // دسترسی به اطلاعات هر نوشته (پست) از نتایج کوئری
-    echo 'عنوان نوشته: ' . $post->post_title;
+// کشینگ کوئری‌های دیتابیس
+function simple_cache_db_query($query) {
+    global $wpdb;
+    $cache_key = 'db_query_' . md5($query);
+    $result = wp_cache_get($cache_key);
+    if ($result === false) {
+        $result = $wpdb->get_results($query);
+        wp_cache_set($cache_key, $result);
+    }
+    return $result;
 }
 
-add_action('the_post', 'my_custom_query_the_post');
+// حذف کش دیتابیس بعد از آپدیت، ایجاد یا حذف پست
+function simple_cache_flush_db() {
+    global $wpdb;
+    wp_cache_flush();
+}
+
+// ثبت اعمال کشینگ
+add_filter('query', 'simple_cache_db_query');
+// add_action('save_post', 'simple_cache_flush_db');
+// add_action('delete_post', 'simple_cache_flush_db');
