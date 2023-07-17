@@ -111,11 +111,11 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 // });
 
 
-function my_custom_query_modifications($query) {
+function my_custom_query_modifications($data) {
   
     // $peroperties = new WP_Query($query);
 
-    var_dump($query);
+    var_dump($data['query']);
 }
 
 add_action('pre_get_posts', 'my_custom_query_modifications');
