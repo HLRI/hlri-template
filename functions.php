@@ -26,6 +26,7 @@ include HLR_THEME_PATH . 'inc/meta_boxes.php';
 include HLR_THEME_PATH . 'inc/taxonomy.php';
 include HLR_THEME_PATH . 'inc/visit_history.php';
 include HLR_THEME_PATH . 'inc/admin_pages.php';
+include HLR_THEME_PATH . 'inc/caching.php';
 
 // function my_awesome_func_two()
 // {
@@ -110,23 +111,3 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 //     ));
 // });
 
-
-function simple_cache_db_query($query) {
-    // global $wpdb;
-    // $cache_key = 'db_query_' . md5($query);
-    // $result = wp_cache_get($cache_key);
-    // if ($result === false) {
-    //     $result = $wpdb->get_results($query);
-    //     wp_cache_set($cache_key, $result);
-    // }
-    return $query;
-}
-
-function simple_cache_flush_db() {
-    global $wpdb;
-    wp_cache_flush();
-}
-
-add_filter('query', 'simple_cache_db_query');
-// add_action('save_post', 'simple_cache_flush_db');
-// add_action('delete_post', 'simple_cache_flush_db');

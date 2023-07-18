@@ -409,50 +409,8 @@ $associated_floorplans = new WP_Query(${args}); ?>
 </div>
 
 <?php
-$terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
-if (!empty($terms)) :
-    $term_ids = array();
-
-    foreach ($terms as $item) {
-        $term_ids[] = $item->term_id;
-    }
-
-    $args = array(
-        'post_type' => ['properties'],
-        'post_status' => ['publish'],
-        'posts_per_page' => 6,
-        'post__not_in' => [$post_id],
-        'tax_query' => array(
-            'relation' => 'OR',
-            array(
-                'taxonomy' => 'stage',
-                'field' => 'term_id',
-                'terms' => $term_ids
-            ),
-            array(
-                'taxonomy' => 'type',
-                'field' => 'term_id',
-                'terms' => $term_ids
-            ),
-            array(
-                'taxonomy' => 'city',
-                'field' => 'term_id',
-                'terms' => $term_ids
-            ),
-            array(
-                'taxonomy' => 'neighborhood',
-                'field' => 'term_id',
-                'terms' => $term_ids
-            ),
-            array(
-                'taxonomy' => 'group',
-                'field' => 'term_id',
-                'terms' => $term_ids
-            )
-        ),
-    );
-    $peroperties_single = new WP_Query($args);
-
+$peroperties_single = properties_related_cached();
+if ($peroperties_single) :
     if ($peroperties_single->have_posts()) :
 ?>
         <div class="container-fluid my-4" id="rp">
