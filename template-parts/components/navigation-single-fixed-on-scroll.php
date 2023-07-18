@@ -9,7 +9,7 @@
         <a href="#Gallery" class="hlr-navigation-item-fixed">
             Gallery
         </a>
-        <?php if (!empty($price_images)) : ?>
+        <?php if (!empty($psd['price_images'])) : ?>
             <a href="#PriceList" class="hlr-navigation-item-fixed">
                 Price List
             </a>
