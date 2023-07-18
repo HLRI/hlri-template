@@ -83,11 +83,12 @@ function properties_single_cached()
         $rates = round($total_rates / $user_rates);
         $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
-        $galleries = [];
+       
+        $galleries_data = [];
         $incentives_data = [];
 
         foreach ($gallery_ids as $gallery_item_id) {
-            $gallery[] = [
+            $galleries_data[] = [
                 'gallery_url' => wp_get_attachment_url($gallery_item_id),
                 'caption' => wp_get_attachment_caption($gallery_item_id)
             ];
@@ -116,7 +117,7 @@ function properties_single_cached()
             'user_rates' => $user_rates,
             'opt_price_min' => $mdata_single['opt-price-min'],
             'price_images' => $price_images,
-            'galleries' => $galleries,
+            'galleries' => $galleries_data,
             'incentives_data' => $incentives_data,
             'videos' => $videos,
             'developments' => $developments,
