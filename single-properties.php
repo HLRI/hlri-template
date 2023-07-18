@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <?php
 $associated_floorplans = associated_floorplans_cached();
+$psd = properties_single_cached();
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' 

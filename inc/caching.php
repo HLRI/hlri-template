@@ -65,63 +65,66 @@ function properties_single_cached()
 {
     $post_id = get_the_ID();
     $cache_key = 'properties_single_cached_' . $post_id;
-    $theme_options = get_option('hlr_framework');
-    $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
-    $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
-    $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
-    // $floorplans_ids = explode(',', $floorplans['opt-gallery-properties-floorplan']);
-    $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
-    $videos = @get_post_meta($post_id, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
-    $developments = @get_post_meta($post_id, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
-    $price_images = @get_post_meta($post_id, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
-    $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
-    $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
-    $rates = round($total_rates / $user_rates);
-    $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
-    $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
-    $galleries = [];
-    $incentives_data = [];
-
-    foreach ($gallery_ids as $gallery_item_id) {
-        $gallery[] = [
-            'gallery_url' => wp_get_attachment_url($gallery_item_id),
-            'caption' => wp_get_attachment_caption($gallery_item_id)
-        ];
-    }
-
-    if (!empty($incentives)) {
-        foreach ($incentives as $item) {
-            $incentives_data[] = [
-                'opt_icon_incentives' => $item['opt-icon-incentives'],
-                'opt_link_incentives' => $item['opt-link-incentives'],
-            ];
-        }
-    }
-
-
-    $data = [
-        'title' => get_the_title(),
-        'excerpt' => get_the_excerpt(),
-        'content' => get_the_content(),
-        'shortlink' => wp_get_shortlink($post_id, 'post', true),
-        'thumbnail_url' => get_the_post_thumbnail_url(),
-        'thumbnail_caption' => get_the_post_thumbnail_caption(),
-        'modified_date' => get_the_modified_date('j F Y'),
-        'property_id' => $property_id,
-        'rates' => $rates,
-        'user_rates' => $user_rates,
-        'opt_price_min' => $mdata_single['opt-price-min'],
-        'price_images' => $price_images,
-        'galleries' => $galleries,
-        'incentives_data' => $incentives_data,
-        'videos' => $videos,
-        'developments' => $developments,
-        'theme_options' => $theme_options,
-    ];
 
     $results = get_transient($cache_key);
 
     if ($results === false) {
+        $theme_options = get_option('hlr_framework');
+        $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
+        $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
+        $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
+        // $floorplans_ids = explode(',', $floorplans['opt-gallery-properties-floorplan']);
+        $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
+        $videos = @get_post_meta($post_id, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
+        $developments = @get_post_meta($post_id, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
+        $price_images = @get_post_meta($post_id, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
+        $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
+        $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
+        $rates = round($total_rates / $user_rates);
+        $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
+        $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
+        $galleries = [];
+        $incentives_data = [];
+
+        foreach ($gallery_ids as $gallery_item_id) {
+            $gallery[] = [
+                'gallery_url' => wp_get_attachment_url($gallery_item_id),
+                'caption' => wp_get_attachment_caption($gallery_item_id)
+            ];
+        }
+
+        if (!empty($incentives)) {
+            foreach ($incentives as $item) {
+                $incentives_data[] = [
+                    'opt_icon_incentives' => $item['opt-icon-incentives'],
+                    'opt_link_incentives' => $item['opt-link-incentives'],
+                ];
+            }
+        }
+
+
+        $results = [
+            'title' => get_the_title(),
+            'excerpt' => get_the_excerpt(),
+            'content' => get_the_content(),
+            'shortlink' => wp_get_shortlink($post_id, 'post', true),
+            'thumbnail_url' => get_the_post_thumbnail_url(),
+            'thumbnail_caption' => get_the_post_thumbnail_caption(),
+            'modified_date' => get_the_modified_date('j F Y'),
+            'property_id' => $property_id,
+            'rates' => $rates,
+            'user_rates' => $user_rates,
+            'opt_price_min' => $mdata_single['opt-price-min'],
+            'price_images' => $price_images,
+            'galleries' => $galleries,
+            'incentives_data' => $incentives_data,
+            'videos' => $videos,
+            'developments' => $developments,
+            'theme_options' => $theme_options,
+        ];
+
+        set_transient($cache_key, $results, 10 * MINUTE_IN_SECONDS);
+
     }
 
     return $results;
