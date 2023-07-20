@@ -488,7 +488,7 @@ $args = array(
         [
             'taxonomy' => 'group',
             'field' => 'term_id',
-            'terms' => 31,
+            'terms' => 6,
         ]
     ]
 );
