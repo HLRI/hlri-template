@@ -8,7 +8,7 @@
             $img_url = HLR_THEME_ASSETS . 'images/nopost.jpg';
         }
         ?>
-    <div class="container-fluid px-0 post-image-single" style="background-image: url('<?= get_the_post_thumbnail_url() ?>');">
+    <div class="container-fluid px-0 post-image-single" style="background-image: url('<?= $img_url ?>');">
         <div class="post-meta-header">
             <div class="post-meta">
                 <i class="fa fa-calendar"></i>
