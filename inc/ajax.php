@@ -453,11 +453,11 @@ function create_routes()
 }
 function getProperties(WP_REST_Request $request)
 {
-    // $auth_user = checkToken();
-    // $is_login = false;
-    // if ($auth_user->status != 401 && $auth_user->status != 404) {
-    //     $is_login = true;
-    // }
+    $auth_user = checkToken();
+    $is_login = false;
+    if ($auth_user->status != 401 && $auth_user->status != 404) {
+        $is_login = true;
+    }
 
     $i = 0;
     $peroperties = get_option('properties_data');
