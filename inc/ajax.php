@@ -78,7 +78,11 @@ function getpopularpost()
 
         <a href="<?= $post['link'] ?>" title="<?= $post['title'] ?>" target="_blank" class="card-post-sidebar mb-2">
             <div class="card-post-sidebar-image">
-                <?= $post['image'] ?>
+                <?php if ($post['image']) : ?>
+                    <?= $post['image'] ?>
+                <?php else : ?>
+                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                <?php endif; ?>
             </div>
             <div class="card-post-sidebar-content">
                 <div class="card-post-sidebar-title">
