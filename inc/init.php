@@ -67,6 +67,7 @@ add_action('wp_login', 'setTokenAfterLogin', 10, 2);
 
 
 add_action('save_post_properties', 'setpropertiesquery');
+add_action('delete_post_properties', 'setpropertiesquery');
 function setpropertiesquery()
 {
     if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
