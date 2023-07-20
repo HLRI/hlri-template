@@ -187,7 +187,7 @@ function theme_footer()
                                 start++;
                                 param--;
                             }
-                            jQuery('#' + elm).text(start);
+                            jQuery('#' + elm).text(start.toLocaleString());
                         } else {
                             clearInterval(intval);
                         }
