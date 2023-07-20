@@ -71,13 +71,13 @@ add_action('trash_properties', 'setpropertiesquery');
 add_action('draft_properties', 'setpropertiesquery');
 function setpropertiesquery()
 {
-    if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-        return;
-    }
+    // if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+    //     return;
+    // }
 
-    if(empty($_POST['title'])){
-        return;
-    }
+    // if(empty($_POST['title'])){
+    //     return;
+    // }
 
     $args = [
         'post_type' => 'properties',
