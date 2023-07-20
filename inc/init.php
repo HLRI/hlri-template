@@ -66,9 +66,17 @@ function setTokenAfterLogin($username, $user)
 add_action('wp_login', 'setTokenAfterLogin', 10, 2);
 
 
-add_action('init', 'setpropertiesquery');
+add_action('save_post_properties', 'setpropertiesquery');
 function setpropertiesquery()
 {
+    if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+        return;
+    }
+
+    if(empty($_POST['title'])){
+        return;
+    }
+
     $args = [
         'post_type' => 'properties',
         'post_status' => 'publish',
