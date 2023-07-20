@@ -11,7 +11,11 @@ $psd = properties_single_cached();
     <div class="row mt-10 header-property-responsive">
         <div class="col-12 col-sm-12 col-md-3 col-lg-2 d-flex align-items-center">
             <div class="card-properties-image">
-                <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" alt="<?= $psd['thumbnail_caption'] ?>">
+                <?php if (!empty($psd['thumbnail_url'])) : ?>
+                    <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" alt="<?= $psd['thumbnail_caption'] ?>">
+                <?php else : ?>
+                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                <?php endif; ?>
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-9 col-lg-10 pl-0 top-responsive">
