@@ -110,6 +110,7 @@ function setpropertiesquery()
             ],
         ];
     }
+    delete_option('properties_data');
     update_option('properties_data', $items, 'no');
 }
 
