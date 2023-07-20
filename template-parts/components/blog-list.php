@@ -36,7 +36,11 @@
 
 
                                 <div class="card-blog-image">
-                                    <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
+                                    <?php if (get_the_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
+                                    <?php else : ?>
+                                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                    <?php endif; ?>
                                 </div>
                                 <div class="card-blog-content">
                                     <h3 class="text-black"><?= strlen(get_the_title())  > 55 ? substr(get_the_title(), 0, 55) . '...' : get_the_title() ?></h3>

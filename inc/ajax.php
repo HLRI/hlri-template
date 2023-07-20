@@ -437,7 +437,6 @@ function hlr_search()
 }
 
 
-
 // Rest Api
 add_action('rest_api_init', 'create_routes');
 function create_routes()
@@ -567,3 +566,4 @@ function getForm(WP_REST_Request $request)
         ]);
     }
 }
+
