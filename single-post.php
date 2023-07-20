@@ -1,6 +1,13 @@
 <?php get_header(); ?>
 <?php runViewer(); ?>
 <?php if (have_posts()) : ?>
+    <?php
+        if(get_the_post_thumbnail_url()){
+            $img_url = get_the_post_thumbnail_url();
+        }else{
+            $img_url = HLR_THEME_ASSETS . 'images/nopost.jpg';
+        }
+        ?>
     <div class="container-fluid px-0 post-image-single" style="background-image: url('<?= get_the_post_thumbnail_url() ?>');">
         <div class="post-meta-header">
             <div class="post-meta">
