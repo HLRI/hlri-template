@@ -1,8 +1,6 @@
 <?php /* Template Name: Custom Page */ ?>
 
 <?php get_header(); ?>
-<?php runViewer(); ?>
-<?php if (have_posts()) : ?>
     <?php
     if (get_the_post_thumbnail_url()) {
         $img_url = get_the_post_thumbnail_url();
@@ -185,5 +183,4 @@
             </div>
         </div>
     </div>
-<?php endif; ?>
 <?php get_footer(); ?>
