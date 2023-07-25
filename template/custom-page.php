@@ -1,6 +1,7 @@
 <?php /* Template Name: Custom Page */ ?>
 
 <?php get_header(); ?>
+
     <?php
     if (get_the_post_thumbnail_url()) {
         $img_url = get_the_post_thumbnail_url();
