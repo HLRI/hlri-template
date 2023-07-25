@@ -616,7 +616,7 @@ body * {
 
 .site-logo a img {
   width: 100%;
-  height: auto;
+  max-height: 48px;
 }
 
 .menu-and-logo {
