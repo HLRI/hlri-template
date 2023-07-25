@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <?php runViewer(); ?>
 <?php if (have_posts()) : ?>
-    <?php while (have_posts()) : ?>
         <?php
         if (get_the_post_thumbnail_url()) {
             $img_url = get_the_post_thumbnail_url();
@@ -184,7 +183,5 @@
                 </div>
             </div>
         </div>
-    <?php endwhile; ?>
-
 <?php endif; ?>
 <?php get_footer(); ?>
