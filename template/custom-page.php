@@ -145,7 +145,7 @@
             <div class="col-lg-3">
                 <div class="card mb-3 tab-card">
                     <div class="card-header tab-card-header">
-<?php echo do_shortcode('[rank_math_contact_info]');?>
+<?= do_shortcode('[rank_math_contact_info]');?>
                     </div>
 
                     <div class="tab-content" id="myTabContent">
