@@ -41,7 +41,7 @@
                     $author = new WP_User($post_author_id);
                     $display_name = $author->display_name;
                     ?>
-                    <span>by <?php the_author() ?></span>
+                    <span>by <?= $display_name ?></span>
                 </div>
             </div>
         </div>
