@@ -35,7 +35,7 @@
 
             <div class="post-meta">
                 <i class="fa fa-user"></i>
-                <span>by <?php the_author_firstname() . ' ' . the_author_lastname() ?></span>
+                <span>by <?php get_the_author() ?></span>
             </div>
         </div>
     </div>
