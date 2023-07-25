@@ -1,4 +1,4 @@
-<?php /* Template Name: Custom Page */ ?>
+<?php /* Template Name: about template */ ?>
 
 <?php get_header(); ?>
 
@@ -25,7 +25,7 @@
 
     <div class="container-fluid my-4 px-5">
         <div class="row">
-            <div class="col-lg-12 ">
+            <div class="col-lg-9 ">
 
                 <div class="card-single-blog">
 
@@ -141,6 +141,13 @@
 
 
 
+            </div>
+            <div class="col-lg-3">
+                <div class="card mb-3 tab-card">
+                    <div class="card-header tab-card-header">
+<?= do_shortcode('[rank_math_contact_info]');?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
