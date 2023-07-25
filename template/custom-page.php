@@ -147,13 +147,6 @@
                     <div class="card-header tab-card-header">
 <?= do_shortcode('[rank_math_contact_info]');?>
                     </div>
-
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active p-3" id="latest-tab" role="tabpanel" aria-labelledby="Latest">
-                        </div>
-                        <div class="tab-pane fade p-3" id="popular-tab" role="tabpanel" aria-labelledby="Popular">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
