@@ -16,11 +16,6 @@
                 <span><?= get_the_date() ?></span>
             </div>
             <div class="post-meta">
-                <i class="fa fa-eye"></i>
-                <span><?= getView(get_the_ID()) ?></span>
-            </div>
-
-            <div class="post-meta">
                 <i class="fa fa-user"></i>
 
                 <span>by <?php echo get_the_author_meta('nickname'); ?></span>
