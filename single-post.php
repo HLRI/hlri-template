@@ -36,12 +36,8 @@
 
                 <div class="post-meta">
                     <i class="fa fa-user"></i>
-                    <?php
-                    $post_author_id = get_the_author_meta('ID');
-                    $author = new WP_User($post_author_id);
-                    $display_name = $author->display_name;
-                    ?>
-                    <span>by <?= $display_name ?></span>
+
+                    <span>by <?php echo get_the_author_meta('nickname'); ?></span>
                 </div>
             </div>
         </div>
