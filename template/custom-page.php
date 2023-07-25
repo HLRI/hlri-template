@@ -145,14 +145,7 @@
             <div class="col-lg-3">
                 <div class="card mb-3 tab-card">
                     <div class="card-header tab-card-header">
-                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="Latest" data-toggle="tab" href="#latest-tab" role="tab" aria-controls="latest-tab" aria-selected="true">Latest articles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="Popular" data-toggle="tab" href="#popular-tab" role="tab" aria-controls="popular-tab" aria-selected="false">Popular articles</a>
-                            </li>
-                        </ul>
+<?php echo do_shortcode('[rank_math_contact_info]');?>
                     </div>
 
                     <div class="tab-content" id="myTabContent">
