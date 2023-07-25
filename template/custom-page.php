@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="container-fluid my-4">
+    <div class="container-fluid my-4 px-5">
         <div class="row">
             <div class="col-lg-9 ">
 
