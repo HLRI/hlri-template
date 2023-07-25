@@ -98,7 +98,11 @@ function theme_head()
         $post_id = get_the_ID();
         $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
-        $rates = round($total_rates / $user_rates);
+        if(!empty($total_rates)) {
+            $rates = round($total_rates / $user_rates);
+        } else{
+            $rates = 0;
+        }
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
         $theme_option = get_option('hlr_framework');
         $city = wp_get_post_terms($post_id, 'city',  array("fields" => "names"));
