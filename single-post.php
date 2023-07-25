@@ -35,8 +35,7 @@
 
                 <div class="post-meta">
                     <i class="fa fa-user"></i>
-
-                    <span>by <?php echo get_the_author_meta('nickname'); ?></span>
+                    <span>by Condoy</span>
                 </div>
             </div>
         </div>
