@@ -40,7 +40,7 @@
                   $author = new WP_User($post_author_id);
                   $display_name = $author->display_name;
                 ?>
-                <span>by <?= $display_name ?></span>
+                <span>byc <?= $display_name ?></span>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
                 <div class="card-single-blog">
 
                     <div class="card-blog-content">
-                        <h1 class="text-black pt-3 px-3"><b><?php the_title() . '  -  ' . 'hhfdghhh' ?></b></h1>
+                        <h1 class="text-black pt-3 px-3"><b><?php the_title() ?></b></h1>
                         <div class="card-single-blog-description p-4">
                             <?php the_content() ?>
                         </div>
