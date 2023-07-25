@@ -66,9 +66,9 @@ function setTokenAfterLogin($username, $user)
 add_action('wp_login', 'setTokenAfterLogin', 10, 2);
 
 
-add_action('publish_properties', 'setpropertiesquery');
-add_action('trash_properties', 'setpropertiesquery');
-add_action('draft_properties', 'setpropertiesquery');
+//add_action('publish_properties', 'setpropertiesquery');
+//add_action('trash_properties', 'setpropertiesquery');
+//add_action('draft_properties', 'setpropertiesquery');
 function setpropertiesquery()
 {
     // if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
