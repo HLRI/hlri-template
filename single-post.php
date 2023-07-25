@@ -52,7 +52,7 @@
                 <div class="card-single-blog">
 
                     <div class="card-blog-content">
-                        <h1 class="text-black pt-3 px-3"><b><?php the_title() . '  -  ' . 'hhh' ?></b></h1>
+                        <h1 class="text-black pt-3 px-3"><b><?php the_title() . '  -  ' . 'hhhhh' ?></b></h1>
                         <div class="card-single-blog-description p-4">
                             <?php the_content() ?>
                         </div>
