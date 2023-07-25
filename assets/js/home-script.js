@@ -14,8 +14,8 @@ jQuery(".listing-wrap").owlCarousel({
     margin: 5,
 });
 var token = getCookie('uthlri');
-getPropertiesRestApi('just-launched', 6, 2, token);
-getPropertiesRestApi('buy-with-five-percent-down', 6, 3, token);
-getPropertiesRestApi('buy-with-10-percent-down', 6, 4, token);
-getPropertiesRestApi('commingsoon', 6, 5, token);
+getPropertiesRestApi('just-launched', 6, 7, token);
+getPropertiesRestApi('buy-with-five-percent-down', 9, 3, token);
+getPropertiesRestApi('buy-with-10-percent-down', 10, 4, token);
+getPropertiesRestApi('commingsoon', 6, 8, token);
 
