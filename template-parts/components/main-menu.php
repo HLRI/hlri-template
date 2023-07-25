@@ -43,15 +43,15 @@
                                 <?php if ($item->menu_item_parent == 0) :
                                     $meta = get_post_meta($item->ID, '_prefix_menu_options', true);
                                 ?>
-                                    <li class="nav-item"><a href="<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>"><?php if (!empty($meta['icon'])) : ?><i class="<?= str_replace('fas', 'fa', $meta['icon']) ?> icon-main-menu"></i><?php endif; ?><?= $item->title ?> <?= !empty($item->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
+                                    <li class="nav-item"><a href="<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>" title="<?php $item->title ?>"><?php if (!empty($meta['icon'])) : ?><i class="<?= str_replace('fas', 'fa', $meta['icon']) ?> icon-main-menu"></i><?php endif; ?><?= $item->title ?> <?= !empty($item->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
                                         <?php if (!empty($item->children)) : ?>
                                             <ul class="submenu">
                                                 <?php foreach ($item->children as $sub) : ?>
-                                                    <li class="sub-item"><a class="nav-title" href="<?= $sub->url ?>"><span><?= $sub->title ?></span> <?= !empty($sub->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
+                                                    <li class="sub-item"><a class="nav-title" href="<?= $sub->url ?>" title="<?php $sub->title ?>"><span><?= $sub->title ?></span> <?= !empty($sub->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
                                                         <?php if (!empty($sub->children)) : ?>
                                                             <ul class="submenu2">
                                                                 <?php foreach ($sub->children as $sub2) : ?>
-                                                                    <li class="sub2-item"><a class="nav-title" href="<?= $sub2->url ?>"><?= $sub2->title ?></a></li>
+                                                                    <li class="sub2-item"><a class="nav-title" href="<?= $sub2->url ?>" title="<?php $sub2->title ?>"><?= $sub2->title ?></a></li>
                                                                 <?php endforeach; ?>
                                                             </ul>
                                                         <?php endif; ?>
