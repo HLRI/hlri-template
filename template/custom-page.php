@@ -16,20 +16,6 @@
                 <span><?= get_the_date() ?></span>
             </div>
             <div class="post-meta">
-                <i class="fa fa-folder-open-o"></i>
-                <?php
-                $i = 1;
-                foreach (get_the_category() as $cat) :
-
-                    if ($i == count(get_the_category())) : ?>
-                        <a href="<?= home_url('category/') . $cat->slug ?>"><span> <?= $cat->name ?></span></a>
-                    <?php else : ?>
-                        <a href="<?= home_url('category/') . $cat->slug ?>"><span> <?= $cat->name ?></span></a> /
-                    <?php endif;
-                    $i++;
-                endforeach; ?>
-            </div>
-            <div class="post-meta">
                 <i class="fa fa-eye"></i>
                 <span><?= getView(get_the_ID()) ?></span>
             </div>
