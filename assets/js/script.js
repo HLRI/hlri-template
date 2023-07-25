@@ -475,7 +475,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
                     '                                </div>'
                 ).owlCarousel('update')
             });
-            jQuery('.owl-carousel').trigger('refresh.owl.carousel');
+            jQuery('.F').trigger('refresh.owl.carousel');
         },
         error: function (xhr, status, errorThrown) {
             xhr.status;
