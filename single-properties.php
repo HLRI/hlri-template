@@ -111,14 +111,16 @@ $psd = properties_single_cached();
 </div>
 <div class="container-fluid px-lg-5">
     <div class="row mt-4 mb-2" id="Gallery">
-        <?php if (count($psd['galleries']) > 0 && $psd['galleries']['gallery_url']) : ?>
-            <div class="col-lg-6">
-                <ul class="pgwSlideshow">
-                    <?php foreach ($psd['galleries'] as $gallery_item) : ?>
-                        <li><img loading="lazy" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>" data-large-src="<?= $gallery_item['gallery_url'] ?>"></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
+        <?php if (count($psd['galleries'])) : ?>
+            <?php if ($psd['galleries']['gallery_url']) : ?>
+                <div class="col-lg-6">
+                    <ul class="pgwSlideshow">
+                        <?php foreach ($psd['galleries'] as $gallery_item) : ?>
+                            <li><img loading="lazy" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>" data-large-src="<?= $gallery_item['gallery_url'] ?>"></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
         <?php if (count($psd['incentives_data']) > 0) : ?>
             <div class="col-lg-6">
