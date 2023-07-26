@@ -552,7 +552,7 @@ function getProperties(WP_REST_Request $request)
 
 
     return new WP_REST_Response([
-        'list' => $items
+        'list' => $result['list']
     ], 200);
 }
 
