@@ -106,6 +106,9 @@ function theme_head()
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
         $theme_option = get_option('hlr_framework');
         $city = wp_get_post_terms($post_id, 'city',  array("fields" => "names"));
+        if(empty($city)){
+            $city[0] = '';
+        }
     ?>
         <script type="application/ld+json">
             {
