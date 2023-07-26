@@ -530,7 +530,7 @@ function getProperties(WP_REST_Request $request)
     } else {
         foreach ($result as $property) {
             return new WP_REST_Response([
-                'list' => $property
+                'list' => $property['term_ids']
             ], 200);
             if (in_array($_GET['term_id'], $property['term_ids'])) {
                 if ($i < $_GET['page']) {
