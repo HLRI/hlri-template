@@ -529,6 +529,9 @@ function getProperties(WP_REST_Request $request)
         set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
     } else {
         foreach ($result as $property) {
+            return new WP_REST_Response([
+                'list' => $property
+            ], 200);
             if (in_array($_GET['term_id'], $property['term_ids'])) {
                 if ($i < $_GET['page']) {
                     if ($is_login) {
