@@ -484,7 +484,7 @@ function getProperties(WP_REST_Request $request)
 
             $terms_ids = wp_get_object_terms(get_the_ID(), 'group', array('fields' => 'ids'));
 
-            $items[] = [
+            $result2[] = [
                 'id' => get_the_ID(),
                 'title' => strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title(),
                 'content' => strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()),
@@ -502,6 +502,27 @@ function getProperties(WP_REST_Request $request)
                     'total_like' => get_post_meta(get_the_ID(), 'total_like', true),
                 ],
             ];
+        }
+
+        foreach ($result2 as $property) {
+            if (in_array($_GET['term_id'], $property['term_ids'])) {
+                if ($i < $_GET['page']) {
+                    if ($is_login) {
+                        if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                            $bookColor = '#9de450';
+                        } else {
+                            $bookColor = '';
+                        }
+                    } else {
+                        $bookColor = '';
+                    }
+                    $items[] = [
+                        'data' => $property,
+                        'bookColor' => $bookColor
+                    ];
+                }
+                $i++;
+            }
         }
         set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
     } else {
