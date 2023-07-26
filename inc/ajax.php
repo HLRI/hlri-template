@@ -471,9 +471,6 @@ function getProperties(WP_REST_Request $request)
 
     $i = 0;
     $result = get_transient('properties_data');
-    return new WP_REST_Response([
-        'list' => $result
-    ], 200);
     if ($result == false) {
         $args = [
             'post_type' => 'properties',
@@ -531,13 +528,10 @@ function getProperties(WP_REST_Request $request)
         set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
     } else {
         foreach ($result as $property) {
-            return new WP_REST_Response([
-                'list' => $property['term_ids']
-            ], 200);
-            if (in_array($_GET['term_id'], $property['term_ids'])) {
+            if (in_array($_GET['term_id'], $property['data']['term_ids'])) {
                 if ($i < $_GET['page']) {
                     if ($is_login) {
-                        if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                        if (in_array($property['data']['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
                             $bookColor = '#9de450';
                         } else {
                             $bookColor = '';
