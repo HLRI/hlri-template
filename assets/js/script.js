@@ -344,7 +344,6 @@ jQuery(document).ready(function ($) {
 
     }
 
-    $('input[name="address"]').val('a');
 
 });
 
