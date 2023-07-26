@@ -1092,16 +1092,8 @@ if (class_exists('CSF')) {
 				),
 				array(
 					'id'     => 'opt-externalid',
-					'type'   => 'repeater',
-					'desc'  => 'Click the + button to add externalid.',
-					'fields' => array(
-						array(
-							'id'    => 'opt-externalid-item',
-							'type'  => 'text',
-							'title' => 'Externalid',
-						),
-
-					),
+					'type'   => 'number',
+					'title' => 'External ID'
 				),
 			)
 		)
