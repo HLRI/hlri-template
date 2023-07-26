@@ -145,7 +145,7 @@ function properties_single_cached()
             'theme_options' => $theme_options,
         ];
 
-        set_transient($cache_key, $results, 10 * MINUTE_IN_SECONDS);
+        set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
     }
 
     return $results;
