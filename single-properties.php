@@ -498,9 +498,9 @@ $args = array(
         ]
     ]
 );
-$peroperties_single = new WP_Query($args);
+$peroperties_month = new WP_Query($args);
 
-if ($peroperties_single->have_posts()) :
+if ($peroperties_month->have_posts()) :
 ?>
     <div class="container-fluid my-4" id="hp">
         <div class="row">
@@ -512,7 +512,7 @@ if ($peroperties_single->have_posts()) :
             <div class="col-12">
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                        <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
+                        <?php while ($peroperties_month->have_posts()) : $peroperties_month->the_post();
                             $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
                             <div class="card-listing card-listing-v2">
