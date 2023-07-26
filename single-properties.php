@@ -111,7 +111,7 @@ $psd = properties_single_cached();
 </div>
 <div class="container-fluid px-lg-5">
     <div class="row mt-4 mb-2" id="Gallery">
-        <?php if (count($psd['galleries']) > 0) : ?>
+        <?php if (isset($psd['galleries']['gallery_url'])) : ?>
             <?php if ($psd['galleries']['gallery_url']) : ?>
                 <div class="col-lg-6">
                     <ul class="pgwSlideshow">
