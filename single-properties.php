@@ -42,51 +42,37 @@ $psd = properties_single_cached();
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                <?php if (isset($psd['properties_rated_id'])) : ?>
-                                    <?php if ($psd['properties_rated_id'] != $post_id) : ?>
-                                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                                            <?php
-                                            switch ($i + 1) {
-                                                case 1:
-                                                    $status = 'Poor';
-                                                    break;
-                                                case 2:
-                                                    $status = 'Fair';
-                                                    break;
-                                                case 3:
-                                                    $status = 'Good';
-                                                    break;
-                                                case 4:
-                                                    $status = 'Excellent';
-                                                    break;
-                                                default:
-                                                    $status = 'WOW';
-                                                    break;
-                                            }
-                                            ?>
-                                            <?php if ($i < $psd['rates']) : ?>
-                                                <li class="star selected" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
-                                                    <i class="fa fa-star fa-fw"></i>
-                                                </li>
-                                            <?php else : ?>
-                                                <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
-                                                    <i class="fa fa-star fa-fw"></i>
-                                                </li>
-                                            <?php endif; ?>
-                                        <?php endfor; ?>
-                                    <?php else : ?>
-                                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                                            <?php if ($i < $psd['rates']) : ?>
-                                                <li class="star-rated selected">
-                                                    <i class="fa fa-star fa-fw"></i>
-                                                </li>
-                                            <?php else : ?>
-                                                <li class="star-rated">
-                                                    <i class="fa fa-star fa-fw"></i>
-                                                </li>
-                                            <?php endif; ?>
-                                        <?php endfor; ?>
-                                    <?php endif; ?>
+                                <?php if ($psd['property_id'] != get_the_ID()) : ?>
+                                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                                        <?php
+                                        switch ($i + 1) {
+                                            case 1:
+                                                $status = 'Poor';
+                                                break;
+                                            case 2:
+                                                $status = 'Fair';
+                                                break;
+                                            case 3:
+                                                $status = 'Good';
+                                                break;
+                                            case 4:
+                                                $status = 'Excellent';
+                                                break;
+                                            default:
+                                                $status = 'WOW';
+                                                break;
+                                        }
+                                        ?>
+                                        <?php if ($i < $psd['rates']) : ?>
+                                            <li class="star selected" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
                                 <?php else : ?>
                                     <?php for ($i = 0; $i < 5; $i++) : ?>
                                         <?php if ($i < $psd['rates']) : ?>
@@ -100,7 +86,6 @@ $psd = properties_single_cached();
                                         <?php endif; ?>
                                     <?php endfor; ?>
                                 <?php endif; ?>
-
                             </ul>
                         </div>
                         <?php if (!empty($psd['user_rates'])) : ?>
