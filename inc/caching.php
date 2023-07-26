@@ -74,10 +74,26 @@ function properties_single_cached()
         $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
         $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
         // $floorplans_ids = explode(',', $floorplans['opt-gallery-properties-floorplan']);
-        $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
-        $videos = @get_post_meta($post_id, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
-        $developments = @get_post_meta($post_id, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
-        $price_images = @get_post_meta($post_id, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
+        if(!empty(get_post_meta($post_id, 'hlr_framework_properties-incentives', true))){
+            $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
+        }else{
+            $incentives = [];
+        }
+        if(!empty(get_post_meta($post_id, 'hlr_framework_properties-video', true))){
+            $videos = @get_post_meta($post_id, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
+        }else{
+            $videos = [];
+        }
+        if(!empty(get_post_meta($post_id, 'hlr_framework_properties_development_details', true))){
+            $developments = @get_post_meta($post_id, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
+        }else{
+            $developments = [];
+        }
+        if(!empty(get_post_meta($post_id, 'hlr_framework_properties_price_list', true))){
+            $price_images = @get_post_meta($post_id, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
+        }else{
+            $price_images = [];
+        }
         $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         $rates = round($total_rates / $user_rates);
