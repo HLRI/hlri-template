@@ -344,7 +344,7 @@ jQuery(document).ready(function ($) {
 
     }
 
-    $('input[name="address"]').val('');
+    $('input[name="address"]').val('dfgdg');
 
 });
 
