@@ -74,32 +74,34 @@ function properties_single_cached()
         $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
         $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
         // $floorplans_ids = explode(',', $floorplans['opt-gallery-properties-floorplan']);
-        if(!empty(get_post_meta($post_id, 'hlr_framework_properties-incentives', true))){
+        if (!empty(get_post_meta($post_id, 'hlr_framework_properties-incentives', true))) {
             $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
-        }else{
+        } else {
             $incentives = [];
         }
-        if(!empty(get_post_meta($post_id, 'hlr_framework_properties-video', true))){
+        if (!empty(get_post_meta($post_id, 'hlr_framework_properties-video', true))) {
             $videos = @get_post_meta($post_id, 'hlr_framework_properties-video', true)['opt_properties_video_items'];
-        }else{
+        } else {
             $videos = [];
         }
-        if(!empty(get_post_meta($post_id, 'hlr_framework_properties_development_details', true))){
+        if (!empty(get_post_meta($post_id, 'hlr_framework_properties_development_details', true))) {
             $developments = @get_post_meta($post_id, 'hlr_framework_properties_development_details', true)['opt_properties_development_details_items'];
-        }else{
+        } else {
             $developments = [];
         }
-        if(!empty(get_post_meta($post_id, 'hlr_framework_properties_price_list', true))){
+        if (!empty(get_post_meta($post_id, 'hlr_framework_properties_price_list', true))) {
             $price_images = @get_post_meta($post_id, 'hlr_framework_properties_price_list', true)['opt_properties_price_list_items'];
-        }else{
+        } else {
             $price_images = [];
         }
         $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
-        $rates = round($total_rates / $user_rates);
+        if (!empty($user_rates)) {
+            $rates = round($total_rates / $user_rates);
+        }
         $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
-       
+
         $galleries_data = [];
         $incentives_data = [];
 
@@ -141,7 +143,6 @@ function properties_single_cached()
         ];
 
         set_transient($cache_key, $results, 10 * MINUTE_IN_SECONDS);
-
     }
 
     return $results;
