@@ -462,7 +462,7 @@ function create_routes()
 function getProperties(WP_REST_Request $request)
 {
 
-   
+
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {
@@ -509,7 +509,11 @@ function getProperties(WP_REST_Request $request)
             if (in_array($_GET['term_id'], $property['term_ids'])) {
                 if ($i < $_GET['page']) {
                     if ($is_login) {
-                        if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                        $favs = [];
+                        if (!empty(get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                            $favs = get_user_meta($auth_user->data['id'], 'properties_favorites', true);
+                        }
+                        if (in_array($property['id'], $favs)) {
                             $bookColor = '#9de450';
                         } else {
                             $bookColor = '';
@@ -531,7 +535,11 @@ function getProperties(WP_REST_Request $request)
             if (in_array($_GET['term_id'], $property['data']['term_ids'])) {
                 if ($i < $_GET['page']) {
                     if ($is_login) {
-                        if (in_array($property['data']['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                        $favs = [];
+                        if (!empty(get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                            $favs = get_user_meta($auth_user->data['id'], 'properties_favorites', true);
+                        }
+                        if (in_array($property['data']['id'], $favs)) {
                             $bookColor = '#9de450';
                         } else {
                             $bookColor = '';
