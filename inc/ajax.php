@@ -471,7 +471,7 @@ function getProperties(WP_REST_Request $request)
 
     $i = 0;
     $result = get_transient('properties_data');
-    if ($result == false) {
+    if ($result === false) {
         $args = [
             'post_type' => 'properties',
             'post_status' => 'publish',
