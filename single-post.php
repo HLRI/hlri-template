@@ -2,7 +2,6 @@
 <?php runViewer(); ?>
 <?php if (have_posts()) : ?>
     <?php
-        var_dump(get_the_author_nickname());
         ?>
         <?php
         if (get_the_post_thumbnail_url()) {
@@ -38,7 +37,7 @@
 
                 <div class="post-meta">
                     <i class="fa fa-user"></i>
-                    <span>by Condoy</span>
+                    <span>by <?= get_the_author_nickname() ?></span>
                 </div>
             </div>
         </div>
