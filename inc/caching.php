@@ -136,6 +136,7 @@ function properties_single_cached()
             'rates' => $rates,
             'user_rates' => $user_rates,
             'opt_price_min' => $mdata_single['opt-price-min'],
+            'opt_project_status' => $mdata_single['opt-project-status'],
             'price_images' => $price_images,
             'galleries' => $galleries_data,
             'incentives_data' => $incentives_data,
