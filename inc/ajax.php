@@ -540,7 +540,7 @@ function getProperties(WP_REST_Request $request)
                         $bookColor = '';
                     }
                     $items[] = [
-                        'data' => $property,
+                        'data' => $property['data'],
                         'bookColor' => $bookColor
                     ];
                 }
