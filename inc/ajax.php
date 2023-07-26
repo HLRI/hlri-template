@@ -462,9 +462,7 @@ function create_routes()
 function getProperties(WP_REST_Request $request)
 {
 
-    return new WP_REST_Response([
-        'list' => '$items'
-    ], 200);
+   
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {
@@ -473,7 +471,9 @@ function getProperties(WP_REST_Request $request)
 
     $i = 0;
     $result = get_transient('properties_data');
-
+    return new WP_REST_Response([
+        'list' => $result
+    ], 200);
     if ($result === false) {
         $args = [
             'post_type' => 'properties',
