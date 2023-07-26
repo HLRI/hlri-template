@@ -470,11 +470,6 @@ function getProperties(WP_REST_Request $request)
     $i = 0;
     $result = get_transient('properties_data');
 
-    return new WP_REST_Response([
-        'list' => $result
-    ], 200);
-
-
     if ($result === false) {
         $args = [
             'post_type' => 'properties',
