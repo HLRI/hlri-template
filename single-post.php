@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 <?php runViewer(); ?>
 <?php if (have_posts()) : ?>
+    <?php
+        var_dump(get_the_author_nickname());
+        ?>
         <?php
         if (get_the_post_thumbnail_url()) {
             $img_url = get_the_post_thumbnail_url();
