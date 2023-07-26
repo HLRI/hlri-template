@@ -344,6 +344,7 @@ jQuery(document).ready(function ($) {
 
     }
 
+    $('input[name="address"]').val('');
 
 });
 
@@ -485,10 +486,6 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
 
 
 }
-
-
-
-
 
 function getCookie(cname) {
     let name = cname + "=";
