@@ -532,8 +532,8 @@ if ($peroperties_month->have_posts()) :
                                             <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                         </a>
                                         <div class="card-listing-description card-listing-description-v2">
-                                            <a href="<?= get_the_permalink() ?>" title="<?= strlen(strip_tags($psd['excerpt']))  > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>">
-                                                <?= strlen(strip_tags($psd['excerpt']))  > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>
+                                            <a href="<?= get_the_permalink() ?>" title="<?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>">
+                                                <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
                                             </a>
                                         </div>
                                     </div>
@@ -541,7 +541,7 @@ if ($peroperties_month->have_posts()) :
                                     <!-- <div class="card-listing-content card-listing-content-v2">
                                         <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                         <div class="card-listing-description card-listing-description-v2">
-                                            <?= strlen(strip_tags($psd['excerpt']))  > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>
+                                            <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
                                         </div>
                                     </div> -->
 
@@ -580,18 +580,18 @@ if ($peroperties_month->have_posts()) :
                                         ?>
                                         <i <?= is_user_logged_in() ? in_array(get_the_ID(), $favs) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= get_the_ID() ?>)" class="fa fa-bookmark"></i>
                                     </div>
-                                    <a href="<?= get_the_permalink() ?>" title="<?= $psd['title'] ?>" class="">more</a>
+                                    <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>" class="">more</a>
 
                                 </div>
 
                                 <div class="card-share">
-                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= $psd['shortlink'] ?>"><i class="fa fa-facebook-square"></i></a>
-                                    <a target="_blank" href="https://reddit.com/submit?url=<?= $psd['shortlink'] ?>&title=<?= $psd['title'] ?>"><i class="fa fa-reddit"></i></a>
-                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= $psd['shortlink'] ?>?ref=linkedin&title=<?= $psd['title'] ?>&summary=<?php $psd['content'] ?>"><i class="fa fa-linkedin-square"></i></a>
-                                    <a target="_blank" href="https://wa.me/?text=<?= $psd['shortlink'] ?>"><i class="fa fa-whatsapp"></i></a>
-                                    <a target="_blank" href="https://telegram.me/share/url?url=<?= $psd['shortlink'] ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
-                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= $psd['shortlink'] ?>&media=<?= $psd['thumbnail_url'] ?>&description=<?= $psd['title'] ?>"><i class="fa fa-pinterest"></i></a>
-                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= $psd['shortlink'] ?>"><i class="fa fa-twitter-square"></i></a>
+                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
+                                    <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?= get_the_title() ?>"><i class="fa fa-reddit"></i></a>
+                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= get_the_title() ?>&summary=<?= get_the_content() ?>"><i class="fa fa-linkedin-square"></i></a>
+                                    <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
+                                    <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
+                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?= get_the_title() ?>"><i class="fa fa-pinterest"></i></a>
+                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
                                     <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
                                 </div>
                             </div>
