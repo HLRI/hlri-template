@@ -461,6 +461,10 @@ function create_routes()
 }
 function getProperties(WP_REST_Request $request)
 {
+
+    return new WP_REST_Response([
+        'list' => '$items'
+    ], 200);
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {
@@ -547,41 +551,7 @@ function getProperties(WP_REST_Request $request)
             }
         }
     }
-    // $arg = [
-    //     'post_type' => 'properties',
-    //     'post_status' => 'publish',
-    //     'posts_per_page' => 8,
-    //     'tax_query' => [
-    //         [
-    //             'taxonomy' => 'group',
-    //             'field' => 'term_id',
-    //             'terms' => 19,
-    //         ]
-    //     ]
-    // ];
 
-    // $peroperties = new WP_Query($arg);
-
-    // while ($peroperties->have_posts()) {
-    //     $peroperties->the_post();
-    //     if ($is_login) {
-    //         if (in_array(get_the_ID(), get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
-    //             $bookColor = '#9de450';
-    //         } else {
-    //             $bookColor = '';
-    //         }
-    //     } else {
-    //         $bookColor = '';
-    //     }
-
-    //     $items[] = [
-    //         'post' => $peroperties->post,
-    //         'url_image' => get_the_post_thumbnail_url(),
-    //         'metadata' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true),
-    //         'total_like' => get_post_meta(get_the_ID(), 'total_like', true),
-    //         'bookColor' => $bookColor
-    //     ];
-    // }
 
     return new WP_REST_Response([
         'list' => $items
