@@ -572,7 +572,13 @@ if ($peroperties_single->have_posts()) :
                                         </div>
 
                                         <i role="button" class="fa fa-share-alt"></i>
-                                        <i <?= is_user_logged_in() ? in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= get_the_ID() ?>)" class="fa fa-bookmark"></i>
+                                        <?php
+                                        $favs = [];
+                                        if (!empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
+                                            $favs = get_user_meta(get_current_user_id(), 'properties_favorites', true);
+                                        }
+                                        ?>
+                                        <i <?= is_user_logged_in() ? in_array(get_the_ID(), $favs) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= get_the_ID() ?>)" class="fa fa-bookmark"></i>
                                     </div>
                                     <a href="<?= get_the_permalink() ?>" title="<?= $psd['title'] ?>" class="">more</a>
 
