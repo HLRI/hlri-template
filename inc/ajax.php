@@ -529,7 +529,7 @@ function getProperties(WP_REST_Request $request)
                 $i++;
             }
         }
-        set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
+        set_transient('properties_data', $items, 1 * MINUTE_IN_SECONDS);
     } else {
         foreach ($result as $property) {
             if (in_array($_GET['term_id'], $property['data']['term_ids'])) {
