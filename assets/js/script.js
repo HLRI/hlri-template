@@ -27,21 +27,21 @@ jQuery(document).ready(function ($) {
         margin: 5,
     });
 
-    $(".neighborhood").owlCarousel({
-        responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 4, }, 1100: { items: 4 }, },
-        loop: true,
-        nav: true,
-        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-        autoplay: true,
-        autoplaySpeed: 2000,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        rtl: false,
-        center: false,
-        dots: false,
-        // autoWidth: true,
-        margin: 10,
-    });
+    // $(".neighborhood").owlCarousel({
+    //     responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2, }, 768: { items: 2, }, 992: { items: 4, }, 1100: { items: 4 }, },
+    //     loop: true,
+    //     nav: true,
+    //     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+    //     autoplay: true,
+    //     autoplaySpeed: 2000,
+    //     autoplayTimeout: 4000,
+    //     autoplayHoverPause: true,
+    //     rtl: false,
+    //     center: false,
+    //     dots: false,
+    //     // autoWidth: true,
+    //     margin: 10,
+    // });
 
     $(".teams").owlCarousel({
         responsive: { 200: { items: 1, }, 300: { items: 1, }, 600: { items: 2.5, }, 768: { items: 3.5, }, 1000: { items: 6, }, 1200: { items: 6 }, },
@@ -105,20 +105,20 @@ jQuery(document).ready(function ($) {
         onTranslated: startProgressBar
     });
 
-    $(".buy-with-10-percent-down").owlCarousel({
-        items: 1,
-        loop: true,
-        nav: false,
-        autoplay: true,
-        dots: true,
-        autoplayHoverPause: true,
-        autoplaySpeed: 3000,
-        autoplayTimeout: 8000,
-        margin: 10,
-        onInitialized: startProgressBar,
-        onTranslate: resetProgressBar,
-        onTranslated: startProgressBar
-    });
+    // $(".buy-with-10-percent-down").owlCarousel({
+    //     items: 1,
+    //     loop: true,
+    //     nav: false,
+    //     autoplay: true,
+    //     dots: true,
+    //     autoplayHoverPause: true,
+    //     autoplaySpeed: 3000,
+    //     autoplayTimeout: 8000,
+    //     margin: 10,
+    //     onInitialized: startProgressBar,
+    //     onTranslate: resetProgressBar,
+    //     onTranslated: startProgressBar
+    // });
 
 
     $('.testimonials .owl-dots').addClass('mystyle-owl-dots');

@@ -98,6 +98,8 @@ function properties_single_cached()
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         if (!empty($user_rates)) {
             $rates = round($total_rates / $user_rates);
+        }else{
+            $rates = '';
         }
         $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
