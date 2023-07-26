@@ -20,7 +20,7 @@ $psd = properties_single_cached();
         </div>
         <div class="col-12 col-sm-12 col-md-9 col-lg-10 pl-0 top-responsive">
             <div class="card-profile-details p-0 position-relative">
-                <span class="update-label">Last Update : <?= $psd['modified_dat'] ?></span>
+                <span class="update-label">Last Update : <?= isset($psd['modified_dat']) ? $psd['modified_dat'] : 'No Update' ?></span>
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                     <h1 class="mb-2"><?= $psd['title'] ?></h1>
                     <div class="card-share-single my-0">
