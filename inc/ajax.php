@@ -468,7 +468,7 @@ function getProperties(WP_REST_Request $request)
     if ($auth_user->status != 401 && $auth_user->status != 404) {
         $is_login = true;
     }
-
+    $item = [];
     $i = 0;
     $result = get_transient('properties_data');
     if ($result === false) {
