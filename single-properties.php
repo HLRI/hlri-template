@@ -2,7 +2,7 @@
 <?php
 $associated_floorplans = associated_floorplans_cached();
 $psd = properties_single_cached();
-var_dump($psd);
+var_dump('ffdggdfgfdg');
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' 
