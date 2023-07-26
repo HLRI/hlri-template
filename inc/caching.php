@@ -101,7 +101,7 @@ function properties_single_cached()
         }else{
             $rates = '';
         }
-        $property_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
+        $properties_rated_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
 
         $galleries_data = [];
@@ -132,7 +132,7 @@ function properties_single_cached()
             'thumbnail_url' => get_the_post_thumbnail_url(),
             'thumbnail_caption' => get_the_post_thumbnail_caption(),
             'modified_date' => get_the_modified_date('j F Y'),
-            'property_id' => $property_id,
+            'properties_rated_id' => $properties_rated_id,
             'rates' => $rates,
             'user_rates' => $user_rates,
             'opt_price_min' => $mdata_single['opt-price-min'],

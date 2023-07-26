@@ -42,7 +42,7 @@ $psd = properties_single_cached();
                         <span class="rating">Rating : </span>
                         <div class="rating-stars text-center">
                             <ul id="stars">
-                                <?php if ($psd['property_id'] != $post_id) : ?>
+                                <?php if (isset($psd['properties_rated_id']) && $psd['properties_rated_id'] != $post_id) : ?>
                                     <?php for ($i = 0; $i < 5; $i++) : ?>
                                         <?php
                                         switch ($i + 1) {
