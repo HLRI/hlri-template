@@ -52,7 +52,7 @@ function properties_related_cached()
 
             $results = new WP_Query($args);
 
-            set_transient($cache_key, $results, 10 * MINUTE_IN_SECONDS);
+            set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
         } else {
             return false;
         }
