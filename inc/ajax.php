@@ -468,29 +468,64 @@ function getProperties(WP_REST_Request $request)
     }
 
     $i = 0;
-    $peroperties = get_option('properties_data');
-    foreach ($peroperties as $property) {
-        if (in_array($_GET['term_id'], $property['term_ids'])) {
-            if ($i < $_GET['page']) {
-                if ($is_login) {
-                    if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
-                        $bookColor = '#9de450';
+    $result = get_transient('properties_data');
+
+    if ($result === false) {
+        $args = [
+            'post_type' => 'properties',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+        ];
+
+        $peroperties = new WP_Query($args);
+
+        while ($peroperties->have_posts()) {
+            $peroperties->the_post();
+
+            $terms_ids = wp_get_object_terms(get_the_ID(), 'group', array('fields' => 'ids'));
+
+            $items[] = [
+                'id' => get_the_ID(),
+                'title' => strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title(),
+                'content' => strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()),
+                'permalink' => get_the_permalink(),
+                'shortlink' => wp_get_shortlink(get_the_ID(), 'post', true),
+                'thumbnail_url' => get_the_post_thumbnail_url(),
+                'term_ids' => $terms_ids,
+                'metadata' => [
+                    'opt-min-price-sqft' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-min-price-sqft'],
+                    'opt-max-price-sqft' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-max-price-sqft'],
+                    'opt-size-min' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-size-min'],
+                    'opt-size-max' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-size-max'],
+                    'opt-size-max' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-size-max'],
+                    'opt-address' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-address'],
+                    'total_like' => get_post_meta(get_the_ID(), 'total_like', true),
+                ],
+            ];
+        }
+        set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
+    } else {
+        foreach ($result as $property) {
+            if (in_array($_GET['term_id'], $property['term_ids'])) {
+                if ($i < $_GET['page']) {
+                    if ($is_login) {
+                        if (in_array($property['id'], get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
+                            $bookColor = '#9de450';
+                        } else {
+                            $bookColor = '';
+                        }
                     } else {
                         $bookColor = '';
                     }
-                } else {
-                    $bookColor = '';
+                    $items[] = [
+                        'data' => $property,
+                        'bookColor' => $bookColor
+                    ];
                 }
-                $items[] = [
-                    'data' => $property,
-                    'bookColor' => $bookColor
-                ];
+                $i++;
             }
-            $i++;
         }
     }
-
-
     // $arg = [
     //     'post_type' => 'properties',
     //     'post_status' => 'publish',
@@ -526,8 +561,6 @@ function getProperties(WP_REST_Request $request)
     //         'bookColor' => $bookColor
     //     ];
     // }
-
-
 
     return new WP_REST_Response([
         'list' => $items
