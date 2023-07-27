@@ -295,7 +295,7 @@ jQuery(document).ready(function ($) {
 
     $('.switch-mode').click(function () {
         if ($('#style-css').hasClass('dark-mode')) {
-            $("div.site-logo a img").attr('src', "/wp-content/themes/homeleaderrealty/assets/images/logo-light.png");
+            $("div.site-logo a img").attr('src', lightLogo);
             $('#style-css').attr('href', lightStyle).removeClass('dark-mode');
             localStorage.setItem('style-mode', 'light');
         } else {
