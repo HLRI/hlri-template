@@ -1223,6 +1223,10 @@ if (class_exists('CSF')) {
 						'North West'  => 'North West',
 						'South East'  => 'South East',
 						'South West'  => 'South West',
+						'North/East'  => 'North/East',
+						'North/West'  => 'North/West',
+						'South/West'  => 'South/West',
+						'South/East'  => 'South/East',
 					),
 					'default'     => ''
 				),
