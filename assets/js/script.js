@@ -300,7 +300,7 @@ jQuery(document).ready(function ($) {
             $('#style-css').attr('href', lightStyle).removeClass('dark-mode');
             localStorage.setItem('style-mode', 'light');
         } else {
-            $("div.site-logo a img").attr('src', "/wp-content/themes/homeleaderrealty/assets/images/logo-dark.png");
+            $("div.site-logo a img").attr('src', darkLogo);
             $('#style-css').attr('href', darkStyle).addClass('dark-mode');
             localStorage.setItem('style-mode', 'dark');
         }
