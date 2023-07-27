@@ -87,6 +87,8 @@ function theme_scripts()
 add_action('wp_head', 'theme_head');
 function theme_head()
 {
+
+    $theme_option = get_option('hlr_framework');
 ?>
 
     <?php if (is_home()) : ?>
@@ -98,15 +100,14 @@ function theme_head()
         $post_id = get_the_ID();
         $total_rates = get_post_meta($post_id, 'properties_total_rates', true);
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
-        if(!empty($total_rates)) {
+        if (!empty($total_rates)) {
             $rates = round($total_rates / $user_rates);
-        } else{
+        } else {
             $rates = 0;
         }
         $mdata_single = get_post_meta($post_id, 'hlr_framework_mapdata', true);
-        $theme_option = get_option('hlr_framework');
         $city = wp_get_post_terms($post_id, 'city',  array("fields" => "names"));
-        if(empty($city)){
+        if (empty($city)) {
             $city[0] = '';
         }
     ?>
@@ -143,13 +144,10 @@ function theme_head()
             "url": "<?= admin_url('admin-ajax.php') ?>"
         };
 
-        <?php 
-        var_dump($theme_option);
-        
-        ?>
+       
         var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
-        var darkLogo = '<?=  $theme_option['opt-menu-logo-dark']['url'] ?>';
-        var lightLogo = '<?=  $theme_option['opt-menu-logo']['url'] ?>';
+        var darkLogo = '<?= $theme_option['opt-menu-logo-dark']['url'] ?>';
+        var lightLogo = '<?= $theme_option['opt-menu-logo']['url'] ?>';
         var lightStyle = '<?= HLR_THEME_ASSETS . 'css/style.css' ?>';
     </script>
 <?php
@@ -181,8 +179,6 @@ function theme_footer()
     <?php if (is_home()) : ?>
         <?php if (!empty($theme_options['opt_homeleaderrealtycounter_items'])) : ?>
             <script>
-
-
                 function countup(elm, param) {
                     var start = 0;
                     var intval = setInterval(() => {
