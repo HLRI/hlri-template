@@ -3,7 +3,6 @@
 $associated_floorplans = associated_floorplans_cached();
 $psd = properties_single_cached();
 
-var_dump(isset($psd['galleries'][0]['gallery_url']));
 
 ?>
 
@@ -114,7 +113,7 @@ var_dump(isset($psd['galleries'][0]['gallery_url']));
 </div>
 <div class="container-fluid px-lg-5">
     <div class="row mt-4 mb-2" id="Gallery">
-        <?php if (isset($psd['galleries']['gallery_url'])) : ?>
+        <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
             <?php if ($psd['galleries']['gallery_url']) : ?>
                 <div class="col-lg-6">
                     <ul class="pgwSlideshow">
