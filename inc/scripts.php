@@ -144,6 +144,7 @@ function theme_head()
         };
 
         var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
+        var darkLogo = '<?=  $theme_option['opt-menu-logo-dark']['url'] ?>';
         var lightStyle = '<?= HLR_THEME_ASSETS . 'css/style.css' ?>';
     </script>
 <?php
