@@ -121,7 +121,7 @@ if (class_exists('CSF')) {
 			array(
 				'id'    	=>	'opt-menu-logo',
 				'type'  	=>	'media',
-				'title'		=>	'Logo',
+				'title'		=>	'Light Logo',
 				'subtitle'	=>	'Please select an image',
 				'library'	=>	'image'
 			),
