@@ -111,3 +111,4 @@ include HLR_THEME_PATH . 'inc/caching.php';
 //     ));
 // });
 
+remove_filter( 'the_content', 'wpautop' );
