@@ -103,6 +103,7 @@ $psd = properties_single_cached();
 
                 <?php if (!empty($psd['content'])) : ?>
                     <div class="content-profile"><?= $psd['content'] ?></div>
+                // added content
                 <?php endif; ?>
             </div>
         </div>
