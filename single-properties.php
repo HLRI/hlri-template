@@ -3,7 +3,7 @@
 $associated_floorplans = associated_floorplans_cached();
 $psd = properties_single_cached();
 
-var_dump(isset($psd['galleries']['gallery_url']));
+var_dump(isset($psd['galleries'][0]['gallery_url']));
 
 ?>
 
