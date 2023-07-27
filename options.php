@@ -126,6 +126,13 @@ if (class_exists('CSF')) {
 				'library'	=>	'image'
 			),
 			array(
+				'id'    	=>	'opt-menu-logo-dark',
+				'type'  	=>	'media',
+				'title'		=>	'Dark Logo',
+				'subtitle'	=>	'Please select an image',
+				'library'	=>	'image'
+			),
+			array(
 				'id'         => 'opt-display-menu',
 				'type'       => 'button_set',
 				'title'      => 'Display menu',
