@@ -141,8 +141,7 @@ $psd = properties_single_cached();
     <?php if (!empty($psd['content'])) : ?>
         <div class="row mt-2 mb-4" id="Overview">
             <div class="col-12">
-<!--                <div class="content-profile">--><?php //= $psd['content'] ?><!--</div>-->
-                <div class="content-profile"><?php the_content(); ?></div>
+               <div class="content-profile"><?= wpautop($psd['content']) ?></div>
             </div>
         </div>
     <?php endif; ?>
