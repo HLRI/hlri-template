@@ -999,6 +999,11 @@ if (class_exists('CSF')) {
 					'type'  => 'text',
 					'title' => 'Developer',
 				),
+                array(
+                    'id'    => 'opt-sales-team',
+                    'type'  => 'text',
+                    'title' => 'Sales Team',
+                ),
 				array(
 					'id'    => 'opt-architect',
 					'type'  => 'text',
