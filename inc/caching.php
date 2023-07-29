@@ -68,11 +68,17 @@ function properties_single_cached()
 
     $results = get_transient($cache_key);
 
+
     if ($results === false) {
         $theme_options = get_option('hlr_framework');
         $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
         $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
-        $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
+        if (!empty($galleries['opt-gallery-properties'])) {
+            $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
+        } else {
+            $gallery_ids = [];
+        }
+        
         // $floorplans_ids = explode(',', $floorplans['opt-gallery-properties-floorplan']);
         if (!empty(get_post_meta($post_id, 'hlr_framework_properties-incentives', true))) {
             $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
@@ -98,7 +104,7 @@ function properties_single_cached()
         $user_rates = get_post_meta($post_id, 'properties_user_rates', true);
         if (!empty($user_rates)) {
             $rates = round($total_rates / $user_rates);
-        }else{
+        } else {
             $rates = '';
         }
         $properties_rated_id = get_user_meta(get_current_user_id(), 'properties_rated', true);
