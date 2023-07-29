@@ -114,14 +114,7 @@ $property = new WP_Query($args);
                         } else {
                             $baths = '';
                         }
-
-                        if (!empty($floorplans['opt-floorplans-view'])) {
-                            $view = implode('/', $floorplans['opt-floorplans-view']);
-                        } else {
-                            $view = '';
-                        }
-
-
+                        
                         $info =  $sq . ' ' . $bed . ' ' . $baths . ' ' . $view;
 
                         ?>
