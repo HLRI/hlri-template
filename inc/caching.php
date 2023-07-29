@@ -183,7 +183,10 @@ function associated_floorplans_cached()
                 )
             )
         );
+
         $results = new WP_Query($args);
+        $results = set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
+
     }
 
     return $results;
