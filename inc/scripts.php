@@ -144,7 +144,7 @@ function theme_head()
             "url": "<?= admin_url('admin-ajax.php') ?>"
         };
 
-       
+
         var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
         var darkLogo = '<?= $theme_option['opt-menu-logo-dark']['url'] ?>';
         var lightLogo = '<?= $theme_option['opt-menu-logo']['url'] ?>';
@@ -272,7 +272,11 @@ function theme_footer()
 
 
     <?php if (is_singular('properties')) :
-        $locations = get_post_meta(get_the_ID(), 'hlr_framework_properties-location', true)['opt-map-properties'];
+        if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_properties-location', true))) {
+            $locations = get_post_meta(get_the_ID(), 'hlr_framework_properties-location', true)['opt-map-properties'];
+        }else{
+            $locations = '';
+        }
     ?>
         <script>
             jQuery(document).ready(function() {
