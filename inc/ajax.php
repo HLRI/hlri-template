@@ -724,7 +724,7 @@ function my_awesome_func_tree()
         if (!empty($floorplanData)) {
             $floorplansFinal[] =
                 [
-                    "id" => get_the_ID(),
+                    "id" => $floorplanData->ID,
                     "post_id" => "7434",
                     "suite_name" => $floorplanData['opt-floorplans-suite-name'],
                     "price" => $floorplanData['opt-floorplans-price-from'],
