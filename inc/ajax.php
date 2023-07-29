@@ -727,7 +727,7 @@ function my_awesome_func_tree()
                         'compare' => '='
                     )
                 )
-            );
+            ));
             die();
             // if($mapMeta['opt-status'] !== "sold out"){
                 if (!empty($mapMeta)) {
