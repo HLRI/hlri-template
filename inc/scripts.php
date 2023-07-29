@@ -116,7 +116,9 @@ function theme_head()
                 "@context": "http://schema.org",
                 "@type": "LocalBusiness",
                 "name": "<?= get_the_title() ?>",
+                <?php if(!empty($mdata_single['opt-price-min'])): ?>
                 "description": "<?= get_the_excerpt() ?>",
+                <?php endif; ?>
                 "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "<?= $city[0] ?>",
