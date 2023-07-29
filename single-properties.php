@@ -201,7 +201,22 @@ $associated_floorplans = associated_floorplans_cached();
         </div>
     <?php endif; ?>
 
-   
+    <?php if (!empty($psd['price_images'])) : ?>
+        <div class="row mt-5 mb-4" id="PriceList">
+            <div class="col-12">
+                <div class="titr-list ml-0">
+                    <h3 class="font-weight-bold">Price List</h3>
+                </div>
+            </div>
+            <?php foreach ($psd['price_images'] as $image) : ?>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                    <div class="image-price">
+                        <img loading="lazy" src="<?= $image['opt-price-list-image']['url'] ?>" alt="<?= $image['opt-price-list-image']['alt'] ?>">
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 
     <?php if (!empty($floorplans_ids[0])) : ?>
         <!-- <div class="row my-4" >
