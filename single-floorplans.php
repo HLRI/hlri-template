@@ -473,7 +473,7 @@ $property = new WP_Query($args);
                                         -
                                     <?php endif; ?>
                                 </td>
-                                <td><?= implode(' / ', $floor['opt-floorplans-view']) ?></td>
+                                <td><?= $floor['opt-floorplans-view']; ?></td>
                                 <td>
                                     <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
                                         <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
