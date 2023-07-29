@@ -614,12 +614,10 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two()
 {
-    die('test api');
     $args = array(
-        'post_type' => 'mapdata',
+        'post_type' => 'properties',
         'post_status' => 'publish',
         'posts_per_page' => -1,
-        // 'p' => 2567
     );
 
     $my_query = null;
