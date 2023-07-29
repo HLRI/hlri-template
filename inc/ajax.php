@@ -458,6 +458,11 @@ function create_routes()
         'methods' => 'POST',
         'callback' => 'getForm'
     ]);
+
+    register_rest_route('mapdata/v2', '/getResult', array(
+        'methods' => 'GET',
+        'callback' => 'my_awesome_func_two',
+    ));
 }
 function getProperties(WP_REST_Request $request)
 {
@@ -606,14 +611,6 @@ function getForm(WP_REST_Request $request)
 
 
 
-
-
-add_action('rest_api_init', function () {
-    register_rest_route('mapdata/v2', '/getResult', array(
-        'methods' => 'GET',
-        'callback' => 'my_awesome_func_two',
-    ));
-});
 
 function my_awesome_func_two()
 {
