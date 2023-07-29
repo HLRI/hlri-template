@@ -714,7 +714,7 @@ function my_awesome_func_tree()
     if ($my_query->have_posts()) :
         while ($my_query->have_posts()) : $my_query->the_post();
 
-            $floorplan = get_post_meta("7434", 'associated_property');
+            $floorplan = get_post_meta("7434", 'associated_property', true);
             var_dump($floorplan);
             die();
             
