@@ -89,7 +89,7 @@ function hlr_contact_form()
                 console.log(brokerage);
                 jQuery.ajax({
                     type: "POST",
-                    url: 'https://hlrtest.hlric.com/api/v1/get-form',
+                    url: 'https://condoy.com/api/v1/get-form',
                     dataType: "json",
                     data: {
                         'fname': jQuery('input[name="fname"]').val(),
