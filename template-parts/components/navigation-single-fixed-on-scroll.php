@@ -9,11 +9,7 @@
         <a href="#Gallery" class="hlr-navigation-item-fixed">
             Gallery
         </a>
-        <?php if (!empty($psd['price_images'])) : ?>
-            <a href="#PriceList" class="hlr-navigation-item-fixed">
-                Price List
-            </a>
-        <?php endif; ?>
+       
         <?php if ($associated_floorplans->have_posts()) : ?>
             <a href="#FloorPlans" class="hlr-navigation-item-fixed">
                 Floor Plans
