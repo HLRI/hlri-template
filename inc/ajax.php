@@ -728,6 +728,7 @@ function my_awesome_func_tree()
                     )
                 )
             ));
+            var_dump($floorplan);
             die();
             // if($mapMeta['opt-status'] !== "sold out"){
                 if (!empty($mapMeta)) {
