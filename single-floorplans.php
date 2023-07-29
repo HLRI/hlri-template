@@ -270,7 +270,7 @@ $property = new WP_Query($args);
                                             <?php if (!empty($floorplans['opt-floorplans-view'])) : ?>
                                                 <div class="square-foot-item">
                                                     <span class="name">View : </span>
-                                                    <span class="value"><?= implode('/', $floorplans['opt-floorplans-view']) ?></span>
+                                                    <span class="value"><?= $floorplans['opt-floorplans-view']; ?></span>
                                                 </div>
                                             <?php endif; ?>
                                             <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
