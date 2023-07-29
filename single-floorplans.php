@@ -220,66 +220,10 @@ $property = new WP_Query($args);
                                             wp_reset_query();
                                             ?>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 mb-5 mb-lg-0">
-                                        <div class="square-foot-wrap">
-
-                                            <div class="square-foot-title">Prices</div>
-                                            <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                                                <div class="square-foot-item">
-                                                    <span class="name">Price (From) : </span>
-                                                    <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($floorplans['opt-floorplans-price-per'])) : ?>
-                                                <div class="square-foot-item">
-                                                    <span class="name">Price Per Sq.Ft : </span>
-                                                    <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-per']) . '/sq.ft' ?></span>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($floorplans['opt-floorplans-mt-fees-per-month'])) : ?>
-                                                <div class="square-foot-item">
-                                                    <span class="name">Mt. Fees per Month : </span>
-                                                    <span class="value"><?= $floorplans['opt-floorplans-mt-fees-per-month'] ?></span>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($floorplans['opt-floorplans-parking'])) : ?>
-                                                <div class="square-foot-item">
-                                                    <span class="name">Parking : </span>
-                                                    <span class="value"><?= $floorplans['opt-floorplans-parking'] ?></span>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($floorplans['opt-floorplans-locker'])) : ?>
-                                                <div class="square-foot-item">
-                                                    <span class="name">Locker : </span>
-                                                    <span class="value"><?= $floorplans['opt-floorplans-locker'] ?></span>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                             <?php if (!empty($avgn)) : ?>
                                                 <div class="square-foot-price"><span>$<?= $avgn ?></span>/sq.ft</div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($floorplans['opt-floorplans-deposit-structure'])) : ?>
-                                                <div class="square-foot-title">Deposit Structure</div>
-                                                <?php echo $floorplans['opt-floorplans-deposit-structure']; ?>
-                                            <?php else : ?>
-                                                <?php if ($property->have_posts()) : ?>
-                                                    <?php
-                                                    while ($property->have_posts()) : $property->the_post();
-                                                        $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                                                    ?>
-                                                        <div class="square-foot-title">Deposit Structure</div>
-                                                        <?php echo $mdata_single['opt-deposit-structue']; ?>
-                                                <?php
-                                                    endwhile;
-                                                endif;
-                                                wp_reset_postdata();
-                                                wp_reset_query();
-                                                ?>
                                             <?php endif; ?>
                                         </div>
                                     </div>
