@@ -206,11 +206,33 @@ $property = new WP_Query($args);
                                     </div>
                                     <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
-                                            <div class="square-foot-head">                                <?php if (!empty($mdata_single['opt-developer'])) : ?>
-                                                    <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
-                                                <?php else : ?>
-                                                    <?= strtoupper(get_the_title() . 'AVERAGE') ?>
-                                                <?php endif; ?></div>
+                                            <div class="square-foot-head">
+<?php if ($property->have_posts()) : ?>
+    <?php
+    while ($property->have_posts()) : $property->the_post();
+        if (!empty(get_the_terms(get_the_ID(), 'neighborhood'))) {
+            foreach (get_the_terms(get_the_ID(), 'neighborhood') as $term) {
+                $total_neighborhood[] =  get_term_meta($term->term_id, 'neighborhood_options', true)['opt-neighborhood-appson'] . '<br>';
+            }
+            $avgn = array_sum($total_neighborhood) / count(get_the_terms(get_the_ID(), 'neighborhood'));
+        } else {
+            $avgn = '';
+        }
+        $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+        ?>
+        <div>
+            <?php if (!empty($mdata_single['opt-developer'])) : ?>
+                <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
+            <?php else : ?>
+                <?= strtoupper(get_the_title() . 'AVERAGE') ?>
+            <?php endif; ?>
+        </div>
+    <?php
+    endwhile;
+    wp_reset_postdata();
+    wp_reset_query();
+    ?>
+    </div>
                                             <?php if ($property->have_posts()) : ?>
                                                 <?php
                                                 while ($property->have_posts()) : $property->the_post();
