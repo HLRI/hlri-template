@@ -1217,7 +1217,6 @@ if (class_exists('CSF')) {
                     'type'  => 'text',
                     'title' => 'View'
 					),
-				),
 				array(
 					'id'    => 'opt-floorplans-interior-size',
 					'type'  => 'slider',
