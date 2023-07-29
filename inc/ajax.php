@@ -614,6 +614,7 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two()
 {
+    die('test api');
     $args = array(
         'post_type' => 'mapdata',
         'post_status' => 'publish',
