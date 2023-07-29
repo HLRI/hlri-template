@@ -463,6 +463,11 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'my_awesome_func_two',
     ]);
+
+    register_rest_route('floorplans/v2', 'getResult', [
+        'methods' => 'GET',
+        'callback' => 'my_awesome_func_tree',
+    ]);
 }
 function getProperties(WP_REST_Request $request)
 {
@@ -696,4 +701,52 @@ function my_awesome_func_two()
     endif;
 
     return $mapdata;
+}
+function my_awesome_func_tree()
+{
+
+    $args = array(
+        'post_type' => 'floorplans',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    );
+    $my_query = new WP_query($args);
+    if ($my_query->have_posts()) :
+        while ($my_query->have_posts()) : $my_query->the_post();
+
+            $floorplan = get_post_meta("7434", 'associated_property');
+            var_dump($floorplan);
+            die();
+            // if($mapMeta['opt-status'] !== "sold out"){
+                if (!empty($mapMeta)) {
+                    $slug = get_post_field('post_name', get_post());
+                    if ($mapMeta['opt-floorplans-status'] != 'sold_out') {
+
+                        $floorplans[] =
+                            [
+                                "id" => get_the_ID(),
+                                "post_id" => "7434",
+                                "suite_name" => $mapMeta['opt-floorplans-suite-name'],
+                                "price" => $mapMeta['opt-floorplans-price-from'],
+                                "size" => $mapMeta['opt-floorplans-size'],
+                                "baths" => $mapMeta['opt-floorplans-baths'],
+                                "beds" => $mapMeta['opt-floorplans-beds'],
+                                "view" => $mapMeta['opt-floorplans-view'],
+                                "pricepersqft" => $mapMeta['opt-floorplans-price-per'],
+                                "availability" => $mapMeta['opt-floorplans-status'],
+                                "url" => get_permalink(),
+                                "fullimage" => get_the_post_thumbnail_url(),
+                                "thumbnail" => get_the_post_thumbnail_url(),
+                                "medium" => get_the_post_thumbnail_url(),
+                                "alt" => get_the_title(),
+                            ];
+                    }
+                }
+
+        endwhile;
+        wp_reset_postdata();
+    else :
+        _e('Sorry, no posts matched your criteria.');
+    endif;
+    return $floorplans;
 }
