@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 <?php
 $psd = properties_single_cached();
-// $associated_floorplans = associated_floorplans_cached();
-$associated_floorplans = false;
+$associated_floorplans = associated_floorplans_cached();
 
 ?>
 
