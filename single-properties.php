@@ -2,7 +2,6 @@
 <?php
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
-$is_associated_floorplans = $associated_floorplans->have_posts();
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' 
@@ -273,7 +272,7 @@ $is_associated_floorplans = $associated_floorplans->have_posts();
     <?php endif; ?>
 
 
-    <?php if ($is_associated_floorplans) : ?>
+    <?php if ($associated_floorplans->have_posts()) : ?>
         <div class="container-fluid px-0 mt-lg-5 mt-2" id="FloorPlans">
             <div class="content">
                 <div class="row mb-lg-4 mb-2">
