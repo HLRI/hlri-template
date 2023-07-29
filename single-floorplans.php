@@ -214,9 +214,9 @@ $property = new WP_Query($args);
                                                         ?>
                                                         <div>
                                                             <?php if (!empty($mdata_single['opt-developer'])) : ?>
-                                                                <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
+                                                            <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
                                                             <?php else : ?>
-                                                                <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4>
+                                                            <?= strtoupper(get_the_title()) ?>
                                                             <?php endif; ?>
                                                         </div>
                                                     <?php
@@ -225,11 +225,7 @@ $property = new WP_Query($args);
                                                     wp_reset_query();
                                                     ?>
                                                 <?php endif; ?>
-                                                <?php if (!empty($mdata_single['opt-developer'])) : ?>
-                                                    <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
-                                                <?php else : ?>
-                                                    <?= strtoupper(get_the_title() . 'AVERAGE') ?>
-                                                <?php endif; ?></div>
+                                            </div>
                                             <?php if ($property->have_posts()) : ?>
                                                 <?php
                                                 while ($property->have_posts()) : $property->the_post();
