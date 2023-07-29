@@ -36,7 +36,68 @@ $associated_floorplans = associated_floorplans_cached();
                     </div>
                 </div>
 
-              
+                <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
+
+                    <div class="rating-section">
+                        <span class="rating">Rating : </span>
+                        <div class="rating-stars text-center">
+                            <ul id="stars">
+                                <?php if ($psd['properties_rated_id'] != get_the_ID()) : ?>
+                                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                                        <?php
+                                        switch ($i + 1) {
+                                            case 1:
+                                                $status = 'Poor';
+                                                break;
+                                            case 2:
+                                                $status = 'Fair';
+                                                break;
+                                            case 3:
+                                                $status = 'Good';
+                                                break;
+                                            case 4:
+                                                $status = 'Excellent';
+                                                break;
+                                            default:
+                                                $status = 'WOW';
+                                                break;
+                                        }
+                                        ?>
+                                        <?php if ($i < $psd['rates']) : ?>
+                                            <li class="star selected" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                <?php else : ?>
+                                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                                        <?php if ($i < $psd['rates']) : ?>
+                                            <li class="star-rated selected">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="star-rated">
+                                                <i class="fa fa-star fa-fw"></i>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                        <?php if (!empty($psd['user_rates'])) : ?>
+                            <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
+                        <?php endif; ?>
+                    </div>
+
+                    <?php if (!empty($psd['opt_price_min'])) : ?>
+                        <div class="start-price">Starting from $<?= number_format($psd['opt_price_min']) ?></div>
+                    <?php endif; ?>
+
+                </div>
 
                 <?php if (!empty($psd['excerpt'])) : ?>
                     <div class="content-profile"><?= $psd['excerpt'] ?></div>
@@ -45,9 +106,7 @@ $associated_floorplans = associated_floorplans_cached();
         </div>
     </div>
 </div>
-<div class="container-fluid px-0 mt-4">
-    <?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
-</div>
+
 <div class="container-fluid px-lg-5">
     <div class="row mt-4 mb-2" id="Gallery">
         <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
