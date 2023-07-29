@@ -69,7 +69,7 @@ function properties_single_cached()
     $results = get_transient($cache_key);
 
 
-    if ($results === false) {
+    if (false) {
         $theme_options = get_option('hlr_framework');
         $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
         $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
@@ -169,7 +169,7 @@ function associated_floorplans_cached()
 
     $results = get_transient($cache_key);
 
-    if ($results === false) {
+    if (false) {
         $args = array(
             'post_type' => 'floorplans',
             'numberposts' => -1,
