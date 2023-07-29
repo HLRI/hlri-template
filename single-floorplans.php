@@ -32,7 +32,7 @@ $property = new WP_Query($args);
                     <?php if ($property->have_posts()) : ?>
                         <?php
                         while ($property->have_posts()) : $property->the_post();
-                            if (!get_the_terms(get_the_ID(), 'neighborhood')) {
+                            if (!empty(get_the_terms(get_the_ID(), 'neighborhood'))) {
                                 foreach (get_the_terms(get_the_ID(), 'neighborhood') as $term) {
                                     $total_neighborhood[] =  get_term_meta($term->term_id, 'neighborhood_options', true)['opt-neighborhood-appson'] . '<br>';
                                 }
