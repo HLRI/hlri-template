@@ -124,7 +124,7 @@ function theme_head()
                     "streetAddress": "<?= $mdata_single['opt-address'] ?>"
                 },
                 "telephone": "<?= $theme_option['opt-schema-phone'] ?>",
-                <?php if(!is_null($mdata_single['opt-price-min'])): ?>
+                <?php if(!emptyl($mdata_single['opt-price-min'])): ?>
                 "priceRange": "Starting at $<?= number_format($mdata_single['opt-price-min']) ?>",
                 <?php endif; ?>
                 "aggregateRating": {
