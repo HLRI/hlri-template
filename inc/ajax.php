@@ -735,11 +735,7 @@ function my_awesome_func_tree()
                     "view" => $floorplanData['opt-floorplans-view'],
                     "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
                     "availability" => $floorplanData['opt-floorplans-status'],
-                    "url" => $floorplan->guid,
-                    "fullimage" => get_the_post_thumbnail_url(),
-                    "thumbnail" => get_the_post_thumbnail_url(),
-                    "medium" => get_the_post_thumbnail_url(),
-                    "alt" => get_the_title(),
+                    "url" => $floorplan->guid
                 ];
         }
 
