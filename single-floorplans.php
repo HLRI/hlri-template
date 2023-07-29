@@ -203,24 +203,27 @@ $property = new WP_Query($args);
                                                 <div class="square-foot-price"><span><?= '$' . number_format($floorplans['opt-floorplans-price-per']) ?></span>/sq.ft</div>
                                             <?php endif; ?>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
                                             <?php if ($property->have_posts()) : ?>
                                                 <?php
                                                 while ($property->have_posts()) : $property->the_post();
                                                     $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                                                ?>
+                                                    ?>
                                                     <?php if (!empty($mdata_single['opt-pricepersqft'])) : ?>
                                                         <div class="square-foot-price"><span>$<?= $mdata_single['opt-pricepersqft'] ?></span>/sq.ft</div>
                                                     <?php endif; ?>
-                                            <?php
+                                                <?php
                                                 endwhile;
                                             endif;
                                             wp_reset_postdata();
                                             wp_reset_query();
                                             ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
+                                        <div class="square-foot-wrap">
+
                                             <div class="square-foot-title">Prices</div>
                                             <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                                                 <div class="square-foot-item">
