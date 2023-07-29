@@ -627,26 +627,26 @@ if (class_exists('CSF')) {
 		)
 	);
 
-	$prefix = 'hlr_framework_properties-location';
-	CSF::createMetabox($prefix, array(
-		'title'     =>	'Location',
-		'post_type' =>	'properties',
-	));
+	// $prefix = 'hlr_framework_properties-location';
+	// CSF::createMetabox($prefix, array(
+	// 	'title'     =>	'Location',
+	// 	'post_type' =>	'properties',
+	// ));
 
-	CSF::createSection(
-		$prefix,
-		array(
-			'fields'	=>	array(
-				array(
-					'id'    => 'opt-map-properties',
-					'type'  => 'map',
-					'settings' => array(
-						'scrollWheelZoom' => true,
-					)
-				),
-			)
-		)
-	);
+	// CSF::createSection(
+	// 	$prefix,
+	// 	array(
+	// 		'fields'	=>	array(
+	// 			array(
+	// 				'id'    => 'opt-map-properties',
+	// 				'type'  => 'map',
+	// 				'settings' => array(
+	// 					'scrollWheelZoom' => true,
+	// 				)
+	// 			),
+	// 		)
+	// 	)
+	// );
 
 	$prefix = 'hlr_framework_properties-incentives';
 	CSF::createMetabox($prefix, array(
