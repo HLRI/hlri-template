@@ -86,7 +86,7 @@ function hlr_contact_form()
                 if (brokerage == '') {
                     brokerage = jQuery('#brokerage').val();
                 }
-                console.log(brokerage);
+
                 jQuery.ajax({
                     type: "POST",
                     url: '<?= home_url('/') ?>api/v1/get-form',

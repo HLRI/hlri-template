@@ -155,7 +155,6 @@ jQuery('#submit-login').on('click', function (e) {
             'security': jQuery('.login-form #security').val()
         },
         success: function (data) {
-            // console.log(data);
             jQuery('.login-form .form-loading').addClass('d-none');
             if (data.loggedin == true) {
                 jQuery('.login-form .notif-info').addClass('success-info').removeClass('d-none').text(data.message);
@@ -184,7 +183,6 @@ jQuery('#submit-register').on('click', function (e) {
             'security': jQuery('.register-form #security').val()
         },
         success: function (data) {
-            // console.log(data);
             jQuery('.register-form .form-loading').addClass('d-none');
             if (data.status == true) {
                 jQuery('.register-form .notif-info').addClass('success-info').removeClass('d-none').text(data.message);
@@ -211,7 +209,6 @@ jQuery('#submit-forgot-password').on('click', function (e) {
             'security': jQuery('.forgot-password-form #security').val()
         },
         success: function (data) {
-            // console.log(data);
             jQuery('.forgot-password-form .form-loading').addClass('d-none');
             if (data.loggedin == true) {
                 jQuery('.forgot-password-form .notif-info').addClass('success-info').removeClass('d-none').text(data.message);

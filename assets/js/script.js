@@ -197,7 +197,6 @@ jQuery(document).ready(function ($) {
         var item = this;
         var direction = $(item).data('hlr-tooltip-direction');
         if ($(item).find('.hlr-tooltip-popup').length > 0) {
-            console.log('yes');
         } else {
             $(item).append('<span class="hlr-tooltip-popup d-none">' + $(item).data('hlr-tooltip-title') + '</span>');
             switch (direction) {
