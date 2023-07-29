@@ -620,7 +620,6 @@ function my_awesome_func_two()
         'posts_per_page' => -1,
     );
 
-    $my_query = null;
     $my_query = new WP_query($args);
     if ($my_query->have_posts()) :
         while ($my_query->have_posts()) : $my_query->the_post();
