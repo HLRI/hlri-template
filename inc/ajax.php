@@ -459,10 +459,10 @@ function create_routes()
         'callback' => 'getForm'
     ]);
 
-    register_rest_route('mapdata/v2', '/getResult', array(
+    register_rest_route('mapdata/v2', 'getResult', [
         'methods' => 'GET',
         'callback' => 'my_awesome_func_two',
-    ));
+    ]);
 }
 function getProperties(WP_REST_Request $request)
 {
