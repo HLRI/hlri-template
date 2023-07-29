@@ -157,7 +157,6 @@ function properties_single_cached()
             'theme_options' => $theme_options,
         ];
 
-        wp_die($results);
 
         set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
     }
