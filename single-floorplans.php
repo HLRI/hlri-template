@@ -206,7 +206,11 @@ $property = new WP_Query($args);
                                     </div>
                                     <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
-                                            <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
+                                            <div class="square-foot-head">                                <?php if (!empty($mdata_single['opt-developer'])) : ?>
+                                                    <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
+                                                <?php else : ?>
+                                                    <?= strtoupper(get_the_title()) ?>
+                                                <?php endif; ?></div>
                                             <?php if ($property->have_posts()) : ?>
                                                 <?php
                                                 while ($property->have_posts()) : $property->the_post();
