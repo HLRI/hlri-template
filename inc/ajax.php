@@ -731,39 +731,33 @@ function my_awesome_func_tree()
 
             foreach ($floorplans as $floorplan){
             $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
-            var_dump($floorplanData);
-            }
-            die();
-            // if($mapMeta['opt-status'] !== "sold out"){
-                if (!empty($mapMeta)) {
-                    $slug = get_post_field('post_name', get_post());
-                    if ($mapMeta['opt-floorplans-status'] != 'sold_out') {
-
-                        $floorplans[] =
-                            [
-                                "id" => get_the_ID(),
-                                "post_id" => "7434",
-                                "suite_name" => $mapMeta['opt-floorplans-suite-name'],
-                                "price" => $mapMeta['opt-floorplans-price-from'],
-                                "size" => $mapMeta['opt-floorplans-size'],
-                                "baths" => $mapMeta['opt-floorplans-baths'],
-                                "beds" => $mapMeta['opt-floorplans-beds'],
-                                "view" => $mapMeta['opt-floorplans-view'],
-                                "pricepersqft" => $mapMeta['opt-floorplans-price-per'],
-                                "availability" => $mapMeta['opt-floorplans-status'],
-                                "url" => get_permalink(),
-                                "fullimage" => get_the_post_thumbnail_url(),
-                                "thumbnail" => get_the_post_thumbnail_url(),
-                                "medium" => get_the_post_thumbnail_url(),
-                                "alt" => get_the_title(),
-                            ];
-                    }
+                if (!empty($floorplanData)) {
+                    $floorplansFinal[] =
+                        [
+                            "id" => get_the_ID(),
+                            "post_id" => "7434",
+                            "suite_name" => $floorplanData['opt-floorplans-suite-name'],
+                            "price" => $floorplanData['opt-floorplans-price-from'],
+                            "size" => $floorplanData['opt-floorplans-size'],
+                            "baths" => $floorplanData['opt-floorplans-baths'],
+                            "beds" => $floorplanData['opt-floorplans-beds'],
+                            "view" => $floorplanData['opt-floorplans-view'],
+                            "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
+                            "availability" => $floorplanData['opt-floorplans-status'],
+                            "url" => get_permalink(),
+                            "fullimage" => get_the_post_thumbnail_url(),
+                            "thumbnail" => get_the_post_thumbnail_url(),
+                            "medium" => get_the_post_thumbnail_url(),
+                            "alt" => get_the_title(),
+                        ];
                 }
+
+            }
 
         endwhile;
         wp_reset_postdata();
     else :
         _e('Sorry, no posts matched your criteria.');
     endif;
-    return $floorplans;
+    return $floorplansFinal;
 }
