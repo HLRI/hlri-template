@@ -210,7 +210,6 @@ $property = new WP_Query($args);
                                                 <?php if ($property->have_posts()) : ?>
                                                     <?php
                                                     while ($property->have_posts()) : $property->the_post();
-                                                        if (!empty(get_the_terms(get_the_ID(), 'neighborhood'))) {
                                                         $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                         ?>
                                                         <div>
