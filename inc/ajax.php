@@ -683,7 +683,7 @@ function my_awesome_func_two()
                         'coming_soon' => $mapMeta['opt-coming-soon'],
                         'comission_by_percent' => $mapMeta['opt-comission-by-percent'],
                         'comission_by_flatfee' => $mapMeta['opt-comission-by-flatfee'],
-                        'floorplans' => get_floorplans_from_property(get_the_ID()),
+                        'floorplans' => !empty(get_floorplans_from_property(get_the_ID())) ? get_floorplans_from_property(get_the_ID()) : [],
                         'city' => $mapMeta['opt-city'],
                         'studio' => $mapMeta['opt-studio'],
                         'status' => $mapMeta['opt-status'],
