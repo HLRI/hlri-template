@@ -694,5 +694,5 @@ function my_awesome_func_two()
         _e('Sorry, no posts matched your criteria.');
     endif;
 
-    return $mapMeta;
+    return $mapdata;
 }
