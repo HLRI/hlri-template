@@ -20,7 +20,7 @@ $args = array(
     'numberposts' => 1,
     'p' => $pid
 );
-$property = new WP_Query(${args});
+$property = new WP_Query($args);
 
 ?>
 <div class="container-fluid px-lg-5 my-4">
