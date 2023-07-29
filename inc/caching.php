@@ -53,6 +53,10 @@ function properties_related_cached()
             $results = new WP_Query($args);
 
             set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
+
+            wp_reset_postdata();
+            wp_reset_query();
+    
         } else {
             return false;
         }
@@ -79,7 +83,7 @@ function properties_single_cached()
         } else {
             $gallery_ids = [];
         }
-        
+
         // $floorplans_ids = explode(',', $floorplans['opt-gallery-properties-floorplan']);
         if (!empty(get_post_meta($post_id, 'hlr_framework_properties-incentives', true))) {
             $incentives = @get_post_meta($post_id, 'hlr_framework_properties-incentives', true)['opt_properties_incentives_items'];
@@ -130,9 +134,9 @@ function properties_single_cached()
             }
         }
 
-        if(isset($mdata_single['opt-project-status'])){
+        if (isset($mdata_single['opt-project-status'])) {
             $project_status = $mdata_single['opt-project-status'];
-        }else{
+        } else {
             $project_status = false;
         }
 
@@ -156,7 +160,6 @@ function properties_single_cached()
             'developments' => $developments,
             'theme_options' => $theme_options,
         ];
-
 
         set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
     }
@@ -188,7 +191,8 @@ function associated_floorplans_cached()
 
         $results = new WP_Query($args);
         $results = set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
-
+        wp_reset_postdata();
+        wp_reset_query();
     }
 
     return $results;
