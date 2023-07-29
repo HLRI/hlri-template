@@ -1214,27 +1214,9 @@ if (class_exists('CSF')) {
 				),
 				array(
 					'id'          => 'opt-floorplans-view',
-					'type'        => 'select',
-					'title'       => 'View',
-					'placeholder' => 'Select an option',
-					'chosen'      => true,
-					'multiple'    => true,
-					'options'     => array(
-						'East'  => 'East',
-						'West'  => 'West',
-						'North'  => 'North',
-						'South'  => 'South',
-						'North East'  => 'North East',
-						'North West'  => 'North West',
-						'South East'  => 'South East',
-						'South West'  => 'South West',
-						'North/East'  => 'North/East',
-						'North/West'  => 'North/West',
-						'South/West'  => 'South/West',
-						'South/East'  => 'South/East',
+                    'type'  => 'text',
+                    'title' => 'View'
 					),
-					'default'     => ''
-				),
 				array(
 					'id'    => 'opt-floorplans-interior-size',
 					'type'  => 'slider',

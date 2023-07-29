@@ -463,6 +463,11 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'my_awesome_func_two',
     ]);
+
+    register_rest_route('floorplans/v2', 'getResult', [
+        'methods' => 'GET',
+        'callback' => 'my_awesome_func_tree',
+    ]);
 }
 function getProperties(WP_REST_Request $request)
 {
@@ -621,10 +626,11 @@ function my_awesome_func_two()
     );
 
     $my_query = new WP_query($args);
+
     if ($my_query->have_posts()) :
         while ($my_query->have_posts()) : $my_query->the_post();
 
-            $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_map', true);
+            $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             // if($mapMeta['opt-status'] !== "sold out"){
             if (true == true) {
                 if (!empty($mapMeta)) {
@@ -647,6 +653,8 @@ function my_awesome_func_two()
                         return ($item == "Home") ? "Detached" : $item;
                     }, $mapMetaType);
 
+
+                    $is_floorplan = get_floorplans_from_property(get_the_ID());
                     $mapdata[] = [
                         'post_id' => strval(get_the_ID()),
                         'title' => get_the_title(),
@@ -677,7 +685,7 @@ function my_awesome_func_two()
                         'coming_soon' => $mapMeta['opt-coming-soon'],
                         'comission_by_percent' => $mapMeta['opt-comission-by-percent'],
                         'comission_by_flatfee' => $mapMeta['opt-comission-by-flatfee'],
-                        'floorplans' => [],
+                        'floorplans' => !is_null($is_floorplan) ? $is_floorplan : [],
                         'city' => $mapMeta['opt-city'],
                         'studio' => $mapMeta['opt-studio'],
                         'status' => $mapMeta['opt-status'],
@@ -695,4 +703,43 @@ function my_awesome_func_two()
     endif;
 
     return $mapdata;
+}
+function get_floorplans_from_property($property_id)
+{
+    $floorplans = get_posts( array(
+        'post_type' => 'floorplans',
+        'numberposts' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'post_status' => 'publish',
+        'meta_query' => array(
+            array(
+                'key' => 'associated_property',
+                'value' => $property_id,
+                'compare' => '='
+            )
+        )
+    ));
+
+    foreach ($floorplans as $floorplan){
+        $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
+        if (!empty($floorplanData)) {
+            $floorplansFinal[] =
+                [
+                    "id" => $floorplan->ID,
+                    "post_id" => $property_id,
+                    "suite_name" => $floorplanData['opt-floorplans-suite-name'],
+                    "price" => $floorplanData['opt-floorplans-price-from'],
+                    "size" => $floorplanData['opt-floorplans-size'],
+                    "baths" => $floorplanData['opt-floorplans-baths'],
+                    "beds" => $floorplanData['opt-floorplans-beds'],
+                    "view" => $floorplanData['opt-floorplans-view'],
+                    "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
+                    "availability" => $floorplanData['opt-floorplans-status'],
+                    "url" => $floorplan->guid
+                ];
+        }
+
+    }
+    return $floorplansFinal;
 }
