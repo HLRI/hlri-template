@@ -714,7 +714,7 @@ function my_awesome_func_tree()
     if ($my_query->have_posts()) :
         while ($my_query->have_posts()) : $my_query->the_post();
 
-            $floorplan = get_posts( array(
+            $floorplans = get_posts( array(
                 'post_type' => 'floorplans',
                 'numberposts' => -1,
                 'orderby' => 'title',
@@ -728,7 +728,11 @@ function my_awesome_func_tree()
                     )
                 )
             ));
-            var_dump($floorplan);
+
+            foreach ($floorplans as $floorplan){
+            $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
+            var_dump($floorplanData);
+            }
             die();
             // if($mapMeta['opt-status'] !== "sold out"){
                 if (!empty($mapMeta)) {
