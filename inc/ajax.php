@@ -720,6 +720,7 @@ function my_awesome_func_tree()
     ));
 
     foreach ($floorplans as $floorplan){
+        var_dump($floorplan);
         $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
         if (!empty($floorplanData)) {
             $floorplansFinal[] =
