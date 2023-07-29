@@ -653,6 +653,8 @@ function my_awesome_func_two()
                         return ($item == "Home") ? "Detached" : $item;
                     }, $mapMetaType);
 
+
+                    $is_floorplan = get_floorplans_from_property(get_the_ID());
                     $mapdata[] = [
                         'post_id' => strval(get_the_ID()),
                         'title' => get_the_title(),
@@ -683,7 +685,7 @@ function my_awesome_func_two()
                         'coming_soon' => $mapMeta['opt-coming-soon'],
                         'comission_by_percent' => $mapMeta['opt-comission-by-percent'],
                         'comission_by_flatfee' => $mapMeta['opt-comission-by-flatfee'],
-                        'floorplans' => !empty(get_floorplans_from_property(get_the_ID())) ? get_floorplans_from_property(get_the_ID()) : [],
+                        'floorplans' => !is_null($is_floorplan) ? $is_floorplan : [],
                         'city' => $mapMeta['opt-city'],
                         'studio' => $mapMeta['opt-studio'],
                         'status' => $mapMeta['opt-status'],
