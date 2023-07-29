@@ -363,7 +363,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
         '                    </div>').owlCarousel('update');
     jQuery.ajax({
         type: "GET",
-        url: 'https://condoy.com/api/v1/get-properties',
+        url: home_url + 'api/v1/get-properties',
         dataType: "json",
         headers: {
             "Authorization": token

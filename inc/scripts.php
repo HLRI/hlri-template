@@ -146,6 +146,7 @@ function theme_head()
             "url": "<?= admin_url('admin-ajax.php') ?>"
         };
 
+        var home_url = '<?= home_url('/') ?>';
 
         var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
         var darkLogo = '<?= $theme_option['opt-menu-logo-dark']['url'] ?>';
