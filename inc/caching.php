@@ -190,7 +190,7 @@ function associated_floorplans_cached()
         );
 
         $results = new WP_Query($args);
-        $results = set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
+        set_transient($cache_key, $results, 1 * MINUTE_IN_SECONDS);
         wp_reset_postdata();
         wp_reset_query();
     }
