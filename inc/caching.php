@@ -6,7 +6,7 @@ function properties_related_cached()
     $cache_key = 'properties_related_cached_' . $post_id;
     $results = get_transient($cache_key);
 
-    if (false) {
+    if (true) {
         $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
         if (!empty($terms)) {
             $term_ids = array();
@@ -63,7 +63,6 @@ function properties_related_cached()
 
 function properties_single_cached()
 {
-    wp_die('results');
 
     $post_id = get_the_ID();
     $cache_key = 'properties_single_cached_' . $post_id;
@@ -71,7 +70,7 @@ function properties_single_cached()
     $results = get_transient($cache_key);
 
 
-    if (false) {
+    if (true) {
         $theme_options = get_option('hlr_framework');
         $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
         $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
@@ -173,7 +172,7 @@ function associated_floorplans_cached()
 
     $results = get_transient($cache_key);
 
-    if (false) {
+    if (true) {
         $args = array(
             'post_type' => 'floorplans',
             'numberposts' => -1,
