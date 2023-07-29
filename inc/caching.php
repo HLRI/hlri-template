@@ -6,7 +6,7 @@ function properties_related_cached()
     $cache_key = 'properties_related_cached_' . $post_id;
     $results = get_transient($cache_key);
 
-    if ($results === false) {
+    if (false) {
         $terms = get_the_terms($post_id, array('stage', 'type', 'city', 'neighborhood', 'group'));
         if (!empty($terms)) {
             $term_ids = array();
