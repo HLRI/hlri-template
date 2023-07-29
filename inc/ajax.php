@@ -683,7 +683,7 @@ function my_awesome_func_two()
                         'coming_soon' => $mapMeta['opt-coming-soon'],
                         'comission_by_percent' => $mapMeta['opt-comission-by-percent'],
                         'comission_by_flatfee' => $mapMeta['opt-comission-by-flatfee'],
-                        'floorplans' => [],
+                        'floorplans' => get_floorplans_from_property(get_the_ID()),
                         'city' => $mapMeta['opt-city'],
                         'studio' => $mapMeta['opt-studio'],
                         'status' => $mapMeta['opt-status'],
@@ -702,7 +702,7 @@ function my_awesome_func_two()
 
     return $mapdata;
 }
-function my_awesome_func_tree()
+function get_floorplans_from_property($property_id)
 {
     $floorplans = get_posts( array(
         'post_type' => 'floorplans',
@@ -713,20 +713,19 @@ function my_awesome_func_tree()
         'meta_query' => array(
             array(
                 'key' => 'associated_property',
-                'value' => 7434,
+                'value' => $property_id,
                 'compare' => '='
             )
         )
     ));
 
     foreach ($floorplans as $floorplan){
-        var_dump($floorplan);
         $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
         if (!empty($floorplanData)) {
             $floorplansFinal[] =
                 [
                     "id" => $floorplan->ID,
-                    "post_id" => "7434",
+                    "post_id" => $property_id,
                     "suite_name" => $floorplanData['opt-floorplans-suite-name'],
                     "price" => $floorplanData['opt-floorplans-price-from'],
                     "size" => $floorplanData['opt-floorplans-size'],
