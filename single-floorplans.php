@@ -115,7 +115,7 @@ $property = new WP_Query($args);
                             $baths = '';
                         }
                         $view = $floorplans['opt-floorplans-view'];
-                        
+
                         $info =  $sq . ' ' . $bed . ' ' . $baths . ' ' . $view;
 
                         ?>
@@ -158,7 +158,7 @@ $property = new WP_Query($args);
                                 EXPOSURE
                             </div>
                             <div class="content-item">
-                                <?= implode('/', $floorplans['opt-floorplans-view']) ?>
+                                <?= $floorplans['opt-floorplans-view']; ?>
                             </div>
                         <?php endif; ?>
                     </div>
