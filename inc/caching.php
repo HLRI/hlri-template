@@ -63,6 +63,8 @@ function properties_related_cached()
 
 function properties_single_cached()
 {
+    wp_die('results');
+
     $post_id = get_the_ID();
     $cache_key = 'properties_single_cached_' . $post_id;
 
