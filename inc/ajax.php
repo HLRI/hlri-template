@@ -714,9 +714,21 @@ function my_awesome_func_tree()
     if ($my_query->have_posts()) :
         while ($my_query->have_posts()) : $my_query->the_post();
 
-            $floorplan = get_post_meta("7434", 'associated_property');
-            var_dump($floorplan);
-            die(); 
+            $floorplan = get_posts( array(
+                'post_type' => 'floorplans',
+                'numberposts' => -1,
+                'orderby' => 'title',
+                'order' => 'ASC',
+                'post_status' => 'publish',
+                'meta_query' => array(
+                    array(
+                        'key' => 'associated_property',
+                        'value' => 7434,
+                        'compare' => '='
+                    )
+                )
+            );
+            die();
             // if($mapMeta['opt-status'] !== "sold out"){
                 if (!empty($mapMeta)) {
                     $slug = get_post_field('post_name', get_post());
