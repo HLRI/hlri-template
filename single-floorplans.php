@@ -417,7 +417,7 @@ $property = new WP_Query($args);
                         )
                     );
 
-                    $associated_floorplans = new WP_Query(${args});
+                    $associated_floorplans = new WP_Query($args);
                     if ($associated_floorplans->have_posts()) :
                         while ($associated_floorplans->have_posts()) :
                             $associated_floorplans->the_post();
