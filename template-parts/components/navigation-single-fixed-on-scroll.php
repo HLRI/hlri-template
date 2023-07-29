@@ -14,7 +14,15 @@
                 Price List
             </a>
         <?php endif; ?>
-       
+        <?php if ($associated_floorplans->have_posts()) : ?>
+            <a href="#FloorPlans" class="hlr-navigation-item-fixed">
+                Floor Plans
+            </a>
+            <?php
+            var_dump($associated_floorplans);
+            die();
+            ?>
+        <?php endif; ?>
         <a href="#RegisterNow" class="hlr-navigation-item-fixed">
             Register Now
         </a>
