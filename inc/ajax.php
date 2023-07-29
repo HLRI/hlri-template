@@ -717,6 +717,7 @@ function my_awesome_func_tree()
             $floorplan = get_post_meta("7434", 'associated_property');
             var_dump($floorplan);
             die();
+            
             // if($mapMeta['opt-status'] !== "sold out"){
                 if (!empty($mapMeta)) {
                     $slug = get_post_field('post_name', get_post());
