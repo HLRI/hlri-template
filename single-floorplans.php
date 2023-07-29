@@ -340,7 +340,7 @@ $property = new WP_Query($args);
                                                         $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                     ?>
                                                         <div class="square-foot-title">Deposit Structure</div>
-                                                        <?php echo wpautop($mdata_single['opt-deposit-structue']); ?>
+                                                        <?php echo wpautop($mdata_single['opt-deposit-structue'], true); ?>
                                                 <?php
                                                     endwhile;
                                                 endif;
