@@ -275,8 +275,8 @@ function theme_footer()
 
 
     <?php if (is_singular('properties')) :
-        if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_properties-location', true))) {
-            $locations = get_post_meta(get_the_ID(), 'hlr_framework_properties-location', true)['opt-map-properties'];
+        if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true))) {
+            $locations = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords'];
         }else{
             $locations = '';
         }
