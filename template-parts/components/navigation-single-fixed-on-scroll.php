@@ -15,10 +15,10 @@
             </a>
         <?php endif; ?>
         <?php
-            var_dump($associated_floorplans);
+            var_dump($is_associated_floorplans);
             die();
             ?>
-        <?php if ($associated_floorplans->have_posts()) : ?>
+        <?php if ($is_associated_floorplans) : ?>
             <a href="#FloorPlans" class="hlr-navigation-item-fixed">
                 Floor Plans
             </a>
