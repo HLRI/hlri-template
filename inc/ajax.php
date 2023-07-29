@@ -720,7 +720,7 @@ function my_awesome_func_tree()
     ));
 
     foreach ($floorplans as $floorplan){
-        var_dump($floorplan);
+//        var_dump($floorplan);
         $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
         if (!empty($floorplanData)) {
             $floorplansFinal[] =
@@ -735,7 +735,7 @@ function my_awesome_func_tree()
                     "view" => $floorplanData['opt-floorplans-view'],
                     "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
                     "availability" => $floorplanData['opt-floorplans-status'],
-                    "url" => get_permalink(),
+                    "url" => $floorplan->guid,
                     "fullimage" => get_the_post_thumbnail_url(),
                     "thumbnail" => get_the_post_thumbnail_url(),
                     "medium" => get_the_post_thumbnail_url(),
