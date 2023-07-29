@@ -621,12 +621,11 @@ function my_awesome_func_two()
     );
 
     $my_query = new WP_query($args);
-    var_dump($my_query);
-    wp_die();
+
     if ($my_query->have_posts()) :
         while ($my_query->have_posts()) : $my_query->the_post();
 
-            $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_map', true);
+            $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             // if($mapMeta['opt-status'] !== "sold out"){
             if (true == true) {
                 if (!empty($mapMeta)) {
