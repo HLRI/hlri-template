@@ -203,6 +203,8 @@ $property = new WP_Query($args);
                                                 <div class="square-foot-price"><span><?= '$' . number_format($floorplans['opt-floorplans-price-per']) ?></span>/sq.ft</div>
                                             <?php endif; ?>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">IMPERIA CONDOS BY TRUMAN AVERAGE</div>
                                             <?php if ($property->have_posts()) : ?>
@@ -220,6 +222,8 @@ $property = new WP_Query($args);
                                             wp_reset_query();
                                             ?>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="square-foot-wrap">
                                             <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                             <?php if (!empty($avgn)) : ?>
