@@ -2,7 +2,7 @@
 <?php
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
-
+var_dump($associated_floorplans);
 
 ?>
 
