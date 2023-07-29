@@ -14,10 +14,7 @@
                 Price List
             </a>
         <?php endif; ?>
-        <?php
-            var_dump($associated_floorplans);
-            die();
-            ?>
+       
         <?php if ($associated_floorplans->have_posts()) : ?>
             <a href="#FloorPlans" class="hlr-navigation-item-fixed">
                 Floor Plans
