@@ -704,60 +704,44 @@ function my_awesome_func_two()
 }
 function my_awesome_func_tree()
 {
-
-    $args = array(
+    $floorplans = get_posts( array(
         'post_type' => 'floorplans',
+        'numberposts' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
         'post_status' => 'publish',
-        'posts_per_page' => -1,
-    );
-    $my_query = new WP_query($args);
-    if ($my_query->have_posts()) :
-        while ($my_query->have_posts()) : $my_query->the_post();
+        'meta_query' => array(
+            array(
+                'key' => 'associated_property',
+                'value' => 7434,
+                'compare' => '='
+            )
+        )
+    ));
 
-            $floorplans = get_posts( array(
-                'post_type' => 'floorplans',
-                'numberposts' => -1,
-                'orderby' => 'title',
-                'order' => 'ASC',
-                'post_status' => 'publish',
-                'meta_query' => array(
-                    array(
-                        'key' => 'associated_property',
-                        'value' => 7434,
-                        'compare' => '='
-                    )
-                )
-            ));
+    foreach ($floorplans as $floorplan){
+        $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
+        if (!empty($floorplanData)) {
+            $floorplansFinal[] =
+                [
+                    "id" => get_the_ID(),
+                    "post_id" => "7434",
+                    "suite_name" => $floorplanData['opt-floorplans-suite-name'],
+                    "price" => $floorplanData['opt-floorplans-price-from'],
+                    "size" => $floorplanData['opt-floorplans-size'],
+                    "baths" => $floorplanData['opt-floorplans-baths'],
+                    "beds" => $floorplanData['opt-floorplans-beds'],
+                    "view" => $floorplanData['opt-floorplans-view'],
+                    "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
+                    "availability" => $floorplanData['opt-floorplans-status'],
+                    "url" => get_permalink(),
+                    "fullimage" => get_the_post_thumbnail_url(),
+                    "thumbnail" => get_the_post_thumbnail_url(),
+                    "medium" => get_the_post_thumbnail_url(),
+                    "alt" => get_the_title(),
+                ];
+        }
 
-            foreach ($floorplans as $floorplan){
-            $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
-                if (!empty($floorplanData)) {
-                    $floorplansFinal[] =
-                        [
-                            "id" => get_the_ID(),
-                            "post_id" => "7434",
-                            "suite_name" => $floorplanData['opt-floorplans-suite-name'],
-                            "price" => $floorplanData['opt-floorplans-price-from'],
-                            "size" => $floorplanData['opt-floorplans-size'],
-                            "baths" => $floorplanData['opt-floorplans-baths'],
-                            "beds" => $floorplanData['opt-floorplans-beds'],
-                            "view" => $floorplanData['opt-floorplans-view'],
-                            "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
-                            "availability" => $floorplanData['opt-floorplans-status'],
-                            "url" => get_permalink(),
-                            "fullimage" => get_the_post_thumbnail_url(),
-                            "thumbnail" => get_the_post_thumbnail_url(),
-                            "medium" => get_the_post_thumbnail_url(),
-                            "alt" => get_the_title(),
-                        ];
-                }
-
-            }
-
-        endwhile;
-        wp_reset_postdata();
-    else :
-        _e('Sorry, no posts matched your criteria.');
-    endif;
+    }
     return $floorplansFinal;
 }
