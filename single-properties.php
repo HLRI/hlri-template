@@ -3,8 +3,6 @@
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
 
-var_dump($associated_floorplans);
-die();
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' 
