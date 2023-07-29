@@ -330,7 +330,7 @@ $property = new WP_Query($args);
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
                         <div class="titr-list ml-0 mb-2 pb-1 mr-0">
-                            <?php if ($mdata_status['opt-project-status']) : ?>
+                            <?php if (isset($mdata_status['opt-project-status'])) : ?>
                                 <h3 class="font-weight-bold h5 mb-0 text-center">Fill the Form to get latest available Listings in This building</h3>
                             <?php else : ?>
                                 <h3 class="font-weight-bold h5 mb-0 text-center">Register Now to get full package , book your unit</h3>
