@@ -654,7 +654,7 @@ function my_awesome_func_two()
                     }, $mapMetaType);
 
 
-                    $is_floorplan = get_floorplans_from_property(get_the_ID());
+                    $is_floorplan = get_floorplans_from_property(get_the_ID(),$mapMeta['opt-occupancy']);
                     $mapdata[] = [
                         'post_id' => strval(get_the_ID()),
                         'title' => get_the_title(),
@@ -704,7 +704,7 @@ function my_awesome_func_two()
 
     return $mapdata;
 }
-function get_floorplans_from_property($property_id)
+function get_floorplans_from_property($property_id,$occupancy)
 {
     $floorplans = get_posts( array(
         'post_type' => 'floorplans',
@@ -733,6 +733,7 @@ function get_floorplans_from_property($property_id)
                     "min_size" => $floorplanData['opt-floorplans-size'],
                     "min_bath" => $floorplanData['opt-floorplans-baths'],
                     "min_bed" => $floorplanData['opt-floorplans-beds'],
+                    'occupancy' => $occupancy,
                     "view" => $floorplanData['opt-floorplans-view'],
                     "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
                     "availability" => $floorplanData['opt-floorplans-status'],
