@@ -994,11 +994,18 @@ if (class_exists('CSF')) {
 					'type'  => 'link',
 					'title' => 'Link to Map',
 				),
-				array(
-					'id'    => 'opt-developer',
-					'type'  => 'text',
-					'title' => 'Developer',
-				),
+                array(
+                    'id'          => 'opt-developer',
+                    'type'        => 'select',
+                    'title'       => 'Developer',
+                    'placeholder' => 'Select an option',
+                    'chosen'      => true,
+                    'multiple'    => true,
+					'options'     => 'categories',
+					'query_args'  => array(
+					  'taxonomy'  => 'group',
+					),
+                ),
                 array(
                     'id'    => 'opt-sales-team',
                     'type'  => 'text',
