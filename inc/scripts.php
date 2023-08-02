@@ -124,10 +124,8 @@ function theme_head()
                     "streetAddress": "<?= $mdata_single['opt-address'] ?>"
                 },
                 "telephone": "<?= $theme_option['opt-schema-phone'] ?>",
-                <?php if(!empty($mdata_single['opt-price-min'])): ?>
-                "priceRange": "Starting at $<?= number_format($mdata_single['opt-price-min']) ?>",
-                <?php endif; ?>
-                "aggregateRating": {
+                <?php if (!empty($mdata_single['opt-price-min'])) : ?> "priceRange": "Starting at $<?= number_format($mdata_single['opt-price-min']) ?>",
+                <?php endif; ?> "aggregateRating": {
                     "@type": "AggregateRating",
                     "bestRating": "5",
                     "worstRating": "1",
@@ -277,7 +275,7 @@ function theme_footer()
     <?php if (is_singular('properties')) :
         if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true))) {
             $locations = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords'];
-        }else{
+        } else {
             $locations = '';
         }
     ?>
@@ -436,5 +434,19 @@ function admin_enqueue($hook)
             wp_enqueue_style('style-admin');
         }
     }
+?>
+    <script type="text/javascript">
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "i94l62vy4h");
+    </script>
+<?php
 }
 add_action('admin_enqueue_scripts', 'admin_enqueue');
