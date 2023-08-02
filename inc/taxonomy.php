@@ -188,3 +188,30 @@ function developer ()
   ));
 }
 add_action('init', 'developer', 0);
+
+
+function salesteam ()
+{
+  register_taxonomy('sales-team', 'properties', array(
+    'hierarchical' => true,
+    'labels' => array(
+      'name' => _x('Sales Team', 'taxonomy general name'),
+      'singular_name' => _x('Sales Team', 'taxonomy singular name'),
+      'search_items' =>  __('Search Sales Team'),
+      'all_items' => __('All Sales Team'),
+      'parent_item' => __('Parent Sales Team'),
+      'parent_item_colon' => __('Parent Sales Team:'),
+      'edit_item' => __('Edit Sales Team'),
+      'update_item' => __('Update Sales Team'),
+      'add_new_item' => __('Add New Sales Team'),
+      'new_item_name' => __('New Sales Team Name'),
+      'menu_name' => __('Sales Team'),
+    ),
+    'rewrite' => array(
+      'slug' => 'sales-team',
+      'with_front' => false,
+      'hierarchical' => false
+    ),
+  ));
+}
+add_action('init', 'salesteam', 0);
