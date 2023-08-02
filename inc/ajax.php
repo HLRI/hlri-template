@@ -617,7 +617,7 @@ function getForm(WP_REST_Request $request)
 
 
 
-function my_awesome_func_two()
+function my_awesome_func_two($request)
 {
     $args = array(
         'post_type' => 'properties',
@@ -625,6 +625,7 @@ function my_awesome_func_two()
         'posts_per_page' => -1,
     );
 
+    $include_floorplans = $request->get_param('include_floorplans');
     $my_query = new WP_query($args);
 
     if ($my_query->have_posts()) :
@@ -685,7 +686,7 @@ function my_awesome_func_two()
                         'coming_soon' => $mapMeta['opt-coming-soon'],
                         'comission_by_percent' => $mapMeta['opt-comission-by-percent'],
                         'comission_by_flatfee' => $mapMeta['opt-comission-by-flatfee'],
-                        'floorplans' => !is_null($is_floorplan) ? $is_floorplan : [],
+                        'floorplans' => $include_floorplans ? (!is_null($is_floorplan) ? $is_floorplan : []) : [],
                         'city' => $mapMeta['opt-city'],
                         'studio' => $mapMeta['opt-studio'],
                         'status' => $mapMeta['opt-status'],
