@@ -190,62 +190,58 @@ function developer ()
 add_action('init', 'developer', 0);
 
 
-// Register Sales Team taxonomy
-function salesteam()
+function salesteam ()
 {
-    register_taxonomy('sales-team', 'properties', array(
-        'hierarchical' => true,
-        'labels' => array(
-            'name' => _x('Sales Team', 'taxonomy general name'),
-            'singular_name' => _x('Sales Team', 'taxonomy singular name'),
-            'search_items' => __('Search Sales Team'),
-            'all_items' => __('All Sales Team'),
-            'parent_item' => __('Parent Sales Team'),
-            'parent_item_colon' => __('Parent Sales Team:'),
-            'edit_item' => __('Edit Sales Team'),
-            'update_item' => __('Update Sales Team'),
-            'add_new_item' => __('Add New Sales Team'),
-            'new_item_name' => __('New Sales Team Name'),
-            'menu_name' => __('Sales Team'),
-        ),
-        'rewrite' => array(
-            'slug' => 'sales-team',
-            'with_front' => false,
-            'hierarchical' => false
-        ),
-    ));
+  register_taxonomy('sales-team', 'properties', array(
+    'hierarchical' => true,
+    'labels' => array(
+      'name' => _x('Sales Team', 'taxonomy general name'),
+      'singular_name' => _x('Sales Team', 'taxonomy singular name'),
+      'search_items' =>  __('Search Sales Team'),
+      'all_items' => __('All Sales Team'),
+      'parent_item' => __('Parent Sales Team'),
+      'parent_item_colon' => __('Parent Sales Team:'),
+      'edit_item' => __('Edit Sales Team'),
+      'update_item' => __('Update Sales Team'),
+      'add_new_item' => __('Add New Sales Team'),
+      'new_item_name' => __('New Sales Team Name'),
+      'menu_name' => __('Sales Team'),
+    ),
+    'rewrite' => array(
+      'slug' => 'sales-team',
+      'with_front' => false,
+      'hierarchical' => false
+    ),
+  ));
 }
 add_action('init', 'salesteam', 0);
 
-// Enqueue scripts and styles for the Sales Team search feature
-function sales_team_search_scripts() {
-    global $pagenow;
 
-    if ('post.php' === $pagenow || 'post-new.php' === $pagenow) {
-        wp_enqueue_script('sales-team-search', get_template_directory_uri() . '/js/sales-team-search.js', array('jquery'), '1.0', true);
-    }
-}
-add_action('admin_enqueue_scripts', 'sales_team_search_scripts');
+function enqueue_custom_scripts() {
+    // Enqueue the custom JavaScript
+    wp_enqueue_script('custom-inline-script', '', array('jquery'), '1.0', true);
 
-// Add search feature to the Sales Team taxonomy meta box
-function add_sales_team_search_feature() {
-    ?>
-    <script>
-        jQuery(document).ready(function($) {
-            $('#sales-team-pop input[type="search"]').attr('placeholder', 'Search Sales Team');
+    // Add the inline script directly to the enqueued script
+    $custom_inline_script = '
+    (function ($) {
+      $(document).ready(function () {
+        // Add a search input field to the top of the "sales-teamchecklist" ul
+        var searchInput = \'<input type="text" id="sales-team-search" placeholder="Search Sales Team">\';
+        $("#sales-teamchecklist").before(searchInput);
 
-            $('#sales-team-pop').before('<input type="search" id="sales-team-search" placeholder="Search Sales Team">');
-
-            $('#sales-team-search').on('input', function() {
-                var searchTerm = $(this).val().toLowerCase();
-                $('#sales-team-checklist li').each(function() {
-                    var listItemText = $(this).text().toLowerCase();
-                    var isVisible = listItemText.indexOf(searchTerm) !== -1;
-                    $(this).toggle(isVisible);
-                });
-            });
+        // Filter the sales team items based on the search input
+        $("#sales-team-search").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#sales-teamchecklist li").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
         });
-    </script>
-    <?php
+      });
+    })(jQuery);
+  ';
+
+    // Add the inline script to the custom-inline-script
+    wp_add_inline_script('custom-inline-script', $custom_inline_script);
 }
-add_action('admin_footer', 'add_sales_team_search_feature');
+
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
