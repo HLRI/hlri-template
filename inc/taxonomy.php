@@ -218,10 +218,10 @@ add_action('init', 'salesteam', 0);
 
 
 function enqueue_custom_scripts() {
-    // Enqueue the custom JavaScript
+    // Enqueue the custom JavaScript with inline code
     wp_enqueue_script('custom-inline-script', '', array('jquery'), '1.0', true);
 
-    // Add the inline script directly to the enqueued script
+    // Inline JavaScript code
     $custom_inline_script = '
     (function ($) {
       $(document).ready(function () {
@@ -240,7 +240,7 @@ function enqueue_custom_scripts() {
     })(jQuery);
   ';
 
-    // Add the inline script to the custom-inline-script
+    // Output the inline script directly
     wp_add_inline_script('custom-inline-script', $custom_inline_script);
 }
 
