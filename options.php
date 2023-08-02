@@ -994,11 +994,6 @@ if (class_exists('CSF')) {
 					'type'  => 'link',
 					'title' => 'Link to Map',
 				),
-				array(
-					'id'    => 'opt-developer',
-					'type'  => 'text',
-					'title' => 'Developer',
-				),
                 array(
                     'id'          => 'opt-developer',
                     'type'        => 'select',
