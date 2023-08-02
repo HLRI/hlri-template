@@ -1008,6 +1008,7 @@ if (class_exists('CSF')) {
                     'multiple'    => true,
                     'options'     => array(
                         'Marling Spring' => 'Marling Spring',
+                        'Fieldgate Homes' => 'Fieldgate Homes',
                     ),
                     'default'     => ''
                 ),
