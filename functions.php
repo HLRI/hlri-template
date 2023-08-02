@@ -111,3 +111,32 @@ include HLR_THEME_PATH . 'inc/caching.php';
 //     ));
 // });
 
+function add_developers_to_taxonomy() {
+    $developers_list = array(
+        '10Block Studio Inc.',
+        '3Arc Development',
+        '95 Developments Inc.',
+        'A1 Developments',
+        'Ace Development Ltd.',
+        'Acorn Developments',
+        'Activa',
+        'Addington Developments',
+        'Adi Development Group',
+        'Algar Developments Inc.',
+        'ALIT Developments',
+        'Alliance United Corporation'
+    );
+
+    $taxonomy = 'developer';
+
+    foreach ($developers_list as $developer_name) {
+        // Check if the term already exists before adding it to avoid duplicates
+        $existing_term = term_exists($developer_name, $taxonomy);
+
+        if (!$existing_term) {
+            // If the term doesn't exist, add it
+            wp_insert_term($developer_name, $taxonomy);
+        }
+    }
+}
+add_action('init', 'add_developers_to_taxonomy');
