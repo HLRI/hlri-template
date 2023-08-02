@@ -190,66 +190,51 @@ function developer ()
 add_action('init', 'developer', 0);
 
 
-// Add meta box for Sales Team taxonomy to Properties edit page
-function add_sales_team_meta_box() {
-    add_meta_box(
-        'sales_team_meta_box',
-        'Sales Team',
-        'display_sales_team_meta_box',
-        'properties',
-        'side',
-        'default'
-    );
+// Register Sales Team taxonomy
+function salesteam()
+{
+    register_taxonomy('sales-team', 'properties', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => _x('Sales Team', 'taxonomy general name'),
+            'singular_name' => _x('Sales Team', 'taxonomy singular name'),
+            'search_items' => __('Search Sales Team'),
+            'all_items' => __('All Sales Team'),
+            'parent_item' => __('Parent Sales Team'),
+            'parent_item_colon' => __('Parent Sales Team:'),
+            'edit_item' => __('Edit Sales Team'),
+            'update_item' => __('Update Sales Team'),
+            'add_new_item' => __('Add New Sales Team'),
+            'new_item_name' => __('New Sales Team Name'),
+            'menu_name' => __('Sales Team'),
+        ),
+        'rewrite' => array(
+            'slug' => 'sales-team',
+            'with_front' => false,
+            'hierarchical' => false
+        ),
+    ));
 }
-add_action('add_meta_boxes', 'add_sales_team_meta_box');
+add_action('init', 'salesteam', 0);
 
-// Display the meta box content
-function display_sales_team_meta_box($post) {
-    $terms = get_terms('sales-team', array('hide_empty' => false));
-    $current_team = get_post_meta($post->ID, '_sales_team', true);
+// Enqueue scripts and styles for the Sales Team search feature
+function sales_team_search_scripts() {
+    global $pagenow;
 
-    echo '<label for="sales_team_select">Select a Sales Team:</label>';
-    echo '<input type="text" id="sales_team_search" placeholder="Search Sales Team" />';
-    echo '<select name="sales_team_select" id="sales_team_select">';
-    echo '<option value="">None</option>';
-    foreach ($terms as $term) {
-        echo '<option value="' . $term->term_id . '"';
-        if ($current_team == $term->term_id) {
-            echo ' selected';
-        }
-        echo '>' . $term->name . '</option>';
+    if ('post.php' === $pagenow || 'post-new.php' === $pagenow) {
+        wp_enqueue_script('sales-team-search', get_template_directory_uri() . '/js/sales-team-search.js', array('jquery'), '1.0', true);
     }
-    echo '</select>';
+}
+add_action('admin_enqueue_scripts', 'sales_team_search_scripts');
+
+// Add search feature to the Sales Team taxonomy meta box
+function add_sales_team_search_feature() {
     ?>
     <script>
         jQuery(document).ready(function($) {
-            $('#sales_team_search').on('keyup', function() {
-                var searchTerm = $(this).val().toLowerCase();
-                $('#sales_team_select option').each(function() {
-                    var optionText = $(this).text().toLowerCase();
-                    if (optionText.indexOf(searchTerm) !== -1) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
-                });
-            });
-
-            $('#sales_team_search').on('input', function() {
-                if ($(this).val() === '') {
-                    $('#sales_team_select option').show();
-                }
-            });
+            $('#sales-team-pop input[type="search"]').attr('placeholder', 'Search Sales Team');
         });
     </script>
     <?php
 }
-
-// Save the selected sales team when updating the property
-function save_sales_team_meta($post_id) {
-    if (isset($_POST['sales_team_select'])) {
-        $sales_team_id = sanitize_text_field($_POST['sales_team_select']);
-        update_post_meta($post_id, '_sales_team', $sales_team_id);
-    }
-}
-add_action('save_post_properties', 'save_sales_team_meta');
+add_action('admin_footer', 'add_sales_team_search_feature');
