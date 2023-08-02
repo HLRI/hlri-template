@@ -999,6 +999,16 @@ if (class_exists('CSF')) {
 					'type'  => 'text',
 					'title' => 'Developer',
 				),
+				array(
+					'id'          => 'opt-dev',
+					'type'        => 'select',
+					'title'       => 'Sales Type',
+					'placeholder' => 'Select an option',
+					'options'     => 'categories',
+					'query_args'  => array(
+					  'taxonomy'  => 'group',
+					),
+				),
                 array(
                     'id'    => 'opt-sales-team',
                     'type'  => 'text',
