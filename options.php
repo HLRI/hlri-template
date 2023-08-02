@@ -1000,6 +1000,18 @@ if (class_exists('CSF')) {
 					'title' => 'Developer',
 				),
                 array(
+                    'id'          => 'opt-developer',
+                    'type'        => 'select',
+                    'title'       => 'Developer',
+                    'placeholder' => 'Select an option',
+                    'chosen'      => true,
+                    'multiple'    => true,
+                    'options'     => array(
+                        'Marling Spring' => 'Marling Spring',
+                    ),
+                    'default'     => ''
+                ),
+                array(
                     'id'    => 'opt-sales-team',
                     'type'  => 'text',
                     'title' => 'Sales Team',
