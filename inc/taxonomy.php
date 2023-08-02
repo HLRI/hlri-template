@@ -232,19 +232,14 @@ function add_sales_team_search_feature() {
     ?>
     <script>
         jQuery(document).ready(function($) {
-            var searchTerm = '';
             $('#sales-team-pop input[type="search"]').attr('placeholder', 'Search Sales Team');
 
             $('#sales-team-pop').before('<input type="search" id="sales-team-search" placeholder="Search Sales Team">');
 
-            $('#sales-team-checklist li').each(function() {
-                $(this).attr('data-search-term', $(this).text().toLowerCase());
-            });
-
             $('#sales-team-search').on('input', function() {
-                searchTerm = $(this).val().toLowerCase();
+                var searchTerm = $(this).val().toLowerCase();
                 $('#sales-team-checklist li').each(function() {
-                    var listItemText = $(this).attr('data-search-term');
+                    var listItemText = $(this).text().toLowerCase();
                     var isVisible = listItemText.indexOf(searchTerm) !== -1;
                     $(this).toggle(isVisible);
                 });
