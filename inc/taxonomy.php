@@ -160,3 +160,31 @@ function group ()
   ));
 }
 add_action('init', 'group', 0);
+
+
+
+function developer ()
+{
+  register_taxonomy('developer', 'properties', array(
+    'hierarchical' => true,
+    'labels' => array(
+      'name' => _x('Developers', 'taxonomy general name'),
+      'singular_name' => _x('Developer', 'taxonomy singular name'),
+      'search_items' =>  __('Search Developer'),
+      'all_items' => __('All Developer'),
+      'parent_item' => __('Parent Developer'),
+      'parent_item_colon' => __('Parent Developer:'),
+      'edit_item' => __('Edit Developer'),
+      'update_item' => __('Update Developer'),
+      'add_new_item' => __('Add New Developer'),
+      'new_item_name' => __('New Developer Name'),
+      'menu_name' => __('Developers'),
+    ),
+    'rewrite' => array(
+      'slug' => 'developer',
+      'with_front' => false,
+      'hierarchical' => false
+    ),
+  ));
+}
+add_action('init', 'developer', 0);

@@ -1003,7 +1003,7 @@ if (class_exists('CSF')) {
                     'multiple'    => true,
 					'options'     => 'categories',
 					'query_args'  => array(
-					  'taxonomy'  => 'group',
+					  'taxonomy'  => 'developer',
 					),
                 ),
                 array(
