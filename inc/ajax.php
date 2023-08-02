@@ -619,8 +619,16 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two($request)
 {
-    // Check if the data is cached
+    // Determine if include_floorplans parameter is set
+    $include_floorplans = $request->get_param('include_floorplans');
+
+    // Create a unique cache key based on the request parameters
     $cache_key = 'my_awesome_func_two_data';
+    if ($include_floorplans === 'true') {
+        $cache_key .= '_include_floorplans';
+    }
+
+    // Check if the data is cached
     $cached_data = get_transient($cache_key);
 
     if (false === $cached_data) {
