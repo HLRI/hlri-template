@@ -249,15 +249,6 @@ function add_sales_team_search_feature() {
                     $(this).toggle(isVisible);
                 });
             });
-
-            $('#sales-team-pop').on('click', function() {
-                $('#sales-team-search').val(searchTerm);
-                $('#sales-team-checklist li').each(function() {
-                    var listItemText = $(this).attr('data-search-term');
-                    var isVisible = listItemText.indexOf(searchTerm) !== -1;
-                    $(this).toggle(isVisible);
-                });
-            });
         });
     </script>
     <?php
