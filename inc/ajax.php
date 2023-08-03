@@ -544,7 +544,7 @@ function getProperties(WP_REST_Request $request)
             }
         }
 
-        if(!null($items->list)){set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);}
+        if(!null($items->data)){set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);}
 
     } else {
         foreach ($result as $property) {
