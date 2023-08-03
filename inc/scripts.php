@@ -476,6 +476,7 @@ function add_search_input_to_meta_box($meta_box_id) {
         <?php
     }
 }
+add_action('admin_footer', 'add_search_input_to_meta_boxes');
 function add_search_input_to_meta_boxes() {
     add_search_input_to_meta_box('sales-teamchecklist');
     add_search_input_to_meta_box('developerchecklist');
