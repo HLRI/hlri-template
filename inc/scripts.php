@@ -421,37 +421,37 @@ function theme_footer()
 }
 
 
-function admin_enqueue($hook)
-{
-    wp_register_style('style-admin', HLR_THEME_ASSETS . 'css/style-admin.css');
-    if ($hook == 'post-new.php') {
-        if ($_GET['post_type'] == 'properties') {
-            wp_enqueue_style('style-admin');
-        }
-    } elseif ($hook == 'post.php') {
-        $post_type = get_post_type($_GET['post']);
-        if ($post_type == 'properties') {
-            wp_enqueue_style('style-admin');
-        }
-    }
-?>
-    <script type="text/javascript">
-        (function(c, l, a, r, i, t, y) {
-            c[a] = c[a] || function() {
-                (c[a].q = c[a].q || []).push(arguments)
-            };
-            t = l.createElement(r);
-            t.async = 1;
-            t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0];
-            y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "i94l62vy4h");
-    </script>
+//function admin_enqueue($hook)
+//{
+//    wp_register_style('style-admin', HLR_THEME_ASSETS . 'css/style-admin.css');
+//    if ($hook == 'post-new.php') {
+//        if ($_GET['post_type'] == 'properties') {
+//            wp_enqueue_style('style-admin');
+//        }
+//    } elseif ($hook == 'post.php') {
+//        $post_type = get_post_type($_GET['post']);
+//        if ($post_type == 'properties') {
+//            wp_enqueue_style('style-admin');
+//        }
+//    }
+//?>
+<!--    <script type="text/javascript">-->
+<!--        (function(c, l, a, r, i, t, y) {-->
+<!--            c[a] = c[a] || function() {-->
+<!--                (c[a].q = c[a].q || []).push(arguments)-->
+<!--            };-->
+<!--            t = l.createElement(r);-->
+<!--            t.async = 1;-->
+<!--            t.src = "https://www.clarity.ms/tag/" + i;-->
+<!--            y = l.getElementsByTagName(r)[0];-->
+<!--            y.parentNode.insertBefore(t, y);-->
+<!--        })(window, document, "clarity", "script", "i94l62vy4h");-->
+<!--    </script>-->
 <?php
-}
-add_action('admin_enqueue_scripts', 'admin_enqueue');
-
-
+//}
+//add_action('admin_enqueue_scripts', 'admin_enqueue');
+//
+//
 //function add_search_input_to_meta_box($meta_box_id) {
 //    global $pagenow;
 //
