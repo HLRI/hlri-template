@@ -718,7 +718,7 @@ function my_awesome_func_two($request)
         else :
             _e('Sorry, no posts matched your criteria.');
         endif;
-        set_transient($cache_key, $mapdata, 5 * MINUTE_IN_SECONDS);
+        set_transient($cache_key, $mapdata, 0.5 * MINUTE_IN_SECONDS);
     } else {
         // If data is already cached, retrieve it directly
         $mapdata = $cached_data;
