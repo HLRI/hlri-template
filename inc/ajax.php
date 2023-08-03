@@ -572,9 +572,6 @@ function getProperties(WP_REST_Request $request)
         }
     }
 
-    wp_send_json([
-        "data6" => $items
-    ]);
     return new WP_REST_Response([
         'list' => $items
     ], 200);
