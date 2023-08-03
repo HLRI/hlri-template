@@ -5,7 +5,6 @@ $terms = get_terms([
     'hide_empty' => false,
 ]);
 $terms = array_slice($terms, 0, 8);
-var_dump($terms);
 
 ?>
 <div class="container-fluid my-5">
@@ -18,6 +17,7 @@ var_dump($terms);
             <div class="d-flex justify-content-center">
                 <div class="owl-carousel owl-theme neighborhood wrap-list">
                     <?php foreach ($terms as $term) :
+                    echo "dd";
                         $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
                     ?>
                         <div class="wrap-neighborhood">
