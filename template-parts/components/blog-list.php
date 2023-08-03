@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="titr-list">
-                <h3 class="font-weight-bold">READ FROM OUR BLOG</h3>
+                <h3 class="font-weight-bold">Read From Our Blog</h3>
                 <?php if (!empty($theme_options['opt-homeleaderrealtylinkviews-blog-link']['url'])) : ?>
                     <a href="<?= $theme_options['opt-homeleaderrealtylinkviews-blog-link']['url'] ?>" title="<?= $theme_options['opt-homeleaderrealtylinkviews-blog-link']['alt'] ?>" class="view-more">View more</a>
                 <?php endif; ?>
