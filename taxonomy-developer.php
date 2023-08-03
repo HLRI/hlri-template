@@ -3,8 +3,11 @@
 <div class="container">
     <div class="row py-5">
         <div class="col-12">
-            <div class="card" style="width: 400px; margin: 0 auto;">
-                <h3>You must login to access the content of this page</h3>
+            <div class="card p-4" style="width: 400px; margin: 0 auto;font-size:13px">
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-lock"></i>
+                    <h6>You must login to access the content of this page</h6>
+                </div>
                 <a href="#" class="top-section-button" data-toggle="modal" data-target="#login-modal">Sign In</a>
             </div>
         </div>
