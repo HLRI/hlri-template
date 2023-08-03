@@ -4,8 +4,8 @@
     <div class="row py-5">
         <div class="col-12">
             <div class="card" style="width: 400px; margin: 0 auto;">
-
-            <a href="#" class="btn-signin" data-toggle="modal" data-target="#login-modal">Sign In</a>
+                <h3>You must login to access the content of this page</h3>
+                <a href="#" class="top-section-button" data-toggle="modal" data-target="#login-modal">Sign In</a>
             </div>
         </div>
     </div>
