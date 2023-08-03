@@ -467,11 +467,6 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'my_awesome_func_two',
     ]);
-
-    register_rest_route('floorplans/v3', 'getResult', [
-        'methods' => 'GET',
-        'callback' => 'my_awesome_func_tree',
-    ]);
 }
 function getProperties(WP_REST_Request $request)
 {
