@@ -852,5 +852,8 @@ function get_floorplans_from_property($property_id,$occupancy)
         }
 
     }
+    if(!isset($floorplansFinal)){
+        $floorplansFinal = [];
+    }
     return $floorplansFinal;
 }
