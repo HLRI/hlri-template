@@ -559,13 +559,13 @@ if (class_exists('CSF')) {
 
 				array(
 					'id'    => 'opt-agents-phone',
-					'type'  => 'number',
+					'type'  => 'text',
 					'title' => 'Phone'
 				),
 
 				array(
 					'id'    => 'opt-agents-fax',
-					'type'  => 'number',
+					'type'  => 'text',
 					'title' => 'Fax'
 				),
 
