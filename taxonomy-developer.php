@@ -2,7 +2,7 @@
 <?php if (!is_user_logged_in()) : ?>
     <?php
     $user = wp_get_current_user();
-    if (in_array('agent', (array) $user->roles) || in_array('administrator', (array) $user->roles)) :
+    if (in_array('agent', (array) $user->roles) ) :
     ?>
         <div class="container">
             <div class="row py-5">
