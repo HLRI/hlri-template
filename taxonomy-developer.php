@@ -1,3 +1,5 @@
+<?php get_header() ?>
+
 <div class="container">
     <div class="row py-5">
         <div class="col-12">
@@ -119,7 +121,6 @@ $peroperties = new WP_Query($arg);
 
 ?>
 
-<?php get_header() ?>
 
 <?php if ($peroperties->have_posts()) : ?>
     <div class="container-fluid px-5 my-5">
