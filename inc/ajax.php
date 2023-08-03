@@ -850,7 +850,6 @@ function get_floorplans_from_property($property_id,$occupancy)
                     "url" => $floorplan->guid
                 ];
         }
-
     }
     return $floorplansFinal;
 }

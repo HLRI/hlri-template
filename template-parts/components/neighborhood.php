@@ -22,13 +22,13 @@ $terms = array_slice($terms, 0, 8);
                     ?>
 
                         <div class="wrap-neighborhood">
-                            <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" title="<?= $meta['opt-neighborhood-image']['alt'] ?>">
-                                <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= $meta['opt-neighborhood-image']['alt'] ?>">
+                            <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" title="<?= isset($meta['opt-neighborhood-image']) ? $meta['opt-neighborhood-image']['alt'] : '' ?>">
+                                <img loading="lazy" src="<?= isset($meta['opt-neighborhood-image']) ? $meta['opt-neighborhood-image']['url'] : $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= isset($meta['opt-neighborhood-image']) ? $meta['opt-neighborhood-image']['alt'] : '' ?>">
                             </a>
                             <div class="neighborhood-title">
                                 <?= $term->name ?>
                             </div>
-                            <a target="_blank" href="<?= $meta['opt-neighborhood-link']['url'] ?>" class="neighborhood-link"><?= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?> Listing</a>
+                            <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" class="neighborhood-link"><?= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?> Listing</a>
                         </div>
 
                     <?php endforeach; ?>
