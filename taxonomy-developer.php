@@ -16,7 +16,7 @@
 <?php else : ?>
     <?php
     $user = wp_get_current_user();
-    if (in_array('agent', (array) $user->roles)) :
+    if (in_array('agent', (array) $user->roles) || in_array('administrator', (array) $user->roles)) :
     ?>
         <?php
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
