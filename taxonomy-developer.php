@@ -1,18 +1,36 @@
 <?php get_header() ?>
 <?php if (!is_user_logged_in()) : ?>
-    <div class="container">
-        <div class="row py-5">
-            <div class="col-12">
-                <div class="card p-4" style="width: 400px; margin: 0 auto;">
-                    <div class="d-flex align-items-center mb-2" style="justify-content: space-around; color: #ccc;">
-                        <i class="fa fa-lock"></i>
-                        <h6 style="font-size:13px">You must login to access the content of this page</h6>
+    <?php
+    $user = wp_get_current_user();
+    if (in_array('agent', (array) $user->roles) || in_array('administrator', (array) $user->roles)) :
+    ?>
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-12">
+                    <div class="card p-4" style="width: 400px; margin: 0 auto;">
+                        <div class="d-flex align-items-center mb-2" style="justify-content: space-around; color: #ccc;">
+                            <i class="fa fa-lock"></i>
+                            <h6 style="font-size:13px">You must login to access the content of this page</h6>
+                        </div>
+                        <a href="#" class="top-section-button" data-toggle="modal" data-target="#login-modal">Sign In</a>
                     </div>
-                    <a href="#" class="top-section-button" data-toggle="modal" data-target="#login-modal">Sign In</a>
                 </div>
             </div>
         </div>
-    </div>
+    <?php else : ?>
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-12">
+                    <div class="card p-4" style="width: 400px; margin: 0 auto;">
+                        <div class="d-flex align-items-center mb-2" style="justify-content: space-around; color: #ccc;">
+                            <i class="fa fa-warning"></i>
+                            <h6 style="font-size:13px">You do not have permission to access this page!</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 <?php else : ?>
     <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
