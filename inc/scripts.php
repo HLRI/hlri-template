@@ -291,7 +291,7 @@ function theme_footer()
             });
 
             try {
-                console.log(<?php echo json_encode($locations['latitude']) ?>);
+                console.log(<?php echo json_encode($locations['longitude']) ?>);
                 var map = L.map('map', {
                     zoomControl: false
                 }).setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
