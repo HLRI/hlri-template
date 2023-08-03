@@ -3,97 +3,100 @@
 <div class="container">
     <div class="row py-5">
         <div class="col-12">
-            <div class="modal-body body-login">
+            <div class="modal-content modal-content-login clearfix">
 
-                <div class="card" style="width: 400px; margin: 0 auto;">
-                    <div class="modal-body-login login-form">
+                <div class="modal-body body-login">
 
-                        <div class="form-loading d-none">
-                            <div class="spinner-border text-primary" role="status"></div>
+                    <div class="card" style="width: 400px; margin: 0 auto;">
+                        <div class="modal-body-login login-form">
+
+                            <div class="form-loading d-none">
+                                <div class="spinner-border text-primary" role="status"></div>
+                            </div>
+
+                            <h3 class="title">Login Form</h3>
+                            <p class="description"></p>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" id="username" placeholder="Enter Email or Username">
+                            </div>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fas fa-key"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                            </div>
+                            <div class="notif-info d-none"></div>
+
+                            <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
+
+                            <div class="sign-in-btn">
+                                <button class="btn" id="submit-login">Login</button>
+                                <button class="btn btn-register btn-orange-form">Register</button>
+                            </div>
+
+                            <div class="login-by-social">
+                                <?php echo do_shortcode('[nextend_social_login]'); ?>
+                                <?php do_action('login_hlri_form'); ?>
+                            </div>
+
+                            <div class="wrap-bottom-login">
+                                <br>
+                                <a href="#" class="forgot-pass btn-forgot-password">Forgot Password?</a>
+                            </div>
                         </div>
 
-                        <h3 class="title">Login Form</h3>
-                        <p class="description"></p>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" id="username" placeholder="Enter Email or Username">
-                        </div>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fas fa-key"></i></span>
-                            <input type="password" class="form-control" id="password" placeholder="Enter Password">
-                        </div>
-                        <div class="notif-info d-none"></div>
+                        <div class="modal-body-login forgot-password-form d-none">
 
-                        <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
+                            <div class="form-loading d-none">
+                                <div class="spinner-border text-primary" role="status"></div>
+                            </div>
 
-                        <div class="sign-in-btn">
-                            <button class="btn" id="submit-login">Login</button>
-                            <button class="btn btn-register btn-orange-form">Register</button>
-                        </div>
+                            <h3 class="title">Password Recovery</h3>
+                            <p class="description"></p>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" id="username" placeholder="Enter Email Or Username">
+                            </div>
+                            <div class="notif-info d-none"></div>
 
-                        <div class="login-by-social">
-                            <?php echo do_shortcode('[nextend_social_login]'); ?>
-                            <?php do_action('login_hlri_form'); ?>
+                            <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
+
+                            <div class="sign-in-btn">
+                                <button class="btn" id="submit-forgot-password">Submit</button>
+                                <button class="btn btn-login btn-orange-form">Login</button>
+                            </div>
                         </div>
 
-                        <div class="wrap-bottom-login">
-                            <br>
-                            <a href="#" class="forgot-pass btn-forgot-password">Forgot Password?</a>
+                        <div class="modal-body-login register-form d-none">
+
+                            <div class="form-loading d-none">
+                                <div class="spinner-border text-primary" role="status"></div>
+                            </div>
+
+                            <h3 class="title">Register Form</h3>
+                            <p class="description"></p>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" id="username" placeholder="Enter Username">
+                            </div>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                            </div>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fas fa-key"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                            </div>
+                            <div class="notif-info d-none"></div>
+
+                            <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
+                            <div class="sign-in-btn">
+                                <button class="btn" id="submit-register">Register</button>
+                                <button class="btn btn-login btn-orange-form">Login</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="modal-body-login forgot-password-form d-none">
-
-                        <div class="form-loading d-none">
-                            <div class="spinner-border text-primary" role="status"></div>
-                        </div>
-
-                        <h3 class="title">Password Recovery</h3>
-                        <p class="description"></p>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" id="username" placeholder="Enter Email Or Username">
-                        </div>
-                        <div class="notif-info d-none"></div>
-
-                        <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
-
-                        <div class="sign-in-btn">
-                            <button class="btn" id="submit-forgot-password">Submit</button>
-                            <button class="btn btn-login btn-orange-form">Login</button>
-                        </div>
-                    </div>
-
-                    <div class="modal-body-login register-form d-none">
-
-                        <div class="form-loading d-none">
-                            <div class="spinner-border text-primary" role="status"></div>
-                        </div>
-
-                        <h3 class="title">Register Form</h3>
-                        <p class="description"></p>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" id="username" placeholder="Enter Username">
-                        </div>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-envelope"></i></span>
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email">
-                        </div>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fas fa-key"></i></span>
-                            <input type="password" class="form-control" id="password" placeholder="Enter Password">
-                        </div>
-                        <div class="notif-info d-none"></div>
-
-                        <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
-                        <div class="sign-in-btn">
-                            <button class="btn" id="submit-register">Register</button>
-                            <button class="btn btn-login btn-orange-form">Login</button>
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
     </div>
