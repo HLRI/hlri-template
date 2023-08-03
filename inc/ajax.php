@@ -476,6 +476,7 @@ function create_routes()
 function getProperties(WP_REST_Request $request)
 {
 
+   
 
     $auth_user = checkToken();
     $is_login = false;
@@ -485,6 +486,7 @@ function getProperties(WP_REST_Request $request)
     $item = [];
     $i = 0;
     $result = get_transient('properties_data');
+   
     if ($result === false) {
         $args = [
             'post_type' => 'properties',
@@ -543,6 +545,9 @@ function getProperties(WP_REST_Request $request)
                 $i++;
             }
         }
+        wp_send_json( [
+            'data' => $items
+        ] );
         set_transient('properties_data', $items, 1 * MINUTE_IN_SECONDS);
     } else {
         foreach ($result as $property) {
@@ -569,6 +574,9 @@ function getProperties(WP_REST_Request $request)
                 $i++;
             }
         }
+        wp_send_json( [
+            'data' => $items
+        ] );
     }
 
 
