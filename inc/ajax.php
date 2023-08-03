@@ -484,6 +484,9 @@ function getProperties(WP_REST_Request $request)
     $item = [];
     $i = 0;
     $result = get_transient('properties_data');
+    wp_send_json([
+        "data" => $result
+    ]);
    
     if ($result === false) {
         $args = [
