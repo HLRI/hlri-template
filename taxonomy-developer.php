@@ -1,4 +1,7 @@
-<div class="modal-body body-login">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="modal-body body-login">
 
                 <div class="modal-body-login login-form">
 
@@ -20,9 +23,9 @@
 
 
                     <!-- <div class="form-group checkbox">
-                        <input id="remember" type="checkbox">
-                        <label for="remember">Remamber me</label>
-                    </div> -->
+                    <input id="remember" type="checkbox">
+                    <label for="remember">Remamber me</label>
+                </div> -->
 
                     <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
 
@@ -93,6 +96,9 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
 </div>
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
