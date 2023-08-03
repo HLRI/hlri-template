@@ -6,7 +6,8 @@ $terms = get_terms([
 ]);
 $terms = array_slice($terms, 0, 8);
 foreach ($terms as $term) {
-    var_dump($term);
+    // $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
+    var_dump($term->term_id);
 }
 
 ?>
