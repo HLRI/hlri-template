@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<?php if (is_user_logged_in()) : ?>
+<?php if (!is_user_logged_in()) : ?>
     <div class="container">
         <div class="row py-5">
             <div class="col-12">
