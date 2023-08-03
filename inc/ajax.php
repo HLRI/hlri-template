@@ -486,10 +486,8 @@ function getProperties(WP_REST_Request $request)
     $i = 0;
     $result = get_transient('properties_data');
    
-    if ( false) {
-        wp_send_json( [
-            'data' => 'test'
-        ] );
+    if ( true) {
+       
         $args = [
             'post_type' => 'properties',
             'post_status' => 'publish',
