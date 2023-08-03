@@ -549,7 +549,7 @@ function getProperties(WP_REST_Request $request)
 
         foreach ($result as $property) {
             wp_send_json([
-                "data6" => $result
+                "data6" => $property
             ]);
             if (in_array($_GET['term_id'], $property['data']['term_ids'])) {
                 if ($i < $_GET['page']) {
