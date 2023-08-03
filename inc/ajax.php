@@ -475,7 +475,7 @@ function create_routes()
 }
 function getProperties(WP_REST_Request $request)
 {
-
+    $cache_key = 'properties_data_' . $_GET['term_id'];
     $auth_user = checkToken();
     $is_login = false;
     if ($auth_user->status != 401 && $auth_user->status != 404) {
@@ -483,7 +483,7 @@ function getProperties(WP_REST_Request $request)
     }
     $item = [];
     $i = 0;
-    $result = get_transient('properties_data');
+    $result = get_transient($cache_key);
 
     if ($result === false) {
         $args = [
@@ -544,7 +544,8 @@ function getProperties(WP_REST_Request $request)
             }
         }
 
-            set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
+
+        set_transient($cache_key, $items, 5 * MINUTE_IN_SECONDS);
 
     } else {
         foreach ($result as $property) {
