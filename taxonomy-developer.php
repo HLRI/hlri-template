@@ -3,11 +3,12 @@
 <div class="container">
     <div class="row py-5">
         <div class="col-12">
-            <div class="modal-content modal-content-login clearfix">
+            <div class="card" style="width: 400px; margin: 0 auto;">
 
-                <div class="modal-body body-login">
+                <div class="modal-content modal-content-login clearfix">
 
-                    <div class="card" style="width: 400px; margin: 0 auto;">
+                    <div class="modal-body body-login">
+
                         <div class="modal-body-login login-form">
 
                             <div class="form-loading d-none">
