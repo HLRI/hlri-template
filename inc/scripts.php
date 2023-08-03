@@ -452,37 +452,37 @@ function admin_enqueue($hook)
 add_action('admin_enqueue_scripts', 'admin_enqueue');
 
 
-function add_search_input_to_meta_box($meta_box_id) {
-    global $pagenow;
-
-    if ($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') {
-        ?>
-        <script>
-            jQuery(document).ready(function($) {
-                $('#<?php echo esc_attr($meta_box_id); ?>').before('<div style="height: 45px;"><input type="text" class="live-search" placeholder="Search..." style="margin-top: 20px;width: 100%;"></div>');
-                $('.live-search').on('keyup', function() {
-                    var searchValue = $(this).val().toLowerCase();
-                    $('#' + <?php echo json_encode($meta_box_id); ?> + ' li').each(function() {
-                        var listItemText = $(this).text().toLowerCase();
-                        if (listItemText.indexOf(searchValue) !== -1) {
-                            $(this).show();
-                        } else {
-                            $(this).hide();
-                        }
-                    });
-                });
-            });
-        </script>
-        <?php
-    }
-}
-add_action('admin_footer', 'add_search_input_to_meta_boxes');
-function add_search_input_to_meta_boxes() {
-    add_search_input_to_meta_box('sales-teamchecklist');
-    add_search_input_to_meta_box('developerchecklist');
-    add_search_input_to_meta_box('groupchecklist');
-    add_search_input_to_meta_box('citychecklist');
-    add_search_input_to_meta_box('stagechecklist');
-    add_search_input_to_meta_box('typechecklist');
-    add_search_input_to_meta_box('neighborhoodchecklist');
-}
+//function add_search_input_to_meta_box($meta_box_id) {
+//    global $pagenow;
+//
+//    if ($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') {
+//        ?>
+<!--        <script>-->
+<!--            jQuery(document).ready(function($) {-->
+<!--                $('#--><?php //echo esc_attr($meta_box_id); ?>//').before('<div style="height: 45px;"><input type="text" class="live-search" placeholder="Search..." style="margin-top: 20px;width: 100%;"></div>');
+//                $('.live-search').on('keyup', function() {
+//                    var searchValue = $(this).val().toLowerCase();
+//                    $('#' + <?php //echo json_encode($meta_box_id); ?>// + ' li').each(function() {
+//                        var listItemText = $(this).text().toLowerCase();
+//                        if (listItemText.indexOf(searchValue) !== -1) {
+//                            $(this).show();
+//                        } else {
+//                            $(this).hide();
+//                        }
+//                    });
+//                });
+//            });
+//        </script>
+//        <?php
+//    }
+//}
+//add_action('admin_footer', 'add_search_input_to_meta_boxes');
+//function add_search_input_to_meta_boxes() {
+//    add_search_input_to_meta_box('sales-teamchecklist');
+//    add_search_input_to_meta_box('developerchecklist');
+//    add_search_input_to_meta_box('groupchecklist');
+//    add_search_input_to_meta_box('citychecklist');
+//    add_search_input_to_meta_box('stagechecklist');
+//    add_search_input_to_meta_box('typechecklist');
+//    add_search_input_to_meta_box('neighborhoodchecklist');
+//}
