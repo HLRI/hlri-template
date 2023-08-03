@@ -544,7 +544,7 @@ function getProperties(WP_REST_Request $request)
             }
         }
 
-        if(!null($items['data'])){
+        if(!empty($items['data'])){
             set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
         }
 
