@@ -484,11 +484,8 @@ function getProperties(WP_REST_Request $request)
     $item = [];
     $i = 0;
     $result = get_transient('properties_data');
-//    wp_send_json([
-//        "data" => $result
-//    ]);
-   
-    if (true) {
+
+    if ($result === false) {
         $args = [
             'post_type' => 'properties',
             'post_status' => 'publish',
@@ -546,7 +543,7 @@ function getProperties(WP_REST_Request $request)
                 $i++;
             }
         }
-        set_transient('properties_data', $items, 1 * MINUTE_IN_SECONDS);
+        set_transient('properties_data', $items, 1 * 60);
     } else {
         foreach ($result as $property) {
             if (in_array($_GET['term_id'], $property['data']['term_ids'])) {
