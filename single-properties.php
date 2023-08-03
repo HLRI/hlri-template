@@ -122,18 +122,18 @@ $associated_floorplans = associated_floorplans_cached();
                 </div>
             <?php endif; ?>
         <?php endif; ?>
-        <?php if (count($psd['incentives_data']) > 0) : ?>
             <div class="col-lg-6">
-                <div class="incentives">
+    <?php if (count($psd['incentives_data']) > 0) : ?>
+        <div class="incentives">
                     <?php foreach ($psd['incentives_data'] as $item) : ?>
                         <div class="content-info"><?php if (!empty($item['opt_icon_incentives'])) : ?><i class="<?= $item['opt_icon_incentives'] ?> icon-profile"></i><?php endif; ?><?= $item['opt_link_incentives'] ?></div>
                     <?php endforeach; ?>
                 </div>
+    <?php endif; ?>
                 <div class="wrap-map">
                     <div id="map"></div>
                 </div>
             </div>
-        <?php endif; ?>
     </div>
 
     <?php if (!empty($psd['content'])) : ?>
