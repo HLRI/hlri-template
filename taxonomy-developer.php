@@ -2,6 +2,7 @@
 <?php if (!is_user_logged_in()) : ?>
     <?php
     $user = wp_get_current_user();
+    var_dump($user->roles);
     if (in_array('agent', (array) $user->roles) ) :
     ?>
         <div class="container">
