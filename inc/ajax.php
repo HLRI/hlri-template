@@ -545,9 +545,6 @@ function getProperties(WP_REST_Request $request)
                 $i++;
             }
         }
-        wp_send_json( [
-            'data' => $items
-        ] );
         set_transient('properties_data', $items, 1 * MINUTE_IN_SECONDS);
     } else {
         foreach ($result as $property) {
@@ -574,9 +571,6 @@ function getProperties(WP_REST_Request $request)
                 $i++;
             }
         }
-        wp_send_json( [
-            'data' => $items
-        ] );
     }
 
 
