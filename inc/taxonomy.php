@@ -226,7 +226,7 @@ function add_search_input_to_sales_team_checklist() {
         <script>
             jQuery(document).ready(function($) {
                 // Add the search input element before the sales team checklist
-                $('#sales-teamchecklist').before('<input type="text" id="live-search" placeholder="Search...">');
+                $('#sales-teamchecklist').before('<div><input type="text" id="live-search" placeholder="Search..." style="margin-top: 20px;position: absolute;"></div>');
 
                 // Function to handle the live search functionality
                 $('#live-search').on('keyup', function() {
