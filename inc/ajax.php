@@ -649,9 +649,9 @@ function my_awesome_func_two()
                         $mapMetaType = $mapMeta['opt-type'];
                     }
 
-                    $mapMetaType = array_map(function ($item) {
-                        return ($item == "Home") ? "Detached" : $item;
-                    }, $mapMetaType);
+//                    $mapMetaType = array_map(function ($item) {
+//                        return ($item == "Home") ? "Detached" : $item;
+//                    }, $mapMetaType);
 
 
                     $is_floorplan = get_floorplans_from_property(get_the_ID());
