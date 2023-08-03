@@ -546,10 +546,11 @@ function getProperties(WP_REST_Request $request)
 
         set_transient('properties_data', $items, 5 * MINUTE_IN_SECONDS);
     } else {
-        wp_send_json([
-            "data6" => $result
-        ]);
+
         foreach ($result as $property) {
+            wp_send_json([
+                "data6" => $result
+            ]);
             if (in_array($_GET['term_id'], $property['data']['term_ids'])) {
                 if ($i < $_GET['page']) {
                     if ($is_login) {
