@@ -462,7 +462,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
                     '' +
                     '                                <div class="card-share">' +
                     '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' + post.shortlink + '"><i class="fa fa-facebook-square"></i></a>' +
-                    '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title=' + post.title + '><i class="fa fa-reddit"></i></a>' +
+                    '                                    <a target="_blank" href="https://reddit.com/submit?url=' + post.shortlink + '&title="' + post.title + '"><i class="fa fa-reddit"></i></a>' +
                     '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' + post.shortlink + '?ref=linkedin&title=' + post.title + '&summary=' + post.content + '"><i class="fa fa-linkedin-square"></i></a>' +
                     '                                    <a target="_blank" href="https://wa.me/?text=' + post.shortlink + '"><i class="fa fa-whatsapp"></i></a>' +
                     '                                    <a target="_blank" href="https://telegram.me/share/url?url=' + post.shortlink + '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
