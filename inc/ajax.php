@@ -475,7 +475,6 @@ function create_routes()
 }
 function getProperties(WP_REST_Request $request)
 {
-  
 
     $auth_user = checkToken();
     $is_login = false;
@@ -486,8 +485,7 @@ function getProperties(WP_REST_Request $request)
     $i = 0;
     $result = get_transient('properties_data');
    
-    if ( true) {
-       
+    if ($result === false) {
         $args = [
             'post_type' => 'properties',
             'post_status' => 'publish',
