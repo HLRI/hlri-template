@@ -224,19 +224,19 @@ function add_search_input_to_sales_team_checklist() {
     if ($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') {
         ?>
         <script>
-            jQuery(document).ready(function($) {
-                // Add the search input element before the sales team checklist
-                $('#sales-teamchecklist').before('<input type="text" id="live-search" placeholder="Search...">');
+            document.addEventListener("DOMContentLoaded", function() {
+                const searchInput = document.getElementById("live-search");
+                const listItems = document.querySelectorAll("#sales-teamchecklist li");
 
-                // Function to handle the live search functionality
-                $('#live-search').on('keyup', function() {
-                    var searchValue = $(this).val().toLowerCase();
-                    $('#sales-teamchecklist li').each(function() {
-                        var listItemText = $(this).text().toLowerCase();
-                        if (listItemText.indexOf(searchValue) !== -1) {
-                            $(this).show();
+                searchInput.addEventListener("input", function() {
+                    const searchTerm = searchInput.value.trim().toLowerCase();
+
+                    listItems.forEach(item => {
+                        const label = item.textContent.trim().toLowerCase();
+                        if (label.includes(searchTerm)) {
+                            item.style.display = "block";
                         } else {
-                            $(this).hide();
+                            item.style.display = "none";
                         }
                     });
                 });
