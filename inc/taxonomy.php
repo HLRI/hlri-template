@@ -217,31 +217,33 @@ function salesteam ()
 add_action('init', 'salesteam', 0);
 
 
-function enqueue_custom_scripts() {
-    // Enqueue the custom JavaScript with inline code
-    wp_enqueue_script('custom-inline-script', '', array('jquery'), '1.0', true);
+function add_search_input_to_sales_team_checklist() {
+    global $pagenow;
 
-    // Inline JavaScript code
-    $custom_inline_script = '
-    (function ($) {
-      $(document).ready(function () {
-        // Add a search input field to the top of the "sales-teamchecklist" ul
-        var searchInput = \'<input type="text" id="sales-team-search" placeholder="Search Sales Team">\';
-        $("#sales-teamchecklist").before(searchInput);
+    // Check if we are on the "properties" post type edit page in the WordPress backend
+    if ($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') {
+        ?>
+        <script>
+            jQuery(document).ready(function($) {
+                // Add the search input element before the sales team checklist
+                $('#sales-teamchecklist').before('<input type="text" id="live-search" placeholder="Search...">');
 
-        // Filter the sales team items based on the search input
-        $("#sales-team-search").on("keyup", function () {
-          var value = $(this).val().toLowerCase();
-          $("#sales-teamchecklist li").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-          });
-        });
-      });
-    })(jQuery);
-  ';
-
-    // Output the inline script directly
-    wp_add_inline_script('custom-inline-script', $custom_inline_script);
+                // Function to handle the live search functionality
+                $('#live-search').on('keyup', function() {
+                    var searchValue = $(this).val().toLowerCase();
+                    $('#sales-teamchecklist li').each(function() {
+                        var listItemText = $(this).text().toLowerCase();
+                        if (listItemText.indexOf(searchValue) !== -1) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                });
+            });
+        </script>
+        <?php
+    }
 }
 
-add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+add_action('admin_footer', 'add_search_input_to_sales_team_checklist');
