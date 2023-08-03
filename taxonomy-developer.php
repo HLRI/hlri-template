@@ -4,7 +4,7 @@
     <div class="row py-5">
         <div class="col-12">
             <div class="card p-4" style="width: 400px; margin: 0 auto;">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center mb-2" style="justify-content: space-around; color: #ccc;">
                     <i class="fa fa-lock"></i>
                     <h6 style="font-size:13px">You must login to access the content of this page</h6>
                 </div>
