@@ -836,7 +836,8 @@ function get_floorplans_from_property($property_id,$occupancy)
         )
     ));
 
-    foreach ($floorplans as $floorplan){
+//    foreach ($floorplans as $floorplan){
+    foreach (array_slice($floorplans, 0, 5) as $floorplan){
         $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
         if (!empty($floorplanData)) {
             $floorplansFinal[] =
