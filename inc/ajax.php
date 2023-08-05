@@ -735,10 +735,10 @@ function my_awesome_func_two($request)
 
 function get_last_updated_timestamp_for_entity( $entity_type ) {
     if ( $entity_type === 'properties' ) {
-        return '200';
         // Implement your logic to fetch the last update timestamp for properties
         // For example, you could use get_lastpostmodified() or any other method to get the last update timestamp for the 'properties' post type.
         $properties_last_updated = get_lastpostmodified( 'properties' );
+        return '200';
         return strtotime( $properties_last_updated );
     } elseif ( $entity_type === 'floorplans' ) {
         // Implement your logic to fetch the last update timestamp for floor plans
