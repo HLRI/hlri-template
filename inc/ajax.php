@@ -733,14 +733,27 @@ function my_awesome_func_two($request)
 
 }
 
-function get_last_updated_timestamp_for_entity( $request ) {
-    $entity_type = $request->get_param( 'entityType' );
+function get_last_updated_timestamp_for_entity( $entity_type ) {
+    // Sanitize the post type value
+    $entity_type = sanitize_text_field( $entity_type );
 
-    // Get the last update timestamp for the specified post type
-    $last_update_timestamp = get_last_updated_timestamp_for_entity( $entity_type );
+    // Get the latest post of the specified post type
+    $args = array(
+        'post_type'      => $entity_type,
+        'posts_per_page' => 1,
+        'orderby'        => 'modified',
+        'order'          => 'DESC',
+    );
+    $latest_post = get_posts( $args );
 
-    // Return the response as JSON
-    return rest_ensure_response( array( 'timestamp' => $last_update_timestamp ) );
+    // If the latest post exists, return its modified timestamp
+    if ( ! empty( $latest_post ) ) {
+        $last_update_timestamp = strtotime( $latest_post[0]->post_modified );
+        return $last_update_timestamp;
+    }
+
+    // Return null if no post found
+    return null;
 }
 function lastupdatedDeclarer($request)
 {
