@@ -733,19 +733,18 @@ function my_awesome_func_two($request)
 
 }
 
-function get_last_updated_timestamp_for_entity( $entity_type ) {
-    // Sanitize the post type value
-    $entity_type = sanitize_text_field( $entity_type );
+function get_last_updated_timestamp_for_entity() {
 
     // Get the latest post of the specified post type
     $args = array(
-        'post_type'      => $entity_type,
+        'post_type'      => 'properties',
         'posts_per_page' => 1,
         'orderby'        => 'modified',
         'order'          => 'DESC',
     );
     $latest_post = get_posts( $args );
-
+    var_dump($latest_post);
+    die();
     // If the latest post exists, return its modified timestamp
     if ( ! empty( $latest_post ) ) {
         $last_update_timestamp = strtotime( $latest_post[0]->post_modified );
