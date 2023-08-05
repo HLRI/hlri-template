@@ -738,7 +738,7 @@ function get_last_updated_timestamp_for_entity( $entity_type ) {
         // Implement your logic to fetch the last update timestamp for properties
         // For example, you could use get_lastpostmodified() or any other method to get the last update timestamp for the 'properties' post type.
         $properties_last_updated = get_lastpostmodified( 'properties' );
-        return $properties_last_updated;
+        var_dump($properties_last_updated); die();
         return strtotime( $properties_last_updated );
     } elseif ( $entity_type === 'floorplans' ) {
         // Implement your logic to fetch the last update timestamp for floor plans
