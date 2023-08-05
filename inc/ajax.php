@@ -469,7 +469,7 @@ function create_routes()
     ]);
     register_rest_route('mapdata/v2', 'lastupdated', [
         'methods' => 'GET',
-        'callback' => 'custom_last_updated_callback',
+        'callback' => 'get_last_updated_timestamp_for_entity',
     ]);
     register_rest_route('floorplans/v3', 'getResult', [
         'methods' => 'GET',
@@ -733,13 +733,20 @@ function my_awesome_func_two($request)
 
 }
 
-function custom_last_updated_callback( $request ) {
-    $entity_type = $request->get_param( 'entityType' );
-
-    // Implement your logic here to fetch the last update timestamp
-    $last_update_timestamp = get_last_updated_timestamp_for_entity( $entity_type );
-
-    return rest_ensure_response( array( 'timestamp' => $last_update_timestamp ) );
+function get_last_updated_timestamp_for_entity( $entity_type ) {
+    if ( $entity_type === 'properties' ) {
+        // Implement your logic to fetch the last update timestamp for properties
+        // For example, you could use get_lastpostmodified() or any other method to get the last update timestamp for the 'properties' post type.
+        $properties_last_updated = get_lastpostmodified( 'properties' );
+        return strtotime( $properties_last_updated );
+    } elseif ( $entity_type === 'floorplans' ) {
+        // Implement your logic to fetch the last update timestamp for floor plans
+        // For example, you could use get_lastpostmodified() or any other method to get the last update timestamp for the 'floorplans' post type.
+        $floorplans_last_updated = get_lastpostmodified( 'floorplans' );
+        return strtotime( $floorplans_last_updated );
+    } else {
+        return null; // Return null or some default value for unknown entity types
+    }
 }
 function lastupdatedDeclarer($request)
 {
