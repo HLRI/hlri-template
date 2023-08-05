@@ -734,6 +734,7 @@ function my_awesome_func_two($request)
 }
 
 function get_last_updated_timestamp_for_entity( $entity_type ) {
+    return '200';
     if ( $entity_type === 'properties' ) {
         // Implement your logic to fetch the last update timestamp for properties
         // For example, you could use get_lastpostmodified() or any other method to get the last update timestamp for the 'properties' post type.
