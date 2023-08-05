@@ -734,7 +734,7 @@ function my_awesome_func_two($request)
 }
 
 function get_last_updated_timestamp_for_entity( $entity_type ) {
-    $properties_last_updated = get_lastpostmodified('properties');
+    $properties_last_updated = get_lastpostmodified($entity_type);
     var_dump($properties_last_updated); // Debug output - check the value
     return strtotime($properties_last_updated);
     if ( $entity_type === 'properties' ) {
