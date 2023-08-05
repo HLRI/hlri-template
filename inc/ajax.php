@@ -733,24 +733,14 @@ function my_awesome_func_two($request)
 
 }
 
-function get_last_updated_timestamp_for_entity( $entity_type ) {
-    $properties_last_updated = get_lastpostmodified($entity_type);
-    return var_dump($properties_last_updated); // Debug output - check the value
-    die();
-    if ( $entity_type === 'properties' ) {
-        // Implement your logic to fetch the last update timestamp for properties
-        // For example, you could use get_lastpostmodified() or any other method to get the last update timestamp for the 'properties' post type.
-        $properties_last_updated = get_lastpostmodified( 'property' );
-        var_dump($properties_last_updated); die();
-        return strtotime( $properties_last_updated );
-    } elseif ( $entity_type === 'floorplans' ) {
-        // Implement your logic to fetch the last update timestamp for floor plans
-        // For example, you could use get_lastpostmodified() or any other method to get the last update timestamp for the 'floorplans' post type.
-        $floorplans_last_updated = get_lastpostmodified( 'floorplans' );
-        return strtotime( $floorplans_last_updated );
-    } else {
-        return null; // Return null or some default value for unknown entity types
-    }
+function get_last_updated_timestamp_for_entity( $request ) {
+    $entity_type = $request->get_param( 'entityType' );
+
+    // Get the last update timestamp for the specified post type
+    $last_update_timestamp = get_last_updated_timestamp_for_entity( $entity_type );
+
+    // Return the response as JSON
+    return rest_ensure_response( array( 'timestamp' => $last_update_timestamp ) );
 }
 function lastupdatedDeclarer($request)
 {
