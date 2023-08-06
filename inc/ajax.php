@@ -734,44 +734,63 @@ function my_awesome_func_two($request)
 }
 
 function get_last_updated_timestamp_for_entity() {
-    $args_modified = array(
+// Fetch the latest modified post for post type 'properties'
+    $args_properties_modified = array(
         'post_type'      => 'properties',
         'posts_per_page' => 1,
         'orderby'        => 'modified',
         'order'          => 'DESC',
     );
-    $latest_modified_post = get_posts( $args_modified );
+    $latest_properties_modified_post = get_posts($args_properties_modified);
 
-// بدست آوردن آخرین پست جدیدتر (ایجاد شده)
-    $args_created = array(
+// Fetch the latest created post for post type 'properties'
+    $args_properties_created = array(
         'post_type'      => 'properties',
         'posts_per_page' => 1,
         'orderby'        => 'date',
         'order'          => 'DESC',
     );
-    $latest_created_post = get_posts( $args_created );
+    $latest_properties_created_post = get_posts($args_properties_created);
 
-// اگر پست‌ها وجود داشته باشند، زمان‌های ایجاد و آخرین ویرایش را به دست بیاورید
-    $created_time = $latest_created_post ? strtotime( $latest_created_post[0]->post_date ) : 0;
-    $modified_time = $latest_modified_post ? strtotime( $latest_modified_post[0]->post_modified ) : 0;
+// Fetch the latest modified post for post type 'floorplans'
+    $args_floorplans_modified = array(
+        'post_type'      => 'floorplans',
+        'posts_per_page' => 1,
+        'orderby'        => 'modified',
+        'order'          => 'DESC',
+    );
+    $latest_floorplans_modified_post = get_posts($args_floorplans_modified);
 
-// مقایسه زمان‌ها و تشخیص کدام پست در تاریخ جدیدتر انجام شده است
-    if ( $created_time > $modified_time ) {
-        echo 'آخرین پست جدیدتر (ایجاد شده): ' . $latest_created_post[0]->post_title;
-    } elseif ( $modified_time > $created_time ) {
-        echo 'آخرین پست ویرایش شده: ' . $latest_modified_post[0]->post_title;
+// Fetch the latest created post for post type 'floorplans'
+    $args_floorplans_created = array(
+        'post_type'      => 'floorplans',
+        'posts_per_page' => 1,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    );
+    $latest_floorplans_created_post = get_posts($args_floorplans_created);
+
+// Get the creation and modification times for post type 'properties'
+    $latest_properties_created_time = $latest_properties_created_post ? strtotime($latest_properties_created_post[0]->post_date) : 0;
+    $latest_properties_modified_time = $latest_properties_modified_post ? strtotime($latest_properties_modified_post[0]->post_modified) : 0;
+
+// Get the creation and modification times for post type 'floorplans'
+    $latest_floorplans_created_time = $latest_floorplans_created_post ? strtotime($latest_floorplans_created_post[0]->post_date) : 0;
+    $latest_floorplans_modified_time = $latest_floorplans_modified_post ? strtotime($latest_floorplans_modified_post[0]->post_modified) : 0;
+
+// Compare the times and determine which post was done on a newer date for post type 'properties'
+    if ($latest_properties_created_time > $latest_properties_modified_time) {
+        echo 'Latest post is newer (created) for post type "properties": ' . date('Y-m-d H:i:s', $latest_properties_created_time);
     } else {
-        echo 'هر دو پست در یک تاریخ برابر ایجاد و ویرایش شده‌اند.';
-    }
-    die();
-    // If the latest post exists, return its modified timestamp
-    if ( ! empty( $latest_post ) ) {
-        $last_update_timestamp = strtotime( $latest_post[0]->post_modified );
-        return $last_update_timestamp;
+        echo 'Latest post is newer (modified) for post type "properties": ' . date('Y-m-d H:i:s', $latest_properties_modified_time);
     }
 
-    // Return null if no post found
-    return null;
+// Compare the times and determine which post was done on a newer date for post type 'floorplans'
+    if ($latest_floorplans_created_time > $latest_floorplans_modified_time) {
+        echo 'Latest post is newer (created) for post type "floorplans": ' . date('Y-m-d H:i:s', $latest_floorplans_created_time);
+    } else {
+        echo 'Latest post is newer (modified) for post type "floorplans": ' . date('Y-m-d H:i:s', $latest_floorplans_modified_time);
+    }
 }
 function lastupdatedDeclarer($request)
 {
