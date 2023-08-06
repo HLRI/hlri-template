@@ -778,19 +778,10 @@ function get_last_updated_timestamp_for_entity() {
     $latest_floorplans_created_time = $latest_floorplans_created_post ? strtotime($latest_floorplans_created_post[0]->post_date) : 0;
     $latest_floorplans_modified_time = $latest_floorplans_modified_post ? strtotime($latest_floorplans_modified_post[0]->post_modified) : 0;
 
-// Compare the times and determine which post was done on a newer date for post type 'properties'
-    if ($latest_properties_created_time > $latest_properties_modified_time) {
-        echo 'Latest post is newer (created) for post type "properties": ' . date('Y-m-d H:i:s', $latest_properties_created_time);
-    } else {
-        echo 'Latest post is newer (modified) for post type "properties": ' . date('Y-m-d H:i:s', $latest_properties_modified_time);
-    }
+    $overall_newer_timestamp = max($latest_properties_created_time, $latest_properties_modified_time, $latest_floorplans_created_time, $latest_floorplans_modified_time);
 
-// Compare the times and determine which post was done on a newer date for post type 'floorplans'
-    if ($latest_floorplans_created_time > $latest_floorplans_modified_time) {
-        echo 'Latest post is newer (created) for post type "floorplans": ' . date('Y-m-d H:i:s', $latest_floorplans_created_time);
-    } else {
-        echo 'Latest post is newer (modified) for post type "floorplans": ' . date('Y-m-d H:i:s', $latest_floorplans_modified_time);
-    }
+// Output the overall newer timestamp
+    echo 'Overall newer timestamp: ' . $overall_newer_timestamp;
 }
 function lastupdatedDeclarer($request)
 {
