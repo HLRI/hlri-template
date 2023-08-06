@@ -734,16 +734,35 @@ function my_awesome_func_two($request)
 }
 
 function get_last_updated_timestamp_for_entity() {
-
-    // Get the latest post of the specified post type
-    $args = array(
-        'post_type'      => 'properties',
+    $args_modified = array(
+        'post_type'      => 'post',
         'posts_per_page' => 1,
         'orderby'        => 'modified',
         'order'          => 'DESC',
     );
-    $latest_post = get_posts( $args );
-    var_dump($latest_post);
+    $latest_modified_post = get_posts( $args_modified );
+
+// بدست آوردن آخرین پست جدیدتر (ایجاد شده)
+    $args_created = array(
+        'post_type'      => 'post',
+        'posts_per_page' => 1,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    );
+    $latest_created_post = get_posts( $args_created );
+
+// اگر پست‌ها وجود داشته باشند، زمان‌های ایجاد و آخرین ویرایش را به دست بیاورید
+    $created_time = $latest_created_post ? strtotime( $latest_created_post[0]->post_date ) : 0;
+    $modified_time = $latest_modified_post ? strtotime( $latest_modified_post[0]->post_modified ) : 0;
+
+// مقایسه زمان‌ها و تشخیص کدام پست در تاریخ جدیدتر انجام شده است
+    if ( $created_time > $modified_time ) {
+        echo 'آخرین پست جدیدتر (ایجاد شده): ' . $latest_created_post[0]->post_title;
+    } elseif ( $modified_time > $created_time ) {
+        echo 'آخرین پست ویرایش شده: ' . $latest_modified_post[0]->post_title;
+    } else {
+        echo 'هر دو پست در یک تاریخ برابر ایجاد و ویرایش شده‌اند.';
+    }
     die();
     // If the latest post exists, return its modified timestamp
     if ( ! empty( $latest_post ) ) {
