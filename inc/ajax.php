@@ -781,7 +781,7 @@ function get_last_updated_timestamp_for_entity() {
     $overall_newer_timestamp = max($latest_properties_created_time, $latest_properties_modified_time, $latest_floorplans_created_time, $latest_floorplans_modified_time);
 
 // Output the overall newer timestamp
-    echo 'Overall newer timestamp: ' . $overall_newer_timestamp;
+    return $overall_newer_timestamp;
 }
 function lastupdatedDeclarer($request)
 {
