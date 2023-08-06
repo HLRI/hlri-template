@@ -735,7 +735,7 @@ function my_awesome_func_two($request)
 
 function get_last_updated_timestamp_for_entity() {
     $args_modified = array(
-        'post_type'      => 'post',
+        'post_type'      => 'properties',
         'posts_per_page' => 1,
         'orderby'        => 'modified',
         'order'          => 'DESC',
@@ -744,7 +744,7 @@ function get_last_updated_timestamp_for_entity() {
 
 // بدست آوردن آخرین پست جدیدتر (ایجاد شده)
     $args_created = array(
-        'post_type'      => 'post',
+        'post_type'      => 'properties',
         'posts_per_page' => 1,
         'orderby'        => 'date',
         'order'          => 'DESC',
