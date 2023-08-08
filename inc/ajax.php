@@ -629,13 +629,13 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two($request)
 {
-    $lastUpdateDate = get_option('map_version_op');
-    if(!empty($lastUpdateDate)){
-        if($request->get_param('version') != $lastUpdateDate){
-            echo 'new update needed';
-            die();
-        }
-    }
+//    $lastUpdateDate = get_option('map_version_op');
+//    if(!empty($lastUpdateDate)){
+//        if($request->get_param('version') != $lastUpdateDate){
+//            echo 'new update needed';
+//            die();
+//        }
+//    }
 
     // Determine if include_floorplans parameter is set
     $include_floorplans = $request->get_param('include_floorplans');
