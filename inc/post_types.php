@@ -171,3 +171,6 @@ function floorplans() {
     register_post_type('floorplans', $args);
 }
 add_action('init', 'floorplans', 0);
+
+add_action( 'save_post_properties', 'save_last_update' );
+add_action( 'save_post_floorplans', 'save_last_update' );

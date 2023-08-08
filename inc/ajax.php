@@ -629,9 +629,14 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two($request)
 {
-    if($request->get_param('version')){
-        echo $request->get_param('version');
+    $lastUpdateDate = get_option('latestupdatedposttime');
+    if(!empty($lastUpdateDate)){
+        if($request->get_param('version') != $lastUpdateDate){
+            echo 'new update needed';
+            die();
+        }
     }
+
     // Determine if include_floorplans parameter is set
     $include_floorplans = $request->get_param('include_floorplans');
 
@@ -786,111 +791,6 @@ function get_last_updated_timestamp_for_entity() {
 // Output the overall newer timestamp
     return $overall_newer_timestamp;
 }
-function lastupdatedDeclarer($request)
-{
-    // Determine if include_floorplans parameter is set
-    $include_floorplans = $request->get_param('include_floorplans');
-
-    // Create a unique cache key based on the request parameters
-    $cache_key = 'my_awesome_func_two_data';
-    if ($include_floorplans === 'true') {
-        $cache_key .= '_include_floorplans';
-    }
-
-    // Check if the data is cached
-    $cached_data = get_transient($cache_key);
-
-    if (false === $cached_data) {
-        $args = array(
-            'post_type' => 'properties',
-            'post_status' => 'publish',
-            'posts_per_page' => -1,
-        );
-
-        $include_floorplans = $request->get_param('include_floorplans');
-        $my_query = new WP_query($args);
-
-        if ($my_query->have_posts()) :
-            while ($my_query->have_posts()) : $my_query->the_post();
-
-                $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                // if($mapMeta['opt-status'] !== "sold out"){
-                if (true == true) {
-                    if (!empty($mapMeta)) {
-                        $slug = get_post_field('post_name', get_post());
-
-                        // $mapMetaType = array_map(function($item) {
-                        //     return ($item == "Townhouse") ? "TownHouse" : $item;
-                        // }, $mapMeta['opt-type']);
-
-
-                        if (!is_array($mapMeta['opt-type']) && $mapMeta['opt-type'] != null) {
-
-                            $mapMetaType = explode(',', $mapMeta['opt-type']);
-                        } else {
-                            $mapMetaType = $mapMeta['opt-type'];
-                        }
-
-                        $mapMetaType = array_map(function ($item) {
-                            return ($item == "Home") ? "Detached" : $item;
-                        }, $mapMetaType);
-
-
-                        $is_floorplan = get_floorplans_from_property(get_the_ID(), $mapMeta['opt-occupancy']);
-                        $mapdata[] = [
-                            'post_id' => strval(get_the_ID()),
-                            'title' => get_the_title(),
-                            'available_floorplans' => $mapMeta[$mapMeta['opt-available-floorplans']],
-                            //                  'permalink' => get_the_permalink(),
-                            'permalink' => 'https://locatecondo.com/i/' . $slug,
-                            'updated' => get_the_date(),
-                            'address' => $mapMeta['opt-address'],
-                            'thumbnail' => get_the_post_thumbnail_url(),
-                            'pricepersqft' => $mapMeta['opt-pricepersqft'],
-                            'strings' => [],
-                            'terms' => $mapMeta['opt-incentives'],
-                            'price' => $mapMeta['opt-price'],
-                            'min_price' => $mapMeta['opt-price-min'],
-                            'max_price' => $mapMeta['opt-price-max'],
-                            'min_size' => $mapMeta['opt-size-min'],
-                            'max_size' => $mapMeta['opt-size-max'],
-                            'sales_type' => $mapMeta['opt-sales-type'],
-                            'min_bed' => $mapMeta['opt-min-bed'],
-                            'max_bed' => $mapMeta['opt-max-bed'],
-                            'min_bath' => $mapMeta['opt-min-bath'],
-                            'max_bath' => $mapMeta['opt-max-bath'],
-                            'type' => $mapMetaType,
-                            'min_price_sqft' => $mapMeta['opt-min-price-sqft'],
-                            'max_price_sqft' => $mapMeta['opt-max-price-sqft'],
-                            'sqft_avg' => $mapMeta['opt-sqft-avg'],
-                            'occupancy' => $mapMeta['opt-occupancy'],
-                            'coming_soon' => $mapMeta['opt-coming-soon'],
-                            'comission_by_percent' => $mapMeta['opt-comission-by-percent'],
-                            'comission_by_flatfee' => $mapMeta['opt-comission-by-flatfee'],
-                            'floorplans' => $include_floorplans ? (!is_null($is_floorplan) ? $is_floorplan : []) : [],
-                            'city' => $mapMeta['opt-city'],
-                            'studio' => $mapMeta['opt-studio'],
-                            'status' => $mapMeta['opt-status'],
-                            'coords' => [$mapMeta['opt-coords']['longitude'], $mapMeta['opt-coords']['latitude']],
-                            'coords2' => $mapMeta['opt-coords'],
-                            'externalid' => $mapMeta['opt-externalid'],
-                        ];
-                    }
-                }
-
-            endwhile;
-            wp_reset_postdata();
-        else :
-            _e('Sorry, no posts matched your criteria.');
-        endif;
-        set_transient($cache_key, $mapdata, 5 * MINUTE_IN_SECONDS);
-    } else {
-        // If data is already cached, retrieve it directly
-        $mapdata = $cached_data;
-    }
-    return $mapdata;
-
-}
 function my_awesome_func_four($request)
 {
     // Determine if include_floorplans parameter is set
@@ -1021,4 +921,15 @@ function get_floorplans_from_property($property_id,$occupancy)
         $floorplansFinal = [];
     }
     return $floorplansFinal;
+}
+
+function save_last_update($post_id){
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    $post_title = get_the_title($post_id);
+    if (empty($post_title)) {
+        return;
+    }
+    update_option('latestupdatedposttime', current_time('timestamp'));
 }
