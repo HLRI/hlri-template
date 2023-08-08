@@ -629,7 +629,7 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two($request)
 {
-    $lastUpdateDate = get_option('latestupdatedposttime');
+    $lastUpdateDate = get_option('map_version_op');
     if(!empty($lastUpdateDate)){
         if($request->get_param('version') != $lastUpdateDate){
             echo 'new update needed';
@@ -931,5 +931,5 @@ function save_last_update($post_id){
     if (empty($post_title)) {
         return;
     }
-    update_option('latestupdatedposttime', current_time('timestamp'));
+    update_option('map_version_op', current_time('timestamp'));
 }
