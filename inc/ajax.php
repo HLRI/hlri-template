@@ -629,6 +629,9 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two($request)
 {
+    if($request->get_param('version')){
+        echo $request->get_param('version');
+    }
     // Determine if include_floorplans parameter is set
     $include_floorplans = $request->get_param('include_floorplans');
 
