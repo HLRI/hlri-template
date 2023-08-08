@@ -629,14 +629,18 @@ function getForm(WP_REST_Request $request)
 
 function my_awesome_func_two($request)
 {
-//    $lastUpdateDate = get_option('map_version_op');
-//    if(!empty($lastUpdateDate)){
-//        if($request->get_param('version') != $lastUpdateDate){
-//            echo 'new update needed';
-//            die();
-//        }
-//    }
+    $lastUpdateDate = get_option('map_version_op');
+    $lastUpdateDatePharam = $request->get_param('version');
 
+    if(!empty($lastUpdateDatePharam)){
+        if(!empty($lastUpdateDate)){
+            if($lastUpdateDatePharam != $lastUpdateDate){
+                wp_send_json([
+                    'status' => false
+                ]);
+            }
+        }
+    }
     // Determine if include_floorplans parameter is set
     $include_floorplans = $request->get_param('include_floorplans');
 
