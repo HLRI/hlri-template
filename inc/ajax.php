@@ -865,7 +865,8 @@ function my_awesome_func_final($request)
     }
     $output = [
         "version" =>$lastUpdateDate,
-        "data" => $mapdata
+        "data" => $mapdata,
+        "status" => true
     ];
     return $output;
 
