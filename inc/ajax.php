@@ -864,7 +864,7 @@ function my_awesome_func_final($request)
         $mapdata = $cached_data;
     }
     $output = [
-        "version" =>$lastUpdateDate,
+        "status" =>$lastUpdateDate,
         "data" => $mapdata
     ];
     return $output;
