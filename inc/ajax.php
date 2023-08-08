@@ -756,7 +756,7 @@ function my_awesome_func_final($request)
 
     if(!empty($lastUpdateDatePharam)){
         if(!empty($lastUpdateDate)){
-            if($lastUpdateDatePharam != $lastUpdateDate){
+            if($lastUpdateDatePharam == $lastUpdateDate){
                 wp_send_json([
                     'status' => false
                 ]);
