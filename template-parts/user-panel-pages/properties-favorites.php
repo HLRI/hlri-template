@@ -16,8 +16,6 @@ if($post_ids == -1){
         'posts_per_page' => 12
     ];
 }else{
-wp_die(var_dump($post_ids));
-
     $arg = [
         'post_type' => 'properties',
         'author' => get_current_user_id(),
