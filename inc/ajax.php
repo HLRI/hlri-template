@@ -697,7 +697,7 @@ function my_awesome_func_two($request)
                         $mapdata[] = [
                             'post_id' => strval(get_the_ID()),
                             'title' => get_the_title(),
-                            'available_floorplans' => [$mapMeta['opt-available-floorplans'],
+                            'available_floorplans' => $mapMeta['opt-available-floorplans'],
                             //                  'permalink' => get_the_permalink(),
                             'permalink' => 'https://locatecondo.com/i/' . $slug,
                             'updated' => get_the_date(),
