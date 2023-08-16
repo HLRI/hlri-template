@@ -6,7 +6,6 @@ if (empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
     $post_ids = get_user_meta(get_current_user_id(), 'properties_favorites', true);
 }
 
-wp_die($post_ids);
 // dd(get_user_meta(get_current_user_id(), 'properties_favorites', true));
 
 if($post_ids == -1){
