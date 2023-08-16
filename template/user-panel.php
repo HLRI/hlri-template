@@ -232,12 +232,12 @@ $user_info = wp_get_current_user();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" <?= ($_GET['page-url']) && ($_GET['menu'] == 'ads') ? 'aria-expanded="true"' : 'aria-expanded="false"' ?> aria-controls="ui-basic">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" <?= (isset($_GET['page-url'])) && (isset($_GET['menu']) == 'ads') ? 'aria-expanded="true"' : 'aria-expanded="false"' ?> aria-controls="ui-basic">
                             <span class="menu-title">Support</span>
                             <i class="menu-arrow"></i>
                             <i class="mdi mdi-lifebuoy menu-icon"></i>
                         </a>
-                        <div class="collapse <?= ($_GET['page-url']) && ($_GET['menu'] == 'ads') ? 'show' : '' ?>" id="ui-basic">
+                        <div class="collapse <?= (isset($_GET['page-url'])) && (isset($_GET['menu']) == 'ads') ? 'show' : '' ?>" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link <?= $_GET['page-url'] == 'ui-basic' ? 'active' : '' ?>" href="?page-url=ui-basic&menu=ads">All Tickets</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="?page-url=ui-basic&menu=ads">Open Tickets</a></li>
