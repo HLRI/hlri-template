@@ -8,13 +8,23 @@ if (empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
 
 wp_die($post_ids);
 // dd(get_user_meta(get_current_user_id(), 'properties_favorites', true));
-$arg = [
-    'post_type' => 'properties',
-    'author' => get_current_user_id(),
-    'post_status' => 'publish',
-    'post__in' => $post_ids,
-    'posts_per_page' => 12
-];
+
+if($post_ids == -1){
+    $arg = [
+        'post_type' => 'properties',
+        'author' => get_current_user_id(),
+        'post_status' => 'publish',
+        'posts_per_page' => 12
+    ];
+}else{
+    $arg = [
+        'post_type' => 'properties',
+        'author' => get_current_user_id(),
+        'post_status' => 'publish',
+        'post__in' => $post_ids,
+        'posts_per_page' => 12
+    ];
+}
 
 $peroperties = new WP_Query($arg);
 
