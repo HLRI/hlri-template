@@ -6,7 +6,6 @@ if (empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
     $post_ids = get_user_meta(get_current_user_id(), 'properties_favorites', true);
 }
 
-wp_die(var_dump($post_ids));
 // dd(get_user_meta(get_current_user_id(), 'properties_favorites', true));
 
 if($post_ids == -1){
@@ -17,6 +16,8 @@ if($post_ids == -1){
         'posts_per_page' => 12
     ];
 }else{
+wp_die(var_dump($post_ids));
+
     $arg = [
         'post_type' => 'properties',
         'author' => get_current_user_id(),
