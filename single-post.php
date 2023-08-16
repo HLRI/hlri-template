@@ -91,7 +91,7 @@
                         'post_type' => ['post'],
                         'post_status' => ['publish'],
                         'posts_per_page' => 6,
-//                        'post__not_in' => [get_the_ID()],
+                        'post__not_in' => [get_the_ID()],
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'category',
