@@ -19,7 +19,7 @@ function properties_related_cached()
                 'post_type' => ['properties'],
                 'post_status' => ['publish'],
                 'posts_per_page' => 6,
-                'post__not_in' => [$post_id],
+//                'post__not_in' => [$post_id],
                 'tax_query' => array(
                     'relation' => 'OR',
                     array(
