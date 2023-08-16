@@ -688,9 +688,9 @@ function my_awesome_func_two($request)
                             $mapMetaType = $mapMeta['opt-type'];
                         }
 
-                        $mapMetaType = array_map(function ($item) {
-                            return ($item == "Home") ? "Detached" : $item;
-                        }, $mapMetaType);
+//                        $mapMetaType = array_map(function ($item) {
+//                            return ($item == "Home") ? "Detached" : $item;
+//                        }, $mapMetaType);
 
 
                         $is_floorplan = get_floorplans_from_property(get_the_ID(), $mapMeta['opt-occupancy']);
@@ -806,9 +806,9 @@ function my_awesome_func_final($request)
                             $mapMetaType = $mapMeta['opt-type'];
                         }
 
-                        $mapMetaType = array_map(function ($item) {
-                            return ($item == "Home") ? "Detached" : $item;
-                        }, $mapMetaType);
+//                        $mapMetaType = array_map(function ($item) {
+//                            return ($item == "Home") ? "Detached" : $item;
+//                        }, $mapMetaType);
 
 
                         $is_floorplan = get_floorplans_from_property(get_the_ID(), $mapMeta['opt-occupancy']);
