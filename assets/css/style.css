@@ -3094,8 +3094,8 @@ table.dataTable thead tr th {
 
 
 .vrmedia-gallery {
-  max-width: 567px;
-  margin: 5rem auto;
+  max-width:100%;
+  margin: 0 auto;
   background: white;
   padding: 20px;
   box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
