@@ -3123,5 +3123,5 @@ table.dataTable thead tr th {
 
 .lSSlideOuter .lSPager.lSGallery img {
   object-fit: cover;
-  height: 100px;
+  height: 100px !important;
 }
