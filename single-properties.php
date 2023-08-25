@@ -110,7 +110,6 @@ $associated_floorplans = associated_floorplans_cached();
     <?php include HLR_THEME_COMPONENT . 'navigation-single-fixed-on-scroll.php' ?>
 </div>
 <div class="container-fluid px-lg-5">
-
     <div class="row mt-4 mb-2" id="Gallery">
         <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
             <?php if ($psd['galleries'][0]['gallery_url']) : ?>
@@ -123,84 +122,24 @@ $associated_floorplans = associated_floorplans_cached();
                 </div>
             <?php endif; ?>
         <?php endif; ?>
-        <div class="col-lg-6">
-            <?php if (count($psd['incentives_data']) > 0) : ?>
-                <div class="incentives">
+            <div class="col-lg-6">
+    <?php if (count($psd['incentives_data']) > 0) : ?>
+        <div class="incentives">
                     <?php foreach ($psd['incentives_data'] as $item) : ?>
                         <div class="content-info"><?php if (!empty($item['opt_icon_incentives'])) : ?><i class="<?= $item['opt_icon_incentives'] ?> icon-profile"></i><?php endif; ?><?= $item['opt_link_incentives'] ?></div>
                     <?php endforeach; ?>
                 </div>
-            <?php endif; ?>
-            <div class="wrap-map">
-                <div id="map"></div>
+    <?php endif; ?>
+                <div class="wrap-map">
+                    <div id="map"></div>
+                </div>
             </div>
-        </div>
     </div>
-
-    <div class="row mt-4 mb-2" id="Gallery">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css" integrity="sha512-nUqPe0+ak577sKSMThGcKJauRI7ENhKC2FQAOOmdyCYSrUh0GnwLsZNYqwilpMmplN+3nO3zso8CWUgu33BDag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <style>
-            .inline-gallery-container {
-                width: 100%;
-
-                height: 0;
-                padding-bottom: 65%;
-            }
-        </style>
-        <div id="inline-gallery-container" class="inline-gallery-container"></div>
-        <script>
-            const lgContainer = document.getElementById('inline-gallery-container');
-            const inlineGallery = lightGallery(lgContainer, {
-                container: lgContainer,
-                dynamic: true,
-                // Turn off hash plugin in case if you are using it
-                // as we don't want to change the url on slide change
-                hash: false,
-                // Do not allow users to close the gallery
-                closable: false,
-                // Add maximize icon to enlarge the gallery
-                showMaximizeIcon: true,
-                // Append caption inside the slide item
-                // to apply some animation for the captions (Optional)
-                appendSubHtmlTo: '.lg-item',
-                // Delay slide transition to complete captions animations
-                // before navigating to different slides (Optional)
-                // You can find caption animation demo on the captions demo page
-                slideDelay: 400,
-                dynamicEl: [{
-                        src: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
-                        thumb: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
-                        subHtml: `<div class="lightGallery-captions">
-                <h4>Caption 1</h4>
-                <p>Description of the slide 1</p>
-            </div>`,
-                    },
-                    {
-                        src: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
-                        thumb: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
-                        subHtml: `<div class="lightGallery-captions">
-                <h4>Caption 2</h4>
-                <p>Description of the slide 2</p>
-            </div>`,
-                    },
-                ],
-            });
-
-            // Since we are using dynamic mode, we need to programmatically open lightGallery
-            inlineGallery.openGallery();
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js" integrity="sha512-dSI4QnNeaXiNEjX2N8bkb16B7aMu/8SI5/rE6NIa3Hr/HnWUO+EAZpizN2JQJrXuvU7z0HTgpBVk/sfGd0oW+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/thumbnail/lg-thumbnail.umd.min.js" integrity="sha512-hdzLQVAURjMzysJVkWaKWA2nD+V6CcBx6wH0aWytFnlmgIdTx/n5rDWoruSvK6ghnPaeIgwKuUESlpUhat2X+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/zoom/lg-zoom.min.js" integrity="sha512-BfC/MaayF9sOZyn1bs1R1P8dEugU7v0j5Qu2FeWVfF/rhKUKZBD9kgNqRNinefIp9zAE7g2KhlwwhMpl5V1jMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </div>
-
-
-
 
     <?php if (!empty($psd['content'])) : ?>
         <div class="row mt-2 mb-4" id="Overview">
             <div class="col-12">
-                <div class="content-profile"><?= wpautop($psd['content']) ?></div>
+               <div class="content-profile"><?= wpautop($psd['content']) ?></div>
             </div>
         </div>
     <?php endif; ?>
@@ -416,7 +355,7 @@ $associated_floorplans = associated_floorplans_cached();
                                         -
                                     <?php endif; ?>
                                 </td>
-                                <td><?= $floor['opt-floorplans-view'] ?></td>
+                                <td><?=  $floor['opt-floorplans-view'] ?></td>
                                 <td>
                                     <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
                                         <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
