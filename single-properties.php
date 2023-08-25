@@ -168,16 +168,16 @@ $associated_floorplans = associated_floorplans_cached();
                 // You can find caption animation demo on the captions demo page
                 slideDelay: 400,
                 dynamicEl: [{
-                        src: 'img/img1.jpg',
-                        thumb: 'img/thumb1.jpg',
+                        src: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
+                        thumb: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
                         subHtml: `<div class="lightGallery-captions">
                 <h4>Caption 1</h4>
                 <p>Description of the slide 1</p>
             </div>`,
                     },
                     {
-                        src: 'img/img2.jpg',
-                        thumb: 'img/thumb2.jpg',
+                        src: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
+                        thumb: 'https://condoy.com/wp-content/uploads/2023/08/Brooklyn-2-lowrez-scaled-1.jpg',
                         subHtml: `<div class="lightGallery-captions">
                 <h4>Caption 2</h4>
                 <p>Description of the slide 2</p>
