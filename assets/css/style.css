@@ -3094,7 +3094,7 @@ table.dataTable thead tr th {
 
 
 .vrmedia-gallery {
-  max-width:100%;
+  max-width: 100%;
   margin: 0 auto;
   background: white;
   padding: 20px;
@@ -3118,4 +3118,8 @@ table.dataTable thead tr th {
 
 .vrmedia-gallery .lSGallery li.active {
   border: 1px solid #242423
+}
+
+.fancybox__container {
+  z-index: 99999;
 }
