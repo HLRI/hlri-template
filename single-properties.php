@@ -320,69 +320,71 @@ $associated_floorplans = associated_floorplans_cached();
                 </div>
             </div>
             <div class="card-form py-4">
-                <table id="example" class="table pt-4">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Suite Name</th>
-                            <th>Suite Type</th>
-                            <th>Size</th>
-                            <th>View</th>
-                            <th>Price</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        while ($associated_floorplans->have_posts()) :
-                            $associated_floorplans->the_post();
-                            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                        ?>
+                <div class="table-responsive">
+                    <table id="example" class="table pt-4">
+                        <thead>
                             <tr>
-                                <td>
-                                    <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                    <div class="wrap-head-floorplan">
-                                        <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                        <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
-                                    </div>
-                                </td>
-                                <td><?= $floor['opt-floorplans-suite-name'] ?></td>
-                                <td>
-                                    <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
-                                        <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if (!empty($floor['opt-floorplans-size'])) : ?>
-                                        <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
-                                </td>
-                                <td><?= $floor['opt-floorplans-view'] ?></td>
-                                <td>
-                                    <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
-                                        <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
-
-                                    <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
-                                        <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
-                                </td>
-                                <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
+                                <th></th>
+                                <th>Suite Name</th>
+                                <th>Suite Type</th>
+                                <th>Size</th>
+                                <th>View</th>
+                                <th>Price</th>
+                                <th></th>
                             </tr>
-                        <?php
-                        endwhile;
-                        wp_reset_postdata();
-                        ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($associated_floorplans->have_posts()) :
+                                $associated_floorplans->the_post();
+                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                            ?>
+                                <tr>
+                                    <td>
+                                        <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
+                                        <div class="wrap-head-floorplan">
+                                            <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                                            <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
+                                        </div>
+                                    </td>
+                                    <td><?= $floor['opt-floorplans-suite-name'] ?></td>
+                                    <td>
+                                        <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
+                                            <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if (!empty($floor['opt-floorplans-size'])) : ?>
+                                            <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?= $floor['opt-floorplans-view'] ?></td>
+                                    <td>
+                                        <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
+                                            <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
+                                            <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
+                                </tr>
+                            <?php
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     <?php endif; ?>

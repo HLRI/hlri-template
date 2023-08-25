@@ -205,12 +205,12 @@ $property = new WP_Query($args);
                                                     <?php
                                                     while ($property->have_posts()) : $property->the_post();
                                                         $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                                                        ?>
+                                                    ?>
                                                         <div>
                                                             <?php if (!empty($mdata_single['opt-developer'])) : ?>
-                                                            <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
+                                                                <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
                                                             <?php else : ?>
-                                                            <?= strtoupper(get_the_title() . ' AVERAGE') ?>
+                                                                <?= strtoupper(get_the_title() . ' AVERAGE') ?>
                                                             <?php endif; ?>
                                                         </div>
                                                     <?php
@@ -224,11 +224,11 @@ $property = new WP_Query($args);
                                                 <?php
                                                 while ($property->have_posts()) : $property->the_post();
                                                     $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                                                    ?>
+                                                ?>
                                                     <?php if (!empty($mdata_single['opt-pricepersqft'])) : ?>
                                                         <div class="square-foot-price"><span>$<?= $mdata_single['opt-pricepersqft'] ?></span>/sq.ft</div>
                                                     <?php endif; ?>
-                                                <?php
+                                            <?php
                                                 endwhile;
                                             endif;
                                             wp_reset_postdata();
@@ -416,86 +416,88 @@ $property = new WP_Query($args);
             </div>
         </div>
         <div class="card-form py-4">
-            <table id="example" class="table pt-4">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Suite Name</th>
-                        <th>Suite Type</th>
-                        <th>Size</th>
-                        <th>View</th>
-                        <th>Price</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $args = array(
-                        'post_type' => 'floorplans',
-                        'posts_per_page' => -1,
-                        'orderby'   => 'meta_value',
-                        'order' => 'DESC',
-                        'meta_query' => array(
-                            array(
-                                'key' => 'associated_property',
-                                'value' => $associated_property,
-                                'compare' => '=',
-                            ),
-                        )
-                    );
+            <div class="table-responsive">
+                <table id="example" class="table pt-4">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Suite Name</th>
+                            <th>Suite Type</th>
+                            <th>Size</th>
+                            <th>View</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $args = array(
+                            'post_type' => 'floorplans',
+                            'posts_per_page' => -1,
+                            'orderby'   => 'meta_value',
+                            'order' => 'DESC',
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'associated_property',
+                                    'value' => $associated_property,
+                                    'compare' => '=',
+                                ),
+                            )
+                        );
 
-                    $associated_floorplans = new WP_Query($args);
-                    if ($associated_floorplans->have_posts()) :
-                        while ($associated_floorplans->have_posts()) :
-                            $associated_floorplans->the_post();
-                            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                    ?>
-                            <tr>
-                                <td>
-                                    <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                    <div class="wrap-head-floorplan">
-                                        <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                        <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
-                                    </div>
-                                </td>
-                                <td><?= $floor['opt-floorplans-suite-name'] ?></td>
-                                <td>
-                                    <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
-                                        <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if (!empty($floor['opt-floorplans-size'])) : ?>
-                                        <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
-                                </td>
-                                <td><?= $floor['opt-floorplans-view']; ?></td>
-                                <td>
-                                    <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
-                                        <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
+                        $associated_floorplans = new WP_Query($args);
+                        if ($associated_floorplans->have_posts()) :
+                            while ($associated_floorplans->have_posts()) :
+                                $associated_floorplans->the_post();
+                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                        ?>
+                                <tr>
+                                    <td>
+                                        <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
+                                        <div class="wrap-head-floorplan">
+                                            <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                                            <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
+                                        </div>
+                                    </td>
+                                    <td><?= $floor['opt-floorplans-suite-name'] ?></td>
+                                    <td>
+                                        <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
+                                            <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if (!empty($floor['opt-floorplans-size'])) : ?>
+                                            <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?= $floor['opt-floorplans-view']; ?></td>
+                                    <td>
+                                        <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
+                                            <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
 
-                                    <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
-                                        <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
-                                    <?php else : ?>
-                                        -
-                                    <?php endif; ?>
-                                </td>
-                                <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
-                            </tr>
-                    <?php
-                        endwhile;
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                </tbody>
-            </table>
+                                        <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
+                                            <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
+                                        <?php else : ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
+                                </tr>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
