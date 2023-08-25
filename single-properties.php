@@ -114,9 +114,13 @@ $associated_floorplans = associated_floorplans_cached();
         <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
             <?php if ($psd['galleries'][0]['gallery_url']) : ?>
                 <div class="col-lg-6">
-                    <ul class="pgwSlideshow">
+                    <!-- <ul class="pgwSlideshow"> -->
+                    <ul class="ecommerce-gallery">
                         <?php foreach ($psd['galleries'] as $gallery_item) : ?>
-                            <li><img src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>" data-large-src="<?= $gallery_item['gallery_url'] ?>"></li>
+                            <li data-fancybox="gallery" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>"> 
+                                <img src="<?= $gallery_item['gallery_url'] ?>">
+                            </li>
+                            <!-- <li><img src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>" data-large-src="<?= $gallery_item['gallery_url'] ?>"></li> -->
                         <?php endforeach; ?>
                     </ul>
                 </div>

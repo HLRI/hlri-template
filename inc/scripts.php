@@ -52,21 +52,29 @@ function theme_scripts()
     wp_register_style('leaflet', 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css');
     wp_register_style('rvslider', HLR_THEME_ASSETS . 'css/rvslider.min.css');
     wp_register_style('lightbox2',  'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css');
+    wp_register_style('lightslider',  'https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css');
+    wp_register_style('fancybox',  'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.5/dist/fancybox.css');
 
     wp_register_script('pgwslideshow', HLR_THEME_ASSETS . 'js/pgwslideshow.min.js', [], "1.0.0", true);
     wp_register_script('rvslider', HLR_THEME_ASSETS . 'js/rvslider.min.js', [], "1.0.0", false);
     wp_register_script('leaflet',   'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js', [], "1.0.0", false);
     wp_register_script('lightbox2',   'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js', [], "1.0.0", false);
+    wp_register_script('lightslider',   'https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js', ['jquery'], "1.0.0", false);
+    wp_register_script('fancybox',   'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.5/dist/fancybox.umd.js', ['jquery'], "1.0.0", false);
 
     if (is_singular('properties')) {
 
         wp_enqueue_style('pgwslideshow');
         wp_enqueue_style('leaflet');
         wp_enqueue_style('rvslider');
+        wp_enqueue_style('lightslider');
+        wp_enqueue_style('fancybox');
 
         wp_enqueue_script('pgwslideshow');
         wp_enqueue_script('rvslider');
         wp_enqueue_script('leaflet');
+        wp_enqueue_script('lightslider');
+        wp_enqueue_script('fancybox');
     }
 
     if (is_singular('floorplans') || is_singular('properties')) {
@@ -173,6 +181,8 @@ function theme_footer()
                         sticker.removeClass('fixed-menu top-0');
                     }
                 });
+
+
             });
         </script>
     <?php endif; ?>
@@ -280,14 +290,23 @@ function theme_footer()
         }
     ?>
         <script>
-            jQuery(document).ready(function() {
-                jQuery('.pgwSlideshow').pgwSlideshow({
+            jQuery(document).ready(function($) {
+                $('.pgwSlideshow').pgwSlideshow({
                     autoSlide: true,
                     displayControls: false,
                     maxHeight: 600,
                     intervalDuration: 6000,
                     transitionDuration: 2000
                 });
+
+                $(".ecommerce-gallery").lightSlider({
+                    gallery: true,
+                    item: 1,
+                    loop: true,
+                    thumbItem: 4,
+                    thumbMargin: 10,
+                });
+
             });
 
             try {
@@ -448,16 +467,17 @@ function admin_enqueue($hook)
             y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "i94l62vy4h");
     </script>
-<?php
+    <?php
 }
 add_action('admin_enqueue_scripts', 'admin_enqueue');
 
 
-function add_search_input_to_meta_box($meta_box_id) {
+function add_search_input_to_meta_box($meta_box_id)
+{
     global $pagenow;
 
     if ($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') {
-        ?>
+    ?>
         <script>
             jQuery(document).ready(function($) {
                 $('#<?php echo esc_attr($meta_box_id); ?>').before('<div style="height: 45px;"><input type="text" class="live-search" placeholder="Search..." style="margin-top: 20px;width: 100%;"></div>');
@@ -474,11 +494,12 @@ function add_search_input_to_meta_box($meta_box_id) {
                 });
             });
         </script>
-        <?php
+<?php
     }
 }
 add_action('admin_footer', 'add_search_input_to_meta_boxes');
-function add_search_input_to_meta_boxes() {
+function add_search_input_to_meta_boxes()
+{
     add_search_input_to_meta_box('sales-teamchecklist');
     add_search_input_to_meta_box('developerchecklist');
     add_search_input_to_meta_box('groupchecklist');
