@@ -177,7 +177,7 @@ function associated_floorplans_cached()
     if ($results === false) {
         $args = array(
             'post_type' => 'floorplans',
-            'numberposts' => -1,
+            'posts_per_page' => -1,
             'orderby'   => 'meta_value',
             'order' => 'DESC',
             'meta_query' => array(
