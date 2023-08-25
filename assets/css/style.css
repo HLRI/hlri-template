@@ -3120,3 +3120,8 @@ table.dataTable thead tr th {
 .fancybox__container {
   z-index: 9999 !important;
 }
+
+.lSSlideOuter .lSPager.lSGallery img {
+  object-fit: cover;
+  height: 100px;
+}
