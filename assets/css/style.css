@@ -1520,6 +1520,7 @@ a.icon-search:hover {
   width: 100%;
   overflow-y: scroll;
   padding: 0 .5rem 0 0;
+  margin-bottom: 14px;
 }
 
 #map {
