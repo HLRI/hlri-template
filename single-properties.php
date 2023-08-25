@@ -113,37 +113,39 @@ $associated_floorplans = associated_floorplans_cached();
     <div class="row mt-4 mb-2" id="Gallery">
         <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
             <?php if ($psd['galleries'][0]['gallery_url']) : ?>
-                <div class="col-lg-6">
+                <div class="col-lg-6 ">
                     <!-- <ul class="pgwSlideshow"> -->
-                    <ul class="ecommerce-gallery">
-                        <?php foreach ($psd['galleries'] as $gallery_item) : ?>
-                            <li data-fancybox="gallery" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>"> 
-                                <img src="<?= $gallery_item['gallery_url'] ?>">
-                            </li>
-                            <!-- <li><img src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>" data-large-src="<?= $gallery_item['gallery_url'] ?>"></li> -->
-                        <?php endforeach; ?>
-                    </ul>
+                    <div class="vrmedia-gallery">
+                        <ul class="ecommerce-gallery">
+                            <?php foreach ($psd['galleries'] as $gallery_item) : ?>
+                                <li data-fancybox="gallery" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
+                                    <img src="<?= $gallery_item['gallery_url'] ?>">
+                                </li>
+                                <!-- <li><img src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>" data-large-src="<?= $gallery_item['gallery_url'] ?>"></li> -->
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
                 </div>
             <?php endif; ?>
         <?php endif; ?>
-            <div class="col-lg-6">
-    <?php if (count($psd['incentives_data']) > 0) : ?>
-        <div class="incentives">
+        <div class="col-lg-6">
+            <?php if (count($psd['incentives_data']) > 0) : ?>
+                <div class="incentives">
                     <?php foreach ($psd['incentives_data'] as $item) : ?>
                         <div class="content-info"><?php if (!empty($item['opt_icon_incentives'])) : ?><i class="<?= $item['opt_icon_incentives'] ?> icon-profile"></i><?php endif; ?><?= $item['opt_link_incentives'] ?></div>
                     <?php endforeach; ?>
                 </div>
-    <?php endif; ?>
-                <div class="wrap-map">
-                    <div id="map"></div>
-                </div>
+            <?php endif; ?>
+            <div class="wrap-map">
+                <div id="map"></div>
             </div>
+        </div>
     </div>
 
     <?php if (!empty($psd['content'])) : ?>
         <div class="row mt-2 mb-4" id="Overview">
             <div class="col-12">
-               <div class="content-profile"><?= wpautop($psd['content']) ?></div>
+                <div class="content-profile"><?= wpautop($psd['content']) ?></div>
             </div>
         </div>
     <?php endif; ?>
@@ -359,7 +361,7 @@ $associated_floorplans = associated_floorplans_cached();
                                         -
                                     <?php endif; ?>
                                 </td>
-                                <td><?=  $floor['opt-floorplans-view'] ?></td>
+                                <td><?= $floor['opt-floorplans-view'] ?></td>
                                 <td>
                                     <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
                                         <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
