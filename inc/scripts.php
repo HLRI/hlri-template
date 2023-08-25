@@ -291,6 +291,7 @@ function theme_footer()
     ?>
         <script>
             jQuery(document).ready(function($) {
+                
                 $('.pgwSlideshow').pgwSlideshow({
                     autoSlide: true,
                     displayControls: false,
