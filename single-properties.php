@@ -183,7 +183,6 @@ $associated_floorplans = associated_floorplans_cached();
                 <p>Description of the slide 2</p>
             </div>`,
                     },
-                    ...
                 ],
             });
 
