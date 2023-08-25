@@ -17,7 +17,7 @@ $mdata_status = get_post_meta($pid, 'hlr_framework_mapdata', true);
 
 $args = array(
     'post_type' => 'properties',
-    'numberposts' => 1,
+    'posts_per_page' => 1,
     'p' => $pid
 );
 $property = new WP_Query($args);
@@ -432,7 +432,7 @@ $property = new WP_Query($args);
                     <?php
                     $args = array(
                         'post_type' => 'floorplans',
-                        'numberposts' => -1,
+                        'posts_per_page' => -1,
                         'orderby'   => 'meta_value',
                         'order' => 'DESC',
                         'meta_query' => array(

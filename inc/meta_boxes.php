@@ -4,7 +4,7 @@
 function custom_render_floorplans_meta_box( $post ) {
     $floorplans = get_posts( array(
         'post_type' => 'floorplans',
-        'numberposts' => -1,
+        'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
         'post_status' => 'publish',
@@ -20,7 +20,7 @@ function custom_render_floorplans_meta_box( $post ) {
     // Display associated floorplans as links
     $associated_floorplans = get_posts( array(
         'post_type' => 'floorplans',
-        'numberposts' => -1,
+        'posts_per_page' => -1,
         'meta_query' => array(
             array(
                 'key' => 'associated_property',
@@ -67,7 +67,7 @@ function custom_render_property_association_meta_box( $post ) {
     $associated_property = isset( $_GET['associated_property'] ) ? intval( $_GET['associated_property'] ) : get_post_meta( $post->ID, 'associated_property', true );
     $properties = get_posts( array(
         'post_type' => 'properties',
-        'numberposts' => -1,
+        'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
         'post_status' => 'publish'
@@ -175,7 +175,7 @@ function custom_render_associated_floorplans() {
         // Get the associated floorplans for the current property
         $floorplans = get_posts(array(
             'post_type' => 'floorplans',
-            'numberposts' => -1,
+            'posts_per_page' => -1,
             'meta_query' => array(
                 array(
                     'key' => 'associated_property',
@@ -282,7 +282,7 @@ function custom_trash_associated_floorplans( $post_id ) {
     if ( get_post_type( $post_id ) === 'properties' && get_post_status( $post_id ) === 'trash' ) {
         $associated_floorplans = get_posts( array(
             'post_type' => 'floorplans',
-            'numberposts' => -1,
+            'posts_per_page' => -1,
             'meta_query' => array(
                 array(
                     'key' => 'associated_property',
@@ -306,7 +306,7 @@ function custom_delete_associated_floorplans( $post_id ) {
     if ( get_post_type( $post_id ) === 'properties' && get_post_status( $post_id ) === 'trash' ) {
         $associated_floorplans = get_posts( array(
             'post_type' => 'floorplans',
-            'numberposts' => -1,
+            'posts_per_page' => -1,
             'meta_query' => array(
                 array(
                     'key' => 'associated_property',

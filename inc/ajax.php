@@ -1014,7 +1014,7 @@ function get_floorplans_from_property($property_id,$occupancy)
 {
     $floorplans = get_posts( array(
         'post_type' => 'floorplans',
-        'numberposts' => -1,
+        'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
         'post_status' => 'publish',
