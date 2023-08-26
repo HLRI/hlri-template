@@ -660,7 +660,7 @@ function my_awesome_func_two($request)
     if (false === $cached_data) {
         $args = array(
             'post_type' => 'properties',
-            // 'post_status' => 'publish',
+            'post_status' => 'any',
             'posts_per_page' => -1,
         );
 
