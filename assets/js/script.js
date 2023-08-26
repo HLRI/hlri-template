@@ -512,3 +512,4 @@ if (window.sidebar) {
     document.onmousedown = killCopy
     document.onclick = reEnable
 }
+
