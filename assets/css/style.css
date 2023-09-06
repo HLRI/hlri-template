@@ -3162,6 +3162,6 @@ a.item-list-tag {
 
 .toggle-list {
   color: #dc8b5b;
-  margin-right: 10px;
+  margin: 0 10px;
   cursor: pointer;
 }
