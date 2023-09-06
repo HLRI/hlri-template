@@ -343,7 +343,9 @@ jQuery(document).ready(function ($) {
     }
 
     if ($('#table-of-contents').length) {
-        var collectionTag = $('.content-original h3');
+        var collectionTagH2 = $('.content-original h2');
+        var collectionTagH3 = $('.content-original h3');
+        var collectionTag = collectionTagH2.concat(collectionTagH3);
         var i = 0;
         if (collectionTag.length > 0) {
             $.each(collectionTag, function (index, item) {
@@ -353,7 +355,7 @@ jQuery(document).ready(function ($) {
             });
 
         } else {
-            $('#tag-list').append('<a href="#" class="card-label">There is no tag!</a>');
+            $('#table-of-contents').remove();
         }
     }
 
