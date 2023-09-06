@@ -3163,5 +3163,8 @@ a.item-list-tag {
 .toggle-list {
   color: #dc8b5b;
   margin: 0 10px;
+}
+
+.toggle-list-btn{
   cursor: pointer;
 }
