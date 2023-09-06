@@ -3142,6 +3142,7 @@ nav#table-of-contents {
   border-radius: 10px;
   margin-bottom: 20px;
   font-size: 12px;
+  width: fit-content;
 }
 
 ol#tag-list li {
