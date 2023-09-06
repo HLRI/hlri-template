@@ -3133,6 +3133,7 @@ table.dataTable thead tr th {
 
 #tag-list li{
   list-style: inside devanagari;
+  color: #ffad00;
 }
 
 nav#table-of-contents {

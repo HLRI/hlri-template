@@ -3062,6 +3062,7 @@ input[type='checkbox'] {
 
 #tag-list li {
     list-style: inside devanagari;
+    color: #dc8b5b;
 }
 
 nav#table-of-contents {
