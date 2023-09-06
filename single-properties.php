@@ -150,7 +150,7 @@ $associated_floorplans = associated_floorplans_cached();
                         <div class="title toggle-list-btn">
                             <i class="fa fa-bars toggle-list"></i>
                             Table of Contents
-                            <i class="fa fa-arrow-down toggle-list"></i>
+                            <i class="fa fa-arrow-up toggle-list"></i>
                         </div>
                         <ol id="tag-list">
                             
