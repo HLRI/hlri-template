@@ -369,7 +369,7 @@ jQuery(document).ready(function ($) {
 
     $('.toggle-list-btn').click(function () {
         $('#tag-list').slideToggle();
-        $('#tag-list').toggleClass('fa-arrow-down');
+        $('.arrow-toggle').toggleClass('fa-arrow-down');
     });
 });
 
