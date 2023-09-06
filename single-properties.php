@@ -145,7 +145,15 @@ $associated_floorplans = associated_floorplans_cached();
     <?php if (!empty($psd['content'])) : ?>
         <div class="row mt-2 mb-4" id="Overview">
             <div class="col-12">
-                <div class="content-profile"><?= wpautop($psd['content']) ?></div>
+                <div class="content-profile">
+                    <nav id="table-of-contents">
+                        <h2>Table of Contents</h2>
+                        <ol id="tag-list">
+                            
+                        </ol>
+                    </nav>
+                    <?= wpautop($psd['content']) ?>
+                </div>
             </div>
         </div>
     <?php endif; ?>

@@ -342,6 +342,21 @@ jQuery(document).ready(function ($) {
 
     }
 
+    if ($('#table-of-contents').length) {
+        var collectionTag = $('h3');
+        var i = 0;
+        if (collectionTag.length > 0) {
+            $.each(collectionTag, function (index, item) {
+                i++
+                $(item).attr('id', 'h' + i);
+                $('#tag-list').append('<li><a href="#' + 'h' + i + '" class="item-list-tag" title="">' + $(item).text() + '</a></li>');
+            });
+
+        } else {
+            $('#tag-list').append('<a href="#" class="card-label">There is no tag!</a>');
+        }
+    }
+
 
 });
 
