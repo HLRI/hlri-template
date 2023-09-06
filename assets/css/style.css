@@ -43,6 +43,15 @@ p {
   line-height: 2;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  scroll-margin-top: 4rem;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 4px;

@@ -47,6 +47,7 @@ h4,
 h5,
 h6 {
     color: #b19f91;
+    scroll-margin-top: 4rem;
 }
 
 ::-webkit-scrollbar {
