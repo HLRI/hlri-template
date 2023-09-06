@@ -345,15 +345,22 @@ jQuery(document).ready(function ($) {
     if ($('#table-of-contents').length) {
         var collectionTagH2 = $('.content-original h2');
         var collectionTagH3 = $('.content-original h3');
-        var collectionTag = collectionTagH2.concat(collectionTagH3);
         var i = 0;
-        if (collectionTag.length > 0) {
-            $.each(collectionTag, function (index, item) {
-                i++
-                $(item).attr('id', 'h' + i);
-                $('#tag-list').append('<li><a href="#' + 'h' + i + '" class="item-list-tag" title="">' + $(item).text() + '</a></li>');
-            });
-
+        if (collectionTagH2.length > 0 || collectionTagH3.length > 0) {
+            if (collectionTagH2.length > 0) {
+                $.each(collectionTagH2, function (index, item) {
+                    i++
+                    $(item).attr('id', 'h2' + i);
+                    $('#tag-list').append('<li><a href="#' + 'h2' + i + '" class="item-list-tag" title="">' + $(item).text() + '</a></li>');
+                });
+            }
+            if (collectionTagH3.length > 0) {
+                $.each(collectionTagH3, function (index, item) {
+                    i++
+                    $(item).attr('id', 'h3' + i);
+                    $('#tag-list').append('<li><a href="#' + 'h3' + i + '" class="item-list-tag" title="">' + $(item).text() + '</a></li>');
+                });
+            }
         } else {
             $('#table-of-contents').remove();
         }
