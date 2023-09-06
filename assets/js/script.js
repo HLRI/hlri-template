@@ -343,7 +343,7 @@ jQuery(document).ready(function ($) {
     }
 
     if ($('#table-of-contents').length) {
-        var collectionTag = $('h3');
+        var collectionTag = $('.content-original h3');
         var i = 0;
         if (collectionTag.length > 0) {
             $.each(collectionTag, function (index, item) {

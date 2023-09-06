@@ -3127,3 +3127,18 @@ table.dataTable thead tr th {
   object-fit: cover;
   height: 100px !important;
 }
+
+nav#table-of-contents {
+    background: #fff7e6;
+    width: auto;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+ol#tag-list li {
+  background: #fff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
