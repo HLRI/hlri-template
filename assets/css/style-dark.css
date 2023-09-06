@@ -3051,12 +3051,17 @@ table.dataTable thead tr th {
     display: block;
 }
 
-.text-danger{
+.text-danger {
     color: #FF912C !important;
 }
 
-input[type='radio'], input[type='checkbox'] {
+input[type='radio'],
+input[type='checkbox'] {
     accent-color: #FF912C;
+}
+
+#tag-list li {
+    list-style: inside devanagari;
 }
 
 nav#table-of-contents {
@@ -3075,8 +3080,8 @@ ol#tag-list li {
 }
 
 #table-of-contents .title {
-  font-size: 22px;
-  margin-left: 6px;
+    font-size: 22px;
+    margin-left: 6px;
 }
 
 a.item-list-tag {

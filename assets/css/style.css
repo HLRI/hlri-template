@@ -3131,6 +3131,10 @@ table.dataTable thead tr th {
   height: 100px !important;
 }
 
+#tag-list li{
+  list-style: inside devanagari;
+}
+
 nav#table-of-contents {
   background: #fff4dd;
   padding: 10px;
