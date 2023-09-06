@@ -3060,18 +3060,18 @@ input[type='radio'], input[type='checkbox'] {
 }
 
 nav#table-of-contents {
-  background: #fff4dd;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  font-size: 12px;
+    background: #7c6f64;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
 }
 
 ol#tag-list li {
-  background: #fff;
-  margin: 6px 0;
-  padding: 4px 10px;
-  border-radius: 6px;
+    background: #665c54;
+    margin: 6px 0;
+    padding: 4px 10px;
+    border-radius: 6px;
 }
 
 #table-of-contents .title {
@@ -3080,5 +3080,5 @@ ol#tag-list li {
 }
 
 a.item-list-tag {
-  color: #ffad00;
+    color: #dc8b5b;
 }

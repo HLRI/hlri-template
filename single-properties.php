@@ -100,7 +100,7 @@ $associated_floorplans = associated_floorplans_cached();
                 </div>
 
                 <?php if (!empty($psd['excerpt'])) : ?>
-                    <div class="content-profile"><?= $psd['excerpt'] ?></div>
+                    <div class="content-profile"><p><?= $psd['excerpt'] ?></p></div>
                 <?php endif; ?>
             </div>
         </div>
