@@ -147,7 +147,7 @@ $associated_floorplans = associated_floorplans_cached();
             <div class="col-12">
                 <div class="content-profile content-original">
                     <nav id="table-of-contents">
-                        <h2>Table of Contents</h2>
+                        <div class="title">Table of Contents</div>
                         <ol id="tag-list">
                             
                         </ol>
