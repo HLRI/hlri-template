@@ -367,7 +367,7 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $('.toggle-list').click(function () {
+    $('.toggle-list-btn').click(function () {
         $('#tag-list').slideToggle()
     });
 });
