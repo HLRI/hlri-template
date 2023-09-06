@@ -3095,6 +3095,12 @@ a.item-list-tag {
     cursor: pointer;
 }
 
-.toggle-list-btn{
+.toggle-list-btn {
     cursor: pointer;
-  }
+    display: flex;
+    align-items: center;
+}
+
+.arrow-toggle {
+    font-size: 16px;
+}

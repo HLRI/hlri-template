@@ -3137,7 +3137,7 @@ table.dataTable thead tr th {
 }
 
 nav#table-of-contents {
-  background: #fff4dd;
+  background: #f7f7f7;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -3157,7 +3157,7 @@ ol#tag-list li {
 }
 
 a.item-list-tag {
-  color: #ffad00;
+  color: #000;
 }
 
 .toggle-list {
@@ -3165,6 +3165,12 @@ a.item-list-tag {
   margin: 0 10px;
 }
 
-.toggle-list-btn{
+.toggle-list-btn {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-toggle{
+  font-size: 16px;
 }
