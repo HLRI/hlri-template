@@ -367,6 +367,9 @@ jQuery(document).ready(function ($) {
     }
 
 
+    $('.toggle-list').click(function () {
+        $('#tag-list').slideToggle()
+    });
 });
 
 function getPropertiesRestApi(className, totalProperty, termID, token) {

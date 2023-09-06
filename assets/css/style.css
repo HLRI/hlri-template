@@ -3159,3 +3159,9 @@ ol#tag-list li {
 a.item-list-tag {
   color: #ffad00;
 }
+
+.toggle-list {
+  color: #dc8b5b;
+  margin-right: 10px;
+  cursor: pointer;
+}
