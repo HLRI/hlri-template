@@ -3130,8 +3130,6 @@ table.dataTable thead tr th {
 
 nav#table-of-contents {
     background: #fff7e6;
-    width: auto;
-    display: inline-block;
     padding: 20px;
     border-radius: 10px;
 }
