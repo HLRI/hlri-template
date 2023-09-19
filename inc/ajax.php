@@ -962,6 +962,9 @@ function my_awesome_func_four($request)
 
 
                     $is_floorplan = get_floorplans_from_property(get_the_ID(), $mapMeta['opt-occupancy']);
+                    if ($mapMeta['opt-sales-type'] === "coming soon") {
+                        $mapMeta['opt-sales-type'] = "coming_soon";
+                    }
                     $mapdata[] = [
                         'post_id' => strval(get_the_ID()),
                         'title' => get_the_title(),
