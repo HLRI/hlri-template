@@ -692,7 +692,9 @@ function my_awesome_func_two($request)
 //                            return ($item == "Home") ? "Detached" : $item;
 //                        }, $mapMetaType);
 
-
+                        if ($mapMeta['opt-sales-type'] == "Comming soon") {
+                            $mapMeta['opt-sales-type'] = "coming_soon";
+                        }
                         $is_floorplan = get_floorplans_from_property(get_the_ID(), $mapMeta['opt-occupancy']);
                         $mapdata[] = [
                             'post_id' => strval(get_the_ID()),
@@ -962,6 +964,9 @@ function my_awesome_func_four($request)
 
 
                     $is_floorplan = get_floorplans_from_property(get_the_ID(), $mapMeta['opt-occupancy']);
+                    if ($mapMeta['opt-sales-type'] === "Comming soon") {
+                        $mapMeta['opt-sales-type'] = "coming_soon";
+                    }
                     $mapdata[] = [
                         'post_id' => strval(get_the_ID()),
                         'title' => get_the_title(),
