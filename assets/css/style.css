@@ -1144,6 +1144,10 @@ a.icon-search:hover {
   font-weight: bold;
 }
 
+h1.slider-title {
+  font-size: 2rem;
+}
+
 .job-position {
   position: absolute;
   background: #ccc;
