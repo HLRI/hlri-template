@@ -442,7 +442,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
                     '<div class="card-listing card-listing-v2">' +
                     '<div class="card-listing-image card-listing-image-v2">' +
                     '                                    <a href="' + post.permalink + '" title="' + post.title + '">' +
-                    '                                       <img src="' + post.thumbnail_url + '" >' +
+                    '                                       <img src="' + post.thumbnail_url + '" alt="' + post.title + '">' +
                     '                                    </a>' +
                     '                                </div>' +
                     '' +
