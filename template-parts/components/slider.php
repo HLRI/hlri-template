@@ -4,7 +4,7 @@
             <div class="section-slide">
                 <div class="text-center">
                     <h4 class="slider-title">Find Your Dreams Condo</h4>
-                    <h1 class="slider-title"><?= bloginfo('title') ?></h1>
+                    <h1 class="slider-title"><?= bloginfo('description') ?></h1>
                 </div>
 
                 <?php include(HLR_THEME_COMPONENT . 'search-slider.php'); ?>
