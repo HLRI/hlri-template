@@ -49,7 +49,7 @@
                     <div class="card-single-blog">
 
                         <div class="card-blog-content">
-                            <h1 class="text-black pt-3 px-3"><b><?php the_title() ?></b></h1>
+                            <h1 class="text-black pt-3 px-3 font-weight-bold"><?php the_title() ?></h1>
                             <div class="card-single-blog-description p-4">
                                 <?php the_content() ?>
                             </div>
