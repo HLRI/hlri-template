@@ -26,6 +26,9 @@ $peroperties = new WP_Query($arg);
 <?php if ($peroperties->have_posts()) : ?>
     <div class="container-fluid px-5 my-5">
         <div class="row">
+            <h1><?php single_cat_title() ?></h1>
+        </div>
+        <div class="row">
             <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
                 <div class="col-lg-4 px-2 mb-4">
                     <div class="card-listing card-listing-v2">

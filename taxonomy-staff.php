@@ -24,7 +24,7 @@ if ($profiles->have_posts()) : ?>
         <div class="row">
             <div class="col-12 px-2">
                 <div class="titr-list ml-0 mb-2">
-                    <h3 class="font-weight-bold">All <?= strtoupper($term->name) . 'S' ?></h3>
+                    <h1 class="font-weight-bold">All <?= strtoupper($term->name) . 'S' ?></h1>
                 </div>
             </div>
             <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
