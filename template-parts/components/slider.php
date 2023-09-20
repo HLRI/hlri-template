@@ -2,7 +2,7 @@
     <?php if (!empty($theme_options['opt-slider-fieldset']['opt_slider_items'])) : ?>
         <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="section-slide">
-                <div>
+                <div class="text-center">
                     <h4 class="slider-title">Find Your Dreams Condo</h4>
                     <h1 class="slider-title"><?= bloginfo('name') ?></h1>
                 </div>
