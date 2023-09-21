@@ -6,8 +6,6 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $arg = [
     'post_type' => 'properties',
     'post_status' => 'publish',
-    'posts_per_page'   => get_option('posts_per_page'),
-    'paged' => $paged,
 ];
 
 $peroperties = new WP_Query($arg);
