@@ -2,7 +2,7 @@
 
 <?php
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
+wp_die($paged);
 $arg = [
     'post_type' => 'properties',
     'post_status' => 'publish',
@@ -90,6 +90,7 @@ $peroperties = new WP_Query($arg);
             <?php wp_reset_postdata(); ?>
         </div>
 
+        <?php if (get_query_var('paged') > 1) : ?>
             <div class="mt-5 row d-flex align-items-center justify-content-center">
                 <?php
                 echo paginate_links(array(
@@ -109,6 +110,7 @@ $peroperties = new WP_Query($arg);
                 ));
                 ?>
             </div>
+        <?php endif; ?>
     </div>
 <?php endif; ?>
 <?php get_footer() ?>
