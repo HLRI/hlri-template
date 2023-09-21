@@ -8,7 +8,7 @@ $arg = [
     'post_type' => 'properties',
     'post_status' => 'publish',
     'posts_per_page'   => get_option('posts_per_page'),
-    'paged' => $paged,
+    'paged' => 10,
 ];
 
 $peroperties = new WP_Query($arg);
