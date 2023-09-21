@@ -12,13 +12,16 @@ $arg = [
 
 $peroperties = new WP_Query($arg);
 
-wp_die(var_dump($peroperties));
 
 ?>
 
 <?php get_header() ?>
 
-<?php if ($peroperties->have_posts()) : ?>
+<?php if ($peroperties->have_posts()) :
+wp_die(var_dump($peroperties));
+    
+    
+    ?>
     <div class="container-fluid px-5 my-5">
         <div class="row">
             <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
