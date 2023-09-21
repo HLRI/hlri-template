@@ -90,11 +90,12 @@ $peroperties = new WP_Query($arg);
             <?php wp_reset_postdata(); ?>
         </div>
 
+        <?php if (get_query_var('paged') > 1) : ?>
             <div class="mt-5 row d-flex align-items-center justify-content-center">
                 <?php
                 echo paginate_links(array(
                     'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-                    'total'        => $query->max_num_pages,
+                    'total'        => $peroperties->max_num_pages,
                     'current'      => max(1, get_query_var('paged')),
                     'format'       => '?paged=%#%',
                     'show_all'     => false,
@@ -109,6 +110,7 @@ $peroperties = new WP_Query($arg);
                 ));
                 ?>
             </div>
+        <?php endif; ?>
     </div>
 <?php endif; ?>
 <?php get_footer() ?>
