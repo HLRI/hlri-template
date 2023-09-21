@@ -1,7 +1,6 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
 
 <?php
-wp_die(get_query_var('paged'));
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $arg = [
