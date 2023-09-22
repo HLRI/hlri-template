@@ -70,7 +70,7 @@ function custom_render_property_association_meta_box( $post ) {
         'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
-        'post_status' => 'publish'
+//        'post_status' => 'publish'
     ) );
 
     echo '<label for="associated_property">Associated Property:</label>';
