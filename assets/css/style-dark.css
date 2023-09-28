@@ -48,7 +48,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+li {
     color: #b19f91;
     scroll-margin-top: 4rem;
 }
