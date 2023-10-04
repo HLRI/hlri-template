@@ -157,8 +157,6 @@ $associated_floorplans = associated_floorplans_cached();
                         </ol>
                     </nav>
                     <?= wpautop($psd['content']) ?>
-                    <?php the_content(); ?>
-
                 </div>
             </div>
         </div>
