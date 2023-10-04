@@ -1193,6 +1193,16 @@ if (class_exists('CSF')) {
 					'step'    => 0.5,
 					'default' => 0,
 				),
+                array(
+                    'id'         => 'opt-studio',
+                    'type'       => 'button_set',
+                    'title'      => 'Studio',
+                    'options'    => array(
+                        true  => 'Yes',
+                        false => 'No',
+                    ),
+                    'default'    => false
+                ),
 				array(
 					'id'      => 'opt-floorplans-size',
 					'type'  => 'slider',
