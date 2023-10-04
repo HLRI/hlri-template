@@ -3114,3 +3114,8 @@ a.item-list-tag {
 .arrow-toggle {
     font-size: 16px;
 }
+
+.content-profile.content-original li {
+    list-style: circle;
+    margin-left: 50px;
+}
