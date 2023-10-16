@@ -948,10 +948,15 @@ if (class_exists('CSF')) {
 					'title' => 'City',
 				),
 				array(
-					'id'    => 'opt-studio',
-					'type'  => 'text',
-					'title' => 'Studio',
-				),
+                    'id'         => 'opt-studio',
+                    'type'       => 'button_set',
+                    'title'      => 'Studio',
+                    'options'    => array(
+                        true  => 'Yes',
+                        false => 'No',
+                    ),
+                    'default'    => false
+                ),
 				array(
 					'id'          => 'opt-status',
 					'type'        => 'select',
