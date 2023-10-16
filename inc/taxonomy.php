@@ -27,58 +27,58 @@ function Staff()
 add_action('init', 'Staff', 0);
 
 
-function Stage()
-{
-  register_taxonomy('stage', 'properties', array(
-    'hierarchical' => true,
-    'labels' => array(
-      'name' => _x('Stages', 'taxonomy general name'),
-      'singular_name' => _x('Stage', 'taxonomy singular name'),
-      'search_items' =>  __('Search Stage'),
-      'all_items' => __('All Stage'),
-      'parent_item' => __('Parent Stage'),
-      'parent_item_colon' => __('Parent Stage:'),
-      'edit_item' => __('Edit Stage'),
-      'update_item' => __('Update Stage'),
-      'add_new_item' => __('Add New Stage'),
-      'new_item_name' => __('New Stage Name'),
-      'menu_name' => __('Stages'),
-    ),
-    'rewrite' => array(
-      'slug' => 'stage',
-      'with_front' => false,
-      'hierarchical' => false
-    ),
-  ));
-}
-add_action('init', 'Stage', 0);
-
-
-function Type()
-{
-  register_taxonomy('type', 'properties', array(
-    'hierarchical' => true,
-    'labels' => array(
-      'name' => _x('Types', 'taxonomy general name'),
-      'singular_name' => _x('Type', 'taxonomy singular name'),
-      'search_items' =>  __('Search Type'),
-      'all_items' => __('All Type'),
-      'parent_item' => __('Parent Type'),
-      'parent_item_colon' => __('Parent Type:'),
-      'edit_item' => __('Edit Type'),
-      'update_item' => __('Update Type'),
-      'add_new_item' => __('Add New Type'),
-      'new_item_name' => __('New Type Name'),
-      'menu_name' => __('Types'),
-    ),
-    'rewrite' => array(
-      'slug' => 'type',
-      'with_front' => false,
-      'hierarchical' => false
-    ),
-  ));
-}
-add_action('init', 'Type', 0);
+//function Stage()
+//{
+//  register_taxonomy('stage', 'properties', array(
+//    'hierarchical' => true,
+//    'labels' => array(
+//      'name' => _x('Stages', 'taxonomy general name'),
+//      'singular_name' => _x('Stage', 'taxonomy singular name'),
+//      'search_items' =>  __('Search Stage'),
+//      'all_items' => __('All Stage'),
+//      'parent_item' => __('Parent Stage'),
+//      'parent_item_colon' => __('Parent Stage:'),
+//      'edit_item' => __('Edit Stage'),
+//      'update_item' => __('Update Stage'),
+//      'add_new_item' => __('Add New Stage'),
+//      'new_item_name' => __('New Stage Name'),
+//      'menu_name' => __('Stages'),
+//    ),
+//    'rewrite' => array(
+//      'slug' => 'stage',
+//      'with_front' => false,
+//      'hierarchical' => false
+//    ),
+//  ));
+//}
+//add_action('init', 'Stage', 0);
+//
+//
+//function Type()
+//{
+//  register_taxonomy('type', 'properties', array(
+//    'hierarchical' => true,
+//    'labels' => array(
+//      'name' => _x('Types', 'taxonomy general name'),
+//      'singular_name' => _x('Type', 'taxonomy singular name'),
+//      'search_items' =>  __('Search Type'),
+//      'all_items' => __('All Type'),
+//      'parent_item' => __('Parent Type'),
+//      'parent_item_colon' => __('Parent Type:'),
+//      'edit_item' => __('Edit Type'),
+//      'update_item' => __('Update Type'),
+//      'add_new_item' => __('Add New Type'),
+//      'new_item_name' => __('New Type Name'),
+//      'menu_name' => __('Types'),
+//    ),
+//    'rewrite' => array(
+//      'slug' => 'type',
+//      'with_front' => false,
+//      'hierarchical' => false
+//    ),
+//  ));
+//}
+//add_action('init', 'Type', 0);
 
 
 function City()
