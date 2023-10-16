@@ -505,7 +505,7 @@ function add_search_input_to_meta_boxes()
     add_search_input_to_meta_box('developerchecklist');
     add_search_input_to_meta_box('groupchecklist');
     add_search_input_to_meta_box('citychecklist');
-    add_search_input_to_meta_box('stagechecklist');
-    add_search_input_to_meta_box('typechecklist');
+//    add_search_input_to_meta_box('stagechecklist');
+//    add_search_input_to_meta_box('typechecklist');
     add_search_input_to_meta_box('neighborhoodchecklist');
 }
