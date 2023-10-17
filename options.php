@@ -1251,11 +1251,21 @@ if (class_exists('CSF')) {
 					'type'  => 'text',
 					'title' => 'Mt. Fees per Month'
 				),
-				array(
-					'id'    => 'opt-floorplans-parking',
-					'type'  => 'text',
-					'title' => 'Parking'
-				),
+                array(
+                    'id'    => 'opt-floorplans-parking',
+                    'type'  => 'text',
+                    'title' => 'Parking'
+                ),
+                array(
+                    'id'    => 'opt-floorplans-ev-parking',
+                    'type'  => 'text',
+                    'title' => 'EV Parking'
+                ),
+                array(
+                    'id'    => 'opt-floorplans-balcony-sqft',
+                    'type'  => 'text',
+                    'title' => 'Balcony Sqft.'
+                ),
 				array(
 					'id'    => 'opt-floorplans-locker',
 					'type'  => 'text',
