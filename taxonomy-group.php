@@ -31,7 +31,7 @@ $peroperties = new WP_Query($arg);
 
         <div class="row">
             <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
-                <div class="col-lg-4 px-2 mb-4 bg-red">
+                <div class="col-lg-4 px-2 mb-4">
                     <div class="card-listing card-listing-v2">
 
                         <div class="card-listing-image card-listing-image-v2">
@@ -58,32 +58,7 @@ $peroperties = new WP_Query($arg);
                             </div>
                         </div>
 
-                        <div class="more more-v2">
-                            <div class="card-listing-options">
-                                <div>
-                                    <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
-                                    <span class="text-muted" id="like-total">
-                                        <?php if (!empty(get_post_meta(get_the_ID(), 'total_like', true))) : ?>
-                                            <?= get_post_meta(get_the_ID(), 'total_like', true)   ?>
-                                        <?php endif; ?>
-                                    </span>
-                                </div>
-                                <i role="button" class="fa fa-share-alt"></i>
-                                <i <?= is_user_logged_in() ? in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= get_the_ID() ?>)" class="fa fa-bookmark"></i>
-                            </div>
-                            <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>
-                        </div>
-
-                        <div class="card-share">
-                            <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
-                            <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
-                            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_content() ?>"><i class="fa fa-linkedin-square"></i></a>
-                            <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
-                            <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
-                            <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
-                            <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
-                            <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
-                        </div>
+                       
 
                     </div>
                 </div>
