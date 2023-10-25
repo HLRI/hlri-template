@@ -36,7 +36,9 @@ $peroperties = new WP_Query($arg);
                     <div class="card-listing card-listing-v2">
 
                         <div class="card-listing-image card-listing-image-v2">
-                            <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
+                            <a href="<?php the_permalink() ?>" target="_blank">
+                                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
+                            </a>
                         </div>
 
                         <div class="card-body-listing card-body-listing-v2">
