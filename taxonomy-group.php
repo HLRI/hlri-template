@@ -31,6 +31,7 @@ $peroperties = new WP_Query($arg);
 
         <div class="row">
             <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
+                <?php $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true); ?>
                 <div class="col-lg-4 px-2 mb-4">
                     <div class="card-listing card-listing-v2">
 
