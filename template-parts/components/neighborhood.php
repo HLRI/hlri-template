@@ -1,9 +1,11 @@
 <?php
-
 $terms = get_terms([
     'taxonomy'   => 'neighborhood',
-    'hide_empty' => true,
+    'hide_empty' => false,
 ]);
+
+// Output the raw terms for debugging
+dd($terms);
 
 // Filter terms with more than 0 properties
 $filtered_terms = array_filter($terms, function ($term) {
@@ -11,7 +13,10 @@ $filtered_terms = array_filter($terms, function ($term) {
 });
 
 // Take the first 8 filtered terms
-$terms = array_slice($filtered_terms, 0, 8);
+$filtered_terms = array_slice($filtered_terms, 0, 8);
+
+// Output the filtered terms
+dd($filtered_terms);
 ?>
 <div class="container-fluid my-5">
     <div class="row">
