@@ -21,6 +21,10 @@ $terms = array_slice($terms, 0, 8);
                         <div class="wrap-neighborhood">
                             <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" title="<?= isset($meta['opt-neighborhood-image']) ? $meta['opt-neighborhood-image']['alt'] : '' ?>">
 <!--                                <img loading="lazy" src="--><?php //= isset($meta['opt-neighborhood-image']) ? $meta['opt-neighborhood-image']['url'] : $meta['opt-neighborhood-image']['url'] ?><!--" class="neighborhood-image" alt="--><?php //= isset($meta['opt-neighborhood-image']) ? $meta['opt-neighborhood-image']['alt'] : '' ?><!--">-->
+                                <?php if (isset($meta['opt-neighborhood-image']) && !empty($meta['opt-neighborhood-image']['url'])): ?>
+                                    <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : '' ?>">
+                                <?php endif; ?>
+
                             </a>
                             <div class="neighborhood-title">
                                 <?= $term->name ?>
