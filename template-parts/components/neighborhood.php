@@ -2,7 +2,7 @@
 
 $terms = get_terms([
     'taxonomy'   => 'neighborhood',
-    'hide_empty' => false,
+    'hide_empty' => true,
 ]);
 
 // Filter terms with more than 0 properties
