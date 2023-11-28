@@ -4,8 +4,7 @@ $terms = get_terms([
     'taxonomy' => 'neighborhood',
     'hide_empty' => false,
 ]);
-print_r($terms);
-die();
+dd($terms);
 $terms = array_slice($terms, 0, 8);
 ?>
 <div class="container-fluid my-5">
