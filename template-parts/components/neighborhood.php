@@ -17,6 +17,7 @@ $terms = array_slice($terms, 0, 8);
                 <div class="owl-carousel owl-theme neighborhood wrap-list">
                     <?php foreach ($terms as $term) :
                         $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
+                    dd($meta['opt-neighborhood-link']);
                     ?>
                         <div class="wrap-neighborhood">
                             <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" title="<?= $term->name ?>">
