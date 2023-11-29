@@ -130,7 +130,8 @@ function Neighborhood ()
       'with_front' => false,
       'hierarchical' => false
     ),
-      'show_in_nav_menus' => true,
+      'show_in_nav_menus' => true, // This makes the taxonomy available in menus
+      'show_in_menu' => true, // This should make it available in the default menu lists
   ));
 }
 add_action('init', 'Neighborhood', 0);
