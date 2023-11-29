@@ -130,6 +130,7 @@ function Neighborhood ()
       'with_front' => false,
       'hierarchical' => false
     ),
+      'show_in_nav_menus' => true,
   ));
 }
 add_action('init', 'Neighborhood', 0);
