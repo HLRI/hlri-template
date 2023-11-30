@@ -218,3 +218,30 @@ function salesteam ()
   ));
 }
 add_action('init', 'salesteam', 0);
+
+function register_communities_taxonomy()
+{
+    register_taxonomy('communities', 'properties', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => _x('Communities', 'taxonomy general name'),
+            'singular_name' => _x('Community', 'taxonomy singular name'),
+            'search_items' =>  __('Search Communities'),
+            'all_items' => __('All Communities'),
+            'parent_item' => __('Parent Community'),
+            'parent_item_colon' => __('Parent Community:'),
+            'edit_item' => __('Edit Community'),
+            'update_item' => __('Update Community'),
+            'add_new_item' => __('Add New Community'),
+            'new_item_name' => __('New Community Name'),
+            'menu_name' => __('Communities'),
+        ),
+        'rewrite' => array(
+            'slug' => 'communities',
+            'with_front' => false,
+            'hierarchical' => false
+        ),
+    ));
+}
+
+add_action('init', 'register_communities_taxonomy', 0);
