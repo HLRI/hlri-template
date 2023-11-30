@@ -97,14 +97,13 @@ function City()
       'add_new_item' => __('Add New City'),
       'new_item_name' => __('New City Name'),
       'menu_name' => __('Cities'),
+      'show_in_nav_menus' => true,
     ),
     'rewrite' => array(
       'slug' => 'city',
       'with_front' => false,
       'hierarchical' => false
     ),
-      'show_in_nav_menus' => true, // This makes the taxonomy available in menus
-      'show_in_menu' => true, // This should make it available in the default menu lists
   ));
 }
 add_action('init', 'City', 0);
@@ -126,22 +125,13 @@ function Neighborhood ()
       'add_new_item' => __('Add New Neighborhood'),
       'new_item_name' => __('New Neighborhood Name'),
       'menu_name' => __('Neighborhoods'),
+      'show_in_nav_menus' => true,
     ),
     'rewrite' => array(
       'slug' => 'neighborhood',
       'with_front' => false,
       'hierarchical' => false
     ),
-      'show_in_nav_menus' => true, // This makes the taxonomy available in menus
-      'show_in_menu' => true, // This should make it available in the default menu lists
-      'show_ui'             => true,
-      'show_in_admin_bar'   => true,
-      'menu_position'       => 5,
-      'menu_icon'           => '',
-      'can_export'          => true,
-      'has_archive'         => true,
-      'exclude_from_search' => false,
-      'publicly_queryable'  => true,
   ));
 }
 add_action('init', 'Neighborhood', 0);
