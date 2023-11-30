@@ -97,9 +97,9 @@ function City()
       'add_new_item' => __('Add New City'),
       'new_item_name' => __('New City Name'),
       'menu_name' => __('Cities'),
-        'public'       => true,
-        'show_ui'      => true,
     ),
+      'public'       => true,
+      'show_ui'      => true,
     'rewrite' => array(
       'slug' => 'city',
       'with_front' => false,
