@@ -81,63 +81,35 @@ add_action('init', 'Staff', 0);
 //add_action('init', 'Type', 0);
 
 
-//function City()
-//{
-//  register_taxonomy('city', 'properties', array(
-//    'hierarchical' => true,
-//    'labels' => array(
-//      'name' => _x('Cities', 'taxonomy general name'),
-//      'singular_name' => _x('City', 'taxonomy singular name'),
-//      'search_items' =>  __('Search City'),
-//      'all_items' => __('All City'),
-//      'parent_item' => __('Parent City'),
-//      'parent_item_colon' => __('Parent City:'),
-//      'edit_item' => __('Edit City'),
-//      'update_item' => __('Update City'),
-//      'add_new_item' => __('Add New City'),
-//      'new_item_name' => __('New City Name'),
-//      'menu_name' => __('Cities'),
-//    ),
-//      'public'       => true,
-//      'show_ui'      => true,
-//      'show_in_menu' => true,
-//    'rewrite' => array(
-//      'slug' => 'city',
-//      'with_front' => false,
-//      'hierarchical' => true
-//    ),
-//  ));
-//}
-//add_action('init', 'City', 0);
-
-add_action('init', 'register_city_taxonomy', 2);
-
-function register_city_taxonomy() {
-    register_taxonomy('city', 'properties', array(
-        'hierarchical' => true,
-        'labels' => array(
-            'name' => _x('Cities', 'taxonomy general name'),
-            'singular_name' => _x('City', 'taxonomy singular name'),
-            'search_items' =>  __('Search City'),
-            'all_items' => __('All City'),
-            'parent_item' => __('Parent City'),
-            'parent_item_colon' => __('Parent City:'),
-            'edit_item' => __('Edit City'),
-            'update_item' => __('Update City'),
-            'add_new_item' => __('Add New City'),
-            'new_item_name' => __('New City Name'),
-            'menu_name' => __('Cities'),
-        ),
-        'public'       => true,
-        'show_ui'      => true,
-        'show_in_menu' => true,
-        'rewrite' => array(
-            'slug' => 'city',
-            'with_front' => false,
-            'hierarchical' => true
-        ),
-    ));
+function City()
+{
+  register_taxonomy('city', 'properties', array(
+    'hierarchical' => true,
+    'labels' => array(
+      'name' => _x('Cities', 'taxonomy general name'),
+      'singular_name' => _x('City', 'taxonomy singular name'),
+      'search_items' =>  __('Search City'),
+      'all_items' => __('All City'),
+      'parent_item' => __('Parent City'),
+      'parent_item_colon' => __('Parent City:'),
+      'edit_item' => __('Edit City'),
+      'update_item' => __('Update City'),
+      'add_new_item' => __('Add New City'),
+      'new_item_name' => __('New City Name'),
+      'menu_name' => __('Cities'),
+    ),
+      'public'       => true,
+      'show_ui'      => true,
+      'show_in_menu' => true,
+    'rewrite' => array(
+      'slug' => 'city',
+      'with_front' => false,
+      'hierarchical' => true
+    ),
+  ));
 }
+add_action('init', 'City', 0);
+
 
 function Neighborhood ()
 {
