@@ -219,3 +219,5 @@ function salesteam ()
 add_action('init', 'salesteam', 0);
 
 
+$city_terms = get_terms('city');
+var_dump($city_terms);
