@@ -219,3 +219,28 @@ function salesteam ()
 add_action('init', 'salesteam', 0);
 
 
+function test()
+{
+    register_taxonomy('test', 'properties', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => _x('Tests', 'taxonomy general name'),
+            'singular_name' => _x('Test', 'taxonomy singular name'),
+            'search_items' =>  __('Search Test'),
+            'all_items' => __('All Test'),
+            'parent_item' => __('Parent Test'),
+            'parent_item_colon' => __('Parent Test:'),
+            'edit_item' => __('Edit Test'),
+            'update_item' => __('Update Test'),
+            'add_new_item' => __('Add New Test'),
+            'new_item_name' => __('New Test Name'),
+            'menu_name' => __('Tests'),
+        ),
+        'rewrite' => array(
+            'slug' => 'test',
+            'with_front' => false,
+            'hierarchical' => false
+        ),
+    ));
+}
+add_action('init', 'test', 0);
