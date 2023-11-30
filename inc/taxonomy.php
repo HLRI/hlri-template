@@ -191,7 +191,9 @@ function salesteam ()
 add_action('init', 'salesteam', 0);
 
 
-function city()
+
+
+function city2()
 {
     register_taxonomy('city', 'properties', array(
         'hierarchical' => true,
@@ -210,32 +212,6 @@ function city()
         ),
         'rewrite' => array(
             'slug' => 'city',
-            'with_front' => false,
-            'hierarchical' => false
-        ),
-    ));
-}
-add_action('init', 'city', 0);
-
-function city2()
-{
-    register_taxonomy('city2', 'properties', array(
-        'hierarchical' => true,
-        'labels' => array(
-            'name' => _x('Cities2', 'taxonomy general name'),
-            'singular_name' => _x('City2', 'taxonomy singular name'),
-            'search_items' =>  __('Search City2'),
-            'all_items' => __('All City2'),
-            'parent_item' => __('Parent City2'),
-            'parent_item_colon' => __('Parent City2:'),
-            'edit_item' => __('Edit City2'),
-            'update_item' => __('Update City2'),
-            'add_new_item' => __('Add New City2'),
-            'new_item_name' => __('New City2 Name'),
-            'menu_name' => __('Cities2'),
-        ),
-        'rewrite' => array(
-            'slug' => 'city2',
             'with_front' => false,
             'hierarchical' => false
         ),
