@@ -219,5 +219,5 @@ function salesteam ()
 add_action('init', 'salesteam', 0);
 
 
-$city_terms = get_terms('city');
-echo var_dump($city_terms);
+$registered_taxonomies = get_taxonomies();
+echo var_dump($registered_taxonomies);
