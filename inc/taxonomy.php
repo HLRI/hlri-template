@@ -246,13 +246,3 @@ function salesteam ()
   ));
 }
 add_action('init', 'salesteam', 0);
-
-
-function check_registered_taxonomies() {
-    $registered_taxonomies = get_taxonomies();
-    echo '<pre>';
-    var_dump($registered_taxonomies);
-    echo '</pre>';
-}
-
-add_action('init', 'check_registered_taxonomies');
