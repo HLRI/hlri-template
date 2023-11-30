@@ -81,6 +81,33 @@ add_action('init', 'Staff', 0);
 //add_action('init', 'Type', 0);
 
 
+function City()
+{
+  register_taxonomy('city', 'properties', array(
+    'hierarchical' => true,
+    'labels' => array(
+      'name' => _x('Cities', 'taxonomy general name'),
+      'singular_name' => _x('City', 'taxonomy singular name'),
+      'search_items' =>  __('Search City'),
+      'all_items' => __('All City'),
+      'parent_item' => __('Parent City'),
+      'parent_item_colon' => __('Parent City:'),
+      'edit_item' => __('Edit City'),
+      'update_item' => __('Update City'),
+      'add_new_item' => __('Add New City'),
+      'new_item_name' => __('New City Name'),
+      'menu_name' => __('Cities'),
+    ),
+    'rewrite' => array(
+      'slug' => 'city',
+      'with_front' => false,
+      'hierarchical' => false
+    ),
+  ));
+}
+add_action('init', 'City', 0);
+
+
 function Neighborhood ()
 {
   register_taxonomy('neighborhood', 'properties', array(
@@ -97,7 +124,6 @@ function Neighborhood ()
       'add_new_item' => __('Add New Neighborhood'),
       'new_item_name' => __('New Neighborhood Name'),
       'menu_name' => __('Neighborhoods'),
-      'show_in_nav_menus' => true,
     ),
     'rewrite' => array(
       'slug' => 'neighborhood',
@@ -191,30 +217,3 @@ function salesteam ()
 add_action('init', 'salesteam', 0);
 
 
-
-
-function city2()
-{
-    register_taxonomy('city', 'properties', array(
-        'hierarchical' => true,
-        'labels' => array(
-            'name' => _x('Cities', 'taxonomy general name'),
-            'singular_name' => _x('City', 'taxonomy singular name'),
-            'search_items' =>  __('Search City'),
-            'all_items' => __('All City'),
-            'parent_item' => __('Parent City'),
-            'parent_item_colon' => __('Parent City:'),
-            'edit_item' => __('Edit City'),
-            'update_item' => __('Update City'),
-            'add_new_item' => __('Add New City'),
-            'new_item_name' => __('New City Name'),
-            'menu_name' => __('Cities'),
-        ),
-        'rewrite' => array(
-            'slug' => 'city',
-            'with_front' => false,
-            'hierarchical' => false
-        ),
-    ));
-}
-add_action('init', 'city2', 0);
