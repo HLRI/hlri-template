@@ -110,7 +110,7 @@ add_action('init', 'Staff', 0);
 //}
 //add_action('init', 'City', 0);
 
-add_action('cs_framework_init', 'register_city_taxonomy', 11);
+add_action('init', 'register_city_taxonomy', 2);
 
 function register_city_taxonomy() {
     register_taxonomy('city', 'properties', array(
