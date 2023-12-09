@@ -12,6 +12,58 @@ function page_view_fast_update()
     include HLR_THEME_PATH . 'template-parts/admin-pages/fast-updates-properties.php';
 }
 
+// Create custom table during plugin or theme activation
+function create_property_log_table() {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . 'property_logs';
+
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        log_id bigint(20) NOT NULL AUTO_INCREMENT,
+        property_id bigint(20) NOT NULL,
+        user_id bigint(20) NOT NULL,
+        modified_at datetime NOT NULL,
+        added_at datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+        PRIMARY KEY  (log_id)
+    ) $charset_collate;";
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    dbDelta($sql);
+}
+
+// Hook to create the table during plugin or theme activation
+register_activation_hook(__FILE__, 'create_property_log_table');
+
+// Log changes when a property is updated
+function log_property_changes($post_ID, $post_after, $post_before) {
+    global $wpdb;
+
+    // Check if the post type is 'properties'
+    if ($post_after->post_type === 'properties') {
+        $log_data = array(
+            'property_id' => $post_ID,
+            'user_id' => get_current_user_id(),
+            'modified_at' => current_time('mysql'),
+            'added_at' => $post_before->post_date, // Date when the property was added
+        );
+
+        // Insert the log data into the custom table
+        $result = $wpdb->insert($wpdb->prefix . 'property_logs', $log_data);
+
+        // Debugging: Check if the insert was successful
+        if ($result === false) {
+            error_log('Failed to insert log: ' . $wpdb->last_error);
+        } else {
+            error_log('Log inserted successfully');
+        }
+    }
+}
+
+// Hook to log changes when a post is updated
+add_action('wp_insert_post', 'log_property_changes', 10, 3);
+
 // Display property logs in the admin
 function display_property_logs() {
     global $wpdb;
