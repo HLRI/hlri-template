@@ -24,7 +24,6 @@ function create_property_log_table() {
         property_id bigint(20) NOT NULL,
         user_id bigint(20) NOT NULL,
         modified_at datetime NOT NULL,
-        added_at datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
         PRIMARY KEY  (log_id)
     ) $charset_collate;";
 
@@ -35,7 +34,7 @@ function create_property_log_table() {
 // Hook to create the table during plugin or theme activation
 register_activation_hook(__FILE__, 'create_property_log_table');
 
-// Log changes when a property is updated
+// Log changes when a property is updated or added
 function log_property_changes($post_ID, $post_after, $post_before) {
     global $wpdb;
 
@@ -45,25 +44,14 @@ function log_property_changes($post_ID, $post_after, $post_before) {
             'property_id' => $post_ID,
             'user_id' => get_current_user_id(),
             'modified_at' => current_time('mysql'),
-            'added_at' => $post_before->post_date, // Date when the property was added
         );
 
-        // Debugging: Output log data to error log
-        error_log('Log Data: ' . print_r($log_data, true));
-
         // Insert the log data into the custom table
-        $result = $wpdb->insert($wpdb->prefix . 'property_logs', $log_data);
-
-        // Debugging: Check if the insert was successful
-        if ($result === false) {
-            error_log('Failed to insert log: ' . $wpdb->last_error);
-        } else {
-            error_log('Log inserted successfully');
-        }
+        $wpdb->insert($wpdb->prefix . 'property_logs', $log_data);
     }
 }
 
-// Hook to log changes when a post is updated
+// Hook to log changes when a post is updated or added
 add_action('wp_insert_post', 'log_property_changes', 10, 3);
 
 // Display property logs in the admin
@@ -77,7 +65,7 @@ function display_property_logs() {
     echo '<div class="wrap">';
     echo '<h2>Property Logs</h2>';
     echo '<table class="widefat">';
-    echo '<thead><tr><th>Property ID</th><th>User ID</th><th>Modified At</th><th>Added At</th></tr></thead>';
+    echo '<thead><tr><th>Property ID</th><th>User ID</th><th>Modified At</th></tr></thead>';
     echo '<tbody>';
 
     foreach ($results as $result) {
@@ -85,7 +73,6 @@ function display_property_logs() {
         echo '<td>' . esc_html($result['property_id']) . '</td>';
         echo '<td>' . esc_html($result['user_id']) . '</td>';
         echo '<td>' . esc_html($result['modified_at']) . '</td>';
-        echo '<td>' . esc_html($result['added_at']) . '</td>';
         echo '</tr>';
     }
 
