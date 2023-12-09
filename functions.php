@@ -121,3 +121,22 @@ function add_property_logs_submenu_page() {
 
 // Hook to add the admin submenu page
 add_action('admin_menu', 'add_property_logs_submenu_page');
+
+
+
+
+
+// Hook to check if a property is added
+add_action('save_post', 'check_property_added', 10, 3);
+
+function check_property_added($post_ID, $post_after, $post_before) {
+    // Check if the post type is 'properties'
+    if ($post_after->post_type === 'properties') {
+        // Check if this is a new property (not an update)
+        if (empty($post_before->ID)) {
+            return true;
+        }
+    }
+
+    return false;
+}
