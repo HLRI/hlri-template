@@ -28,115 +28,17 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
-// functions.php
-
-// Create custom table during plugin or theme activation
-function create_property_log_table() {
-    global $wpdb;
-
-    $table_name = $wpdb->prefix . 'property_logs';
-
-    $charset_collate = $wpdb->get_charset_collate();
-
-    $sql = "CREATE TABLE $table_name (
-        log_id bigint(20) NOT NULL AUTO_INCREMENT,
-        property_id bigint(20) NOT NULL,
-        user_id bigint(20) NOT NULL,
-        modified_at datetime NOT NULL,
-        PRIMARY KEY  (log_id)
-    ) $charset_collate;";
-
-    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-    $result = dbDelta($sql);
-
-    error_log('Table creation result: ' . print_r($result, true));
-}
-
-// Hook to create the table during plugin or theme activation
-register_activation_hook(__FILE__, 'create_property_log_table');
-
-// Log changes when a property is updated or added
-function log_property_changes($post_ID, $post_after, $post_before) {
-    global $wpdb;
-
-    // Check if the post type is 'properties'
-    if ($post_after->post_type === 'properties') {
-        error_log('Log function triggered for property ID: ' . $post_ID);
-
-        $log_data = array(
-            'property_id' => $post_ID,
-            'user_id' => get_current_user_id(),
-            'modified_at' => current_time('mysql'),
-        );
-
-        // Insert the log data into the custom table
-        $result = $wpdb->insert($wpdb->prefix . 'property_logs', $log_data);
-
-        error_log('Log insertion result: ' . print_r($result, true));
-        error_log('Last query: ' . $wpdb->last_query);
-        error_log('Last error: ' . $wpdb->last_error);
-    }
-}
-
-// Hook to log changes when a post is updated or added
-add_action('save_post', 'log_property_changes', 10, 3);
-
-// Display property logs in the admin
-function display_property_logs() {
-    global $wpdb;
-
-    $table_name = $wpdb->prefix . 'property_logs';
-
-    $results = $wpdb->get_results("SELECT * FROM $table_name ORDER BY modified_at DESC LIMIT 3", ARRAY_A);
-
-    echo '<div class="wrap">';
-    echo '<h2>Property Logs</h2>';
-    echo '<table class="widefat">';
-    echo '<thead><tr><th>Property ID</th><th>User ID</th><th>Modified At</th></tr></thead>';
-    echo '<tbody>';
-
-    foreach ($results as $result) {
-        echo '<tr>';
-        echo '<td>' . esc_html($result['property_id']) . '</td>';
-        echo '<td>' . esc_html($result['user_id']) . '</td>';
-        echo '<td>' . esc_html($result['modified_at']) . '</td>';
-        echo '</tr>';
-    }
-
-    echo '</tbody></table>';
-    echo '</div>';
-}
-
-// Hook to add the admin submenu page
-function add_property_logs_submenu_page() {
-    add_submenu_page(
-        'edit.php?post_type=properties', // Main menu slug (edit.php?post_type=properties)
-        'Property Logs',
-        'Property Logs',
-        'manage_options',
-        'property-logs',
-        'display_property_logs'
-    );
-}
-
-// Hook to add the admin submenu page
-add_action('admin_menu', 'add_property_logs_submenu_page');
-
-
-
-
 
 // Hook to check if a property is added
-add_action('save_post', 'check_property_added', 10, 3);
+add_action('save_post', 'check_and_echo_property_added', 10, 3);
 
-function check_property_added($post_ID, $post_after, $post_before) {
+function check_and_echo_property_added($post_ID, $post_after, $post_before) {
     // Check if the post type is 'properties'
     if ($post_after->post_type === 'properties') {
         // Check if this is a new property (not an update)
         if (empty($post_before->ID)) {
-            return true;
+            // A new property is added, echo a message
+            echo 'A new property was added with ID: ' . $post_ID;
         }
     }
-
-    return false;
 }
