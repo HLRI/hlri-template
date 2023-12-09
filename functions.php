@@ -28,6 +28,8 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
+// functions.php
+
 // Create custom table during plugin or theme activation
 function create_property_log_table() {
     global $wpdb;
@@ -57,6 +59,8 @@ function log_property_changes($post_ID, $post_after, $post_before) {
 
     // Check if the post type is 'properties'
     if ($post_after->post_type === 'properties') {
+        error_log('Log function triggered for property ID: ' . $post_ID);
+
         $log_data = array(
             'property_id' => $post_ID,
             'user_id' => get_current_user_id(),
