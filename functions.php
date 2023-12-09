@@ -47,7 +47,9 @@ function create_property_log_table() {
     ) $charset_collate;";
 
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-    dbDelta($sql);
+    $result = dbDelta($sql);
+
+    error_log('Table creation result: ' . print_r($result, true));
 }
 
 // Hook to create the table during plugin or theme activation
@@ -68,7 +70,11 @@ function log_property_changes($post_ID, $post_after, $post_before) {
         );
 
         // Insert the log data into the custom table
-        $wpdb->insert($wpdb->prefix . 'property_logs', $log_data);
+        $result = $wpdb->insert($wpdb->prefix . 'property_logs', $log_data);
+
+        error_log('Log insertion result: ' . print_r($result, true));
+        error_log('Last query: ' . $wpdb->last_query);
+        error_log('Last error: ' . $wpdb->last_error);
     }
 }
 
