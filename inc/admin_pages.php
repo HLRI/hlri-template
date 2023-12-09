@@ -11,7 +11,6 @@ function page_view_fast_update()
     global $title;
     include HLR_THEME_PATH . 'template-parts/admin-pages/fast-updates-properties.php';
 }
-
 // Create custom table during plugin or theme activation
 function create_property_log_table() {
     global $wpdb;
@@ -48,6 +47,9 @@ function log_property_changes($post_ID, $post_after, $post_before) {
             'modified_at' => current_time('mysql'),
             'added_at' => $post_before->post_date, // Date when the property was added
         );
+
+        // Debugging: Output log data to error log
+        error_log('Log Data: ' . print_r($log_data, true));
 
         // Insert the log data into the custom table
         $result = $wpdb->insert($wpdb->prefix . 'property_logs', $log_data);
