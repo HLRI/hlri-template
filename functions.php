@@ -30,15 +30,12 @@ include HLR_THEME_PATH . 'inc/caching.php';
 
 
 // Hook to check if a property is added and published
-add_action('publish_post', 'check_and_echo_property_added');
+add_action('transition_post_status', 'check_and_echo_property_added', 10, 3);
 
-function check_and_echo_property_added($post_ID) {
-    // Get the post object
-    $post = get_post($post_ID);
-
+function check_and_echo_property_added($new_status, $old_status, $post) {
     // Check if the post type is 'properties'
-    if ($post->post_type === 'properties') {
+    if ($post->post_type === 'properties' && $new_status === 'publish' && $old_status !== 'publish') {
         // Echo a message when a new property is added and published
-        echo 'A new property was added and published with ID: ' . $post_ID;
+        echo 'A new property was added and published with ID: ' . $post->ID;
     }
 }
