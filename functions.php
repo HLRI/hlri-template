@@ -29,26 +29,11 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
 function custom_log_post_changes678($post_id) {
-//    // Check if this is not an autosave
-//    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-//        return;
-//    }
-
-    // Check if the post type is 'post' or 'page' (you can customize this)
-//    if (!in_array(get_post_type($post_id), array('post', 'page','property','properties'))) {
-//        return;
-//    }
-
-    // Get the post title and status
     $post_title = get_the_title($post_id);
     $post_status = get_post_status($post_id);
-
-    // Prepare the log message
     $log_message = "Post '{$post_title}' (ID: {$post_id}) has been {$post_status}";
-
-    // Log the message to the error_log file
     error_log($log_message);
 }
 
 // Hook into the save_post action
-add_action('save_post', 'custom_log_post_changes678');
+add_action('save_post', 'custom_log_post_changes678',1);
