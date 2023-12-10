@@ -29,16 +29,16 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
 
-// Hook to check if a property is added
+// Hook to check if a property is added and published
 add_action('save_post', 'check_and_echo_property_added', 10, 3);
 
 function check_and_echo_property_added($post_ID, $post_after, $post_before) {
     // Check if the post type is 'properties'
     if ($post_after->post_type === 'properties') {
-        // Check if this is a new property (not an update)
-        if (empty($post_before->ID)) {
-            // A new property is added, echo a message
-            echo 'A new property was added with ID: ' . $post_ID;
+        // Check if this is a new property (not an update) and the post is published
+        if (empty($post_before->ID) && $post_after->post_status === 'publish') {
+            // A new property is added and published, echo a message
+            echo 'A new property was added and published with ID: ' . $post_ID;
         }
     }
 }
