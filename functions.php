@@ -39,7 +39,7 @@ function custom_log_post_changes($post_id) {
     $post_type = get_post_type($post_id);
 
     // Define the post types you want to log changes for
-    $supported_post_types = array('post', 'page', 'custom_post_type'); // Add your custom post types here
+    $supported_post_types = array('post', 'page', 'properties'); // Add your custom post types here
 
     // Check if the post type is supported
     if (!in_array($post_type, $supported_post_types)) {
