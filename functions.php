@@ -29,13 +29,27 @@ include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
 
-// Hook to check if a property is added and published
-add_action('transition_post_status', 'check_and_echo_property_added', 10, 3);
-
-function check_and_echo_property_added($new_status, $old_status, $post) {
-    // Check if the post type is 'properties'
-    if ($post->post_type === 'properties' && $new_status === 'publish' && $old_status !== 'publish') {
-        // Echo a message when a new property is added and published
-        echo 'A new property was added and published with ID: ' . $post->ID;
+function custom_log_post_changes($post_id) {
+    // Check if this is not an autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
     }
+
+    // Check if the post type is 'post' or 'page' (you can customize this)
+    if (!in_array(get_post_type($post_id), array('post', 'page'))) {
+        return;
+    }
+
+    // Get the post title and status
+    $post_title = get_the_title($post_id);
+    $post_status = get_post_status($post_id);
+
+    // Prepare the log message
+    $log_message = "Post '{$post_title}' (ID: {$post_id}) has been {$post_status}";
+
+    // Log the message to the error_log file
+    error_log($log_message);
 }
+
+// Hook into the save_post action
+add_action('save_post', 'custom_log_post_changes');
