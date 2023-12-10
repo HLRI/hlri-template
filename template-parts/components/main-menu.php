@@ -28,6 +28,7 @@
 
                     foreach ($menuitems as $parent) {
                         if (!empty($children)) {
+                            $menu_children=[];
                             foreach ($children as $child) {
                                 if ($child->menu_item_parent == $parent->ID) {
                                     $menu_children[] = $child;
