@@ -36,4 +36,10 @@ function custom_log_post_changes678($post_id) {
 }
 
 // Hook into the save_post action
-add_action('save_post', 'custom_log_post_changes678',1);
+add_action('wp_insert_post', 'custom_log_post_changes678',1);
+add_action('publish_post', 'custom_log_post_changes678',2);
+add_action('draft_post', 'custom_log_post_changes678',3);
+add_action('transition_post_status', 'custom_log_post_changes678',3);
+add_action('pre_post_update', 'custom_log_post_changes678',3);
+add_action('edit_post', 'custom_log_post_changes678',3);
+add_action('save_post_post', 'custom_log_post_changes678',3);
