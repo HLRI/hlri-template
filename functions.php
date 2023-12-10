@@ -28,21 +28,14 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
-
 function custom_log_post_changes($post_id) {
     // Check if this is not an autosave
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
 
-    // Get the post type
-    $post_type = get_post_type($post_id);
-
-    // Define the post types you want to log changes for
-    $supported_post_types = array('post', 'page', 'properties'); // Add your custom post types here
-
-    // Check if the post type is supported
-    if (!in_array($post_type, $supported_post_types)) {
+    // Check if the post type is 'post' or 'page' (you can customize this)
+    if (!in_array(get_post_type($post_id), array('post', 'page','property','properties'))) {
         return;
     }
 
