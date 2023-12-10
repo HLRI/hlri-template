@@ -28,26 +28,27 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
-function custom_log_post_changes($new_status, $old_status, $post) {
+function custom_log_post_changes678($post_id) {
 //    // Check if this is not an autosave
 //    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
 //        return;
 //    }
 
-    // Check if the post type is 'post', 'page', 'property', or 'properties'
-    if (!in_array($post->post_type, array('post', 'page', 'property', 'properties'))) {
-        return;
-    }
+    // Check if the post type is 'post' or 'page' (you can customize this)
+//    if (!in_array(get_post_type($post_id), array('post', 'page','property','properties'))) {
+//        return;
+//    }
 
-    // Get the post title
-    $post_title = get_the_title($post->ID);
+    // Get the post title and status
+    $post_title = get_the_title($post_id);
+    $post_status = get_post_status($post_id);
 
     // Prepare the log message
-    $log_message = "Post '{$post_title}' (ID: {$post->ID}) has transitioned from '{$old_status}' to '{$new_status}'";
+    $log_message = "Post '{$post_title}' (ID: {$post_id}) has been {$post_status}";
 
     // Log the message to the error_log file
     error_log($log_message);
 }
 
-// Hook into the transition_post_status action
-add_action('transition_post_status', 'custom_log_post_changes', 10, 3);
+// Hook into the save_post action
+add_action('save_post', 'custom_log_post_changes678');
