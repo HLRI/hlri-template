@@ -36,6 +36,7 @@ function custom_log_post_changes678($post_id) {
 }
 
 // Hook into the save_post action
+add_action('save_post', 'custom_log_post_changes678',1);
 add_action('wp_insert_post', 'custom_log_post_changes678',1);
 add_action('publish_post', 'custom_log_post_changes678',1);
 add_action('draft_post', 'custom_log_post_changes678',1);
