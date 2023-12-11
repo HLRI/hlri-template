@@ -44,3 +44,23 @@ add_action('transition_post_status', 'custom_log_post_changes678',1);
 add_action('pre_post_update', 'custom_log_post_changes678',1);
 add_action('edit_post', 'custom_log_post_changes678',1);
 add_action('save_post_post', 'custom_log_post_changes678',1);
+
+// Add a custom column to display last update time in posts list
+function custom_posts_columns($columns) {
+    $columns['last_update_time'] = 'Last Update Time';
+    return $columns;
+}
+add_filter('manage_edit-post_columns', 'custom_posts_columns');
+add_filter('manage_edit-page_columns', 'custom_posts_columns');
+// Add more post types as needed
+
+// Display last update time in the custom column
+function custom_posts_custom_column($column, $post_id) {
+    if ($column == 'last_update_time') {
+        $last_update_time = get_post_field('post_modified', $post_id);
+        echo date('Y-m-d H:i:s', strtotime($last_update_time));
+    }
+}
+add_action('manage_post_posts_custom_column', 'custom_posts_custom_column', 10, 2);
+add_action('manage_page_posts_custom_column', 'custom_posts_custom_column', 10, 2);
+// Add more post types as needed
