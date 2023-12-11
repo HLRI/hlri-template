@@ -50,16 +50,16 @@ add_action('save_post_post', 'custom_log_post_changes678',1);
 
 
 
-// Add custom columns to the property post type
-function custom_property_columns($columns) {
+// Add custom columns to the properties post type
+function custom_properties_columns($columns) {
     $columns['last_updated'] = 'Last Updated';
     $columns['updater_name'] = 'Updater Name';
     return $columns;
 }
-add_filter('manage_property_posts_columns', 'custom_property_columns');
+add_filter('manage_properties_posts_columns', 'custom_properties_columns');
 
 // Populate custom columns with data
-function custom_property_column_data($column, $post_id) {
+function custom_properties_column_data($column, $post_id) {
     switch ($column) {
         case 'last_updated':
             $last_updated = get_post_modified_time('F j, Y g:i a', false, $post_id, true);
@@ -73,4 +73,4 @@ function custom_property_column_data($column, $post_id) {
             break;
     }
 }
-add_action('manage_property_posts_custom_column', 'custom_property_column_data', 10, 2);
+add_action('manage_properties_posts_custom_column', 'custom_properties_column_data', 10, 2);
