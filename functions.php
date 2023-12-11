@@ -45,22 +45,32 @@ add_action('pre_post_update', 'custom_log_post_changes678',1);
 add_action('edit_post', 'custom_log_post_changes678',1);
 add_action('save_post_post', 'custom_log_post_changes678',1);
 
-// Add a custom column to display last update time in posts list
-function custom_posts_columns($columns) {
-    $columns['last_update_time'] = 'Last Update Time';
+
+
+
+
+
+// Add custom columns to the property post type
+function custom_property_columns($columns) {
+    $columns['last_updated'] = 'Last Updated';
+    $columns['updater_name'] = 'Updater Name';
     return $columns;
 }
-add_filter('manage_edit-post_columns', 'custom_posts_columns');
-add_filter('manage_edit-page_columns', 'custom_posts_columns');
-// Add more post types as needed
+add_filter('manage_property_posts_columns', 'custom_property_columns');
 
-// Display last update time in the custom column
-function custom_posts_custom_column($column, $post_id) {
-    if ($column == 'last_update_time') {
-        $last_update_time = get_post_field('post_modified', $post_id);
-        echo date('Y-m-d H:i:s', strtotime($last_update_time));
+// Populate custom columns with data
+function custom_property_column_data($column, $post_id) {
+    switch ($column) {
+        case 'last_updated':
+            $last_updated = get_post_modified_time('F j, Y g:i a', false, $post_id, true);
+            echo $last_updated;
+            break;
+
+        case 'updater_name':
+            $updater_id = get_post_meta($post_id, '_edit_last', true);
+            $updater = get_userdata($updater_id);
+            echo $updater ? $updater->display_name : '';
+            break;
     }
 }
-add_action('manage_post_posts_custom_column', 'custom_posts_custom_column', 10, 2);
-add_action('manage_page_posts_custom_column', 'custom_posts_custom_column', 10, 2);
-// Add more post types as needed
+add_action('manage_property_posts_custom_column', 'custom_property_column_data', 10, 2);
