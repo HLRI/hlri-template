@@ -97,7 +97,9 @@ textarea::placeholder {
     --icon-color-sidebar: #adb4d7;
     --color-text-sidebar: rgb(125, 125, 125);
     --modal-footer-bt: #e5e5e5;
-    --bg-color: #1d2021;
+
+    --bg-main: #7c6f64;
+    --bg-second: #1d2021;
 }
 
 ::selection {
@@ -124,7 +126,7 @@ li {
 }
 
 body {
-    background: var(--bg-color) ;
+    background: var(--bg-second) ;
 }
 
 body * {
@@ -3199,4 +3201,62 @@ a.item-list-tag {
 .content-profile.content-original li {
     list-style: circle;
     margin-left: 50px;
+}
+
+
+
+/* ############# agents archive page ##############*/
+
+.agents .agents-header{
+    width:100%;
+    height:350px;
+    padding-top:3rem;
+    position:relative;
+    margin-bottom:-220px;
+    border-radius: 0 0 500% 500%;
+    border: 1px solid var(--main-color);
+    border-top:0;
+    transition: .3s;
+}
+
+.agents .agents-header .agents-header-title{
+    z-index:2;
+}
+.agents .agents-header .agents-header-title h2{
+    font-size: 38px;
+}
+
+.agents .agents-header::before{
+    position: absolute;
+    content: "";
+    width:95%;
+    height:80%;
+    top:0;
+    right:2.5%;
+    z-index: -1;
+    border-radius: 0 0 500% 500%;
+    background-color: var(--bg-main);
+}
+.agents .agents-header::after{
+    position: absolute;
+    content: "";
+    width:99%;
+    height:85%;
+    top:0;
+    right:.5%;
+    z-index: -2;
+    border-radius: 0 0 500% 500%;
+    border: 1px solid var(--main-color);
+    border-top:0;
+}
+
+
+@media (max-width: 768px) {
+    .agents .agents-header{
+        margin-bottom:-200px;
+    }
+    .agents .agents-header .agents-header-title h2{
+        font-size: 30px;
+        line-height: 36px;
+    }
 }
