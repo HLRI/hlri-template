@@ -95,7 +95,7 @@ textarea::placeholder {
   --icon-color-sidebar: #adb4d7;
   --color-text-sidebar: rgb(125, 125, 125);
   --modal-footer-bt: #e5e5e5;
-
+  --body-color: #f6f6f6;
   --bg-second: #f8f7ff;
   --bg-main:#f6f6f6;
 
@@ -125,7 +125,7 @@ li {
 }
 
 body {
-  background: var(--bg-second);
+  background: var(--body-color);
 }
 
 body * {
@@ -3441,3 +3441,7 @@ a.item-list-tag {
   background-size: cover;
   border-radius:var(--border-main)
 }
+
+
+/* ################ End About Page  ##############*/
+

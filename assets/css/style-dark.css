@@ -97,9 +97,9 @@ textarea::placeholder {
     --icon-color-sidebar: #adb4d7;
     --color-text-sidebar: rgb(125, 125, 125);
     --modal-footer-bt: #e5e5e5;
-
+    --body-color:#1d2021;
     --bg-main: #7c6f64;
-    --bg-second: #1d2021;
+    --bg-second: #282828;
 }
 
 ::selection {
@@ -126,13 +126,28 @@ li {
 }
 
 body {
-    background: var(--bg-second) ;
+    background: var(--body-color) ;
 }
 
 body * {
     margin: 0;
     padding: 0;
 }
+
+
+
+/* ############ BASE Classes ############### */
+
+.bg-background{
+    background: var(--second-color);
+}
+
+.bg-foreground{
+    background: var(--bg-main);
+}
+
+/* ############ END BASE Classes ############### */
+
 
 
 .owl-theme .owl-nav button {
@@ -3205,28 +3220,29 @@ a.item-list-tag {
 
 
 
-/* ############# agents archive page ##############*/
 
-.agents .agents-header{
+/* ############# Page Header page ##############*/
+
+.page-header{
     width:100%;
     height:350px;
     padding-top:3rem;
     position:relative;
-    margin-bottom:-220px;
+    margin-bottom: -190px;
     border-radius: 0 0 500% 500%;
     border: 1px solid var(--main-color);
     border-top:0;
     transition: .3s;
 }
 
-.agents .agents-header .agents-header-title{
+.page-header .page-header-title{
     z-index:2;
 }
-.agents .agents-header .agents-header-title h2{
+.page-header .page-header-title h2{
     font-size: 38px;
 }
 
-.agents .agents-header::before{
+.page-header .page-header-title::before{
     position: absolute;
     content: "";
     width:95%;
@@ -3237,7 +3253,8 @@ a.item-list-tag {
     border-radius: 0 0 500% 500%;
     background-color: var(--bg-main);
 }
-.agents .agents-header::after{
+
+.page-header .page-header-title::after{
     position: absolute;
     content: "";
     width:99%;
@@ -3250,13 +3267,110 @@ a.item-list-tag {
     border-top:0;
 }
 
-
 @media (max-width: 768px) {
-    .agents .agents-header{
+    .page-header{
         margin-bottom:-200px;
     }
-    .agents .agents-header .agents-header-title h2{
+
+    .page-header .page-header-title h2{
         font-size: 30px;
         line-height: 36px;
     }
+}
+/* #############  END Page Header page ##############*/
+
+
+/* ############ About page  ################ */
+
+
+.about .about-content .about-section {
+    z-index:3;
+    margin-top:20px;
+    min-height: 420px;
+    background-color: var(--bg-second);
+    padding: 10px;
+    border-radius: var(--border-main);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* top section */
+.about-section-overview {
+    display: flex;
+}
+
+.about-section-overview-left {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section-overview-image {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.about-section-overview-image img {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    position: relative;
+    border-radius: var(--border-main);
+}
+
+.about-section-overview-image::before {
+    content: "";
+    position: absolute;
+    background-color: var(--bg-main);
+    border-radius: var(--border-main);
+    z-index: -1;
+    top: 5%;
+    left: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+.about-section-overview-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.about-section-overview-right h3 {
+    font-size: 23px;
+}
+
+.about-section-overview-right p {
+    font-size: 13px;
+}
+
+/* middle section */
+.about-section.about-section--middle {
+    min-height: 250px;
+    display: flex;
+    gap:10px;
+}
+
+.about-section__left {
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: var(--border-main);
+    padding: 20px;
+    background-color: var(--bg-main);
+}
+
+.about-section__right {
+    content:" ";
+    width: 50%;
+    background-image: url("https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D");
+    background-position: center ;
+    background-size: cover;
+    border-radius:var(--border-main)
 }
