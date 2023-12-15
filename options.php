@@ -475,6 +475,54 @@ if (class_exists('CSF')) {
 	));
 
 	// End Contact Us Page Setting
+	
+	// Start About Us Page Setting
+
+		CSF::createSection($prefix, array(
+		'id'			=>	'about-us',
+		'title'			=>	'About Us Setting',
+		'fields'	=>	array(
+		array(
+			'type'    => 'heading',
+			'content' => 'Section One',
+		),
+		array(
+			'id'      => 'opt-about-title',
+			'type'  => 'text',
+			'title'   => 'Title',
+		),
+		array(
+			'id'      => 'opt-about-section-one-description',
+			'type'  => 'textarea',
+			'title'   => 'Description',
+		),
+		array(
+			'id'      => 'opt-about-section-one-image',
+			'type'  => 'upload',
+			'title'   => 'banner',
+		),
+		array(
+			'type'    => 'heading',
+			'content' => 'Section Two',
+		),
+		array(
+			'id'      => 'opt-about-section-two-title',
+			'type'  => 'text',
+			'title'   => 'Title',
+		),
+		array(
+			'id'      => 'opt-about-section-two-description',
+			'type'  => 'textarea',
+			'title'   => 'Description',
+		),
+		array(
+			'id'      => 'opt-about-section-two-image',
+			'type'  => 'upload',
+			'title'   => 'banner',
+		),
+	)
+	));
+
 
 	CSF::createSection($prefix, array(
 		'id'			=>	'popup',
