@@ -251,6 +251,8 @@ if (class_exists('CSF')) {
 		)
 	));
 
+	// Start Home Setting Section
+
 	CSF::createSection($prefix, array(
 		'id'			=>	'home',
 		'title'			=>	'Home Settings',
@@ -397,6 +399,82 @@ if (class_exists('CSF')) {
 			),
 		)
 	));
+
+	//  End Home setting
+
+	// Start Contact Us Page Setting
+
+	CSF::createSection($prefix, array(
+		'id'			=>	'contact_us',
+		'title'			=>	'Contact Us Setting',
+		'fields'	=>	array(
+		array(
+			'id'      => 'opt-contact-title',
+			'type'  => 'text',
+			'title'   => 'Title',
+		),
+		array(
+			'id'      => 'opt-contact-subtitle',
+			'type'  => 'text',
+			'title'   => 'Subtitle',
+		),
+		array(
+			'id'      => 'opt-contact-description',
+			'type'  => 'textarea',
+			'title'   => 'description',
+		),
+		array(
+			'id'     => 'opt-contact-social',
+			'type'   => 'repeater',
+			'title'  => 'social',
+			'fields' => array(
+					array(
+						'id'    	=>	'opt-contact-social-icon',
+						'type'  	=>	'icon',
+						'title'		=>	'icon',
+					),
+					array(
+						'id'    	=>	'opt-contact-social-title',
+						'type'  	=>	'text',
+						'title'		=>	'Title',
+					),
+					array(
+						'id'    	=>	'opt-contact-social-link',
+						'type'  	=>	'link',
+						'title'		=>	'Link',
+					),
+			),
+		),
+		array(
+			'id'     => 'opt-contact-contacts',
+			'type'   => 'repeater',
+			'title'  => 'contacts',
+			'max' => 3,
+			'fields' => array(
+					array(
+						'id'    	=>	'opt-contact-icon',
+						'type'  	=>	'icon',
+						'title'		=>	'icon',
+					),
+					array(
+						'id'    	=>	'opt-contact-title',
+						'type'  	=>	'text',
+						'title'		=>	'Title',
+					),
+					array(
+						'id'    	=>	'opt-contact-link',
+						'type'  	=>	'link',
+						'title'		=>	'Link',
+					),
+			),
+		),
+
+
+
+	)
+	));
+
+	// End Contact Us Page Setting
 
 	CSF::createSection($prefix, array(
 		'id'			=>	'popup',

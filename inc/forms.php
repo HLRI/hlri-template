@@ -116,3 +116,89 @@ function hlr_contact_form()
 <?php
     }
 }
+?>
+
+
+<?php
+
+//  Contact Us From
+add_shortcode('hrl_contact_us_form', 'hlr_contact_us_form');
+function hlr_contact_us_form()
+{
+?>
+    <div class="container">
+        <div class="row gap-2 mx-auto mt-4 flex-column flex-md-row justify-content-between w-100">
+            <div class="col-md-4 my-2">
+                <label for="fname">First Name</label>
+                <input class="form-control" type="text" name="fname" id="fname">
+            </div>
+            <div class="col-md-4 my-2">
+                <label for="lname">Last Name</label>
+                <input class="form-control" type="text" name="lname" id="lname">
+            </div>
+            <div class="col-md-4 my-2">
+                <label for="email">Email</label>
+                <input class="form-control" type="text" name="email" id="email">
+            </div>
+            <div class="col-md-12 my-2">
+                <label for="message">Message</label>
+                <textarea class="form-control" name="message" id="message" rows="5"></textarea>
+            </div>
+
+            <div class="col-md-4 my-2">
+                <a id="send" class="btn-block top-section-button">
+                    Send
+                </a>
+            </div>
+
+            <div class="col-12 my-2 d-none success-message">
+                <small class="text-success"></small>
+            </div>
+        </div>
+    </div>
+
+
+    <?php
+
+    add_action('wp_footer', 'contact_us_form_scripts');
+    function contact_us_form_scripts()
+    {
+    ?>
+        <script>
+           
+            jQuery('#send').click(function() {
+
+                jQuery('#send').html('<span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span> <span class="sr-only">Processing...</span>');
+                jQuery('.input-error').remove();
+                jQuery('.input-error').remove();
+                jQuery('.success-message').addClass('d-none');
+                jQuery('.success-message small').text('');
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: '<?= home_url('/') ?>api/v1/get-form',
+                    dataType: "json",
+                    data: {
+                        'fname': jQuery('input[name="fname"]').val(),
+                        'lname': jQuery('input[name="lname"]').val(),
+                        'email': jQuery('input[name="email"]').val(),
+                        'email': jQuery('input[name="message"]').val(),
+                    },
+                    success: function(response) {
+                        if (response.status == 'errors') {
+                            jQuery('#send').html('Send');
+                            jQuery.each(response.data, function(index, error) {
+                                jQuery('#' + index).after('<small class="text-danger input-error">' + error + '</small>');
+                            });
+                        } else if (response.status == 'success') {
+                            jQuery('#send').html('Send');
+                            jQuery('.success-message').removeClass('d-none');
+                            jQuery('.success-message small').text(response.data);
+                        }
+                    }
+                });
+            });
+        </script>
+<?php
+    }
+}
