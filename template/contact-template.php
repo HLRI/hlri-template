@@ -5,9 +5,15 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
     <div class="container-fluid ">
               <?php
+                // I'm assuming $theme_options is already populated somewhere earlier in your code.
+                if (!empty($theme_options['opt-contact-title'])) {
+                    $page_title = $theme_options['opt-contact-title'];
+                } else {
+                    $page_title = 'Home Leader Realty Inc.'; // Default value
+                }
                 // Override the global define for a specific page
                 define('CUSTOM_PAGE_HEADER', [
-                    'title' => 'Home Leader Realty Inc.',
+                    'title' => $page_title,
                     'subtitle' => 'Contact US',
                 ]);
 

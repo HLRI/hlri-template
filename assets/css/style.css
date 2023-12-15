@@ -3339,7 +3339,7 @@ a.item-list-tag {
   right: 2.5%;
   z-index: -1;
   border-radius: 0 0 500% 500%;
-  background-color: var(--bg-main);
+  background-color: var(--bg-second);
 }
 
 .page-header .page-header-title::after {
