@@ -28,3 +28,49 @@ include HLR_THEME_PATH . 'inc/visit_history.php';
 include HLR_THEME_PATH . 'inc/admin_pages.php';
 include HLR_THEME_PATH . 'inc/caching.php';
 
+function custom_log_post_changes678($post_id) {
+    $post_title = get_the_title($post_id);
+    $post_status = get_post_status($post_id);
+    $log_message = "Post '{$post_title}' (ID: {$post_id}) has been {$post_status}";
+    error_log($log_message);
+}
+
+// Hook into the save_post action
+add_action('save_post', 'custom_log_post_changes678',1);
+add_action('wp_insert_post', 'custom_log_post_changes678',1);
+add_action('publish_post', 'custom_log_post_changes678',1);
+add_action('draft_post', 'custom_log_post_changes678',1);
+add_action('transition_post_status', 'custom_log_post_changes678',1);
+add_action('pre_post_update', 'custom_log_post_changes678',1);
+add_action('edit_post', 'custom_log_post_changes678',1);
+add_action('save_post_post', 'custom_log_post_changes678',1);
+
+
+
+
+
+
+// Add custom columns to the properties post type
+function custom_properties_columns($columns) {
+    $columns['last_updated'] = 'Last Updated';
+    $columns['updater_name'] = 'Updater Name';
+    return $columns;
+}
+add_filter('manage_properties_posts_columns', 'custom_properties_columns');
+
+// Populate custom columns with data
+function custom_properties_column_data($column, $post_id) {
+    switch ($column) {
+        case 'last_updated':
+            $last_updated = get_post_modified_time('F j, Y g:i a', false, $post_id, true);
+            echo $last_updated;
+            break;
+
+        case 'updater_name':
+            $updater_id = get_post_meta($post_id, '_edit_last', true);
+            $updater = get_userdata($updater_id);
+            echo $updater ? $updater->display_name : '';
+            break;
+    }
+}
+add_action('manage_properties_posts_custom_column', 'custom_properties_column_data', 10, 2);
