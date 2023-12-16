@@ -16,9 +16,7 @@ if ($profiles->have_posts()) : ?>
     <div class="container-fluid px-5 mt-10">
         <div class="row">
             <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-2" >
                   <?php include(HLR_THEME_COMPONENT . 'agents/card.php'); ?>
-                </div>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
 
