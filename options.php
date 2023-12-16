@@ -751,9 +751,28 @@ if (class_exists('CSF')) {
 		)
 	);
 
-	$prefix = 'hlr_framework_properties-floorplan';
+    $prefix = 'hlr_framework_properties-floorplan';
+    CSF::createMetabox($prefix, array(
+        'title'     =>	'FloorPlan',
+        'post_type' =>	'properties',
+        'context'   => 'side'
+    ));
+
+    CSF::createSection(
+        $prefix,
+        array(
+            'fields'	=>	array(
+                array(
+                    'id'    => 'opt-gallery-properties-floorplan',
+                    'type'  => 'gallery',
+                ),
+            )
+        )
+    );
+
+	$prefix = 'hlr_framework_properties-logo';
 	CSF::createMetabox($prefix, array(
-		'title'     =>	'FloorPlan',
+		'title'     =>	'Property Logo',
 		'post_type' =>	'properties',
 		'context'   => 'side'
 	));
@@ -763,8 +782,10 @@ if (class_exists('CSF')) {
 		array(
 			'fields'	=>	array(
 				array(
-					'id'    => 'opt-gallery-properties-floorplan',
-					'type'  => 'gallery',
+					'id'    => 'opt-gallery-properties-logo',
+                    'type'    => 'media',
+                    'title'   => 'Logo',
+                    'library' => 'image',
 				),
 			)
 		)

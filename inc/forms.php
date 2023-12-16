@@ -1,5 +1,7 @@
 <?php
 
+
+// Property registration form
 add_shortcode('hlr-contact-form', 'hlr_contact_form');
 function hlr_contact_form()
 {
