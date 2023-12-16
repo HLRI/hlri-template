@@ -2,7 +2,7 @@
 
 <?php get_header(); ?>
 <?php $theme_options = get_option('hlr_framework'); ?>
-    <div class="about container-fluid ">
+    <div class="about">
               <?php
                if (!empty($theme_options['opt-about-title'])) {
                     $page_title = $theme_options['opt-about-title'];
@@ -30,16 +30,16 @@
                             <div class="about-section-overview-right " >
                                 <h3>
                                     <?php 
-                                    if (!empty($theme_options['opt-about-title'])) {
-                                        echo $theme_options['opt-about-title'];
-                                    }
+                                        if (!empty($theme_options['opt-about-title'])) {
+                                            echo $theme_options['opt-about-title'];
+                                        }
                                     ?>
                                 </h3>
                                 <p>
                                     <?php
-                                    if (!empty($theme_options['opt-about-section-one-description'])) {
-                                        echo $theme_options['opt-about-section-one-description'];
-                                    }
+                                        if (!empty($theme_options['opt-about-section-one-description'])) {
+                                            echo $theme_options['opt-about-section-one-description'];
+                                        }
                                     ?>
                                 </p>
                             </div>
@@ -50,9 +50,9 @@
                             <div class="about-section__left">
                                 <h3 class="about-section__title">
                                      <?php 
-                                    if (!empty($theme_options['opt-about-section-two-title'])) {
-                                        echo $theme_options['opt-about-section-two-title'];
-                                    }
+                                        if (!empty($theme_options['opt-about-section-two-title'])) {
+                                            echo $theme_options['opt-about-section-two-title'];
+                                        }
                                     ?>
                                 </h3>
                                 <p class="about-section__description">

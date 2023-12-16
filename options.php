@@ -251,6 +251,23 @@ if (class_exists('CSF')) {
 		)
 	));
 
+	// Page Header Setting 
+	CSF::createSection($prefix, array(
+		'id'			=>	'page_header',
+		'title'			=>	'Page Header Setting',
+		'fields'	=>	array(
+		array(
+			'id'      => 'opt-page-header-background',
+			'type'  => 'upload',
+			'title'   => 'banner',
+			'subtitle' => 'banner background for page header',
+			'help' => ' this is default background for show in wide size'
+		),
+	)
+	));
+
+	// End Page Header Setting
+
 	// Start Home Setting Section
 
 	CSF::createSection($prefix, array(

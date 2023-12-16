@@ -3,7 +3,7 @@
 <?php get_header(); ?>
 
 <?php $theme_options = get_option('hlr_framework'); ?>
-    <div class="container-fluid ">
+    <div class="w-100">
               <?php
                 // I'm assuming $theme_options is already populated somewhere earlier in your code.
                 if (!empty($theme_options['opt-contact-title'])) {
