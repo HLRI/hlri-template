@@ -18,27 +18,39 @@ $arg = [
 ];
 
 $profiles = new WP_Query($arg);
+?>
+<div class="w-100" >
+        <?php
 
-if ($profiles->have_posts()) : ?>
-    <div class="container-fluid px-5 my-5">
-        <div class="row">
-            <div class="col-12 px-2">
-                <div class="titr-list ml-0 mb-2">
-                    <h1 class="font-weight-bold">All <?= strtoupper($term->name) . 'S' ?></h1>
-                </div>
+        if ($profiles->have_posts()) :
+
+            // Assuming $term is defined earlier in your code and is an object
+            if (!empty($term) && !empty($term->name)) {
+                $page_title = 'All ' . strtoupper($term->name) . 'S';
+            } else {
+                $page_title = 'Home Leader Realty Inc.'; // Default value
+            }
+
+            // Override the global define for a specific page
+            define('CUSTOM_PAGE_HEADER', [
+                'title' => $page_title,
+                'subtitle' => 'Agents',
+            ]);
+
+            // Include the custom-page-header.php file
+            include(HLR_THEME_COMPONENT . 'custom-page-header.php');?>
+
+   
+        <div class="container px-5 mb-5">
+            <div class="row">
+                <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
+                    <?php include(HLR_THEME_COMPONENT . 'agents/card.php'); ?>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
-            <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
-                <div class="col-6 col-sm-4 col-md-4 col-lg-2 px-2">
-                    <div class="card-teams">
-                        <div class="job-position"><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></div>
-                        <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
-                        <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>"><?php the_title() ?></a>
-                    </div>
-                </div>
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-
         </div>
-    </div>
-<?php endif; ?>
+    <?php endif; ?>
+
+</div>
+
 <?php get_footer(); ?>
