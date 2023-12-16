@@ -1,6 +1,7 @@
 <?php
     $title = CUSTOM_PAGE_HEADER['title'] ;
     $subtitle = CUSTOM_PAGE_HEADER['subtitle'] ;
+    $theme_options = get_option('hlr_framework');
 ?>
     <div class="page-header" 
     style="background-image: url('<?= !empty($theme_options['opt-page-header-background']) ? $theme_options['opt-page-header-background'] : ""  ?>');" 

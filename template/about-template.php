@@ -21,13 +21,13 @@
 
             <div class="container pb-4">
                  <div class="about-content d-flex flex-column gap-2">
-                        <div class=" about-section about-section-overview">
-                            <div class="about-section-overview-left" >
+                        <div class="about-section about-section-overview d-flex flex-column flex-md-row align-items-stretch">
+                            <div class="about-section-overview-left w-100" >
                                  <div class="about-section-overview-image">
                                       <img src="<?= !empty($theme_options['opt-about-section-one-image']) ? $theme_options['opt-about-section-one-image'] : ""  ?>" alt="overview-image" />
                                  </div>
                             </div>
-                            <div class="about-section-overview-right " >
+                            <div class="about-section-overview-right w-100 mt-3 mt-md-0 " >
                                 <h3>
                                     <?php 
                                         if (!empty($theme_options['opt-about-title'])) {
@@ -46,7 +46,7 @@
                         </div>
 
                         <!-- middle section -->
-                        <div class="about-section about-section--middle">
+                        <div class="about-section about-section--middle d-flex flex-column-reverse flex-md-row">
                             <div class="about-section__left">
                                 <h3 class="about-section__title">
                                      <?php 
@@ -63,7 +63,7 @@
                                     ?>
                             </p>
                             </div>
-                            <div class="about-section__right"
+                            <div class="about-section__right "
                             style="background-image: url('<?= !empty($theme_options['opt-about-section-two-image']) ? $theme_options['opt-about-section-two-image'] : ""  ?>');"
                              ></div>
                         </div>

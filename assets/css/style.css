@@ -3428,7 +3428,7 @@ a.item-list-tag {
 }
 
 .about-section__left {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3448,7 +3448,8 @@ a.item-list-tag {
 }
 .about-section__right {
   content: " ";
-  width: 50%;
+  width: 100%;
+  min-height: 300px;
   /* background-image: url("https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D"); */
   background-position: center;
   background-size: cover;
