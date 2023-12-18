@@ -509,3 +509,22 @@ function add_search_input_to_meta_boxes()
 //    add_search_input_to_meta_box('typechecklist');
     add_search_input_to_meta_box('neighborhoodchecklist');
 }
+
+
+
+add_filter('post_thumbnail_html', 'default_post_image', 10, 5);
+
+function default_post_image($html, $post_id, $post_thumbnail_id, $size, $attr){
+    
+    if ($post_thumbnail_id) {
+        return $html;
+    }
+
+    // Set the default image URL
+    $default_image_url = HLR_THEME_ASSETS . 'images/posts-default-img.png';
+
+    // Create an HTML img tag with the default image URL
+    $html = '<img src="' . esc_url($default_image_url) . '" alt="Default Image" />';
+    
+    return $html;
+}
