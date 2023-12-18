@@ -473,6 +473,8 @@ body * {
   font-size: 1.5rem;
 }
 
+/*  agent card teams */
+
 .card-teams {
   display: flex;
   flex-direction: column;
@@ -550,6 +552,10 @@ body * {
   color: white;
   font-weight: normal;
   position: relative;
+  transition: 0.3s;
+}
+.card-teams:hover .card-teams-title {
+  color: var(--main-color);
 }
 
 .card-teams .card-teams-staff {
@@ -571,6 +577,7 @@ body * {
 .card-teams .card-teams-staff {
   padding-left: 40px;
 }
+
 .card-teams .card-teams-title::before,
 .card-teams .card-teams-staff::before {
   content: "";
@@ -587,6 +594,9 @@ body * {
 .card-teams .card-teams-staff::before {
   width: 40px;
 }
+
+/*  End Agent card teams  */
+
 .text-black {
   color: black;
 }
@@ -1228,7 +1238,7 @@ a.icon-search:hover {
 h1.slider-title {
   font-size: 2rem;
 }
-
+/*  Single Agents Style */
 .job-position {
   position: absolute;
   background: #ccc;
@@ -1236,7 +1246,6 @@ h1.slider-title {
   border-radius: 4px;
 }
 
-/*  Single Agents Style */
 .job-position {
   color: rgb(255, 123, 0);
   position: absolute;

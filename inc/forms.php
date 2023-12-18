@@ -1,5 +1,5 @@
 <?php
-
+// Properties Form
 add_shortcode('hlr-contact-form', 'hlr_contact_form');
 function hlr_contact_form()
 {
@@ -116,10 +116,6 @@ function hlr_contact_form()
 <?php
     }
 }
-?>
-
-
-<?php
 
 //  Contact Us From
 add_shortcode('hrl_contact_us_form', 'hlr_contact_us_form');
@@ -202,10 +198,6 @@ function hlr_contact_us_form()
 <?php
     }
 }
-?>
-
-
-<?php
 
 //  Contact Me From
 add_shortcode('hrl_contact_me_form', 'hlr_contact_me_form');

@@ -1253,6 +1253,8 @@ h1.slider-title {
   font-size: 2rem;
 }
 
+/*  Single Agents Style */
+
 .job-position {
   position: absolute;
   background: #ccc;
@@ -1278,10 +1280,11 @@ h1.slider-title {
 }
 
 .card-profile-image {
-  border-radius: 8px;
   width: 100%;
-  background: #32302f;
+  background: white;
   padding: 1rem;
+  overflow: hidden;
+  border-radius: var(--border-main);
 }
 
 .card-profile-image img {
@@ -1292,38 +1295,53 @@ h1.slider-title {
 }
 
 .card-profile-details {
-  padding: 1rem 2rem;
-  margin-left: 1.5rem;
+  /* padding: 1rem 2rem; */
+  /* margin-left: 1.5rem; */
 }
 
 .content-profile {
   padding: 1rem;
-  background: #32302f;
-  border-left: 4px solid #e28e5c;
-  margin-top: 1rem;
+  /* background: white; */
+  border-left: 4px solid #ffad00;
+  margin-top: 1.5rem;
 }
-
+.card-profile-details .card-profile-details-job-position {
+  width: fit-content;
+  background-color: var(--body-color);
+  color: var(--modal-footer-bt);
+  padding: 3px 10px;
+  border-radius: var(--border-main);
+}
 .card-profile-details .job {
   margin-left: 10px;
-  color: #7c6f64;
+  color: #ccc;
 }
-
-.card-profile-details div h1 {
-  color: #b19f91;
+.card-profile-details .job a {
+  padding: 2px 10px;
+  border-radius: 10px;
 }
-
-.card-profile-details span b {
-  color: #504945;
+.card-profile-details a {
+  transition: 0.3s;
 }
-
 .content-info {
-  display: block;
-  padding: 0.5rem;
-  background: #32302f;
-  color: #7c6f64;
-  border-left: 4px solid #e28e5c;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 0;
+  color: #888;
   margin-bottom: 0.5rem;
   font-size: 14px;
+}
+
+.content-info div {
+  background-color: var(--body-color);
+  /* padding: 7px 0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 500px;
 }
 
 .icon-profile {
