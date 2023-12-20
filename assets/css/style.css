@@ -2590,6 +2590,7 @@ a.google-login {
   z-index: 999;
   height: fit-content;
   max-height: 200px;
+  border-radius: var(--border-main);
   overflow-y: scroll;
   padding: 10px;
   background: #f8f7ff;
