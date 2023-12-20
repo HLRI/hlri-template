@@ -13,10 +13,25 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
         } else {
             $page_title = 'Home Leader Realty Inc.'; // Default value
         }
+       $terms = get_the_terms(get_the_ID(), 'staff');
+
+        if (!empty($terms) && !is_wp_error($terms)) {
+            // Extract the term names from the terms array.
+            $term_names = wp_list_pluck($terms, 'name');
+            
+            // Join all term names with ' / ' as a separator.
+            $term_names_list = join(' / ', $term_names);
+            
+            // Append the term list to the subtitle.
+            $page_subtitle = "Real Estate " . $term_names_list . " at Home Leader Realty Inc";
+        } else {
+            $page_subtitle = 'Home Leader Realty Inc.'; // Default value
+        }
+        
         // Override the global define for a specific page
         define('CUSTOM_PAGE_HEADER', [
             'title' => $page_title,
-            'subtitle' => 'Agents',
+            'subtitle' => $page_subtitle,
         ]);
 
         // Include the custom-page-header.php file
@@ -33,7 +48,8 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                     <!-- Detail -->
                     <div class="col-md-8 col-lg-8 ">
                         <div class="card-profile-details px-3 px-md-0">
-                            <h1 class="mb-1"><?php the_title() ?></h1>
+                            <h1 class=""><?php the_title() ?></h1>
+                             <div class="inc-profile w-100 text-left mb-1">HOME LEADER REALTY INC</div>
                             <div class="card-profile-details-job-position"><b>Job Position : </b><span class="job"><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></span></div>
                             <div class="d-flex flex-column gap-1 mt-4">
                                 <?php if (!empty($info)) : ?>
@@ -54,19 +70,23 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                                     <?php endif; ?>
                                 <?php endif; ?>
                             </div>
-                            <div class="inc-profile w-100 text-left">HOME LEADER REALTY INC</div>
                         </div>
                     </div>
 
                     <!-- End Detail -->
                 </div>
                 <!-- About me  -->
+                <?php
+                    $excerpt = get_the_excerpt();
+                     if (!empty($excerpt)) {
+                ?>
                 <div class="container d-flex flex-column" >
                     <h3>About me</h3>              
                     <p>
-                        <?php the_excerpt() ?>
+                        <?php the_excerpt(); ?>
                     </p>
                 </div>
+                <?php }?>
                 <!-- end About me  -->
         </div>
         <div class="card mt-4 mb-4">
