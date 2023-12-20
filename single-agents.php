@@ -89,7 +89,7 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                 <?php }?>
                 <!-- end About me  -->
         </div>
-        <div class="card mt-4 mb-4">
+        <div class="card mt-4 pb-3 mb-4">
             <h4 class="pt-2 px-4" >Contact Me</h4>
             <?php echo do_shortcode('[hrl_contact_me_form]'); ?>
         </div>

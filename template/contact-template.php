@@ -98,7 +98,8 @@
                     </div>
                 </div>
 
-                <div class="card mt-4 mb-4">
+                <div class="card mt-4 pb-3 mb-4">
+                    <h4 class="pt-2 px-4" >Contact Us</h4>
                       <?php echo do_shortcode('[hrl_contact_us_form]'); ?>
                 </div>
 
