@@ -139,10 +139,6 @@ body * {
   background: var(--bg-main);
 }
 
-.container-lg {
-  max-width: 1600px;
-}
-
 /* ############ END BASE Classes ############### */
 
 .owl-theme .owl-nav button {
@@ -375,21 +371,23 @@ body * {
 
 .card-listing {
   position: relative;
-  height: 100%;
-  border: none;
-  font-size: 13px;
-  background-color: transparent;
-  max-width: 525px;
-  transition: 0.3s ease-out;
-  float: left;
-  margin-bottom: 2em;
-  padding-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 185px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+  padding: 4px calc(100vw / 30) 4px 4px;
+  /* box-shadow: rgb(161 161 161 / 10%) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
+  box-shadow: 0px 1px 1px 0px #f3f3f3;
+  border: 1px solid #f0f0f0bc;
 }
 
 .card-listing-image {
-  height: 100%;
-  max-height: 230px;
-  width: 100%;
+  height: 162px;
+  width: 162px;
   margin-left: 4px;
   border-radius: 8px;
   overflow: hidden;
@@ -400,10 +398,6 @@ body * {
   /*     border-radius: 4px; */
   height: 100%;
   width: 100%;
-  transition: 0.4s;
-}
-.card-listing:hover .card-listing-image a img {
-  transform: scale(1.1);
 }
 
 .card-listing-content {
@@ -1755,7 +1749,6 @@ h1.slider-title {
   padding: 2px 8px;
   border-radius: 8px;
   display: flex;
-  box-shadow: -10px -5px 10px -5px var(--icon-color-sidebar);
 }
 
 .card-share {
@@ -2568,9 +2561,9 @@ a.google-login {
 }
 
 .more-v2 {
-  right: -64px;
+  right: -68px;
   top: 43%;
-  width: 140px;
+  width: 182px;
 }
 
 .ads-banner {
@@ -3604,5 +3597,3 @@ a.item-list-tag {
     margin-top: 10px;
   }
 }
-
-/* Blog  */

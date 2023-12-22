@@ -142,10 +142,6 @@ body * {
   background: var(--bg-main);
 }
 
-.container-lg {
-  max-width: 1600px;
-}
-
 /* ############ END BASE Classes ############### */
 
 .owl-theme .owl-nav button {
