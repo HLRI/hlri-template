@@ -4,7 +4,7 @@
 $arg = [
     'post_type' => 'agents',
     'post_status' => 'publish',
-    'posts_per_page' => 12
+    'posts_per_page' => 4
 ];
 
 $profiles = new WP_Query($arg);
@@ -24,11 +24,7 @@ $profiles = new WP_Query($arg);
                     <div class="owl-carousel owl-theme teams wrap-list">
 
                         <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
-                            <div class="card-teams">
-                                <div class="job-position"><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></div>
-                                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
-                                <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>"><?php the_title() ?></a>
-                            </div>
+                             <?php include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                     </div>
