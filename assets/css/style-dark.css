@@ -142,6 +142,10 @@ body * {
   background: var(--bg-main);
 }
 
+.container-lg {
+  max-width: 1600px;
+}
+
 /* ############ END BASE Classes ############### */
 
 .owl-theme .owl-nav button {
@@ -3390,4 +3394,77 @@ a.item-list-tag {
 }
 .contact-social-item:hover i {
   color: var(--main-color);
+}
+
+/* ############### Join US Page ################*/
+
+.join-us .card-body {
+  min-height: fit-content;
+  height: 650px;
+}
+
+.join-us .join-us__right_image {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: var(--border-main);
+  border-image: fill 0
+    linear-gradient(20deg, var(--bg-main) 10%, rgba(0, 0, 0, 0) 80%);
+  display: flex;
+  justify-content: start;
+  align-items: end;
+}
+
+.join-us .join-us__right_image_detail {
+  display: flex;
+  flex-direction: column;
+}
+.join-us .join-us__right_image_buttons {
+  margin-top: 1em;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+.join-us .join-us__right_image_buttons button {
+  padding: 5px 10px;
+  border-radius: var(--border-main);
+  border: 1px solid var(--bg-main);
+  transition: all 0.3s;
+  font-size: 14px;
+}
+.join-us .join-us__right_image_buttons button:hover {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.join-us .join-us__left {
+  width: 50%;
+}
+
+.join-us .join-us__left h4 {
+  font-weight: bold;
+}
+
+.join-us .join-us__left p {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .join-us .join-us__left {
+    width: 100%;
+  }
+  .join-us .card-body {
+    height: fit-content;
+  }
+  .join-us .join-us__right_image_detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--border-main);
+    margin-top: 10px;
+  }
 }

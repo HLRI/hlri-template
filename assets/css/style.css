@@ -139,7 +139,7 @@ body * {
   background: var(--bg-main);
 }
 
-.container {
+.container-lg {
   max-width: 1600px;
 }
 
@@ -3604,3 +3604,5 @@ a.item-list-tag {
     margin-top: 10px;
   }
 }
+
+/* Blog  */
