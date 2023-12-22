@@ -496,50 +496,88 @@ if (class_exists('CSF')) {
 	// Start About Us Page Setting
 
 		CSF::createSection($prefix, array(
-		'id'			=>	'about-us',
-		'title'			=>	'About Us Setting',
-		'fields'	=>	array(
-		array(
-			'type'    => 'heading',
-			'content' => 'Section One',
-		),
-		array(
-			'id'      => 'opt-about-title',
-			'type'  => 'text',
-			'title'   => 'Title',
-		),
-		array(
-			'id'      => 'opt-about-section-one-description',
-			'type'  => 'textarea',
-			'title'   => 'Description',
-		),
-		array(
-			'id'      => 'opt-about-section-one-image',
-			'type'  => 'upload',
-			'title'   => 'banner',
-		),
-		array(
-			'type'    => 'heading',
-			'content' => 'Section Two',
-		),
-		array(
-			'id'      => 'opt-about-section-two-title',
-			'type'  => 'text',
-			'title'   => 'Title',
-		),
-		array(
-			'id'      => 'opt-about-section-two-description',
-			'type'  => 'textarea',
-			'title'   => 'Description',
-		),
-		array(
-			'id'      => 'opt-about-section-two-image',
-			'type'  => 'upload',
-			'title'   => 'banner',
-		),
-	)
-	));
+			'id'			=>	'about-us',
+			'title'			=>	'About Us Setting',
+			'fields'	=>	array(
+				array(
+					'type'    => 'heading',
+					'content' => 'Section One',
+				),
+				array(
+					'id'      => 'opt-about-title',
+					'type'  => 'text',
+					'title'   => 'Title',
+				),
+				array(
+					'id'      => 'opt-about-section-one-description',
+					'type'  => 'textarea',
+					'title'   => 'Description',
+				),
+				array(
+					'id'      => 'opt-about-section-one-image',
+					'type'  => 'upload',
+					'title'   => 'banner',
+				),
+				array(
+					'type'    => 'heading',
+					'content' => 'Section Two',
+				),
+				array(
+					'id'      => 'opt-about-section-two-title',
+					'type'  => 'text',
+					'title'   => 'Title',
+				),
+				array(
+					'id'      => 'opt-about-section-two-description',
+					'type'  => 'textarea',
+					'title'   => 'Description',
+				),
+				array(
+					'id'      => 'opt-about-section-two-image',
+					'type'  => 'upload',
+					'title'   => 'banner',
+				),)
+		));
+	//END About Us Page Setting
 
+	CSF::createSection($prefix, array(
+		'id'			=>	'join-us',
+		'title'			=>	'join Us Setting',
+		'fields'	=>	array(
+			array(
+				'type'    => 'heading',
+				'content' => 'Form config',
+			),
+			array(
+				'id'      => 'opt-join-us-title',
+				'type'  => 'text',
+				'title'   => 'Title',
+			),
+			array(
+				'id'      => 'opt-join-us-description',
+				'type'  => 'textarea',
+				'title'   => 'Description',
+			),
+			array(
+				'type'    => 'heading',
+				'content' => 'Image Section',
+			),
+			array(
+				'id'      => 'opt-join-us-image-title',
+				'type'  => 'text',
+				'title'   => 'Title',
+			),
+			array(
+				'id'      => 'opt-join-us-image-description',
+				'type'  => 'textarea',
+				'title'   => 'Description',
+			),
+			array(
+				'id'      => 'opt-join-us-image',
+				'type'  => 'upload',
+				'title'   => 'banner',
+			),)
+	));
 
 	CSF::createSection($prefix, array(
 		'id'			=>	'popup',
@@ -572,6 +610,7 @@ if (class_exists('CSF')) {
 		)
 	));
 
+	
 	CSF::createSection($prefix, array(
 		'id'			=>	'properties_shortcode',
 		'title'			=>	'Properties Shortcode',

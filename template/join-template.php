@@ -21,17 +21,36 @@
                             <div class="d-flex flex-column mt-2 justify-content-start justify-content-md-center join-us__left" >   
                                 <div class="px-4">
                                     <h4>
-                                        Join Our Team
+                                       <?php
+                                            if (!empty($theme_options['opt-join-us-title'])) {
+                                                echo $theme_options['opt-join-us-title'];
+                                            }
+                                        ?>
                                     </h4>
-                                    <p>Do you have what it takes to succeed in Toronto's
-                                        white hot preconstruction market?</p>
+                                    <p>
+                                          <?php
+                                                if (!empty($theme_options['opt-join-us-description'])) {
+                                                    echo $theme_options['opt-join-us-description'];
+                                                }
+                                            ?>
+                                    </p>
                                 </div>
                                 <?php echo do_shortcode('[hrl_join_our_team_form]'); ?>
                                 <div class="join-us__right_image_detail d-md-none bg-foreground" >
                                         <h4>
-                                            Home Leader Realty
+                                           <?php
+                                                if (!empty($theme_options['opt-join-us-image-title'])) {
+                                                    echo $theme_options['opt-join-us-image-title'];
+                                                }
+                                            ?>
                                         </h4>
-                                        <p>Request Your Free Online Tour Now to Find Out</p>
+                                        <p>
+                                            <?php
+                                                if (!empty($theme_options['opt-join-us-description'])) {
+                                                    echo $theme_options['opt-join-us-description'];
+                                                }
+                                            ?>
+                                        </p>
                                         <div class="join-us__right_image_buttons">
                                             <button>Privacy Policy</button>
                                             <a href="#" >learn more about us ↗</a>
@@ -40,13 +59,23 @@
                             </div>
                             <div class="d-none d-md-block p-2 w-75 h-100 join-us__right" >
                                 <div class="bg-foreground join-us__right_image p-4 " 
-                                style="background-image: url('<?= !empty($theme_options['opt-page-header-background']) ? $theme_options['opt-page-header-background'] : ""  ?>');" 
+                                style="background-image: url('<?= !empty($theme_options['opt-join-us-image']) ? $theme_options['opt-join-us-image'] : ""  ?>');" 
                                 >
                                     <div class="join-us__right_image_detail" >
                                         <h4>
-                                            Home Leader Realty
+                                           <?php
+                                                if (!empty($theme_options['opt-join-us-image-title'])) {
+                                                    echo $theme_options['opt-join-us-image-title'];
+                                                }
+                                            ?>
                                         </h4>
-                                        <p>Request Your Free Online Tour Now to Find Out</p>
+                                        <p>
+                                              <?php
+                                                if (!empty($theme_options['opt-join-us-image-description'])) {
+                                                    echo $theme_options['opt-join-us-image-description'];
+                                                }
+                                            ?>
+                                        </p>
                                         <div class="join-us__right_image_buttons">
                                             <button>Privacy Policy</button>
                                             <a href="#" >learn more about us ↗</a>
