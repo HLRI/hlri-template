@@ -18,11 +18,7 @@ function getlatestpost()
 
             <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>" target="_blank" class="card-post-sidebar mb-2">
                 <div class="card-post-sidebar-image">
-                    <?php if (get_the_post_thumbnail()) : ?>
                         <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
-                    <?php else : ?>
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                    <?php endif; ?>
                 </div>
                 <div class="card-post-sidebar-content">
                     <div class="card-post-sidebar-title">
