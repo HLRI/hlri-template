@@ -576,8 +576,64 @@ if (class_exists('CSF')) {
 				'id'      => 'opt-join-us-image',
 				'type'  => 'upload',
 				'title'   => 'banner',
-			),)
-	));
+			),
+			// Youtube Videos
+			array(
+				'type'    => 'heading',
+				'content' => 'Youtube Videos Section',
+			),
+			array(
+				'id'      => 'opt-join-us-youtube-title',
+				'type'  => 'text',
+				'title'   => 'Title',
+			),
+			array(
+				'id'     => 'opt-join-us-youtube',
+				'type'   => 'repeater',
+				'title'  => 'Youtube Videos',
+				'fields' => array(
+					array(
+					'id'    => 'opt-join-us-youtube-link',
+					'type'  => 'text',
+					'title' => 'Youtube Link',
+					'subtitle' => "paste only youtube link"
+					),
+
+				),
+			),
+			array(
+				'type'    => 'heading',
+				'content' => 'Detail Section',
+			),
+			array(
+				'id'      => 'opt-join-us-detail-title',
+				'type'  => 'text',
+				'title'   => 'Title',
+			),
+			array(
+				'id'      => 'opt-join-us-detail-description-1',
+				'type'  => 'wp_editor',
+				'title'   => 'Description',
+			),
+			array(
+				'id'      => 'opt-join-us-detail-image-1',
+				'type'  => 'upload',
+				'title'   => 'banner',
+			),
+			array(
+				'id'      => 'opt-join-us-detail-description-2',
+				'type'  => 'wp_editor',
+				'title'   => 'Description',
+			),
+			array(
+				'id'      => 'opt-join-us-detail-image-2',
+				'type'  => 'upload',
+				'title'   => 'banner',
+			),
+
+
+			)
+		));
 
 	CSF::createSection($prefix, array(
 		'id'			=>	'popup',

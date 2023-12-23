@@ -83,12 +83,82 @@
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                         
                     </div>
                 </div>
+                
+                <div class="card mt-3 pt-3" >
+                    <h4 class="w-100 text-center font-weight-bold ">
+                         <?php
+                            if (!empty($theme_options['opt-join-us-youtube-title'])) {
+                                echo $theme_options['opt-join-us-youtube-title'];
+                            }
+                        ?>
+                    </h4>
+                     <div class="row p-3">
+                         <?php 
+                            if($theme_options['opt-join-us-youtube']){                                    
+                            $Items = $theme_options['opt-join-us-youtube'];
+                            foreach ($Items as $item) :
+                        ?>
+                            <div class="col-md-6 col-sm-12 mb-4"> <!-- mb-4 adds margin-bottom; you can use px-*, py-*, etc. for other spacing adjustments -->
+                                <div class="embed-responsive embed-responsive-16by9" style="border-radius:10px;" >
+                                    <iframe loading="lazy" class="embed-responsive-item" src="<?= $item['opt-join-us-youtube-link'] ?>" frameborder="0" allowfullscreen></iframe>                    
+                                </div>
+                            </div>
+                        <?php 
+                            endforeach; 
+                            }
+                        ?>
+                    </div>
+                </div>
 
+                 <div class="card mt-3 pt-3" >
+                    <h4 class="w-100 text-center font-weight-bold ">
+                         <?php
+                            if (!empty($theme_options['opt-join-us-detail-title'])) {
+                                echo $theme_options['opt-join-us-detail-title'];
+                            }
+                        ?>
+                    </h4>
+                      <div class="row p-3">
+                        <div class="col-md-6 col-sm-12 ">
+                            <img 
+                             src="<?= !empty($theme_options['opt-join-us-detail-image-1']) ? $theme_options['opt-join-us-detail-image-1'] : ""  ?>"
+                             class="img-fluid rounded "
+                             alt="home-leader-reality-join-us"
+                             >
+                        </div>
+                                         
+                        <div class="col-md-6 col-sm-12">
+                            <p>
+                                <?php
+                                    if (!empty($theme_options['opt-join-us-detail-description-1'])) {
+                                       echo '<div style="font-size: 14px;">' . apply_filters('the_content', $theme_options['opt-join-us-detail-description-1']) . '</div>';
+                                    }
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                         <div class="col-md-6 col-sm-12">
+                                <?php
+                                    if (!empty($theme_options['opt-join-us-detail-description-2'])) {
+                                        echo '<div style="font-size: 14px;">' . apply_filters('the_content', $theme_options['opt-join-us-detail-description-2']) . '</div>';
+                                    }
+                                ?>
+                        </div>
+                        <div class="col-md-6 col-sm-12 ">
+                            <img 
+                             src="<?= !empty($theme_options['opt-join-us-detail-image-2']) ? $theme_options['opt-join-us-detail-image-2'] : ""  ?>"
+                             class="img-fluid rounded "
+                             alt="home-leader-reality-join-us"
+                             >
+                        </div>
+                    </div>
+                </div>
+                                    
             </div>
    </div>
 
