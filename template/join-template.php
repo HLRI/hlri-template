@@ -15,7 +15,7 @@
                 include(HLR_THEME_COMPONENT . 'custom-page-header.php');
               ?>
             <div class="container d-flex flex-column mt-n-5 mb-3" >
-                <div class="card join-us">
+                <div class="card join-us" id="join-form">
                     <div class="card-body p-1" >
                        <div class="d-flex  h-100 ">
                             <div class="d-flex flex-column mt-2 justify-content-start justify-content-md-center join-us__left" >   
@@ -37,14 +37,8 @@
                                 </div>
                                 <?php echo do_shortcode('[hrl_join_our_team_form]'); ?>
                                 <div class="join-us__right_image_detail d-md-none bg-foreground" >
-                                        <h4>
-                                           <?php
-                                                if (!empty($theme_options['opt-join-us-image-title'])) {
-                                                    echo $theme_options['opt-join-us-image-title'];
-                                                }
-                                            ?>
-                                        </h4>
-                                        <p>
+                                        <img loading="lazy" class="mb-2" style="width: 80%;z-index:2;" src="<?= HLR_THEME_ASSETS . 'images/join-us-logo.png' ?>" alt="join-us-logo">
+                                        <p class="text-center">
                                             <?php
                                                 if (!empty($theme_options['opt-join-us-description'])) {
                                                     echo $theme_options['opt-join-us-description'];
@@ -53,7 +47,7 @@
                                         </p>
                                         <div class="join-us__right_image_buttons">
                                             <button>Privacy Policy</button>
-                                            <a href="#" >learn more about us ↗</a>
+                                            <a href="/about-us/" >learn more about us ↗</a>
                                         </div>
                                     </div>
                             </div>
@@ -62,13 +56,7 @@
                                 style="background-image: url('<?= !empty($theme_options['opt-join-us-image']) ? $theme_options['opt-join-us-image'] : ""  ?>');" 
                                 >
                                     <div class="join-us__right_image_detail" >
-                                        <h4>
-                                           <?php
-                                                if (!empty($theme_options['opt-join-us-image-title'])) {
-                                                    echo $theme_options['opt-join-us-image-title'];
-                                                }
-                                            ?>
-                                        </h4>
+                                        <img loading="lazy" class="mb-2" style="width: 50%;z-index:2;" src="<?= HLR_THEME_ASSETS . 'images/join-us-logo.png' ?>" alt="join-us-logo">
                                         <p>
                                               <?php
                                                 if (!empty($theme_options['opt-join-us-image-description'])) {
@@ -78,7 +66,7 @@
                                         </p>
                                         <div class="join-us__right_image_buttons">
                                             <button>Privacy Policy</button>
-                                            <a href="#" >learn more about us ↗</a>
+                                            <a href="/about-us/" >learn more about us ↗</a>
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +146,6 @@
                         </div>
                     </div>
                 </div>
-                                    
             </div>
    </div>
 
