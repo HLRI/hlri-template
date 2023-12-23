@@ -28,15 +28,10 @@ $peroperties = new WP_Query($arg);
     include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 
     if ($peroperties->have_posts()) : ?>
-    <div class="container my-5">
+    <div class="container-lg my-5">
         
         <div class="row">
-            <div class=" col-xs-12 col-md-12 d-flex flex-column" >
-                <div>
-                    
-                </div>
-            </div>
-            <div class="col-md-12 row px-5" >
+            <div class="col-md-12 px-md-5 properties-wrapper" >
                 <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
                      <?php include(HLR_THEME_COMPONENT . 'properties/card.php'); ?>
                 <?php endwhile; ?>
