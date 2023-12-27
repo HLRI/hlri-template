@@ -326,7 +326,6 @@ add_action( 'delete_post', 'custom_delete_associated_floorplans' );
 
 /*==================================================================================*/
 // Register the metabox
-add_action('cs_framework_meta_boxes', 'register_floorplans_gallery_metabox');
 function register_floorplans_gallery_metabox($options)
 {
     $options[] = array(
@@ -351,3 +350,6 @@ function register_floorplans_gallery_metabox($options)
 
     return $options;
 }
+
+
+add_action( 'add_meta_boxes_floorplans', 'register_floorplans_gallery_metabox' );
