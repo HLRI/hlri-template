@@ -1426,6 +1426,9 @@ if (class_exists('CSF')) {
                     'post_type'=> 'floorplans',
                     'desc'     => 'Upload and manage floorplans images.',
                     'type'     => 'gallery',
+                    'context'  => 'side',  // Adjust the context if needed (normal, advanced, side)
+                    'priority' => 'high',    // Set a higher priority to keep it on top
+
                 ),
             )
         )
