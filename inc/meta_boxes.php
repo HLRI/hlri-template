@@ -326,16 +326,16 @@ add_action( 'delete_post', 'custom_delete_associated_floorplans' );
 
 /*==================================================================================*/
 // Register the metabox
-add_action('cs_metabox_manager', 'register_floorplans_gallery_metabox');
-function register_floorplans_gallery_metabox($metaboxes)
+add_action('cs_framework_meta_boxes', 'register_floorplans_gallery_metabox');
+function register_floorplans_gallery_metabox($options)
 {
-    $metaboxes[] = array(
-        'id'         => 'floorplans_gallery_metabox',
-        'title'      => 'Floorplans Gallery',
-        'post_types' => array('floorplans'), // Your custom post type
-        'context'    => 'normal',
-        'priority'   => 'high',
-        'sections'   => array(
+    $options[] = array(
+        'id'       => 'floorplans_gallery_metabox',
+        'title'    => 'Floorplans Gallery',
+        'post_type'=> 'floorplans',
+        'context'  => 'normal',
+        'priority' => 'high',
+        'sections' => array(
             array(
                 'name'   => 'floorplans_gallery_section',
                 'fields' => array(
@@ -349,5 +349,5 @@ function register_floorplans_gallery_metabox($metaboxes)
         ),
     );
 
-    return $metaboxes;
+    return $options;
 }
