@@ -325,4 +325,3 @@ function custom_delete_associated_floorplans( $post_id ) {
 add_action( 'delete_post', 'custom_delete_associated_floorplans' );
 
 /*==================================================================================*/
-// Register the metabox
