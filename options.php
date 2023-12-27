@@ -1537,6 +1537,15 @@ if (class_exists('CSF')) {
 			)
 		)
 	);
+
+
+
+    $prefix = 'hlr_framework_floorplan_images_gallery';
+    CSF::createMetabox($prefix, array(
+        'title'     =>	'Floorplan Gallery',
+        'post_type' =>	'floorplans'
+    ));
+
     CSF::createSection(
         $prefix,
         array(
