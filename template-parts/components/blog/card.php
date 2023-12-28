@@ -1,4 +1,4 @@
-<div class="col-lg-3 px-2 mb-3">
+<div class="col-12 col-sm-12 col-md-6 col-xl-3 col-lg-4 px-2 mb-4">
     <div class="card-blog">
         <div class="card-blog-image">
             <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
