@@ -1410,7 +1410,6 @@ if (class_exists('CSF')) {
 		)
 	));
 
-
 	//============================//
 	$prefix = 'hlr_framework_floorplans';
 	CSF::createMetabox($prefix, array(
@@ -1538,4 +1537,30 @@ if (class_exists('CSF')) {
 			)
 		)
 	);
+
+
+
+    $prefix = 'hlr_framework_floorplan_images_gallery';
+    CSF::createMetabox($prefix, array(
+        'title'     =>	'Floorplan Gallery',
+        'post_type' =>	'floorplans'
+    ));
+
+    CSF::createSection(
+        $prefix,
+        array(
+            'fields'	=>	array(
+                array(
+                    'id'       => 'floorplans_gallery',
+                    'title'    => 'Floorplans Gallery',
+                    'post_type'=> 'floorplans',
+                    'desc'     => 'Upload and manage floorplans images.',
+                    'type'     => 'gallery',
+                    'context'  => 'normal',  // Adjust the context if needed (normal, advanced, side)
+                    'priority' => 'high',    // Set a higher priority to keep it on top
+
+                ),
+            )
+        )
+    );
 }
