@@ -614,14 +614,17 @@ body * {
 .card-blog {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 450px;
   background: #32302f;
   border-radius: 10px;
-  /* box-shadow: rgba(105, 105, 105, 0.1) 0px 10px 15px -3px, rgb(188 188 188 / 5%) 0px 4px 6px -2px; */
   overflow: hidden;
   border: 1px solid #665c54;
 }
-
+.card-blog:hover {
+  box-shadow: rgba(105, 105, 105, 0.1) 0px 10px 15px -3px,
+    rgb(188 188 188 / 5%) 0px 4px 6px -2px;
+  transform: translateY(-2px);
+}
 .card-single-blog {
   position: relative;
   width: 100%;
@@ -635,7 +638,7 @@ body * {
 
 .card-blog-image img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: fill;
 }
 
@@ -650,9 +653,27 @@ body * {
 }
 
 .card-blog-content h3 {
-  font-size: 18px;
+  font-size: 20px;
+
   /* font-weight: bold; */
   line-height: 1.3;
+  position: relative;
+  margin-bottom: 5px;
+}
+.card-blog-content h3 a {
+  color: #000;
+}
+.card-blog-content h3 a:hover {
+  color: var(--main-color);
+}
+.card-blog-content h3::before {
+  position: absolute;
+  content: " ";
+  background: var(--main-color);
+  height: 100%;
+  width: 6px;
+  z-index: 2;
+  left: -6%;
 }
 
 .card-blog-social {
@@ -687,14 +708,16 @@ body * {
 }
 
 .date-blog {
-  background: #282828;
+  /* background: #282828; */
+  margin-left: -5px;
+
   color: #e28e5c;
   padding: 0 0.4rem;
   border-radius: 6px;
 }
 
 .date-blog span {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .blog-category span {

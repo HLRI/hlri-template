@@ -30,19 +30,15 @@
                         $i++;
                     endforeach; ?>
                 </div>
-                <div class="post-meta">
-                    <i class="fa fa-eye"></i>
-                    <span><?= getView(get_the_ID()) ?></span>
-                </div>
 
                 <div class="post-meta">
                     <i class="fa fa-user"></i>
-                    <span>by <?= get_the_author_nickname() ?></span>
+                    <span>by <?= get_the_author_nickname() ?> </span>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid my-4">
+        <div class="container-lg my-4">
             <div class="row">
                 <div class="col-lg-9 ">
 
