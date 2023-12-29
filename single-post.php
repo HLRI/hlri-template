@@ -38,7 +38,8 @@ if (have_posts()) :
                                             <a href="<?= home_url('category/') . $cat->slug ?>"><span> <?= $cat->name ?></span></a> /
                                         <?php endif;
                                             $i++;
-                                endforeach; ?>
+                                    endforeach; 
+                                ?>
                                 <div>
                                     <!-- Post publisher -->
                                    <i class="fa fa-user"></i>
@@ -54,14 +55,22 @@ if (have_posts()) :
                         </div>
 
 
-
-                        <!-- <div class="card-blog-option">
-                                <div class="card-blog-social">
-                                    <span>2</span>
-                                    <i class="fa fa-eye"></i>
-                                    <i class="fa fa-heart"></i>
-                                </div>
-                            </div> -->
+                    <!-- <div class="card-blog-option">
+                        <div class="card-blog-social">
+                            <span>2</span>
+                            <i class="fa fa-eye"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                    </div> -->
+                    <?php 
+                     if(get_the_tags()):
+                    ?>
+                    <div class="px-4 bg-foreground m-3 rounded py-1" >
+                        <?php
+                            the_tags( '<div class="post-tags"> Tags:   ', ', ', '</div>' );
+                        ?>
+                    </div>
+                    <?php endif; ?>
                     </div>
                     <div class="card-share-single">
                         <div class="card-share-single-options">
