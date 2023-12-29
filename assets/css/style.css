@@ -1487,9 +1487,9 @@ h1.slider-title {
 .btn-hlr {
   padding: 0.4rem;
   border-radius: 4px;
-  background: #ffad00;
+  background: var(--main-color);
   color: white;
-  font-size: 11px;
+  font-size: 12px;
   transition: all 0.3s;
 }
 
@@ -3587,6 +3587,7 @@ a.item-list-tag {
 .join-us .join-us__right_image_buttons button {
   padding: 5px 10px;
   border-radius: var(--border-main);
+  background-color: var(--main-color);
   border: 1px solid var(--bg-main);
   transition: all 0.3s;
   font-size: 14px;
