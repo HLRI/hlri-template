@@ -11,6 +11,6 @@
                 <?= strlen(strip_tags(get_the_content()))  > 150 ? substr(strip_tags(get_the_content()), 0, 150) . '...' : strip_tags(get_the_content()) ?>
             </div>
         </div>
-        <a class="w-100 p-2 px-4 text-right btn-hlr" href="<?= get_the_permalink() ?>" > Read more </a>
+        <a class="w-100 p-2 px-4 text-right btn-hlr" href="<?= get_the_permalink() ?>" > Read more <i class="fa fa-arrow-right"></i> </a>
     </div>
 </div>
