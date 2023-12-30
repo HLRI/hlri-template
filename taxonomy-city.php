@@ -45,7 +45,7 @@
 
     <?php if ($peroperties->have_posts()) : ?>
 
-        <div class="row">
+        <div class="row justify-content-center">
             <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
                 <?php $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true); ?>
                 <?php include(HLR_THEME_COMPONENT . 'properties/card.php'); ?>
