@@ -1,5 +1,5 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
-<?php include(HLR_THEME_COMPONENT . 'slider.php'); ?>
+<?php include(HLR_THEME_COMPONENT . 'home/hero.php'); ?>
 <?php include(HLR_THEME_COMPONENT . 'top-section.php'); ?>
 
 <!--  homepage content -->

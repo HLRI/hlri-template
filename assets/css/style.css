@@ -83,7 +83,7 @@ textarea::placeholder {
 :root {
   --main-color: #fec20f;
   --selection-color: #ff6b4d;
-  --primary-color: #6708ff;
+  --primary-color: #f77c01;
   --second-color: #f6f6f6;
   --front-color: #00db58;
   --border-main: 6px;
@@ -96,6 +96,7 @@ textarea::placeholder {
   --body-color: #f6f6f6;
   --bg-second: #f8f7ff;
   --bg-main: #f6f6f6;
+  --text-color: 37, 42, 44;
 }
 
 ::selection {
@@ -3748,4 +3749,103 @@ a.item-list-tag {
 .properties-card_opt div:nth-child(3) {
   background: #fff6f6;
   color: #f13636;
+}
+
+/* ############ hero section ########## */
+.hero-section {
+  display: flex;
+  width: 95%;
+  margin: 2rem auto;
+  background: url("/wp-content/themes/hlri-template/assets/images/bg-overlay.webp");
+  background-blend-mode: color;
+  background-size: 200% 200%;
+  background-position: left;
+  border-radius: 20px;
+}
+.hero-section-right {
+  border-radius: 0 20px 20px 0;
+  overflow: hidden;
+}
+.hero-section-left {
+  border-radius: 20px 0 0 20px;
+  background-color: #fde1a3de;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  padding-bottom: 1rem;
+  gap: 6rem;
+}
+.hero-section-title {
+  display: block;
+  color: rgb(var(--text-color));
+}
+.hero-section-title h1 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.1em;
+}
+.hero-section-title P {
+  width: 80%;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2em;
+}
+.hero-section-search {
+  position: relative;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--bg-second);
+  border-radius: var(--border-main);
+  padding: 4px;
+}
+.hero-section-search-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero-section-search-input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.hero-section-search-input-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--border-main);
+}
+.hero-section-search-input input {
+  color: rgb(var(--text-color)) !important;
+  width: 100%;
+}
+.hero-section-search-wrap span {
+  width: 1px;
+  height: 30px;
+  background-color: rgb(var(--text-color), 0.4);
+  margin: 0 10px;
+}
+.hero-section-search-wrap .hero-section-map-btn {
+  width: 120px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+  color: var(--bg-second);
+  gap: 7px;
+  border-radius: var(--border-main);
+}
+.hero-section-search-wrap .search-result {
+  top: 80px;
+  right: 0;
 }
