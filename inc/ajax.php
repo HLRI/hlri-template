@@ -409,8 +409,8 @@ function hlr_search()
                         <?php the_title(); ?>
                     </a>
                 </div>
-                <?php $i++ ?>
-            <?php endif; ?>
+                <?php $i++ ?>    
+            <?php endif; ?>      
 
             <?php if (get_post_type() == 'properties') : ?>
                 <?php if ($j == 0) : ?>
@@ -1064,4 +1064,36 @@ function save_last_update($post_id){
         return;
     }
     update_option('map_version_op', current_time('timestamp'));
+}
+
+
+
+
+//  get Pre-construction Projects Progress
+
+add_action('wp_ajax_get_PreConstruction', 'get_PreConstruction');
+
+function get_PreConstruction() {
+    $url = 'https://hlrihub.com/api/v1/getProjectUrbanToronto';
+
+    $response = wp_remote_get($url, array(
+        'headers' => array(
+            'Authorization' => 'Bearer 215|hptLGTyj6omxtBs0ngxkSPvLj9BqtXCyiGgkxN3T',
+            'Accept' => 'application/json'
+        )
+    ));   
+
+    if (is_wp_error($response)) {
+        wp_send_json_error('Failed to retrieve data');
+    }
+
+    $body = wp_remote_retrieve_body($response);
+
+    // Log the entire response
+    error_log(print_r($response, true));
+
+    wp_send_json_success($response);
+    // wp_send_json_success(json_decode($body));
+
+    wp_die();
 }

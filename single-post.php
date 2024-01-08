@@ -1,65 +1,76 @@
-<?php get_header(); ?>
-<?php runViewer(); ?>
-<?php if (have_posts()) : ?>
-    <?php
-        ?>
-        <?php
+<?php 
+
+get_header(); 
+runViewer(); 
+if (have_posts()) :
+        // post image 
         if (get_the_post_thumbnail_url()) {
             $img_url = get_the_post_thumbnail_url();
         } else {
             $img_url = HLR_THEME_ASSETS . 'images/nopost.jpg';
         }
+        // add header page
+        define('CUSTOM_PAGE_HEADER', [
+            'subtitle' => get_the_date(),
+            'title' => get_the_title() ,
+        ]);
+
+        // Include the custom-page-header.php file
+        include(HLR_THEME_COMPONENT . 'custom-page-header.php');
         ?>
-        <div class="container-fluid px-0 post-image-single" style="background-image: url('<?= $img_url ?>');">
-            <div class="post-meta-header">
-                <div class="post-meta">
-                    <i class="fa fa-calendar"></i>
-                    <span><?= get_the_date() ?></span>
-                </div>
-                <div class="post-meta">
-                    <i class="fa fa-folder-open-o"></i>
-                    <?php
-                    $i = 1;
-                    foreach (get_the_category() as $cat) :
-
-                        if ($i == count(get_the_category())) : ?>
-                            <a href="<?= home_url('category/') . $cat->slug ?>"><span> <?= $cat->name ?></span></a>
-                        <?php else : ?>
-                            <a href="<?= home_url('category/') . $cat->slug ?>"><span> <?= $cat->name ?></span></a> /
-                    <?php endif;
-                        $i++;
-                    endforeach; ?>
-                </div>
-
-                <div class="post-meta">
-                    <i class="fa fa-user"></i>
-                    <span>by <?= get_the_author_nickname() ?> </span>
-                </div>
-            </div>
-        </div>
 
         <div class="container-lg my-4">
             <div class="row">
                 <div class="col-lg-9 ">
-
                     <div class="card-single-blog">
-
                         <div class="card-blog-content">
                             <h1 class="text-black pt-3 px-3 font-weight-bold"><?php the_title() ?></h1>
+                            <div class="d-flex px-3 align-items-center mt-3" style="gap:10px;" >
+                            <!-- category list -->
+                                <i class="fa fa-folder-open-o"></i>
+                                <?php
+                                    $i = 1;
+                                    foreach (get_the_category() as $cat) :
+
+                                        if ($i == count(get_the_category())) : ?>
+                                            <a href="<?= home_url('category/') . $cat->slug ?>"><span> <?= $cat->name ?></span></a>
+                                        <?php else : ?>
+                                            <a href="<?= home_url('category/') . $cat->slug ?>"><span> <?= $cat->name ?></span></a> /
+                                        <?php endif;
+                                            $i++;
+                                    endforeach; 
+                                ?>
+                                <div>
+                                    <!-- Post publisher -->
+                                   <i class="fa fa-user"></i>
+                                   <span>by <?= get_the_author_nickname() ?> </span>
+                                </div>
+                            </div>
+                            <div class="w-100 mt-5">
+                                <img class="w-100 rounded"  src="<?= $img_url ?>" alt="<?= the_title() ?>" />
+                            </div>
                             <div class="card-single-blog-description p-4">
                                 <?php the_content() ?>
                             </div>
                         </div>
 
 
-
-                        <!-- <div class="card-blog-option">
-                                <div class="card-blog-social">
-                                    <span>2</span>
-                                    <i class="fa fa-eye"></i>
-                                    <i class="fa fa-heart"></i>
-                                </div>
-                            </div> -->
+                    <!-- <div class="card-blog-option">
+                        <div class="card-blog-social">
+                            <span>2</span>
+                            <i class="fa fa-eye"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                    </div> -->
+                    <?php 
+                     if(get_the_tags()):
+                    ?>
+                    <div class="px-4 bg-foreground m-3 rounded py-1" >
+                        <?php
+                            the_tags( '<div class="post-tags"> Tags:   ', ', ', '</div>' );
+                        ?>
+                    </div>
+                    <?php endif; ?>
                     </div>
                     <div class="card-share-single">
                         <div class="card-share-single-options">
@@ -158,7 +169,7 @@
 
                 </div>
                 <div class="col-lg-3">
-                    <div class="card mb-3 tab-card">
+                    <div class="card position-sticky sticky-top mb-3 tab-card" style="top:10px;">
                         <div class="card-header tab-card-header">
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">

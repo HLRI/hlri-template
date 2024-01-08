@@ -1,167 +1,92 @@
-<?php /* Template Name: Archive Properties */ ?>
-
-<?php $theme_options = get_option('hlr_framework'); ?>
-
 <?php
+/* Template Name: Archive Properties */
+$theme_options = get_option('hlr_framework');
+
+get_header();
+
+// Override the global define for a specific page
+define('CUSTOM_PAGE_HEADER', [
+    'subtitle' => "Explore Your Dream Space",
+    'title' => 'Properties List – All Properties',
+]);
+
+// Include the custom-page-header.php file
+include(HLR_THEME_COMPONENT . 'custom-page-header.php');
+
+// Determine the page number for pagination
+$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+
+// Start building the query argument
 $arg = [
     'post_type' => 'properties',
     'post_status' => 'publish',
-    'posts_per_page'   => get_option('posts_per_page'),
+    'posts_per_page' => get_option('posts_per_page'),
     'paged' => $paged,
 ];
 
-$peroperties = new WP_Query($arg);
+// Check if a neighborhood filter has been applied
+$neighborhood = isset($_GET['neighborhood_filter']) ? $_GET['neighborhood_filter'] : '';
+if (!empty($neighborhood)) {
+    $arg['tax_query'] = [
+        [
+            'taxonomy' => 'neighborhood',
+            'field' => 'slug',
+            'terms' => $neighborhood,
+        ],
+    ];
+}
 
+$properties = new WP_Query($arg);
 ?>
 
-<?php get_header() ?>
-
-<?php if ($peroperties->have_posts()) : ?>
-    <div class="container-fluid px-5 my-5">
-        <div class="row">
-            <div class="col-lg-4 mb-4 px-2">
-                <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
-                    <?php
-                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-                    $term = get_queried_object();
-
-                    $arg = [
-                        'post_type' => 'properties',
-                        'post_status' => 'publish',
-                        'posts_per_page' => get_option('posts_per_page'),
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => $term->taxonomy,
-                                'field' => 'slug',
-                                'terms' => $term->slug,
-                            )
-                        ),
-                        'paged' => $paged,
-                    ];
-
-                    $peroperties = new WP_Query($arg);
-
-                    ?>
-
-                    <?php get_header() ?>
-
-                    <?php if ($peroperties->have_posts()) : ?>
-                        <div class="container-fluid px-5 my-5">
-                            <div class="row">
-                                <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
-                                    <div class="col-lg-4 px-2 mb-5">
-                                        <div class="card-listing card-listing-v2">
-
-                                            <div class="card-listing-image card-listing-image-v2">
-                                                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
-                                            </div>
-
-
-                                            <div class="card-body-listing card-body-listing-v2">
-                                                <div class="card-listing-content card-listing-content-v2">
-                                                    <h6 class="text-black"><?= strlen(get_the_title())  > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
-                                                    <div class="card-listing-description card-listing-description-v2">
-                                                        <?= strlen(strip_tags(get_the_excerpt()))  > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
-                                                    </div>
-                                                </div>
-
-                                                <div class="lable-listing lable-listing-v2">
-                                                    <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
-                                                        <div><?= "$" . $mdata['opt-min-price-sqft'] . " to " . "$" . $mdata['opt-max-price-sqft'] ?></div>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($mdata['opt-size-min'])) : ?>
-                                                        <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($mdata['opt-address'])) : ?>
-                                                        <div><?= $mdata['opt-address'] ?></div>
-                                                    <?php endif; ?>
-                                                </div>
-                                            </div>
-
-
-
-                                            <div class="more more-v2">
-                                                <div class="card-listing-options">
-                                                    <div>
-                                                        <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)" role="button" class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
-                                                        <span class="text-muted" id="like-total">
-                                                            <?php if (!empty(get_post_meta(get_the_ID(), 'total_like', true))) : ?>
-                                                                <?= get_post_meta(get_the_ID(), 'total_like', true)   ?>
-                                                            <?php endif; ?>
-                                                        </span>
-                                                    </div>
-
-                                                    <i role="button" class="fa fa-share-alt"></i>
-                                                    <i <?= is_user_logged_in() ? in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?> role="button" onclick="bookmark(this,<?= get_the_ID() ?>)" class="fa fa-bookmark"></i>
-                                                </div>
-                                                <a href="<?= get_the_permalink() ?>" title="<?php the_title() ?>" class="">more</a>
-
-                                            </div>
-
-                                            <div class="card-share">
-                                                <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-facebook-square"></i></a>
-                                                <a target="_blank" href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?php the_title() ?>"><i class="fa fa-reddit"></i></a>
-                                                <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?php the_title() ?>&summary=<?php the_content() ?>"><i class="fa fa-linkedin-square"></i></a>
-                                                <a target="_blank" href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-whatsapp"></i></a>
-                                                <a target="_blank" href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=telegram"><i class="fa fa-telegram"></i></a>
-                                                <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?php the_title() ?>"><i class="fa fa-pinterest"></i></a>
-                                                <a target="_blank" href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i class="fa fa-twitter-square"></i></a>
-                                                <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endwhile; ?>
-                                <?php wp_reset_postdata(); ?>
-                            </div>
-
-                            <?php if (get_query_var('paged') > 1) : ?>
-                                <div class="mt-5 row d-flex align-items-center justify-content-center">
-                                    <?php
-                                    echo paginate_links(array(
-                                        'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-                                        'total'        => $query->max_num_pages,
-                                        'current'      => max(1, get_query_var('paged')),
-                                        'format'       => '?paged=%#%',
-                                        'show_all'     => false,
-                                        'type'         => 'plain',
-                                        'end_size'     => 2,
-                                        'mid_size'     => 1,
-                                        'prev_next'    => true,
-                                        'prev_text'    => sprintf('<i></i> %1$s', __('Newer Posts', 'text-domain')),
-                                        'next_text'    => sprintf('%1$s <i></i>', __('Older Posts', 'text-domain')),
-                                        'add_args'     => false,
-                                        'add_fragment' => '',
-                                    ));
-                                    ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php get_footer() ?>
-                <?php endwhile; ?>
-                <?php wp_reset_postdata(); ?>
-            </div>
-        </div>
-        <div class="mt-5 row d-flex align-items-center justify-content-center">
-            <?php
-            echo paginate_links(array(
-                'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-                'total'        => $query->max_num_pages,
-                'current'      => max(1, get_query_var('paged')),
-                'format'       => '?paged=%#%',
-                'show_all'     => false,
-                'type'         => 'plain',
-                'end_size'     => 2,
-                'mid_size'     => 1,
-                'prev_next'    => true,
-                'prev_text'    => sprintf('<i></i> %1$s', __('Newer Posts', 'text-domain')),
-                'next_text'    => sprintf('%1$s <i></i>', __('Older Posts', 'text-domain')),
-                'add_args'     => false,
-                'add_fragment' => '',
-            ));
-            ?>
+<div class="container-lg my-5">
+    <div class="d-flex bg-background mt-4 position-sticky sticky-top shadow mb-4 rounded px-4 align-items-center" style="width:100%; height:60px; z-index:77;gap:10px; background:white;">
+        <form action="<?php echo esc_url(get_post_type_archive_link('properties')); ?>" method="get">
+            <select name="neighborhood_filter" id="neighborhood_filter" onchange="this.form.submit()">
+                <option value="">Select Neighborhood</option>
+                <?php
+                    $terms = get_terms(['taxonomy' => 'neighborhood', 'hide_empty' => false]);
+                    foreach ($terms as $term) : ?>
+                        <option value="<?php echo esc_attr($term->slug); ?>" <?php selected(isset($_GET['neighborhood_filter']), $term->slug); ?>>
+                            <?php echo esc_html($term->name); ?>
+                        </option>
+                <?php
+                    endforeach;
+                ?>
+            </select>
+            <input type="hidden" name="post_type" value="properties">
+            <!-- Ensure to carry over the pagination value if present -->
+            <?php if ($paged) : ?>
+                <input type="hidden" name="paged" value="<?php echo esc_attr($paged); ?>">
+            <?php endif; ?>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12 px-md-5 properties-wrapper">
+            <?php if ($properties->have_posts()) : ?>
+                <?php while ($properties->have_posts()) : $properties->the_post();
+                    $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                    // Output your metadata here, e.g., print_r($mdata)
+                    include(HLR_THEME_COMPONENT . 'properties/card.php');
+                endwhile;
+                wp_reset_postdata(); ?>
+            <?php else : ?>
+                <p><?php esc_html_e('Sorry, no properties matched your criteria.', 'text-domain'); ?></p>
+            <?php endif; ?>
         </div>
     </div>
-<?php endif; ?>
-<?php get_footer() ?>
+    <div class="mt-5 row d-flex align-items-center justify-content-center">
+        <?php
+        echo paginate_links(array(
+            'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+            'total' => $properties->max_num_pages,
+            'current' => max(1, get_query_var('paged')),
+            'format' => '?paged=%#%',
+            'prev_text' => sprintf('<i></i> %1$s', __('Newer Properties', 'text-domain')),
+            'next_text' => sprintf('%1$s <i></i>', __('Older Properties', 'text-domain')),
+        ));
+        ?>
+    </div>
+</div>
+
+<?php get_footer(); ?>
