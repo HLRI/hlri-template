@@ -147,6 +147,10 @@ body * {
   max-width: 1440px;
 }
 
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
 /* ############ END BASE Classes ############### */
 
 .owl-theme .owl-nav button {
@@ -3521,22 +3525,25 @@ a.item-list-tag {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-
 .properties-card {
   min-width: 100%;
   max-width: 320px;
-  background-color: var(--bg-main);
+  background-color: var(--bg-second);
+  min-height: 320px;
   height: 100%;
+  max-height: 430px;
   border-radius: var(--border-main);
   position: relative;
+  overflow: hidden;
+  border: 1px solid var(--bg-main);
 }
 .properties-card_image {
   width: 100%;
   min-height: 150px;
   height: 230px;
-  max-height: 230px;
+  max-height: 40%;
   overflow: hidden;
-  border-radius: var(--border-main);
+  /* border-radius: var(--border-main); */
   position: relative;
 }
 .properties-card_image a img {
@@ -3547,19 +3554,36 @@ a.item-list-tag {
 .properties-card:hover .properties-card_image img {
   transform: scale(1.1);
 }
+
+.properties-card_detail {
+  height: 60%;
+  padding: 10px;
+  gap: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.properties-card_detail > * {
+  margin-bottom: auto;
+}
+.properties-card_detail > :first-child,
+.properties-card_detail > :nth-child(2),
+.properties-card_detail > :last-child {
+  margin-bottom: 0;
+}
+.properties-card_detail > :nth-child(3) {
+  margin-top: auto;
+  margin-bottom: 0;
+}
 .properties-card_actions {
-  position: absolute;
-  z-index: 2;
-  bottom: 4px;
-  right: 5px;
-  padding: 5px;
+  /* position: absolute; */
+  border-top: 1px solid var(--bg-main);
+  padding: 10px 2px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  background-color: rgba(29, 29, 29, 0.3);
   width: 97%;
-  border-radius: var(--border-main);
 }
 
 .properties-card_actions_btn {
@@ -3567,15 +3591,15 @@ a.item-list-tag {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  width: 24px;
-  height: 24px;
-  color: rgba(255, 255, 255, 0.4);
+  min-width: 70px;
+  height: 100%;
+  padding: 4px 10px;
+  color: rgba(197, 197, 197, 0.7);
+  border: 1px solid var(--bg-main);
+  border-radius: var(--border-main);
 }
-.properties-card_actions #like-total {
-  color: var(--bg-main) !important;
-}
-.properties-card_detail {
-  padding: 10px;
+.properties-card_actions_btn span {
+  color: rgba(197, 197, 197, 0.7);
 }
 .properties-card:hover .properties-card_title a h6 {
   transition: 0.3s;
@@ -3583,25 +3607,26 @@ a.item-list-tag {
 }
 .properties-card_desc a {
   font-size: 12px;
-  margin-top: 4px;
+  margin-top: 2px;
   color: #aaa;
 }
+
 .properties-card_opt {
+  /* background-color: white; */
   padding: 2px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   margin-top: 10px;
   transition: all 0.3s;
 }
 
 .properties-card_opt div {
-  padding: 5px;
-  border-radius: var(--border-main);
+  color: var(--bg-main);
+  padding: 2px;
+  font-size: 12px;
   text-transform: capitalize;
-  width: fit-content;
-  border: 1px solid var(--bg-second);
+  font-weight: 300;
 }
 
 /* ############ hero section ########## */
@@ -3615,10 +3640,12 @@ a.item-list-tag {
   background-position: left;
   border-radius: 20px;
 }
+
 .hero-section-right {
   border-radius: 0 20px 20px 0;
   overflow: hidden;
 }
+
 .hero-section-left {
   border-radius: 20px 0 0 20px;
   background-color: #fde1a3de;
@@ -3701,4 +3728,25 @@ a.item-list-tag {
 .hero-section-search-wrap .search-result {
   top: 80px;
   right: 0;
+}
+
+/* Progress List  */
+
+.progress-list-item {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid var(--bg-main);
+  border-radius: var(--border-main);
+  overflow: hidden;
+}
+.progress-list-item img {
+  height: 220px;
+}
+.progress-list-item h3 {
+  font-size: 15px;
+  margin-bottom: 20px;
 }
