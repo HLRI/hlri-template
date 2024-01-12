@@ -9,7 +9,7 @@ $associated_floorplans = associated_floorplans_cached();
 <div id="navigation-fixed-location"></div>
 <div class="container-lg px-lg-5">
     <div class="row mt-4 properties-image-gallery px-3" >
-       <div class="col-12 overflow-hidden mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
+       <div class="col-12 overflow-hidden rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
                 <?php if (!empty($psd['thumbnail_url'])) : ?>
                     <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="h-100" alt="<?= $psd['thumbnail_caption'] ?>">
                 <?php else : ?>
@@ -22,8 +22,8 @@ $associated_floorplans = associated_floorplans_cached();
                         <div class="vrmedia-gallery">
                             <ul class="ecommerce-gallery">
                                 <?php foreach ($psd['galleries'] as $gallery_item) : ?>
-                                    <li data-fancybox="gallery" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
-                                        <img src="<?= $gallery_item['gallery_url'] ?>">
+                                    <li class="rounded" data-fancybox="gallery" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
+                                        <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>">
                                     </li>
                                  <?php endforeach; ?>
                             </ul>
