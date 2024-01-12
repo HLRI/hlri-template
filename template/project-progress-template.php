@@ -21,11 +21,11 @@
               ?>
 
             <div class="container position-relative pb-4" style="z-index:10;" >
-                <div class="w-100 my-4 d-flex justify-content-center align-items-center">
+                <div class="w-75 mx-auto my-4 d-flex justify-content-center align-items-center">
                     <input type="text" class="form-control" id="search-input" placeholder="Search for projects...">
                 </div>  
                 <div class="row progress-list" id="progress-list" >
-                </div>
+                </div>    
             </div>
     </div>
 

@@ -40,25 +40,67 @@ $properties = new WP_Query($arg);
 ?>
 
 <div class="container-lg my-5">
-    <div class="d-flex bg-background mt-4 position-sticky sticky-top shadow mb-4 rounded px-4 align-items-center" style="width:100%; height:60px; z-index:77;gap:10px; background:white;">
-        <form action="<?php echo esc_url(get_post_type_archive_link('properties')); ?>" method="get">
-            <select name="neighborhood_filter" id="neighborhood_filter" onchange="this.form.submit()">
-                <option value="">Select Neighborhood</option>
-                <?php
-                    $terms = get_terms(['taxonomy' => 'neighborhood', 'hide_empty' => false]);
-                    foreach ($terms as $term) : ?>
-                        <option value="<?php echo esc_attr($term->slug); ?>" <?php selected(isset($_GET['neighborhood_filter']), $term->slug); ?>>
+        <div class="d-flex w-100 bg-background mt-4 position-sticky sticky-top shadow mb-4 rounded pt-2 px-4 align-items-center" style="width:100%; z-index:77;gap:10px;">
+        <form class="mx-auto mx-md-0 row w-100 w-md-75" action="<?php echo esc_url(get_post_type_archive_link('properties')); ?>" method="get">
+            <!-- Cities -->
+            <div class="form-group col-6 col-md-3">
+                  <label for="cities_filter" class="text-muted">City</label>
+                  <select name="cities_filter" class="form-control" id="cities_filter" onchange="this.form.submit()">
+                    <option value="">Select City</option>
+                        <?php
+                            $terms = get_terms(['taxonomy' => 'city', 'hide_empty' => false]);
+                            $selected_city = sanitize_text_field($_GET['cities_filter'] ?? '');
+                        foreach ($terms as $term) :
+                        ?>
+                            <option value="<?php echo esc_attr($term->slug); ?>" <?php selected( $selected_city, $term->slug ); ?>>
+                                <?php echo esc_html($term->name); ?>
+                            </option>
+                        <?php 
+                        endforeach;
+                        ?>
+                </select>
+            </div>   
+            <!-- group -->
+            <div class="form-group col-6 col-md-3">
+                  <label for="group_filter" class="text-muted">Group</label>
+                  <select name="group_filter"  class="form-control" id="group_filter" onchange="this.form.submit()">
+                    <option value="">Select Group</option>
+                        <?php
+                            $terms = get_terms(['taxonomy' => 'group', 'hide_empty' => false]);
+                            $selected_group = sanitize_text_field($_GET['group_filter'] ?? '');
+                        foreach ($terms as $term) :
+                        ?> 
+                            <option value="<?php echo esc_attr($term->slug); ?>" <?php selected( $selected_group, $term->slug ); ?>>
+                                <?php echo esc_html($term->name); ?>
+                            </option>
+                        <?php 
+                        endforeach;
+                        ?>
+                </select>
+            </div>
+          <!-- Neighborhoods -->
+            <div class="form-group col-6 col-md-3">
+                  <label for="neighborhood_filter" class="text-muted">Neighborhood</label>
+                  <select name="neighborhood_filter"  class="form-control" id="neighborhood_filter" onchange="this.form.submit()">
+                    <option value="">Select Neighborhood</option>
+                    <?php
+                        $terms = get_terms(['taxonomy' => 'neighborhood', 'hide_empty' => false]);
+                        $selected_neighborhood = sanitize_text_field($_GET['neighborhood_filter'] ?? '');
+                    foreach ($terms as $term) :
+                    ?>
+                        <option value="<?php echo esc_attr($term->slug); ?>" <?php selected( $selected_neighborhood, $term->slug ); ?>>
                             <?php echo esc_html($term->name); ?>
                         </option>
-                <?php
+                    <?php 
                     endforeach;
-                ?>
-            </select>
-            <input type="hidden" name="post_type" value="properties">
-            <!-- Ensure to carry over the pagination value if present -->
-            <?php if ($paged) : ?>
-                <input type="hidden" name="paged" value="<?php echo esc_attr($paged); ?>">
-            <?php endif; ?>
+                    ?>
+                </select>
+                <input type="hidden" name="post_type" value="properties">
+                <!-- Keep track of pagination -->
+                <?php if ($paged) : ?>
+                    <input type="hidden" name="paged" value="<?php echo esc_attr($paged); ?>">
+                <?php endif; ?>
+            </div>
         </form>
     </div>
     <div class="row">

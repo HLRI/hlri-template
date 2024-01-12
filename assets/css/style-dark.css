@@ -3642,11 +3642,13 @@ a.item-list-tag {
 }
 
 .hero-section-right {
+  width: 50%;
   border-radius: 0 20px 20px 0;
   overflow: hidden;
 }
 
 .hero-section-left {
+  width: 50%;
   border-radius: 20px 0 0 20px;
   background-color: #fde1a3de;
   display: flex;
@@ -3728,6 +3730,28 @@ a.item-list-tag {
 .hero-section-search-wrap .search-result {
   top: 80px;
   right: 0;
+}
+
+@media screen and (max-width: 903px) {
+  .hero-section {
+    flex-direction: column;
+  }
+  .hero-section-left {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-section-left p {
+    margin: 0 auto;
+  }
+  .hero-section-right {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+  }
 }
 
 /* Progress List  */
