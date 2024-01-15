@@ -8,44 +8,18 @@ $associated_floorplans = associated_floorplans_cached();
 
 <div id="navigation-fixed-location"></div>
 <div class="container-lg px-lg-5">
-    <div class="row mt-4 properties-image-gallery px-3" >
-       <div class="col-12 overflow-hidden rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
-                <?php if (!empty($psd['thumbnail_url'])) : ?>
-                    <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="h-100" alt="<?= $psd['thumbnail_caption'] ?>">
-                <?php else : ?>
-                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                <?php endif; ?>
-        </div>
-         <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Gallery">
-            <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
-                <?php if ($psd['galleries'][0]['gallery_url']) : ?>
-                        <div class="vrmedia-gallery">
-                            <ul class="ecommerce-gallery">
-                                <?php foreach ($psd['galleries'] as $gallery_item) : ?>
-                                    <li class="rounded" data-fancybox="gallery" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
-                                        <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>">
-                                    </li>
-                                 <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php else : ?>
-                        <div class="d-flex flex-wrap justify-content-between" style="gap:10px;" >
-                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        </div>
-                    <?php endif; ?>
-
-            <?php endif; ?>
-        </div>  
-    </div>
+  
     
     <div class="mt-4 mb-4 border-top pt-4">
         <div class="p-3 bg-foreground rounded" >
             <div class="card-profile-details p-0 position-relative">
-                <span class="update-label bg-foreground text-muted">Last Update : <?= isset($psd['modified_dat']) ? $psd['modified_dat'] : 'No Update' ?></span>
+               
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
+                    <?php if (!empty($psd['thumbnail_url'])) : ?>
+                        <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 mr-2"  alt="<?= $psd['thumbnail_caption'] ?>">
+                    <?php else : ?>
+                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                    <?php endif; ?>
                     <div>
                         <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty($psd['excerpt'])) : ?>
@@ -56,8 +30,9 @@ $associated_floorplans = associated_floorplans_cached();
 
                 <div class="row mb-2 justify-content-start ">
                     <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
-                            <div class="rating-stars text-center">
-                                <ul id="stars">
+                            <div class="rating-stars">
+                                <span class="update-label bg-foreground text-muted ">Last Update : <?= isset($psd['modified_dat']) ? $psd['modified_dat'] : 'No Update' ?></span>
+                                <ul class="mt-3" id="stars">
                                     <?php if ($psd['properties_rated_id'] != get_the_ID()) : ?>
                                         <?php for ($i = 0; $i < 5; $i++) : ?>
                                             <?php
@@ -108,7 +83,7 @@ $associated_floorplans = associated_floorplans_cached();
                                 <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
                             <?php endif; ?>
                     </div>
-                     <?php if (!empty($psd['opt_price_min'])) : ?>
+                    <?php if (!empty($psd['opt_price_min'])) : ?>
                         <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
                             <div class="start-price mb-3">Starting from 
                                 <span>
@@ -116,9 +91,11 @@ $associated_floorplans = associated_floorplans_cached();
                                 </span>
                             </div>
                            <div class="btn-group">
-                             <button class="btn btn-primary"> <i class="fa fa-share" ></i> Share </button>
-                             <button class="btn btn-primary"> <i class="fa fa-heart" ></i> Favorite </button>
-                             <button class="btn btn-primary"> <i class="fa fa-bookmark" ></i> Save </button>
+                             <!-- <button class="btn btn-primary"> <i class="fa fa-share" ></i> Share </button> -->
+                             <button class="btn btn-primary" onclick="setLikeProperties(this, <?= get_the_ID() ?>)"> <i class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i> Favorite </button>
+                             <button class="btn btn-primary"  onclick="bookmark(this,<?= get_the_ID() ?>)" > 
+                             <i <?= is_user_logged_in() && in_array(get_the_ID(), (array) get_user_meta(get_current_user_id(), 'properties_favorites', false)) ? 'style="color:#9de450"' : '' ?>  class="fa fa-bookmark"></i>
+                             Save </button>
                            </div>
                         </div>
                     <?php endif; ?>
@@ -126,19 +103,52 @@ $associated_floorplans = associated_floorplans_cached();
             </div>
         </div>
     </div>
+    <div class="row mt-4 properties-image-gallery px-3" >
+        <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
+             <!-- map details -->
+             <!-- Properties map -->
+             <!--location:  inc/scripts.php -->
+                <div class="col-12 p-0 map-container rounded" >
+                        <div id="map"></div>
+                </div>
+        </div>
+        <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Gallery">
+            <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
+                <?php if ($psd['galleries'][0]['gallery_url']) : ?>
+                        <div class="vrmedia-gallery">
+                            <ul class="ecommerce-gallery">
+                                <?php foreach ($psd['galleries'] as $gallery_item) : ?>
+                                    <li class="rounded" data-fancybox="gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
+                                        <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
+                                       
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php else : ?>
+                        <div class="d-flex flex-wrap justify-content-between" style="gap:10px;" >
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        </div>
+                    <?php endif; ?>
+
+            <?php endif; ?>
+        </div>  
+    </div>
 </div>
 <!-- Content Section  -->
 
 <div class="container-lg mx-auto row mt-3 px-lg-5">
         <!-- content sidebar -->
-        <div class="col-12 col-sm-3 col-md-3 col-xl-2 d-flex justify-content-center " >
+        <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center " >
             <nav class="xm-auto position-sticky top-48" id="table-of-contents">
                 <div class="title toggle-list-btn">
                     Table of Contents
                     <i class="fa fa-arrow-up toggle-list arrow-toggle"></i>
                 </div>
                 <ol id="tag-list">
-                     <li><a href="#map-detail" class="item-list-tag" title="map">Map</a></li>
                      <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
                      <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
                 </ol>
@@ -146,7 +156,7 @@ $associated_floorplans = associated_floorplans_cached();
         </div>
 
         <!-- content  -->
-        <div class="col-12 col-sm-9 col-md-9 col-xl-7  border-right border-left mb-4">
+        <div class="col-12 col-sm-9 col-md-9  border-right border-left mb-4">
             <div class="container-fluid px-lg-5">
                 <?php if (!empty($psd['content'])) : ?>
                     <div class="row mt-2 mb-4" id="Overview">
@@ -192,15 +202,6 @@ $associated_floorplans = associated_floorplans_cached();
                 </div>
             <?php endif; ?>
             <div class="container-fluid px-lg-5 mb-4">
-                <!-- map details -->
-                <div class="col-12 p-2 rounded" id="map-detail">
-                     <div class="titr-list ml-0">
-                        <h3 class="font-weight-bold">Map Details</h3>
-                    </div> 
-                    <div class="wrap-map">
-                        <div id="map"></div>
-                    </div>
-                </div>
                 <!-- Development Detail -->
                 <?php if (!empty($psd['developments'])) : ?>
                     <div class="row mt-5 mb-4" id="development-detail">
@@ -379,7 +380,7 @@ $associated_floorplans = associated_floorplans_cached();
         </div>
         
         <!-- sidebar -->
-        <div class="col-12 col-sm-12 col-md-12 col-xl-3">
+        <div class="col-12 col-sm-12 col-md-12 ">
                                         
                 <?php if ($psd['theme_options']['opt-properties-status']) : ?>
                     <?php if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>

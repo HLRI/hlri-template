@@ -1701,11 +1701,6 @@ h1.slider-title {
   margin-bottom: 14px;
 }
 
-#map {
-  width: 100%;
-  height: 248px;
-}
-
 .wrap-map {
   padding: 0.5rem;
   border: 8px solid white;
@@ -3330,11 +3325,12 @@ table.dataTable thead tr th {
 }
 
 .vrmedia-gallery .lSGallery li {
-  /* border-radius: 12px !important; */
+  border-radius: var(--border-main) !important;
+  border: 2px solid transparent;
 }
 
 .vrmedia-gallery .lSGallery li.active {
-  border: 1px solid #242423;
+  border-color: var(--main-color);
 }
 
 .fancybox__container {
@@ -3940,4 +3936,13 @@ a.item-list-tag {
 .properties-image-gallery {
   overflow: hidden;
   max-height: fit-content;
+}
+.map-container {
+  position: relative;
+  height: 500px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
 }

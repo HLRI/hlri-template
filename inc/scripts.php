@@ -280,7 +280,7 @@ function theme_footer()
         </script>
     <?php endif; ?>
 
-
+<!-- Properties map -->
 
     <?php if (is_singular('properties')) :
         if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true))) {
@@ -307,6 +307,7 @@ function theme_footer()
                     thumbItem: 4,
                     thumbMargin: 10,
                 });
+                
 
             });
 
