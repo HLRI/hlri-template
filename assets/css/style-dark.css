@@ -1408,28 +1408,31 @@ h1.slider-title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #32302f;
+  background: var(--body-color);
   padding: 1.5rem 2rem;
   border-radius: 6px;
-  box-shadow: 0px 1px 1px 0px #7c6f64;
+  border: 2px solid var(--bg-second);
+  /* box-shadow: 0px 1px 1px 0px #f3f3f3; */
 }
 
 .top-section-icon i {
   font-size: 2.5rem;
-  color: #e28e5c;
+  color: var(--main-color);
 }
 
 .top-section-icon {
-  border-radius: 50%;
+  border-radius: 0 0 50px 50px;
   width: 80px;
-  height: 80px;
+  height: 102px;
   display: flex;
-  align-items: center;
+  align-items: end;
+  padding-bottom: 24px;
   justify-content: center;
   margin-bottom: 1rem;
-  background: #665c54;
+  background: var(--bg-second);
   flex-shrink: 0;
   overflow: hidden;
+  transform: translateY(-24px);
 }
 
 .top-section-content {
@@ -1455,7 +1458,7 @@ h1.slider-title {
 }
 
 .top-section-button {
-  background: #e28e5c;
+  background: var(--main-color);
   border-radius: 4px;
   text-align: center;
   color: white;
@@ -1463,7 +1466,6 @@ h1.slider-title {
   transition: all 0.3s;
   cursor: pointer;
 }
-
 .top-section-button:hover {
   color: white;
   background: #e37d43;
@@ -3642,11 +3644,13 @@ a.item-list-tag {
 }
 
 .hero-section-right {
+  width: 50%;
   border-radius: 0 20px 20px 0;
   overflow: hidden;
 }
 
 .hero-section-left {
+  width: 50%;
   border-radius: 20px 0 0 20px;
   background-color: #fde1a3de;
   display: flex;
@@ -3730,6 +3734,28 @@ a.item-list-tag {
   right: 0;
 }
 
+@media screen and (max-width: 903px) {
+  .hero-section {
+    flex-direction: column;
+  }
+  .hero-section-left {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-section-left p {
+    margin: 0 auto;
+  }
+  .hero-section-right {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+  }
+}
+
 /* Progress List  */
 
 .progress-list-item {
@@ -3749,4 +3775,20 @@ a.item-list-tag {
 .progress-list-item h3 {
   font-size: 15px;
   margin-bottom: 20px;
+}
+
+/* Single Properties */
+
+.properties-image-gallery {
+  overflow: hidden;
+  max-height: fit-content;
+}
+.map-container {
+  position: relative;
+  height: 500px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
 }

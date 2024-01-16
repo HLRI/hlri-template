@@ -6,19 +6,19 @@ function hlr_contact_form()
 ?>
     <div class="container">
         <div class="row py-2">
-            <div class="col-6 my-2">
+            <div class="col-12 col-md-6 my-2">
                 <label for="fname">First Name</label>
                 <input class="form-control" type="text" name="fname" id="fname">
             </div>
-            <div class="col-6 my-2">
+            <div class="col-12 col-md-6 my-2">
                 <label for="lname">Last Name</label>
                 <input class="form-control" type="text" name="lname" id="lname">
             </div>
-            <div class="col-6 my-2">
+            <div class="col-12 col-md-6 my-2">
                 <label for="email">Email</label>
                 <input class="form-control" type="text" name="email" id="email">
             </div>
-            <div class="col-6 my-2">
+            <div class="col-12 col-md-6 my-2">
                 <label for="phone">Phone Number</label>
                 <input class="form-control" type="text" name="phone" id="phone">
             </div>

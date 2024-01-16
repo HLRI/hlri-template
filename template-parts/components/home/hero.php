@@ -1,6 +1,6 @@
 <div class="hero-section" >
     <?php if (!empty($theme_options['opt-slider-fieldset']['opt_slider_items'])) : ?>
-        <div class="hero-section-left  pl-2 pl-md-3 pl-lg-4 w-50">
+        <div class="hero-section-left  pl-2 pl-md-3 pl-lg-4">
             <div class="hero-section-title">
                 <h1>Find Your Dreams Condo</h1>
                 <h4>Investment Excellence, Condo Brilliance</h4>
@@ -12,7 +12,7 @@
                 <?php include(HLR_THEME_COMPONENT . 'home/hero-search.php'); ?>
             </div>
         </div>
-        <div id="carouselExampleIndicators" class="carousel slide carousel-fade w-50 hero-section-right" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade  hero-section-right" data-ride="carousel">
             <div class="carousel-inner">
                 <?php
                 $i = 0;

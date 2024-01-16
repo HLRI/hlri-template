@@ -52,11 +52,11 @@ $properties = new WP_Query($arg);
 ?>
 
 <div class="container-lg my-5">
-    <div class="d-flex w-100 bg-foreground mt-4 position-sticky sticky-top shadow mb-4 rounded pt-2 px-4 align-items-center" style="width:100%; z-index:77;gap:10px;">
+    <div class="d-flex w-100 mt-4 position-sticky bg-background sticky-top shadow mb-4 rounded pt-2 px-4 align-items-center" style="width:100%; z-index:77;gap:10px;">
         <form class="mx-auto mx-md-0 row w-100 w-md-75" action="<?php echo esc_url(get_post_type_archive_link('properties')); ?>" method="get">
             <!-- Cities -->
             <div class="form-group col-6 col-md-3">
-                  <label for="cities_filter">City</label>
+                  <label for="cities_filter" class="text-muted">City</label>
                   <select name="cities_filter" class="form-control" id="cities_filter" onchange="this.form.submit()">
                     <option value="">Select City</option>
                         <?php
@@ -74,7 +74,7 @@ $properties = new WP_Query($arg);
             </div>   
             <!-- group -->
             <div class="form-group col-6 col-md-3">
-                  <label for="group_filter">Group</label>
+                  <label for="group_filter"class="text-muted">Group</label>
                   <select name="group_filter"  class="form-control" id="group_filter" onchange="this.form.submit()">
                     <option value="">Select Group</option>
                         <?php
@@ -92,7 +92,7 @@ $properties = new WP_Query($arg);
             </div>
           <!-- Neighborhoods -->
             <div class="form-group col-6 col-md-3">
-                  <label for="neighborhood_filter">Neighborhood</label>
+                  <label for="neighborhood_filter"class="text-muted">Neighborhood</label>
                   <select name="neighborhood_filter"  class="form-control" id="neighborhood_filter" onchange="this.form.submit()">
                     <option value="">Select Neighborhood</option>
                     <?php
