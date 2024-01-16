@@ -1442,14 +1442,14 @@ h1.slider-title {
 }
 
 .top-section-title {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .top-section-description {
   color: #979797;
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 0.5rem;
 }
 
@@ -3405,8 +3405,7 @@ a.item-list-tag {
   padding-top: 3rem;
   position: relative;
   margin-bottom: -120px;
-  border-image: fill 0
-    linear-gradient(0deg, var(--bg-main) 40%, rgba(0, 0, 0, 0) 100%);
+  border-image: fill 0 linear-gradient(0deg, #fff 40%, rgba(0, 0, 0, 0) 100%);
   transition: 0.3s;
   background-blend-mode: color-burn;
   background-size: cover;

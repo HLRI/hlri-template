@@ -6,7 +6,7 @@
         </div>
         <div class="card-blog-content">
             <div class="date-blog mb-2"><span><?= get_the_date() ?></span></div>
-            <h3 class="text-black"><a href="<?= get_the_permalink() ?>" ><?= strlen(get_the_title())  > 155 ? substr(get_the_title(), 0, 155) . '...' : get_the_title() ?></a></h3>
+            <h3 class="text-black"><a href="<?= get_the_permalink() ?>" ><?= strlen(get_the_title())  > 70 ? substr(get_the_title(), 0, 70) . '...' : get_the_title() ?></a></h3>
             <div class="card-blog-description">
                 <?= strlen(strip_tags(get_the_content()))  > 150 ? substr(strip_tags(get_the_content()), 0, 150) . '...' : strip_tags(get_the_content()) ?>
             </div>
