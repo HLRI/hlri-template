@@ -3159,6 +3159,7 @@ table.dataTable thead tr th {
   margin-bottom: 20px;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

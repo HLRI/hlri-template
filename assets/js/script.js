@@ -461,18 +461,18 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
     .owlCarousel(
       "add",
       '<div class="skeleton">' +
-        '                        <div class="skeleton-left flex1">' +
-        '                            <div class="square"></div>' +
-        "                        </div>" +
-        '                        <div class="skeleton-right flex2">' +
-        '                            <div class="line h25 w75 m10"></div>' +
-        '                            <div class="line"></div>' +
-        '                            <div class="line h8 w50"></div>' +
-        '                            <div class="line"></div>' +
-        '                            <div class="line h8 w50"></div>' +
-        '                            <div class="line  w75"></div>' +
-        "                        </div>" +
-        "                    </div>",
+        '   <div class="w-100">' +
+        '     <div class="square"></div>' +
+        "   </div>" +
+        '   <div class="w-100 mt-2">' +
+        '     <div class="line mb-3 h25 w75 m10"></div>' +
+        '     <div class="line mt-5"></div>' +
+        '     <div class="line h8 w50"></div>' +
+        '     <div class="line"></div>' +
+        '     <div class="line h8 w50"></div>' +
+        '     <div class="line  w75"></div>' +
+        "   </div>" +
+        "</div>",
     )
     .owlCarousel("update");
   jQuery.ajax({
@@ -498,159 +498,121 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
       jQuery.each(list, function (index, item) {
         var post = item.data;
 
-        var maxPriceSqft = "";
-        var minSize = "";
-        var address = "";
-        var totalLike = "";
-        var likeColor = "";
-
-        if (post.metadata["opt-min-price-sqft"] != "") {
-          maxPriceSqft =
-            "<div>$" +
+        var maxPriceSqft = post.metadata["opt-min-price-sqft"]
+          ? '<div class="properties-card_price">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg> ' +
+            "$" +
             post.metadata["opt-min-price-sqft"] +
-            " to  $" +
+            " to $" +
             post.metadata["opt-max-price-sqft"] +
-            "</div>";
-        }
+            "</div>"
+          : "";
 
-        if (post.metadata["opt-size-min"] != "") {
-          minSize =
-            "<div>" +
+        var minSize = post.metadata["opt-size-min"]
+          ? '<div class="properties-card_size">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>' +
             post.metadata["opt-size-min"] +
             " - " +
             post.metadata["opt-size-max"] +
-            " Sq Ft | " +
+            " Sq Ft" +
+            "</div>"
+          : "";
+
+        var address = post.metadata["opt-address"]
+          ? '<div class="properties-card_addr">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>' +
+            post.metadata["opt-address"] +
+            "</div>"
+          : "";
+
+        var occupancy = post.metadata["opt-occupancy"]
+          ? '<div class="properties-card_addr">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>' +
+            "Built in" +
             post.metadata["opt-occupancy"] +
-            "</div>";
-        }
+            "</div>"
+          : "";
 
-        if (post.metadata["opt-address"] != "") {
-          address = "<div>" + post.metadata["opt-address"] + "</div>";
-        }
+        var title =
+          post.title.length > 18
+            ? post.title.substring(0, 18) + "..."
+            : post.title;
 
-        if (post.metadata["total_like"] != "") {
-          totalLike = post.metadata["total_like"];
-        }
+        var description =
+          post.content.length > 44
+            ? post.content.substring(0, 44) + "..."
+            : post.content;
 
-        if (getCookie(post.id) == "isset") {
-          likeColor = "red";
-        }
+        var likeColor = getCookie(post.id) == "isset" ? "red" : "";
+
+        var totalLike = post.metadata["total_like"]
+          ? post.metadata["total_like"]
+          : "Like";
+
+        var dynamicCard =
+          '<div class="px-2 mb-5">' +
+          '    <div class="properties-card">' +
+          '        <div class="properties-card_image">' +
+          '            <a href="' +
+          post.permalink +
+          '" title="' +
+          title +
+          '">' +
+          '<img src="' +
+          post.thumbnail_url +
+          '" alt="' +
+          title +
+          '" loading="lazy" />' +
+          "</a>" +
+          "</div>" +
+          '        <div class="properties-card_detail">' +
+          '            <div class="properties-card_title">' +
+          '                 <a href="' +
+          post.permalink +
+          '" title="' +
+          title +
+          '">' +
+          '                    <h6 class="text-black">' +
+          title +
+          "</h6>" +
+          "                </a>" +
+          "            </div>" +
+          '            <div class="properties-card_desc">' +
+          '                 <a href="' +
+          post.permalink +
+          '" title="' +
+          title +
+          '">' +
+          description +
+          "                </a>" +
+          "            </div>" +
+          '            <div class="properties-card_opt">' +
+          maxPriceSqft +
+          minSize +
+          address +
+          occupancy +
+          "            </div>" +
+          '            <div class="properties-card_actions">' +
+          '                <div onclick="setLikeProperties(this, ' +
+          post.id +
+          ')" role="button" class="properties-card_actions_btn">' +
+          '                    <i class="fa fa-heart"' +
+          (likeColor ? ' style="color:' + likeColor + '"' : "") +
+          "></i>" +
+          '                    <span id="like-total">' +
+          totalLike +
+          "</span>" +
+          "                </div>" +
+          '  <div class="properties-card_actions_btn" role="button" onclick="bookmark(this,<?= get_the_ID() ?>)"> ' +
+          `<i class="fa fa-bookmark"></i>` +
+          "</div>" +
+          "            </div>" +
+          "        </div>" +
+          "    </div>" +
+          "</div>";
 
         jQuery("." + className)
-          .owlCarousel(
-            "add",
-            '<div class="card-listing card-listing-v2">' +
-              '<div class="card-listing-image card-listing-image-v2">' +
-              '                                    <a href="' +
-              post.permalink +
-              '" title="' +
-              post.title +
-              '">' +
-              '                                       <img src="' +
-              post.thumbnail_url +
-              '" alt="' +
-              post.title +
-              '">' +
-              "                                    </a>" +
-              "                                </div>" +
-              "" +
-              "" +
-              '                                <div class="card-body-listing card-body-listing-v2">' +
-              "" +
-              '                                    <div class="card-listing-content card-listing-content-v2">' +
-              '                                        <a href="' +
-              post.permalink +
-              '" title="' +
-              post.title +
-              '">' +
-              '                                            <h6 class="text-black">' +
-              post.title +
-              "</h6>" +
-              "                                        </a>" +
-              '                                        <div class="card-listing-description card-listing-description-v2">' +
-              '                                            <a href="' +
-              post.permalink +
-              '" title="' +
-              post.title +
-              '">' +
-              post.content +
-              "                                            </a>" +
-              "                                        </div>" +
-              "                                    </div>" +
-              "" +
-              '                                    <div class="lable-listing lable-listing-v2">' +
-              maxPriceSqft +
-              minSize +
-              address +
-              "                                    </div>" +
-              "                                </div>" +
-              "" +
-              "" +
-              "" +
-              '                                <div class="more more-v2">' +
-              '                                    <div class="card-listing-options">' +
-              "                                        <div>" +
-              '                                            <i onclick="setLikeProperties(this, ' +
-              post.id +
-              ')" role="button" class="fa fa-heart" style="color:' +
-              likeColor +
-              '"></i>' +
-              '                                            <span class="text-muted" id="like-total">' +
-              totalLike +
-              "                                            </span>" +
-              "                                        </div>" +
-              "" +
-              '                                        <i role="button" class="fa fa-share-alt"></i>' +
-              '<i role="button" onclick="bookmark(this,' +
-              post.id +
-              ')" class="fa fa-bookmark" style="color:' +
-              item.bookColor +
-              '"></i>' +
-              "                                    </div>" +
-              '                                    <a href="' +
-              post.permalink +
-              '" title="' +
-              post.title +
-              '" class="">more</a>' +
-              "" +
-              "                                </div>" +
-              "" +
-              '                                <div class="card-share">' +
-              '                                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=' +
-              post.shortlink +
-              '"><i class="fa fa-facebook-square"></i></a>' +
-              '                                    <a target="_blank" href="https://reddit.com/submit?url=' +
-              post.shortlink +
-              '&title="' +
-              post.title +
-              '"><i class="fa fa-reddit"></i></a>' +
-              '                                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' +
-              post.shortlink +
-              "?ref=linkedin&title=" +
-              post.title +
-              "&summary=" +
-              post.content +
-              '"><i class="fa fa-linkedin-square"></i></a>' +
-              '                                    <a target="_blank" href="https://wa.me/?text=' +
-              post.shortlink +
-              '"><i class="fa fa-whatsapp"></i></a>' +
-              '                                    <a target="_blank" href="https://telegram.me/share/url?url=' +
-              post.shortlink +
-              '?ref=telegram"><i class="fa fa-telegram"></i></a>' +
-              '                                    <a target="_blank" href="https://www.pinterest.com/pin/create/button?url=' +
-              post.shortlink +
-              "&media=" +
-              post.thumbnail_url +
-              "&description=" +
-              post.title +
-              '"><i class="fa fa-pinterest"></i></a>' +
-              '                                    <a target="_blank" href="https://twitter.com/intent/tweet?url=' +
-              post.shortlink +
-              '"><i class="fa fa-twitter-square"></i></a>' +
-              '                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>' +
-              "                                </div>" +
-              "                                </div>",
-          )
+          .owlCarousel("add", dynamicCard)
           .owlCarousel("update");
       });
       jQuery(".owl-carousel").trigger("refresh.owl.carousel");
