@@ -151,6 +151,17 @@ body * {
   color: var(--primary-color) !important;
 }
 
+.btn-primary {
+  border: 1px solid transparent;
+  background-color: var(--bg-second);
+  color: #fff;
+  border-radius: var(--border-main);
+}
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--main-color);
+}
+
 /* ############ END BASE Classes ############### */
 
 .owl-theme .owl-nav button {
@@ -1780,7 +1791,7 @@ small.rvs-nav-item-credits {
 }
 
 .update-label {
-  position: absolute;
+  /* position: absolute; */
   top: -28px;
   left: 0;
   background: #e28e5c;
@@ -2899,9 +2910,13 @@ label {
   padding: 6px 18px;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   color: #32302f;
+}
+
+.start-price span {
+  font-size: 25px;
 }
 
 #back-to-top {
@@ -3210,6 +3225,47 @@ input[type="checkbox"] {
   accent-color: #ff912c;
 }
 
+.vrmedia-gallery {
+  max-width: 100%;
+  margin: 0 auto;
+  /* background: white; */
+  /* padding: 20px; */
+  backdrop-filter: opacity(0.5);
+}
+
+.vrmedia-gallery img {
+  object-fit: cover;
+  width: 100%;
+  height: 400px;
+}
+
+.vrmedia-gallery .lSGallery {
+  display: inline-flex;
+}
+
+.vrmedia-gallery .lSGallery li {
+  border-radius: var(--border-main) !important;
+  border: 2px solid transparent;
+}
+
+.vrmedia-gallery .lSGallery li.active {
+  border-color: var(--main-color);
+}
+
+.fancybox__container {
+  z-index: 9999 !important;
+}
+
+.lSSlideOuter .lSPager.lSGallery img {
+  object-fit: cover;
+  height: 100px !important;
+}
+
+#tag-list li {
+  list-style: inside devanagari;
+  color: #ffad00;
+}
+
 #tag-list li {
   list-style: inside devanagari;
   color: #dc8b5b;
@@ -3221,7 +3277,8 @@ nav#table-of-contents {
   border-radius: 10px;
   margin-bottom: 20px;
   font-size: 12px;
-  width: fit-content;
+  width: 100%;
+  height: fit-content;
 }
 
 ol#tag-list li {

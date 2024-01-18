@@ -1794,7 +1794,7 @@ h1.slider-title {
   /* position: absolute; */
   top: -28px;
   left: 0;
-  background: var();
+  background: var(--main-color);
   color: white;
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
@@ -3384,7 +3384,7 @@ nav#table-of-contents {
   border-radius: 10px;
   margin-bottom: 20px;
   font-size: 12px;
-  width: fit-content;
+  width: 100%;
   height: fit-content;
 }
 

@@ -10,20 +10,20 @@ $associated_floorplans = associated_floorplans_cached();
 <div class="container-lg px-lg-5">
   
     
-    <div class="mt-4 mb-4 border-top pt-4">
+    <div class="mt-4">
         <div class="p-3 bg-foreground rounded" >
-            <div class="card-profile-details p-0 position-relative">
+            <div class="p-0 position-relative">
                
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                     <?php if (!empty($psd['thumbnail_url'])) : ?>
-                        <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 mr-2"  alt="<?= $psd['thumbnail_caption'] ?>">
+                        <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 rounded mr-4"  alt="<?= $psd['thumbnail_caption'] ?>">
                     <?php else : ?>
                         <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                     <?php endif; ?>
                     <div>
                         <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty($psd['excerpt'])) : ?>
-                            <p><i class="fa fa-location-dot" ></i>  <?= $psd['excerpt'] ?></p>
+                            <p class="text-muted" > <?= $psd['excerpt'] ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ $associated_floorplans = associated_floorplans_cached();
             </div>
         </div>
     </div>
-    <div class="row mt-4 properties-image-gallery px-3" >
+    <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4" >
         <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
              <!-- map details -->
              <!-- Properties map -->
@@ -133,7 +133,11 @@ $associated_floorplans = associated_floorplans_cached();
                             <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         </div>
                     <?php endif; ?>
-
+                <?php else: ?>
+                    <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
+                        <h2 class="text-2xl font-bold">Gallery</h2>
+                        <p class="text-gray-500">No images available at this time.</p>
+                    </div>
             <?php endif; ?>
         </div>  
     </div>
