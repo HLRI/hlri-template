@@ -3057,6 +3057,9 @@ label {
   flex-direction: column;
   justify-content: start;
   gap: 4px;
+  background-color: var(--bg-main);
+  padding: 10px;
+  border-radius: var(--border-main);
 }
 
 .floorplan-item .title-item {
@@ -3146,13 +3149,41 @@ button.btn.btn-link:hover {
   border-radius: 50%;
   margin-right: 10px;
 }
-
 .status-color-success {
+  position: relative;
   background: #5dae44;
 }
 
 .status-color-danger {
+  position: relative;
   background: #cf3f3f;
+}
+
+.status-color-success::before {
+  background: #5dae44;
+}
+.status-color-danger::before {
+  background: #cf3f3f;
+}
+
+.status-color-success::before,
+.status-color-danger::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  animation: ping 1s infinite;
+  border-radius: 30px;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 .dataTables_wrapper .dataTables_info,

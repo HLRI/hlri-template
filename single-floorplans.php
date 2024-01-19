@@ -23,38 +23,50 @@ $args = array(
 $property = new WP_Query($args);
 
 ?>
-<div class="container-fluid px-lg-5 my-4">
+<div class="container-lg  px-lg-5 my-4">
     <div class="row">
         <div class="col-lg-9 px-4">
 
             <div class="row floorplan-header mb-4">
                 <div class="col-lg-8 px-lg-0">
-                    <?php if ($property->have_posts()) : ?>
-                        <?php
-                        while ($property->have_posts()) : $property->the_post();
-                            if (!empty(get_the_terms(get_the_ID(), 'neighborhood'))) {
-                                foreach (get_the_terms(get_the_ID(), 'neighborhood') as $term) {
-                                    $total_neighborhood[] =  get_term_meta($term->term_id, 'neighborhood_options', true)['opt-neighborhood-appson'] . '<br>';
+                    <?php
+                        if (isset($property) && $property->have_posts()) :
+                            while ($property->have_posts()) : 
+                                $property->the_post();
+                                $terms = get_the_terms(get_the_ID(), 'neighborhood');
+                                $total_neighborhood = [];
+                                
+                                if (!empty($terms)) {
+                                    foreach ($terms as $term) {
+                                        $neighborhood_meta = get_term_meta($term->term_id, 'neighborhood_options', true);
+                                        if (is_array($neighborhood_meta) && isset($neighborhood_meta['opt-neighborhood-appson'])) {
+                                            $total_neighborhood[] = $neighborhood_meta['opt-neighborhood-appson'];
+                                        }
+                                    }
+                                    if (count($total_neighborhood)) {
+                                        $avgn = array_sum($total_neighborhood) / count($total_neighborhood);
+                                    } else {
+                                        $avgn = '';
+                                    }
+                                } else {
+                                    $avgn = '';
                                 }
-                                $avgn = array_sum($total_neighborhood) / count(get_the_terms(get_the_ID(), 'neighborhood'));
-                            } else {
-                                $avgn = '';
-                            }
-                            $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+
+                                $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         ?>
-                            <div>
-                                <?php if (!empty($mdata_single['opt-developer'])) : ?>
-                                    <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
-                                <?php else : ?>
-                                    <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4>
-                                <?php endif; ?>
-                            </div>
+                                <div>
+                                    <?php if (!empty($mdata_single['opt-developer'])) : ?>
+                                        <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
+                                    <?php else : ?>
+                                        <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4>
+                                    <?php endif; ?>
+                                </div>
                         <?php
-                        endwhile;
-                        wp_reset_postdata();
-                        wp_reset_query();
+                            endwhile;
+                            wp_reset_postdata();
+                            wp_reset_query();
+                        endif;
                         ?>
-                    <?php endif; ?>
                     <div class="d-flex align-items-center">
                         <?php if (!empty($floorplans['opt-floorplans-status'])) : ?>
                             <span class="status-floorplan <?= $floorplans['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
@@ -119,62 +131,62 @@ $property = new WP_Query($args);
                         $info =  $sq . ' ' . $bed . ' ' . $baths . ' ' . $view;
 
                         ?>
-                        <a href="<?= get_the_post_thumbnail_url() ?>" title="<center> <?= $title_img ?> <br><br> <?= $fp ?> <br><br> <?= $info ?></center>" data-lightbox="roadtrip">
+                        <a href="<?= get_the_post_thumbnail_url() ?>"  title="<center> <?= $title_img ?> <br><br> <?= $fp ?> <br><br> <?= $info ?></center>" data-lightbox="roadtrip">
                             <img loading="lazy" class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="test aly">
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="row mt-4 p-lg-4 border py-4">
-                <div class="col-6 col-lg-3 mb-3 mb-lg-0">
-                    <div class="floorplan-item">
-                        <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
+            <div class="row mt-4 p-lg-2 py-2 rounded ">
+                <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
+                    <div class="col-6 col-lg-3 mb-3 mb-lg-0">
+                        <div class="floorplan-item">
                             <div class="title-item">
                                 SQ.FT.
                             </div>
                             <div class="content-item">
                                 <?= $floorplans['opt-floorplans-interior-size'] ?> sq.ft
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3 mb-lg-0">
-                    <div class="floorplan-item">
-                        <?php if (!empty($floorplans['opt-floorplans-beds']) || !empty($floorplans['opt-floorplans-baths'])) : ?>
+                <?php endif; ?>
+                <?php if (!empty($floorplans['opt-floorplans-beds']) || !empty($floorplans['opt-floorplans-baths'])) : ?>
+                    <div class="col-6 col-lg-3 mb-3 mb-lg-0">
+                        <div class="floorplan-item">
                             <div class="title-item">
                                 TYPE
                             </div>
                             <div class="content-item">
                                 <?= $floorplans['opt-floorplans-beds'] ?> Bed, <?= $floorplans['opt-floorplans-baths'] ?> Bath
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3 mb-lg-0">
-                    <div class="floorplan-item">
-                        <?php if (!empty($floorplans['opt-floorplans-view'])) : ?>
+                <?php endif; ?>
+                <?php if (!empty($floorplans['opt-floorplans-view'])) : ?>
+                    <div class="col-6 col-lg-3 mb-3 mb-lg-0">
+                        <div class="floorplan-item">
                             <div class="title-item">
                                 EXPOSURE
                             </div>
                             <div class="content-item">
                                 <?= $floorplans['opt-floorplans-view']; ?>
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
+                <?php if (!empty($floorplans['opt-floorplans-floor-range'])) : ?>
                 <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                     <div class="floorplan-item">
-                        <?php if (!empty($floorplans['opt-floorplans-floor-range'])) : ?>
                             <div class="title-item">
                                 FLOOR RANGE
                             </div>
                             <div class="content-item">
                                 <?= $floorplans['opt-floorplans-floor-range'] ?>
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
 
             <div class="row mt-3">
@@ -376,129 +388,7 @@ $property = new WP_Query($args);
     </div>
 
     <div class="container-fluid px-0 mt-lg-5 mt-2">
-        <div class="content">
-            <div class="row mb-lg-4 mb-2">
-                <div class="col-12 mb-4">
-                    <h4 class="font-weight-bold h3">Browse more Imperia Condos by Truman Floor Plans</h4>
-                </div>
-                <div class="col-12">
-                    <div class="btn-group submitter-group float-left">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text btn-status-floorplan">Status</div>
-                        </div>
-                        <select class="form-control status-dropdown">
-                            <option value="">All</option>
-                            <option value="Sold Out">Sold Out</option>
-                            <option value="Available">Available</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- <div class="col-8">
-                    <div class="filter-wrapper">
-                        <input type="checkbox" class="filter-checkbox" value="Software Engineer" /> Software Engineer
-                        <input type="checkbox" class="filter-checkbox" value="Accountant" /> Accountant
-                        <input type="checkbox" class="filter-checkbox" value="Sales Assistant" /> Sales Assistant
-                        <input type="checkbox" class="filter-checkbox" value="Developer" /> Developer
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="btn-group submitter-group float-right">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">Status</div>
-                        </div>
-                        <select class="form-control status-dropdown">
-                            <option value="">All</option>
-                            <option value="Sold Out">Sold Out</option>
-                            <option value="Available">Available</option>
-                        </select>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-        <div class="card-form py-4">
-            <div class="table-responsive">
-                <table id="example" class="table pt-4">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Suite Name</th>
-                            <th>Suite Type</th>
-                            <th>Size</th>
-                            <th>View</th>
-                            <th>Price</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $args = array(
-                            'post_type' => 'floorplans',
-                            'posts_per_page' => -1,
-                            'orderby'   => 'meta_value',
-                            'order' => 'DESC',
-                            'meta_query' => array(
-                                array(
-                                    'key' => 'associated_property',
-                                    'value' => $associated_property,
-                                    'compare' => '=',
-                                ),
-                            )
-                        );
-
-                        $associated_floorplans = new WP_Query($args);
-                        if ($associated_floorplans->have_posts()) :
-                            while ($associated_floorplans->have_posts()) :
-                                $associated_floorplans->the_post();
-                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                        ?>
-                                <tr>
-                                    <td>
-                                        <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                        <div class="wrap-head-floorplan">
-                                            <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                            <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
-                                        </div>
-                                    </td>
-                                    <td><?= $floor['opt-floorplans-suite-name'] ?></td>
-                                    <td>
-                                        <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
-                                            <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
-                                        <?php else : ?>
-                                            -
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <?php if (!empty($floor['opt-floorplans-size'])) : ?>
-                                            <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
-                                        <?php else : ?>
-                                            -
-                                        <?php endif; ?>
-                                    </td>
-                                    <td><?= $floor['opt-floorplans-view']; ?></td>
-                                    <td>
-                                        <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
-                                            <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
-                                        <?php else : ?>
-                                            -
-                                        <?php endif; ?>
-
-                                        <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
-                                            <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
-                                        <?php else : ?>
-                                            -
-                                        <?php endif; ?>
-                                    </td>
-                                    <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
-                                </tr>
-                        <?php
-                            endwhile;
-                            wp_reset_postdata();
-                        endif;
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            <?php include(HLR_THEME_COMPONENT . 'properties/floorplans-table.php'); ?>
     </div>
 
 </div>
