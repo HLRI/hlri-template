@@ -12,7 +12,4 @@
             <?php endforeach; ?>
         </div>
     </div>
-
-<?php else : ?>
-    <p>Please select an image for Ads</p>
 <?php endif; ?>
