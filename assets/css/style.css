@@ -93,7 +93,7 @@ textarea::placeholder {
   --icon-color-sidebar: #adb4d7;
   --color-text-sidebar: rgb(125, 125, 125);
   --modal-footer-bt: #e5e5e5;
-  --body-color: #f6f6f6;
+  --body-color: #f9f9f9;
   --bg-second: #f8f7ff;
   --bg-main: #f6f6f6;
   --text-color: 37, 42, 44;
@@ -1401,15 +1401,22 @@ h1.slider-title {
 }
 
 .card-top-section {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #fffcf3;
+  transition: all 0.3s;
   padding: 1.5rem 2rem;
   border-radius: 6px;
-  border: 2px solid var(--bg-second);
+  /* border: 2px solid var(--bg-second); */
   /* box-shadow: 0px 1px 1px 0px #f3f3f3; */
+}
+.card-top-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 10px -1px #f3f3f3;
 }
 
 .top-section-icon i {
@@ -1418,18 +1425,19 @@ h1.slider-title {
 }
 
 .top-section-icon {
-  border-radius: 0 0 50px 50px;
+  border-radius: 50px;
   width: 80px;
-  height: 102px;
+  height: 80px;
   display: flex;
   align-items: end;
   padding-bottom: 24px;
   justify-content: center;
   margin-bottom: 1rem;
-  background: var(--bg-second);
+  background: #fff;
   flex-shrink: 0;
   overflow: hidden;
-  transform: translateY(-24px);
+  /* transform: translateY(-24px); */
+  z-index: 4;
 }
 
 .top-section-content {
@@ -1441,15 +1449,27 @@ h1.slider-title {
   text-align: center;
 }
 
+/* .card-top-section::before {
+  position: absolute;
+  content: " ";
+  background-color: var(--bg-main);
+  width: 90%;
+  height: 40%;
+  top: 10%;
+  border-radius: 0 0 30px 30px;
+  z-index: 1;
+  opacity: 1;
+} */
+
 .top-section-title {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .top-section-description {
   color: #979797;
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 0.5rem;
 }
 
@@ -1461,6 +1481,13 @@ h1.slider-title {
   padding: 0.4rem 1rem;
   transition: all 0.3s;
   cursor: pointer;
+  outline: 2px solid transparent;
+}
+
+.card-top-section:hover .top-section-button {
+  background: white;
+  color: var(--main-color);
+  outline: 2px solid var(--main-color);
 }
 
 .top-section-button:hover {
@@ -1767,7 +1794,7 @@ h1.slider-title {
   /* position: absolute; */
   top: -28px;
   left: 0;
-  background: var();
+  background: var(--main-color);
   color: white;
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
@@ -3016,6 +3043,9 @@ a.neighborhood-link {
   flex-direction: column;
   justify-content: start;
   gap: 4px;
+  background-color: var(--bg-main);
+  padding: 10px;
+  border-radius: var(--border-main);
 }
 
 .floorplan-item .title-item {
@@ -3101,11 +3131,40 @@ button.btn.btn-link:hover {
 }
 
 .status-color-success {
+  position: relative;
   background: #5dae44;
 }
 
 .status-color-danger {
+  position: relative;
   background: #cf3f3f;
+}
+
+.status-color-success::before {
+  background: #5dae44;
+}
+.status-color-danger::before {
+  background: #cf3f3f;
+}
+
+.status-color-success::before,
+.status-color-danger::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  animation: ping 1s infinite;
+  border-radius: 30px;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 .dataTables_wrapper .dataTables_info,
@@ -3159,6 +3218,7 @@ table.dataTable thead tr th {
   margin-bottom: 20px;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -3356,7 +3416,7 @@ nav#table-of-contents {
   border-radius: 10px;
   margin-bottom: 20px;
   font-size: 12px;
-  width: fit-content;
+  width: 100%;
   height: fit-content;
 }
 
@@ -3404,8 +3464,7 @@ a.item-list-tag {
   padding-top: 3rem;
   position: relative;
   margin-bottom: -120px;
-  border-image: fill 0
-    linear-gradient(0deg, var(--bg-main) 40%, rgba(0, 0, 0, 0) 100%);
+  border-image: fill 0 linear-gradient(0deg, #fff 40%, rgba(0, 0, 0, 0) 100%);
   transition: 0.3s;
   background-blend-mode: color-burn;
   background-size: cover;

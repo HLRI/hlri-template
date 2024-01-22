@@ -739,6 +739,15 @@
     justify-content: center !important;
   }
 
+  .card-property-responsive h2 {
+    margin: 10px 0;
+    line-height: 1 !important ;
+  }
+
+  .card-property-responsive img {
+    width: 100% !important ;
+  }
+
   .update-label {
     top: -18px;
     left: 0;
@@ -897,6 +906,15 @@
     flex-direction: column;
     align-items: start !important;
     justify-content: center !important;
+  }
+
+  .card-property-responsive h2 {
+    margin: 10px 0;
+    line-height: 1 !important ;
+  }
+
+  .card-property-responsive img {
+    width: 100% !important ;
   }
 
   .update-label {

@@ -10,25 +10,25 @@ $associated_floorplans = associated_floorplans_cached();
 <div class="container-lg px-lg-5">
   
     
-    <div class="mt-4 mb-4 border-top pt-4">
+    <div class="mt-4">
         <div class="p-3 bg-foreground rounded" >
-            <div class="card-profile-details p-0 position-relative">
+            <div class="p-0 position-relative">
                
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                     <?php if (!empty($psd['thumbnail_url'])) : ?>
-                        <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 mr-2"  alt="<?= $psd['thumbnail_caption'] ?>">
+                        <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 rounded mr-4"  alt="<?= $psd['thumbnail_caption'] ?>">
                     <?php else : ?>
                         <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                     <?php endif; ?>
                     <div>
                         <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty($psd['excerpt'])) : ?>
-                            <p><i class="fa fa-location-dot" ></i>  <?= $psd['excerpt'] ?></p>
+                            <p class="text-muted" > <?= $psd['excerpt'] ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
 
-                <div class="row mb-2 justify-content-start ">
+                <div class="row mb-2 justify-content-start px-0 px-md-3 ">
                     <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
                             <div class="rating-stars">
                                 <span class="update-label bg-foreground text-muted ">Last Update : <?= isset($psd['modified_dat']) ? $psd['modified_dat'] : 'No Update' ?></span>
@@ -103,7 +103,7 @@ $associated_floorplans = associated_floorplans_cached();
             </div>
         </div>
     </div>
-    <div class="row mt-4 properties-image-gallery px-3" >
+    <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4" >
         <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
              <!-- map details -->
              <!-- Properties map -->
@@ -133,7 +133,11 @@ $associated_floorplans = associated_floorplans_cached();
                             <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         </div>
                     <?php endif; ?>
-
+                <?php else: ?>
+                    <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
+                        <h2 class="text-2xl font-bold">Gallery</h2>
+                        <p class="text-gray-500">No images available at this time.</p>
+                    </div>
             <?php endif; ?>
         </div>  
     </div>
@@ -159,7 +163,7 @@ $associated_floorplans = associated_floorplans_cached();
         <div class="col-12 col-sm-9 col-md-9  border-right border-left mb-4">
             <div class="container-fluid px-lg-5">
                 <?php if (!empty($psd['content'])) : ?>
-                    <div class="row mt-2 mb-4" id="Overview">
+                    <div class="row mt-2 border-top  mb-4" id="Overview">
                         <div class="col-12">
                             <div class=" content-original">
                                 <?= wpautop($psd['content']) ?>
@@ -170,7 +174,7 @@ $associated_floorplans = associated_floorplans_cached();
             </div>
             <?php if (!empty($psd['videos'])) : ?>
                 <div class="container-fluid px-lg-5 py-4" style="background: linear-gradient(45deg, #bf212f, #3a27bd);">
-                    <div class="row mt-2 mb-4">
+                    <div class="row border-top  mt-2 mb-4">
                         <div class="col-12">
                             <div class="rvs-container">
                                 <div class="rvs-item-container">
@@ -204,7 +208,7 @@ $associated_floorplans = associated_floorplans_cached();
             <div class="container-fluid px-lg-5 mb-4">
                 <!-- Development Detail -->
                 <?php if (!empty($psd['developments'])) : ?>
-                    <div class="row mt-5 mb-4" id="development-detail">
+                    <div class="row border-top  mt-5 mb-4" id="development-detail">
                         <div class="col-12">
                             <div class="titr-list ml-0">
                                 <h3 class="font-weight-bold">Development Details</h3>
@@ -226,7 +230,7 @@ $associated_floorplans = associated_floorplans_cached();
                 <?php endif; ?>
 
                 <?php if (!empty($psd['price_images'])) : ?>
-                    <div class="row mt-5 mb-4" id="PriceList">
+                    <div class="row mt-5 border-top  mb-4" id="PriceList">
                         <div class="col-12">
                             <div class="titr-list ml-0">
                                 <h3 class="font-weight-bold">Price List</h3>
@@ -243,7 +247,7 @@ $associated_floorplans = associated_floorplans_cached();
                 <?php endif; ?>
 
                 <?php if (!empty($floorplans_ids[0])) : ?>
-                    <div class="row my-4" >
+                    <div class="row border-top  my-4" >
                         <div class="col-12">
                             <div class="titr-list ml-0">
                                 <h3 class="font-weight-bold">Floor Plans</h3>
@@ -266,7 +270,7 @@ $associated_floorplans = associated_floorplans_cached();
                 <?php endif; ?>
 
                 <?php if ($associated_floorplans->have_posts()) : ?>
-                    <div class="container-fluid px-0 mt-lg-5 mt-2" id="FloorPlans">
+                    <div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
                         <div class="content">
                             <div class="row mb-lg-4 mb-2">
                                 <div class="col-12 mb-4">
