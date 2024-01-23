@@ -22,6 +22,8 @@ endif;
     <?php include(HLR_THEME_COMPONENT . 'counter.php'); ?>
 
 
+    <?php include(HLR_THEME_COMPONENT . 'users-review.php'); ?>
+
     <?php include(HLR_THEME_COMPONENT . 'ads-banner.php'); ?>
     <?php do_shortcode('[testimonials count="4" display="1"]'); ?>
     <?php include(HLR_THEME_COMPONENT . 'blog-list.php'); ?>
