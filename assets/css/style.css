@@ -1407,7 +1407,7 @@ h1.slider-title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fffcf3;
+  background: #fff8e2;
   transition: all 0.3s;
   padding: 1.5rem 2rem;
   border-radius: 6px;
@@ -3096,13 +3096,13 @@ button.btn.btn-link:hover {
 }
 
 .square-foot-price {
-  margin-bottom: 1.8rem;
+  /* margin-bottom: 1.8rem; */
 }
 
 .square-foot-price span {
-  font-size: 56px;
+  font-size: 42px;
   font-weight: bold;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .square-foot-title {
