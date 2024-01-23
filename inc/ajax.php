@@ -1090,10 +1090,10 @@ function get_PreConstruction() {
     $body = wp_remote_retrieve_body($response);
 
     // Log the entire response
-    error_log(print_r($response, true));
+    // error_log(print_r($response, true));
 
-    wp_send_json_success($response);
-    // wp_send_json_success(json_decode($body));
+    // wp_send_json_success($response);
+    wp_send_json_success(json_decode($body));
 
     wp_die();
 }
