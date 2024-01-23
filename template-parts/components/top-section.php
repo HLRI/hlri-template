@@ -3,11 +3,11 @@
 
 
 <div class="container-fluid px-3 px-lg-5 my-5">
-    <div class="row">
+    <div class="row align-items-stretch">
         <?php if (!empty($theme_options['opt_topsection_items'])) : ?>
             <?php foreach ($theme_options['opt_topsection_items'] as $item) : ?>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3 mb-lg-0">
-                    <div class="card-top-section">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3 mb-lg-0 align-self-stretch" >
+                    <div class="card-top-section h-100 justify-content-between"   >
                         <div class="top-section-icon">
                             <i class="<?= str_replace('fas', 'fa', $item['opt-topsection-icon']) ?>"></i>
                         </div>
