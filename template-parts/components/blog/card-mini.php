@@ -1,4 +1,4 @@
-<div style="width:310px;" >
+<div class="w-100 px-1">
     <div class="card-blog">
         <div class="card-blog-image">
             <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
