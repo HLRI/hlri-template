@@ -147,6 +147,8 @@ $associated_floorplans = associated_floorplans_cached();
 <div class="container-lg mx-auto row mt-3 px-lg-5">
         <!-- content sidebar -->
         <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center " >
+            <br>
+            <div>gfhgf</div>
             <nav class="xm-auto position-sticky top-48" id="table-of-contents">
                 <div class="title toggle-list-btn">
                     Table of Contents
@@ -158,9 +160,6 @@ $associated_floorplans = associated_floorplans_cached();
                 </ol>
             </nav>
         </div>
-    <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center " >
-fff
-    </div>
         <!-- content  -->
         <div class="col-12 col-sm-9 col-md-9  border-right border-left mb-4">
             <div class="container-fluid px-lg-5">
