@@ -157,7 +157,6 @@ $associated_floorplans = associated_floorplans_cached();
                      <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
                 </ol>
             </nav>
-            aaa
         </div>
     <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center " >
 fff
