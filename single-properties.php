@@ -272,7 +272,23 @@ $associated_floorplans = associated_floorplans_cached();
 
 
 
-                <div class="top-48" style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">hhh</div>
+                <div class="top-48" style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
+                    <?php
+                    function getWalkScore($lat, $lon, $address) {
+                        $address=urlencode($address);
+                        $url = "https://api.walkscore.com/score?format=json&address=$address";
+                        $url .= "&lat=$lat&lon=$lon&wsapikey=303447da1a4a6f6f0ea4815b2bda134f";
+                        $str = @file_get_contents($url);
+                        return $str;
+                    }
+
+                    $lat = $_GET['lat'];
+                    $lon = $_GET['lon'];
+                    $address = stripslashes($_GET['address']);
+                    $json = getWalkScore($lat,$lon,$address);
+                    echo $json;
+                    ?>
+                </div>
                 <?php if ($associated_floorplans->have_posts()) : ?>
                     <div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
                         <div class="content">
