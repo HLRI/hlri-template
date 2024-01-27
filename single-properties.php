@@ -147,18 +147,16 @@ $associated_floorplans = associated_floorplans_cached();
 <div class="container-lg mx-auto row mt-3 px-lg-5">
         <!-- content sidebar -->
         <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center " >
-            <br>
-            <div>gfhgf</div>
-            <nav class="xm-auto position-sticky top-48" id="table-of-contents">
-                <div class="title toggle-list-btn">
-                    Table of Contents
-                    <i class="fa fa-arrow-up toggle-list arrow-toggle"></i>
-                </div>
-                <ol id="tag-list">
-                     <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
-                     <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
-                </ol>
-            </nav>
+            <div>            <nav class="xm-auto position-sticky top-48" id="table-of-contents">
+                    <div class="title toggle-list-btn">
+                        Table of Contents
+                        <i class="fa fa-arrow-up toggle-list arrow-toggle"></i>
+                    </div>
+                    <ol id="tag-list">
+                        <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
+                        <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
+                    </ol>
+                </nav></div>
         </div>
         <!-- content  -->
         <div class="col-12 col-sm-9 col-md-9  border-right border-left mb-4">
