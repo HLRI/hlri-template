@@ -272,7 +272,7 @@ $associated_floorplans = associated_floorplans_cached();
 
 
 
-                <p class="top-48" style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">hhh</p>
+                <div class="top-48" style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">hhh</div>
                 <?php if ($associated_floorplans->have_posts()) : ?>
                     <div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
                         <div class="content">
