@@ -287,7 +287,7 @@ $associated_floorplans = associated_floorplans_cached();
                         $str = file_get_contents($url);
                         return $str;
                     }
-                    print_r(getWalkScore2("300 Richmond Street West Toronto,  CA-ON M5V 1X2"));
+//                    print_r(getWalkScore2("300 Richmond Street West Toronto,  CA-ON M5V 1X2"));
 
 
 //                    $lat = $_GET['lat'];
