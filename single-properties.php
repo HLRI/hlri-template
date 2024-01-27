@@ -160,10 +160,7 @@ $associated_floorplans = associated_floorplans_cached();
             aaa
         </div>
     <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center " >
-        <nav class="xm-auto position-sticky top-48" id="table-of-contents">
-sdd
-        </nav>
-        aaa
+fff
     </div>
         <!-- content  -->
         <div class="col-12 col-sm-9 col-md-9  border-right border-left mb-4">
