@@ -289,7 +289,16 @@ $associated_floorplans = associated_floorplans_cached();
                     $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
 //                    $address = stripslashes($_GET['address']);
                     $json = getWalkScore($lat,$lon,$address);
-                    echo $json;
+//                    echo $json;
+                    // Decode the JSON response
+                    $responseData = json_decode($json, true);
+
+                    // Display the HTML using the information from the response
+                    echo '<h1>Walkscore: ' . $responseData['walkscore'] . '</h1>';
+                    echo '<p>Description: ' . $responseData['description'] . '</p>';
+                    echo '<img src="' . $responseData['logo_url'] . '" alt="Walkscore Logo">';
+                    // Add more HTML elements using other information from the response as needed
+
                     ?>
                 </div>
                 <?php if ($associated_floorplans->have_posts()) : ?>
