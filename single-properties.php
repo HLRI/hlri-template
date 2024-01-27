@@ -278,13 +278,16 @@ $associated_floorplans = associated_floorplans_cached();
                         $address=urlencode($address);
                         $url = "https://api.walkscore.com/score?format=json&address=$address";
                         $url .= "&lat=$lat&lon=$lon&wsapikey=303447da1a4a6f6f0ea4815b2bda134f";
-                        $str = @file_get_contents($url);
+                        $str = file_get_contents($url);
                         return $str;
                     }
 
-                    $lat = $_GET['lat'];
-                    $lon = $_GET['lon'];
-                    $address = stripslashes($_GET['address']);
+//                    $lat = $_GET['lat'];
+                    $lat = 43.6490596;
+//                    $lon = $_GET['lon'];
+                    $lon = -79.391674;
+                    $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
+//                    $address = stripslashes($_GET['address']);
                     $json = getWalkScore($lat,$lon,$address);
                     echo $json;
                     ?>
