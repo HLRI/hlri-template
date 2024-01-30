@@ -77,6 +77,7 @@ function properties_single_cached()
     if ($results === false) {
         $theme_options = get_option('hlr_framework');
         $galleries = get_post_meta($post_id, 'hlr_framework_properties', true);
+        $logo = get_post_meta($post_id, 'hlr_framework_properties-logo', true);
         $floorplans = get_post_meta($post_id, 'hlr_framework_properties-floorplan', true);
         if (!empty($galleries['opt-gallery-properties'])) {
             $gallery_ids = explode(',', $galleries['opt-gallery-properties']);
@@ -146,6 +147,7 @@ function properties_single_cached()
             'content' => get_the_content(),
             'shortlink' => wp_get_shortlink($post_id, 'post', true),
             'thumbnail_url' => get_the_post_thumbnail_url(),
+            'properties_logo' => $logo['opt-gallery-properties-logo'],
             'thumbnail_caption' => get_the_post_thumbnail_caption(),
             'modified_date' => get_the_modified_date('j F Y'),
             'properties_rated_id' => $properties_rated_id,

@@ -2,6 +2,7 @@
 <?php
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
+
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
@@ -15,7 +16,9 @@ $associated_floorplans = associated_floorplans_cached();
             <div class="p-0 position-relative">
                
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                    <?php if (!empty($psd['thumbnail_url'])) : ?>
+                    <?php if (!empty($psd['properties_logo']['url'])) : ?>
+                        <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" class="w-25 rounded mr-4"  alt="<?= $psd['properties_logo']['url'] ?>">
+                    <?php elseif (!empty($psd['thumbnail_url'])) : ?>
                         <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 rounded mr-4"  alt="<?= $psd['thumbnail_caption'] ?>">
                     <?php else : ?>
                         <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
@@ -173,8 +176,8 @@ $associated_floorplans = associated_floorplans_cached();
                 <?php endif; ?>
             </div>
             <?php if (!empty($psd['videos'])) : ?>
-                <div class="container-fluid px-lg-5 py-4" style="background: linear-gradient(45deg, #bf212f, #3a27bd);">
-                    <div class="row border-top  mt-2 mb-4">
+                <div class="container-fluid px-lg-5 py-4">
+                    <div class="row border-top pt-2 mt-2 mb-4">
                         <div class="col-12">
                             <div class="rvs-container">
                                 <div class="rvs-item-container">

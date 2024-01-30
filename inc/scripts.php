@@ -51,13 +51,15 @@ function theme_scripts()
     wp_register_style('pgwslideshow', HLR_THEME_ASSETS . 'css/pgwslideshow.min.css');
     wp_register_style('leaflet', 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css');
     wp_register_style('rvslider', HLR_THEME_ASSETS . 'css/rvslider.min.css');
+    wp_register_style('leafletFullscreen', HLR_THEME_ASSETS . 'css/Control.FullScreen.css');
     wp_register_style('lightbox2',  'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css');
     wp_register_style('lightslider',  'https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css');
     wp_register_style('fancybox',  'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.5/dist/fancybox.css');
 
     wp_register_script('pgwslideshow', HLR_THEME_ASSETS . 'js/pgwslideshow.min.js', [], "1.0.0", true);
     wp_register_script('rvslider', HLR_THEME_ASSETS . 'js/rvslider.min.js', [], "1.0.0", false);
-    wp_register_script('leaflet',   'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js', [], "1.0.0", false);
+    wp_register_script('leafletFullscreen', HLR_THEME_ASSETS . 'js/Control.FullScreen.js', [], "1.0.0", false);
+    wp_register_script('leaflet',   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js', [], "1.0.0", false);
     wp_register_script('lightbox2',   'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js', [], "1.0.0", false);
     wp_register_script('lightslider',   'https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js', ['jquery'], "1.0.0", false);
     wp_register_script('fancybox',   'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.5/dist/fancybox.umd.js', ['jquery'], "1.0.0", false);
@@ -66,11 +68,13 @@ function theme_scripts()
 
         wp_enqueue_style('pgwslideshow');
         wp_enqueue_style('leaflet');
+        wp_enqueue_style('leafletFullscreen');
         wp_enqueue_style('rvslider');
         wp_enqueue_style('lightslider');
         wp_enqueue_style('fancybox');
 
         wp_enqueue_script('pgwslideshow');
+        wp_enqueue_script('leafletFullscreen');
         wp_enqueue_script('rvslider');
         wp_enqueue_script('leaflet');
         wp_enqueue_script('lightslider');
@@ -181,8 +185,6 @@ function theme_footer()
                         sticker.removeClass('fixed-menu top-0');
                     }
                 });
-
-
             });
         </script>
     <?php endif; ?>
@@ -312,9 +314,9 @@ function theme_footer()
             });
 
             try {
-                console.log(<?php echo json_encode($locations['longitude']) ?>);
-                var map = L.map('map', {
-                    zoomControl: false
+              var map = L.map('map', {
+                    zoomControl: true,
+                    fullscreenControl: true,
                 }).setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
                 L.tileLayer('https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
                     attribution: ''
@@ -331,7 +333,7 @@ function theme_footer()
                 map.touchZoom.disable();
                 map.doubleClickZoom.disable();
                 map.scrollWheelZoom.disable();
-                map.boxZoom.disable();
+                // map.boxZoom.disable();
                 map.keyboard.disable();
                 jQuery('.leaflet-control-attribution').remove();
             } catch (error) {}
