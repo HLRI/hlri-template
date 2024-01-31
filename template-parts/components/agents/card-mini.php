@@ -1,4 +1,4 @@
- <div style="width:300px;" >
+<div style="width:300px;" >
     <div class="card-teams"  data-href="<?= get_the_permalink(); ?>">
         <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
         <div class="card-teams-content">
@@ -8,13 +8,3 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $('.card-teams').on('click', function() {
-            var url = $(this).data('href');
-            if (url) {
-                window.location.href = url;
-            }
-        });
-    });
-</script>
