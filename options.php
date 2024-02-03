@@ -1301,8 +1301,8 @@ if (class_exists('CSF')) {
                 array(
                     'id'      => 'opt-parking-waitlist',
                     'type'    => 'checkbox',
-                    'title'   => 'parking-waitlist',
-                    'label'   => 'Waitlist (parking)',
+                    'title'   => 'Is the parking on the waitlist for announcement?',
+                    'label'   => 'Yes',
                     'default' => False // or false
                 ),
 				array(
@@ -1313,8 +1313,8 @@ if (class_exists('CSF')) {
                 array(
                     'id'      => 'opt-locker-waitlist',
                     'type'    => 'checkbox',
-                    'title'   => 'locker-waitlist',
-                    'label'   => 'Waitlist (locker)',
+                    'title'   => 'Is the locker on the waitlist for announcement?',
+                    'label'   => 'Yes',
                     'default' => False // or false
                 ),
 				array(
