@@ -77,14 +77,21 @@ jQuery(document).ready(function ($) {
       '<i class="fa fa-angle-right" aria-hidden="true"></i>',
     ],
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 2000,
     autoplayTimeout: 6000,
     autoplayHoverPause: true,
     rtl: false,
-    center: true,
+    center: false,
     dots: false,
     margin: 10,
     autoWidth: true,
+  });
+
+  $(".card-teams").on("click", function () {
+    var url = $(this).data("href");
+    if (url) {
+      window.location.href = url;
+    }
   });
 
   $(".postlist").owlCarousel({
