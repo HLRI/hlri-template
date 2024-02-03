@@ -480,7 +480,7 @@ function add_search_input_to_meta_box($meta_box_id)
 {
     global $pagenow;
 
-    if ((($pagenow === 'post.php' || $pagenow === 'post-new.php') && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties')) {
+    if (($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') || ($pagenow === 'post-new.php' && get_post_type($_GET['post']) === 'properties')) {
         ?>
         <script>
             jQuery(document).ready(function($) {
