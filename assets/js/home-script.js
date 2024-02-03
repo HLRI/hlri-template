@@ -32,4 +32,5 @@ var token = getCookie("uthlri");
 getPropertiesRestApi("just-launched", 6, 7, token);
 getPropertiesRestApi("buy-with-five-percent-down", 6, 9, token);
 getPropertiesRestApi("buy-with-10-percent-down", 6, 10, token);
+getPropertiesRestApi("immediate-occupancy", 6, 1172, token);
 getPropertiesRestApi("commingsoon", 6, 8, token);
