@@ -1298,11 +1298,25 @@ if (class_exists('CSF')) {
 					),
 					'default'    => false
 				),
+                array(
+                    'id'      => 'opt-parking-waitlist',
+                    'type'    => 'checkbox',
+                    'title'   => 'parking-waitlist',
+                    'label'   => 'Waitlist (parking)',
+                    'default' => False // or false
+                ),
 				array(
 					'id'    => 'opt-parking-price',
 					'type'  => 'number',
 					'title' => 'Parking Price',
 				),
+                array(
+                    'id'      => 'opt-locker-waitlist',
+                    'type'    => 'checkbox',
+                    'title'   => 'locker-waitlist',
+                    'label'   => 'Waitlist (locker)',
+                    'default' => False // or false
+                ),
 				array(
 					'id'    => 'opt-locker-price',
 					'type'  => 'number',
@@ -1313,7 +1327,6 @@ if (class_exists('CSF')) {
 					'type'  => 'number',
 					'title' => 'Monthly Fees',
 				),
-
 				array(
 					'id'    => 'opt-deposit-structue',
 					'type'     => 'wp_editor',
@@ -1353,7 +1366,6 @@ if (class_exists('CSF')) {
 							'library'      => 'pdf',
 							'title' => 'PDF File',
 						),
-
 					),
 				),
 				array(
