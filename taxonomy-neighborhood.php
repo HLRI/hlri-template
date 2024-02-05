@@ -7,7 +7,7 @@
     // Override the global define for a specific page
     define('CUSTOM_PAGE_HEADER', [
         'subtitle' => "Explore Your Dream Space",
-        'title' => 'Neighborhood List - ' . $category_title,
+        'title' => 'Properties listed in ' . $category_title,
     ]);
 
     // Include the custom-page-header.php file
