@@ -43,7 +43,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                     </li>
                     <li class="property-type ic-proptype">
-                        <?php echo $data['opt-opt-sales-type'] ?>
+                        <?php echo $data['opt-sales-type'] ?>
                     </li>
                 </ul>
 
