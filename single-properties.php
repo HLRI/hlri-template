@@ -31,7 +31,7 @@ $associated_floorplans = associated_floorplans_cached();
                     </div>
                 </div>
 
-<?php print_r(get_post_meta(get_the_ID(), 'hlr_framework_properties', true)); ?>
+<?php print_r($psd->galleries); ?>
 
     <?php if (!empty($psd['opt_price_min'])) : ?>
                                     $<?= number_format($psd['opt_price_min']) ?>
