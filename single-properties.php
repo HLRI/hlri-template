@@ -34,16 +34,16 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 
                 <ul>
                     <li data-label="Beds" class="ic-beds">
-                        <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
+                        <i class="fas fa-bed"></i> <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
                     </li>
                     <li data-label="Baths" class="ic-baths ">
-                        <strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
+                        <i class="fas fa-bath"></i> <strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
                     </li>
                     <li data-label="Sqft" class="ic-sqft">
-                        <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
+                        <i class="fa-solid fa-table-layout"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                     </li>
                     <li class="property-type ic-proptype">
-                        <?php echo $data['opt-sales-type'] ?>
+                        <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
                     </li>
                 </ul>
 
