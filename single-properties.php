@@ -103,11 +103,11 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                 <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
                             <?php endif; ?>
                     </div>
-                    <?php if (!empty($psd['opt_price_min'])) : ?>
+                    <?php if (!empty($psd['opt-price-min'])) : ?>
                         <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
                             <div class="start-price mb-3">Starting from 
                                 <span>
-                                    $<?= number_format($psd['opt_price_min']) ?>
+                                    $<?= number_format($psd['opt-price-min']) ?>
                                 </span>
                             </div>
                            <div class="btn-group">
@@ -451,7 +451,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <div class="d-flex flex-column  properties-shortcode position-sticky top-48 bg-foreground rounded pb-3" style="gap:10px;" id="RegisterNow">
                             <div class="col-12">
                                 <div class="titr-list ml-0 mb-2">
-                                    <?php if ($psd['opt_project_status']) : ?>
+                                    <?php if ($psd['opt-project-status']) : ?>
                                         <h3 class="font-weight-bold">Fill the Form to get latest available Listings in This building</h3>
                                     <?php else : ?>
                                        <div>
