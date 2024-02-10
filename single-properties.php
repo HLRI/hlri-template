@@ -26,7 +26,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <div>
                         <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty($psd['excerpt'])) : ?>
-                            <p class="text-muted" > <?= $psd['excerpt'] ?></p>                    <div class="characteristics-cnt">
+                            <p class="text-muted" > <?= $psd['excerpt'] ?></p>
+                                <div class="characteristics-cnt">
                                     <ul>
                                         <li data-label="Beds" class="ic-beds">
                                             <i class="fas fa-bed"></i> <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
@@ -50,6 +51,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <style>
                     .characteristics-cnt ul {
                         display:flex;
+                        margin-top:20px;
                     }
                     .characteristics-cnt li {
                         margin-bottom: 10px;
