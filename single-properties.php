@@ -31,10 +31,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </div>
                 </div>
 
+    <?php print_r($data); ?>
                 <?php echo 'kk ' . $data['opt_price'] ?>
-    <?php print_r($data['opt_price']); if (!empty($data['opt_price'])) : ?>
-
-                <?php endif; ?>
 
                 <ul>
                     <li data-label="Beds" class="ic-beds">
