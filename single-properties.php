@@ -40,7 +40,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <i class="fas fa-bath"></i> <strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
                     </li>
                     <li data-label="Sqft" class="ic-sqft">
-                        <i class="fa-solid fa-table-layout"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
+                        <i class="fas fa-vector-square"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                     </li>
                     <li class="property-type ic-proptype">
                         <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
