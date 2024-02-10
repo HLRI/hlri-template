@@ -2,7 +2,7 @@
 <?php
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
-
+$data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
@@ -31,10 +31,9 @@ $associated_floorplans = associated_floorplans_cached();
                     </div>
                 </div>
 
-<?php print_r(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)); ?>
 
-    <?php if (!empty($psd['opt_price_min'])) : ?>
-                                    $<?= number_format($psd['opt_price_min']) ?>
+    <?php if (!empty($data['opt_price_min'])) : ?>
+                                    $<?= number_format($data['opt_price_min']) ?>
                 <?php endif; ?>
 
                 <ul>
