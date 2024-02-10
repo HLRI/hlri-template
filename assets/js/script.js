@@ -647,6 +647,8 @@ function getCookie(cname) {
   return "";
 }
 
+
+// disable copy
 // function killCopy(e) {
 //   return false;
 // }
