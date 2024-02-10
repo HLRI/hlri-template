@@ -31,7 +31,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </div>
                 </div>
 
-    <?php print_r($data); ?>
+    <?php print_r($data['opt-street-address']); ?>
                 <?php echo 'kk ' . $data['opt-street-address'] ?>
 
                 <ul>
