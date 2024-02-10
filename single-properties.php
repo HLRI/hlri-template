@@ -31,9 +31,9 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </div>
                 </div>
 
-
+                <?php echo 'kk ' . $data['opt_price'] ?>
     <?php print_r($data['opt_price']); if (!empty($data['opt_price'])) : ?>
-                                  <?php echo 'kk ' . $data['opt_price'] ?>
+
                 <?php endif; ?>
 
                 <ul>
