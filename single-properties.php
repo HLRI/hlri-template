@@ -31,6 +31,22 @@ $associated_floorplans = associated_floorplans_cached();
                     </div>
                 </div>
 
+
+                <ul>
+                    <li data-label="Beds" class="ic-beds">
+                        <strong>4</strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
+                    </li>
+                    <li data-label="Baths" class="ic-baths ">
+                        <strong>3</strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
+                    </li>
+                    <li data-label="Sqft" class="ic-sqft">
+                        <strong>2,000</strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
+                    </li>
+                    <li class="property-type ic-proptype">
+                        Residential
+                    </li>
+                </ul>
+
                 <div class="row mb-2 justify-content-start px-0 px-md-3 ">
                     <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
                             <div class="rating-stars">
