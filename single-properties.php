@@ -32,6 +32,9 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 </div>
 
                 <style>
+                    .characteristics-cnt ul {
+                        display:flex;
+                    }
                     .characteristics-cnt li {
                         margin-bottom: 10px;
                         margin-right: 25px;
