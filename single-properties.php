@@ -27,6 +27,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty($psd['excerpt'])) : ?>
                             <p class="text-muted" > <?= $psd['excerpt'] ?></p>
+                            <?php endif; ?>
+                            <?php if (($data['opt-sales-type'] == "Assignment")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
                                         <li data-label="Beds" class="ic-beds">
