@@ -29,6 +29,22 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <p class="text-muted" > <?= $psd['excerpt'] ?></p>
                         <?php endif; ?>
                     </div>
+                    <div class="characteristics-cnt">
+                        <ul>
+                            <li data-label="Beds" class="ic-beds">
+                                <i class="fas fa-bed"></i> <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
+                            </li>
+                            <li data-label="Baths" class="ic-baths ">
+                                <i class="fas fa-bath"></i> <strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
+                            </li>
+                            <li data-label="Sqft" class="ic-sqft">
+                                <i class="fas fa-vector-square"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
+                            </li>
+                            <li class="property-type ic-proptype">
+                                <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <style>
@@ -40,22 +56,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         margin-right: 25px;
                     }
                 </style>
-<div class="characteristics-cnt">
-    <ul>
-        <li data-label="Beds" class="ic-beds">
-            <i class="fas fa-bed"></i> <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
-        </li>
-        <li data-label="Baths" class="ic-baths ">
-            <i class="fas fa-bath"></i> <strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
-        </li>
-        <li data-label="Sqft" class="ic-sqft">
-            <i class="fas fa-vector-square"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
-        </li>
-        <li class="property-type ic-proptype">
-            <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
-        </li>
-    </ul>
-</div>
+
 
 
                 <div class="row mb-2 justify-content-start px-0 px-md-3 ">
