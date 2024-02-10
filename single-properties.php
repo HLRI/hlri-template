@@ -23,7 +23,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <?php else : ?>
                         <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                     <?php endif; ?>
-                    <div>
+                    <div class="container">
                         <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty($psd['excerpt'])) : ?>
                             <p class="text-muted" > <?= $psd['excerpt'] ?></p>
