@@ -31,6 +31,11 @@ $associated_floorplans = associated_floorplans_cached();
                     </div>
                 </div>
 
+<?php echo $psd['opt-sales-type'] ?>
+
+    <?php if (!empty($psd['opt_price_min'])) : ?>
+                                    $<?= number_format($psd['opt_price_min']) ?>
+                <?php endif; ?>
 
                 <ul>
                     <li data-label="Beds" class="ic-beds">
