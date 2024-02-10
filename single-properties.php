@@ -32,7 +32,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 </div>
 
     <?php print_r($data); ?>
-                <?php echo 'kk ' . $data['opt_price'] ?>
+                <?php echo 'kk ' . $data['opt_street_address'] ?>
 
                 <ul>
                     <li data-label="Beds" class="ic-beds">
