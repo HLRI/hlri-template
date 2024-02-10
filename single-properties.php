@@ -31,20 +31,19 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </div>
                 </div>
 
-                <?php echo $data['opt-price'] ?>
 
                 <ul>
                     <li data-label="Beds" class="ic-beds">
-                        <strong>4</strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
+                        <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
                     </li>
                     <li data-label="Baths" class="ic-baths ">
-                        <strong>3</strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
+                        <strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
                     </li>
                     <li data-label="Sqft" class="ic-sqft">
-                        <strong>2,000</strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
+                        <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                     </li>
                     <li class="property-type ic-proptype">
-                        Residential
+                        <?php echo $data['opt-opt-sales-type'] ?>
                     </li>
                 </ul>
 
