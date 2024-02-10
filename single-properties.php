@@ -33,7 +33,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 
 
     <?php if (!empty($data['opt_price_min'])) : ?>
-                                    $<?= number_format($data['opt_price_min']) ?>
+                                    <?php echo number_format($data['opt_price_min']) ?>
                 <?php endif; ?>
 
                 <ul>
