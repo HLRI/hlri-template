@@ -46,6 +46,12 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-home"></i> <?php echo $data['opt-occupancy'] ?>
                                         </li>
+                                        <li class="property-type ic-proptype">
+                                            <i class="fas fa-home"></i> <?php echo $data['opt-parking'] ?>
+                                        </li>
+                                        <li class="property-type ic-proptype">
+                                            <i class="fas fa-home"></i> <?php echo $data['opt-occupancy'] ?>
+                                        </li>
                                     </ul>
                                 </div>
                         <?php endif; ?>

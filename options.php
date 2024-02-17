@@ -1311,6 +1311,11 @@ if (class_exists('CSF')) {
 					'title' => 'Parking Price',
 				),
                 array(
+                    'id'    => 'opt-parking-quantity',
+                    'type'  => 'number',
+                    'title' => 'Number of Parking',
+                ),
+                array(
                     'id'      => 'opt-locker-waitlist',
                     'type'    => 'checkbox',
                     'title'   => 'Is the locker on the waitlist for announcement?',
