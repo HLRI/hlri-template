@@ -28,7 +28,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <?php if (!empty($psd['excerpt'])) : ?>
                             <p class="text-muted" > <?= $psd['excerpt'] ?></p>
                             <?php endif; ?>
-                            <?php if (($data['opt-sales-type'] == "Assignment")) : ?>
+                            <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
                                         <li data-label="Beds" class="ic-beds">
@@ -42,6 +42,9 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         </li>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
+                                        </li>
+                                        <li class="property-type ic-proptype">
+                                            <i class="fas fa-home"></i> <?php echo $data['opt-occupancy'] ?>
                                         </li>
                                     </ul>
                                 </div>
