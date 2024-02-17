@@ -44,10 +44,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             <i class="fas fa-vector-square"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                                         </li>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-parking"></i> <?php echo $data['opt-parking-quantity'] ?>
+                                            <i class="fas fa-parking"></i> <?php echo $data['opt-parking-quantity'] . 'parking' ?>
                                         </li>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-lock"></i> <?php echo $data['opt-locker'] ?>
+                                            <i class="fas fa-lock"></i> <?php echo $data['opt-locker'] . 'locker' ?>
                                         </li>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-home"></i> <?php echo $data['opt-occupancy'] ?>
