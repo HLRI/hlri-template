@@ -31,6 +31,9 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
+                                        <li class="property-type ic-proptype">
+                                            <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
+                                        </li>
                                         <li data-label="Beds" class="ic-beds">
                                             <i class="fas fa-bed"></i> <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
                                         </li>
@@ -41,13 +44,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             <i class="fas fa-vector-square"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                                         </li>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
+                                            <i class="fas fa-parking"></i> <?php echo $data['opt-parking-quantity'] ?>
                                         </li>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-lock"></i> <?php echo $data['opt-locker'] ?>
-                                        </li>
-                                        <li class="property-type ic-proptype">
-                                            <i class="fas fa-parking"></i> <?php echo $data['opt-parking-quantity'] ?>
                                         </li>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-home"></i> <?php echo $data['opt-occupancy'] ?>
