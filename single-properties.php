@@ -44,10 +44,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
                                         </li>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-home"></i> <?php echo $data['opt-occupancy'] ?>
+                                            <i class="fas fa-lock"></i> <?php echo $data['opt-locker'] ?>
                                         </li>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-home"></i> <?php echo $data['opt-parking'] ?>
+                                            <i class="fas fa-car"></i> <?php echo $data['opt-parking-quantity'] ?>
                                         </li>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-home"></i> <?php echo $data['opt-occupancy'] ?>
