@@ -195,6 +195,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             </div>
         </div>
         <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Gallery">
+            <?php print_r($psd['floorplans']); ?>
             <?php if (isset($psd['floorplans'][0]['gallery_url'])) : ?>
                 <?php if ($psd['floorplans'][0]['gallery_url']) : ?>
                     <div class="vrmedia-gallery">
