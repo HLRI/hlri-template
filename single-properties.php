@@ -199,44 +199,35 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         ];
     }
     ?>
-    <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4" >
-        <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
-            <!-- map details -->
-            <!-- Properties map -->
-            <!--location:  inc/scripts.php -->
-            <div class="col-12 p-0 map-container rounded" >
-                <div id="map"></div>
-            </div>
-        </div>
-        <div class="col-12 col-md-12 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
-            <?php if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
-                <?php if ($floor_galleries_data[0]['gallery_url']) : ?>
-                    <div class="vrmedia-gallery">
-                        <ul class="ecommerce-gallery">
-                            <?php foreach ($floor_galleries_data as $gallery_item) : ?>
-                                <li class="rounded" data-fancybox="gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
-                                    <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
+    <div class="col-12 col-md-12 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
+        <?php if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
+            <?php if ($floor_galleries_data[0]['gallery_url']) : ?>
+                <div class="vrmedia-gallery">
+                    <ul class="ecommerce-gallery">
+                        <?php foreach ($floor_galleries_data as $gallery_item) : ?>
+                            <li class="rounded" data-fancybox="gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
+                                <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
 
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php else : ?>
-                    <div class="d-flex flex-wrap justify-content-between" style="gap:10px;" >
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                    </div>
-                <?php endif; ?>
-            <?php else: ?>
-                <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
-                    <h2 class="text-2xl font-bold">Gallery</h2>
-                    <p class="text-gray-500">No images available at this time.</p>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php else : ?>
+                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;" >
+                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                 </div>
             <?php endif; ?>
-        </div>
+        <?php else: ?>
+            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
+                <h2 class="text-2xl font-bold">Gallery</h2>
+                <p class="text-gray-500">No images available at this time.</p>
+            </div>
+        <?php endif; ?>
     </div>
+
 </div>
 <!-- Content Section  -->
 
