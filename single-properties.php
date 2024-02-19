@@ -208,7 +208,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <div id="map"></div>
             </div>
         </div>
-        <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Gallery">
+        <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
             <?php if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
                 <?php if ($floor_galleries_data[0]['gallery_url']) : ?>
                     <div class="vrmedia-gallery">
