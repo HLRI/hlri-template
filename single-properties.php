@@ -186,7 +186,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         </div>
     </div>
 
-    <?php echo 'test' . print_r($psd); ?>
+    <?php echo 'test' . print_r(get_post_meta(get_the_ID(), 'hlr_framework_properties-floorplan', true)); ?>
     <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4" >
         <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
             <!-- map details -->
