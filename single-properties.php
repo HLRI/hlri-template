@@ -186,7 +186,19 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         </div>
     </div>
 
-    <?php echo json_encode(get_post_meta(get_the_ID(), 'hlr_framework_properties-floorplan', true)); ?>
+    <?php $assignmentFloor = get_post_meta(get_the_ID(), 'hlr_framework_properties-floorplan', true);
+    if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
+        $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
+    } else {
+        $gallery_ids = [];
+    }
+    foreach ($gallery_ids as $gallery_item_id) {
+        $floor_galleries_data[] = [
+            'gallery_url' => wp_get_attachment_url($gallery_item_id),
+            'caption' => wp_get_attachment_caption($gallery_item_id)
+        ];
+    }
+    ?>
     <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4" >
         <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
             <!-- map details -->
@@ -197,11 +209,11 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             </div>
         </div>
         <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Gallery">
-            <?php if (isset($psd['floorplans'][0]['gallery_url'])) : ?>
-                <?php if ($psd['floorplans'][0]['gallery_url']) : ?>
+            <?php if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
+                <?php if ($floor_galleries_data[0]['gallery_url']) : ?>
                     <div class="vrmedia-gallery">
                         <ul class="ecommerce-gallery">
-                            <?php foreach ($psd['floorplans'] as $gallery_item) : ?>
+                            <?php foreach ($floor_galleries_data as $gallery_item) : ?>
                                 <li class="rounded" data-fancybox="gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
                                     <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
 
