@@ -3,8 +3,6 @@
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
 $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-print_r($data);
-die();
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
@@ -54,7 +52,7 @@ die();
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-calendar"></i> <?php echo $data['opt-occupancy'] ?>
                                         </li>
-                                       <?php print_r($data['opt-built']); if (!empty($data['opt-built']) AND ($data['opt-built'] == "Yes")) : ?>
+                                       <?php print_r($data['opt-built']); if (!empty($data['opt-built']) AND ($data['opt-built'] == "1")) : ?>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-check-square"></i> <?php echo $data['opt-built'] ?>
                                         </li>
