@@ -29,6 +29,13 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <p class="text-muted" > <?= $psd['excerpt'] ?></p>
                             <?php endif; ?>
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
+                            <style>
+                                .characteristics-cnt ul li{
+                                    font-size:30px;
+                                    text-align: center;
+                                    width: 80px;
+                                }
+                            </style>
                                 <div class="characteristics-cnt">
                                     <ul>
                                         <li class="property-type ic-proptype">
