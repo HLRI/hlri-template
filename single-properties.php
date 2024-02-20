@@ -35,7 +35,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                     width: 80px;
                                 }
                                 .characteristics-cnt ul li i{
-                                    font-size:30px;
+                                    font-size: 30px;
+                                    color: #6c6c6c;
                                 }
                             </style>
                                 <div class="characteristics-cnt">
