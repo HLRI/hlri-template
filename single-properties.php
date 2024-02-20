@@ -52,7 +52,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-calendar"></i> <?php echo $data['opt-occupancy'] ?>
                                         </li>
-                                       <?php if (!empty($data['opt-built']) AND ($data['opt-built'] == "Yes")) : ?>
+                                       <?php print_r($data['opt-built']); if (!empty($data['opt-built']) AND ($data['opt-built'] == "Yes")) : ?>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-check-square"></i> <?php echo $data['opt-built'] ?>
                                         </li>
