@@ -54,7 +54,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         </li>
                                        <?php if (!empty($data['opt-built']) AND ($data['opt-built'] == "1")) : ?>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-check-square"></i> <?php echo $data['opt-built'] ?>
+                                            <i class="fas fa-check-square"></i> <?php echo 'Built' ?>
                                         </li>
                                         <?php endif; ?>
                                     </ul>
