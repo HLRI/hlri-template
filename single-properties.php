@@ -49,7 +49,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-lock"></i> <?php echo $data['opt-locker'] . ' locker' ?>
                                         </li>
-                                        <?php if ((!empty($data['opt-occupancy']) AND ($data['opt-occupancy'] >= 2025))) : ?>
+                                        <?php if ((!empty($data['opt-occupancy']) AND ($data['opt-occupancy'] >= intval(date("Y")) + 1))) : ?>
                                             <li class="property-type ic-proptype">
                                                 <i class="fas fa-calendar"></i> <?php echo 'will be occupied in ' . $data['opt-occupancy']; ?>
                                             </li>
