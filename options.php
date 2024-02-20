@@ -1165,6 +1165,16 @@ if (class_exists('CSF')) {
 					'type'  => 'number',
 					'title' => 'Occupancy'
 				),
+                array(
+                    'id'         => 'opt-built',
+                    'type'       => 'button_set',
+                    'title'      => 'Built',
+                    'options'    => array(
+                        true  => 'Yes',
+                        false => 'No',
+                    ),
+                    'default'    => false
+                ),
 				array(
 					'id'    => 'opt-coming-soon',
 					'type'  => 'switcher',
