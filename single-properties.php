@@ -32,31 +32,31 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                 <div class="characteristics-cnt">
                                     <ul>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-home"></i> <?php echo $data['opt-sales-type'] ?>
+                                            <i class="fas fa-home"></i><br><?php echo $data['opt-sales-type'] ?>
                                         </li>
                                         <li data-label="Beds" class="ic-beds">
-                                            <i class="fas fa-bed"></i> <strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
+                                            <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?></strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
                                         </li>
                                         <li data-label="Baths" class="ic-baths ">
-                                            <i class="fas fa-bath"></i> <strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
+                                            <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?></strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
                                         </li>
                                         <li data-label="Sqft" class="ic-sqft">
-                                            <i class="fas fa-vector-square"></i> <strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
+                                            <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                                         </li>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-parking"></i> <?php echo $data['opt-parking-quantity'] . ' parking' ?>
+                                            <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' parking' ?>
                                         </li>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-lock"></i> <?php echo $data['opt-locker'] . ' locker' ?>
+                                            <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
                                         </li>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
                                             <li class="property-type ic-proptype">
-                                                <i class="fas fa-calendar"></i> <?php echo 'Occupancy starting ' . $data['opt-occupancy']; ?>
+                                                <i class="fas fa-calendar"></i><br><?php echo 'Occupancy starting ' . $data['opt-occupancy']; ?>
                                             </li>
                                         <?php endif; ?>
                                        <?php if (!empty($data['opt-built']) AND ($data['opt-built'] == "1")) : ?>
                                         <li class="property-type ic-proptype">
-                                            <i class="fas fa-check-square"></i> <?php echo 'Built' ?>
+                                            <i class="fas fa-check-square"></i><br><?php echo 'Built' ?>
                                         </li>
                                         <?php endif; ?>
                                     </ul>
