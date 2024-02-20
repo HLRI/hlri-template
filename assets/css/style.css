@@ -3377,10 +3377,15 @@ table.dataTable thead tr th {
   backdrop-filter: opacity(0.5);
 }
 
-.vrmedia-gallery img {
+.vrmedia-gallery2 img {
   object-fit: cover;
   width: 100%;
   height: 400px;
+}
+.vrmedia-gallery img {
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
 }
 
 .vrmedia-gallery .lSGallery {
