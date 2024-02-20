@@ -49,18 +49,12 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-lock"></i> <?php echo $data['opt-locker'] . ' locker' ?>
                                         </li>
-                                        <?php if ((!empty($data['opt-occupancy']) AND ($data['opt-occupancy'] >= intval(date("Y")) + 1))) : ?>
+                                        <?php if (!empty($data['opt-occupancy'])) : ?>
                                             <li class="property-type ic-proptype">
-                                                <i class="fas fa-calendar"></i> <?php echo 'will be occupied in ' . $data['opt-occupancy']; ?>
+                                                <i class="fas fa-calendar"></i> <?php echo 'Occupancy starting ' . $data['opt-occupancy']; ?>
                                             </li>
                                         <?php endif; ?>
                                        <?php if (!empty($data['opt-built']) AND ($data['opt-built'] == "1")) : ?>
-                                       <?php if ((!empty($data['opt-occupancy']) AND ($data['opt-occupancy'] <= date("Y")))) : ?>
-                                               <li class="property-type ic-proptype">
-                                               <i class="fas fa-calendar"></i> <?php echo 'Occupied in ' . $data['opt-occupancy']; ?>
-
-                                           </li>
-                                       <?php endif; ?>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-check-square"></i> <?php echo 'Built' ?>
                                         </li>
