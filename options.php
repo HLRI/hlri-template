@@ -1166,6 +1166,16 @@ if (class_exists('CSF')) {
 					'title' => 'Occupancy'
 				),
                 array(
+                    'id'    => 'opt-assignment-paid-deposit',
+                    'type'  => 'number',
+                    'title' => 'Assignment Paid Deposit',
+                ),
+                array(
+                    'id'    => 'opt-assignment-total-cash-required',
+                    'type'  => 'number',
+                    'title' => 'Assignment Total Cash Required',
+                ),
+                array(
                     'id'         => 'opt-built',
                     'type'       => 'button_set',
                     'title'      => 'Built',
