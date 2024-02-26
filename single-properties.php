@@ -223,6 +223,16 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             ];
         }
         ?>
+        <?php
+        while ($associated_floorplans->have_posts()) :
+            $associated_floorplans->the_post();
+            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+            ?>
+            <?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>
+        <?php
+        endwhile;
+        wp_reset_postdata();
+        ?>
         <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
             <?php if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
                 <?php if ($floor_galleries_data[0]['gallery_url']) : ?>
@@ -379,53 +389,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         </div>
                     </div>
                 <?php endif; ?>
-
-
-                <?php
-                while ($associated_floorplans->have_posts()) :
-                    $associated_floorplans->the_post();
-                    $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                    ?>
-                    <?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>
-                <?php
-                endwhile;
-                wp_reset_postdata();
-                ?>
-
-
-                <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
-                    <?php
-                    // Get the floorplan gallery images
-                    $floorplan_gallery = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery_floorplans_gallery', true);
-
-                    // Check if there are images in the floorplan gallery
-                    if (!empty($floorplan_gallery)) :
-                        ?>
-                        <div class="vrmedia-gallery2">
-                            <ul class="ecommerce-gallery">
-                                <?php foreach ($floorplan_gallery as $gallery_item) : ?>
-                                    <li class="rounded" data-fancybox="gallery" data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['url'] ?>" data-thumb="<?= $gallery_item['url'] ?>">
-                                        <img class="rounded" src="<?= $gallery_item['url'] ?>" alt="<?= $gallery_item['caption'] ?>">
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php else : ?>
-                        <!-- If there are no images in the floorplan gallery, use the featured image -->
-                        <?php if (has_post_thumbnail(get_the_ID())) : ?>
-                            <?php the_post_thumbnail('full', ['loading' => 'lazy']) ?>
-                        <?php else : ?>
-                            <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
-                                <!-- Display a placeholder image if there's no featured image -->
-                                <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                                <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                                <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                                <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                            </div>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                </div>
-
 
                 <div class="top-48" style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
 <!--                    --><?php
