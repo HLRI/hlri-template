@@ -327,8 +327,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <i class="fa fa-arrow-up toggle-list arrow-toggle"></i>
                 </div>
                 <ol id="tag-list">
-                     <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
-                     <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
+                    <?php if (!($data['opt-sales-type'] == "Assignment") && !($data['opt-sales-type'] == "Resale")) : ?>
+                        <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
+                        <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
+                    <?php endif; ?>
                 </ol>
             </nav>
         </div>
