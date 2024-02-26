@@ -386,11 +386,12 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     $associated_floorplans->the_post();
                     $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                     ?>
-                    <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
+                    <?php the_post_thumbnail('full', ['loading' => 'lazy']) ?>
                 <?php
                 endwhile;
                 wp_reset_postdata();
                 ?>
+
 
                 <div class="top-48" style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
 <!--                    --><?php
