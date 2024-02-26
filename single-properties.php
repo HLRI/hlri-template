@@ -293,7 +293,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <div class="vrmedia-gallery2">
                         <ul class="ecommerce-gallery">
                             <?php foreach ($floor_galleries_data2 as $gallery_item) : ?>
-                                <li class="rounded" data-fancybox="gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
+                                <li class="rounded" data-fancybox="floors-gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
                                     <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
 
                                 </li>
