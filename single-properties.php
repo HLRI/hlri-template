@@ -150,8 +150,12 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </div>
                     <?php if (!empty($data['opt-price-min'])) : ?>
                         <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
-                            <div class="start-price mb-3">Starting from 
-                                <span>
+                            <div class="start-price mb-3">
+    <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
+    Asking Price
+    <?php else : ?>
+        Starting from
+    <?php endif; ?><span>
                                     $<?= number_format($data['opt-price-min']) ?>
                                 </span>
                             </div>
