@@ -267,6 +267,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     'caption' => wp_get_attachment_caption($gallery_item_id)
                 ];
             }
+            print_r($floor_galleries_data2);
             ?>
         <?php
         endwhile;
