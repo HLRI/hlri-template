@@ -282,8 +282,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             $floor_galleries_data2[0]['gallery_url'] = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
             $floor_galleries_data2[0]['caption'] = get_the_post_thumbnail_caption();
-        endwhile;            print_r($floor_galleries_data2);
-
+        endwhile;
         wp_reset_postdata();
         ?>
     <?php endif; ?>
