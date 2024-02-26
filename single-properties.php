@@ -558,7 +558,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         $associated_floorplans->the_post();
                                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         ?>
-                                        <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
+                                        <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true); print_r($data5); ?>
                                     <?php
                                     endwhile;
                                     wp_reset_postdata();
