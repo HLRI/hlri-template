@@ -1161,6 +1161,11 @@ if (class_exists('CSF')) {
 					'title' => 'Sqft Avg'
 				),
 				array(
+					'id'    => 'opt-occupancy-time-period',
+					'type'  => 'text',
+					'title' => 'Occupancy Season/Month/Quarter'
+				),,
+				array(
 					'id'    => 'opt-occupancy',
 					'type'  => 'number',
 					'title' => 'Occupancy'
