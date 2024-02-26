@@ -381,6 +381,18 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <?php endif; ?>
 
 
+                <?php
+                while ($associated_floorplans->have_posts()) :
+                    $associated_floorplans->the_post();
+                    $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                    ?>
+                    <?php the_post_thumbnail('full', ['loading' => 'lazy']) ?>
+                <?php
+                endwhile;
+                wp_reset_postdata();
+                ?>
+
+
                 <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
                     <?php
                     // Get the floorplan gallery images
@@ -413,7 +425,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
-
 
 
                 <div class="top-48" style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
