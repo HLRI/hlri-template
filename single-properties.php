@@ -275,15 +275,15 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         <?php endif; ?>
 
 <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
-    <?php print_r($floor_galleries_data2);
-    if (!empty($floor_galleries_data2[0]['gallery_url'])) : ?>
+    <?php if (!empty($floor_galleries_data2[0]['gallery_url'])) : ?>
         <?php
         while ($associated_floorplans->have_posts()) :
             $associated_floorplans->the_post();
             $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
             $floor_galleries_data2[0]['gallery_url'] = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
             $floor_galleries_data2[0]['caption'] = get_the_post_thumbnail_caption();
-        endwhile;
+        endwhile;            print_r($floor_galleries_data2);
+
         wp_reset_postdata();
         ?>
     <?php endif; ?>
