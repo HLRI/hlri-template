@@ -254,40 +254,36 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 
 
         <?php if ($associated_floorplans->have_posts()) : ?>
+        <tbody>
         <?php
-        $floor_galleries_data2 = []; // Initialize the array to store both gallery images and featured image
-
         while ($associated_floorplans->have_posts()) :
             $associated_floorplans->the_post();
             $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-
-            $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
+            ?>
+            <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
             $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
-
-            // Check if the gallery has images, if not, include the featured image
-            if (!empty($gallery_ids2)) {
-                foreach ($gallery_ids2 as $gallery_item_id) {
-                    $floor_galleries_data2[] = [
-                        'gallery_url' => wp_get_attachment_url($gallery_item_id),
-                        'caption' => wp_get_attachment_caption($gallery_item_id)
-                    ];
-                }
-            } else {
-                // Include the featured image if no images in the gallery
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
-                $featured_image_caption = get_the_post_thumbnail_caption();
-
-                if ($featured_image_url) {
-                    $floor_galleries_data2[] = [
-                        'gallery_url' => $featured_image_url,
-                        'caption' => $featured_image_caption
-                    ];
-                }
+            foreach ($gallery_ids2 as $gallery_item_id) {
+                $floor_galleries_data2[] = [
+                    'gallery_url' => wp_get_attachment_url($gallery_item_id),
+                    'caption' => wp_get_attachment_caption($gallery_item_id)
+                ];
             }
+            ?>
+        <?php
         endwhile;
         wp_reset_postdata();
         ?>
+        <?php endif; ?>
 
+        <?php
+        while ($associated_floorplans->have_posts()) :
+            $associated_floorplans->the_post();
+            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+            $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
+            $featured_image_caption = get_the_post_thumbnail_caption();
+        endwhile;
+        wp_reset_postdata();
+        ?>
         <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
             <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
                 <?php if ($floor_galleries_data2[0]['gallery_url']) : ?>
