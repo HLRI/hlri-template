@@ -148,11 +148,11 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                 <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
                             <?php endif; ?>
                     </div>
-                    <?php if (!empty($psd['opt-price-min'])) : ?>
+                    <?php if (!empty($data['opt-price-min'])) : ?>
                         <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
                             <div class="start-price mb-3">Starting from 
                                 <span>
-                                    $<?= number_format($psd['opt-price-min']) ?>
+                                    $<?= number_format($data['opt-price-min']) ?>
                                 </span>
                             </div>
                            <div class="btn-group">
