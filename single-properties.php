@@ -558,15 +558,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         $associated_floorplans->the_post();
                                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         ?>
-                                        <tr>
-                                            <td>
-                                                <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                                <div class="wrap-head-floorplan">
-                                                    <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                                    <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
                                     <?php
                                     endwhile;
                                     wp_reset_postdata();
