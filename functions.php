@@ -74,3 +74,41 @@ function custom_properties_column_data($column, $post_id) {
     }
 }
 add_action('manage_properties_posts_custom_column', 'custom_properties_column_data', 10, 2);
+
+
+// Assuming this code goes into your theme's functions.php file
+
+add_filter('template_include', 'custom_property_template');
+
+function custom_property_template($template)
+{
+    // Check if it's a single property post
+    if (is_singular('properties')) {
+        global $post;
+
+        // Get the value of 'opt-sales-type' meta key
+        $opt_sales_type = get_post_meta($post->ID, 'opt-sales-type', true);
+
+        // Check the value and load the appropriate template
+        if ($opt_sales_type == 'Assignment') {
+            $new_template = locate_template(array('single-property-Assignment.php'));
+            if ('' != $new_template) {
+                return $new_template;
+            }
+        } elseif ($opt_sales_type == 'Resale') {
+            $new_template = locate_template(array('single-property-Resale.php'));
+            if ('' != $new_template) {
+                return $new_template;
+            }
+        } elseif (($opt_sales_type == 'Preconstruction') || ($opt_sales_type == 'Coming soon') || ($opt_sales_type == 'Sold Out')) {
+            $new_template = locate_template(array('single-property-Resale.php'));
+            if ('' != $new_template) {
+                return $new_template;
+            }
+        }
+    }
+
+    // For other cases, return the original template
+    return $template;
+}
+

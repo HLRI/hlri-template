@@ -1181,6 +1181,11 @@ if (class_exists('CSF')) {
                     'title' => 'Assignment Total Cash Required',
                 ),
                 array(
+                    'id'    => 'opt-assignment-remaining-deposit',
+                    'type'  => 'number',
+                    'title' => 'Assignment Remaining Deposit',
+                ),
+                array(
                     'id'         => 'opt-built',
                     'type'       => 'button_set',
                     'title'      => 'Built',
