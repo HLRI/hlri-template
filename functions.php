@@ -87,8 +87,12 @@ function custom_property_template($template)
         global $post;
 
         // Get the value of 'opt-sales-type' meta key
-        $opt_sales_type = get_post_meta($post->ID, 'hlr_framework_mapdata', true);
-        $opt_sales_type = $opt_sales_type['opt-sales-type'];
+        $map_data = get_post_meta($post->ID, 'hlr_framework_mapdata', true);
+        $opt_sales_type = isset($map_data['opt-sales-type']) ? $map_data['opt-sales-type'] : '';
+
+        // Debugging echo
+        echo 'opt-sales-type: ' . $opt_sales_type;
+
         // Check the value and load the appropriate template
         if ($opt_sales_type == 'Assignment') {
             $new_template = locate_template(array('single-property-assignment.php'));
@@ -100,7 +104,7 @@ function custom_property_template($template)
             if ('' != $new_template) {
                 return $new_template;
             }
-        } elseif (($opt_sales_type == 'Preconstruction') || ($opt_sales_type == 'Coming soon') || ($opt_sales_type == 'Sold Out')) {
+        } elseif (in_array($opt_sales_type, array('Preconstruction', 'Coming soon', 'Sold Out'))) {
             $new_template = locate_template(array('single-properties.php'));
             if ('' != $new_template) {
                 return $new_template;
@@ -111,4 +115,5 @@ function custom_property_template($template)
     // For other cases, return the original template
     return $template;
 }
+
 
