@@ -493,11 +493,12 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                     <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
                                                         <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
                                                     <?php else : ?>
-                                            <?php if (!empty($floor['opt-floorplans-baths'])) : ?>
-                                                <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
-                                            <?php else : ?>
-                                                        <?php if (empty($floor['opt-studio'])) : ?>
-                                                            -
+                                                        <?php if (!empty($floor['opt-floorplans-baths'])) : ?>
+                                                            <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                                        <?php else : ?>
+                                                            <?php if (empty($floor['opt-studio'])) : ?>
+                                                                -
+                                                            <?php endif; ?>
                                                         <?php endif; ?>
                                                     <?php endif; ?>
                                                 </td>
