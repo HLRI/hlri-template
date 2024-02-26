@@ -242,8 +242,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <?php endif; ?>
             <?php else: ?>
                 <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
-                    <h2 class="text-2xl font-bold">Gallery</h2>
-                    <p class="text-gray-500">No images available at this time.</p>
+                    <h2 class="text-2xl font-bold">Floorplans Gallery</h2>
+                    <p class="text-gray-500">No floorplan image available at this time.</p>
                 </div>
             <?php endif; ?>
         </div>
