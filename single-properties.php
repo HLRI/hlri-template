@@ -25,8 +25,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <?php endif; ?>
                     <div class="container">
                         <h2><?= $psd['title'] ?></h2>
-                            <?php if (!empty($psd['excerpt'])) : ?>
-                            <p class="text-muted" > <?= $psd['excerpt'] ?></p>
+                            <?php if (!empty($data['excerpt'])) : ?>
+                            <p class="text-muted" > <?= $data['excerpt'] ?></p>
                             <?php endif; ?>
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                             <style>
