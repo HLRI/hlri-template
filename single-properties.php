@@ -53,12 +53,16 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <li data-label="Sqft" class="ic-sqft">
                                             <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?></strong> <span class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
                                         </li>
+                                        <?php if (!empty($data['opt-parking-quantity'])) : ?>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' parking' ?>
                                         </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-parking-quantity'])) : ?>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
                                         </li>
+                                        <?php endif; ?>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
                                             <li class="property-type ic-proptype">
                                                 <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : ''; echo 'Occupancy in ' . $occupancyOp . $data['opt-occupancy']; ?>
