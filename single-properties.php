@@ -497,7 +497,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                     <?php if (!empty($floor['opt-floorplans-size'])) : ?>
                                                         <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
                                                     <?php else : ?>
-                                                        -
+                                            <?php if (!empty($floor['opt-studio'])) : ?>
+                                                            <?= $floor['opt-studio'] ?>
+                                                        <?php endif; ?>
+                                                -
                                                     <?php endif; ?>
                                                 </td>
                                                 <td><?= $floor['opt-floorplans-view'] ?></td>
