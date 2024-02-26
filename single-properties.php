@@ -254,7 +254,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 
 
         <?php if ($associated_floorplans->have_posts()) : ?>
-        <tbody>
         <?php
         while ($associated_floorplans->have_posts()) :
             $associated_floorplans->the_post();
@@ -275,15 +274,19 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         ?>
         <?php endif; ?>
 
+<?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
+    <?php if (!empty($floor_galleries_data2[0]['gallery_url'])) : ?>
         <?php
         while ($associated_floorplans->have_posts()) :
             $associated_floorplans->the_post();
             $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-            $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
-            $featured_image_caption = get_the_post_thumbnail_caption();
+            $floor_galleries_data2[0]['gallery_url'] = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
+            $floor_galleries_data2[0]['caption'] = get_the_post_thumbnail_caption();
         endwhile;
         wp_reset_postdata();
         ?>
+    <?php endif; ?>
+<?php endif; ?>
         <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
             <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
                 <?php if ($floor_galleries_data2[0]['gallery_url']) : ?>
