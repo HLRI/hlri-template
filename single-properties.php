@@ -267,7 +267,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     'caption' => wp_get_attachment_caption($gallery_item_id)
                 ];
             }
-            print_r($floor_galleries_data2);
             ?>
         <?php
         endwhile;
@@ -276,7 +275,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         <?php endif; ?>
 
 <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
-    <?php if (!empty($floor_galleries_data2[0]['gallery_url'])) : ?>
+    <?php print_r($floor_galleries_data2);
+    if (!empty($floor_galleries_data2[0]['gallery_url'])) : ?>
         <?php
         while ($associated_floorplans->have_posts()) :
             $associated_floorplans->the_post();
