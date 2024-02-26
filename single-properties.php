@@ -400,7 +400,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         </div>
                     <?php else : ?>
                         <!-- If there are no images in the floorplan gallery, use the featured image -->
-                        <?php if (has_post_thumbnail()) : ?>
+                        <?php if (has_post_thumbnail(get_the_ID())) : ?>
                             <?php the_post_thumbnail('full', ['loading' => 'lazy']) ?>
                         <?php else : ?>
                             <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
