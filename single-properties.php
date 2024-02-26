@@ -3,7 +3,7 @@
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
 $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-print_r($data);
+print_r(get_the_excerpt());
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
