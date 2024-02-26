@@ -561,6 +561,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true); print_r($data5);
                                         if (!empty($data5)) {
                                             $gallery_ids = explode(',', $data5);
+                                            print_r($gallery_ids);
                                         } else {
                                             $gallery_ids = [];
                                         }
