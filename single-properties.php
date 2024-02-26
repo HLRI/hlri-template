@@ -58,7 +58,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' parking' ?>
                                         </li>
                                         <?php endif; ?>
-                                        <?php if (!empty($data['opt-parking-quantity'])) : ?>
+                                        <?php if (!empty($data['opt-locker'])) : ?>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
                                         </li>
