@@ -3,7 +3,6 @@
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
 $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-print_r(get_the_excerpt());
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
@@ -26,8 +25,8 @@ print_r(get_the_excerpt());
                     <?php endif; ?>
                     <div class="container">
                         <h2><?= $psd['title'] ?></h2>
-                            <?php if (!empty($data['excerpt'])) : ?>
-                            <p class="text-muted" > <?= $data['excerpt'] ?></p>
+                            <?php if (!empty(get_the_excerpt())) : ?>
+                            <p class="text-muted" > <?= get_the_excerpt() ?></p>
                             <?php endif; ?>
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                             <style>
