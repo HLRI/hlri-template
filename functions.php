@@ -95,12 +95,12 @@ function custom_property_template($template)
 
         // Check the value and load the appropriate template
         if ($opt_sales_type == 'Assignment') {
-            $new_template = locate_template(array('single-property-assignment.php'));
+            $new_template = locate_template(array('single-properties-assignment.php'));
             if ('' != $new_template) {
                 return $new_template;
             }
         } elseif ($opt_sales_type == 'Resale') {
-            $new_template = locate_template(array('single-property-resale.php'));
+            $new_template = locate_template(array('single-properties-resale.php'));
             if ('' != $new_template) {
                 return $new_template;
             }
