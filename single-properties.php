@@ -558,7 +558,21 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         $associated_floorplans->the_post();
                                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         ?>
-                                        <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true); print_r($data5); ?>
+                                        <?php
+                                        $assignmentFloor = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
+                                        if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
+                                            $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
+                                        } else {
+                                            $gallery_ids = [];
+                                        }
+                                        foreach ($gallery_ids as $gallery_item_id) {
+                                            $floor_galleries_data[] = [
+                                                'gallery_url' => wp_get_attachment_url($gallery_item_id),
+                                                'caption' => wp_get_attachment_caption($gallery_item_id)
+                                            ];
+                                        }
+                                        print_r($floor_galleries_data);
+                                        ?>
                                     <?php
                                     endwhile;
                                     wp_reset_postdata();
