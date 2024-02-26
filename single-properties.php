@@ -558,7 +558,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         $associated_floorplans->the_post();
                                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         ?>
-                                        <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true); print_r($data5) . '+';
+                                        <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true); print_r($data5) . 'ytrytrytry';
                                             $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
                                         foreach ($gallery_ids2 as $gallery_item_id) {
                                             $floor_galleries_data2[] = [
