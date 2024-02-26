@@ -275,7 +275,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         <?php endif; ?>
 
 <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
-    <?php if (!empty($floor_galleries_data2[0]['gallery_url'])) : ?>
+    <?php if (empty($floor_galleries_data2[0]['gallery_url'])) : ?>
         <?php
         while ($associated_floorplans->have_posts()) :
             $associated_floorplans->the_post();
