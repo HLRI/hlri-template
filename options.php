@@ -1164,7 +1164,7 @@ if (class_exists('CSF')) {
 					'id'    => 'opt-occupancy-time-period',
 					'type'  => 'text',
 					'title' => 'Occupancy Season/Month/Quarter'
-				),,
+				),
 				array(
 					'id'    => 'opt-occupancy',
 					'type'  => 'number',
