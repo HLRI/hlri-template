@@ -62,9 +62,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
                                             <li class="property-type ic-proptype">
                                                 $data['opt-occupancy-time-period']
-                                                if (!empty($data['opt-occupancy-time-period']))
-                                                <i class="fas fa-calendar"></i><br><?php echo 'Occupancy in ' . (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : ''
- . $data['opt-occupancy']; ?>
+
+                                                <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : ''; echo 'Occupancy in ' . $occupancyOp . $data['opt-occupancy']; ?>
                                             </li>
                                         <?php endif; ?>
                                        <?php if (!empty($data['opt-built']) AND ($data['opt-built'] == "1")) : ?>
