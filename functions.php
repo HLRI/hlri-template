@@ -90,9 +90,6 @@ function custom_property_template($template)
         $map_data = get_post_meta($post->ID, 'hlr_framework_mapdata', true);
         $opt_sales_type = isset($map_data['opt-sales-type']) ? $map_data['opt-sales-type'] : '';
 
-        // Debugging echo
-        echo 'opt-sales-type: ' . $opt_sales_type;
-
         // Check the value and load the appropriate template
         if ($opt_sales_type == 'Assignment') {
             $new_template = locate_template(array('single-properties-assignment.php'));
