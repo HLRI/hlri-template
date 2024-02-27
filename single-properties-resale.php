@@ -10,7 +10,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 <div id="navigation-fixed-location"></div>
 <div class="container-lg px-lg-5">
   
-    111111111111111111111111111111111111111111111111
     <div class="mt-4">
         <div class="p-3 bg-foreground rounded" >
             <div class="p-0 position-relative">
