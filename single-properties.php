@@ -86,7 +86,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         }
                                     }
                                     ?>
-                                    ll
+                                    lllllllllllllllllllllllllllllllllllllllllll
                                 </div>
                         <?php endif; ?>
                     </div>
