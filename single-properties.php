@@ -9,7 +9,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 
     <div id="navigation-fixed-location"></div>
     <div class="container-lg px-lg-5">
-
+        lllllllllllllllllllllllllllllllllllllllllll
 
         <div class="mt-4">
             <div class="p-3 bg-foreground rounded">
@@ -97,7 +97,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         }
                                     }
                                     ?>
-                                    lllllllllllllllllllllllllllllllllllllllllll
                                 </div>
                             <?php endif; ?>
                         </div>
