@@ -29,6 +29,19 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <?php if (!empty(the_excerpt())) : ?>
                                 <p class="text-muted"> <?= the_excerpt() ?></p>
                             <?php endif; ?>
+                            <?php // Get the developer taxonomy terms for the current post
+                            $developer_terms = get_the_terms(get_the_ID(), 'developer');
+                            print_r($developer_terms);
+
+                            // Check if any terms were found
+                            if ($developer_terms && !is_wp_error($developer_terms)) {
+                                // Loop through each term
+                                foreach ($developer_terms as $developer_term) {
+                                    // Output the term name
+                                    echo '<p>' . $developer_term->name . '</p>';
+                                }
+                            }
+                            ?>
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <style>
                                     .characteristics-cnt ul li {
@@ -83,19 +96,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             </li>
                                         <?php endif; ?>
                                     </ul>
-                                    <?php // Get the developer taxonomy terms for the current post
-                                    $developer_terms = get_the_terms(get_the_ID(), 'developer');
-                                    print_r($developer_terms);
-
-                                    // Check if any terms were found
-                                    if ($developer_terms && !is_wp_error($developer_terms)) {
-                                        // Loop through each term
-                                        foreach ($developer_terms as $developer_term) {
-                                            // Output the term name
-                                            echo '<p>' . $developer_term->name . '</p>';
-                                        }
-                                    }
-                                    ?>
                                 </div>
                             <?php endif; ?>
                         </div>
