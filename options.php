@@ -1055,11 +1055,16 @@ if (class_exists('CSF')) {
 				// 	'type'  => 'text',
 				// 	'title' => 'Permalink'
 				// ),
+                array(
+                    'id'    => 'opt-project-name',
+                    'type'  => 'text',
+                    'title' => 'Project Name'
+                ),
 				array(
-					'id'    => 'opt-address',
-					'type'  => 'text',
-					'title' => 'Address'
-				),
+                    'id'    => 'opt-address',
+                    'type'  => 'text',
+                    'title' => 'Address'
+                ),
 				array(
 					'id'    => 'opt-street-address',
 					'type'  => 'text',
