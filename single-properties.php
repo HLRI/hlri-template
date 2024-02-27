@@ -74,7 +74,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         </li>
                                         <?php endif; ?>
                                     </ul>
-                                    <?php endif; ?>
                                     <?php // Get the developer taxonomy terms for the current post
                                     $developer_terms = get_the_terms(get_the_ID(), 'developer');
 
