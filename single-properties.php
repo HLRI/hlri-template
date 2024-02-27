@@ -31,8 +31,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <?php endif; ?>
                             <?php // Get the developer taxonomy terms for the current post
                             $developer_terms = get_the_terms(get_the_ID(), 'developer');
-                            print_r($developer_terms);
-
                             // Check if any terms were found
                             if ($developer_terms && !is_wp_error($developer_terms)) {
                                 // Loop through each term
