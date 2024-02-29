@@ -114,65 +114,6 @@ function custom_property_template($template)
 }
 
 
-// Add custom admin menu
-function custom_delete_posts_admin_menu() {
-    add_menu_page(
-        'Delete Posts', // Page title
-        'Delete Posts', // Menu title
-        'manage_options', // Capability
-        'custom-delete-posts', // Menu slug
-        'custom_delete_posts_page', // Callback function
-        'dashicons-trash', // Icon
-        99 // Position
-    );
-}
-add_action('admin_menu', 'custom_delete_posts_admin_menu');
-
-// Custom admin page content
-function custom_delete_posts_page() {
-    ?>
-    <div class="wrap">
-        <h2>Delete Posts</h2>
-        <p>Click the button below to delete posts and their featured images.</p>
-        <form method="post" action="">
-            <?php wp_nonce_field('custom-delete-posts-action', 'custom-delete-posts-nonce'); ?>
-            <input type="submit" name="delete_posts_button" class="button button-primary" value="Delete Posts">
-        </form>
-        <?php
-        // Handle deletion logic
-        if (isset($_POST['delete_posts_button'])) {
-            // Verify nonce
-            if (!isset($_POST['custom-delete-posts-nonce']) || !wp_verify_nonce($_POST['custom-delete-posts-nonce'], 'custom-delete-posts-action')) {
-                wp_die('Unauthorized request!');
-            }
-
-            // Run your function to delete posts and their featured images based on IDs
-            $posts_to_delete = array(33078, 33075, 33080); // Example post IDs to delete
-            $deleted_count = delete_posts_and_featured_images_by_ids($posts_to_delete);
-
-            // Display success message
-            echo "<p>Deleted $deleted_count posts and their featured images.</p>";
-        }
-        ?>
-    </div>
-    <?php
-}
-
-// Delete posts along with their featured images based on an array of post IDs
-// Add custom admin menu
-function custom_delete_floorplans_admin_menu() {
-    add_menu_page(
-        'Delete Floorplans', // Page title
-        'Delete Floorplans', // Menu title
-        'manage_options', // Capability
-        'custom-delete-floorplans', // Menu slug
-        'custom_delete_floorplans_page', // Callback function
-        'dashicons-trash', // Icon
-        99 // Position
-    );
-}
-add_action('admin_menu', 'custom_delete_floorplans_admin_menu');
-
 // Custom admin page content
 function custom_delete_floorplans_page() {
     global $wpdb;
@@ -217,7 +158,7 @@ function custom_delete_floorplans_page() {
 
     // Fetch properties
     $properties = get_posts(array(
-        'post_type' => 'property',
+        'post_type' => 'properties',
         'posts_per_page' => -1,
         'post_status' => 'publish'
     ));
@@ -250,4 +191,3 @@ function custom_delete_floorplans_page() {
     </div>
     <?php
 }
-
