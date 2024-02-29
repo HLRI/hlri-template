@@ -145,6 +145,7 @@ function my_custom_admin_page() {
                     array(
                         'key' => 'associated_property',
                         'value' => $selected_property_id,
+                        'posts_per_page' => -1, // Retrieve all properties
                         'compare' => '=',
                     )
                 )
