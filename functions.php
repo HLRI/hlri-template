@@ -114,28 +114,50 @@ function custom_property_template($template)
 }
 
 
-// Register a custom endpoint
-function custom_delete_posts_endpoint() {
-    add_rewrite_endpoint( 'custom-delete-posts', EP_ROOT );
+
+// Add custom admin menu
+function custom_delete_posts_admin_menu() {
+    add_menu_page(
+        'Delete Posts', // Page title
+        'Delete Posts', // Menu title
+        'manage_options', // Capability
+        'custom-delete-posts', // Menu slug
+        'custom_delete_posts_page', // Callback function
+        'dashicons-trash', // Icon
+        99 // Position
+    );
 }
-add_action( 'init', 'custom_delete_posts_endpoint' );
+add_action('admin_menu', 'custom_delete_posts_admin_menu');
 
-// Callback function to handle the deletion
-function handle_custom_delete_posts_request() {
-    global $wp;
+// Custom admin page content
+function custom_delete_posts_page() {
+    ?>
+    <div class="wrap">
+        <h2>Delete Posts</h2>
+        <p>Click the button below to delete posts and their featured images.</p>
+        <form method="post" action="">
+            <?php wp_nonce_field('custom-delete-posts'); ?>
+            <input type="submit" name="delete_posts_button" class="button button-primary" value="Delete Posts">
+        </form>
+        <?php
+        // Handle deletion logic
+        if (isset($_POST['delete_posts_button'])) {
+            // Verify nonce
+            if (!isset($_POST['delete_posts_button']) || !wp_verify_nonce($_POST['delete_posts_button'], 'custom-delete-posts')) {
+                wp_die('Unauthorized request!');
+            }
 
-    // Check if the 'custom-delete-posts' endpoint is accessed
-    if ( isset( $wp->query_vars['custom-delete-posts'] ) ) {
-        // Run your function to delete posts and their featured images based on IDs
-        $posts_to_delete = array(33075, 33078, 33080); // Example post IDs to delete
-        $deleted_count = delete_posts_and_featured_images_by_ids($posts_to_delete);
+            // Run your function to delete posts and their featured images based on IDs
+            $posts_to_delete = array(33075, 33078, 33080); // Example post IDs to delete
+            $deleted_count = delete_posts_and_featured_images_by_ids($posts_to_delete);
 
-        // Output a message or perform any other action
-        echo "Deleted $deleted_count posts and their featured images.";
-        exit; // Stop WordPress from loading further
-    }
+            // Display success message
+            echo "<p>Deleted $deleted_count posts and their featured images.</p>";
+        }
+        ?>
+    </div>
+    <?php
 }
-add_action( 'parse_request', 'handle_custom_delete_posts_request' );
 
 // Delete posts along with their featured images based on an array of post IDs
 function delete_posts_and_featured_images_by_ids($post_ids) {
