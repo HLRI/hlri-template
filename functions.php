@@ -114,3 +114,52 @@ function custom_property_template($template)
 }
 
 
+// Register a custom endpoint
+function custom_delete_posts_endpoint() {
+    add_rewrite_endpoint( 'custom-delete-posts', EP_ROOT );
+}
+add_action( 'init', 'custom_delete_posts_endpoint' );
+
+// Callback function to handle the deletion
+function handle_custom_delete_posts_request() {
+    global $wp;
+
+    // Check if the 'custom-delete-posts' endpoint is accessed
+    if ( isset( $wp->query_vars['custom-delete-posts'] ) ) {
+        // Run your function to delete posts and their featured images based on IDs
+        $posts_to_delete = array(33075, 33078, 33080); // Example post IDs to delete
+        $deleted_count = delete_posts_and_featured_images_by_ids($posts_to_delete);
+
+        // Output a message or perform any other action
+        echo "Deleted $deleted_count posts and their featured images.";
+        exit; // Stop WordPress from loading further
+    }
+}
+add_action( 'parse_request', 'handle_custom_delete_posts_request' );
+
+// Delete posts along with their featured images based on an array of post IDs
+function delete_posts_and_featured_images_by_ids($post_ids) {
+    $deleted_count = 0;
+
+    if (!empty($post_ids)) {
+        foreach ($post_ids as $post_id) {
+            // Check if the post exists
+            if (get_post_status($post_id)) {
+                // Get the featured image ID
+                $featured_image_id = get_post_thumbnail_id($post_id);
+
+                // Delete the featured image
+                if (!empty($featured_image_id)) {
+                    wp_delete_attachment($featured_image_id, true);
+                }
+
+                // Delete the post
+                if (wp_delete_post($post_id, true)) {
+                    $deleted_count++;
+                }
+            }
+        }
+    }
+
+    return $deleted_count;
+}
