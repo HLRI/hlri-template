@@ -11,7 +11,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 <div class="container-lg px-lg-5">
 
     <div class="mt-4">
-        <div class="p-3 bg-foreground rounded" >
+        <div class="p-3 bg-foreground rounded mb-4" >
             <div class="p-0 position-relative">
                
                 <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
@@ -172,7 +172,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-12 justify-content-center align-items-center mb-4" id="Gallery">
+    <div class="col-12 col-md-12 justify-content-center align-items-center p-0 px-md-2 " id="Gallery">
         <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
             <?php if ($psd['galleries'][0]['gallery_url']) : ?>
                 <div class="vrmedia-gallery">
