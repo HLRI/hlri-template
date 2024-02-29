@@ -143,7 +143,7 @@ function my_custom_admin_page() {
                 'post_type' => 'floorplans',
                 'meta_query' => array(
                     array(
-                        'key' => 'property_association',
+                        'key' => 'associated_property',
                         'value' => $selected_property_id,
                         'compare' => '=',
                     )
