@@ -114,7 +114,6 @@ function custom_property_template($template)
 }
 
 
-
 // Add custom admin menu
 function custom_delete_posts_admin_menu() {
     add_menu_page(
@@ -136,19 +135,19 @@ function custom_delete_posts_page() {
         <h2>Delete Posts</h2>
         <p>Click the button below to delete posts and their featured images.</p>
         <form method="post" action="">
-            <?php wp_nonce_field('custom-delete-posts'); ?>
+            <?php wp_nonce_field('custom-delete-posts-action', 'custom-delete-posts-nonce'); ?>
             <input type="submit" name="delete_posts_button" class="button button-primary" value="Delete Posts">
         </form>
         <?php
         // Handle deletion logic
         if (isset($_POST['delete_posts_button'])) {
             // Verify nonce
-            if (!isset($_POST['delete_posts_button']) || !wp_verify_nonce($_POST['delete_posts_button'], 'custom-delete-posts')) {
+            if (!isset($_POST['custom-delete-posts-nonce']) || !wp_verify_nonce($_POST['custom-delete-posts-nonce'], 'custom-delete-posts-action')) {
                 wp_die('Unauthorized request!');
             }
 
             // Run your function to delete posts and their featured images based on IDs
-            $posts_to_delete = array(33075, 33078, 33080); // Example post IDs to delete
+            $posts_to_delete = array(33078, 33075, 33080); // Example post IDs to delete
             $deleted_count = delete_posts_and_featured_images_by_ids($posts_to_delete);
 
             // Display success message
