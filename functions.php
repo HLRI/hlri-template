@@ -159,28 +159,95 @@ function custom_delete_posts_page() {
 }
 
 // Delete posts along with their featured images based on an array of post IDs
-function delete_posts_and_featured_images_by_ids($post_ids) {
-    $deleted_count = 0;
+// Add custom admin menu
+function custom_delete_floorplans_admin_menu() {
+    add_menu_page(
+        'Delete Floorplans', // Page title
+        'Delete Floorplans', // Menu title
+        'manage_options', // Capability
+        'custom-delete-floorplans', // Menu slug
+        'custom_delete_floorplans_page', // Callback function
+        'dashicons-trash', // Icon
+        99 // Position
+    );
+}
+add_action('admin_menu', 'custom_delete_floorplans_admin_menu');
 
-    if (!empty($post_ids)) {
-        foreach ($post_ids as $post_id) {
-            // Check if the post exists
-            if (get_post_status($post_id)) {
-                // Get the featured image ID
-                $featured_image_id = get_post_thumbnail_id($post_id);
+// Custom admin page content
+function custom_delete_floorplans_page() {
+    global $wpdb;
 
-                // Delete the featured image
-                if (!empty($featured_image_id)) {
-                    wp_delete_attachment($featured_image_id, true);
-                }
+    if (isset($_POST['property_id']) && isset($_POST['delete_floorplans_button'])) {
+        // Verify nonce
+        if (!isset($_POST['delete_floorplans_nonce']) || !wp_verify_nonce($_POST['delete_floorplans_nonce'], 'custom-delete-floorplans')) {
+            wp_die('Unauthorized request!');
+        }
 
-                // Delete the post
-                if (wp_delete_post($post_id, true)) {
-                    $deleted_count++;
-                }
+        // Get selected property ID
+        $property_id = intval($_POST['property_id']);
+
+        // Fetch associated floorplans
+        $floorplans = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT ID, post_title, post_content FROM $wpdb->posts
+                WHERE post_type = 'floorplan' AND post_status = 'publish'
+                AND ID IN (
+                    SELECT post_id FROM $wpdb->postmeta
+                    WHERE meta_key = 'associated_property' AND meta_value = %d
+                )",
+                $property_id
+            )
+        );
+
+        // Delete selected floorplans and their featured images
+        $deleted_count = 0;
+        foreach ($floorplans as $floorplan) {
+            $featured_image_id = get_post_thumbnail_id($floorplan->ID);
+            if (!empty($featured_image_id)) {
+                wp_delete_attachment($featured_image_id, true);
+            }
+            if (wp_delete_post($floorplan->ID, true)) {
+                $deleted_count++;
             }
         }
+
+        // Display success message
+        echo "<p>Deleted $deleted_count floorplans and their featured images.</p>";
     }
 
-    return $deleted_count;
+    // Fetch properties
+    $properties = get_posts(array(
+        'post_type' => 'property',
+        'posts_per_page' => -1,
+        'post_status' => 'publish'
+    ));
+
+    // Display property dropdown
+    ?>
+    <div class="wrap">
+        <h2>Delete Floorplans</h2>
+        <form method="post" action="">
+            <?php wp_nonce_field('custom-delete-floorplans'); ?>
+            <label for="property_id">Select a property:</label>
+            <select name="property_id" id="property_id">
+                <?php foreach ($properties as $property) : ?>
+                    <option value="<?php echo $property->ID; ?>"><?php echo $property->post_title; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" name="delete_floorplans_button" class="button button-primary" value="Delete Floorplans">
+        </form>
+        <?php
+        // Display floorplans associated with the selected property
+        if (isset($_POST['property_id']) && isset($_POST['delete_floorplans_button'])) {
+            echo "<h3>Floorplans:</h3>";
+            echo "<ul>";
+            foreach ($floorplans as $floorplan) {
+                echo "<li><a href='" . get_permalink($floorplan->ID) . "'>" . $floorplan->post_title . "</a></li>";
+            }
+            echo "</ul>";
+        }
+        ?>
+    </div>
+    <?php
 }
+
