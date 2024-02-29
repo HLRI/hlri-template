@@ -125,7 +125,7 @@ function my_custom_admin_page() {
                 <?php
                 $properties = get_posts( array(
                     'post_type' => 'properties',
-                    'posts_per_page' => -1
+                    'posts_per_page' => -1 // Retrieve all properties
                 ) );
 
                 foreach ( $properties as $property ) {
@@ -141,11 +141,11 @@ function my_custom_admin_page() {
             $selected_property_id = intval( $_POST['selected_property'] );
             $floorplans = get_posts( array(
                 'post_type' => 'floorplans',
+                'posts_per_page' => -1, // Retrieve all floorplans
                 'meta_query' => array(
                     array(
                         'key' => 'associated_property',
                         'value' => $selected_property_id,
-                        'posts_per_page' => -1, // Retrieve all properties
                         'compare' => '=',
                     )
                 )
