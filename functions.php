@@ -119,9 +119,7 @@ function my_custom_admin_page() {
     ?>
     <div class="wrap">
         <h1>Choose Property</h1>
-        <form method="post" action="options.php">
-            <?php settings_fields( 'property_options' ); ?>
-            <?php do_settings_sections( 'property_options' ); ?>
+        <form method="post" action="">
             <label for="selected_property">Select Property:</label>
             <select name="selected_property" id="selected_property">
                 <?php
@@ -135,30 +133,35 @@ function my_custom_admin_page() {
                 }
                 ?>
             </select>
-            <?php submit_button( 'Save Property' ); ?>
+            <input type="submit" name="submit_property" value="Show Floorplans">
         </form>
+
+        <?php
+        if ( isset( $_POST['submit_property'] ) && isset( $_POST['selected_property'] ) ) {
+            $selected_property_id = intval( $_POST['selected_property'] );
+            $floorplans = get_posts( array(
+                'post_type' => 'floorplans',
+                'meta_query' => array(
+                    array(
+                        'key' => 'property_association',
+                        'value' => $selected_property_id,
+                        'compare' => '=',
+                    )
+                )
+            ) );
+
+            if ( $floorplans ) {
+                echo '<h2>Floorplans associated with the selected property:</h2>';
+                echo '<ul>';
+                foreach ( $floorplans as $floorplan ) {
+                    echo '<li>' . esc_html( $floorplan->post_title ) . '</li>';
+                }
+                echo '</ul>';
+            } else {
+                echo '<p>No floorplans found for the selected property.</p>';
+            }
+        }
+        ?>
     </div>
     <?php
 }
-
-// Step 2: Register the admin menu page
-function register_property_admin_page() {
-    add_menu_page(
-        'Property Admin Page',
-        'Property',
-        'manage_options',
-        'property_admin_page',
-        'my_custom_admin_page'
-    );
-}
-add_action( 'admin_menu', 'register_property_admin_page' );
-
-// Step 3: Save selected property
-function save_selected_property() {
-    if ( isset( $_POST['selected_property'] ) ) {
-        $selected_property = sanitize_text_field( $_POST['selected_property'] );
-        // Do something with $selected_property, such as save it to the options table
-        update_option( 'selected_property', $selected_property );
-    }
-}
-add_action( 'admin_init', 'save_selected_property' );
