@@ -165,3 +165,25 @@ function my_custom_admin_page() {
     </div>
     <?php
 }
+
+// Step 2: Register the admin menu page
+function register_property_admin_page() {
+    add_menu_page(
+        'Property Admin Page',
+        'Property',
+        'manage_options',
+        'property_admin_page',
+        'my_custom_admin_page'
+    );
+}
+add_action( 'admin_menu', 'register_property_admin_page' );
+
+// Step 3: Save selected property
+function save_selected_property() {
+    if ( isset( $_POST['selected_property'] ) ) {
+        $selected_property = sanitize_text_field( $_POST['selected_property'] );
+        // Do something with $selected_property, such as save it to the options table
+        update_option( 'selected_property', $selected_property );
+    }
+}
+add_action( 'admin_init', 'save_selected_property' );
