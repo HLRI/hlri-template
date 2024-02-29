@@ -114,80 +114,51 @@ function custom_property_template($template)
 }
 
 
-// Custom admin page content
-function custom_delete_floorplans_page() {
-    global $wpdb;
-
-    if (isset($_POST['property_id']) && isset($_POST['delete_floorplans_button'])) {
-        // Verify nonce
-        if (!isset($_POST['delete_floorplans_nonce']) || !wp_verify_nonce($_POST['delete_floorplans_nonce'], 'custom-delete-floorplans')) {
-            wp_die('Unauthorized request!');
-        }
-
-        // Get selected property ID
-        $property_id = intval($_POST['property_id']);
-
-        // Fetch associated floorplans
-        $floorplans = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT ID, post_title, post_content FROM $wpdb->posts
-                WHERE post_type = 'floorplan' AND post_status = 'publish'
-                AND ID IN (
-                    SELECT post_id FROM $wpdb->postmeta
-                    WHERE meta_key = 'associated_property' AND meta_value = %d
-                )",
-                $property_id
-            )
-        );
-
-        // Delete selected floorplans and their featured images
-        $deleted_count = 0;
-        foreach ($floorplans as $floorplan) {
-            $featured_image_id = get_post_thumbnail_id($floorplan->ID);
-            if (!empty($featured_image_id)) {
-                wp_delete_attachment($featured_image_id, true);
-            }
-            if (wp_delete_post($floorplan->ID, true)) {
-                $deleted_count++;
-            }
-        }
-
-        // Display success message
-        echo "<p>Deleted $deleted_count floorplans and their featured images.</p>";
-    }
-
-    // Fetch properties
-    $properties = get_posts(array(
-        'post_type' => 'properties',
-        'posts_per_page' => -1,
-        'post_status' => 'publish'
-    ));
-
-    // Display property dropdown
+// Step 1: Define a function to create the admin page
+function my_custom_admin_page() {
     ?>
     <div class="wrap">
-        <h2>Delete Floorplans</h2>
-        <form method="post" action="">
-            <?php wp_nonce_field('custom-delete-floorplans'); ?>
-            <label for="property_id">Select a property:</label>
-            <select name="property_id" id="property_id">
-                <?php foreach ($properties as $property) : ?>
-                    <option value="<?php echo $property->ID; ?>"><?php echo $property->post_title; ?></option>
-                <?php endforeach; ?>
+        <h1>Choose Property</h1>
+        <form method="post" action="options.php">
+            <?php settings_fields( 'property_options' ); ?>
+            <?php do_settings_sections( 'property_options' ); ?>
+            <label for="selected_property">Select Property:</label>
+            <select name="selected_property" id="selected_property">
+                <?php
+                $properties = get_posts( array(
+                    'post_type' => 'properties',
+                    'posts_per_page' => -1
+                ) );
+
+                foreach ( $properties as $property ) {
+                    echo '<option value="' . esc_attr( $property->ID ) . '">' . esc_html( $property->post_title ) . '</option>';
+                }
+                ?>
             </select>
-            <input type="submit" name="delete_floorplans_button" class="button button-primary" value="Delete Floorplans">
+            <?php submit_button( 'Save Property' ); ?>
         </form>
-        <?php
-        // Display floorplans associated with the selected property
-        if (isset($_POST['property_id']) && isset($_POST['delete_floorplans_button'])) {
-            echo "<h3>Floorplans:</h3>";
-            echo "<ul>";
-            foreach ($floorplans as $floorplan) {
-                echo "<li><a href='" . get_permalink($floorplan->ID) . "'>" . $floorplan->post_title . "</a></li>";
-            }
-            echo "</ul>";
-        }
-        ?>
     </div>
     <?php
 }
+
+// Step 2: Register the admin menu page
+function register_property_admin_page() {
+    add_menu_page(
+        'Property Admin Page',
+        'Property',
+        'manage_options',
+        'property_admin_page',
+        'my_custom_admin_page'
+    );
+}
+add_action( 'admin_menu', 'register_property_admin_page' );
+
+// Step 3: Save selected property
+function save_selected_property() {
+    if ( isset( $_POST['selected_property'] ) ) {
+        $selected_property = sanitize_text_field( $_POST['selected_property'] );
+        // Do something with $selected_property, such as save it to the options table
+        update_option( 'selected_property', $selected_property );
+    }
+}
+add_action( 'admin_init', 'save_selected_property' );
