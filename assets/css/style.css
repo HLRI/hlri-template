@@ -4048,7 +4048,8 @@ a.item-list-tag {
 .project-title{
   font-weight: bold;
   font-size: 16px;
-  color: forestgreen;
+  color: #f06128;
+  text-shadow: 0px 1px 0px #f5f5f5;
 }
 .top-prptype{
   font-size: 16px;
