@@ -4063,3 +4063,9 @@ a.item-list-tag {
   font-size: 30px;
   color: #6c6c6c;
 }
+.property-type.ic-proptype i{
+  font-size: 30px;
+}
+.characteristics-cnt ul li{
+  text-align:center
+}
