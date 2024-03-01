@@ -26,13 +26,12 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <h2><?= $psd['title'] ?></h2>
                         <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
                         <?php $excerpt = the_excerpt(); ?>
-                        <div class="text-muted top-excerpt">
-                            <?php if (!empty($excerpt)) : ?>
-                                <?= get_the_excerpt(); ?>
+                        <?php if (!empty($excerpt)) : ?>
+                            <p class="text-muted top-excerpt">
+                                <?= $excerpt ?>
+                            </p>
                         <?php endif; ?>
-                        </div>
-
-                    <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
+                            <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                             <style>
                                 .characteristics-cnt ul li{
                                     text-align: center;
