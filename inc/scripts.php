@@ -306,7 +306,7 @@ function theme_footer()
                     gallery: true,
                     item: 1,
                     loop: true,
-                    thumbItem: 4,
+                    thumbItem: 6,
                     thumbMargin: 10,
                 });
                 $(".floors-gallery").lightSlider({
