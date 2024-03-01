@@ -112,7 +112,3 @@ function custom_property_template($template)
     // For other cases, return the original template
     return $template;
 }
-
-
-
-
