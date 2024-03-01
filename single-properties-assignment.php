@@ -28,7 +28,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <?php $excerpt = the_excerpt(); ?>
                         <div class="text-muted top-excerpt">
                             <?php if (!empty($excerpt)) : ?>
-                                <?= $excerpt ?>
+                                <?= get_the_excerpt(); ?>
                         <?php endif; ?>
                         </div>
 
