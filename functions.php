@@ -115,7 +115,116 @@ function custom_property_template($template)
 
 
 
+// Step 1: Define a function to create the admin page
+function my_custom_admin_page() {
+    ?>
+    <div class="wrap">
+        <h1>Choose Property</h1>
+        <form method="post" action="">
+            <label for="selected_property">Select Property:</label>
+            <select name="selected_property" id="selected_property">
+                <?php
+                $properties = get_posts( array(
+                    'post_type' => 'properties',
+                    'posts_per_page' => -1 // Retrieve all properties
+                ) );
 
+                foreach ( $properties as $property ) {
+                    echo '<option value="' . esc_attr( $property->ID ) . '">' . esc_html( $property->post_title ) . '</option>';
+                }
+                ?>
+            </select>
+            <input type="submit" name="submit_property" value="Show Floorplans">
+        </form>
+
+        <?php
+        if ( isset( $_POST['submit_property'] ) && isset( $_POST['selected_property'] ) ) {
+            $selected_property_id = intval( $_POST['selected_property'] );
+            $floorplans = get_posts( array(
+                'post_type' => 'floorplans',
+                'posts_per_page' => -1, // Retrieve all floorplans
+                'meta_query' => array(
+                    array(
+                        'key' => 'associated_property',
+                        'value' => $selected_property_id,
+                        'compare' => '=',
+                    )
+                )
+            ) );
+
+            if ( $floorplans ) {
+                echo '<h2>Floorplans associated with the selected property:</h2>';
+                echo '<ul>';
+                foreach ( $floorplans as $floorplan ) {
+                    $floorplan_url = get_permalink( $floorplan->ID );
+                    echo '<li><a href="' . esc_url( $floorplan_url ) . '">' . esc_html( $floorplan->post_title ) . '</a></li>';
+                }
+                echo '</ul>';
+                ?>
+                <form method="post" action="">
+                    <input type="hidden" name="selected_property" value="<?php echo esc_attr( $selected_property_id ); ?>">
+                    <input type="submit" name="delete_floorplans" value="Delete All Floorplans">
+                </form>
+                <?php
+            } else {
+                echo '<p>No floorplans found for the selected property.</p>';
+            }
+        }
+        ?>
+    </div>
+    <?php
+}
+
+// Step 2: Register the admin menu page
+function register_property_admin_page() {
+    add_menu_page(
+        'Property Admin Page',
+        'Property',
+        'manage_options',
+        'property_admin_page',
+        'my_custom_admin_page'
+    );
+}
+add_action( 'admin_menu', 'register_property_admin_page' );
+
+// Step 3: Save selected property
+function save_selected_property() {
+    if ( isset( $_POST['selected_property'] ) ) {
+        $selected_property = sanitize_text_field( $_POST['selected_property'] );
+        // Do something with $selected_property, such as save it to the options table
+        update_option( 'selected_property', $selected_property );
+    }
+}
+add_action( 'admin_init', 'save_selected_property' );
+
+// Step 4: Handle delete floorplans action
+function delete_floorplans_action() {
+    if ( isset( $_POST['delete_floorplans'] ) && isset( $_POST['selected_property'] ) ) {
+        $selected_property_id = intval( $_POST['selected_property'] );
+        $floorplans = get_posts( array(
+            'post_type' => 'floorplans',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => 'associated_property',
+                    'value' => $selected_property_id,
+                    'compare' => '=',
+                )
+            )
+        ) );
+
+        if ( $floorplans ) {
+            foreach ( $floorplans as $floorplan ) {
+                // Delete the floorplan
+                wp_delete_post( $floorplan->ID, true ); // Set second parameter to true to force delete
+            }
+            echo '<p>All floorplans associated with the selected property have been deleted.</p>';
+        } else {
+            echo '<p>No floorplans found for the selected property to delete.</p>';
+        }
+    }
+}
+add_action( 'admin_init', 'delete_floorplans_action' );
 
 
 
