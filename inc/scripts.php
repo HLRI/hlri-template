@@ -309,6 +309,13 @@ function theme_footer()
                     thumbItem: 4,
                     thumbMargin: 10,
                 });
+                $(".floors-gallery").lightSlider({
+                    gallery: true,
+                    item: 1,
+                    loop: false,
+                    thumbItem: 4,
+                    thumbMargin: 10,
+                });
                 
 
             });

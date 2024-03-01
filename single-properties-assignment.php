@@ -314,7 +314,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
                 <?php if ($floor_galleries_data2[0]['gallery_url']) : ?>
                     <div class="vrmedia-gallery2">
-                        <ul class="ecommerce-gallery">
+                        <ul class="floors-gallery">
                             <?php foreach ($floor_galleries_data2 as $gallery_item) : ?>
                                 <li class="rounded" data-fancybox="floors-gallery"
                                     data-caption="<?= $gallery_item['caption'] ?>"
