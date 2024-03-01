@@ -3936,6 +3936,11 @@ a.item-list-tag {
   font-size: 16px;
   font-weight: bold;
 }
-.characteristics-cnt ul li i{
-  color: #e28e5c;
+.characteristics-cnt ul li {
+  text-align: center;
+  width: 80px;
+}
+.characteristics-cnt ul li i {
+  font-size: 30px;
+  color: #b19f91;
 }
