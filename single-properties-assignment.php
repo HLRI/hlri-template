@@ -25,7 +25,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <div class="container">
                         <h2><?= $psd['title'] ?></h2>
                         <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
-                        <?php $excerpt = get_the_excerpt(); ?>
+                        <?php $excerpt = the_excerpt(); ?>
                         <?php if (!empty($excerpt)) : ?>
                             <p class="text-muted top-excerpt">
                                 <?= $excerpt ?>
