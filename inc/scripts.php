@@ -312,11 +312,9 @@ function theme_footer()
                 $(".floors-gallery").lightSlider({
                     gallery: true,
                     item: 1,
-                    loop:false,
-                    slideMargin: 0,
-                    mode: 'slide',
-                    controls: true,
-                    pager: false,
+                    loop: true,
+                    thumbItem: 4,
+                    thumbMargin: 10,
                 });
                 
 
