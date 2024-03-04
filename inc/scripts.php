@@ -313,7 +313,7 @@ function theme_footer()
                     gallery: true,
                     item: 1,
                     loop: true,
-                    thumbItem: 4,
+                    thumbItem: 0,
                     thumbMargin: 10,
                 });
                 
