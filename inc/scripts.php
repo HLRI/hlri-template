@@ -310,11 +310,13 @@ function theme_footer()
                     thumbMargin: 10,
                 });
                 $(".floors-gallery").lightSlider({
-                    gallery: true,
+                    gallery: false,
                     item: 1,
-                    loop: false,
-                    thumbItem: 0,
-                    thumbMargin: 10,
+                    loop:false,
+                    slideMargin: 0,
+                    mode: 'slide',
+                    controls: true,
+                    pager: false,
                 });
                 
 
