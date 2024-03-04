@@ -310,7 +310,7 @@ function theme_footer()
                     thumbMargin: 10,
                 });
                 $(".floors-gallery").lightSlider({
-                    gallery: false,
+                    gallery: true,
                     item: 1,
                     loop:false,
                     slideMargin: 0,
