@@ -76,7 +76,21 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         </div>
     <?php endif; ?>
     </div>
-
+        <?php if ($associated_floorplans->have_posts()) : ?>
+            <?php
+            while ($associated_floorplans->have_posts()) :
+                $associated_floorplans->the_post();
+                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                ?>
+                <?php $data5 = get_post_meta(get_the_ID(), 'opt-floorplans-view', true);
+                $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
+                print_r($data5);
+                ?>
+            <?php
+            endwhile;
+            wp_reset_postdata();
+            ?>
+        <?php endif; ?>
     </div>
 
     <style>
