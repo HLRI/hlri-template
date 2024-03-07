@@ -84,7 +84,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 ?>
                 <?php $data5 = get_post_meta(get_the_ID(), 'opt-floorplans-view', true);
                 $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
-                print_r($data5);
+                print_r($floor);
                 ?>
             <?php
             endwhile;
