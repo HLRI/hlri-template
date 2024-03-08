@@ -58,7 +58,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <?php endif; ?>
                 <?php if ($associated_floorplans->have_posts()) : ?>
                     <li class="property-type ic-proptype">
-                        <i class="fas fa-parking"></i><br>
+                        <i class="fal fa-window-frame-open"></i><br>
                     <?php
                     // Counter to keep track of the number of floorplans processed
                     $floorplan_count = 0;
