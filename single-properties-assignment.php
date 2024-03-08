@@ -56,6 +56,28 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' parking' ?>
                     </li>
                 <?php endif; ?>
+                <?php if ($associated_floorplans->have_posts()) : ?>
+                    <?php
+                    // Counter to keep track of the number of floorplans processed
+                    $floorplan_count = 0;
+
+                    while ($associated_floorplans->have_posts()) :
+                        $associated_floorplans->the_post();
+                        $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+
+                        // Increment the counter
+                        $floorplan_count++;
+
+                        // Print view only for the first floorplan
+                        if ($floorplan_count === 1) {
+                            echo $floor['opt-floorplans-view'];
+                            // Break out of the loop since we've displayed the view for the first floorplan
+                            break;
+                        }
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
+                <?php endif; ?>
                 <?php if (!empty($data['opt-locker'])) : ?>
                     <li class="property-type ic-proptype">
                         <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
@@ -76,29 +98,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         </div>
     <?php endif; ?>
     </div>
-        <?php if ($associated_floorplans->have_posts()) : ?>
-            <?php
-            // Counter to keep track of the number of floorplans processed
-            $floorplan_count = 0;
-
-            while ($associated_floorplans->have_posts()) :
-                $associated_floorplans->the_post();
-                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-
-                // Increment the counter
-                $floorplan_count++;
-
-                // Print view only for the first floorplan
-                if ($floorplan_count === 1) {
-                    echo $floor['opt-floorplans-view'];
-                    // Break out of the loop since we've displayed the view for the first floorplan
-                    break;
-                }
-            endwhile;
-            wp_reset_postdata();
-            ?>
-        <?php endif; ?>
-
     </div>
 
     <style>
