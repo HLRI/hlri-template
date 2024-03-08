@@ -57,6 +57,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </li>
                 <?php endif; ?>
                 <?php if ($associated_floorplans->have_posts()) : ?>
+                    <li class="property-type ic-proptype">
+                        <i class="fas fa-parking"></i><br>
                     <?php
                     // Counter to keep track of the number of floorplans processed
                     $floorplan_count = 0;
@@ -77,6 +79,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     endwhile;
                     wp_reset_postdata();
                     ?>
+                    </li>
                 <?php endif; ?>
                 <?php if (!empty($data['opt-locker'])) : ?>
                     <li class="property-type ic-proptype">
