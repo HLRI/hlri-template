@@ -82,9 +82,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 $associated_floorplans->the_post();
                 $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                 ?>
-                <?php $data5 = get_post_meta(get_the_ID(), 'opt-floorplans-view', true);
-                $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
-                print_r($floor['opt-floorplans-view']);
+                <?php print_r($floor['opt-floorplans-view']);
                 ?>
             <?php
             endwhile;
