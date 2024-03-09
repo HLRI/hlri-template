@@ -10,336 +10,233 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
     <div id="navigation-fixed-location"></div>
     <div class="container-lg px-lg-5">
 
-    <div class="mt-4">
-    <div class="p-3 bg-foreground rounded mb-4">
-    <div class="p-0 position-relative">
+        <div class="mt-4">
+            <div class="p-3 bg-foreground rounded mb-4">
+                <div class="p-0 position-relative">
 
-    <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-<?php if (!empty($psd['properties_logo']['url'])) : ?>
-    <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" class="w-25 rounded mr-4"
-         alt="<?= $psd['properties_logo']['url'] ?>">
-<?php elseif (!empty($psd['thumbnail_url'])) : ?>
-    <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 rounded mr-4"
-         alt="<?= $psd['thumbnail_caption'] ?>">
-<?php else : ?>
-    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-<?php endif; ?>
-    <div class="container">
-    <h2><?= $psd['title'] ?></h2>
-    <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
-<?php if ($data['opt-sales-type'] == "Assignment") : ?>
-    <p class="top-prptype">Assignment <?php echo $data['opt-type'][0] ?> for Sale</p>
-<?php endif; ?>
-    <?php if (!empty(get_the_excerpt())) : ?>
-        <p class="text-muted top-excerpt"> <?= get_the_excerpt() ?></p>
-    <?php endif; ?>
-    <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
-        <div class="characteristics-cnt">
-            <ul>
-                <li class="property-type ic-proptype">
-                    <i class="fas fa-home"></i><br><?php echo $data['opt-sales-type'] . ' ' . $data['opt-type'][0]; ?>
-                </li>
-                <li data-label="Beds" class="ic-beds">
-                    <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?></strong> <span
-                            class="gray normal-lbl">Beds</span><span class="gray short-lbl"></span>
-                </li>
-                <li data-label="Baths" class="ic-baths ">
-                    <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?></strong> <span
-                            class="gray normal-lbl">Baths</span><span class="gray short-lbl"></span>
-                </li>
-                <li data-label="Sqft" class="ic-sqft">
-                    <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?></strong> <span
-                            class="gray normal-lbl">Sqft</span><span class="gray short-lbl"></span>
-                </li>
-                <?php if (!empty($data['opt-parking-quantity'])) : ?>
-                    <li class="property-type ic-proptype">
-                        <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' parking' ?>
-                    </li>
-                <?php endif; ?>
+                    <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
+                        <?php if (!empty($psd['properties_logo']['url'])) : ?>
+                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" class="w-25 rounded mr-4"
+                                 alt="<?= $psd['properties_logo']['url'] ?>">
+                        <?php elseif (!empty($psd['thumbnail_url'])) : ?>
+                            <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 rounded mr-4"
+                                 alt="<?= $psd['thumbnail_caption'] ?>">
+                        <?php else : ?>
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        <?php endif; ?>
+                        <div class="container">
+                            <h2><?= $psd['title'] ?></h2>
+                            <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
+                            <?php if ($data['opt-sales-type'] == "Assignment") : ?>
+                                <p class="top-prptype">Assignment <?php echo $data['opt-type'][0] ?> for Sale</p>
+                            <?php endif; ?>
+                            <?php if (!empty(get_the_excerpt())) : ?>
+                                <p class="text-muted top-excerpt"> <?= get_the_excerpt() ?></p>
+                            <?php endif; ?>
+                            <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
+                                <div class="characteristics-cnt">
+                                    <ul>
+                                        <li class="property-type ic-proptype">
+                                            <?php if (($data['opt-type'][0] == "Condo") || $data['opt-type'][0] == "Commercial") : ?>
+                                                <i class="fas fa-Building"></i><br>
+                                            <?php endif; ?>
+                                            <?php if (($data['opt-type'][0] == "Freehold") || $data['opt-type'][0] == "TownHouse") : ?>
+                                                <i class="fas fa-home"></i><br>
+                                            <?php endif; ?>
+                                            <i class="fas fa-home"></i><br><?php echo $data['opt-sales-type'] . ' ' . $data['opt-type'][0]; ?>
+                                        </li>
+                                        <li data-label="Beds" class="ic-beds">
+                                            <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?></strong>
+                                            <span
+                                                    class="gray normal-lbl">Beds</span><span
+                                                    class="gray short-lbl"></span>
+                                        </li>
+                                        <li data-label="Baths" class="ic-baths ">
+                                            <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?></strong>
+                                            <span
+                                                    class="gray normal-lbl">Baths</span><span
+                                                    class="gray short-lbl"></span>
+                                        </li>
+                                        <li data-label="Sqft" class="ic-sqft">
+                                            <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?></strong>
+                                            <span
+                                                    class="gray normal-lbl">Sqft</span><span
+                                                    class="gray short-lbl"></span>
+                                        </li>
+                                        <?php if (!empty($data['opt-parking-quantity'])) : ?>
+                                            <li class="property-type ic-proptype">
+                                                <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' parking' ?>
+                                            </li>
+                                        <?php endif; ?>
 
-                <?php if ($associated_floorplans->have_posts()) : ?>
-                    <?php
-                    $floorplan_count = 0;
-                    $firstfloor =[];
-                    while ($associated_floorplans->have_posts()) :
-                        $associated_floorplans->the_post();
-                        $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                        $floorplan_count++;
-                        if ($floorplan_count === 1) {
-                            $firstfloor = $floor;
-                            break;
+                                        <?php if ($associated_floorplans->have_posts()) : ?>
+                                            <?php
+                                            $floorplan_count = 0;
+                                            $firstfloor = [];
+                                            while ($associated_floorplans->have_posts()) :
+                                                $associated_floorplans->the_post();
+                                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                                                $floorplan_count++;
+                                                if ($floorplan_count === 1) {
+                                                    $firstfloor = $floor;
+                                                    break;
+                                                }
+                                            endwhile;
+                                            wp_reset_postdata();
+
+                                            function addOrdinalSuffix($number)
+                                            {
+                                                return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
+                                            }
+
+                                            ?>
+                                        <?php endif; ?>
+                                        <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
+                                                <?php echo $firstfloor['opt-floorplans-view']; ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
+                                            <li class="property-type ic-proptype"><i
+                                                        class="fa-solid fa-elevator"></i><br>
+                                                <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) . ' Level'; ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-locker'])) : ?>
+                                            <li class="property-type ic-proptype">
+                                                <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-occupancy'])) : ?>
+                                            <li class="property-type ic-proptype">
+                                                <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
+                                                echo 'occup ' . $occupancyOp . $data['opt-occupancy']; ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-built']) and ($data['opt-built'] == "1")) : ?>
+                                            <li class="property-type ic-proptype">
+                                                <i class="fas fa-check-square"></i><br><?php echo 'Built' ?>
+                                            </li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <style>
+                        .characteristics-cnt ul {
+                            display: flex;
+                            margin-top: 20px;
                         }
-                    endwhile;
-                    wp_reset_postdata();
 
-                    function addOrdinalSuffix($number) { return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th'); }
-                    ?>
-                <?php endif; ?>
-                <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
-                    <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
-                        <?php echo $firstfloor['opt-floorplans-view']; ?>
-                    </li>
-                <?php endif; ?>
-                <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
-                    <li class="property-type ic-proptype"><i class="fa-solid fa-elevator"></i><br>
-                        <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) . ' Level'; ?>
-                    </li>
-                <?php endif; ?>
-                <?php if (!empty($data['opt-locker'])) : ?>
-                    <li class="property-type ic-proptype">
-                        <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
-                    </li>
-                <?php endif; ?>
-                <?php if (!empty($data['opt-occupancy'])) : ?>
-                    <li class="property-type ic-proptype">
-                        <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
-                        echo 'occup ' . $occupancyOp . $data['opt-occupancy']; ?>
-                    </li>
-                <?php endif; ?>
-                <?php if (!empty($data['opt-built']) and ($data['opt-built'] == "1")) : ?>
-                    <li class="property-type ic-proptype">
-                        <i class="fas fa-check-square"></i><br><?php echo 'Built' ?>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
-    </div>
-    </div>
-
-    <style>
-        .characteristics-cnt ul {
-            display: flex;
-            margin-top: 20px;
-        }
-
-        .characteristics-cnt li {
-            margin-bottom: 10px;
-            margin-right: 25px;
-        }
-    </style>
+                        .characteristics-cnt li {
+                            margin-bottom: 10px;
+                            margin-right: 25px;
+                        }
+                    </style>
 
 
-    <div class="row mb-2 justify-content-start px-0 px-md-3 ">
-        <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
-            <div class="rating-stars">
-                <span class="update-label bg-foreground text-muted ">Last Update : <?= isset($psd['modified_date']) ? $psd['modified_date'] : 'No Update' ?></span>
-                <ul class="mt-3" id="stars">
-                    <?php if ($psd['properties_rated_id'] != get_the_ID()) : ?>
-                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                            <?php
-                            switch ($i + 1) {
-                                case 1:
-                                    $status = 'Poor';
-                                    break;
-                                case 2:
-                                    $status = 'Fair';
-                                    break;
-                                case 3:
-                                    $status = 'Good';
-                                    break;
-                                case 4:
-                                    $status = 'Excellent';
-                                    break;
-                                default:
-                                    $status = 'WOW';
-                                    break;
-                            }
-                            ?>
-                            <?php if ($i < $psd['rates']) : ?>
-                                <li class="star selected" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
-                                    <i class="fa fa-star fa-fw"></i>
-                                </li>
-                            <?php else : ?>
-                                <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
-                                    <i class="fa fa-star fa-fw"></i>
-                                </li>
+                    <div class="row mb-2 justify-content-start px-0 px-md-3 ">
+                        <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
+                            <div class="rating-stars">
+                                <span class="update-label bg-foreground text-muted ">Last Update : <?= isset($psd['modified_date']) ? $psd['modified_date'] : 'No Update' ?></span>
+                                <ul class="mt-3" id="stars">
+                                    <?php if ($psd['properties_rated_id'] != get_the_ID()) : ?>
+                                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                                            <?php
+                                            switch ($i + 1) {
+                                                case 1:
+                                                    $status = 'Poor';
+                                                    break;
+                                                case 2:
+                                                    $status = 'Fair';
+                                                    break;
+                                                case 3:
+                                                    $status = 'Good';
+                                                    break;
+                                                case 4:
+                                                    $status = 'Excellent';
+                                                    break;
+                                                default:
+                                                    $status = 'WOW';
+                                                    break;
+                                            }
+                                            ?>
+                                            <?php if ($i < $psd['rates']) : ?>
+                                                <li class="star selected" data-value="<?= $i + 1 ?>"
+                                                    title="<?= $status ?>">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php else : ?>
+                                                <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                    <?php else : ?>
+                                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                                            <?php if ($i < $psd['rates']) : ?>
+                                                <li class="star-rated selected">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php else : ?>
+                                                <li class="star-rated">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                            <?php if (!empty($psd['user_rates'])) : ?>
+                                <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
                             <?php endif; ?>
-                        <?php endfor; ?>
-                    <?php else : ?>
-                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                            <?php if ($i < $psd['rates']) : ?>
-                                <li class="star-rated selected">
-                                    <i class="fa fa-star fa-fw"></i>
-                                </li>
-                            <?php else : ?>
-                                <li class="star-rated">
-                                    <i class="fa fa-star fa-fw"></i>
-                                </li>
-                            <?php endif; ?>
-                        <?php endfor; ?>
-                    <?php endif; ?>
-                </ul>
-            </div>
-            <?php if (!empty($psd['user_rates'])) : ?>
-                <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
-            <?php endif; ?>
-        </div>
-        <?php if (!empty($data['opt-price-min'])) : ?>
-            <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
-                <div class="start-price mb-3">
-                    <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
-                        Asking Price
-                    <?php else : ?>
-                        Starting from
-                    <?php endif; ?><span>
+                        </div>
+                        <?php if (!empty($data['opt-price-min'])) : ?>
+                            <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
+                                <div class="start-price mb-3">
+                                    <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
+                                        Asking Price
+                                    <?php else : ?>
+                                        Starting from
+                                    <?php endif; ?><span>
                                     $<?= number_format($data['opt-price-min']) ?>
                                 </span>
+                                </div>
+                                <div class="btn-group">
+                                    <!-- <button class="btn btn-primary"> <i class="fa fa-share" ></i> Share </button> -->
+                                    <button class="btn btn-primary"
+                                            onclick="setLikeProperties(this, <?= get_the_ID() ?>)"><i
+                                                class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
+                                        Favorite
+                                    </button>
+                                    <button class="btn btn-primary" onclick="bookmark(this,<?= get_the_ID() ?>)">
+                                        <i <?= is_user_logged_in() && in_array(get_the_ID(), (array)get_user_meta(get_current_user_id(), 'properties_favorites', false)) ? 'style="color:#9de450"' : '' ?>
+                                                class="fa fa-bookmark"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <div class="btn-group">
-                    <!-- <button class="btn btn-primary"> <i class="fa fa-share" ></i> Share </button> -->
-                    <button class="btn btn-primary" onclick="setLikeProperties(this, <?= get_the_ID() ?>)"><i
-                                class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
-                        Favorite
-                    </button>
-                    <button class="btn btn-primary" onclick="bookmark(this,<?= get_the_ID() ?>)">
-                        <i <?= is_user_logged_in() && in_array(get_the_ID(), (array)get_user_meta(get_current_user_id(), 'properties_favorites', false)) ? 'style="color:#9de450"' : '' ?>
-                                class="fa fa-bookmark"></i>
-                        Save
-                    </button>
-                </div>
-            </div>
-        <?php endif; ?>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
-        <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
-            <?php if ($psd['galleries'][0]['gallery_url']) : ?>
-                <div class="vrmedia-gallery">
-                    <ul class="ecommerce-gallery">
-                        <?php foreach ($psd['galleries'] as $gallery_item) : ?>
-                            <li class="rounded" data-fancybox="gallery" data-caption="<?= $gallery_item['caption'] ?>"
-                                data-src="<?= $gallery_item['gallery_url'] ?>"
-                                data-thumb="<?= $gallery_item['gallery_url'] ?>"
-                                data-src="<?= $gallery_item['gallery_url'] ?>">
-                                <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>"
-                                     alt="<?= $gallery_item['caption'] ?>">
-
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php else : ?>
-                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
-                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                </div>
-            <?php endif; ?>
-        <?php else: ?>
-            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
-                <h2 class="text-2xl font-bold">Gallery</h2>
-                <p class="text-gray-500">No images available at this time.</p>
-            </div>
-        <?php endif; ?>
-    </div>
-
-    <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4">
-        <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
-            <!-- map details -->
-            <!-- Properties map -->
-            <!--location:  inc/scripts.php -->
-            <div class="col-12 p-0 map-container rounded">
-                <div id="map"></div>
             </div>
         </div>
-        <?php $assignmentFloor = get_post_meta(get_the_ID(), 'hlr_framework_properties-floorplan', true);
-        if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
-            $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
-        } else {
-            $gallery_ids = [];
-        }
-        foreach ($gallery_ids as $gallery_item_id) {
-            $floor_galleries_data[] = [
-                'gallery_url' => wp_get_attachment_url($gallery_item_id),
-                'caption' => wp_get_attachment_caption($gallery_item_id)
-            ];
-        }
-        ?>
-        <!--        <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">-->
-        <!--            --><?php //if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
-        <!--                --><?php //if ($floor_galleries_data[0]['gallery_url']) : ?>
-        <!--                    <div class="vrmedia-gallery2">-->
-        <!--                        <ul class="ecommerce-gallery">-->
-        <!--                            --><?php //foreach ($floor_galleries_data as $gallery_item) : ?>
-        <!--                                <li class="rounded" data-fancybox="gallery"  data-caption="-->
-        <?php //= $gallery_item['caption'] ?><!--" data-src="-->
-        <?php //= $gallery_item['gallery_url'] ?><!--" data-thumb="-->
-        <?php //= $gallery_item['gallery_url'] ?><!--" data-src="--><?php //= $gallery_item['gallery_url'] ?><!--">-->
-        <!--                                    <img class="rounded" src="-->
-        <?php //= $gallery_item['gallery_url'] ?><!--" alt="--><?php //= $gallery_item['caption'] ?><!--">-->
-        <!---->
-        <!--                                </li>-->
-        <!--                            --><?php //endforeach; ?>
-        <!--                        </ul>-->
-        <!--                    </div>-->
-        <!--                --><?php //else : ?>
-        <!--                    <div class="d-flex flex-wrap justify-content-between" style="gap:10px;" >-->
-        <!--                        <img src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-        <!--                        <img src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-        <!--                        <img src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-        <!--                        <img src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-        <!--                    </div>-->
-        <!--                --><?php //endif; ?>
-        <!--            --><?php //else: ?>
-        <!--                <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">-->
-        <!--                    <h2 class="text-2xl font-bold">Floorplans Gallery</h2>-->
-        <!--                    <p class="text-gray-500">No floorplan image available at this time.</p>-->
-        <!--                </div>-->
-        <!--            --><?php //endif; ?>
-        <!--        </div>-->
-
-
-        <?php if ($associated_floorplans->have_posts()) : ?>
-            <?php
-            while ($associated_floorplans->have_posts()) :
-                $associated_floorplans->the_post();
-                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                ?>
-                <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
-                $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
-                foreach ($gallery_ids2 as $gallery_item_id) {
-                    $floor_galleries_data2[] = [
-                        'gallery_url' => wp_get_attachment_url($gallery_item_id),
-                        'caption' => wp_get_attachment_caption($gallery_item_id)
-                    ];
-                }
-                ?>
-            <?php
-            endwhile;
-            wp_reset_postdata();
-            ?>
-        <?php endif; ?>
-
-        <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
-            <?php if (empty($floor_galleries_data2[0]['gallery_url'])) : ?>
-                <?php
-                while ($associated_floorplans->have_posts()) :
-                    $associated_floorplans->the_post();
-                    $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                    $floor_galleries_data2[0]['gallery_url'] = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
-                    $floor_galleries_data2[0]['caption'] = get_the_post_thumbnail_caption();
-                endwhile;
-                wp_reset_postdata();
-                ?>
-            <?php endif; ?>
-        <?php endif; ?>
-        <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
-            <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
-                <?php if ($floor_galleries_data2[0]['gallery_url']) : ?>
-                    <div class="vrmedia-gallery2">
-                        <ul class="floors-gallery">
-                            <?php foreach ($floor_galleries_data2 as $gallery_item) : ?>
-                                <li class="rounded" data-fancybox="floors-gallery"
+        <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
+            <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
+                <?php if ($psd['galleries'][0]['gallery_url']) : ?>
+                    <div class="vrmedia-gallery">
+                        <ul class="ecommerce-gallery">
+                            <?php foreach ($psd['galleries'] as $gallery_item) : ?>
+                                <li class="rounded" data-fancybox="gallery"
                                     data-caption="<?= $gallery_item['caption'] ?>"
                                     data-src="<?= $gallery_item['gallery_url'] ?>"
                                     data-thumb="<?= $gallery_item['gallery_url'] ?>"
                                     data-src="<?= $gallery_item['gallery_url'] ?>">
                                     <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>"
                                          alt="<?= $gallery_item['caption'] ?>">
+
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -354,12 +251,140 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <?php endif; ?>
             <?php else: ?>
                 <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
-                    <h2 class="text-2xl font-bold">Floorplans Gallery</h2>
-                    <p class="text-gray-500">No floorplan image available at this time.</p>
+                    <h2 class="text-2xl font-bold">Gallery</h2>
+                    <p class="text-gray-500">No images available at this time.</p>
                 </div>
             <?php endif; ?>
         </div>
-    </div>
+
+        <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4">
+            <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
+                <!-- map details -->
+                <!-- Properties map -->
+                <!--location:  inc/scripts.php -->
+                <div class="col-12 p-0 map-container rounded">
+                    <div id="map"></div>
+                </div>
+            </div>
+            <?php $assignmentFloor = get_post_meta(get_the_ID(), 'hlr_framework_properties-floorplan', true);
+            if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
+                $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
+            } else {
+                $gallery_ids = [];
+            }
+            foreach ($gallery_ids as $gallery_item_id) {
+                $floor_galleries_data[] = [
+                    'gallery_url' => wp_get_attachment_url($gallery_item_id),
+                    'caption' => wp_get_attachment_caption($gallery_item_id)
+                ];
+            }
+            ?>
+            <!--        <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">-->
+            <!--            --><?php //if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
+            <!--                --><?php //if ($floor_galleries_data[0]['gallery_url']) : ?>
+            <!--                    <div class="vrmedia-gallery2">-->
+            <!--                        <ul class="ecommerce-gallery">-->
+            <!--                            --><?php //foreach ($floor_galleries_data as $gallery_item) : ?>
+            <!--                                <li class="rounded" data-fancybox="gallery"  data-caption="-->
+            <?php //= $gallery_item['caption'] ?><!--" data-src="-->
+            <?php //= $gallery_item['gallery_url'] ?><!--" data-thumb="-->
+            <?php //= $gallery_item['gallery_url'] ?><!--" data-src="-->
+            <?php //= $gallery_item['gallery_url'] ?><!--">-->
+            <!--                                    <img class="rounded" src="-->
+            <?php //= $gallery_item['gallery_url'] ?><!--" alt="--><?php //= $gallery_item['caption'] ?><!--">-->
+            <!---->
+            <!--                                </li>-->
+            <!--                            --><?php //endforeach; ?>
+            <!--                        </ul>-->
+            <!--                    </div>-->
+            <!--                --><?php //else : ?>
+            <!--                    <div class="d-flex flex-wrap justify-content-between" style="gap:10px;" >-->
+            <!--                        <img src="-->
+            <?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+            <!--                        <img src="-->
+            <?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+            <!--                        <img src="-->
+            <?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+            <!--                        <img src="-->
+            <?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+            <!--                    </div>-->
+            <!--                --><?php //endif; ?>
+            <!--            --><?php //else: ?>
+            <!--                <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">-->
+            <!--                    <h2 class="text-2xl font-bold">Floorplans Gallery</h2>-->
+            <!--                    <p class="text-gray-500">No floorplan image available at this time.</p>-->
+            <!--                </div>-->
+            <!--            --><?php //endif; ?>
+            <!--        </div>-->
+
+
+            <?php if ($associated_floorplans->have_posts()) : ?>
+                <?php
+                while ($associated_floorplans->have_posts()) :
+                    $associated_floorplans->the_post();
+                    $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                    ?>
+                    <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
+                    $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
+                    foreach ($gallery_ids2 as $gallery_item_id) {
+                        $floor_galleries_data2[] = [
+                            'gallery_url' => wp_get_attachment_url($gallery_item_id),
+                            'caption' => wp_get_attachment_caption($gallery_item_id)
+                        ];
+                    }
+                    ?>
+                <?php
+                endwhile;
+                wp_reset_postdata();
+                ?>
+            <?php endif; ?>
+
+            <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
+                <?php if (empty($floor_galleries_data2[0]['gallery_url'])) : ?>
+                    <?php
+                    while ($associated_floorplans->have_posts()) :
+                        $associated_floorplans->the_post();
+                        $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                        $floor_galleries_data2[0]['gallery_url'] = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
+                        $floor_galleries_data2[0]['caption'] = get_the_post_thumbnail_caption();
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
+                <?php endif; ?>
+            <?php endif; ?>
+            <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">
+                <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
+                    <?php if ($floor_galleries_data2[0]['gallery_url']) : ?>
+                        <div class="vrmedia-gallery2">
+                            <ul class="floors-gallery">
+                                <?php foreach ($floor_galleries_data2 as $gallery_item) : ?>
+                                    <li class="rounded" data-fancybox="floors-gallery"
+                                        data-caption="<?= $gallery_item['caption'] ?>"
+                                        data-src="<?= $gallery_item['gallery_url'] ?>"
+                                        data-thumb="<?= $gallery_item['gallery_url'] ?>"
+                                        data-src="<?= $gallery_item['gallery_url'] ?>">
+                                        <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>"
+                                             alt="<?= $gallery_item['caption'] ?>">
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php else : ?>
+                        <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        </div>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
+                        <h2 class="text-2xl font-bold">Floorplans Gallery</h2>
+                        <p class="text-gray-500">No floorplan image available at this time.</p>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
     <!-- Content Section  -->
 
@@ -700,156 +725,22 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
     </div>
 
     <!-- End Content Section -->
-    <?php
-    $peroperties_single = properties_related_cached();
-    if ($peroperties_single) :
-        if ($peroperties_single->have_posts()) :
-            ?>
-            <div class="container-fluid my-4" id="rp">
-                <div class="row">
-                    <div class="col-12 px-lg-5">
-                        <div class="titr-list ml-0">
-                            <h3 class="font-weight-bold">Related Properties</h3>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="d-flex justify-content-center">
-                            <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                                <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
-                                    $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                                    ?>
-                                    <div class="card-listing card-listing-v2">
-
-                                        <div class="card-listing-image card-listing-image-v2">
-                                            <a href="<?= get_the_permalink() ?>"
-                                               title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
-                                                <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
-                                            </a>
-                                        </div>
-
-                                        <div class="card-body-listing card-body-listing-v2">
-
-                                            <div class="card-listing-content card-listing-content-v2">
-                                                <a href="<?= get_the_permalink() ?>"
-                                                   title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
-                                                    <h6 class="text-black"><?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
-                                                </a>
-                                                <div class="card-listing-description card-listing-description-v2">
-                                                    <a href="<?= get_the_permalink() ?>"
-                                                       title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
-                                                        <?= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>
-                                                    </a>
-                                                </div>
-                                            </div>
-
-
-                                            <!-- <div class="card-listing-content card-listing-content-v2">
-                                        <h6 class="text-black"><?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
-                                        <div class="card-listing-description card-listing-description-v2">
-                                            <?= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>
-                                        </div>
-                                    </div> -->
-
-                                            <div class="lable-listing lable-listing-v2">
-                                                <?php if (!empty($mdata['opt-min-price'])) : ?>
-                                                    <div><?= "$" . $mdata['opt-min-price'] . " to " . "$" . $mdata['opt-max-price'] ?></div>
-                                                <?php endif; ?>
-                                                <?php if (!empty($mdata['opt-size-min'])) : ?>
-                                                    <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
-                                                <?php endif; ?>
-                                                <?php if (!empty($mdata['opt-address'])) : ?>
-                                                    <div><?= $mdata['opt-address'] ?></div>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="more more-v2">
-                                            <div class="card-listing-options">
-                                                <div>
-                                                    <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)"
-                                                       role="button"
-                                                       class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
-                                                    <span class="text-muted" id="like-total">
-                                                    <?php if (!empty(get_post_meta(get_the_ID(), 'total_like', true))) : ?>
-                                                        <?= get_post_meta(get_the_ID(), 'total_like', true) ?>
-                                                    <?php endif; ?>
-                                                </span>
-                                                </div>
-
-                                                <i role="button" class="fa fa-share-alt"></i>
-                                                <i <?= is_user_logged_in() ? in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?>
-                                                        role="button" onclick="bookmark(this,<?= get_the_ID() ?>)"
-                                                        class="fa fa-bookmark"></i>
-                                            </div>
-                                            <a href="<?= get_the_permalink() ?>" title="<?= $psd['title'] ?>" class="">more</a>
-                                        </div>
-
-                                        <div class="card-share">
-                                            <a target="_blank"
-                                               href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
-                                                        class="fa fa-facebook-square"></i></a>
-                                            <a target="_blank"
-                                               href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?= $psd['title'] ?>"><i
-                                                        class="fa fa-reddit"></i></a>
-                                            <a target="_blank"
-                                               href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= $psd['title'] ?>&summary=<?php $psd['content'] ?>"><i
-                                                        class="fa fa-linkedin-square"></i></a>
-                                            <a target="_blank"
-                                               href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
-                                                        class="fa fa-whatsapp"></i></a>
-                                            <a target="_blank"
-                                               href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=telegram"><i
-                                                        class="fa fa-telegram"></i></a>
-                                            <a target="_blank"
-                                               href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= $psd['thumbnail_url'] ?>&description=<?= $psd['title'] ?>"><i
-                                                        class="fa fa-pinterest"></i></a>
-                                            <a target="_blank"
-                                               href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
-                                                        class="fa fa-twitter-square"></i></a>
-                                            <span class="share-close"><i role="button"
-                                                                         class="fa fa-arrow-up"></i></span>
-                                        </div>
-                                    </div>
-                                <?php endwhile; ?>
-                                <?php wp_reset_postdata(); ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endif; ?>
-    <?php endif; ?>
-
-
-    <?php
-    $args = array(
-        'post_type' => ['properties'],
-        'post_status' => ['publish'],
-        'posts_per_page' => 6,
-        'tax_query' => [
-            [
-                'taxonomy' => 'group',
-                'field' => 'term_id',
-                'terms' => 6,
-            ]
-        ]
-    );
-    $peroperties_month = new WP_Query($args);
-
-    if ($peroperties_month->have_posts()) :
+<?php
+$peroperties_single = properties_related_cached();
+if ($peroperties_single) :
+    if ($peroperties_single->have_posts()) :
         ?>
-        <div class="container-fluid my-4" id="hp">
+        <div class="container-fluid my-4" id="rp">
             <div class="row">
                 <div class="col-12 px-lg-5">
                     <div class="titr-list ml-0">
-                        <h3 class="font-weight-bold">This Month Hot New Projects</h3>
+                        <h3 class="font-weight-bold">Related Properties</h3>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="d-flex justify-content-center">
                         <div class="owl-carousel owl-theme listing-wrap wrap-list">
-                            <?php while ($peroperties_month->have_posts()) : $peroperties_month->the_post();
+                            <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
                                 $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                 ?>
                                 <div class="card-listing card-listing-v2">
@@ -861,9 +752,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         </a>
                                     </div>
 
-
                                     <div class="card-body-listing card-body-listing-v2">
-
 
                                         <div class="card-listing-content card-listing-content-v2">
                                             <a href="<?= get_the_permalink() ?>"
@@ -872,22 +761,23 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             </a>
                                             <div class="card-listing-description card-listing-description-v2">
                                                 <a href="<?= get_the_permalink() ?>"
-                                                   title="<?= strlen(strip_tags(get_the_excerpt())) > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>">
-                                                    <?= strlen(strip_tags(get_the_excerpt())) > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
+                                                   title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
+                                                    <?= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>
                                                 </a>
                                             </div>
                                         </div>
 
+
                                         <!-- <div class="card-listing-content card-listing-content-v2">
                                         <h6 class="text-black"><?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
                                         <div class="card-listing-description card-listing-description-v2">
-                                            <?= strlen(strip_tags(get_the_excerpt())) > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
+                                            <?= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>
                                         </div>
                                     </div> -->
 
                                         <div class="lable-listing lable-listing-v2">
-                                            <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
-                                                <div><?= "$" . $mdata['opt-min-price-sqft'] . " to " . "$" . $mdata['opt-max-price-sqft'] ?></div>
+                                            <?php if (!empty($mdata['opt-min-price'])) : ?>
+                                                <div><?= "$" . $mdata['opt-min-price'] . " to " . "$" . $mdata['opt-max-price'] ?></div>
                                             <?php endif; ?>
                                             <?php if (!empty($mdata['opt-size-min'])) : ?>
                                                 <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
@@ -902,28 +792,23 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                     <div class="more more-v2">
                                         <div class="card-listing-options">
                                             <div>
-                                                <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)" role="button"
+                                                <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)"
+                                                   role="button"
                                                    class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
                                                 <span class="text-muted" id="like-total">
-                                                <?php if (!empty(get_post_meta(get_the_ID(), 'total_like', true))) : ?>
-                                                    <?= get_post_meta(get_the_ID(), 'total_like', true) ?>
-                                                <?php endif; ?>
-                                            </span>
+                                                    <?php if (!empty(get_post_meta(get_the_ID(), 'total_like', true))) : ?>
+                                                        <?= get_post_meta(get_the_ID(), 'total_like', true) ?>
+                                                    <?php endif; ?>
+                                                </span>
                                             </div>
 
                                             <i role="button" class="fa fa-share-alt"></i>
-                                            <?php
-                                            $favs = [];
-                                            if (!empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
-                                                $favs = get_user_meta(get_current_user_id(), 'properties_favorites', true);
-                                            }
-                                            ?>
-                                            <i <?= is_user_logged_in() ? in_array(get_the_ID(), $favs) ? ' style="color:#9de450" ' : '' : '' ?>
+                                            <i <?= is_user_logged_in() ? in_array(get_the_ID(), get_user_meta(get_current_user_id(), 'properties_favorites', true)) ? ' style="color:#9de450" ' : '' : '' ?>
                                                     role="button" onclick="bookmark(this,<?= get_the_ID() ?>)"
                                                     class="fa fa-bookmark"></i>
                                         </div>
-                                        <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>" class="">more</a>
-
+                                        <a href="<?= get_the_permalink() ?>" title="<?= $psd['title'] ?>"
+                                           class="">more</a>
                                     </div>
 
                                     <div class="card-share">
@@ -931,10 +816,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                            href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
                                                     class="fa fa-facebook-square"></i></a>
                                         <a target="_blank"
-                                           href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?= get_the_title() ?>"><i
+                                           href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?= $psd['title'] ?>"><i
                                                     class="fa fa-reddit"></i></a>
                                         <a target="_blank"
-                                           href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= get_the_title() ?>&summary=<?= get_the_content() ?>"><i
+                                           href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= $psd['title'] ?>&summary=<?php $psd['content'] ?>"><i
                                                     class="fa fa-linkedin-square"></i></a>
                                         <a target="_blank"
                                            href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
@@ -943,12 +828,13 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                            href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=telegram"><i
                                                     class="fa fa-telegram"></i></a>
                                         <a target="_blank"
-                                           href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?= get_the_title() ?>"><i
+                                           href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= $psd['thumbnail_url'] ?>&description=<?= $psd['title'] ?>"><i
                                                     class="fa fa-pinterest"></i></a>
                                         <a target="_blank"
                                            href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
                                                     class="fa fa-twitter-square"></i></a>
-                                        <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
+                                        <span class="share-close"><i role="button"
+                                                                     class="fa fa-arrow-up"></i></span>
                                     </div>
                                 </div>
                             <?php endwhile; ?>
@@ -959,6 +845,147 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             </div>
         </div>
     <?php endif; ?>
+<?php endif; ?>
 
 
-    <?php get_footer(); ?>
+<?php
+$args = array(
+    'post_type' => ['properties'],
+    'post_status' => ['publish'],
+    'posts_per_page' => 6,
+    'tax_query' => [
+        [
+            'taxonomy' => 'group',
+            'field' => 'term_id',
+            'terms' => 6,
+        ]
+    ]
+);
+$peroperties_month = new WP_Query($args);
+
+if ($peroperties_month->have_posts()) :
+    ?>
+    <div class="container-fluid my-4" id="hp">
+        <div class="row">
+            <div class="col-12 px-lg-5">
+                <div class="titr-list ml-0">
+                    <h3 class="font-weight-bold">This Month Hot New Projects</h3>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <div class="owl-carousel owl-theme listing-wrap wrap-list">
+                        <?php while ($peroperties_month->have_posts()) : $peroperties_month->the_post();
+                            $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                            ?>
+                            <div class="card-listing card-listing-v2">
+
+                                <div class="card-listing-image card-listing-image-v2">
+                                    <a href="<?= get_the_permalink() ?>"
+                                       title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
+                                        <?php the_post_thumbnail('normal', ['loading' => 'lazy']) ?>
+                                    </a>
+                                </div>
+
+
+                                <div class="card-body-listing card-body-listing-v2">
+
+
+                                    <div class="card-listing-content card-listing-content-v2">
+                                        <a href="<?= get_the_permalink() ?>"
+                                           title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
+                                            <h6 class="text-black"><?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
+                                        </a>
+                                        <div class="card-listing-description card-listing-description-v2">
+                                            <a href="<?= get_the_permalink() ?>"
+                                               title="<?= strlen(strip_tags(get_the_excerpt())) > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>">
+                                                <?= strlen(strip_tags(get_the_excerpt())) > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="card-listing-content card-listing-content-v2">
+                                        <h6 class="text-black"><?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?></h6>
+                                        <div class="card-listing-description card-listing-description-v2">
+                                            <?= strlen(strip_tags(get_the_excerpt())) > 65 ? substr(strip_tags(get_the_excerpt()), 0, 65) . '...' : strip_tags(get_the_content()) ?>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="lable-listing lable-listing-v2">
+                                        <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
+                                            <div><?= "$" . $mdata['opt-min-price-sqft'] . " to " . "$" . $mdata['opt-max-price-sqft'] ?></div>
+                                        <?php endif; ?>
+                                        <?php if (!empty($mdata['opt-size-min'])) : ?>
+                                            <div><?= $mdata['opt-size-min'] . " - " . $mdata['opt-size-max'] . " Sq Ft | " . $mdata['opt-occupancy'] ?></div>
+                                        <?php endif; ?>
+                                        <?php if (!empty($mdata['opt-address'])) : ?>
+                                            <div><?= $mdata['opt-address'] ?></div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+
+                                <div class="more more-v2">
+                                    <div class="card-listing-options">
+                                        <div>
+                                            <i onclick="setLikeProperties(this, <?= get_the_ID() ?>)" role="button"
+                                               class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
+                                            <span class="text-muted" id="like-total">
+                                                <?php if (!empty(get_post_meta(get_the_ID(), 'total_like', true))) : ?>
+                                                    <?= get_post_meta(get_the_ID(), 'total_like', true) ?>
+                                                <?php endif; ?>
+                                            </span>
+                                        </div>
+
+                                        <i role="button" class="fa fa-share-alt"></i>
+                                        <?php
+                                        $favs = [];
+                                        if (!empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
+                                            $favs = get_user_meta(get_current_user_id(), 'properties_favorites', true);
+                                        }
+                                        ?>
+                                        <i <?= is_user_logged_in() ? in_array(get_the_ID(), $favs) ? ' style="color:#9de450" ' : '' : '' ?>
+                                                role="button" onclick="bookmark(this,<?= get_the_ID() ?>)"
+                                                class="fa fa-bookmark"></i>
+                                    </div>
+                                    <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>"
+                                       class="">more</a>
+
+                                </div>
+
+                                <div class="card-share">
+                                    <a target="_blank"
+                                       href="https://www.facebook.com/sharer.php?u=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
+                                                class="fa fa-facebook-square"></i></a>
+                                    <a target="_blank"
+                                       href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?= get_the_title() ?>"><i
+                                                class="fa fa-reddit"></i></a>
+                                    <a target="_blank"
+                                       href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= get_the_title() ?>&summary=<?= get_the_content() ?>"><i
+                                                class="fa fa-linkedin-square"></i></a>
+                                    <a target="_blank"
+                                       href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
+                                                class="fa fa-whatsapp"></i></a>
+                                    <a target="_blank"
+                                       href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=telegram"><i
+                                                class="fa fa-telegram"></i></a>
+                                    <a target="_blank"
+                                       href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?= get_the_title() ?>"><i
+                                                class="fa fa-pinterest"></i></a>
+                                    <a target="_blank"
+                                       href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
+                                                class="fa fa-twitter-square"></i></a>
+                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+
+<?php get_footer(); ?>
