@@ -37,12 +37,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                 <div class="characteristics-cnt">
                                     <ul>
                                         <li class="property-type ic-proptype">
-                                            <?php if (in_array("Condo", $data['opt-type']) || in_array("Commercial", $data['opt-type'])) : ?>
-                                                <i class="fas fa-Building"></i><br>
-                                            <?php endif; ?>
-                                            <?php if (in_array("Freehold", $data['opt-type']) || in_array("TownHouse", $data['opt-type'])) : ?>
-                                                <i class="fas fa-home"></i><br>
-                                            <?php endif; ?>
+                                            <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
                                         <li data-label="Beds" class="ic-beds">
