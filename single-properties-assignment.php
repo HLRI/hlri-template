@@ -71,6 +71,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         }
                     endwhile;
                     wp_reset_postdata();
+
+                    function addOrdinalSuffix($number) { return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th'); }
                     ?>
                 <?php endif; ?>
                 <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
@@ -80,7 +82,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <?php endif; ?>
                 <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
                     <li class="property-type ic-proptype"><i class="fa-solid fa-elevator"></i><br>
-                        <?php echo $firstfloor['opt-floorplans-floor-range']; ?>
+                        <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) . ' Level'; ?>
                     </li>
                 <?php endif; ?>
                 <?php if (!empty($data['opt-locker'])) : ?>
