@@ -28,7 +28,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <h2><?= $psd['title'] ?></h2>
                             <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
                             <?php if ($data['opt-sales-type'] == "Assignment") : ?>
-                                <p class="top-prptype">Assignment <?php echo $data['opt-type'] ?> for Sale</p>
+                                <p class="top-prptype">Assignment <?php echo explode(',', $data['opt-type']) ?> for Sale</p>
                             <?php endif; ?>
                             <?php if (!empty(get_the_excerpt())) : ?>
                                 <p class="text-muted top-excerpt"> <?= get_the_excerpt() ?></p>
@@ -43,7 +43,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             <?php if (in_array("Freehold", $data['opt-type']) || in_array("TownHouse", $data['opt-type'])) : ?>
                                                 <i class="fas fa-home"></i><br>
                                             <?php endif; ?>
-                                            <?php echo $data['opt-sales-type'] . ' ' . $data['opt-type']; ?>
+                                            <?php echo $data['opt-sales-type'] . ' ' . explode(',', $data['opt-type']; ?>
                                         </li>
                                         <li data-label="Beds" class="ic-beds">
                                             <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?></strong>
