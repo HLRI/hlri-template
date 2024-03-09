@@ -79,7 +79,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </li>
                 <?php endif; ?>
                 <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
-                    <li class="property-type ic-proptype"><i class="fas fa-sort"></i><br>
+                    <li class="property-type ic-proptype"><i class="fa-solid fa-elevator"></i><br>
                         <?php echo $firstfloor['opt-floorplans-floor-range']; ?>
                     </li>
                 <?php endif; ?>
