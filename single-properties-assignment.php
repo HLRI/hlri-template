@@ -146,7 +146,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 
                         .characteristics-cnt li {
                             margin-bottom: 10px;
-                            margin-right: 25px;
+                            margin-right: 8px;
                         }
                     </style>
 
