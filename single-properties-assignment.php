@@ -60,40 +60,40 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 
 
 
-                <?php if ($associated_floorplans->have_posts()) : ?>
-                    <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
-                        <?php
-                        // Initialize an empty array to store the items for the first floorplan
-                        $first_floorplan_items = array();
-                        // Flag to check if the first floorplan has been processed
-                        $first_floorplan_processed = false;
-
-                        while ($associated_floorplans->have_posts()) :
-                            $associated_floorplans->the_post();
-                            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-
-                            // Check if this is the first floorplan
-                            if (!$first_floorplan_processed) {
-                                // Add the view to the array for the first floorplan
-                                $first_floorplan_items[] = $floor['opt-floorplans-view'];
-                            } else {
-                                // For subsequent floorplans, only print one item
-                                echo $floor['opt-floorplans-view'];
-                                // Break out of the loop since we've displayed the view for the first floorplan
-                                break;
-                            }
-
-                            // Set the flag to true after processing the first floorplan
-                            $first_floorplan_processed = true;
-                        endwhile;
-
-                        // Output all the collected items for the first floorplan
-                        echo implode(', ', $first_floorplan_items);
-
-                        wp_reset_postdata();
-                        ?>
-                    </li>
-                <?php endif; ?>
+<!--                --><?php //if ($associated_floorplans->have_posts()) : ?>
+<!--                    <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>-->
+<!--                        --><?php
+//                        // Initialize an empty array to store the items for the first floorplan
+//                        $first_floorplan_items = array();
+//                        // Flag to check if the first floorplan has been processed
+//                        $first_floorplan_processed = false;
+//
+//                        while ($associated_floorplans->have_posts()) :
+//                            $associated_floorplans->the_post();
+//                            $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+//
+//                            // Check if this is the first floorplan
+//                            if (!$first_floorplan_processed) {
+//                                // Add the view to the array for the first floorplan
+//                                $first_floorplan_items[] = $floor['opt-floorplans-view'];
+//                            } else {
+//                                // For subsequent floorplans, only print one item
+//                                echo $floor['opt-floorplans-view'];
+//                                // Break out of the loop since we've displayed the view for the first floorplan
+//                                break;
+//                            }
+//
+//                            // Set the flag to true after processing the first floorplan
+//                            $first_floorplan_processed = true;
+//                        endwhile;
+//
+//                        // Output all the collected items for the first floorplan
+//                        echo implode(', ', $first_floorplan_items);
+//
+//                        wp_reset_postdata();
+//                        ?>
+<!--                    </li>-->
+<!--                --><?php //endif; ?>
 
 
 
