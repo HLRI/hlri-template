@@ -546,6 +546,7 @@ function add_search_input_to_meta_box($meta_box_id)
             document.querySelector('select[data-depend-id="opt-sales-type"]').addEventListener("change", function() {
                 toggleDivVisibility();
             });
+            toggleDivVisibility();
         </script>
 <?php
     }
