@@ -3939,6 +3939,7 @@ a.item-list-tag {
 .characteristics-cnt ul li {
   text-align: center;
   width: 80px;
+  font-size: 14px;
 }
 .characteristics-cnt ul li i {
   font-size: 30px;
