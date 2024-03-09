@@ -97,6 +97,11 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                 <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>  Level
                                             </li>
                                         <?php endif; ?>
+                                        <?php if (!empty($data['opt-assignment-original-price'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                                <b><?php echo '$' . number_format($data['opt-assignment-original'], 0) ?></b> Original Price
+                                            </li>
+                                        <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-paid-deposit'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
                                                 <b><?php echo '$' . number_format($data['opt-assignment-paid-deposit'], 0) ?></b> Paid Deposit
