@@ -2,6 +2,7 @@
 <?php
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
+$associated_floorplans2 = associated_floorplans_cached();
 $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 ?>
 
@@ -332,10 +333,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             <!--        </div>-->
 
 
-            <?php if ($associated_floorplans->have_posts()) : ?>
+            <?php if ($associated_floorplans2->have_posts()) : ?>
                 <?php
-                while ($associated_floorplans->have_posts()) :
-                    $associated_floorplans->the_post();
+                while ($associated_floorplans2->have_posts()) :
+                    $associated_floorplans2->the_post();
                     $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                     ?>
                     <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
