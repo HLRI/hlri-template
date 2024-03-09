@@ -99,7 +99,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-total-cash-required'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
-                                                <b><?php echo '$' . number_format($data['opt-assignment-total-cash-required'], 2) ?></b> Required Cash
+                                                <b><?php echo '$' . number_format($data['opt-assignment-total-cash-required'], 0) ?></b> Required Cash
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-locker'])) : ?>
