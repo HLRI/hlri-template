@@ -99,7 +99,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-original-price'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
-                                                <b><?php echo '$' . number_format($data['opt-assignment-original'], 0) ?></b> Original Price
+                                                <b><?php echo '$' . number_format($data['opt-assignment-original-price'], 0) ?></b> Original Price
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-paid-deposit'])) : ?>
