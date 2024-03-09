@@ -75,7 +75,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <?php endif; ?>
                 <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
                     <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
-                        <?php echo $firstfloor['opt-floorplans-view']; ?>a
+                        <?php echo $firstfloor['opt-floorplans-view']; ?>
                     </li>
                 <?php endif; ?>
                 <?php if (!empty($data['opt-locker'])) : ?>
