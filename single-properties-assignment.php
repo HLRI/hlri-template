@@ -28,7 +28,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                             <h2><?= $psd['title'] ?></h2>
                             <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
                             <?php if ($data['opt-sales-type'] == "Assignment") : ?>
-                                <p class="top-prptype">Assignment <?php echo $data['opt-type'] ?> for Sale</p>
+                                <p class="top-prptype">Assignment <?php echo implode(', ', $data['opt-type']); ?> for Sale</p>
                             <?php endif; ?>
                             <?php if (!empty(get_the_excerpt())) : ?>
                                 <p class="text-muted top-excerpt"> <?= get_the_excerpt() ?></p>
