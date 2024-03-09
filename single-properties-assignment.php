@@ -88,7 +88,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
-                                                <?php echo $firstfloor['opt-floorplans-view'] . 'View'; ?>
+                                                <?php echo $firstfloor['opt-floorplans-view'] . ' view'; ?>
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
