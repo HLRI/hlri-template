@@ -15,15 +15,15 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 <div class="p-0 position-relative">
 
                     <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                        <?php if (!empty($psd['properties_logo']['url'])) : ?>
-                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" class="w-25 rounded mr-4"
-                                 alt="<?= $psd['properties_logo']['url'] ?>">
-                        <?php elseif (!empty($psd['thumbnail_url'])) : ?>
-                            <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 rounded mr-4"
-                                 alt="<?= $psd['thumbnail_caption'] ?>">
-                        <?php else : ?>
-                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <?php endif; ?>
+<!--                        --><?php //if (!empty($psd['properties_logo']['url'])) : ?>
+<!--                            <img src="--><?php //= $psd['properties_logo']['url'] ?><!--" loading="lazy" class="w-25 rounded mr-4"-->
+<!--                                 alt="--><?php //= $psd['properties_logo']['url'] ?><!--">-->
+<!--                        --><?php //elseif (!empty($psd['thumbnail_url'])) : ?>
+<!--                            <img src="--><?php //= $psd['thumbnail_url'] ?><!--" loading="lazy" class="w-25 rounded mr-4"-->
+<!--                                 alt="--><?php //= $psd['thumbnail_caption'] ?><!--">-->
+<!--                        --><?php //else : ?>
+<!--                            <img src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+<!--                        --><?php //endif; ?>
                         <div class="container">
                             <h2><?= $psd['title'] ?></h2>
                             <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
