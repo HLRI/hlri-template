@@ -78,6 +78,11 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <?php echo $firstfloor['opt-floorplans-view']; ?>
                     </li>
                 <?php endif; ?>
+                <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
+                    <li class="property-type ic-proptype"><i class="fas fa-sort"></i><br>
+                        <?php echo $firstfloor['opt-floorplans-floor-range']; ?>
+                    </li>
+                <?php endif; ?>
                 <?php if (!empty($data['opt-locker'])) : ?>
                     <li class="property-type ic-proptype">
                         <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
