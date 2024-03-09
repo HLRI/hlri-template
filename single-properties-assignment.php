@@ -43,7 +43,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             <?php if (in_array("Freehold", $data['opt-type']) || in_array("TownHouse", $data['opt-type'])) : ?>
                                                 <i class="fas fa-home"></i><br>
                                             <?php endif; ?>
-                                            <?php echo $data['opt-sales-type'] . ' ' . $data['opt-type']; ?>
+                                            <?php echo $data['opt-sales-type'] . ' ' . echo implode(', ', $data['opt-type']); ?>
                                         </li>
                                         <li data-label="Beds" class="ic-beds">
                                             <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?></strong>
