@@ -37,7 +37,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
         <div class="characteristics-cnt">
             <ul>
                 <li class="property-type ic-proptype">
-                    <i class="fas fa-home"></i><br><?php echo $data['opt-sales-type'] ?>
+                    <i class="fas fa-home"></i><br><?php echo $data['opt-sales-type'] . ' ' . $data['opt-type'][0]; ?>
                 </li>
                 <li data-label="Beds" class="ic-beds">
                     <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?></strong> <span
