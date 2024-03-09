@@ -94,7 +94,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
                                             <li class="property-type ic-proptype"><i
                                                         class="fa-solid fa-elevator"></i><br>
-                                                <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) . ' Level'; ?>
+                                                <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>  Level
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-locker'])) : ?>
