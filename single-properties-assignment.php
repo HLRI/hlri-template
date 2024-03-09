@@ -107,7 +107,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         $floorplan_count++;
                         if ($floorplan_count === 1) {
                             $firstfloor = $floor;
-                            print_r($firstfloor);
                             break;
                         }
                     endwhile;
