@@ -97,6 +97,11 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                 <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>  Level
                                             </li>
                                         <?php endif; ?>
+                                        <?php if (!empty($data['opt-assignment-total-cash-required'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                                <b><?php echo $data['opt-assignment-total-cash-required'] ?></b>
+                                            </li>
+                                        <?php endif; ?>
                                         <?php if (!empty($data['opt-locker'])) : ?>
                                             <li class="property-type ic-proptype">
                                                 <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker'] ?></b> Locker
