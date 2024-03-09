@@ -60,7 +60,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         </li>
                                         <?php if (!empty($data['opt-parking-quantity'])) : ?>
                                             <li class="property-type ic-proptype">
-                                                <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' parking' ?>
+                                                <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' Parking' ?>
                                             </li>
                                         <?php endif; ?>
 
@@ -88,7 +88,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
-                                                <?php echo $firstfloor['opt-floorplans-view'] . ' view'; ?>
+                                                <?php echo $firstfloor['opt-floorplans-view'] . ' View'; ?>
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
@@ -99,7 +99,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-locker'])) : ?>
                                             <li class="property-type ic-proptype">
-                                                <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' locker' ?>
+                                                <i class="fas fa-lock"></i><br><?php echo $data['opt-locker'] . ' Locker' ?>
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
