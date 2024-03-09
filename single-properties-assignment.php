@@ -357,8 +357,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
                 <?php if (empty($floor_galleries_data2[0]['gallery_url'])) : ?>
                     <?php
-                    while ($associated_floorplans->have_posts()) :
-                        $associated_floorplans->the_post();
+                    while ($associated_floorplans2->have_posts()) :
+                        $associated_floorplans2->the_post();
                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         $floor_galleries_data2[0]['gallery_url'] = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
                         $floor_galleries_data2[0]['caption'] = get_the_post_thumbnail_caption();
@@ -581,7 +581,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <div class="content">
                             <div class="row mb-lg-4 mb-2">
                                 <div class="col-12 mb-4">
-                                    <h4 class="font-weight-bold h3">Browse more Imperia Condos by Truman Floor
+                                    <h4 class="font-weight-bold h3">Browse more
                                         Plans</h4>
                                 </div>
                                 <div class="col-12">
