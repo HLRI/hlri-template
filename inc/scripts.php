@@ -504,6 +504,48 @@ function add_search_input_to_meta_box($meta_box_id)
                     });
                 });
             });
+
+
+            // hide assignments staffs
+            function findDivToToggle(text) {
+                var h4Elements = document.querySelectorAll('.csf-field-number h4');
+
+                var divToToggle;
+                h4Elements.forEach(function(h4Element) {
+                    if (h4Element.textContent.trim() === text) {
+                        divToToggle = h4Element.closest('.csf-field-number');
+                    }
+                });
+
+                return divToToggle;
+            }
+
+            function toggleDivVisibility() {
+                var selectValue = document.querySelector('[data-depend-id="opt-sales-type"]').value;
+                var divToToggle = findDivToToggle("Assignment Original Price");
+                var divToToggle2 = findDivToToggle("Assignment Paid Deposit");
+                var divToToggle3 = findDivToToggle("Assignment Total Cash Required");
+                var divToToggle4 = findDivToToggle("Assignment Remaining Deposit");
+
+                if (divToToggle) {
+                    if (selectValue === 'Assignment') {
+                        divToToggle.style.display = 'block';
+                        divToToggle2.style.display = 'block';
+                        divToToggle3.style.display = 'block';
+                        divToToggle4.style.display = 'block';
+                    } else {
+                        divToToggle.style.display = 'none';
+                        divToToggle2.style.display = 'none';
+                        divToToggle3.style.display = 'none';
+                        divToToggle4.style.display = 'none';
+                    }
+                }
+            }
+
+            // Add onchange event listener to the select element
+            document.querySelector('select[data-depend-id="opt-sales-type"]').addEventListener("change", function() {
+                toggleDivVisibility();
+            });
         </script>
 <?php
     }
