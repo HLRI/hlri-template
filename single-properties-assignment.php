@@ -112,8 +112,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     endwhile;
                     wp_reset_postdata();
                     ?>
-                    <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
-                        <?php echo $data['opt-floorplans-view']; ?>
+                <?php endif; ?>
+                <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
+                    aa <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
+                        <?php echo $firstfloor['opt-floorplans-view']; ?>
                     </li>
                 <?php endif; ?>
                 <?php if (!empty($data['opt-locker'])) : ?>
