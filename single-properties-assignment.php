@@ -64,28 +64,28 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             </li>
                                         <?php endif; ?>
 
-<!--                                        --><?php //if ($associated_floorplans->have_posts()) : ?>
-<!--                                            --><?php
-//                                            $floorplan_count = 0;
-//                                            $firstfloor = [];
-//                                            while ($associated_floorplans->have_posts()) :
-//                                                $associated_floorplans->the_post();
-//                                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-//                                                $floorplan_count++;
-//                                                if ($floorplan_count === 1) {
-//                                                    $firstfloor = $floor;
-//                                                    break;
-//                                                }
-//                                            endwhile;
-//                                            wp_reset_postdata();
-//
-//                                            function addOrdinalSuffix($number)
-//                                            {
-//                                                return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
-//                                            }
-//
-//                                            ?>
-<!--                                        --><?php //endif; ?>
+                                        <?php $floorloop = $associated_floorplans; if ($floorloop->have_posts()) : ?>
+                                            <?php
+                                            $floorplan_count = 0;
+                                            $firstfloor = [];
+                                            while ($floorloop->have_posts()) :
+                                                $floorloop->the_post();
+                                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                                                $floorplan_count++;
+                                                if ($floorplan_count === 1) {
+                                                    $firstfloor = $floor;
+                                                    break;
+                                                }
+                                            endwhile;
+                                            wp_reset_postdata();
+
+                                            function addOrdinalSuffix($number)
+                                            {
+                                                return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
+                                            }
+
+                                            ?>
+                                        <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
                                                 <?php echo $firstfloor['opt-floorplans-view'] . ' View'; ?>
