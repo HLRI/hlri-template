@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <?php
 $psd = properties_single_cached();
+$associated_floorplansDetails = associated_floorplans_cached();
 $associated_floorplans = associated_floorplans_cached();
 $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 function addOrdinalSuffix($number)
@@ -68,12 +69,12 @@ function addOrdinalSuffix($number)
                                             </li>
                                         <?php endif; ?>
 
-                                        <?php if ($associated_floorplans->have_posts()) : ?>
+                                        <?php if ($associated_floorplansDetails->have_posts()) : ?>
                                             <?php
                                             $floorplan_count = 0;
                                             $firstfloor = [];
-                                            while ($associated_floorplans->have_posts()) :
-                                                $associated_floorplans->the_post();
+                                            while ($associated_floorplansDetails->have_posts()) :
+                                                $associated_floorplansDetails->the_post();
                                                 $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                                 $floorplan_count++;
                                                 if ($floorplan_count === 1) {
