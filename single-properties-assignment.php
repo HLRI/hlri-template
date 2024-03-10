@@ -64,12 +64,12 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             </li>
                                         <?php endif; ?>
 
-                                        <?php $floorloop = $associated_floorplans; if ($floorloop->have_posts()) : ?>
+                                        <?php if ($associated_floorplans->have_posts()) : ?>
                                             <?php
                                             $floorplan_count = 0;
                                             $firstfloor = [];
-                                            while ($floorloop->have_posts()) :
-                                                $floorloop->the_post();
+                                            while ($associated_floorplans->have_posts()) :
+                                                $associated_floorplans->the_post();
                                                 $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                                 $floorplan_count++;
                                                 if ($floorplan_count === 1) {
