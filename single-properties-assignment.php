@@ -3,6 +3,10 @@
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
 $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+function addOrdinalSuffix($number)
+{
+    return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
+}
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
@@ -78,12 +82,6 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                 }
                                             endwhile;
                                             wp_reset_postdata();
-
-                                            function addOrdinalSuffix($number)
-                                            {
-                                                return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
-                                            }
-
                                             ?>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
