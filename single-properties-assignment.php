@@ -579,7 +579,7 @@ function addOrdinalSuffix($number)
                         <div class="content">
                             <div class="row mb-lg-4 mb-2">
                                 <div class="col-12 mb-4">
-                                    <h4 class="font-weight-bold h3">Browse more Imperia Condos by Truman Floor
+                                    <h4 class="font-weight-bold h3">Browse more
                                         Plans</h4>
                                 </div>
                                 <div class="col-12">
