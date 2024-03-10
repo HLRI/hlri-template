@@ -129,7 +129,7 @@ function addOrdinalSuffix($number)
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-built']) and ($data['opt-built'] == "1")) : ?>
                                             <li class="property-type ic-proptype">
-                                                <i class="fas fa-check-square"></i><br><?php echo 'Built' ?>
+                                                <i class="fas fa-check-square"></i><br><?php echo 'After Occupency' ?>
                                             </li>
                                         <?php endif; ?>
                                     </ul>
