@@ -2,7 +2,6 @@
 <?php
 $psd = properties_single_cached();
 $associated_floorplans = associated_floorplans_cached();
-$associated_floorplans2 = associated_floorplans_cached();
 $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 ?>
 
@@ -65,28 +64,28 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             </li>
                                         <?php endif; ?>
 
-                                        <?php if ($associated_floorplans->have_posts()) : ?>
-                                            <?php
-                                            $floorplan_count = 0;
-                                            $firstfloor = [];
-                                            while ($associated_floorplans->have_posts()) :
-                                                $associated_floorplans->the_post();
-                                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                                                $floorplan_count++;
-                                                if ($floorplan_count === 1) {
-                                                    $firstfloor = $floor;
-                                                    break;
-                                                }
-                                            endwhile;
-                                            wp_reset_postdata();
-
-                                            function addOrdinalSuffix($number)
-                                            {
-                                                return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
-                                            }
-
-                                            ?>
-                                        <?php endif; ?>
+<!--                                        --><?php //if ($associated_floorplans->have_posts()) : ?>
+<!--                                            --><?php
+//                                            $floorplan_count = 0;
+//                                            $firstfloor = [];
+//                                            while ($associated_floorplans->have_posts()) :
+//                                                $associated_floorplans->the_post();
+//                                                $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+//                                                $floorplan_count++;
+//                                                if ($floorplan_count === 1) {
+//                                                    $firstfloor = $floor;
+//                                                    break;
+//                                                }
+//                                            endwhile;
+//                                            wp_reset_postdata();
+//
+//                                            function addOrdinalSuffix($number)
+//                                            {
+//                                                return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
+//                                            }
+//
+//                                            ?>
+<!--                                        --><?php //endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
                                                 <?php echo $firstfloor['opt-floorplans-view'] . ' View'; ?>
@@ -333,10 +332,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             <!--        </div>-->
 
 
-            <?php if ($associated_floorplans2->have_posts()) : ?>
+            <?php if ($associated_floorplans->have_posts()) : ?>
                 <?php
-                while ($associated_floorplans2->have_posts()) :
-                    $associated_floorplans2->the_post();
+                while ($associated_floorplans->have_posts()) :
+                    $associated_floorplans->the_post();
                     $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                     ?>
                     <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
@@ -357,8 +356,8 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
                 <?php if (empty($floor_galleries_data2[0]['gallery_url'])) : ?>
                     <?php
-                    while ($associated_floorplans2->have_posts()) :
-                        $associated_floorplans2->the_post();
+                    while ($associated_floorplans->have_posts()) :
+                        $associated_floorplans->the_post();
                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                         $floor_galleries_data2[0]['gallery_url'] = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the URL of the featured image
                         $floor_galleries_data2[0]['caption'] = get_the_post_thumbnail_caption();
@@ -581,7 +580,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <div class="content">
                             <div class="row mb-lg-4 mb-2">
                                 <div class="col-12 mb-4">
-                                    <h4 class="font-weight-bold h3">Browse more
+                                    <h4 class="font-weight-bold h3">Browse more Imperia Condos by Truman Floor
                                         Plans</h4>
                                 </div>
                                 <div class="col-12">
