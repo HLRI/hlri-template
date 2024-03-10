@@ -78,8 +78,20 @@ function addOrdinalSuffix($number)
                                                 $floorplan_count++;
                                                 if ($floorplan_count === 1) {
                                                     $firstfloor = $floor;
+                                                    $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
+                                                    $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
+                                                    foreach ($gallery_ids2 as $gallery_item_id) {
+                                                        $floor_galleries_data2[] = [
+                                                            'gallery_url' => wp_get_attachment_url($gallery_item_id),
+                                                            'caption' => wp_get_attachment_caption($gallery_item_id)
+                                                        ];
+                                                    }
                                                     break;
                                                 }
+
+
+
+
                                             endwhile;
                                             wp_reset_postdata();
                                             ?>
@@ -329,27 +341,6 @@ function addOrdinalSuffix($number)
             <!--            --><?php //endif; ?>
             <!--        </div>-->
 
-
-            <?php if ($associated_floorplans->have_posts()) : ?>
-                <?php
-                while ($associated_floorplans->have_posts()) :
-                    $associated_floorplans->the_post();
-                    $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                    ?>
-                    <?php $data5 = get_post_meta(get_the_ID(), 'hlr_framework_floorplan_images_gallery', true);
-                    $gallery_ids2 = explode(',', $data5['floorplans_gallery']);
-                    foreach ($gallery_ids2 as $gallery_item_id) {
-                        $floor_galleries_data2[] = [
-                            'gallery_url' => wp_get_attachment_url($gallery_item_id),
-                            'caption' => wp_get_attachment_caption($gallery_item_id)
-                        ];
-                    }
-                    ?>
-                <?php
-                endwhile;
-                wp_reset_postdata();
-                ?>
-            <?php endif; ?>
 
             <?php if (isset($floor_galleries_data2[0]['gallery_url'])) : ?>
                 <?php if (empty($floor_galleries_data2[0]['gallery_url'])) : ?>
