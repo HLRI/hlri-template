@@ -280,19 +280,19 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <div id="map"></div>
                 </div>
             </div>
-            <?php $assignmentFloor = get_post_meta(get_the_ID(), 'hlr_framework_properties-floorplan', true);
-            if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
-                $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
-            } else {
-                $gallery_ids = [];
-            }
-            foreach ($gallery_ids as $gallery_item_id) {
-                $floor_galleries_data[] = [
-                    'gallery_url' => wp_get_attachment_url($gallery_item_id),
-                    'caption' => wp_get_attachment_caption($gallery_item_id)
-                ];
-            }
-            ?>
+<!--            --><?php //$assignmentFloor = get_post_meta(get_the_ID(), 'hlr_framework_properties-floorplan', true);
+//            if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
+//                $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
+//            } else {
+//                $gallery_ids = [];
+//            }
+//            foreach ($gallery_ids as $gallery_item_id) {
+//                $floor_galleries_data[] = [
+//                    'gallery_url' => wp_get_attachment_url($gallery_item_id),
+//                    'caption' => wp_get_attachment_caption($gallery_item_id)
+//                ];
+//            }
+//            ?>
             <!--        <div class="col-12 col-md-6 justify-content-center align-items-center p-0 px-md-2 " id="Floors-Gallery">-->
             <!--            --><?php //if (isset($floor_galleries_data[0]['gallery_url'])) : ?>
             <!--                --><?php //if ($floor_galleries_data[0]['gallery_url']) : ?>
