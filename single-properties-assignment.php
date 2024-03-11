@@ -63,9 +63,7 @@ function addOrdinalSuffix($number)
                 $avgn = '';
             }
             echo $avgn;
-            ?>
-            <?php echo $avgn; ?>
-            <?php endif; ?>
+            endif; ?>
                                     <ul>
                                         <li class="property-type ic-proptype">
                                             <i class="fas fa-fas fa-building"></i><br>
