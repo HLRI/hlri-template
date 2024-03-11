@@ -102,7 +102,7 @@ function addOrdinalSuffix($number)
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-price-per'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fa-solid fa-square-dollar"></i><br>
+                                            <li class="property-type ic-proptype"><i class="fas fa-dollar-sign"></i><br>
                                                 <b><?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?></b>/Sqft.
                                             </li>
                                         <?php endif; ?>
