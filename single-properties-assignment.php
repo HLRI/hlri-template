@@ -145,7 +145,7 @@ function addOrdinalSuffix($number)
                                         ?>
                                         <?php if (!empty($avgn)) : ?>
                                             <li class="property-type ic-proptype">
-                                                <i class="fas fa-map"></i><br><?php echo number_format($avgn, 0); ?>/Sqft<br>(Neighborhood Avg Price)
+                                                <i class="fas fa-map"></i><br><?php echo number_format($avgn, 0); ?>/Sqft<br>Neighborhood Avg Price
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
