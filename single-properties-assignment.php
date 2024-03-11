@@ -43,24 +43,24 @@ function addOrdinalSuffix($number)
     <?php
 
             $terms = get_the_terms(get_the_ID(), 'neighborhood');
-            $total_neighborhood = [];
-
-            if (!empty($terms)) {
-                foreach ($terms as $term) {
-                    $neighborhood_meta = get_term_meta($term->term_id, 'neighborhood_options', true);
-                    if (is_array($neighborhood_meta) && isset($neighborhood_meta['opt-neighborhood-appson'])) {
-                        $total_neighborhood[] = $neighborhood_meta['opt-neighborhood-appson'];
-                    }
-                }
-                if (count($total_neighborhood)) {
-                    $avgn = array_sum($total_neighborhood) / count($total_neighborhood);
-                } else {
-                    $avgn = '';
-                }
-            } else {
-                $avgn = '';
-            }
-            echo $avgn;
+//            $total_neighborhood = [];
+//
+//            if (!empty($terms)) {
+//                foreach ($terms as $term) {
+//                    $neighborhood_meta = get_term_meta($term->term_id, 'neighborhood_options', true);
+//                    if (is_array($neighborhood_meta) && isset($neighborhood_meta['opt-neighborhood-appson'])) {
+//                        $total_neighborhood[] = $neighborhood_meta['opt-neighborhood-appson'];
+//                    }
+//                }
+//                if (count($total_neighborhood)) {
+//                    $avgn = array_sum($total_neighborhood) / count($total_neighborhood);
+//                } else {
+//                    $avgn = '';
+//                }
+//            } else {
+//                $avgn = '';
+//            }
+//            echo $avgn;
             endif; ?>
                                     <ul>
                                         <li class="property-type ic-proptype">
