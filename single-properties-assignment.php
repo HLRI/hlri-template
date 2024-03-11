@@ -38,6 +38,7 @@ function addOrdinalSuffix($number)
                             <?php if (!empty(get_the_excerpt())) : ?>
                                 <p class="text-muted top-excerpt"> <?= get_the_excerpt() ?></p>
                             <?php endif; ?>
+                            <?php $terms = get_the_terms(get_the_ID(), 'neighborhood'); print_r($terms); ?>
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
