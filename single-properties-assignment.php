@@ -38,7 +38,23 @@ function addOrdinalSuffix($number)
                             <?php if (!empty(get_the_excerpt())) : ?>
                                 <p class="text-muted top-excerpt"> <?= get_the_excerpt() ?></p>
                             <?php endif; ?>
-                            <?php $terms = get_the_terms(get_the_ID(), 'neighborhood'); print_r($terms); ?>
+                            <?php $terms = get_the_terms(get_the_ID(), 'neighborhood');
+                            if (!empty($terms)) {
+                                foreach ($terms as $term) {
+                                    $neighborhood_meta = get_term_meta($term->term_id, 'neighborhood_options', true);
+                                    if (is_array($neighborhood_meta) && isset($neighborhood_meta['opt-neighborhood-appson'])) {
+                                        $total_neighborhood[] = $neighborhood_meta['opt-neighborhood-appson'];
+                                    }
+                                }
+                                if (count($total_neighborhood)) {
+                                    $avgn = array_sum($total_neighborhood) / count($total_neighborhood);
+                                } else {
+                                    $avgn = '';
+                                }
+                            } else {
+                                $avgn = '';
+                            }
+                            ?>
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
