@@ -41,9 +41,7 @@ function addOrdinalSuffix($number)
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
     <?php
-    if ($data->have_posts()) :
-        while ($data->have_posts()) :
-            $data->the_post();
+
             $terms = get_the_terms(get_the_ID(), 'neighborhood');
             $total_neighborhood = [];
 
