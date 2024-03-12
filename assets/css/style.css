@@ -4057,10 +4057,13 @@ a.item-list-tag {
 }
 .characteristics-cnt ul li {
   text-align: center;
-  width: 99px;
+  width: 140px;
   font-size: 14px;
   display: inline-block;
   vertical-align: top;
+  border: 2px dashed #ccc;
+  padding: 10px;
+  border-radius: 7px;
 }
 .characteristics-cnt ul li i {
   font-size: 30px;
