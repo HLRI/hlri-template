@@ -29,7 +29,7 @@ function addOrdinalSuffix($number)
 <!--                        --><?php //else : ?>
 <!--                            <img src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
 <!--                        --><?php //endif; ?>
-                        <div class="container">
+                        <div class="container-fluid">
                             <h2><?= $psd['title'] ?></h2>
                             <p class="project-title toptitle"><?= $data['opt-project-name'] ?></p>
                             <?php if ($data['opt-sales-type'] == "Assignment") : ?>
