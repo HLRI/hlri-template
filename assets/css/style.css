@@ -4065,6 +4065,7 @@ a.item-list-tag {
 .characteristics-cnt ul li i {
   font-size: 30px;
   color: #6c6c6c;
+  margin-bottom: 5px;
 }
 .property-type.ic-proptype i{
   font-size: 30px;
