@@ -522,13 +522,13 @@ function add_search_input_to_meta_box($meta_box_id)
 
             function toggleDivVisibility() {
                 var selectValue = document.querySelector('[data-depend-id="opt-sales-type"]').value;
-                var divToToggle = findDivToToggle("Assignment Original Price");
-                var divToToggle2 = findDivToToggle("Assignment Paid Deposit");
-                var divToToggle3 = findDivToToggle("Assignment Total Cash Required");
-                var divToToggle4 = findDivToToggle("Assignment Remaining Deposit");
+                var divToToggle = findDivToToggle("Original Price");
+                var divToToggle2 = findDivToToggle("Paid Deposit");
+                var divToToggle3 = findDivToToggle("Total Cash Required");
+                var divToToggle4 = findDivToToggle("Remaining Deposit");
 
                 if (divToToggle) {
-                    if (selectValue === 'Assignment') {
+                    if ((selectValue === 'Assignment') || selectValue === 'Resale') {
                         divToToggle.style.display = 'block';
                         divToToggle2.style.display = 'block';
                         divToToggle3.style.display = 'block';

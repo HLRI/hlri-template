@@ -1178,22 +1178,22 @@ if (class_exists('CSF')) {
                 array(
                     'id'    => 'opt-assignment-original-price',
                     'type'  => 'number',
-                    'title' => 'Assignment Original Price',
+                    'title' => 'Original Price',
                 ),
                 array(
                     'id'    => 'opt-assignment-paid-deposit',
                     'type'  => 'number',
-                    'title' => 'Assignment Paid Deposit',
+                    'title' => 'Paid Deposit',
                 ),
                 array(
                     'id'    => 'opt-assignment-total-cash-required',
                     'type'  => 'number',
-                    'title' => 'Assignment Total Cash Required',
+                    'title' => 'Total Cash Required',
                 ),
                 array(
                     'id'    => 'opt-assignment-remaining-deposit',
                     'type'  => 'number',
-                    'title' => 'Assignment Remaining Deposit',
+                    'title' => 'Remaining Deposit',
                 ),
                 array(
                     'id'         => 'opt-built',
