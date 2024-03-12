@@ -96,6 +96,11 @@ function addOrdinalSuffix($number)
                                                 <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>  Level
                                             </li>
                                         <?php endif; ?>
+                                        <?php if (!empty($data['opt-locker'])) : ?>
+                                            <li class="property-type ic-proptype">
+                                                <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker'] ?></b> Locker
+                                            </li>
+                                        <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-price-per'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-comments-dollar"></i><br>
                                                 <b><?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?></b>/Sqft.
@@ -119,11 +124,6 @@ function addOrdinalSuffix($number)
                                         <?php if (!empty($data['opt-assignment-total-cash-required'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
                                                 <b><?php echo '$' . number_format($data['opt-assignment-total-cash-required'], 0) ?></b> Required Cash
-                                            </li>
-                                        <?php endif; ?>
-                                        <?php if (!empty($data['opt-locker'])) : ?>
-                                            <li class="property-type ic-proptype">
-                                                <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker'] ?></b> Locker
                                             </li>
                                         <?php endif; ?>
                                         <?php $terms = get_the_terms(get_the_ID(), 'neighborhood');
