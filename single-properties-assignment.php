@@ -106,25 +106,6 @@ function addOrdinalSuffix($number)
                                                 <b><?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?></b>/Sqft.
                                             </li>
                                         <?php endif; ?>
-                                        <?php if (!empty($data['opt-assignment-original-price'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
-                                                <b><?php echo '$' . number_format($data['opt-assignment-original-price'], 0) ?></b> Original Price
-                                            </li>
-                                        <?php endif; ?>
-                                        <?php if (!empty($data['opt-assignment-paid-deposit'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
-                                                <b><?php echo '$' . number_format($data['opt-assignment-paid-deposit'], 0) ?></b> Paid Deposit
-                                            </li>
-                                        <?php endif; ?>
-                                        <?php if (!empty($data['opt-assignment-remaining-deposit'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
-                                                <b><?php echo '$' . number_format($data['opt-assignment-remaining-deposit'], 0) ?></b> Remaining Deposit
-                                            </li>
-                                        <?php endif; ?>
-                                        <?php if (!empty($data['opt-assignment-total-cash-required'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
-                                                <b><?php echo '$' . number_format($data['opt-assignment-total-cash-required'], 0) ?></b> Required Cash
-                                            </li>
                                         <?php endif; ?>
                                         <?php $terms = get_the_terms(get_the_ID(), 'neighborhood');
                                         if (!empty($terms)) {
@@ -148,6 +129,25 @@ function addOrdinalSuffix($number)
                                                 <i class="fas fa-map"></i><br><?php echo number_format($avgn, 0); ?>/Sqft Nbhd Avg
                                             </li>
                                         <?php endif; ?>
+                                        <?php if (!empty($data['opt-assignment-original-price'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                                <b><?php echo '$' . number_format($data['opt-assignment-original-price'], 0) ?></b> Original Price
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-assignment-paid-deposit'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                                <b><?php echo '$' . number_format($data['opt-assignment-paid-deposit'], 0) ?></b> Paid Deposit
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-assignment-remaining-deposit'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                                <b><?php echo '$' . number_format($data['opt-assignment-remaining-deposit'], 0) ?></b> Remaining Deposit
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-assignment-total-cash-required'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                                <b><?php echo '$' . number_format($data['opt-assignment-total-cash-required'], 0) ?></b> Required Cash
+                                            </li>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
                                             <li class="property-type ic-proptype">
                                                 <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
