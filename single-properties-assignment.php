@@ -96,14 +96,14 @@ function addOrdinalSuffix($number)
                                                 <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>  Level
                                             </li>
                                         <?php endif; ?>
-                                        <?php if (!empty($data['opt-assignment-original-price'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
-                                                <b><?php echo '$' . number_format($data['opt-assignment-original-price'], 0) ?></b> Original Price
-                                            </li>
-                                        <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-price-per'])) : ?>
                                             <li class="property-type ic-proptype"><i class="fas fa-comments-dollar"></i><br>
                                                 <b><?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?></b>/Sqft.
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-assignment-original-price'])) : ?>
+                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                                <b><?php echo '$' . number_format($data['opt-assignment-original-price'], 0) ?></b> Original Price
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-paid-deposit'])) : ?>
