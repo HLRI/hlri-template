@@ -86,8 +86,8 @@ function addOrdinalSuffix($number)
                                             ?>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-eye"></i><br>
-                                                <?php echo $firstfloor['opt-floorplans-view'] . ' View'; ?>
+                                            <li class="property-type ic-proptype"><span><i class="fas fa-eye"></i><br>
+                                                <?php echo $firstfloor['opt-floorplans-view'] . ' View'; ?></span>
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
