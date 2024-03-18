@@ -295,6 +295,7 @@ function theme_footer()
             jQuery(document).ready(function($) {
                 
                 $('.pgwSlideshow').pgwSlideshow({
+                    lazyLoad: true,
                     autoSlide: true,
                     displayControls: false,
                     maxHeight: 600,
@@ -303,6 +304,7 @@ function theme_footer()
                 });
 
                 $(".ecommerce-gallery").lightSlider({
+                    lazyLoad: true,
                     gallery: true,
                     item: 1,
                     loop: true,
@@ -310,6 +312,7 @@ function theme_footer()
                     thumbMargin: 10,
                 });
                 $(".floors-gallery").lightSlider({
+                    lazyLoad: true,
                     clone: false,
                     gallery: true,
                     item: 1,
