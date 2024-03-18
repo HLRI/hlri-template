@@ -301,13 +301,6 @@ function theme_footer()
                     maxHeight: 600,
                     intervalDuration: 6000,
                     transitionDuration: 2000,
-                    onSliderLoad: function (el) {
-                        el.find("li img").each(function () {
-                            var imgSrc = $(this).attr("data-src");
-                            $(this).attr("src", imgSrc);
-                            $(this).css("display", "initial");
-                        });
-                    }
                 });
 
                 $(".ecommerce-gallery").lightSlider({
