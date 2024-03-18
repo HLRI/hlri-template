@@ -4077,22 +4077,23 @@ a.item-list-tag {
 .characteristics-cnt ul li{
   text-align:center
 }
-@media (max-width: 768px) {
+@media (min-width: 1px) and (max-width: 768px)  {
   .lSSlideOuter .lSPager.lSGallery li {
     height:28px;
   }
 }
-@media (max-width: 992px) {
-  .lSSlideOuter .lSPager.lSGallery li {
+@media (min-width: 768px) and (max-width: 992px)  {
+
+    .lSSlideOuter .lSPager.lSGallery li {
     height:50px;
   }
 }
-@media (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1200px)  {
   .lSSlideOuter .lSPager.lSGallery li {
     height:80px;
   }
 }
-@media (max-width: 1318px) {
+@media (min-width: 1200px) and (max-width: 1318px)  {
   .lSSlideOuter .lSPager.lSGallery li {
     height:90px;
   }
