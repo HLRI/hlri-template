@@ -300,24 +300,7 @@ function theme_footer()
                     displayControls: false,
                     maxHeight: 600,
                     intervalDuration: 6000,
-                    transitionDuration: 2000
-                });
-
-                $(".ecommerce-gallery").lightSlider({
-                    item: 4,
-                    autoWidth: false,
-                    slideMargin: 1,
-                    mode: "slide",
-                    useCSS: true,
-                    cssEasing: "ease",
-                    easing: "linear",
-                    auto: true,
-                    loop: true,
-                    slideEndAnimation: true,
-                    pause: 4000,
-                    pauseOnHover: true,
-                    pager: false,
-                    enableDrag: false,
+                    transitionDuration: 2000,
                     onSliderLoad: function (el) {
                         el.find("li img").each(function () {
                             var imgSrc = $(this).attr("data-src");
@@ -325,7 +308,13 @@ function theme_footer()
                             $(this).css("display", "initial");
                         });
                     }
+                });
+
+                $(".ecommerce-gallery").lightSlider({
+                    lazyLoad: true,
                     gallery: true,
+                    item: 1,
+                    loop: true,
                     thumbItem: 10,
                     thumbMargin: 10,
                 });
