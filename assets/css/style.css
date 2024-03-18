@@ -4057,10 +4057,8 @@ a.item-list-tag {
 }
 .characteristics-cnt ul li {
   text-align: center;
-  width: 200px;
   font-size: 14px;
-  display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   border: 2px dashed #ccc;
   padding: 10px;
   border-radius: 7px;
