@@ -16,7 +16,7 @@ function hlr_contact_form()
             </div>
             <div class="col-12 col-md-6 my-2">
                 <label for="email">Email</label>
-                <input class="form-control" type="text" name="email" id="email">
+                <input class="form-control" type="text" name="email" id="useremail">
             </div>
             <div class="col-12 col-md-6 my-2">
                 <label for="phone">Phone Number</label>
