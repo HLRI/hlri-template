@@ -3952,3 +3952,8 @@ a.item-list-tag {
   color: #b19f91;
   margin-bottom: 5px;
 }
+@media (max-width: 1318px) {
+  .lSSlideOuter .lSPager.lSGallery li {
+    display: none;
+  }
+}
