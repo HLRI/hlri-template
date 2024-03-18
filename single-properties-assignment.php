@@ -168,6 +168,10 @@ function addOrdinalSuffix($number)
                     <style>
                         .characteristics-cnt ul {
                             margin-top: 20px;
+                            display: grid;
+                            gap: 10px;
+                            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                            grid-template-rows: masonry;
                         }
 
                         .characteristics-cnt li {
