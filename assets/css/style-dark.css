@@ -3952,8 +3952,23 @@ a.item-list-tag {
   color: #b19f91;
   margin-bottom: 5px;
 }
+@media (max-width: 768px) {
+  .lSSlideOuter .lSPager.lSGallery li {
+    height:28px;
+  }
+}
+@media (max-width: 992px) {
+  .lSSlideOuter .lSPager.lSGallery li {
+    height:50px;
+  }
+}
+@media (max-width: 1200px) {
+  .lSSlideOuter .lSPager.lSGallery li {
+    height:80px;
+  }
+}
 @media (max-width: 1318px) {
   .lSSlideOuter .lSPager.lSGallery li {
-    display: none;
+    height:90px;
   }
 }
