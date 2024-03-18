@@ -4077,3 +4077,8 @@ a.item-list-tag {
 .characteristics-cnt ul li{
   text-align:center
 }
+@media (max-width: 1318px) {
+  .lSSlideOuter .lSPager.lSGallery li {
+    display: none;
+  }
+}
