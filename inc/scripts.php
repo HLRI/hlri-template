@@ -360,7 +360,7 @@ function theme_footer()
             jQuery(document).ready(function($) {
 
                 // var navigationsticker = $("#navigation-sticker");
-                var navigationsticker = $("#sticker");
+                var navigationsticker = $("#navigation-sticker");
                 var targetOffset = navigationsticker.offset().top;
 
                 $(window).scroll(function() {
