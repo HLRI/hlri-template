@@ -3954,7 +3954,7 @@ a.item-list-tag {
 }
 @media (min-width: 1px) and (max-width: 568px)  {
   .lSSlideOuter .lSPager.lSGallery li {
-    height:40px;
+    height:35px;
   }
 }
 @media (min-width: 567px) and (max-width: 768px)  {
@@ -3965,7 +3965,7 @@ a.item-list-tag {
 @media (min-width: 768px) and (max-width: 992px)  {
 
   .lSSlideOuter .lSPager.lSGallery li {
-    height:800px;
+    height:80px;
   }
 }
 @media (min-width: 992px) and (max-width: 1200px)  {
