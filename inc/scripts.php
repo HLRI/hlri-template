@@ -314,7 +314,7 @@ function theme_footer()
                 $(".floors-gallery").lightSlider({
                     lazyLoad: true,
                     clone: false,
-                    gallery: true,
+                    gallery: false,
                     item: 1,
                 });
                 
