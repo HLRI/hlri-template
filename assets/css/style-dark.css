@@ -3952,25 +3952,29 @@ a.item-list-tag {
   color: #b19f91;
   margin-bottom: 5px;
 }
-
-@media (min-width: 1px) and (max-width: 768px)  {
+@media (min-width: 1px) and (max-width: 568px)  {
   .lSSlideOuter .lSPager.lSGallery li {
-    height:28px;
+    height:40px;
+  }
+}
+@media (min-width: 567px) and (max-width: 768px)  {
+  .lSSlideOuter .lSPager.lSGallery li {
+    height:50px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px)  {
 
   .lSSlideOuter .lSPager.lSGallery li {
-    height:50px;
+    height:800px;
   }
 }
 @media (min-width: 992px) and (max-width: 1200px)  {
   .lSSlideOuter .lSPager.lSGallery li {
-    height:80px;
+    height:90px;
   }
 }
 @media (min-width: 1200px) and (max-width: 1318px)  {
   .lSSlideOuter .lSPager.lSGallery li {
-    height:90px;
+    height:95px;
   }
 }
