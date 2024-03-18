@@ -360,23 +360,22 @@ function theme_footer()
             jQuery(document).ready(function($) {
 
                 // var navigationsticker = $("#navigation-sticker");
-                var navigationsticker = $("#navigation-sticker");
-                var targetOffset = navigationsticker.offset().top;
-
-                $(window).scroll(function() {
-                    var scrollDistance = $(window).scrollTop();
-                    var stickermobile = $('#sticker-mobile');
-                    if (scrollDistance > 0) {
-                        stickermobile.addClass('fixed-menu top-0');
-                    } else {
-                        stickermobile.removeClass('fixed-menu top-0');
-                    }
-                    if (scrollDistance >= targetOffset - 48) {
-                        navigationsticker.addClass('fixed-menu top-48');
-                    } else {
-                        navigationsticker.removeClass('fixed-menu top-48');
-                    }
-                });
+                // var targetOffset = navigationsticker.offset().top;
+                //
+                // $(window).scroll(function() {
+                //     var scrollDistance = $(window).scrollTop();
+                //     var stickermobile = $('#sticker-mobile');
+                //     if (scrollDistance > 0) {
+                //         stickermobile.addClass('fixed-menu top-0');
+                //     } else {
+                //         stickermobile.removeClass('fixed-menu top-0');
+                //     }
+                //     if (scrollDistance >= targetOffset - 48) {
+                //         navigationsticker.addClass('fixed-menu top-48');
+                //     } else {
+                //         navigationsticker.removeClass('fixed-menu top-48');
+                //     }
+                // });
 
                 $('#stars .star').on('mouseover', function() {
                     var onStar = parseInt($(this).data('value'), 10);
