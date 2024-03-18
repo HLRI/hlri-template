@@ -304,10 +304,28 @@ function theme_footer()
                 });
 
                 $(".ecommerce-gallery").lightSlider({
-                    lazyLoad: true,
-                    gallery: true,
-                    item: 1,
+                    item: 4,
+                    autoWidth: false,
+                    slideMargin: 1,
+                    mode: "slide",
+                    useCSS: true,
+                    cssEasing: "ease",
+                    easing: "linear",
+                    auto: true,
                     loop: true,
+                    slideEndAnimation: true,
+                    pause: 4000,
+                    pauseOnHover: true,
+                    pager: false,
+                    enableDrag: false,
+                    onSliderLoad: function (el) {
+                        el.find("li img").each(function () {
+                            var imgSrc = $(this).attr("data-src");
+                            $(this).attr("src", imgSrc);
+                            $(this).css("display", "initial");
+                        });
+                    }
+                    gallery: true,
                     thumbItem: 10,
                     thumbMargin: 10,
                 });
