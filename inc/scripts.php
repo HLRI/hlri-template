@@ -59,7 +59,7 @@ function theme_scripts()
     wp_register_script('pgwslideshow', HLR_THEME_ASSETS . 'js/pgwslideshow.min.js', [], "1.0.0", true);
     wp_register_script('rvslider', HLR_THEME_ASSETS . 'js/rvslider.min.js', [], "1.0.0", false);
     wp_register_script('leaflet',   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js', [], "1.0.0", false);
-    wp_register_script('leafletFullscreen', HLR_THEME_ASSETS . 'js/Control.FullScreen.js', [], "1.0.0", false);
+//    wp_register_script('leafletFullscreen', HLR_THEME_ASSETS . 'js/Control.FullScreen.js', [], "1.0.0", false);
     wp_register_script('lightbox2',   'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js', [], "1.0.0", false);
     wp_register_script('lightslider',   'https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js', ['jquery'], "1.0.0", false);
     wp_register_script('fancybox',   'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.5/dist/fancybox.umd.js', ['jquery'], "1.0.0", false);
