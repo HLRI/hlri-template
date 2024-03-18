@@ -316,9 +316,6 @@ function theme_footer()
                     clone: false,
                     gallery: true,
                     item: 1,
-                    loop: true,
-                    thumbItem: 4,
-                    thumbMargin: 10,
                 });
                 
 
