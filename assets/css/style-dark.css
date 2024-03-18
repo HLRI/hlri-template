@@ -3891,7 +3891,8 @@ a.item-list-tag {
 }
 .map-container {
   position: relative;
-  height: 500px;
+  height: 405px;
+  max-height: 405px;
 }
 
 #map {
