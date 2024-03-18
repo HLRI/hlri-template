@@ -4011,7 +4011,7 @@ a.item-list-tag {
 }
 .map-container {
   position: relative;
-  height: 500px;
+  height: auto;
 }
 
 #map {
