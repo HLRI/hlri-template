@@ -14571,8 +14571,8 @@ a:hover {
 .rank-math-analytics-stats-wrapper{
   display:none;
 }
-@media (max-width: 1200px) {
-  .lSSlideOuter .lSPager.lSGallery img {
-    max-height: 32px;
+@media (max-width: 1318px) {
+  .lSSlideOuter .lSPager.lSGallery li {
+    display: none;
   }
- }
+}
