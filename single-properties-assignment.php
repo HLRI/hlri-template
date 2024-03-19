@@ -64,7 +64,7 @@ function addOrdinalSuffix($number)
                                                     class="gray short-lbl"></span>
                                         </li>
                                         <?php if (!empty($data['opt-parking-quantity'])) : ?>
-                                            <li class="property-type ic-proptype">
+                                            <li class="property-type ic-proptype" title="Number of Parkings: <?php echo $data['opt-parking-quantity'] ?>">
                                                 <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' Parking' ?>
                                             </li>
                                         <?php endif; ?>
