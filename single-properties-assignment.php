@@ -45,26 +45,26 @@ function addOrdinalSuffix($number)
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
-                                        <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo $data['opt-min-bed'] ?>">
+                                        <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo $data['opt-min-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?></strong>
                                             <span
                                                     class="gray normal-lbl">Beds</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
-                                        <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo $data['opt-min-bath'] ?>">
+                                        <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo $data['opt-min-bath']; ?>">
                                             <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?></strong>
                                             <span
                                                     class="gray normal-lbl">Baths</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
-                                        <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo $data['opt-size-min'] ?> Sqft.">
+                                        <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo $data['opt-size-min']; ?> Sqft.">
                                             <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?></strong>
                                             <span
                                                     class="gray normal-lbl">Sqft</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
                                         <?php if (!empty($data['opt-parking-quantity'])) : ?>
-                                            <li class="property-type ic-proptype" title="Number of Parkings: <?php echo $data['opt-parking-quantity'] ?>">
+                                            <li class="property-type ic-proptype" title="Number of Parkings: <?php echo $data['opt-parking-quantity']; ?>">
                                                 <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' Parking' ?>
                                             </li>
                                         <?php endif; ?>
@@ -86,23 +86,23 @@ function addOrdinalSuffix($number)
                                             ?>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
-                                            <li class="property-type ic-proptype"><span><i class="fas fa-eye"></i><br>
+                                            <li class="property-type ic-proptype" title="Exposure: <?php echo $firstfloor['opt-floorplans-view']; ?>"><span><i class="fas fa-eye"></i><br>
                                                 <?php echo $firstfloor['opt-floorplans-view'] . ' View'; ?></span>
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
-                                            <li class="property-type ic-proptype"><i
+                                            <li class="property-type ic-proptype" title="Level: <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?>"><i
                                                         class="fa-solid fa-elevator"></i><br>
                                                 <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>  Level
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-locker'])) : ?>
-                                            <li class="property-type ic-proptype">
-                                                <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker'] ?></b> Locker
+                                            <li class="property-type ic-proptype" title="Number of Lockers: <?php echo $data['opt-locker'] ?>">
+                                                <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker']; ?></b> Locker
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-price-per'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-comments-dollar"></i><br>
+                                            <li class="property-type ic-proptype" title="Property Price/Sqft <?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?>"><i class="fas fa-comments-dollar"></i><br>
                                                 <b><?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?></b>/Sqft.
                                             </li>
                                         <?php endif; ?>
@@ -125,27 +125,27 @@ function addOrdinalSuffix($number)
                                         }
                                         ?>
                                         <?php if (!empty($avgn)) : ?>
-                                            <li class="property-type ic-proptype">
+                                            <li class="property-type ic-proptype" title="Neighbourhood Price/Sqft: <?php echo number_format($avgn, 0); ?>">
                                                 <i class="fas fa-map"></i><br><?php echo number_format($avgn, 0); ?>/Sqft Nbhd Avg
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-original-price'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                            <li class="property-type ic-proptype" title="Property Original Price: <?php echo '$' . number_format($data['opt-assignment-original-price'], 0) ?>"><i class="fas fa-money-bill-alt"></i><br>
                                                 <b><?php echo '$' . number_format($data['opt-assignment-original-price'], 0) ?></b> Original Price
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-paid-deposit'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                            <li class="property-type ic-proptype" title="Paid Deposit: <?php echo '$' . number_format($data['opt-assignment-paid-deposit'], 0) ?>"><i class="fas fa-money-bill-alt"></i><br>
                                                 <b><?php echo '$' . number_format($data['opt-assignment-paid-deposit'], 0) ?></b> Paid Deposit
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-remaining-deposit'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                            <li class="property-type ic-proptype" title="Remaining Deposit: <?php echo '$' . number_format($data['opt-assignment-remaining-deposit'], 0) ?>"><i class="fas fa-money-bill-alt"></i><br>
                                                 <b><?php echo '$' . number_format($data['opt-assignment-remaining-deposit'], 0) ?></b> Remaining Deposit
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-assignment-total-cash-required'])) : ?>
-                                            <li class="property-type ic-proptype"><i class="fas fa-money-bill-alt"></i><br>
+                                            <li class="property-type ic-proptype" title=" Required Cash: <?php echo '$' . number_format($data['opt-assignment-total-cash-required'], 0) ?>"><i class="fas fa-money-bill-alt"></i><br>
                                                 <b><?php echo '$' . number_format($data['opt-assignment-total-cash-required'], 0) ?></b> Required Cash
                                             </li>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
