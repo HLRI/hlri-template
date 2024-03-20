@@ -637,24 +637,6 @@ function addOrdinalSuffix($number)
                                 <p>123-456-789</p>
                             </div>
                         </div>
-
-                        <div class="hlri-social-media">
-                            <p>Connect with us :</p>
-                            <div class="hlri-social-icons">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="hlri-contact-form">
