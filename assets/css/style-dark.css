@@ -3991,13 +3991,13 @@ a.item-list-tag {
 }
 
 .hlri-contact-form {
-  background-color: #f1642c;
+  background-color: #665c54;
   position: relative;
 }
 
 .hlri-circle {
   border-radius: 50%;
-  background: linear-gradient(135deg, transparent 20%, #db4105);
+  background: linear-gradient(135deg, transparent 20%, #46413c);
   position: absolute;
 }
 
@@ -4020,7 +4020,7 @@ a.item-list-tag {
   position: absolute;
   width: 26px;
   height: 26px;
-  background-color: #f1642c;
+  background-color: #665c54;
   transform: rotate(45deg);
   top: 50px;
   left: -13px;
@@ -4154,12 +4154,13 @@ textarea.hlri-input {
 }
 
 .hlri-contact-info {
+  background: #7c6f64;
   padding: 2.3rem 2.2rem;
   position: relative;
 }
 
 .hlri-contact-info .title {
-  color: #f1642c;
+  color: #4e4741;
 }
 
 .hlri-text {
@@ -4218,7 +4219,7 @@ textarea.hlri-input {
   position: absolute;
   width: 110px;
   height: 100px;
-  border: 22px solid #f1642c;
+  border: 22px solid #4a4846;
   border-radius: 50%;
   bottom: -57px;
   right: 50px;
