@@ -4303,3 +4303,9 @@ textarea.hlri-input {
 hlri-input-container.focus > label {
   color: #ffffff !important;
 }
+
+
+hlri-input-container > label {
+  color: #d7d7d7 !important;
+}
+
