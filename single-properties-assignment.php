@@ -612,6 +612,85 @@ function addOrdinalSuffix($number)
         <!-- sidebar -->
         <div class="col-12 col-sm-12 col-md-12 ">
 
+            <div class="hlri-container">
+                <img src="img/shape.png" class="hlri-square" alt="" />
+                <div class="hlri-formsection">
+                    <div class="hlri-contact-info">
+                        <h3 class="title">Let's get in touch</h3>
+                        <p class="hlri-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                            dolorum adipisci recusandae praesentium dicta!
+                        </p>
+
+                        <div class="hlri-info">
+                            <div class="hlri-information">
+                                <i class="fas fa-map-marker-alt"></i> &nbsp &nbsp
+
+                                <p>92 Cherry Drive Uniondale, NY 11553</p>
+                            </div>
+                            <div class="hlri-information">
+                                <i class="fas fa-envelope"></i> &nbsp &nbsp
+                                <p>lorem@ipsum.com</p>
+                            </div>
+                            <div class="hlri-information">
+                                <i class="fas fa-phone"></i>&nbsp&nbsp
+                                <p>123-456-789</p>
+                            </div>
+                        </div>
+
+                        <div class="hlri-social-media">
+                            <p>Connect with us :</p>
+                            <div class="hlri-social-icons">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hlri-contact-form">
+                        <span class="hlri-circle one"></span>
+                        <span class="hlri-circle two"></span>
+
+                        <form action="index.html" autocomplete="off">
+                            <h3 class="hlri-title">Contact us</h3>
+                            <div class="hlri-input-container">
+                                <input type="text" name="name" class="hlri-input" />
+                                <label for="">Username</label>
+                                <span>Username</span>
+                            </div>
+                            <div class="hlri-input-container">
+                                <input type="email" name="email" class="hlri-input" />
+                                <label for="">Email</label>
+                                <span>Email</span>
+                            </div>
+                            <div class="hlri-input-container">
+                                <input type="tel" name="phone" class="hlri-input" />
+                                <label for="">Phone</label>
+                                <span>Phone</span>
+                            </div>
+                            <div class="hlri-input-container textarea">
+                                <textarea name="message" class="hlri-input"></textarea>
+                                <label for="">Message</label>
+                                <span>Message</span>
+                            </div>
+                            <input type="submit" value="Send" class="hlri-btn" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
             <?php if ($psd['theme_options']['opt-properties-status']) : ?>
                 <?php if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>
                     <div class="d-flex flex-column  properties-shortcode position-sticky top-48 bg-foreground rounded pb-3"
