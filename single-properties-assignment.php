@@ -688,7 +688,26 @@ function addOrdinalSuffix($number)
                     </div>
                 </div>
             </div>
+            <script>
+                const inputs = document.querySelectorAll(".hlri-input");
 
+                function focusFunc() {
+                    let parent = this.parentNode;
+                    parent.classList.add("focus");
+                }
+
+                function blurFunc() {
+                    let parent = this.parentNode;
+                    if (this.value == "") {
+                        parent.classList.remove("focus");
+                    }
+                }
+
+                inputs.forEach((input) => {
+                    input.addEventListener("focus", focusFunc);
+                    input.addEventListener("blur", blurFunc);
+                });
+            </script>
 
 
             <?php if ($psd['theme_options']['opt-properties-status']) : ?>
