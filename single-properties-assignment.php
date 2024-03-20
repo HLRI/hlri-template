@@ -690,7 +690,6 @@ function addOrdinalSuffix($number)
                     input.addEventListener("blur", blurFunc);
                 });
             </script>
-            <br><br>
 
             <?php if ($psd['theme_options']['opt-properties-status']) : ?>
                 <?php if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>
