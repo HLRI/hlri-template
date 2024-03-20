@@ -694,6 +694,7 @@ function addOrdinalSuffix($number)
 
             <?php if ($psd['theme_options']['opt-properties-status']) : ?>
                 <?php if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>
+                    <br><br>
                     <div class="d-flex flex-column  properties-shortcode position-sticky top-48 bg-foreground rounded pb-3"
                          style="gap:10px;" id="RegisterNow">
                         <div class="col-12">
