@@ -4300,7 +4300,12 @@ textarea.hlri-input {
     padding: 0.45rem 1.2rem;
   }
 }
-hlri-input-container > label {
-  color: #d7d7d7 !important;
+.hlri-input-container.focus > label {
+  color: #ffffff !important;
+}
+
+
+.hlri-input-container > label {
+  color: #ffffff !important;
 }
 
