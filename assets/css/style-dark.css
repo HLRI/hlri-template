@@ -4127,7 +4127,7 @@ textarea.hlri-input {
   opacity: 0;
   transition: 0.3s;
   height: 5px;
-  background-color: #f1642c;
+  background-color: #665c54;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -4299,4 +4299,7 @@ textarea.hlri-input {
   .hlri-btn {
     padding: 0.45rem 1.2rem;
   }
+}
+hlri-input-container.focus > label {
+  color: #ffffff !important;
 }
