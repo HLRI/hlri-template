@@ -400,18 +400,6 @@ function hlr_search()
         $j = 0;
         while ($the_query->have_posts()) : $the_query->the_post(); ?>
 
-            <?php if (get_post_type() == 'post') : ?>
-                <?php if ($i == 0) : ?>
-                    <h4 class="info-title">Posts</h4>
-                <?php endif; ?>
-                <div class="result-card mt-1 mb-2 px-3">
-                    <a href="<?php echo esc_url(post_permalink()); ?>" class="card-result-label">
-                        <?php the_title(); ?>
-                    </a>
-                </div>
-                <?php $i++ ?>    
-            <?php endif; ?>      
-
             <?php if (get_post_type() == 'properties') : ?>
                 <?php if ($j == 0) : ?>
                     <h4 class="info-title">Properties</h4>
@@ -423,6 +411,18 @@ function hlr_search()
                 </div>
                 <?php $j++ ?>
             <?php endif; ?>
+
+            <?php if (get_post_type() == 'post') : ?>
+                <?php if ($i == 0) : ?>
+                    <h4 class="info-title">Posts</h4>
+                <?php endif; ?>
+                <div class="result-card mt-1 mb-2 px-3">
+                    <a href="<?php echo esc_url(post_permalink()); ?>" class="card-result-label">
+                        <?php the_title(); ?>
+                    </a>
+                </div>
+                <?php $i++ ?>    
+            <?php endif; ?>      
 
         <?php endwhile;
         wp_reset_postdata();
