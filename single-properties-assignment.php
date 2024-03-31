@@ -643,7 +643,7 @@ function addOrdinalSuffix($number)
                         <span class="hlri-circle two"></span>
 
                         <form action="index.html" autocomplete="off">
-                            <h3 class="hlri-title">Contact us</h3>
+                            <h3 class="hlri-title">Register for <?= $psd['title'] ?></h3>
                             <div class="hlri-input-container">
                                 <input type="text" name="name" class="hlri-input" />
                                 <label for="">Username</label>
