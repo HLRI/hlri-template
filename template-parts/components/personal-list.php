@@ -1,15 +1,18 @@
-<?php $theme_options = get_option('hlr_framework'); ?>
-
 <?php
-$arg = [
-    'post_type' => 'agents',
-    'post_status' => 'publish',
-    'posts_per_page' => -1
-];
+$theme_options = get_option('hlr_framework');
+
+$arg = array(
+    'post_type'      => 'agents',
+    'post_status'    => 'publish',
+    'posts_per_page' => -1,
+    'meta_key'       => 'opt-agents-order', // Meta key to sort by
+    'orderby'        => 'meta_value_num',    // Sort by numeric value
+    'order'          => 'ASC'                // Sort in ascending order
+);
 
 $profiles = new WP_Query($arg);
-
 ?>
+
 <?php if ($profiles->have_posts()) : ?>
     <div class="container-fluid my-5">
         <div class="row">
@@ -22,9 +25,8 @@ $profiles = new WP_Query($arg);
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme teams wrap-list">
-
                         <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
-                             <?php include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
+                            <?php include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                     </div>
