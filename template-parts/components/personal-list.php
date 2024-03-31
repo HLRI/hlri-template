@@ -25,7 +25,7 @@ $profiles = new WP_Query($arg);
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme teams wrap-list">
                         <?php
-                        // Initialize an array to store posts sorted by opt-agents-order
+                        // Initialize an array to store agents sorted by opt-agents-order
                         $sorted_profiles = array();
 
                         // Start the loop to populate the sorted_profiles array
@@ -34,14 +34,14 @@ $profiles = new WP_Query($arg);
                             $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                             $order = $agent['opt-agents-order'];
 
-                            // Add the current post to the sorted_profiles array with opt-agents-order as the key
+                            // Add the current agents to the sorted_profiles array with opt-agents-order as the key
                             $sorted_profiles[$order] = get_post();
                         endwhile;
 
                         // Sort the sorted_profiles array based on opt-agents-order
                         ksort($sorted_profiles);
 
-                        // Loop through sorted_profiles to display the posts
+                        // Loop through sorted_profiles to display the agents
                         foreach ($sorted_profiles as $post) :
                             setup_postdata($post);
                             // Include your template part here
