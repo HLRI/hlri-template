@@ -814,6 +814,12 @@ if (class_exists('CSF')) {
 				),
 
 				array(
+					'id'    => 'opt-agents-order',
+					'type'  => 'number',
+					'title' => 'Order'
+				),
+
+				array(
 					'id'      => 'opt-show-information',
 					'type'    => 'switcher',
 					'title'   => 'Show information',
