@@ -24,19 +24,24 @@ $profiles = new WP_Query($arg);
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme teams wrap-list">
+                        <?php
+                        // Initialize an array to store posts sorted by opt-agents-order
+                        $sorted_profiles = array();
 
-                        <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
-                            <?php
+                        // Start the loop to populate the sorted_profiles array
+                        while ($profiles->have_posts()) : $profiles->the_post();
+                            // Retrieve the opt-agents-order value for the current post
                             $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                             $order = $agent['opt-agents-order'];
-                            $sorted_profiles[$order] = get_post();
 
-                            ?>
-<!--                             --><?php //include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
-                        <?php endwhile; ?>
-                        <?php
+                            // Add the current post to the sorted_profiles array with opt-agents-order as the key
+                            $sorted_profiles[$order] = get_post();
+                        endwhile;
+
+                        // Sort the sorted_profiles array based on opt-agents-order
                         ksort($sorted_profiles);
-                        // Loop through sorted_posts to display the posts
+
+                        // Loop through sorted_profiles to display the posts
                         foreach ($sorted_profiles as $post) :
                             setup_postdata($post);
                             // Include your template part here
@@ -44,9 +49,10 @@ $profiles = new WP_Query($arg);
                         endforeach;
 
                         // Restore original post data
+                        wp_reset_postdata();
                         ?>
-                        <?php wp_reset_postdata(); ?>
                     </div>
+
                 </div>
             </div>
         </div>
