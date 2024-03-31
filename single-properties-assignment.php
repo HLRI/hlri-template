@@ -679,6 +679,7 @@ function addOrdinalSuffix($number)
                 });
             </script>
         </div>
+        <br>
         <?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
 
     </div>
