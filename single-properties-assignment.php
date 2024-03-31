@@ -641,13 +641,21 @@ function addOrdinalSuffix($number)
                     <div class="hlri-contact-form">
                         <span class="hlri-circle one"></span>
                         <span class="hlri-circle two"></span>
-<style>
-    #assignment_form{
-        padding-top: 10px;
-    }
-</style>
-                            <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?></h3>
-                            <?= do_shortcode('[contact-form-7 id="1891ff1" html_id="assignment_form" title="Assignment contact form"]') ?></div>
+
+<!--                        <form action="index.html" autocomplete="off">-->
+<!--                            <h3 class="hlri-title">Register for --><?php //= $psd['title'] ?><!--</h3>-->
+<!--                            -->
+<!--                            --><?php //= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
+<!---->
+<!--                        </form>-->
+                        <style>
+                            #assignment_form{
+                                padding-top: 10px;
+                            }
+                        </style>
+                        <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?></h3>
+                        <?= do_shortcode('[contact-form-7 id="1891ff1" html_id="assignment_form" title="Assignment contact form"]') ?>
+                    </div>
                 </div>
             </div>
             <script>
