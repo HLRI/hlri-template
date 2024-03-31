@@ -10,6 +10,8 @@ $arg = array(
 );
 
 $profiles = new WP_Query($arg);
+print_r($profiles);
+die();
 ?>
 
 <?php if ($profiles->have_posts()) : ?>
