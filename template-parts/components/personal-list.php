@@ -12,7 +12,6 @@ $arg = array(
 
 $profiles = new WP_Query($arg);
 ?>
-
 <?php if ($profiles->have_posts()) : ?>
     <div class="container-fluid my-5">
         <div class="row">
@@ -25,8 +24,9 @@ $profiles = new WP_Query($arg);
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="owl-carousel owl-theme teams wrap-list">
+
                         <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
-                            <?php include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
+                             <?php include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                     </div>
