@@ -304,13 +304,13 @@ function hlr_search() {
           // jQuery('.pac-matched').removeClass('pac-matched');
           if (data_mapbox.features != "") {
             jQuery.each(data_mapbox.features, function (i, item) {
-              jQuery(".search-result").prepend(
+              jQuery(".search-result").append(
                 '<div class="result-card mt-1 mb-2 px-3"><a href="#">  <i class="fa fa-map-marker"></i> ' +
                   item.place_name +
                   "</a></div>",
               );
             });
-            jQuery(".search-result").prepend(
+            jQuery(".search-result").append(
               '<h4 class="info-title">Locations</h4>',
             );
           }
