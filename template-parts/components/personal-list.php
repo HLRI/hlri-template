@@ -5,8 +5,7 @@ $arg = array(
     'post_type'      => 'agents',
     'post_status'    => 'publish',
     'posts_per_page' => -1,
-    'meta_key'       => 'opt-agents-order', // Specify the custom field key
-    'orderby'        => 'meta_value_num',   // Order by the numerical value of the custom field
+    'orderby'        => 'opt-agents-order',   // Order by the numerical value of the custom field
     'order'          => 'ASC',              // Specify the order (ASC or DESC)
 );
 
