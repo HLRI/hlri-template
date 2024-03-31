@@ -1,19 +1,30 @@
+<?php $theme_options = get_option('hlr_framework'); ?>
+
 <?php
-$theme_options = get_option('hlr_framework');
+$arg = [
+    'post_type' => 'agents',
+    'post_status' => 'publish',
+    'posts_per_page' => 4
+];
 
-$arg = array(
-    'post_type'      => 'agents',
-    'post_status'    => 'publish',
-    'posts_per_page' => -1,
-    'orderby'        => 'opt-agents-order',   // Order by the numerical value of the custom field
-    'order'          => 'ASC',              // Specify the order (ASC or DESC)
-);
+$profiles1 = new WP_Query($arg);
 
-$profiles = new WP_Query($arg);
-print_r($profiles[0]);
-die();
+
+// Check if there are posts
+if ($profiles1->have_posts()) :
+
+    // New query with orderby and order parameters inside the loop
+    $arg_ordered = array(
+        'post_type'      => 'agents',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'meta_key'       => 'opt-agents-order',
+        'orderby'        => 'meta_value_num',
+        'order'          => 'ASC',
+    );
+
+    $profiles = new WP_Query($arg_ordered);
 ?>
-
 <?php if ($profiles->have_posts()) : ?>
     <div class="container-fluid my-5">
         <div class="row">
