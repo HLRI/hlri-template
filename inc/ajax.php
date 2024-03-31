@@ -524,7 +524,8 @@ function getProperties(WP_REST_Request $request)
 
         foreach ($result2 as $property) {
             if (in_array($_GET['term_id'], $property['term_ids'])) {
-                if ($i < $_GET['page']) {
+//                if ($i < $_GET['page']) {
+                if ($i < 5) {
                     if ($is_login) {
                         $favs = [];
                         if (!empty(get_user_meta($auth_user->data['id'], 'properties_favorites', true))) {
