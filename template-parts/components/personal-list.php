@@ -4,7 +4,7 @@
 $arg = [
     'post_type' => 'agents',
     'post_status' => 'publish',
-    'posts_per_page' => 4
+    'posts_per_page' => -1
 ];
 
 $profiles = new WP_Query($arg);
