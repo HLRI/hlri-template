@@ -15,14 +15,15 @@ $agent_ids = array_column($agents_option, 'id');
 $arg = array(
     'post_type'      => 'agents',
     'post_status'    => 'publish',
-    'posts_per_page' => 3,
-    'post__in'       => $agent_ids, // Retrieve posts based on the sorted IDs
-    'orderby'        => 'post__in', // Order by the specified IDs
-    'order'          => 'DESC'                // Sort in ascending order
+    'posts_per_page' => 3, // Limit the number of posts to 3
+    'orderby'        => 'meta_value_num', // Order by numeric value
+    'meta_key'       => 'opt-agents-order', // Sort by the opt-agents-order field
+    'order'          => 'ASC' // Sort in ascending order
 );
 
 $profiles = new WP_Query($arg);
 ?>
+
 
 
 <?php if ($profiles->have_posts()) : ?>
