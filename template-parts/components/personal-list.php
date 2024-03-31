@@ -6,10 +6,10 @@ $agents_option = isset($theme_options['hlr_framework_agents']) ? $theme_options[
 
 // Sort the agents based on the opt-agents-order field
 usort($agents_option, function($a, $b) {
-    return $a['opt-agents-order'] - $b['opt-agents-order'];
+    return $a['opt-agents-order'] <=> $b['opt-agents-order'];
 });
 
-// Get the IDs of the sorted agents
+// Get the sorted agent IDs
 $agent_ids = array_column($agents_option, 'id');
 
 $arg = array(
@@ -17,11 +17,12 @@ $arg = array(
     'post_status'    => 'publish',
     'posts_per_page' => -1,
     'post__in'       => $agent_ids, // Retrieve posts based on the sorted IDs
-    'orderby'        => 'post__in'   // Order by the specified IDs
+    'orderby'        => 'post__in', // Order by the specified IDs
 );
 
 $profiles = new WP_Query($arg);
 ?>
+
 
 <?php if ($profiles->have_posts()) : ?>
     <div class="container-fluid my-5">
