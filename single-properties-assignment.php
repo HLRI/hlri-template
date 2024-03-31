@@ -679,11 +679,11 @@ function addOrdinalSuffix($number)
                 });
             </script>
         </div>
-        <br><br>
-        <?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
+
 
     </div>
-
+    <br><br>
+<?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
     <!-- End Content Section -->
 <?php
 $peroperties_single = properties_related_cached();
