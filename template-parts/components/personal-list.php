@@ -11,6 +11,8 @@ $profiles = new WP_Query($arg);
 
 ?>
 <?php if ($profiles->have_posts()) : ?>
+<?php     $sorted_profiles = array();
+?>
     <div class="container-fluid my-5">
         <div class="row">
             <div class="col-lg-12 ">
@@ -24,8 +26,25 @@ $profiles = new WP_Query($arg);
                     <div class="owl-carousel owl-theme teams wrap-list">
 
                         <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
-                             <?php include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
+                            <?php
+                            $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
+                            $order = $agent['opt-agents-order'];
+                            $sorted_profiles[$order] = get_post();
+
+                            ?>
+<!--                             --><?php //include(HLR_THEME_COMPONENT . 'agents/card-mini.php'); ?>
                         <?php endwhile; ?>
+                        <?php
+                        ksort($sorted_profiles);
+                        // Loop through sorted_posts to display the posts
+                        foreach ($sorted_profiles as $post) :
+                            setup_postdata($post);
+                            // Include your template part here
+                            include(HLR_THEME_COMPONENT . 'agents/card-mini.php');
+                        endforeach;
+
+                        // Restore original post data
+                        ?>
                         <?php wp_reset_postdata(); ?>
                     </div>
                 </div>
