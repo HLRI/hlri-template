@@ -18,8 +18,7 @@ if ($profiles1->have_posts()) :
         'post_type'      => 'agents',
         'post_status'    => 'publish',
         'posts_per_page' => -1,
-        'meta_key'       => 'opt-agents-order',
-        'orderby'        => 'meta_value_num',
+        'orderby'        => 'opt-agents-order',
         'order'          => 'ASC',
     );
 
