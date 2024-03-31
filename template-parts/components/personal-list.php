@@ -18,6 +18,7 @@ $arg = array(
     'posts_per_page' => 3,
     'post__in'       => $agent_ids, // Retrieve posts based on the sorted IDs
     'orderby'        => 'post__in', // Order by the specified IDs
+    'order'          => 'DESC'                // Sort in ascending order
 );
 
 $profiles = new WP_Query($arg);
