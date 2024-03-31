@@ -12,17 +12,19 @@ usort($agents_option, function($a, $b) {
 // Get the sorted agent IDs
 $agent_ids = array_column($agents_option, 'id');
 
-$arg = array(
+// Retrieve the agents directly by their sorted IDs
+$args = array(
     'post_type'      => 'agents',
     'post_status'    => 'publish',
-    'posts_per_page' => 3, // Limit the number of posts to 3
-    'orderby'        => 'meta_value_num', // Order by numeric value
-    'meta_key'       => 'opt-agents-order', // Sort by the opt-agents-order field
-    'order'          => 'ASC' // Sort in ascending order
+    'posts_per_page' => -1, // Retrieve all posts
+    'post__in'       => $agent_ids, // Retrieve posts based on the sorted IDs
+    'orderby'        => 'meta_value_num', // Order by numeric meta value
+    'meta_key'       => 'opt-agents-order', // Specify the meta key for sorting
 );
 
-$profiles = new WP_Query($arg);
+$profiles = new WP_Query($args);
 ?>
+
 
 
 
