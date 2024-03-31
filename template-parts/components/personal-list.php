@@ -15,7 +15,7 @@ $agent_ids = array_column($agents_option, 'id');
 $arg = array(
     'post_type'      => 'agents',
     'post_status'    => 'publish',
-    'posts_per_page' => 2,
+    'posts_per_page' => 3,
     'post__in'       => $agent_ids, // Retrieve posts based on the sorted IDs
     'orderby'        => 'post__in', // Order by the specified IDs
 );
