@@ -679,37 +679,37 @@ function addOrdinalSuffix($number)
                 });
             </script>
 
-            <?php if ($psd['theme_options']['opt-properties-status']) : ?>
-                <?php if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>
-                    <br><br>
-                    <div class="d-flex flex-column  properties-shortcode position-sticky top-48 bg-foreground rounded pb-3"
-                         style="gap:10px;" id="RegisterNow">
-                        <div class="col-12">
-                            <div class="titr-list ml-0 mb-2">
-                                <?php if ($psd['opt-project-status']) : ?>
-                                    <h3 class="font-weight-bold">Fill the Form to get latest available Listings in This
-                                        building</h3>
-                                <?php else : ?>
-                                    <div>
-                                        <h3 class="font-weight-bold">Register Now</h3>
-                                        <p>
-                                            to get full package , book your unit
-                                        </p>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <style>
-                                <?php echo $psd['theme_options']['opt-properties-style'] ?>
-                            </style>
-                            <div class="card-form">
-                                <?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-            <?php endif; ?>
+<!--            --><?php //if ($psd['theme_options']['opt-properties-status']) : ?>
+<!--                --><?php //if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>
+<!--                    <br><br>-->
+<!--                    <div class="d-flex flex-column  properties-shortcode position-sticky top-48 bg-foreground rounded pb-3"-->
+<!--                         style="gap:10px;" id="RegisterNow">-->
+<!--                        <div class="col-12">-->
+<!--                            <div class="titr-list ml-0 mb-2">-->
+<!--                                --><?php //if ($psd['opt-project-status']) : ?>
+<!--                                    <h3 class="font-weight-bold">Fill the Form to get latest available Listings in This-->
+<!--                                        building</h3>-->
+<!--                                --><?php //else : ?>
+<!--                                    <div>-->
+<!--                                        <h3 class="font-weight-bold">Register Now</h3>-->
+<!--                                        <p>-->
+<!--                                            to get full package , book your unit-->
+<!--                                        </p>-->
+<!--                                    </div>-->
+<!--                                --><?php //endif; ?>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-12">-->
+<!--                            <style>-->
+<!--                                --><?php //echo $psd['theme_options']['opt-properties-style'] ?>
+/*                            </style>*/
+/*                            <div class="card-form">*/
+/*                                */<?php //= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                --><?php //endif; ?>
+<!--            --><?php //endif; ?>
 
         </div>
 
