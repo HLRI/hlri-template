@@ -644,9 +644,27 @@ function addOrdinalSuffix($number)
 
                         <form action="index.html" autocomplete="off">
                             <h3 class="hlri-title">Register for <?= $psd['title'] ?></h3>
-
-                            <?= do_shortcode('[contact-form-7 id="1891ff1" title="Assignment contact form"]') ?>
-
+                            <div class="hlri-input-container">
+                                <input type="text" name="name" class="hlri-input" />
+                                <label for="">Username</label>
+                                <span>Username</span>
+                            </div>
+                            <div class="hlri-input-container">
+                                <input type="email" name="email" class="hlri-input" />
+                                <label for="">Email</label>
+                                <span>Email</span>
+                            </div>
+                            <div class="hlri-input-container">
+                                <input type="tel" name="phone" class="hlri-input" />
+                                <label for="">Phone</label>
+                                <span>Phone</span>
+                            </div>
+                            <div class="hlri-input-container textarea">
+                                <textarea name="message" class="hlri-input"></textarea>
+                                <label for="">Message</label>
+                                <span>Message</span>
+                            </div>
+                            <input type="submit" value="Send" class="hlri-btn" />
                         </form>
                     </div>
                 </div>
