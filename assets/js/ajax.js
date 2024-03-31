@@ -303,6 +303,10 @@ function hlr_search() {
           // jQuery('.pac-item-query').removeClass('pac-item-query');
           // jQuery('.pac-matched').removeClass('pac-matched');
           if (data_mapbox.features != "") {
+
+            jQuery(".search-result").append(
+                '<h4 class="info-title">Locations</h4>',
+            );
             jQuery.each(data_mapbox.features, function (i, item) {
               jQuery(".search-result").append(
                 '<div class="result-card mt-1 mb-2 px-3"><a href="#">  <i class="fa fa-map-marker"></i> ' +
@@ -310,9 +314,6 @@ function hlr_search() {
                   "</a></div>",
               );
             });
-            jQuery(".search-result").append(
-              '<h4 class="info-title">Locations</h4>',
-            );
           }
           // }
           jQuery(".search-result").addClass("d-block").fadeIn(300);
