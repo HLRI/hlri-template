@@ -7,22 +7,8 @@ $arg = [
     'posts_per_page' => 4
 ];
 
-$profiles1 = new WP_Query($arg);
+$profiles = new WP_Query($arg);
 
-
-// Check if there are posts
-if ($profiles1->have_posts()) :
-
-    // New query with orderby and order parameters inside the loop
-    $arg_ordered = array(
-        'post_type'      => 'agents',
-        'post_status'    => 'publish',
-        'posts_per_page' => -1,
-        'orderby'        => 'opt-agents-order',
-        'order'          => 'ASC',
-    );
-
-    $profiles = new WP_Query($arg_ordered);
 ?>
 <?php if ($profiles->have_posts()) : ?>
     <div class="container-fluid my-5">
