@@ -1,17 +1,28 @@
 <?php
 $theme_options = get_option('hlr_framework');
 
+// Get the hlr_framework_agents option
+$agents_option = isset($theme_options['hlr_framework_agents']) ? $theme_options['hlr_framework_agents'] : array();
+
+// Sort the agents based on the opt-agents-order field
+usort($agents_option, function($a, $b) {
+    return $a['opt-agents-order'] - $b['opt-agents-order'];
+});
+
+// Get the IDs of the sorted agents
+$agent_ids = array_column($agents_option, 'id');
+
 $arg = array(
     'post_type'      => 'agents',
     'post_status'    => 'publish',
     'posts_per_page' => -1,
-    'meta_key'       => 'opt-agents-order', // Meta key to sort by
-    'orderby'        => 'meta_value_num',    // Sort by numeric value
-    'order'          => 'ASC'                // Sort in ascending order
+    'post__in'       => $agent_ids, // Retrieve posts based on the sorted IDs
+    'orderby'        => 'post__in'   // Order by the specified IDs
 );
 
 $profiles = new WP_Query($arg);
 ?>
+
 <?php if ($profiles->have_posts()) : ?>
     <div class="container-fluid my-5">
         <div class="row">
