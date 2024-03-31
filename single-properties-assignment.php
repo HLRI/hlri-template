@@ -616,25 +616,24 @@ function addOrdinalSuffix($number)
                 <img src="img/shape.png" class="hlri-square" alt="" />
                 <div class="hlri-formsection">
                     <div class="hlri-contact-info">
-                        <h3 class="title">Let's get in touch</h3>
+                        <h3 class="title">Register Now</h3>
                         <p class="hlri-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-                            dolorum adipisci recusandae praesentium dicta!
+                            to get full package , book your unit
                         </p>
 
                         <div class="hlri-info">
                             <div class="hlri-information">
                                 <i class="fas fa-map-marker-alt"></i> &nbsp &nbsp
 
-                                <p>92 Cherry Drive Uniondale, NY 11553</p>
+                                <p>300 Richmond St W #300, Toronto, ON M5V 1X2</p>
                             </div>
                             <div class="hlri-information">
                                 <i class="fas fa-envelope"></i> &nbsp &nbsp
-                                <p>lorem@ipsum.com</p>
+                                <p>inquiries@Condoy.com</p>
                             </div>
                             <div class="hlri-information">
                                 <i class="fas fa-phone"></i>&nbsp&nbsp
-                                <p>123-456-789</p>
+                                <p>(416) 599-9599</p>
                             </div>
                         </div>
                     </div>
