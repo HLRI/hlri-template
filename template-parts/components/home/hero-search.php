@@ -3,6 +3,8 @@
         <div class="btn hero-section-search-input-icon">
             <i class="fa fa-search"></i>
         </div>
+        <input type="text" id="s" name="s" value="" placeholder="Search condos" autocomplete="off">
+
         <input name="topsearch" autocomplete="off" autocorrect="off"  type="search" onkeyup="hlr_search()" class="form-control input-search-slider keyword" placeholder="Search by location...">
     </div>
     <span></span>
