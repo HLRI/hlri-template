@@ -6,3 +6,8 @@
     <div class="search-result">
     </div>
 </div>
+<script>
+    window.addEventListener('load', function() {
+        document.querySelector('.input-search-slider').value = '';
+    });
+</script>
