@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="login-by-social">
-                        <?php echo do_shortcode('[nextend_social_login]'); ?>
+<!--                        --><?php //echo do_shortcode('[nextend_social_login]'); ?>
                         <?php do_action('login_hlri_form'); ?>
                     </div>
 
