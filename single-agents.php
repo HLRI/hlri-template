@@ -48,7 +48,7 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                     <!-- Detail -->
                     <div class="col-md-8 col-lg-8 ">
                         <div class="card-profile-details px-3 px-md-0">
-                            <h1 class="d-inline-block"><?php the_title() ?></h1><div class="card-profile-details-job-position d-inline-block"><span class=""><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></span></div>
+                            <h1 class="d-inline-block"><?php the_title() ?></h1><span>,</span><div class="card-profile-details-job-position d-inline-block"><span class=""><?php the_terms(get_the_ID(), 'staff', '', ' / ', ' ') ?></span></div>
 
                             <div class="inc-profile w-100 text-left mb-1">HOME LEADER REALTY INC</div>
                             <div class="d-flex flex-column gap-1 mt-4">
