@@ -3411,7 +3411,7 @@ table.dataTable thead tr th {
 }
 
 #tag-list li {
-  list-style: inside devanagari;
+  list-style: inside;
   color: #ffad00;
 }
 

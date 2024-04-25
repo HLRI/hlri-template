@@ -3298,12 +3298,12 @@ input[type="checkbox"] {
 }
 
 #tag-list li {
-  list-style: inside devanagari;
+  list-style: inside;
   color: #ffad00;
 }
 
 #tag-list li {
-  list-style: inside devanagari;
+  list-style: inside;
   color: #dc8b5b;
 }
 
