@@ -3307,6 +3307,10 @@ input[type="checkbox"] {
   color: #dc8b5b;
 }
 
+.content-original ul, .content-original li {
+  list-style: disc;
+}
+
 nav#table-of-contents {
   background: #7c6f64;
   padding: 10px;

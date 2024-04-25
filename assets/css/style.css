@@ -3415,6 +3415,10 @@ table.dataTable thead tr th {
   color: #ffad00;
 }
 
+.content-original ul, .content-original li {
+  list-style: disc;
+}
+
 nav#table-of-contents {
   background: #f7f7f7;
   padding: 10px;
