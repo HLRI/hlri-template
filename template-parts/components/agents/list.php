@@ -12,16 +12,33 @@ $arg = [
 
 $profiles = new WP_Query($arg);
 
-if ($profiles->have_posts()) :
-    // Loop through profiles to display the agent order
-    while ($profiles->have_posts()) :
-        $profiles->the_post();
-        // Retrieve the opt-agents-order value for the current post
-        $agent_order = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
-        $order = isset($agent_order['opt-agents-order']) ? $agent_order['opt-agents-order'] : 'N/A';
-        echo '<div>' . $order . '</div>';
-    endwhile;
-    // Restore original post data
-    wp_reset_postdata();
-endif;
-?>
+if ($profiles->have_posts()) : ?>
+    <div class="container-fluid px-5 mt-10">
+        <div class="row">
+            <?php while ($profiles->have_posts()) : $profiles->the_post(); ?>
+                  <?php include(HLR_THEME_COMPONENT . 'agents/card.php'); ?>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+        </div>
+        <div class="mt-5 row d-flex align-items-center justify-content-center">
+            <?php
+            echo paginate_links(array(
+                'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                'total'        => $profiles->max_num_pages,
+                'current'      => max(1, get_query_var('paged')),
+                'format'       => '?paged=%#%',
+                'show_all'     => false,
+                'type'         => 'plain',
+                'end_size'     => 2,
+                'mid_size'     => 1,
+                'prev_next'    => true,
+                'prev_text'    => sprintf('<i></i> %1$s', __('Newer Posts', 'text-domain')),
+                'next_text'    => sprintf('%1$s <i></i>', __('Older Posts', 'text-domain')),
+                'add_args'     => false,
+                'add_fragment' => '',
+            ));
+            ?>
+        </div>
+
+    </div>
+<?php endif; ?>
