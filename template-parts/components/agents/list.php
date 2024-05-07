@@ -1,7 +1,6 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
 
 <?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $term = get_queried_object();
 $arg = [
