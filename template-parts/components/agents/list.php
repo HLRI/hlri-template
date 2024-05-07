@@ -53,8 +53,10 @@ if ($profiles->have_posts()) :
             // Loop through sorted_profiles to display the agents
             foreach ($sorted_profiles as $post) :
                 setup_postdata($post);
-                // Include your template part here
-                include(HLR_THEME_COMPONENT . 'agents/card.php');
+                // Display the order of the agent
+                $agent_order = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
+                $order = isset($agent_order['opt-agents-order']) ? $agent_order['opt-agents-order'] : 'N/A';
+                echo '<div>' . $order . '</div>';
             endforeach;
             // Restore original post data
             wp_reset_postdata();
