@@ -8,7 +8,6 @@ $arg = [
     'post_type' => 'agents',
     'post_status' => 'publish',
     'posts_per_page'   => 5,
-    'paged' => $paged,
 ];
 
 $profiles = new WP_Query($arg);
