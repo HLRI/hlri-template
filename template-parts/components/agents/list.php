@@ -24,7 +24,8 @@
                                 while ($profiles->have_posts()) : $profiles->the_post();
                                     // Retrieve the opt-agents-order value for the current post
                                     $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
-                                    $order = $agent['opt-agents-order'];
+                                    $order = is_numeric($agent['opt-agents-order']) ? $agent['opt-agents-order'] : 0;
+
 
                                     // Add the current agents to the sorted_profiles array with opt-agents-order as the key
                                     $sorted_profiles[$order] = get_post();
