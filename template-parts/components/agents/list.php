@@ -24,9 +24,17 @@ if ($profiles->have_posts()) : ?>
                 // Add the current agents to the sorted_profiles array with opt-agents-order as the key
                 $sorted_profiles[$order] = get_post();
                 ?>
-                  <?php include(HLR_THEME_COMPONENT . 'agents/card.php'); ?>
+<!--                  --><?php //include(HLR_THEME_COMPONENT . 'agents/card.php'); ?>
             <?php endwhile;
             ksort($sorted_profiles);
+            foreach ($sorted_profiles as $post) :
+                setup_postdata($post);
+                // Include your template part here
+                include(HLR_THEME_COMPONENT . 'agents/card.php');
+            endforeach;
+
+            // Restore original post data
+            wp_reset_postdata();
             ?>
             <?php wp_reset_postdata(); ?>
         </div>
