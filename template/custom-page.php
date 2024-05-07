@@ -31,7 +31,7 @@
 
                     <div class="card-blog-content">
                         <h1 class="text-black pt-3 px-3"><b><?php the_title() ?></b></h1>
-                        <div class="card-single-blog-description p-4">
+                        <div class="card-single-blog-description">
                             <?php the_content() ?>
                         </div>
                     </div>
