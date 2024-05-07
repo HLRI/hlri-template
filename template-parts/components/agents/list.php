@@ -1,10 +1,12 @@
 <?php $theme_options = get_option('hlr_framework'); ?>
 
 <?php
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1; // Get current page number
 $arg = [
     'post_type'      => 'agents',
     'post_status'    => 'publish',
-    'posts_per_page' => -1
+    'posts_per_page' => 15, // Agents per page
+    'paged'          => $paged // Current page number
 ];
 
 $profiles = new WP_Query($arg);
@@ -54,5 +56,16 @@ $profiles = new WP_Query($arg);
             wp_reset_postdata();
             ?>
         </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <?php
+        echo paginate_links(array(
+            'total'   => $profiles->max_num_pages,
+            'current' => $paged,
+            'format'  => '?paged=%#%',
+        ));
+        ?>
     </div>
 <?php endif; ?>
