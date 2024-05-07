@@ -17,26 +17,35 @@ $profiles = new WP_Query($arg);
     <div class="container-fluid px-5 mt-10">
         <div class="row">
             <?php
-            // Start the loop to display agents
+            // Initialize an array to store agents
+            $agents = array();
+
+            // Start the loop to fetch agents
             while ($profiles->have_posts()) : $profiles->the_post();
                 // Retrieve the opt-agents-order value for the current agent
                 $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                 $order = isset($agent['opt-agents-order']) ? $agent['opt-agents-order'] : ''; // Get the agent order
 
-                // Create an array to store agents with order key for sorting
-                $agents_with_order[$order][] = get_post();
+                // Store the agent post object along with its order in the array
+                $agents[] = array(
+                    'post'  => get_post(),
+                    'order' => $order
+                );
             endwhile;
 
-            // Sort agents based on opt-agents-order
-            ksort($agents_with_order);
+            // Custom sorting function to sort agents based on opt-agents-order
+            usort($agents, function($a, $b) {
+                if ($a['order'] == $b['order']) {
+                    return 0;
+                }
+                return ($a['order'] < $b['order']) ? -1 : 1;
+            });
 
             // Loop through sorted agents and display them
-            foreach ($agents_with_order as $order => $agents) {
-                foreach ($agents as $post) {
-                    setup_postdata($post);
-                    // Include your template part here
-                    include(HLR_THEME_COMPONENT . 'agents/card.php');
-                }
+            foreach ($agents as $agent) {
+                setup_postdata($agent['post']);
+                // Include your template part here
+                include(HLR_THEME_COMPONENT . 'agents/card.php');
             }
 
             // Restore original post data
