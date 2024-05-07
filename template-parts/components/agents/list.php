@@ -7,7 +7,7 @@ $term = get_queried_object();
 $arg = [
     'post_type' => 'agents',
     'post_status' => 'publish',
-    'posts_per_page'   => 50,
+    'posts_per_page'   => 5,
     'paged' => $paged,
 ];
 
@@ -52,7 +52,7 @@ $profiles = new WP_Query($arg);
         <?php
         echo paginate_links(array(
             'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-            'total'        => $profiles->max_num_pages,
+            'total'        => $sorted_profiles->max_num_pages,
             'current'      => max(1, get_query_var('paged')),
             'format'       => '?paged=%#%',
             'show_all'     => false,
