@@ -83,7 +83,15 @@
                 </div>
 
                 <?php include(HLR_THEME_COMPONENT . 'search-main-menu.php'); ?>
+                <div style="display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    align-items: center;">
 
+                    <img src="https://condoy.com/wp-content/uploads/2024/05/hlri.png" style="
+    height: 22px;
+">
+                </div>
                 <div class="wrap-profile">
                     <?php if (is_user_logged_in()) :
                         $user_meta = get_userdata(get_current_user_id());
