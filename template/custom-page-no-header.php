@@ -127,7 +127,7 @@
                 <?php endif; ?>
 
 
-                <div class="post-meta-header">
+                <div>
                     <div class="post-meta">
                         <i class="fa fa-calendar"></i>
                         <span><?= get_the_date() ?></span>
