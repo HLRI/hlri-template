@@ -319,6 +319,7 @@ body * {
 
 .sub-item {
   position: relative;
+  list-style: none;
 }
 
 .submenu2 {
