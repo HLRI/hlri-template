@@ -17,16 +17,23 @@ if ($profiles->have_posts()) : ?>
     <div class="container-fluid px-5 mt-10">
         <div class="row">
             <?php
+            // Initialize an array to store agents sorted by opt-agents-order
             $sorted_profiles = array();
+
+            // Start the loop to populate the sorted_profiles array
             while ($profiles->have_posts()) : $profiles->the_post();
+                // Retrieve the opt-agents-order value for the current post
                 $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
                 $order = $agent['opt-agents-order'];
+
                 // Add the current agents to the sorted_profiles array with opt-agents-order as the key
                 $sorted_profiles[$order] = get_post();
-                ?>
-<!--                  --><?php //include(HLR_THEME_COMPONENT . 'agents/card.php'); ?>
-            <?php endwhile;
+            endwhile;
+
+            // Sort the sorted_profiles array based on opt-agents-order
             ksort($sorted_profiles);
+
+            // Loop through sorted_profiles to display the agents
             foreach ($sorted_profiles as $post) :
                 setup_postdata($post);
                 // Include your template part here
@@ -36,7 +43,6 @@ if ($profiles->have_posts()) : ?>
             // Restore original post data
             wp_reset_postdata();
             ?>
-            <?php wp_reset_postdata(); ?>
         </div>
         <div class="mt-5 row d-flex align-items-center justify-content-center">
             <?php
