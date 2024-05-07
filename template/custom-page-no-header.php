@@ -132,11 +132,10 @@
                         <i class="fa fa-calendar"></i>
                         <span><?= get_the_date() ?></span>
                     </div>
-                    <div class="post-meta">
-                        <i class="fa fa-user"></i>
-
-                        <span>by <?php echo get_the_author_meta('nickname'); ?></span>
-                    </div>
+<!--                    <div class="post-meta">-->
+<!--                        <i class="fa fa-user"></i>-->
+<!--                        <span>by --><?php //echo get_the_author_meta('nickname'); ?><!--</span>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
