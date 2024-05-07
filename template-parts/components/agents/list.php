@@ -13,9 +13,8 @@ $arg = [
 $profiles = new WP_Query($arg);
 
 if ($profiles->have_posts()) :
-    // Initialize arrays to store agents based on priority and others
-    $priority_profiles = array();
-    $other_profiles = array();
+    // Initialize an array to store agents sorted by opt-agents-order
+    $sorted_profiles = array();
 
     while ($profiles->have_posts()) :
         $profiles->the_post();
@@ -23,16 +22,12 @@ if ($profiles->have_posts()) :
         $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
         $order = $agent['opt-agents-order'];
 
-        // Check if opt-agents-order is set to 1, prioritize it
-        if ($order == 1) {
-            $priority_profiles[] = get_post();
-        } else {
-            $other_profiles[] = get_post();
-        }
+        // Assign the order as the key for sorting
+        $sorted_profiles[$order] = get_post();
     endwhile;
 
-    // Merge priority profiles and other profiles
-    $sorted_profiles = array_merge($priority_profiles, $other_profiles);
+    // Sort the sorted_profiles array based on opt-agents-order
+    ksort($sorted_profiles);
 
     ?>
     <div class="container-fluid px-5 mt-10">
