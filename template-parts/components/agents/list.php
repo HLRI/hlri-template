@@ -7,7 +7,7 @@ $term = get_queried_object();
 $arg = [
     'post_type' => 'agents',
     'post_status' => 'publish',
-    'posts_per_page'   => 5,
+    'posts_per_page'   => 50,
     'paged' => $paged,
 ];
 
