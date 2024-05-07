@@ -25,18 +25,26 @@ if ($profiles->have_posts()) :
 
         if ($order !== '') {
             // Assign agents with opt-agents-order values to sorted_profiles_with_order
-            $sorted_profiles_with_order[$order] = get_post();
+            $sorted_profiles_with_order[] = array(
+                'order' => intval($order), // Convert order to integer
+                'post' => get_post(),
+            );
         } else {
             // Assign agents without opt-agents-order values to sorted_profiles_without_order
             $sorted_profiles_without_order[] = get_post();
         }
     endwhile;
 
-    // Sort agents with opt-agents-order values
-    ksort($sorted_profiles_with_order);
+    // Sort agents with opt-agents-order values numerically
+    usort($sorted_profiles_with_order, function ($a, $b) {
+        return $a['order'] - $b['order'];
+    });
 
-    // Combine agents with and without opt-agents-order values
-    $sorted_profiles = array_merge($sorted_profiles_with_order, $sorted_profiles_without_order);
+    // Merge agents with and without opt-agents-order values
+    $sorted_profiles = array_merge(
+        array_column($sorted_profiles_with_order, 'post'),
+        $sorted_profiles_without_order
+    );
 
     ?>
     <div class="container-fluid px-5 mt-10">
