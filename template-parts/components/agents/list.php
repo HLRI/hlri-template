@@ -1,33 +1,50 @@
+<?php $theme_options = get_option('hlr_framework'); ?>
+
 <?php
-$theme_options = get_option('hlr_framework');
+$arg = [
+    'post_type'      => 'agents',
+    'post_status'    => 'publish',
+    'posts_per_page' => -1
+];
 
-$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1; // Get current page number
-
-// Custom SQL query to fetch agents with pagination and sorting
-global $wpdb;
-$agents_table = $wpdb->prefix . 'posts';
-$meta_table = $wpdb->prefix . 'postmeta';
-$results = $wpdb->get_results(
-    $wpdb->prepare(
-        "
-        SELECT posts.*
-        FROM $agents_table AS posts
-        LEFT JOIN $meta_table AS meta
-        ON posts.ID = meta.post_id AND meta.meta_key = 'hlr_framework_agents'
-        ORDER BY CAST(meta.meta_value AS SIGNED), posts.post_date DESC
-        LIMIT %d OFFSET %d
-        ",
-        15, // Agents per page
-        ($paged - 1) * 15 // Offset calculation
-    )
-);
-
-if ($results) : ?>
+$profiles = new WP_Query($arg);
+?>
+<?php if ($profiles->have_posts()) : ?>
+    <?php
+    $sorted_profiles_with_order = array(); // Array for agents with non-empty order
+    $profiles_without_order = array(); // Array for agents with empty order
+    ?>
     <div class="container-fluid px-5 mt-10">
         <div class="row">
             <?php
-            // Loop through fetched agents and display them
-            foreach ($results as $post) :
+            // Start the loop to populate the sorted_profiles_with_order array and profiles_without_order array
+            while ($profiles->have_posts()) : $profiles->the_post();
+                // Retrieve the opt-agents-order value for the current post
+                $agent = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
+                $order = $agent['opt-agents-order'];
+
+                // Check if the order is empty
+                if (!empty($order)) {
+                    // Add the current agent to the sorted_profiles_with_order array with opt-agents-order as the key
+                    $sorted_profiles_with_order[$order] = get_post();
+                } else {
+                    // Add the current agent to the profiles_without_order array
+                    $profiles_without_order[] = get_post();
+                }
+            endwhile;
+
+            // Sort the sorted_profiles_with_order array based on opt-agents-order
+            ksort($sorted_profiles_with_order);
+
+            // Loop through sorted_profiles_with_order to display the agents with non-empty order
+            foreach ($sorted_profiles_with_order as $post) :
+                setup_postdata($post);
+                // Include your template part here
+                include(HLR_THEME_COMPONENT . 'agents/card.php');
+            endforeach;
+
+            // Loop through profiles_without_order to display the agents with empty order
+            foreach ($profiles_without_order as $post) :
                 setup_postdata($post);
                 // Include your template part here
                 include(HLR_THEME_COMPONENT . 'agents/card.php');
@@ -37,16 +54,5 @@ if ($results) : ?>
             wp_reset_postdata();
             ?>
         </div>
-    </div>
-
-    <!-- Pagination -->
-    <div class="pagination">
-        <?php
-        echo paginate_links(array(
-            'total'   => ceil($wpdb->get_var("SELECT COUNT(posts.ID) FROM $agents_table AS posts LEFT JOIN $meta_table AS meta ON posts.ID = meta.post_id AND meta.meta_key = 'hlr_framework_agents'") / 15),
-            'current' => $paged,
-            'format'  => '?paged=%#%',
-        ));
-        ?>
     </div>
 <?php endif; ?>
