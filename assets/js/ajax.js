@@ -267,65 +267,57 @@ jQuery("#submit-forgot-password").on("click", function (e) {
 // }
 
 function hlr_search() {
-  var query = jQuery(".keyword").val();
-  if (query == null || query == "") {
-    jQuery(".search-result").removeClass("d-block");
-    return;
-  }
+    var query = jQuery(".keyword").val();
+    if (query == null || query == "") {
+        jQuery(".search-result").removeClass("d-block");
+        return;
+    }
 
-  fetch(
-    "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
-      query +
-      ".json?access_token=pk.eyJ1IjoiZWhzYW5iYXZhZ2hhciIsImEiOiJjbGdkeDZ2c20waHh6M2xwajlzbmhzaHFnIn0.zK6XBntMDbVlFWxY-QhPGg",
-  )
-    .then((response) => response.json())
-    .then((data_mapbox) => {
-      jQuery(".search-result").removeClass("d-block");
-      jQuery(".search-result").html("").hide();
-      jQuery(".search-icon").html(
-        '<div class="text-center"> <div class="spinner-border" role="status"></div> </div>',
-      );
-      jQuery.ajax({
-        url: "/wp-admin/admin-ajax.php",
-        type: "post",
-        data: {
-          action: "hlr_search",
-          keyword: query,
-        },
-        success: function (data) {
-          jQuery(".search-result").html(data);
-          // setTimeout(() => {
-          // var items = jQuery('.pac-item');
-          // if (items.length != 0) {
-          // jQuery('.search-result').prepend(items);
-          // jQuery('.pac-item').addClass('result-card mt-1 mb-2 px-3').removeClass('pac-item');
-          // jQuery('.pac-icon').removeClass('pac-icon-marker').removeClass('pac-icon');
-          // jQuery('.pac-item-query').removeClass('pac-item-query');
-          // jQuery('.pac-matched').removeClass('pac-matched');
-          if (data_mapbox.features != "") {
+    // Define bounding box for Ontario, Canada
+    var bbox = "-95.15623,41.67658,-74.59247,56.85024";
 
-            jQuery(".search-result").append(
-                '<h4 class="info-title">Locations</h4>',
+    fetch(
+        "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
+        query +
+        ".json?bbox=" + bbox + "&access_token=pk.eyJ1IjoiZWhzYW5iYXZhZ2hhciIsImEiOiJjbGdkeDZ2c20waHh6M2xwajlzbmhzaHFnIn0.zK6XBntMDbVlFWxY-QhPGg",
+    )
+        .then((response) => response.json())
+        .then((data_mapbox) => {
+            jQuery(".search-result").removeClass("d-block");
+            jQuery(".search-result").html("").hide();
+            jQuery(".search-icon").html(
+                '<div class="text-center"> <div class="spinner-border" role="status"></div> </div>',
             );
-            jQuery.each(data_mapbox.features.slice(0, 2), function (i, item) {
-              jQuery(".search-result").append(
-                '<div class="result-card mt-1 mb-2 px-3"><a href="#">  <i class="fa fa-map-marker"></i> ' +
-                  item.place_name +
-                  "</a></div>",
-              );
+            jQuery.ajax({
+                url: "/wp-admin/admin-ajax.php",
+                type: "post",
+                data: {
+                    action: "hlr_search",
+                    keyword: query,
+                },
+                success: function (data) {
+                    jQuery(".search-result").html(data);
+                    if (data_mapbox.features != "") {
+                        jQuery(".search-result").append(
+                            '<h4 class="info-title">Locations</h4>',
+                        );
+                        jQuery.each(data_mapbox.features.slice(0, 2), function (i, item) {
+                            jQuery(".search-result").append(
+                                '<div class="result-card mt-1 mb-2 px-3"><a href="#">  <i class="fa fa-map-marker"></i> ' +
+                                item.place_name +
+                                "</a></div>",
+                            );
+                        });
+                    }
+                    jQuery(".search-result").addClass("d-block").fadeIn(300);
+                },
             });
-          }
-          // }
-          jQuery(".search-result").addClass("d-block").fadeIn(300);
-
-          // }, 1000);
-        },
-      });
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 }
+
 
 function hlr_search_mobile() {
   var query = jQuery(".keyword-mobile").val();
