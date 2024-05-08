@@ -273,11 +273,11 @@ function hlr_search() {
     return;
   }
 
-    fetch(
-        "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
-        query +
-        ".json?bbox=" + bbox + "&access_token=pk.eyJ1IjoiZWhzYW5iYXZhZ2hhciIsImEiOiJjbGdkeDZ2c20waHh6M2xwajlzbmhzaHFnIn0.zK6XBntMDbVlFWxY-QhPGg&countries=ca",
-    )
+  fetch(
+    "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
+      query +
+      ".json?access_token=pk.eyJ1IjoiZWhzYW5iYXZhZ2hhciIsImEiOiJjbGdkeDZ2c20waHh6M2xwajlzbmhzaHFnIn0.zK6XBntMDbVlFWxY-QhPGg&countries=ca",
+  )
     .then((response) => response.json())
     .then((data_mapbox) => {
       jQuery(".search-result").removeClass("d-block");
