@@ -430,7 +430,14 @@ function hlr_search() {
                 <!-- Display search result -->
                 <div class="result-card mt-1 mb-2 px-3">
                     <a href="<?php echo esc_url(get_permalink()); ?>" class="card-result-label">
-                        <?php the_title(); ?>
+                        <?php
+                        // Display post title based on post type
+                        if ($post_type === 'properties') {
+                            echo get_the_title();
+                        } else {
+                            the_title();
+                        }
+                        ?>
                     </a>
                 </div>
 
@@ -465,6 +472,7 @@ function hlr_search() {
     // End the script
     die();
 }
+
 
 
 // Rest Api
