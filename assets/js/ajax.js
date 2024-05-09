@@ -308,6 +308,7 @@ function hlr_search() {
                 '<h4 class="info-title">Locations</h4>',
             );
             jQuery.each(data_mapbox.features.slice(0, 2), function (i, item) {
+              console.log(item);
               jQuery(".search-result").append(
                 '<div class="result-card mt-1 mb-2 px-3"><a href="#">  <i class="fa fa-map-marker"></i> ' +
                   item.place_name +
