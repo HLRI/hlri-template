@@ -392,42 +392,64 @@ function ajax_forgot_password()
 
 add_action('wp_ajax_hlr_search', 'hlr_search');
 add_action('wp_ajax_nopriv_hlr_search', 'hlr_search');
-function hlr_search()
-{
-    $the_query = new WP_Query(array('posts_per_page' => -1, 's' => esc_attr($_POST['keyword']), 'post_type' => array('post', 'properties')));
-    if ($the_query->have_posts()) :
-        $i = 0;
-        $j = 0;
-        while ($the_query->have_posts()) : $the_query->the_post(); ?>
+function hlr_search() {
+    // Ensure the keyword is provided and sanitize it
+    $keyword = isset($_POST['keyword']) ? sanitize_text_field($_POST['keyword']) : '';
 
-            <?php if (get_post_type() == 'properties') : ?>
-                <?php if ($j == 0) : ?>
-                    <h4 class="info-title">Properties</h4>
-                <?php endif; ?>
+    // Initialize counters
+    $properties_count = $posts_count = 0;
+
+    // Perform the query
+    $the_query = new WP_Query(array(
+        'posts_per_page' => -1,
+        's' => $keyword,
+        'post_type' => array('post', 'properties')
+    ));
+
+    // Check if there are any results
+    if ($the_query->have_posts()) :
+        ?>
+        <!-- Results container -->
+        <div class="search-results">
+
+            <?php
+            // Loop through the results
+            while ($the_query->have_posts()) : $the_query->the_post();
+
+                // Determine post type
+                $post_type = get_post_type();
+
+                // Increment counter based on post type
+                if ($post_type === 'properties') {
+                    $properties_count++;
+                } elseif ($post_type === 'post') {
+                    $posts_count++;
+                }
+                ?>
+
+                <!-- Display search result -->
                 <div class="result-card mt-1 mb-2 px-3">
-                    <a href="<?php echo esc_url(post_permalink()); ?>" class="card-result-label">
+                    <a href="<?php echo esc_url(get_permalink()); ?>" class="card-result-label">
                         <?php the_title(); ?>
                     </a>
                 </div>
-                <?php $j++ ?>
+
+            <?php endwhile; ?>
+
+            <!-- Display section titles -->
+            <?php if ($properties_count > 0) : ?>
+                <h4 class="info-title">Properties</h4>
+            <?php endif; ?>
+            <?php if ($posts_count > 0) : ?>
+                <h4 class="info-title">Posts</h4>
             <?php endif; ?>
 
-            <?php if (get_post_type() == 'post') : ?>
-                <?php if ($i == 0) : ?>
-                    <h4 class="info-title">Posts</h4>
-                <?php endif; ?>
-                <div class="result-card mt-1 mb-2 px-3">
-                    <a href="<?php echo esc_url(post_permalink()); ?>" class="card-result-label">
-                        <?php the_title(); ?>
-                    </a>
-                </div>
-                <?php $i++ ?>    
-            <?php endif; ?>      
+        </div> <!-- .search-results -->
 
-        <?php endwhile;
-        wp_reset_postdata();
+    <?php
     else :
         ?>
+        <!-- No results message -->
         <h4 class="info-title">No results</h4>
         <div class="result-card mt-1 mb-2 py-1 px-3">
             <a class="card-result-label" style="text-align: center;">
@@ -437,6 +459,10 @@ function hlr_search()
     <?php
     endif;
 
+    // Reset post data
+    wp_reset_postdata();
+
+    // End the script
     die();
 }
 
