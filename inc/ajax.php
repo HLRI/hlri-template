@@ -396,9 +396,6 @@ function hlr_search() {
     // Ensure the keyword is provided and sanitize it
     $keyword = isset($_POST['keyword']) ? sanitize_text_field($_POST['keyword']) : '';
 
-    // Initialize counters
-    $properties_count = $posts_count = 0;
-
     // Perform the query
     $the_query = new WP_Query(array(
         'posts_per_page' => -1,
@@ -406,57 +403,62 @@ function hlr_search() {
         'post_type' => array('post', 'properties')
     ));
 
+    // Initialize arrays to hold results for each category
+    $properties_results = array();
+    $posts_results = array();
+
     // Check if there are any results
     if ($the_query->have_posts()) :
+        // Loop through the results
+        while ($the_query->have_posts()) : $the_query->the_post();
+
+            // Determine post type
+            $post_type = get_post_type();
+
+            // Add the post to the appropriate category array
+            if ($post_type === 'properties') {
+                $properties_results[] = get_the_title();
+            } elseif ($post_type === 'post') {
+                $posts_results[] = get_the_title();
+            }
+
+        endwhile;
+
+        // Display search results for each category
         ?>
         <!-- Results container -->
         <div class="search-results">
 
-            <?php
-            // Loop through the results
-            while ($the_query->have_posts()) : $the_query->the_post();
-
-                // Determine post type
-                $post_type = get_post_type();
-
-                // Increment counter based on post type
-                if ($post_type === 'properties') {
-                    $properties_count++;
-                } elseif ($post_type === 'post') {
-                    $posts_count++;
-                }
-                ?>
-
-                <!-- Display search result -->
-                <div class="result-card mt-1 mb-2 px-3">
-                    <a href="<?php echo esc_url(get_permalink()); ?>" class="card-result-label">
-                        <?php
-                        // Display post title based on post type
-                        if ($post_type === 'properties') {
-                            echo get_the_title();
-                        } else {
-                            the_title();
-                        }
-                        ?>
-                    </a>
-                </div>
-
-            <?php endwhile; ?>
-
-            <!-- Display section titles -->
-            <?php if ($properties_count > 0) : ?>
+            <?php if (!empty($properties_results)) : ?>
+                <!-- Properties section -->
                 <h4 class="info-title">Properties</h4>
+                <?php foreach ($properties_results as $property_title) : ?>
+                    <div class="result-card mt-1 mb-2 px-3">
+                        <a href="<?php echo esc_url(get_permalink()); ?>" class="card-result-label">
+                            <?php echo esc_html($property_title); ?>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             <?php endif; ?>
-            <?php if ($posts_count > 0) : ?>
+
+            <?php if (!empty($posts_results)) : ?>
+                <!-- Posts section -->
                 <h4 class="info-title">Posts</h4>
+                <?php foreach ($posts_results as $post_title) : ?>
+                    <div class="result-card mt-1 mb-2 px-3">
+                        <a href="<?php echo esc_url(get_permalink()); ?>" class="card-result-label">
+                            <?php echo esc_html($post_title); ?>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             <?php endif; ?>
 
         </div> <!-- .search-results -->
 
     <?php
     else :
+        // No results message
         ?>
-        <!-- No results message -->
         <h4 class="info-title">No results</h4>
         <div class="result-card mt-1 mb-2 py-1 px-3">
             <a class="card-result-label" style="text-align: center;">
@@ -472,7 +474,6 @@ function hlr_search() {
     // End the script
     die();
 }
-
 
 
 // Rest Api
