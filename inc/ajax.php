@@ -423,8 +423,10 @@ function hlr_search() {
             );
             // Remove the regular search keyword if taxonomy filtering is applied
             unset($query_args['s']);
+            // Get the term object
+            $term_object = get_term($term['term_id'], $taxonomy);
             // Get the archive link for the term
-            $archive_link = get_term_link($term['term_id'], $taxonomy);
+            $archive_link = get_term_link($term_object);
             // Break out of the loop since we found a matching term
             break;
         }
@@ -452,7 +454,7 @@ function hlr_search() {
         $search_result_title = 'Properties';
         if (isset($archive_link)) {
             if ($taxonomy === 'city' || $taxonomy === 'neighborhood' || $taxonomy === 'group' || $taxonomy === 'developer') {
-                $search_result_title = 'Properties in ' . get_term($term['term_id'], $taxonomy)->name;
+                $search_result_title = 'Properties in ' . $term_object->name;
             }
         }
         ?>
