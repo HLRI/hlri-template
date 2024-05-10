@@ -396,12 +396,31 @@ function hlr_search() {
     // Ensure the keyword is provided and sanitize it
     $keyword = isset($_POST['keyword']) ? sanitize_text_field($_POST['keyword']) : '';
 
-    // Perform the query
-    $the_query = new WP_Query(array(
+    // Initialize the query arguments for properties
+    $query_args = array(
         'posts_per_page' => -1,
-        's' => $keyword,
-        'post_type' => array('post', 'properties')
-    ));
+        'post_type' => 'properties'
+    );
+
+    // Check if the keyword matches any term in the "city" taxonomy
+    $city = term_exists($keyword, 'city');
+
+    // If the keyword matches a city term, filter properties by that city
+    if ($city !== 0 && $city !== null) {
+        $query_args['tax_query'] = array(
+            array(
+                'taxonomy' => 'city',
+                'field' => 'term_id',
+                'terms' => $city['term_id'],
+            ),
+        );
+    } else {
+        // Perform a regular search for properties without city filtering
+        $query_args['s'] = $keyword;
+    }
+
+    // Perform the query
+    $the_query = new WP_Query($query_args);
 
     // Initialize arrays to hold results for each category
     $properties_results = array();
@@ -411,56 +430,27 @@ function hlr_search() {
     if ($the_query->have_posts()) :
         // Loop through the results
         while ($the_query->have_posts()) : $the_query->the_post();
-
-            // Determine post type
-            $post_type = get_post_type();
-
             // Add the post to the appropriate category array
-            if ($post_type === 'properties') {
-                $properties_results[] = array(
-                    'title' => get_the_title(),
-                    'permalink' => get_post_permalink() // Corrected permalink for properties
-                );
-            } elseif ($post_type === 'post') {
-                $posts_results[] = array(
-                    'title' => get_the_title(),
-                    'permalink' => get_permalink() // Permalink for posts
-                );
-            }
-
+            $properties_results[] = array(
+                'title' => get_the_title(),
+                'permalink' => get_permalink() // Permalink for properties
+            );
         endwhile;
 
-        // Display search results for each category
+        // Display search results for properties
         ?>
         <!-- Results container -->
         <div class="search-results">
-
-            <?php if (!empty($properties_results)) : ?>
-                <!-- Properties section -->
-                <h4 class="info-title">Properties</h4>
-                <?php foreach ($properties_results as $property) : ?>
-                    <div class="result-card mt-1 mb-2 px-3">
-                        <a href="<?php echo esc_url($property['permalink']); ?>" class="card-result-label">
-                            <?php echo esc_html($property['title']); ?>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-
-            <?php if (!empty($posts_results)) : ?>
-                <!-- Posts section -->
-                <h4 class="info-title">Posts</h4>
-                <?php foreach ($posts_results as $post) : ?>
-                    <div class="result-card mt-1 mb-2 px-3">
-                        <a href="<?php echo esc_url($post['permalink']); ?>" class="card-result-label">
-                            <?php echo esc_html($post['title']); ?>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-
+            <!-- Properties section -->
+            <h4 class="info-title">Properties</h4>
+            <?php foreach ($properties_results as $property) : ?>
+                <div class="result-card mt-1 mb-2 px-3">
+                    <a href="<?php echo esc_url($property['permalink']); ?>" class="card-result-label">
+                        <?php echo esc_html($property['title']); ?>
+                    </a>
+                </div>
+            <?php endforeach; ?>
         </div> <!-- .search-results -->
-
     <?php
     else :
         // No results message
@@ -480,6 +470,7 @@ function hlr_search() {
     // End the script
     die();
 }
+
 
 
 
