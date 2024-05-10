@@ -446,18 +446,23 @@ function hlr_search() {
             );
         endwhile;
 
-        // Determine the search result title based on the taxonomy and term name
+        // Determine the search result title and archive link based on the taxonomy and term name
         $search_result_title = 'Properties';
+        $archive_link = ''; // Initialize archive link
         if ($term && isset($term['term_id'])) {
             $term_name = get_term($term['term_id'])->name;
             if ($taxonomy === 'city') {
                 $search_result_title = 'Properties in ' . $term_name;
+                $archive_link = get_term_link($term['term_id'], $taxonomy);
             } elseif ($taxonomy === 'neighborhood') {
                 $search_result_title = 'Properties in ' . $term_name;
+                $archive_link = get_term_link($term['term_id'], $taxonomy);
             } elseif ($taxonomy === 'group') {
                 $search_result_title = 'Properties in ' . $term_name . ' Group';
+                $archive_link = get_term_link($term['term_id'], $taxonomy);
             } elseif ($taxonomy === 'developer') {
                 $search_result_title = 'Properties Built by ' . $term_name;
+                $archive_link = get_term_link($term['term_id'], $taxonomy);
             }
         }
         ?>
@@ -465,7 +470,15 @@ function hlr_search() {
         <!-- Results container -->
         <div class="search-results">
             <!-- Properties section with customized title -->
-            <h4 class="info-title"><?php echo esc_html($search_result_title); ?></h4>
+            <h4 class="info-title">
+                <?php if (!empty($archive_link)) : ?>
+                    <a href="<?php echo esc_url($archive_link); ?>">
+                        <?php echo esc_html($search_result_title); ?>
+                    </a>
+                <?php else : ?>
+                    <?php echo esc_html($search_result_title); ?>
+                <?php endif; ?>
+            </h4>
             <?php foreach ($properties_results as $property) : ?>
                 <div class="result-card mt-1 mb-2 px-3">
                     <a href="<?php echo esc_url($property['permalink']); ?>" class="card-result-label">
