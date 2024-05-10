@@ -423,6 +423,8 @@ function hlr_search() {
             );
             // Remove the regular search keyword if taxonomy filtering is applied
             unset($query_args['s']);
+            // Get the archive link for the term
+            $archive_link = get_term_link($term['term_id'], $taxonomy);
             // Break out of the loop since we found a matching term
             break;
         }
@@ -448,21 +450,9 @@ function hlr_search() {
 
         // Determine the search result title and archive link based on the taxonomy and term name
         $search_result_title = 'Properties';
-        $archive_link = ''; // Initialize archive link
-        if ($term && isset($term['term_id'])) {
-            $term_name = get_term($term['term_id'])->name;
-            if ($taxonomy === 'city') {
-                $search_result_title = 'Properties in ' . $term_name;
-                $archive_link = get_term_link($term['term_id'], $taxonomy);
-            } elseif ($taxonomy === 'neighborhood') {
-                $search_result_title = 'Properties in ' . $term_name;
-                $archive_link = get_term_link($term['term_id'], $taxonomy);
-            } elseif ($taxonomy === 'group') {
-                $search_result_title = 'Properties in ' . $term_name . ' Group';
-                $archive_link = get_post_type_archive_link('properties') . '?group=' . $term_name;
-            } elseif ($taxonomy === 'developer') {
-                $search_result_title = 'Properties Built by ' . $term_name;
-                $archive_link = get_post_type_archive_link('properties') . '?developer=' . $term_name;
+        if (isset($archive_link)) {
+            if ($taxonomy === 'city' || $taxonomy === 'neighborhood' || $taxonomy === 'group' || $taxonomy === 'developer') {
+                $search_result_title = 'Properties in ' . get_term($term['term_id'], $taxonomy)->name;
             }
         }
         ?>
@@ -471,7 +461,7 @@ function hlr_search() {
         <div class="search-results">
             <!-- Properties section with customized title -->
             <h4 class="info-title">
-                <?php if (!empty($archive_link)) : ?>
+                <?php if (isset($archive_link)) : ?>
                     <a href="<?php echo esc_url($archive_link); ?>">
                         <?php echo esc_html($search_result_title); ?>
                     </a>
