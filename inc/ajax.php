@@ -405,30 +405,25 @@ function hlr_search() {
         'post_type' => 'properties'
     );
 
-    // Perform a regular search for properties without city filtering
+    // Perform a regular search for properties without any taxonomy filtering
     $query_args['s'] = $keyword;
 
-    // Check if the keyword matches any term in the "city" taxonomy
-    $cities = get_terms(array(
-        'taxonomy' => 'city',
-        'hide_empty' => false,
-    ));
-
-    foreach ($cities as $city) {
-        // Convert the city name to lowercase
-        $city_name_lower = strtolower($city->name);
-
-        // If the lowercase city name matches the lowercase search keyword, filter properties by that city
-        if ($city_name_lower === $keyword_lower) {
+    // Check if the keyword matches any term in the "city", "neighborhood", "group", or "developer" taxonomies
+    $taxonomies = array('city', 'neighborhood', 'group', 'developer');
+    foreach ($taxonomies as $taxonomy) {
+        $term = term_exists($keyword, $taxonomy);
+        if ($term !== 0 && $term !== null) {
+            // If the keyword matches a term, filter properties by that term
             $query_args['tax_query'] = array(
                 array(
-                    'taxonomy' => 'city',
+                    'taxonomy' => $taxonomy,
                     'field' => 'term_id',
-                    'terms' => $city->term_id,
+                    'terms' => $term['term_id'],
                 ),
             );
-            // Remove the regular search keyword if city filtering is applied
+            // Remove the regular search keyword if taxonomy filtering is applied
             unset($query_args['s']);
+            // Break out of the loop since we found a matching term
             break;
         }
     }
@@ -451,12 +446,26 @@ function hlr_search() {
             );
         endwhile;
 
-        // Display search results for properties
+        // Determine the search result title based on the taxonomy and term name
+        $search_result_title = 'Properties';
+        if ($term && isset($term['term_id'])) {
+            $term_name = get_term($term['term_id'])->name;
+            if ($taxonomy === 'city') {
+                $search_result_title = 'Properties in ' . $term_name;
+            } elseif ($taxonomy === 'neighborhood') {
+                $search_result_title = 'Properties in ' . $term_name;
+            } elseif ($taxonomy === 'group') {
+                $search_result_title = 'Properties in ' . $term_name . ' Group';
+            } elseif ($taxonomy === 'developer') {
+                $search_result_title = 'Properties Built by ' . $term_name;
+            }
+        }
         ?>
+
         <!-- Results container -->
         <div class="search-results">
-            <!-- Properties section -->
-            <h4 class="info-title">Properties</h4>
+            <!-- Properties section with customized title -->
+            <h4 class="info-title"><?php echo esc_html($search_result_title); ?></h4>
             <?php foreach ($properties_results as $property) : ?>
                 <div class="result-card mt-1 mb-2 px-3">
                     <a href="<?php echo esc_url($property['permalink']); ?>" class="card-result-label">
@@ -465,6 +474,7 @@ function hlr_search() {
                 </div>
             <?php endforeach; ?>
         </div> <!-- .search-results -->
+
     <?php
     else :
         // No results message
