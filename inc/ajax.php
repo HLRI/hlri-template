@@ -417,9 +417,15 @@ function hlr_search() {
 
             // Add the post to the appropriate category array
             if ($post_type === 'properties') {
-                $properties_results[] = get_the_title();
+                $properties_results[] = array(
+                    'title' => get_the_title(),
+                    'permalink' => get_post_permalink() // Corrected permalink for properties
+                );
             } elseif ($post_type === 'post') {
-                $posts_results[] = get_the_title();
+                $posts_results[] = array(
+                    'title' => get_the_title(),
+                    'permalink' => get_permalink() // Permalink for posts
+                );
             }
 
         endwhile;
@@ -432,10 +438,10 @@ function hlr_search() {
             <?php if (!empty($properties_results)) : ?>
                 <!-- Properties section -->
                 <h4 class="info-title">Properties</h4>
-                <?php foreach ($properties_results as $property_title) : ?>
+                <?php foreach ($properties_results as $property) : ?>
                     <div class="result-card mt-1 mb-2 px-3">
-                        <a href="<?php echo esc_url(get_permalink()); ?>" class="card-result-label">
-                            <?php echo esc_html($property_title); ?>
+                        <a href="<?php echo esc_url($property['permalink']); ?>" class="card-result-label">
+                            <?php echo esc_html($property['title']); ?>
                         </a>
                     </div>
                 <?php endforeach; ?>
@@ -444,10 +450,10 @@ function hlr_search() {
             <?php if (!empty($posts_results)) : ?>
                 <!-- Posts section -->
                 <h4 class="info-title">Posts</h4>
-                <?php foreach ($posts_results as $post_title) : ?>
+                <?php foreach ($posts_results as $post) : ?>
                     <div class="result-card mt-1 mb-2 px-3">
-                        <a href="<?php echo esc_url(get_permalink()); ?>" class="card-result-label">
-                            <?php echo esc_html($post_title); ?>
+                        <a href="<?php echo esc_url($post['permalink']); ?>" class="card-result-label">
+                            <?php echo esc_html($post['title']); ?>
                         </a>
                     </div>
                 <?php endforeach; ?>
@@ -474,6 +480,7 @@ function hlr_search() {
     // End the script
     die();
 }
+
 
 
 // Rest Api
