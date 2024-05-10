@@ -396,27 +396,41 @@ function hlr_search() {
     // Ensure the keyword is provided and sanitize it
     $keyword = isset($_POST['keyword']) ? sanitize_text_field($_POST['keyword']) : '';
 
+    // Convert the search keyword to lowercase
+    $keyword_lower = strtolower($keyword);
+
     // Initialize the query arguments for properties
     $query_args = array(
         'posts_per_page' => -1,
         'post_type' => 'properties'
     );
 
-    // Check if the keyword matches any term in the "city" taxonomy
-    $city = term_exists($keyword, 'city');
+    // Perform a regular search for properties without city filtering
+    $query_args['s'] = $keyword;
 
-    // If the keyword matches a city term, filter properties by that city
-    if ($city !== 0 && $city !== null) {
-        $query_args['tax_query'] = array(
-            array(
-                'taxonomy' => 'city',
-                'field' => 'term_id',
-                'terms' => $city['term_id'],
-            ),
-        );
-    } else {
-        // Perform a regular search for properties without city filtering
-        $query_args['s'] = $keyword;
+    // Check if the keyword matches any term in the "city" taxonomy
+    $cities = get_terms(array(
+        'taxonomy' => 'city',
+        'hide_empty' => false,
+    ));
+
+    foreach ($cities as $city) {
+        // Convert the city name to lowercase
+        $city_name_lower = strtolower($city->name);
+
+        // If the lowercase city name matches the lowercase search keyword, filter properties by that city
+        if ($city_name_lower === $keyword_lower) {
+            $query_args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'city',
+                    'field' => 'term_id',
+                    'terms' => $city->term_id,
+                ),
+            );
+            // Remove the regular search keyword if city filtering is applied
+            unset($query_args['s']);
+            break;
+        }
     }
 
     // Perform the query
