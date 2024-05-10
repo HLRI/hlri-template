@@ -459,10 +459,10 @@ function hlr_search() {
                 $archive_link = get_term_link($term['term_id'], $taxonomy);
             } elseif ($taxonomy === 'group') {
                 $search_result_title = 'Properties in ' . $term_name . ' Group';
-                $archive_link = get_term_link($term['term_id'], $taxonomy);
+                $archive_link = get_post_type_archive_link('properties') . '?group=' . $term_name;
             } elseif ($taxonomy === 'developer') {
                 $search_result_title = 'Properties Built by ' . $term_name;
-                $archive_link = get_term_link($term['term_id'], $taxonomy);
+                $archive_link = get_post_type_archive_link('properties') . '?developer=' . $term_name;
             }
         }
         ?>
