@@ -430,11 +430,7 @@ function hlr_search() {
                 // Get the archive link for the term
                 $archive_link = get_term_link($term_object);
                 // Determine the search result title and archive link based on the taxonomy and term name
-                if ($taxonomy === 'group') {
-                    $search_result_title = 'Properties in Group: ' . $term_object->name;
-                } else {
-                    $search_result_title = 'Properties in ' . $term_object->name;
-                }
+                $search_result_title = 'Properties in ' . $term_object->name;
                 break; // Break out of the loop since we found a matching term
             }
         }
