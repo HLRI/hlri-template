@@ -1434,6 +1434,16 @@ if (class_exists('CSF')) {
 		'taxonomy'  => 'neighborhood',
 		'data_type' => 'serialize'
 	));
+    CSF::createTaxonomyOptions('group_options', array(
+        'taxonomy' => 'group', // Taxonomy slug
+        'fields'   => array(
+            array(
+                'id'    => 'alternative_keywords',
+                'type'  => 'text',
+                'title' => 'Alternative Keywords',
+            ),
+        ),
+    ));
 
 	CSF::createSection($prefix, array(
 		'fields' => array(
