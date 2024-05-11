@@ -270,3 +270,7 @@ function save_reviews_rating_meta_box($post_id) {
 }
 add_action('save_post', 'save_reviews_rating_meta_box');
 
+
+
+
+
