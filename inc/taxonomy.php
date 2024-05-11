@@ -188,7 +188,7 @@ function edit_group_alternative_keywords_field($term) {
     </tr>
     <?php
 }
-add_action('group' . '_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
+add_action('developer' . '_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
 
 
 // Save custom field value for alternative keywords
@@ -198,8 +198,8 @@ function save_group_alternative_keywords_field($term_id) {
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
-add_action('edited_' . $taxonomy, 'save_group_alternative_keywords_field', 10, 1);
-add_action('created_' . $taxonomy, 'save_group_alternative_keywords_field', 10, 1);
+add_action('edited_' . 'developer', 'save_group_alternative_keywords_field', 10, 1);
+add_action('created_' . 'developer', 'save_group_alternative_keywords_field', 10, 1);
 
 
 function developer ()
