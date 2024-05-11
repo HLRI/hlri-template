@@ -175,6 +175,7 @@ CSF::createTaxonomyOptions('group_options', array(
     ),
 ));
 
+
 function developer ()
 {
   register_taxonomy('developer', 'properties', array(
