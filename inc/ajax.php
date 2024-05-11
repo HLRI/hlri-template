@@ -499,18 +499,9 @@ function hlr_search() {
 // Test the function by accessing a custom URL
 add_action('init', 'test_get_developers_with_alternative_keywords');
 function test_get_developers_with_alternative_keywords() {
-    // Check if the custom URL is accessed
     if (isset($_GET['test_get_developers'])) {
-        // Get alternative keywords for developer term with known ID (replace 591 with the actual term ID)
-        $term_id = 592; // Example term ID, replace with the actual term ID
-        $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
-
-        // Output the retrieved alternative keywords
-        echo '<pre>';
+        $alternative_keywords = get_term_meta(592, 'alternative_keywords', true);
         print_r($alternative_keywords);
-        echo '</pre>';
-        get_developers_with_alternative_keywords();
-        // End the script
         die();
     }
 }
