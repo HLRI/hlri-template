@@ -525,9 +525,9 @@ add_action('init', 'test_get_developers_with_alternative_keywords');
 function test_get_developers_with_alternative_keywords() {
     // Check if the custom URL is accessed
     if (isset($_GET['test_get_developers'])) {
-        // Get alternative keywords for developer with known ID (replace 591 with the actual post ID)
-        $developer_id = 591; // Example ID, replace with the actual post ID
-        $alternative_keywords = get_post_meta($developer_id, 'alternative_keywords', true);
+        // Get alternative keywords for developer term with known ID (replace 591 with the actual term ID)
+        $term_id = 591; // Example term ID, replace with the actual term ID
+        $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
 
         // Output the retrieved alternative keywords
         echo '<pre>';
