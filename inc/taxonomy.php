@@ -164,8 +164,6 @@ function group ()
 }
 add_action('init', 'group', 0);
 
-
-// Add the field to the term edit screen
 // Add custom field for alternative keywords to taxonomy term edit page
 function add_group_alternative_keywords_field($taxonomy) {
     ?>
@@ -175,7 +173,7 @@ function add_group_alternative_keywords_field($taxonomy) {
     </div>
     <?php
 }
-add_action($taxonomy . '_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
+add_action('developer' . '_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
 
 
 // Edit custom field for alternative keywords on taxonomy term edit page
