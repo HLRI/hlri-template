@@ -456,9 +456,9 @@ function hlr_search() {
             );
         endwhile;
 
+        // Results container
+        ob_start();
         ?>
-
-        <!-- Results container -->
         <div class="search-results">
             <!-- Properties section with customized title -->
             <h4 class="info-title">
@@ -478,22 +478,26 @@ function hlr_search() {
                 </div>
             <?php endforeach; ?>
         </div> <!-- .search-results -->
-
-    <?php
+        <?php
+        // Get the results container content
+        $search_results_content = ob_get_clean();
     else :
         // No results message
-        ?>
-        <h4 class="info-title">No results</h4>
-        <div class="result-card mt-1 mb-2 py-1 px-3">
-            <a class="card-result-label" style="text-align: center;">
-                No results found for Properties and Posts!
-            </a>
-        </div>
-    <?php
+        $search_results_content = '
+            <h4 class="info-title">No results</h4>
+            <div class="result-card mt-1 mb-2 py-1 px-3">
+                <a class="card-result-label" style="text-align: center;">
+                    No results found for Properties and Posts!
+                </a>
+            </div>
+        ';
     endif;
 
     // Reset post data
     wp_reset_postdata();
+
+    // Output the results container content
+    echo $search_results_content;
 
     // End the script
     die();
