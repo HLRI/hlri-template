@@ -275,12 +275,12 @@ add_action('city_add_form_fields', 'add_city_custom_field', 10, 2);
 
 function edit_city_custom_field($term) {
     $term_id = $term->term_id;
-    $term_meta = get_option("taxonomy_$term_id");
+    $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
     ?>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="term_meta[alternative_keywords]"><?php _e('Alternative Keywords', 'text_domain'); ?></label></th>
         <td>
-            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo isset($term_meta['alternative_keywords']) ? esc_attr($term_meta['alternative_keywords']) : ''; ?></textarea>
+            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo esc_textarea($alternative_keywords); ?></textarea>
             <p class="description"><?php _e('Enter alternative keywords separated by commas', 'text_domain'); ?></p>
         </td>
     </tr>
@@ -288,58 +288,15 @@ function edit_city_custom_field($term) {
 }
 add_action('city_edit_form_fields', 'edit_city_custom_field', 10, 2);
 
-// Similar functions for other taxonomies: Neighborhood, Group, and Developer
-
-
-
-
-
-
-// Save custom field when term is edited
+// Save custom field when term is edited or created
 function save_city_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta = get_option("taxonomy_$term_id");
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
+    if (isset($_POST['term_meta']['alternative_keywords'])) {
+        $alternative_keywords = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
+        update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
 add_action('edited_city', 'save_city_custom_field', 10, 2);
-
-// Save custom field when term is created
-function save_new_city_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
-    }
-}
-add_action('create_city', 'save_new_city_custom_field', 10, 2);
-
-// Similar functions for other taxonomies: Neighborhood, Group, and Developer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_action('create_city', 'save_city_custom_field', 10, 2);
 
 // Add field to Developer taxonomy
 function add_developer_custom_field() {
@@ -355,12 +312,12 @@ add_action('developer_add_form_fields', 'add_developer_custom_field', 10, 2);
 
 function edit_developer_custom_field($term) {
     $term_id = $term->term_id;
-    $term_meta = get_option("taxonomy_$term_id");
+    $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
     ?>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="term_meta[alternative_keywords]"><?php _e('Alternative Keywords', 'text_domain'); ?></label></th>
         <td>
-            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo isset($term_meta['alternative_keywords']) ? esc_attr($term_meta['alternative_keywords']) : ''; ?></textarea>
+            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo esc_textarea($alternative_keywords); ?></textarea>
             <p class="description"><?php _e('Enter alternative keywords separated by commas', 'text_domain'); ?></p>
         </td>
     </tr>
@@ -368,38 +325,15 @@ function edit_developer_custom_field($term) {
 }
 add_action('developer_edit_form_fields', 'edit_developer_custom_field', 10, 2);
 
-// Save custom field when term is edited
+// Save custom field when term is edited or created
 function save_developer_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta = get_option("taxonomy_$term_id");
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
+    if (isset($_POST['term_meta']['alternative_keywords'])) {
+        $alternative_keywords = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
+        update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
 add_action('edited_developer', 'save_developer_custom_field', 10, 2);
-
-// Save custom field when term is created
-function save_new_developer_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
-    }
-}
-add_action('create_developer', 'save_new_developer_custom_field', 10, 2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_action('create_developer', 'save_developer_custom_field', 10, 2);
 
 // Add field to Group taxonomy
 function add_group_custom_field() {
@@ -415,12 +349,12 @@ add_action('group_add_form_fields', 'add_group_custom_field', 10, 2);
 
 function edit_group_custom_field($term) {
     $term_id = $term->term_id;
-    $term_meta = get_option("taxonomy_$term_id");
+    $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
     ?>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="term_meta[alternative_keywords]"><?php _e('Alternative Keywords', 'text_domain'); ?></label></th>
         <td>
-            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo isset($term_meta['alternative_keywords']) ? esc_attr($term_meta['alternative_keywords']) : ''; ?></textarea>
+            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo esc_textarea($alternative_keywords); ?></textarea>
             <p class="description"><?php _e('Enter alternative keywords separated by commas', 'text_domain'); ?></p>
         </td>
     </tr>
@@ -428,42 +362,15 @@ function edit_group_custom_field($term) {
 }
 add_action('group_edit_form_fields', 'edit_group_custom_field', 10, 2);
 
-// Save custom field when term is edited
+// Save custom field when term is edited or created
 function save_group_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta = get_option("taxonomy_$term_id");
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
+    if (isset($_POST['term_meta']['alternative_keywords'])) {
+        $alternative_keywords = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
+        update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
 add_action('edited_group', 'save_group_custom_field', 10, 2);
-
-// Save custom field when term is created
-function save_new_group_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
-    }
-}
-add_action('create_group', 'save_new_group_custom_field', 10, 2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_action('create_group', 'save_group_custom_field', 10, 2);
 
 // Add field to Neighborhood taxonomy
 function add_neighborhood_custom_field() {
@@ -479,12 +386,12 @@ add_action('neighborhood_add_form_fields', 'add_neighborhood_custom_field', 10, 
 
 function edit_neighborhood_custom_field($term) {
     $term_id = $term->term_id;
-    $term_meta = get_option("taxonomy_$term_id");
+    $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
     ?>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="term_meta[alternative_keywords]"><?php _e('Alternative Keywords', 'text_domain'); ?></label></th>
         <td>
-            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo isset($term_meta['alternative_keywords']) ? esc_attr($term_meta['alternative_keywords']) : ''; ?></textarea>
+            <textarea name="term_meta[alternative_keywords]" id="term_meta[alternative_keywords]" rows="5" cols="40"><?php echo esc_textarea($alternative_keywords); ?></textarea>
             <p class="description"><?php _e('Enter alternative keywords separated by commas', 'text_domain'); ?></p>
         </td>
     </tr>
@@ -492,21 +399,13 @@ function edit_neighborhood_custom_field($term) {
 }
 add_action('neighborhood_edit_form_fields', 'edit_neighborhood_custom_field', 10, 2);
 
-// Save custom field when term is edited
+// Save custom field when term is edited or created
 function save_neighborhood_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta = get_option("taxonomy_$term_id");
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
+    if (isset($_POST['term_meta']['alternative_keywords'])) {
+        $alternative_keywords = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
+        update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
 add_action('edited_neighborhood', 'save_neighborhood_custom_field', 10, 2);
+add_action('create_neighborhood', 'save_neighborhood_custom_field', 10, 2);
 
-// Save custom field when term is created
-function save_new_neighborhood_custom_field($term_id) {
-    if (isset($_POST['term_meta'])) {
-        $term_meta['alternative_keywords'] = sanitize_text_field($_POST['term_meta']['alternative_keywords']);
-        update_option("taxonomy_$term_id", $term_meta);
-    }
-}
-add_action('create_neighborhood', 'save_new_neighborhood_custom_field', 10, 2);
