@@ -166,7 +166,20 @@ add_action('init', 'group', 0);
 
 
 // Add the field to the term edit screen
-function add_group_alternative_keywords_field($term) {
+// Add custom field for alternative keywords to taxonomy term edit page
+function add_group_alternative_keywords_field($taxonomy) {
+    ?>
+    <div class="form-field">
+        <label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label>
+        <textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea(get_term_meta($taxonomy->term_id, 'alternative_keywords', true)); ?></textarea>
+    </div>
+    <?php
+}
+add_action($taxonomy . '_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
+
+
+// Edit custom field for alternative keywords on taxonomy term edit page
+function edit_group_alternative_keywords_field($term) {
     $alternative_keywords = get_term_meta($term->term_id, 'alternative_keywords', true);
     ?>
     <tr class="form-field">
@@ -175,17 +188,18 @@ function add_group_alternative_keywords_field($term) {
     </tr>
     <?php
 }
-add_action('group_edit_form_fields', 'add_group_alternative_keywords_field', 10, 2);
+add_action('group' . '_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
 
 
-// Save the field value when a term is edited
+// Save custom field value for alternative keywords
 function save_group_alternative_keywords_field($term_id) {
     if (isset($_POST['term_meta_alternative_keywords'])) {
-        $alternative_keywords = sanitize_textarea_field($_POST['term_meta_alternative_keywords']);
+        $alternative_keywords = sanitize_text_field($_POST['term_meta_alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
-add_action('edited_group', 'save_group_alternative_keywords_field', 10, 2);
+add_action('edited_' . $taxonomy, 'save_group_alternative_keywords_field', 10, 1);
+add_action('created_' . $taxonomy, 'save_group_alternative_keywords_field', 10, 1);
 
 
 function developer ()
