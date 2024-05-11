@@ -438,6 +438,11 @@ function hlr_search() {
                 $archive_link = get_term_link($term_object);
                 // Determine the search result title and archive link based on the taxonomy and term name
                 $search_result_title = 'Properties in ' . $term_object->name;
+
+                // Add alternative keywords to the search result title for debugging
+                if (!empty($alternative_keywords_array)) {
+                    $search_result_title .= ' (Alternative Keywords: ' . implode(', ', $alternative_keywords_array) . ')';
+                }
                 break; // Break out of the loop since we found a matching term
             }
         }
