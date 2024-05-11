@@ -500,7 +500,7 @@ function hlr_search() {
 add_action('init', 'test_get_developers_with_alternative_keywords');
 function test_get_developers_with_alternative_keywords() {
     if (isset($_GET['test_get_developers'])) {
-        $alternative_keywords = get_term_meta(592, 'alternative_keywords', true);
+        $alternative_keywords = get_term_meta(873, 'alternative_keywords', true);
         print_r($alternative_keywords);
         die();
     }
