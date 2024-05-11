@@ -417,6 +417,7 @@ function hlr_search() {
             $term_object = get_term($term['term_id'], $taxonomy);
             $alternative_keywords = get_term_meta($term['term_id'], 'alternative_keywords', true);
             $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
+            echo !empty($alternative_keywords_array) ? $alternative_keywords_array : '';
             if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
                 $query_args['tax_query'] = array(
                     array(
