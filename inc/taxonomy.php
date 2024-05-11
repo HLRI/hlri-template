@@ -184,36 +184,32 @@ function register_taxonomy_alternative_keywords_field($taxonomy) {
     // Output debug message to the screen
     echo '<p>Registering alternative keywords field for taxonomy: ' . $taxonomy->name . '</p>';
 
+    // Get the term ID for debug purposes
+    $term_id = $taxonomy->term_id;
+    echo '<p>Term ID: ' . $term_id . '</p>';
+
+    // Get existing alternative keywords for debug purposes
+    $existing_alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
+    echo '<p>Existing Alternative Keywords: ' . $existing_alternative_keywords . '</p>';
+
     ?>
     <div class="form-field">
         <label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label>
-        <textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea(get_term_meta($taxonomy->term_id, 'alternative_keywords', true)); ?></textarea>
+        <textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea($existing_alternative_keywords); ?></textarea>
     </div>
     <?php
 }
 
-// Add alternative keywords field to existing taxonomies associated with 'properties' post type
-$taxonomies_to_add_field = array('group', 'developer', 'city', 'neighborhood');
-foreach ($taxonomies_to_add_field as $taxonomy_name) {
-    // Output debug message to the screen
-    echo '<p>Adding action hook for taxonomy: ' . $taxonomy_name . '</p>';
-    add_action($taxonomy_name . '_add_form_fields', 'register_taxonomy_alternative_keywords_field', 10, 1);
-}
-
 // Function to save alternative keywords field for specified taxonomies
 function save_taxonomy_alternative_keywords_field($term_id) {
+    // Output debug message to the screen
+    echo '<p>Saving alternative keywords field for term ID: ' . $term_id . '</p>';
+
     if (isset($_POST['term_meta_alternative_keywords'])) {
         $alternative_keywords = sanitize_text_field($_POST['term_meta_alternative_keywords']);
+        echo '<p>New Alternative Keywords: ' . $alternative_keywords . '</p>';
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
-}
-
-// Save alternative keywords field for specified taxonomies associated with 'properties' post type
-foreach ($taxonomies_to_add_field as $taxonomy_name) {
-    // Output debug message to the screen
-    echo '<p>Adding save action hook for taxonomy: ' . $taxonomy_name . '</p>';
-    add_action('edited_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
-    add_action('created_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
 }
 
 
