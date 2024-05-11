@@ -244,3 +244,61 @@ function register_communities_taxonomy()
 }
 
 add_action('init', 'register_communities_taxonomy', 0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Add custom field for alternative keywords to taxonomy term edit page
+function add_group_alternative_keywords_field($taxonomy) {
+    ?>
+    <div class="form-field">
+        <label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label>
+        <textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea(get_term_meta($taxonomy->term_id, 'alternative_keywords', true)); ?></textarea>
+    </div>
+    <?php
+}
+add_action('developer_category_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
+add_action('developer_tag_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
+
+
+// Add custom field for alternative keywords to taxonomy term edit page
+function edit_group_alternative_keywords_field($term) {
+    $alternative_keywords = get_term_meta($term->term_id, 'alternative_keywords', true);
+    ?>
+    <tr class="form-field">
+        <th scope="row"><label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label></th>
+        <td><textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea($alternative_keywords); ?></textarea></td>
+    </tr>
+    <?php
+}
+add_action('developer_category_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
+add_action('developer_tag_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
+
+
+// Save custom field value for alternative keywords
+function save_group_alternative_keywords_field($term_id) {
+    if (isset($_POST['term_meta_alternative_keywords'])) {
+        $alternative_keywords = sanitize_text_field($_POST['term_meta_alternative_keywords']);
+        update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
+    }
+}
+add_action('edited_developer_category', 'save_group_alternative_keywords_field', 10, 1);
+add_action('edited_developer_tag', 'save_group_alternative_keywords_field', 10, 1);
+add_action('created_developer_category', 'save_group_alternative_keywords_field', 10, 1);
+add_action('created_developer_tag', 'save_group_alternative_keywords_field', 10, 1);
