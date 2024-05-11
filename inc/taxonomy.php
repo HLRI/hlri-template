@@ -178,36 +178,26 @@ add_action('init', 'group', 0);
 
 
 
-// Function to register alternative keywords field for specified taxonomies
-function register_taxonomy_alternative_keywords_field($taxonomy) {
+function add_group_alternative_keywords_field($term) {
+    $alternative_keywords = get_term_meta($term->term_id, 'alternative_keywords', true);
     ?>
-    <div class="form-field">
-        <label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label>
-        <textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea(get_term_meta($taxonomy->term_id, 'alternative_keywords', true)); ?></textarea>
-    </div>
+    <tr class="form-field">
+        <th scope="row"><label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label></th>
+        <td><textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea($alternative_keywords); ?></textarea></td>
+    </tr>
     <?php
 }
+add_action('group_edit_form_fields', 'add_group_alternative_keywords_field', 10, 2);
 
-// Add alternative keywords field to specified taxonomies
-$taxonomies_to_add_field = array('group', 'developer', 'city', 'neighborhood');
-foreach ($taxonomies_to_add_field as $taxonomy_name) {
-    add_action($taxonomy_name . '_add_form_fields', 'register_taxonomy_alternative_keywords_field', 10, 1);
-}
 
-// Function to save alternative keywords field for specified taxonomies
-function save_taxonomy_alternative_keywords_field($term_id) {
+// Save the field value when a term is edited
+function save_group_alternative_keywords_field($term_id) {
     if (isset($_POST['term_meta_alternative_keywords'])) {
-        $alternative_keywords = sanitize_text_field($_POST['term_meta_alternative_keywords']);
+        $alternative_keywords = sanitize_textarea_field($_POST['term_meta_alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
-
-// Save alternative keywords field for specified taxonomies
-foreach ($taxonomies_to_add_field as $taxonomy_name) {
-    add_action('edited_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
-    add_action('created_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
-}
-
+add_action('edited_group', 'save_group_alternative_keywords_field', 10, 2);
 
 
 
