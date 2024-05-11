@@ -165,6 +165,20 @@ function group ()
 add_action('init', 'group', 0);
 
 
+add_action('init', 'register_group_taxonomy_field');
+function register_group_taxonomy_field() {
+    if (function_exists('cs_taxonomy_option')) {
+        cs_taxonomy_option('group', array(
+            'fields' => array(
+                array(
+                    'id'    => 'alternative_keywords',
+                    'type'  => 'text',
+                    'title' => 'Alternative Keywords',
+                ),
+            ),
+        ));
+    }
+}
 
 function developer ()
 {
