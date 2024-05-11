@@ -166,28 +166,16 @@ add_action('init', 'group', 0);
 
 
 // Add the field to the term edit screen
-function add_group_alternative_keywords_field() {
+function add_group_alternative_keywords_field($term) {
     $taxonomy = 'group'; // Taxonomy slug
     ?>
-    <div class="form-field">
-        <label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label>
-        <input type="text" name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" value="">
-        <p class="description"><?php esc_html_e('Enter alternative keywords separated by commas.', 'textdomain'); ?></p>
-    </div>
+    <tr class="form-field">
+        <th scope="row"><label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label></th>
+        <td><input type="text" name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" value="<?php echo esc_attr(get_term_meta($term->term_id, 'alternative_keywords', true)); ?>"></td>
+    </tr>
     <?php
 }
-add_action('group_add_form_fields', 'add_group_alternative_keywords_field', 10, 2);
 add_action('group_edit_form_fields', 'add_group_alternative_keywords_field', 10, 2);
-
-// Save the field value when a term is added or edited
-function save_group_alternative_keywords_field($term_id) {
-    if (isset($_POST['term_meta_alternative_keywords'])) {
-        $alternative_keywords = sanitize_text_field($_POST['term_meta_alternative_keywords']);
-        update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
-    }
-}
-add_action('created_group', 'save_group_alternative_keywords_field', 10, 2);
-add_action('edited_group', 'save_group_alternative_keywords_field', 10, 2);
 
 function developer ()
 {
