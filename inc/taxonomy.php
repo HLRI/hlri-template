@@ -165,6 +165,7 @@ function group ()
 add_action('init', 'group', 0);
 
 // Add custom field for alternative keywords to taxonomy term edit page
+// Add custom field for alternative keywords to taxonomy term add page
 function add_group_alternative_keywords_field($taxonomy) {
     ?>
     <div class="form-field">
@@ -173,10 +174,11 @@ function add_group_alternative_keywords_field($taxonomy) {
     </div>
     <?php
 }
-add_action('developer' . '_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
+add_action('developer_category_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
+add_action('developer_tag_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
 
 
-// Edit custom field for alternative keywords on taxonomy term edit page
+// Add custom field for alternative keywords to taxonomy term edit page
 function edit_group_alternative_keywords_field($term) {
     $alternative_keywords = get_term_meta($term->term_id, 'alternative_keywords', true);
     ?>
@@ -186,7 +188,8 @@ function edit_group_alternative_keywords_field($term) {
     </tr>
     <?php
 }
-add_action('developer' . '_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
+add_action('developer_category_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
+add_action('developer_tag_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
 
 
 // Save custom field value for alternative keywords
@@ -196,9 +199,10 @@ function save_group_alternative_keywords_field($term_id) {
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
-add_action('edited_' . 'developer', 'save_group_alternative_keywords_field', 10, 1);
-add_action('created_' . 'developer', 'save_group_alternative_keywords_field', 10, 1);
-
+add_action('edited_developer_category', 'save_group_alternative_keywords_field', 10, 1);
+add_action('edited_developer_tag', 'save_group_alternative_keywords_field', 10, 1);
+add_action('created_developer_category', 'save_group_alternative_keywords_field', 10, 1);
+add_action('created_developer_tag', 'save_group_alternative_keywords_field', 10, 1);
 
 function developer ()
 {

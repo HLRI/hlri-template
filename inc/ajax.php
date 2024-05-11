@@ -542,6 +542,10 @@ function get_developers_with_alternative_keywords() {
             $alternative_keywords = get_post_meta(get_the_ID(), 'alternative_keywords', true);
             $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
 
+            // Debugging: Print out the retrieved alternative keywords
+            error_log('Developer Name: ' . $developer_name);
+            error_log('Alternative Keywords: ' . implode(', ', $alternative_keywords_array));
+
             // Store developer name and alternative keywords in the array
             $developers_with_alternative_keywords[] = array(
                 'name' => $developer_name,
@@ -554,6 +558,7 @@ function get_developers_with_alternative_keywords() {
     // Return the array of developers with their alternative keywords
     return $developers_with_alternative_keywords;
 }
+
 
 // Test the function by accessing a custom URL
 add_action('init', 'test_get_developers_with_alternative_keywords');
@@ -572,7 +577,6 @@ function test_get_developers_with_alternative_keywords() {
         die();
     }
 }
-
 
 
 
