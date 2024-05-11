@@ -263,42 +263,71 @@ add_action('init', 'register_communities_taxonomy', 0);
 
 
 
-
-// Add custom field for alternative keywords to taxonomy term edit page
-function add_group_alternative_keywords_field($taxonomy) {
+// Function to register alternative keywords field for specified taxonomies
+function register_taxonomy_alternative_keywords_field($taxonomy) {
     ?>
     <div class="form-field">
         <label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label>
-        <textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea(get_term_meta($taxonomy->term_id, 'alternative_keywords', true)); ?></textarea>
+        <textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"></textarea>
     </div>
     <?php
 }
-add_action('developer_category_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
-add_action('developer_tag_add_form_fields', 'add_group_alternative_keywords_field', 10, 1);
 
+// Function to save alternative keywords field for specified taxonomies
+// Function to save alternative keywords field for specified taxonomies
+function save_taxonomy_alternative_keywords_field($term_id) {
+    // Output debug message to verify function execution
+    echo '<p>Saving alternative keywords field for term ID: ' . $term_id . '</p>';
 
-// Add custom field for alternative keywords to taxonomy term edit page
-function edit_group_alternative_keywords_field($term) {
-    $alternative_keywords = get_term_meta($term->term_id, 'alternative_keywords', true);
-    ?>
-    <tr class="form-field">
-        <th scope="row"><label for="term_meta_alternative_keywords"><?php esc_html_e('Alternative Keywords', 'textdomain'); ?></label></th>
-        <td><textarea name="term_meta_alternative_keywords" id="term_meta_alternative_keywords" rows="3"><?php echo esc_textarea($alternative_keywords); ?></textarea></td>
-    </tr>
-    <?php
-}
-add_action('developer_category_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
-add_action('developer_tag_edit_form_fields', 'edit_group_alternative_keywords_field', 10, 1);
-
-
-// Save custom field value for alternative keywords
-function save_group_alternative_keywords_field($term_id) {
     if (isset($_POST['term_meta_alternative_keywords'])) {
+        // Output debug message to display the submitted alternative keywords
         $alternative_keywords = sanitize_text_field($_POST['term_meta_alternative_keywords']);
+        echo '<p>Submitted Alternative Keywords: ' . $alternative_keywords . '</p>';
+
+        // Update the term meta with the submitted alternative keywords
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
+
+        // Output debug message to confirm the update
+        echo '<p>Alternative Keywords saved successfully!</p>';
     }
 }
-add_action('edited_developer_category', 'save_group_alternative_keywords_field', 10, 1);
-add_action('edited_developer_tag', 'save_group_alternative_keywords_field', 10, 1);
-add_action('created_developer_category', 'save_group_alternative_keywords_field', 10, 1);
-add_action('created_developer_tag', 'save_group_alternative_keywords_field', 10, 1);
+
+
+// Register alternative keywords field for taxonomies associated with 'properties' post type
+function register_taxonomy_alternative_keywords() {
+    $taxonomies_to_add_field = array('group', 'developer', 'city', 'neighborhood');
+
+    foreach ($taxonomies_to_add_field as $taxonomy_name) {
+        // Register alternative keywords field for each taxonomy
+        register_taxonomy($taxonomy_name, 'property', array(
+            'hierarchical' => true,
+            'labels' => array(
+                'name' => _x(ucfirst($taxonomy_name) . 's', 'taxonomy general name'),
+                'singular_name' => _x(ucfirst($taxonomy_name), 'taxonomy singular name'),
+                'search_items' =>  __('Search ' . ucfirst($taxonomy_name)),
+                'all_items' => __('All ' . ucfirst($taxonomy_name)),
+                'parent_item' => __('Parent ' . ucfirst($taxonomy_name)),
+                'parent_item_colon' => __('Parent ' . ucfirst($taxonomy_name) . ':'),
+                'edit_item' => __('Edit ' . ucfirst($taxonomy_name)),
+                'update_item' => __('Update ' . ucfirst($taxonomy_name)),
+                'add_new_item' => __('Add New ' . ucfirst($taxonomy_name)),
+                'new_item_name' => __('New ' . ucfirst($taxonomy_name) . ' Name'),
+                'menu_name' => __(ucfirst($taxonomy_name) . 's'),
+            ),
+            'rewrite' => array(
+                'slug' => $taxonomy_name,
+                'with_front' => false,
+                'hierarchical' => false
+            ),
+        ));
+
+        // Add action hooks to display and save alternative keywords field
+        add_action($taxonomy_name . '_add_form_fields', 'register_taxonomy_alternative_keywords_field', 10, 1);
+        add_action($taxonomy_name . '_edit_form_fields', 'register_taxonomy_alternative_keywords_field', 10, 1);
+        add_action('edited_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
+        add_action('created_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
+    }
+}
+
+// Hook into the init action to register taxonomies and add alternative keywords field
+add_action('init', 'register_taxonomy_alternative_keywords', 0);
