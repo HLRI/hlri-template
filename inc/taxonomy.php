@@ -188,7 +188,7 @@ function register_taxonomy_alternative_keywords_field($taxonomy) {
     <?php
 }
 
-// Add alternative keywords field to specified taxonomies
+// Add alternative keywords field to specified taxonomies associated with 'properties' post type
 $taxonomies_to_add_field = array('group', 'developer', 'city', 'neighborhood');
 foreach ($taxonomies_to_add_field as $taxonomy_name) {
     add_action($taxonomy_name . '_add_form_fields', 'register_taxonomy_alternative_keywords_field', 10, 1);
@@ -202,7 +202,7 @@ function save_taxonomy_alternative_keywords_field($term_id) {
     }
 }
 
-// Save alternative keywords field for specified taxonomies
+// Save alternative keywords field for specified taxonomies associated with 'properties' post type
 foreach ($taxonomies_to_add_field as $taxonomy_name) {
     add_action('edited_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
     add_action('created_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
