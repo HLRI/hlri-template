@@ -408,52 +408,32 @@ function hlr_search() {
     // Perform a regular search for properties without any taxonomy filtering
     $query_args['s'] = $keyword;
 
-    // Check if the keyword matches any term in the "city", "neighborhood", "group", or "developer" taxonomies
+    // Taxonomy search parameters
+    $taxonomy_query = array(
+        'relation' => 'OR', // Match any of the following conditions
+    );
+
+    // Search in taxonomies: city, neighborhood, group, developer
     $taxonomies = array('city', 'neighborhood', 'group', 'developer');
     foreach ($taxonomies as $taxonomy) {
-        $term = term_exists($keyword, $taxonomy);
-        if ($term !== 0 && $term !== null) {
-            // If the keyword matches a term or its alternative keywords, filter properties by that term
-            $term_object = get_term($term['term_id'], $taxonomy);
-
-            // Retrieve alternative keywords for the term
-            $alternative_keywords = get_term_meta($term_object->term_id, 'alternative_keywords', true);
-            $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
-
-            // Debugging: Print out matched keywords for inspection
-            error_log('Matched keyword: ' . $keyword_lower);
-            error_log('Term name: ' . strtolower($term_object->name));
-            error_log('Alternative keywords: ' . implode(', ', array_map('strtolower', $alternative_keywords_array)));
-
-            // Check if the keyword or its alternative keywords exist
-            if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
-                $tax_query = array(
-                    'taxonomy' => $taxonomy,
-                    'field' => 'term_id',
-                    'terms' => $term['term_id'],
-                );
-                if (!empty($alternative_keywords_array)) {
-                    // Include alternative keywords in the tax query
-                    $tax_query['operator'] = 'IN';
-                    $tax_query['include_children'] = false;
-                }
-                $query_args['tax_query'] = array($tax_query);
-
-                // Remove the regular search keyword if taxonomy filtering is applied
-                unset($query_args['s']);
-                // Get the archive link for the term
-                $archive_link = get_term_link($term_object);
-                // Determine the search result title and archive link based on the taxonomy and term name
-                $search_result_title = 'Properties in ' . $term_object->name;
-
-                // Add alternative keywords to the search result title for debugging
-                if (!empty($alternative_keywords_array)) {
-                    $search_result_title .= ' (Alternative Keywords: ' . implode(', ', $alternative_keywords_array) . ')';
-                }
-                break; // Break out of the loop since we found a matching term
-            }
-        }
+        $taxonomy_query[] = array(
+            'taxonomy' => $taxonomy,
+            'field'    => 'name',
+            'terms'    => $keyword, // Search by term name
+            'operator' => 'LIKE', // Partial match
+        );
+        // Add alternative keywords search
+        $taxonomy_query[] = array(
+            'taxonomy' => $taxonomy,
+            'field'    => 'meta',
+            'key'      => 'alternative_keywords',
+            'value'    => $keyword_lower, // Search by alternative keywords
+            'compare'  => 'LIKE', // Partial match
+        );
     }
+
+    // Add taxonomy search parameters to the query
+    $query_args['tax_query'] = $taxonomy_query;
 
     // Perform the query
     $the_query = new WP_Query($query_args);
@@ -478,15 +458,7 @@ function hlr_search() {
         ?>
         <div class="search-results">
             <!-- Properties section with customized title -->
-            <h4 class="info-title">
-                <?php if (isset($archive_link)) : ?>
-                    <a href="<?php echo esc_url($archive_link); ?>">
-                        <?php echo esc_html($search_result_title); ?>
-                    </a>
-                <?php else : ?>
-                    <?php echo esc_html($search_result_title); ?>
-                <?php endif; ?>
-            </h4>
+            <h4 class="info-title">Properties</h4>
             <?php foreach ($properties_results as $property) : ?>
                 <div class="result-card mt-1 mb-2 px-3">
                     <a href="<?php echo esc_url($property['permalink']); ?>" class="card-result-label">
@@ -519,6 +491,7 @@ function hlr_search() {
     // End the script
     die();
 }
+
 
 
 
