@@ -169,6 +169,8 @@ add_action('init', 'register_group_taxonomy_field');
 function register_group_taxonomy_field() {
     if (function_exists('cs_taxonomy_option')) {
         cs_taxonomy_option('group', array(
+            'taxonomy' => 'group', // Taxonomy slug
+            'post_type' => 'properties', // Specify the post type
             'fields' => array(
                 array(
                     'id'    => 'alternative_keywords',
