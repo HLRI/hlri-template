@@ -413,28 +413,26 @@ function hlr_search() {
     foreach ($taxonomies as $taxonomy) {
         $term = term_exists($keyword, $taxonomy);
         if ($term !== 0 && $term !== null) {
-            // If the keyword matches a term, filter properties by that term
-            $query_args['tax_query'] = array(
-                array(
-                    'taxonomy' => $taxonomy,
-                    'field' => 'term_id',
-                    'terms' => $term['term_id'],
-                ),
-            );
-            // Remove the regular search keyword if taxonomy filtering is applied
-            unset($query_args['s']);
-            // Get the term object
+            // If the keyword matches a term or its alternative keywords, filter properties by that term
             $term_object = get_term($term['term_id'], $taxonomy);
-            // Get the archive link for the term
-            $archive_link = get_term_link($term_object);
-            // Determine the search result title and archive link based on the taxonomy and term name
-            $search_result_title = 'Properties';
-            if (isset($archive_link)) {
-                if ($taxonomy === 'city' || $taxonomy === 'neighborhood' || $taxonomy === 'group' || $taxonomy === 'developer') {
-                    $search_result_title = 'Properties in ' . $term_object->name;
-                }
+            $alternative_keywords = get_term_meta($term['term_id'], 'alternative_keywords', true);
+            $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
+            if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
+                $query_args['tax_query'] = array(
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field' => 'term_id',
+                        'terms' => $term['term_id'],
+                    ),
+                );
+                // Remove the regular search keyword if taxonomy filtering is applied
+                unset($query_args['s']);
+                // Get the archive link for the term
+                $archive_link = get_term_link($term_object);
+                // Determine the search result title and archive link based on the taxonomy and term name
+                $search_result_title = 'Properties in ' . $term_object->name;
+                break; // Break out of the loop since we found a matching term
             }
-            break; // Break out of the loop since we found a matching term
         }
     }
 
