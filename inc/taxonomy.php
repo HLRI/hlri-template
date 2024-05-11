@@ -164,7 +164,16 @@ function group ()
 }
 add_action('init', 'group', 0);
 
-
+CSF::createTaxonomyOptions('group_options', array(
+    'taxonomy' => 'group', // Taxonomy slug
+    'fields'   => array(
+        array(
+            'id'    => 'alternative_keywords',
+            'type'  => 'text',
+            'title' => 'Alternative Keywords',
+        ),
+    ),
+));
 
 function developer ()
 {
