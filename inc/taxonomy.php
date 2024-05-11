@@ -177,6 +177,17 @@ function add_group_alternative_keywords_field($term) {
 }
 add_action('group_edit_form_fields', 'add_group_alternative_keywords_field', 10, 2);
 
+
+// Save the field value when a term is edited
+function save_group_alternative_keywords_field($term_id) {
+    if (isset($_POST['term_meta_alternative_keywords'])) {
+        $alternative_keywords = sanitize_text_field($_POST['term_meta_alternative_keywords']);
+        update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
+    }
+}
+add_action('edited_group', 'save_group_alternative_keywords_field', 10, 2);
+
+
 function developer ()
 {
   register_taxonomy('developer', 'properties', array(
