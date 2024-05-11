@@ -420,6 +420,11 @@ function hlr_search() {
             $alternative_keywords = get_term_meta($term_object->term_id, 'alternative_keywords', true);
             $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
 
+            // Debugging: Print out matched keywords for inspection
+            error_log('Matched keyword: ' . $keyword_lower);
+            error_log('Term name: ' . strtolower($term_object->name));
+            error_log('Alternative keywords: ' . implode(', ', array_map('strtolower', $alternative_keywords_array)));
+
             // Check if the keyword or its alternative keywords exist
             if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
                 $tax_query = array(
