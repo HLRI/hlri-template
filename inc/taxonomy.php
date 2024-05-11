@@ -181,8 +181,8 @@ add_action('init', 'group', 0);
 
 // Function to register alternative keywords field for specified taxonomies
 function register_taxonomy_alternative_keywords_field($taxonomy) {
-    // Debug message to ensure the function is being called
-    error_log('Registering alternative keywords field for taxonomy: ' . $taxonomy->name);
+    // Output debug message to the screen
+    echo '<p>Registering alternative keywords field for taxonomy: ' . $taxonomy->name . '</p>';
 
     ?>
     <div class="form-field">
@@ -195,8 +195,8 @@ function register_taxonomy_alternative_keywords_field($taxonomy) {
 // Add alternative keywords field to existing taxonomies associated with 'properties' post type
 $taxonomies_to_add_field = array('group', 'developer', 'city', 'neighborhood');
 foreach ($taxonomies_to_add_field as $taxonomy_name) {
-    // Debug message to ensure action hook is added
-    error_log('Adding action hook for taxonomy: ' . $taxonomy_name);
+    // Output debug message to the screen
+    echo '<p>Adding action hook for taxonomy: ' . $taxonomy_name . '</p>';
     add_action($taxonomy_name . '_add_form_fields', 'register_taxonomy_alternative_keywords_field', 10, 1);
 }
 
@@ -210,8 +210,8 @@ function save_taxonomy_alternative_keywords_field($term_id) {
 
 // Save alternative keywords field for specified taxonomies associated with 'properties' post type
 foreach ($taxonomies_to_add_field as $taxonomy_name) {
-    // Debug message to ensure action hook is added
-    error_log('Adding save action hook for taxonomy: ' . $taxonomy_name);
+    // Output debug message to the screen
+    echo '<p>Adding save action hook for taxonomy: ' . $taxonomy_name . '</p>';
     add_action('edited_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
     add_action('created_' . $taxonomy_name, 'save_taxonomy_alternative_keywords_field', 10, 1);
 }
