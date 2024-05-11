@@ -523,8 +523,6 @@ function hlr_search() {
 
 
 
-
-
 // Test the function by accessing a custom URL
 add_action('init', 'test_get_developers_with_alternative_keywords');
 function test_get_developers_with_alternative_keywords() {
@@ -583,8 +581,6 @@ function get_developers_with_alternative_keywords() {
     // Return the array of developers with their alternative keywords
     return $developers_with_alternative_keywords;
 }
-
-
 
 
 
