@@ -523,6 +523,66 @@ function hlr_search() {
 
 
 
+// Test the function by accessing a custom URL
+add_action('init', 'test_get_developers_with_alternative_keywords');
+function test_get_developers_with_alternative_keywords() {
+    // Check if the custom URL is accessed
+    if (isset($_GET['test_get_developers'])) {
+        // Get alternative keywords for developer term with known ID (replace 591 with the actual term ID)
+        $term_id = 591; // Example term ID, replace with the actual term ID
+        $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
+
+        // Output the retrieved alternative keywords
+        echo '<pre>';
+        print_r($alternative_keywords);
+        echo '</pre>';
+
+        // End the script
+        die();
+    }
+}
+
+function get_developers_with_alternative_keywords() {
+    // Initialize array to store developers and their alternative keywords
+    $developers_with_alternative_keywords = array();
+
+    // Query developers
+    $developers_query = new WP_Query(array(
+        'post_type' => 'developer',
+        'posts_per_page' => -1,
+    ));
+
+    // Check if developers are found
+    if ($developers_query->have_posts()) {
+        while ($developers_query->have_posts()) {
+            $developers_query->the_post();
+
+            // Get developer name
+            $developer_name = get_the_title();
+
+            // Get alternative keywords for the developer
+            $term_id = get_the_ID(); // Assuming the developer post ID is the term ID
+            $alternative_keywords = get_term_meta($term_id, 'alternative_keywords', true);
+            $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
+
+            // Debugging: Print out the retrieved alternative keywords
+            error_log('Developer Name: ' . $developer_name);
+            error_log('Alternative Keywords: ' . implode(', ', $alternative_keywords_array));
+
+            // Store developer name and alternative keywords in the array
+            $developers_with_alternative_keywords[] = array(
+                'name' => $developer_name,
+                'alternative_keywords' => $alternative_keywords_array,
+            );
+        }
+        wp_reset_postdata();
+    }
+
+    // Return the array of developers with their alternative keywords
+    return $developers_with_alternative_keywords;
+}
+
+
 
 // Rest Api
 add_action('rest_api_init', 'create_routes');
