@@ -415,7 +415,9 @@ function hlr_search() {
         if ($term !== 0 && $term !== null) {
             // If the keyword matches a term or its alternative keywords, filter properties by that term
             $term_object = get_term($term['term_id'], $taxonomy);
-            $alternative_keywords = get_term_meta($term['term_id'], 'alternative_keywords', true);
+
+            // Retrieve alternative keywords for the term
+            $alternative_keywords = get_term_meta($term_object->term_id, 'alternative_keywords', true);
             $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
 
             // Check if the keyword or its alternative keywords exist
