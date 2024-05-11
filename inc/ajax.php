@@ -417,15 +417,21 @@ function hlr_search() {
             $term_object = get_term($term['term_id'], $taxonomy);
             $alternative_keywords = get_term_meta($term['term_id'], 'alternative_keywords', true);
             $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
-            echo !empty($alternative_keywords_array) ? $alternative_keywords_array : '';
+
+            // Check if the keyword or its alternative keywords exist
             if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
-                $query_args['tax_query'] = array(
-                    array(
-                        'taxonomy' => $taxonomy,
-                        'field' => 'term_id',
-                        'terms' => $term['term_id'],
-                    ),
+                $tax_query = array(
+                    'taxonomy' => $taxonomy,
+                    'field' => 'term_id',
+                    'terms' => $term['term_id'],
                 );
+                if (!empty($alternative_keywords_array)) {
+                    // Include alternative keywords in the tax query
+                    $tax_query['operator'] = 'IN';
+                    $tax_query['include_children'] = false;
+                }
+                $query_args['tax_query'] = array($tax_query);
+
                 // Remove the regular search keyword if taxonomy filtering is applied
                 unset($query_args['s']);
                 // Get the archive link for the term
@@ -501,6 +507,7 @@ function hlr_search() {
     // End the script
     die();
 }
+
 
 
 
