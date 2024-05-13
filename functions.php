@@ -133,6 +133,13 @@ add_filter('wpcf7_autop_or_not', '__return_false');
 
 
 
+
+
+
+
+
+
+
 // Define a function to fetch CSV from URL and match data with property post-type
 function process_csv_from_url() {
     // URL of the CSV file
@@ -177,17 +184,6 @@ function process_csv_from_url() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // Add a custom URL endpoint to trigger CSV processing and matching
 function custom_endpoint_callback() {
     // Process CSV and match data with property post-type
@@ -209,4 +205,9 @@ add_action('parse_request', function(&$wp) {
     if (array_key_exists('custom_endpoint', $wp->query_vars)) {
         custom_endpoint_callback();
     }
+});
+
+// Flush rewrite rules on theme activation
+add_action('after_switch_theme', function() {
+    flush_rewrite_rules();
 });
