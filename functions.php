@@ -140,6 +140,14 @@ add_filter('wpcf7_autop_or_not', '__return_false');
 
 
 
+// Register a custom REST API endpoint
+add_action('rest_api_init', function() {
+    register_rest_route('custom/v1', '/process-csv', array(
+        'methods' => 'GET',
+        'callback' => 'process_csv_from_url',
+    ));
+});
+
 // Define a function to fetch CSV from URL and match data with property post-type
 function process_csv_from_url() {
     // URL of the CSV file
@@ -150,6 +158,9 @@ function process_csv_from_url() {
 
     // Parse the CSV data
     $csv_rows = explode("\n", $csv_data);
+
+    // Initialize an empty array to store results
+    $results = array();
 
     // Loop through each row of the CSV
     foreach ($csv_rows as $row) {
@@ -173,35 +184,26 @@ function process_csv_from_url() {
                 // Output matching properties
                 while ($property_query->have_posts()) {
                     $property_query->the_post();
-                    echo "ID: " . $id . ", Title: " . $title . ", Cities: " . $cities . ", Matching Property: " . get_the_title() . "<br>";
+                    $results[] = array(
+                        'id' => $id,
+                        'title' => $title,
+                        'cities' => $cities,
+                        'matching_property' => get_the_title(),
+                    );
                 }
                 wp_reset_postdata(); // Reset post data
             } else {
                 // No matching property found
-                echo "ID: " . $id . ", Title: " . $title . ", Cities: " . $cities . ", No matching property found<br>";
+                $results[] = array(
+                    'id' => $id,
+                    'title' => $title,
+                    'cities' => $cities,
+                    'matching_property' => 'No matching property found',
+                );
             }
         }
     }
+
+    // Return results
+    return $results;
 }
-
-// Add a custom URL endpoint to trigger CSV processing and matching
-function custom_endpoint_callback() {
-    // Process CSV and match data with property post-type
-    process_csv_from_url();
-
-    // Exit to prevent any further WordPress processing
-    exit;
-}
-
-// Register custom endpoint
-add_action('init', function() {
-    add_rewrite_endpoint('custom-url', EP_ROOT);
-});
-
-// Trigger custom endpoint callback
-add_action('template_redirect', function() {
-    global $wp_query;
-    if (isset($wp_query->query_vars['custom-url'])) {
-        custom_endpoint_callback();
-    }
-});
