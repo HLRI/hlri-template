@@ -130,3 +130,72 @@ add_filter('wpcf7_form_elements', function( $content ) {
 });
 
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+
+// Define a function to fetch CSV from URL and match data with property post-type
+function process_csv_from_url() {
+    // URL of the CSV file
+    $csv_url = 'URL_TO_YOUR_CSV_FILE.csv';
+
+    // Fetch the CSV file contents
+    $csv_data = file_get_contents($csv_url);
+
+    // Parse the CSV data
+    $csv_rows = explode("\n", $csv_data);
+
+    // Loop through each row of the CSV
+    foreach ($csv_rows as $row) {
+        // Split CSV row into columns
+        $columns = explode(",", $row);
+
+        // Check if CSV row has expected number of columns (adjust according to your CSV structure)
+        if (count($columns) >= 3) {
+            $id = trim($columns[0]);
+            $title = trim($columns[1]);
+            $cities = trim($columns[2]);
+
+            // Query property post-type to find matching title
+            $property_query = new WP_Query(array(
+                'post_type' => 'property',
+                'title' => $title,
+            ));
+
+            // Check if any property matches the title
+            if ($property_query->have_posts()) {
+                // Output matching properties
+                while ($property_query->have_posts()) {
+                    $property_query->the_post();
+                    echo "ID: " . $id . ", Title: " . $title . ", Cities: " . $cities . ", Matching Property: " . get_the_title() . "<br>";
+                }
+                wp_reset_postdata(); // Reset post data
+            } else {
+                // No matching property found
+                echo "ID: " . $id . ", Title: " . $title . ", Cities: " . $cities . ", No matching property found<br>";
+            }
+        }
+    }
+}
+
+// Add a custom URL endpoint to trigger CSV processing and matching
+function custom_endpoint_callback() {
+    // Process CSV and match data with property post-type
+    process_csv_from_url();
+
+    // Exit to prevent any further WordPress processing
+    exit;
+}
+add_action('init', function() {
+    add_rewrite_rule('^custom-url$', 'index.php?custom_endpoint=1', 'top');
+});
+
+add_action('query_vars', function($query_vars) {
+    $query_vars[] = 'custom_endpoint';
+    return $query_vars;
+});
+
+add_action('parse_request', function(&$wp) {
+    if (array_key_exists('custom_endpoint', $wp->query_vars)) {
+        custom_endpoint_callback();
+    }
+});
