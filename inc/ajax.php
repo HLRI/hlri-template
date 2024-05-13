@@ -461,7 +461,7 @@ function hlr_search() {
                     // Get the archive link for the term
                     $archive_link = get_term_link($term);
                     // Determine the search result title based on the taxonomy and term name
-                    $search_result_title = 'Properties in ' . $term->name . ' (Alternative Keywords: ' . implode(', ', $alternative_keywords_array) . ')';
+                    $search_result_title = 'Properties in ' . $term->name;
                     $alternative_keywords_exist = true;
 
                     break 2; // Break out of both foreach loops since we found a matching alternative keyword
