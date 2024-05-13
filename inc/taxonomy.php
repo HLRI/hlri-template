@@ -291,7 +291,7 @@ add_action('city_edit_form_fields', 'edit_city_custom_field', 10, 2);
 // Save custom field when term is edited or created
 function save_city_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = sanitize_textarea_field($_POST['term_meta']['alternative_keywords']);
+        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
@@ -328,7 +328,7 @@ add_action('developer_edit_form_fields', 'edit_developer_custom_field', 10, 2);
 // Save custom field when term is edited or created
 function save_developer_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = sanitize_textarea_field($_POST['term_meta']['alternative_keywords']);
+        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
@@ -365,7 +365,7 @@ add_action('group_edit_form_fields', 'edit_group_custom_field', 10, 2);
 // Save custom field when term is edited or created
 function save_group_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = sanitize_textarea_field($_POST['term_meta']['alternative_keywords']);
+        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
@@ -402,7 +402,7 @@ add_action('neighborhood_edit_form_fields', 'edit_neighborhood_custom_field', 10
 // Save custom field when term is edited or created
 function save_neighborhood_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = sanitize_textarea_field($_POST['term_meta']['alternative_keywords']);
+        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
