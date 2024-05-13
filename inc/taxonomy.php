@@ -291,13 +291,19 @@ add_action('city_edit_form_fields', 'edit_city_custom_field', 10, 2);
 // Save custom field when term is edited or created
 function save_city_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
+        // Custom sanitization function to allow % character
+        function custom_sanitize_keywords($input) {
+            return str_replace(array('%'), array('\%'), $input);
+        }
+
+        $alternative_keywords = custom_sanitize_keywords($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
 add_action('edited_city', 'save_city_custom_field', 10, 2);
 add_action('create_city', 'save_city_custom_field', 10, 2);
 
+// Similarly update for Developer, Group, and Neighborhood taxonomies
 // Add field to Developer taxonomy
 function add_developer_custom_field() {
     ?>
@@ -328,7 +334,12 @@ add_action('developer_edit_form_fields', 'edit_developer_custom_field', 10, 2);
 // Save custom field when term is edited or created
 function save_developer_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
+        // Custom sanitization function to allow % character
+        function custom_sanitize_keywords($input) {
+            return str_replace(array('%'), array('\%'), $input);
+        }
+
+        $alternative_keywords = custom_sanitize_keywords($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
@@ -365,7 +376,12 @@ add_action('group_edit_form_fields', 'edit_group_custom_field', 10, 2);
 // Save custom field when term is edited or created
 function save_group_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
+        // Custom sanitization function to allow % character
+        function custom_sanitize_keywords($input) {
+            return str_replace(array('%'), array('\%'), $input);
+        }
+
+        $alternative_keywords = custom_sanitize_keywords($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
@@ -402,10 +418,16 @@ add_action('neighborhood_edit_form_fields', 'edit_neighborhood_custom_field', 10
 // Save custom field when term is edited or created
 function save_neighborhood_custom_field($term_id) {
     if (isset($_POST['term_meta']['alternative_keywords'])) {
-        $alternative_keywords = wp_kses_post($_POST['term_meta']['alternative_keywords']);
+        // Custom sanitization function to allow % character
+        function custom_sanitize_keywords($input) {
+            return str_replace(array('%'), array('\%'), $input);
+        }
+
+        $alternative_keywords = custom_sanitize_keywords($_POST['term_meta']['alternative_keywords']);
         update_term_meta($term_id, 'alternative_keywords', $alternative_keywords);
     }
 }
 add_action('edited_neighborhood', 'save_neighborhood_custom_field', 10, 2);
 add_action('create_neighborhood', 'save_neighborhood_custom_field', 10, 2);
+
 
