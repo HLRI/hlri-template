@@ -412,55 +412,60 @@ function hlr_search() {
     $taxonomies = array('city', 'neighborhood', 'group', 'developer');
     $alternative_keywords_exist = false; // Flag to track if alternative keywords exist
     foreach ($taxonomies as $taxonomy) {
-        $term = term_exists($keyword, $taxonomy);
-        if ($term !== 0 && $term !== null) {
-            // If the keyword matches a term or its alternative keywords, filter properties by that term
-            $term_object = get_term($term['term_id'], $taxonomy);
-
-            // Retrieve alternative keywords for the term
-            $alternative_keywords = get_term_meta($term_object->term_id, 'alternative_keywords', true);
-            $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
-
-            // Check if the keyword matches the title of the taxonomy term or any of its alternative keywords
-            if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
-                // Construct the tax query to include the term and its alternative keywords
+        $terms = get_terms(array(
+            'taxonomy' => $taxonomy,
+            'hide_empty' => false, // Include empty terms
+        ));
+        foreach ($terms as $term) {
+            // Check if the keyword matches the title of the taxonomy term
+            if (strtolower($term->name) === $keyword_lower) {
+                // Construct the tax query to include the term
                 $tax_query = array(
                     'taxonomy' => $taxonomy,
                     'field' => 'term_id',
-                    'terms' => array($term['term_id']), // Include the main term ID by default
-                    'operator' => 'OR' // Use 'OR' to match any of the terms
+                    'terms' => array($term->term_id),
                 );
-
-                // Add alternative keywords to the tax query
-                if (!empty($alternative_keywords_array)) {
-                    foreach ($alternative_keywords_array as $alt_keyword) {
-                        $term_obj = get_term_by('name', $alt_keyword, $taxonomy);
-                        if ($term_obj) {
-                            $tax_query[] = array(
-                                'taxonomy' => $taxonomy,
-                                'field' => 'term_id',
-                                'terms' => array($term_obj->term_id),
-                            );
-                        }
-                    }
-                }
-
-                // Set the tax query in the query arguments
                 $query_args['tax_query'] = array($tax_query);
 
                 // Remove the regular search keyword if taxonomy filtering is applied
                 unset($query_args['s']);
                 // Get the archive link for the term
-                $archive_link = get_term_link($term_object);
-                // Determine the search result title and archive link based on the taxonomy and term name
-                $search_result_title = 'Properties in ' . $term_object->name;
+                $archive_link = get_term_link($term);
+                // Determine the search result title based on the taxonomy and term name
+                $search_result_title = 'Properties in ' . $term->name;
 
-                // Add alternative keywords to the search result title for debugging
-                if (!empty($alternative_keywords_array)) {
-                    $search_result_title .= ' (Alternative Keywords: ' . implode(', ', $alternative_keywords_array) . ')';
-                    $alternative_keywords_exist = true; // Set flag to true if alternative keywords exist
+                // Check if alternative keywords exist for this term
+                $alternative_keywords = get_term_meta($term->term_id, 'alternative_keywords', true);
+                if (!empty($alternative_keywords)) {
+                    $alternative_keywords_exist = true;
                 }
-                break; // Break out of the loop since we found a matching term
+
+                break 2; // Break out of both foreach loops since we found a matching term
+            }
+
+            // Check if the keyword matches any alternative keywords for the term
+            $alternative_keywords = get_term_meta($term->term_id, 'alternative_keywords', true);
+            if (!empty($alternative_keywords)) {
+                $alternative_keywords_array = explode(',', $alternative_keywords);
+                if (in_array($keyword_lower, array_map('strtolower', $alternative_keywords_array))) {
+                    // Construct the tax query to include the term
+                    $tax_query = array(
+                        'taxonomy' => $taxonomy,
+                        'field' => 'term_id',
+                        'terms' => array($term->term_id),
+                    );
+                    $query_args['tax_query'] = array($tax_query);
+
+                    // Remove the regular search keyword if taxonomy filtering is applied
+                    unset($query_args['s']);
+                    // Get the archive link for the term
+                    $archive_link = get_term_link($term);
+                    // Determine the search result title based on the taxonomy and term name
+                    $search_result_title = 'Properties in ' . $term->name . ' (Alternative Keywords: ' . implode(', ', $alternative_keywords_array) . ')';
+                    $alternative_keywords_exist = true;
+
+                    break 2; // Break out of both foreach loops since we found a matching alternative keyword
+                }
             }
         }
     }
