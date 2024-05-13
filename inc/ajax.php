@@ -618,6 +618,12 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'process_csv_from_url',
     ]);
+    add_action('rest_api_init', function() {
+        register_rest_route('custom/v1', 'getResult', [
+            'methods' => 'GET',
+            'callback' => 'process_csv_from_url',
+        ]);
+    });
     register_rest_route('mapdata/v2', 'getResult', [
         'methods' => 'GET',
         'callback' => 'my_awesome_func_two',
