@@ -410,6 +410,7 @@ function hlr_search() {
 
     // Check if the keyword matches any term in the "city", "neighborhood", "group", or "developer" taxonomies
     $taxonomies = array('city', 'neighborhood', 'group', 'developer');
+    $alternative_keywords_exist = false; // Flag to track if alternative keywords exist
     foreach ($taxonomies as $taxonomy) {
         $term = term_exists($keyword, $taxonomy);
         if ($term !== 0 && $term !== null) {
@@ -457,6 +458,7 @@ function hlr_search() {
                 // Add alternative keywords to the search result title for debugging
                 if (!empty($alternative_keywords_array)) {
                     $search_result_title .= ' (Alternative Keywords: ' . implode(', ', $alternative_keywords_array) . ')';
+                    $alternative_keywords_exist = true; // Set flag to true if alternative keywords exist
                 }
                 break; // Break out of the loop since we found a matching term
             }
@@ -493,6 +495,10 @@ function hlr_search() {
                     </a>
                 <?php else : ?>
                     <?php echo esc_html($search_result_title); ?>
+                <?php endif; ?>
+                <?php if ($alternative_keywords_exist) : ?>
+                    <!-- Add a number indicating the presence of alternative keywords -->
+                    <span style="color: #888; font-size: 0.8em;"> (with alternative keywords)</span>
                 <?php endif; ?>
             </h4>
             <?php foreach ($properties_results as $property) : ?>
