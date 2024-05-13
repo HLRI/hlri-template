@@ -393,11 +393,8 @@ function ajax_forgot_password()
 add_action('wp_ajax_hlr_search', 'hlr_search');
 add_action('wp_ajax_nopriv_hlr_search', 'hlr_search');
 function hlr_search() {
-    // Ensure the keyword is provided and sanitize it
-    $keyword = isset($_POST['keyword']) ? sanitize_text_field($_POST['keyword']) : '';
-
-    // Convert the search keyword to lowercase
-    $keyword_lower = strtolower($keyword);
+    // Keywords to check
+    $keywords_to_check = array('mashhadigholam', 'fdsfsdfds');
 
     // Initialize the query arguments for properties
     $query_args = array(
@@ -405,59 +402,25 @@ function hlr_search() {
         'post_type' => 'properties'
     );
 
-    // Perform a regular search for properties without any taxonomy filtering
-    $query_args['s'] = $keyword;
+    // Tax query for "developer" taxonomy
+    $tax_query = array(
+        'taxonomy' => 'developer',
+        'field' => 'slug',
+        'terms' => 'activa-group' // Slug of the "Activa Group" term
+    );
 
-    // Check if the keyword matches any term in the "city", "neighborhood", "group", or "developer" taxonomies
-    $taxonomies = array('city', 'neighborhood', 'group', 'developer');
-    foreach ($taxonomies as $taxonomy) {
-        $term = term_exists($keyword, $taxonomy);
-        if ($term !== 0 && $term !== null) {
-            // If the keyword matches a term or its alternative keywords, filter properties by that term
-            $term_object = get_term($term['term_id'], $taxonomy);
-
-            // Retrieve alternative keywords for the term
-            $alternative_keywords = get_term_meta($term_object->term_id, 'alternative_keywords', true);
-            $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
-
-            // Check if the keyword or its alternative keywords exist
-            if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
-                // Construct the tax query to include the term and its alternative keywords
-                $tax_query = array(
-                    'relation' => 'OR', // Match any of the terms
-                    array(
-                        'taxonomy' => $taxonomy,
-                        'field' => 'term_id',
-                        'terms' => $term['term_id'],
-                    )
-                );
-                if (!empty($alternative_keywords_array)) {
-                    // Add alternative keywords to the tax query
-                    foreach ($alternative_keywords_array as $alt_keyword) {
-                        $tax_query[] = array(
-                            'taxonomy' => $taxonomy,
-                            'field' => 'slug',
-                            'terms' => $alt_keyword,
-                        );
-                    }
-                }
-                $query_args['tax_query'] = array($tax_query);
-
-                // Remove the regular search keyword if taxonomy filtering is applied
-                unset($query_args['s']);
-                // Get the archive link for the term
-                $archive_link = get_term_link($term_object);
-                // Determine the search result title and archive link based on the taxonomy and term name
-                $search_result_title = 'Properties in ' . $term_object->name;
-
-                // Add alternative keywords to the search result title for debugging
-                if (!empty($alternative_keywords_array)) {
-                    $search_result_title .= ' (Alternative Keywords: ' . implode(', ', $alternative_keywords_array) . ')';
-                }
-                break; // Break out of the loop since we found a matching term
-            }
+    // Loop through the keywords to check
+    foreach ($keywords_to_check as $keyword) {
+        // Check if the keyword matches any of the specified keywords
+        if (strpos(strtolower($_POST['keyword']), $keyword) !== false) {
+            // Add the keyword to the tax query
+            $tax_query['terms'] = $keyword;
+            break; // Exit the loop if a match is found
         }
     }
+
+    // Add tax query to the main query arguments
+    $query_args['tax_query'] = array($tax_query);
 
     // Perform the query
     $the_query = new WP_Query($query_args);
@@ -482,15 +445,7 @@ function hlr_search() {
         ?>
         <div class="search-results">
             <!-- Properties section with customized title -->
-            <h4 class="info-title">
-                <?php if (isset($archive_link)) : ?>
-                    <a href="<?php echo esc_url($archive_link); ?>">
-                        <?php echo esc_html($search_result_title); ?>
-                    </a>
-                <?php else : ?>
-                    <?php echo esc_html($search_result_title); ?>
-                <?php endif; ?>
-            </h4>
+            <h4 class="info-title">Properties in Activa Group</h4>
             <?php foreach ($properties_results as $property) : ?>
                 <div class="result-card mt-1 mb-2 px-3">
                     <a href="<?php echo esc_url($property['permalink']); ?>" class="card-result-label">
@@ -508,7 +463,7 @@ function hlr_search() {
             <h4 class="info-title">No results</h4>
             <div class="result-card mt-1 mb-2 py-1 px-3">
                 <a class="card-result-label" style="text-align: center;">
-                    No results found for Properties and Posts!
+                    No results found for Properties in Activa Group!
                 </a>
             </div>
         ';
