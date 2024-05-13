@@ -420,22 +420,26 @@ function hlr_search() {
             $alternative_keywords = get_term_meta($term_object->term_id, 'alternative_keywords', true);
             $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
 
-            // Debugging: Print out matched keywords for inspection
-            error_log('Matched keyword: ' . $keyword_lower);
-            error_log('Term name: ' . strtolower($term_object->name));
-            error_log('Alternative keywords: ' . implode(', ', array_map('strtolower', $alternative_keywords_array)));
-
             // Check if the keyword or its alternative keywords exist
             if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
+                // Construct the tax query to include the term and its alternative keywords
                 $tax_query = array(
-                    'taxonomy' => $taxonomy,
-                    'field' => 'term_id',
-                    'terms' => $term['term_id'],
+                    'relation' => 'OR', // Match any of the terms
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field' => 'term_id',
+                        'terms' => $term['term_id'],
+                    )
                 );
                 if (!empty($alternative_keywords_array)) {
-                    // Include alternative keywords in the tax query
-                    $tax_query['operator'] = 'IN';
-                    $tax_query['include_children'] = false;
+                    // Add alternative keywords to the tax query
+                    foreach ($alternative_keywords_array as $alt_keyword) {
+                        $tax_query[] = array(
+                            'taxonomy' => $taxonomy,
+                            'field' => 'slug',
+                            'terms' => $alt_keyword,
+                        );
+                    }
                 }
                 $query_args['tax_query'] = array($tax_query);
 
@@ -519,6 +523,7 @@ function hlr_search() {
     // End the script
     die();
 }
+
 
 
 
