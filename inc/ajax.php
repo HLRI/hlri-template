@@ -426,20 +426,25 @@ function hlr_search() {
                 $tax_query = array(
                     'taxonomy' => $taxonomy,
                     'field' => 'term_id',
-                    'terms' => $term['term_id'],
+                    'terms' => array($term['term_id']), // Include the main term ID by default
+                    'operator' => 'OR' // Use 'OR' to match any of the terms
                 );
+
+                // Add alternative keywords to the tax query
                 if (!empty($alternative_keywords_array)) {
-                    // Add alternative keywords to the tax query
                     foreach ($alternative_keywords_array as $alt_keyword) {
-                        $tax_query[] = array(
-                            'taxonomy' => $taxonomy,
-                            'field' => 'name',
-                            'terms' => $alt_keyword,
-                        );
+                        $term_obj = get_term_by('name', $alt_keyword, $taxonomy);
+                        if ($term_obj) {
+                            $tax_query[] = array(
+                                'taxonomy' => $taxonomy,
+                                'field' => 'term_id',
+                                'terms' => array($term_obj->term_id),
+                            );
+                        }
                     }
-                    // Set the operator to 'OR' to match any of the terms
-                    $tax_query['operator'] = 'OR';
                 }
+
+                // Set the tax query in the query arguments
                 $query_args['tax_query'] = array($tax_query);
 
                 // Remove the regular search keyword if taxonomy filtering is applied
