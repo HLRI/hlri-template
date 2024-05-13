@@ -420,7 +420,7 @@ function hlr_search() {
             $alternative_keywords = get_term_meta($term_object->term_id, 'alternative_keywords', true);
             $alternative_keywords_array = !empty($alternative_keywords) ? explode(',', $alternative_keywords) : array();
 
-            // Check if the keyword or its alternative keywords exist
+            // Check if the keyword matches the title of the taxonomy term or any of its alternative keywords
             if (in_array($keyword_lower, array_map('strtolower', array_merge(array($term_object->name), $alternative_keywords_array)))) {
                 // Construct the tax query to include the term and its alternative keywords
                 $tax_query = array(
