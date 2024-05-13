@@ -192,22 +192,16 @@ function custom_endpoint_callback() {
     // Exit to prevent any further WordPress processing
     exit;
 }
+
+// Register custom endpoint
 add_action('init', function() {
-    add_rewrite_rule('^custom-url$', 'index.php?custom_endpoint=1', 'top');
+    add_rewrite_endpoint('custom-url', EP_ROOT);
 });
 
-add_action('query_vars', function($query_vars) {
-    $query_vars[] = 'custom_endpoint';
-    return $query_vars;
-});
-
-add_action('parse_request', function(&$wp) {
-    if (array_key_exists('custom_endpoint', $wp->query_vars)) {
+// Trigger custom endpoint callback
+add_action('template_redirect', function() {
+    global $wp_query;
+    if (isset($wp_query->query_vars['custom-url'])) {
         custom_endpoint_callback();
     }
-});
-
-// Flush rewrite rules on theme activation
-add_action('after_switch_theme', function() {
-    flush_rewrite_rules();
 });
