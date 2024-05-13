@@ -503,7 +503,7 @@ function hlr_search() {
                 <?php endif; ?>
                 <?php if ($alternative_keywords_exist) : ?>
                     <!-- Add a number indicating the presence of alternative keywords -->
-                    <span style="color: #888; font-size: 0.8em;"> (with alternative keywords)</span>
+                    <span style="color: #888; font-size: 0.8em;display:none;"> (with alternative keywords)</span>
                 <?php endif; ?>
             </h4>
             <?php foreach ($properties_results as $property) : ?>
