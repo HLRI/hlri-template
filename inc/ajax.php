@@ -634,8 +634,50 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'process_csv_from_url',
     ]);
+    register_rest_route('condoy/v4', 'getResult', [
+        'methods' => 'GET',
+        'callback' => 'get_all_property_titles_and_ids',
+    ]);
 }
 // Define a function to fetch CSV from URL and match data with property post-type
+// Function to retrieve all property titles and IDs
+function get_all_property_titles_and_ids() {
+    // Initialize an empty array to store results
+    $results = array();
+
+    // Query property post-type to retrieve all properties
+    $property_query = new WP_Query(array(
+        'post_type' => 'property',
+        'posts_per_page' => -1, // Retrieve all posts
+    ));
+
+    // Check if any properties are found
+    if ($property_query->have_posts()) {
+        // Loop through each property
+        while ($property_query->have_posts()) {
+            $property_query->the_post();
+            // Get property ID and title
+            $property_id = get_the_ID();
+            $property_title = get_the_title();
+            // Add property ID and title to results array
+            $results[] = array(
+                'id' => $property_id,
+                'title' => $property_title,
+            );
+        }
+        wp_reset_postdata(); // Reset post data
+    }
+
+    // Return results
+    return $results;
+}
+
+// Call the function to retrieve all property titles and IDs
+$properties = get_all_property_titles_and_ids();
+
+// Output the result as JSON
+echo json_encode($properties);
+
 function process_csv_from_url() {
     // URL of the CSV file
     $csv_url = 'https://condoy.com/wp-content/themes/homeleaderrealty/assets/export.csv';
