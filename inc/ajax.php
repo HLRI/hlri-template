@@ -706,37 +706,43 @@ function process_csv_from_url() {
                         'value' => $id,
                         'compare' => '=',
                     ),
-                    array(
-                        'key' => 'your_custom_meta_key_for_city', // Replace with your actual meta key for city
-                        'value' => '',
-                        'compare' => '=',
-                    ),
                 ),
             ));
 
-            // Check if any property matches the title, ID, and has an empty city
+            // Check if any property matches the title and ID
             if ($property_query->have_posts()) {
                 // Output matching properties
                 while ($property_query->have_posts()) {
                     $property_query->the_post();
                     // Get the property ID
                     $property_id = get_the_ID();
-                    // Update the city taxonomy for the matching property
-                    wp_set_object_terms($property_id, $city, 'city', true); // Replace 'city' with your actual taxonomy name
-                    $results[] = array(
-                        'id' => $id,
-                        'title' => $title,
-                        'matching_property' => get_the_title(),
-                        'city_updated' => $city, // Include the updated city
-                    );
+                    // Check if the city is not empty
+                    if (!empty($city)) {
+                        // Update the city taxonomy for the matching property
+                        wp_set_object_terms($property_id, $city, 'city', true); // Replace 'city' with your actual taxonomy name
+                        $results[] = array(
+                            'id' => $id,
+                            'title' => $title,
+                            'matching_property' => get_the_title(),
+                            'city_updated' => $city, // Include the updated city
+                        );
+                    } else {
+                        // City is empty
+                        $results[] = array(
+                            'id' => $id,
+                            'title' => $title,
+                            'matching_property' => get_the_title(),
+                            'city' => 'City is empty', // Indicate that the city is empty
+                        );
+                    }
                 }
                 wp_reset_postdata(); // Reset post data
             } else {
-                // No matching property found or city already exists
+                // No matching property found
                 $results[] = array(
                     'id' => $id,
                     'title' => $title,
-                    'matching_property' => 'No matching property found or city already exists',
+                    'matching_property' => 'No matching property found',
                 );
             }
         }
@@ -745,6 +751,7 @@ function process_csv_from_url() {
     // Return results
     return $results;
 }
+
 
 
 
