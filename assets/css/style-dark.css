@@ -3953,6 +3953,7 @@ a.item-list-tag {
   border: 2px dashed #ccc;
   padding: 10px 9px;
   border-radius: 7px;
+  list-style:none;
 }
 .characteristics-cnt ul li i {
   font-size: 30px;
