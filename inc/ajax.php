@@ -693,7 +693,6 @@ function process_csv_from_url() {
         if (count($columns) >= 3) {
             $id = trim($columns[0]);
             $title = trim($columns[1]);
-            $cities = trim($columns[2]);
 
             // Query property post-type to find matching title
             $property_query = new WP_Query(array(
@@ -709,7 +708,6 @@ function process_csv_from_url() {
                     $results[] = array(
                         'id' => $id,
                         'title' => $title,
-                        'cities' => $cities,
                         'matching_property' => get_the_title(),
                     );
                 }
@@ -719,7 +717,6 @@ function process_csv_from_url() {
                 $results[] = array(
                     'id' => $id,
                     'title' => $title,
-                    'cities' => $cities,
                     'matching_property' => 'No matching property found',
                 );
             }
@@ -729,6 +726,7 @@ function process_csv_from_url() {
     // Return results
     return $results;
 }
+
 
 function getProperties(WP_REST_Request $request)
 {
