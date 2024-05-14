@@ -630,14 +630,14 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'my_awesome_func_final',
     ]);
-    register_rest_route('condoy/v3', 'getResult', [
-        'methods' => 'GET',
-        'callback' => 'process_csv_from_url',
-    ]);
-    register_rest_route('condoy/v4', 'getResult', [
-        'methods' => 'GET',
-        'callback' => 'get_all_property_titles_and_ids',
-    ]);
+//    register_rest_route('condoy/v3', 'getResult', [
+//        'methods' => 'GET',
+//        'callback' => 'process_csv_from_url',
+//    ]);
+//    register_rest_route('condoy/v4', 'getResult', [
+//        'methods' => 'GET',
+//        'callback' => 'get_all_property_titles_and_ids',
+//    ]);
 }
 
 //function get_all_property_titles_and_ids() {
