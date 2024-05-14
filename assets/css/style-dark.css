@@ -4317,3 +4317,6 @@ textarea.hlri-input {
 .ecommerce-gallery{
   list-style:none;
 }
+#Gallery{
+  max-height:610px;
+}
