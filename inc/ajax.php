@@ -647,7 +647,7 @@ function get_all_property_titles_and_ids() {
 
     // Query property post-type to retrieve all properties
     $property_query = new WP_Query(array(
-        'post_type' => 'property',
+        'post_type' => 'properties',
         'posts_per_page' => -1, // Retrieve all posts
     ));
 
@@ -666,13 +666,7 @@ function get_all_property_titles_and_ids() {
             );
         }
         wp_reset_postdata(); // Reset post data
-    } else {
-        // If no properties are found, return an error message
-        $results[] = array(
-            'error' => 'No properties found',
-        );
     }
-
     // Return results
     return $results;
 }
