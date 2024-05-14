@@ -4438,8 +4438,10 @@ textarea.hlri-input {
     padding: 0.45rem 1.2rem;
   }
 }
-.ecommerce-gallery{
-  list-style:none;
+.ecommerce-gallery {
+  list-style: none;
+  max-height: 610px;
+  overflow: hidden;
 }
 #Gallery{
   max-height:610px;

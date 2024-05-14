@@ -4314,8 +4314,10 @@ textarea.hlri-input {
 .hlri-input-container > label {
   color: #ffffff !important;
 }
-.ecommerce-gallery{
-  list-style:none;
+.ecommerce-gallery {
+  list-style: none;
+  max-height: 610px;
+  overflow: hidden;
 }
 #Gallery{
   max-height:610px;
