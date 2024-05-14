@@ -613,7 +613,7 @@ function addOrdinalSuffix($number)
         <div class="col-12 col-sm-12 col-md-12 ">
 
             <div class="hlri-container">
-                <img src="img/shape.png" class="hlri-square" alt="" />
+<!--                <img src="img/shape.png" class="hlri-square" alt="" />-->
                 <div class="hlri-formsection">
                     <div class="hlri-contact-info">
                         <h3 class="title">Register Now</h3>
