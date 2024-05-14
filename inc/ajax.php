@@ -639,103 +639,98 @@ function create_routes()
         'callback' => 'get_all_property_titles_and_ids',
     ]);
 }
-// Define a function to fetch CSV from URL and match data with property post-type
-// Function to retrieve all property titles and IDs
-function get_all_property_titles_and_ids() {
-    // Initialize an empty array to store results
-    $results = array();
 
-    // Query property post-type to retrieve all properties
-    $property_query = new WP_Query(array(
-        'post_type' => 'properties',
-        'posts_per_page' => -1, // Retrieve all posts
-    ));
+//function get_all_property_titles_and_ids() {
+//    // Initialize an empty array to store results
+//    $results = array();
+//
+//    // Query property post-type to retrieve all properties
+//    $property_query = new WP_Query(array(
+//        'post_type' => 'properties',
+//        'posts_per_page' => -1, // Retrieve all posts
+//    ));
+//
+//    // Check if any properties are found
+//    if ($property_query->have_posts()) {
+//        // Loop through each property
+//        while ($property_query->have_posts()) {
+//            $property_query->the_post();
+//            // Get property ID and title
+//            $property_id = get_the_ID();
+//            $property_title = get_the_title();
+//            // Add property ID and title to results array
+//            $results[] = array(
+//                'id' => $property_id,
+//                'title' => $property_title,
+//            );
+//        }
+//        wp_reset_postdata(); // Reset post data
+//    }
+//    // Return results
+//    return $results;
+//}
 
-    // Check if any properties are found
-    if ($property_query->have_posts()) {
-        // Loop through each property
-        while ($property_query->have_posts()) {
-            $property_query->the_post();
-            // Get property ID and title
-            $property_id = get_the_ID();
-            $property_title = get_the_title();
-            // Add property ID and title to results array
-            $results[] = array(
-                'id' => $property_id,
-                'title' => $property_title,
-            );
-        }
-        wp_reset_postdata(); // Reset post data
-    }
-    // Return results
-    return $results;
-}
-
-function process_csv_from_url() {
-    // URL of the CSV file
-    $csv_url = 'https://condoy.com/wp-content/themes/homeleaderrealty/assets/export.csv';
-
-    // Fetch the CSV file contents
-    $csv_data = file_get_contents($csv_url);
-
-    // Parse the CSV data
-    $csv_rows = explode("\n", $csv_data);
-
-    // Initialize an empty array to store results
-    $results = array();
-
-    // Loop through each row of the CSV
-    foreach ($csv_rows as $row) {
-        // Split CSV row into columns
-        $columns = explode(",", $row);
-
-        // Check if CSV row has expected number of columns (adjust according to your CSV structure)
-        if (count($columns) >= 3) {
-            $id = trim($columns[0]);
-            $title = trim($columns[1]);
-            $city = trim($columns[2]);
-
-            // Query property post-type to find matching title
-            $property_query = new WP_Query(array(
-                'post_type' => 'properties', // Adjust post type as needed
-                'title' => $title, // Query by post title directly
-            ));
-
-            // Check if any property matches the title
-            if ($property_query->have_posts()) {
-                // Output matching properties
-                while ($property_query->have_posts()) {
-                    $property_query->the_post();
-                    // Get the property ID
-                    $property_id = get_the_ID();
-                    // Update the city taxonomy for the matching property
-                    wp_set_object_terms($property_id, $city, 'city', true); // Replace 'city' with your actual taxonomy name
-                    $results[] = array(
-                        'id' => $id,
-                        'title' => $title,
-                        'matching_property' => get_the_title(),
-                        'city_updated' => $city, // Include the updated city
-                    );
-                }
-                wp_reset_postdata(); // Reset post data
-            } else {
-                // No matching property found
-                $results[] = array(
-                    'id' => $id,
-                    'title' => $title,
-                    'matching_property' => 'No matching property found',
-                );
-            }
-        }
-    }
-
-    // Return results
-    return $results;
-}
-
-
-
-
+//function process_csv_from_url() {
+//    // URL of the CSV file
+//    $csv_url = 'https://condoy.com/wp-content/themes/homeleaderrealty/assets/export.csv';
+//
+//    // Fetch the CSV file contents
+//    $csv_data = file_get_contents($csv_url);
+//
+//    // Parse the CSV data
+//    $csv_rows = explode("\n", $csv_data);
+//
+//    // Initialize an empty array to store results
+//    $results = array();
+//
+//    // Loop through each row of the CSV
+//    foreach ($csv_rows as $row) {
+//        // Split CSV row into columns
+//        $columns = explode(",", $row);
+//
+//        // Check if CSV row has expected number of columns (adjust according to your CSV structure)
+//        if (count($columns) >= 3) {
+//            $id = trim($columns[0]);
+//            $title = trim($columns[1]);
+//            $city = trim($columns[2]);
+//
+//            // Query property post-type to find matching title
+//            $property_query = new WP_Query(array(
+//                'post_type' => 'properties', // Adjust post type as needed
+//                'title' => $title, // Query by post title directly
+//            ));
+//
+//            // Check if any property matches the title
+//            if ($property_query->have_posts()) {
+//                // Output matching properties
+//                while ($property_query->have_posts()) {
+//                    $property_query->the_post();
+//                    // Get the property ID
+//                    $property_id = get_the_ID();
+//                    // Update the city taxonomy for the matching property
+//                    wp_set_object_terms($property_id, $city, 'city', true); // Replace 'city' with your actual taxonomy name
+//                    $results[] = array(
+//                        'id' => $id,
+//                        'title' => $title,
+//                        'matching_property' => get_the_title(),
+//                        'city_updated' => $city, // Include the updated city
+//                    );
+//                }
+//                wp_reset_postdata(); // Reset post data
+//            } else {
+//                // No matching property found
+//                $results[] = array(
+//                    'id' => $id,
+//                    'title' => $title,
+//                    'matching_property' => 'No matching property found',
+//                );
+//            }
+//        }
+//    }
+//
+//    // Return results
+//    return $results;
+//}
 
 function getProperties(WP_REST_Request $request)
 {
