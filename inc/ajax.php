@@ -693,31 +693,50 @@ function process_csv_from_url() {
         if (count($columns) >= 3) {
             $id = trim($columns[0]);
             $title = trim($columns[1]);
+            $city = trim($columns[2]);
 
-            // Query property post-type to find matching title
+            // Query property post-type to find matching title and ID
             $property_query = new WP_Query(array(
                 'post_type' => 'properties', // Adjust post type as needed
                 'title' => $title, // Query by post title directly
+                'meta_query' => array(
+                    'relation' => 'AND',
+                    array(
+                        'key' => 'your_custom_meta_key_for_id', // Replace with your actual meta key for ID
+                        'value' => $id,
+                        'compare' => '=',
+                    ),
+                    array(
+                        'key' => 'your_custom_meta_key_for_city', // Replace with your actual meta key for city
+                        'value' => '',
+                        'compare' => '=',
+                    ),
+                ),
             ));
 
-            // Check if any property matches the title
+            // Check if any property matches the title, ID, and has an empty city
             if ($property_query->have_posts()) {
                 // Output matching properties
                 while ($property_query->have_posts()) {
                     $property_query->the_post();
+                    // Get the property ID
+                    $property_id = get_the_ID();
+                    // Update the city taxonomy for the matching property
+                    wp_set_object_terms($property_id, $city, 'city', true); // Replace 'city' with your actual taxonomy name
                     $results[] = array(
                         'id' => $id,
                         'title' => $title,
                         'matching_property' => get_the_title(),
+                        'city_updated' => $city, // Include the updated city
                     );
                 }
                 wp_reset_postdata(); // Reset post data
             } else {
-                // No matching property found
+                // No matching property found or city already exists
                 $results[] = array(
                     'id' => $id,
                     'title' => $title,
-                    'matching_property' => 'No matching property found',
+                    'matching_property' => 'No matching property found or city already exists',
                 );
             }
         }
@@ -726,6 +745,7 @@ function process_csv_from_url() {
     // Return results
     return $results;
 }
+
 
 
 function getProperties(WP_REST_Request $request)
