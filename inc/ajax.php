@@ -666,17 +666,16 @@ function get_all_property_titles_and_ids() {
             );
         }
         wp_reset_postdata(); // Reset post data
+    } else {
+        // If no properties are found, return an error message
+        $results[] = array(
+            'error' => 'No properties found',
+        );
     }
 
     // Return results
     return $results;
 }
-
-// Call the function to retrieve all property titles and IDs
-$properties = get_all_property_titles_and_ids();
-
-// Output the result as JSON
-echo json_encode($properties);
 
 function process_csv_from_url() {
     // URL of the CSV file
