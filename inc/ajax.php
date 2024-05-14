@@ -635,6 +635,65 @@ function create_routes()
         'callback' => 'process_csv_from_url',
     ]);
 }
+// Define a function to fetch CSV from URL and match data with property post-type
+function process_csv_from_url() {
+    // URL of the CSV file
+    $csv_url = 'https://condoy.com/wp-content/themes/homeleaderrealty/assets/export.csv';
+
+    // Fetch the CSV file contents
+    $csv_data = file_get_contents($csv_url);
+
+    // Parse the CSV data
+    $csv_rows = explode("\n", $csv_data);
+
+    // Initialize an empty array to store results
+    $results = array();
+
+    // Loop through each row of the CSV
+    foreach ($csv_rows as $row) {
+        // Split CSV row into columns
+        $columns = explode(",", $row);
+
+        // Check if CSV row has expected number of columns (adjust according to your CSV structure)
+        if (count($columns) >= 3) {
+            $id = trim($columns[0]);
+            $title = trim($columns[1]);
+            $cities = trim($columns[2]);
+
+            // Query property post-type to find matching title
+            $property_query = new WP_Query(array(
+                'post_type' => 'property',
+                'title' => $title,
+            ));
+
+            // Check if any property matches the title
+            if ($property_query->have_posts()) {
+                // Output matching properties
+                while ($property_query->have_posts()) {
+                    $property_query->the_post();
+                    $results[] = array(
+                        'id' => $id,
+                        'title' => $title,
+                        'cities' => $cities,
+                        'matching_property' => get_the_title(),
+                    );
+                }
+                wp_reset_postdata(); // Reset post data
+            } else {
+                // No matching property found
+                $results[] = array(
+                    'id' => $id,
+                    'title' => $title,
+                    'cities' => $cities,
+                    'matching_property' => 'No matching property found',
+                );
+            }
+        }
+    }
+
+    // Return results
+    return $results;
+}
 function getProperties(WP_REST_Request $request)
 {
     $cache_key = 'properties_data_' . $_GET['term_id'];
