@@ -4314,4 +4314,6 @@ textarea.hlri-input {
 .hlri-input-container > label {
   color: #ffffff !important;
 }
-
+.ecommerce-gallery{
+  list-style:none;
+}
