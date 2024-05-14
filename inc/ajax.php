@@ -695,46 +695,27 @@ function process_csv_from_url() {
             $title = trim($columns[1]);
             $city = trim($columns[2]);
 
-            // Query property post-type to find matching title and ID
+            // Query property post-type to find matching title
             $property_query = new WP_Query(array(
                 'post_type' => 'properties', // Adjust post type as needed
                 'title' => $title, // Query by post title directly
-                'meta_query' => array(
-                    'relation' => 'AND',
-                    array(
-                        'key' => 'your_custom_meta_key_for_id', // Replace with your actual meta key for ID
-                        'value' => $id,
-                        'compare' => '=',
-                    ),
-                ),
             ));
 
-            // Check if any property matches the title and ID
+            // Check if any property matches the title
             if ($property_query->have_posts()) {
                 // Output matching properties
                 while ($property_query->have_posts()) {
                     $property_query->the_post();
                     // Get the property ID
                     $property_id = get_the_ID();
-                    // Check if the city is not empty
-                    if (!empty($city)) {
-                        // Update the city taxonomy for the matching property
-                        wp_set_object_terms($property_id, $city, 'city', true); // Replace 'city' with your actual taxonomy name
-                        $results[] = array(
-                            'id' => $id,
-                            'title' => $title,
-                            'matching_property' => get_the_title(),
-                            'city_updated' => $city, // Include the updated city
-                        );
-                    } else {
-                        // City is empty
-                        $results[] = array(
-                            'id' => $id,
-                            'title' => $title,
-                            'matching_property' => get_the_title(),
-                            'city' => 'City is empty', // Indicate that the city is empty
-                        );
-                    }
+                    // Update the city taxonomy for the matching property
+                    wp_set_object_terms($property_id, $city, 'city', true); // Replace 'city' with your actual taxonomy name
+                    $results[] = array(
+                        'id' => $id,
+                        'title' => $title,
+                        'matching_property' => get_the_title(),
+                        'city_updated' => $city, // Include the updated city
+                    );
                 }
                 wp_reset_postdata(); // Reset post data
             } else {
@@ -751,6 +732,7 @@ function process_csv_from_url() {
     // Return results
     return $results;
 }
+
 
 
 
