@@ -199,7 +199,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                     data-src="<?= $gallery_item['gallery_url'] ?>"
                                     data-thumb="<?= $gallery_item['gallery_url'] ?>"
                                     data-src="<?= $gallery_item['gallery_url'] ?>">
-                                    <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>"
+                                    <img class="rounded" loading="lazy" src="<?= $gallery_item['gallery_url'] ?>"
                                          alt="<?= $gallery_item['caption'] ?>">
 
                                 </li>

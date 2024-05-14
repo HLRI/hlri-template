@@ -278,7 +278,7 @@ function addOrdinalSuffix($number)
                                     data-src="<?= $gallery_item['gallery_url'] ?>"
                                     data-thumb="<?= $gallery_item['gallery_url'] ?>"
                                     data-src="<?= $gallery_item['gallery_url'] ?>">
-                                    <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>"
+                                    <img class="rounded" loading="lazy" src="<?= $gallery_item['gallery_url'] ?>"
                                          alt="<?= $gallery_item['caption'] ?>">
 
                                 </li>
@@ -334,7 +334,7 @@ function addOrdinalSuffix($number)
             <?php //= $gallery_item['gallery_url'] ?><!--" data-thumb="-->
             <?php //= $gallery_item['gallery_url'] ?><!--" data-src="-->
             <?php //= $gallery_item['gallery_url'] ?><!--">-->
-            <!--                                    <img class="rounded" src="-->
+            <!--                                    <img class="rounded" loading="lazy" src="-->
             <?php //= $gallery_item['gallery_url'] ?><!--" alt="--><?php //= $gallery_item['caption'] ?><!--">-->
             <!---->
             <!--                                </li>-->
@@ -407,7 +407,7 @@ function addOrdinalSuffix($number)
                                         data-src="<?= $gallery_item['gallery_url'] ?>"
                                         data-thumb="<?= $gallery_item['gallery_url'] ?>"
                                         data-src="<?= $gallery_item['gallery_url'] ?>">
-                                        <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>"
+                                        <img class="rounded" loading="lazy" src="<?= $gallery_item['gallery_url'] ?>"
                                              alt="<?= $gallery_item['caption'] ?>">
                                     </li>
                                 <?php endforeach; ?>

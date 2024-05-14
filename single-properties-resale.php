@@ -178,7 +178,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     <ul class="ecommerce-gallery">
                         <?php foreach ($psd['galleries'] as $gallery_item) : ?>
                             <li class="rounded" data-fancybox="gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
-                                <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
+                                <img class="rounded" loading="lazy" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
 
                             </li>
                         <?php endforeach; ?>
@@ -229,7 +229,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
 <!--                        <ul class="ecommerce-gallery">-->
 <!--                            --><?php //foreach ($floor_galleries_data as $gallery_item) : ?>
 <!--                                <li class="rounded" data-fancybox="gallery"  data-caption="--><?php //= $gallery_item['caption'] ?><!--" data-src="--><?php //= $gallery_item['gallery_url'] ?><!--" data-thumb="--><?php //= $gallery_item['gallery_url'] ?><!--" data-src="--><?php //= $gallery_item['gallery_url'] ?><!--">-->
-<!--                                    <img class="rounded" src="--><?php //= $gallery_item['gallery_url'] ?><!--" alt="--><?php //= $gallery_item['caption'] ?><!--">-->
+<!--                                    <img class="rounded" loading="lazy" src="--><?php //= $gallery_item['gallery_url'] ?><!--" alt="--><?php //= $gallery_item['caption'] ?><!--">-->
 <!---->
 <!--                                </li>-->
 <!--                            --><?php //endforeach; ?>
@@ -293,7 +293,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                         <ul class="ecommerce-gallery">
                             <?php foreach ($floor_galleries_data2 as $gallery_item) : ?>
                                 <li class="rounded" data-fancybox="floors-gallery"  data-caption="<?= $gallery_item['caption'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>" data-thumb="<?= $gallery_item['gallery_url'] ?>" data-src="<?= $gallery_item['gallery_url'] ?>">
-                                    <img class="rounded" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
+                                    <img class="rounded" loading="lazy" src="<?= $gallery_item['gallery_url'] ?>" alt="<?= $gallery_item['caption'] ?>">
                                 </li>
                             <?php endforeach; ?>
                         </ul>
