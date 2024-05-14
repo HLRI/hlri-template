@@ -663,7 +663,13 @@ function process_csv_from_url() {
             // Query property post-type to find matching title
             $property_query = new WP_Query(array(
                 'post_type' => 'property',
-                'title' => $title,
+                'meta_query' => array(
+                    array(
+                        'key' => 'your_custom_meta_key_for_title', // Replace with your actual meta key for title
+                        'value' => $title,
+                        'compare' => '=',
+                    ),
+                ),
             ));
 
             // Check if any property matches the title
