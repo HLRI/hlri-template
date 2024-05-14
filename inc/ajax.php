@@ -614,10 +614,6 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'my_awesome_func_four',
     ]);
-    register_rest_route('custom/v1', 'getResult', [
-        'methods' => 'GET',
-        'callback' => 'process_csv_from_url',
-    ]);
     register_rest_route('mapdata/v2', 'getResult', [
         'methods' => 'GET',
         'callback' => 'my_awesome_func_two',
@@ -633,6 +629,10 @@ function create_routes()
     register_rest_route('mapdata/v3', 'getResult', [
         'methods' => 'GET',
         'callback' => 'my_awesome_func_final',
+    ]);
+    register_rest_route('condoy/v3', 'getResult', [
+        'methods' => 'GET',
+        'callback' => 'process_csv_from_url',
     ]);
 }
 function getProperties(WP_REST_Request $request)
