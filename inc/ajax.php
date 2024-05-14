@@ -697,14 +697,8 @@ function process_csv_from_url() {
 
             // Query property post-type to find matching title
             $property_query = new WP_Query(array(
-                'post_type' => 'properties',
-                'meta_query' => array(
-                    array(
-                        'key' => 'your_custom_meta_key_for_title', // Replace with your actual meta key for title
-                        'value' => $title,
-                        'compare' => '=',
-                    ),
-                ),
+                'post_type' => 'properties', // Adjust post type as needed
+                'title' => $title, // Query by post title directly
             ));
 
             // Check if any property matches the title
@@ -735,6 +729,7 @@ function process_csv_from_url() {
     // Return results
     return $results;
 }
+
 function getProperties(WP_REST_Request $request)
 {
     $cache_key = 'properties_data_' . $_GET['term_id'];
