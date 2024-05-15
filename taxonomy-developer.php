@@ -19,7 +19,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         </div>
         <?php
         // Apply filters before querying properties
-        apply_filters('custom_property_archive_filters');
+        do_action('custom_property_archive_filters');
 
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $term = get_queried_object();
