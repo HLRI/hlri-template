@@ -1,6 +1,6 @@
 <?php
 // Check if user is logged in and has the appropriate role, otherwise display login form
-if (is_user_logged_in() && (current_user_can('administrator') || current_user_can('editor') || current_user_can('agent'))) {
+if (is_user_logged_in()) {
     get_header();
 
     $category_title = single_cat_title('', false);
