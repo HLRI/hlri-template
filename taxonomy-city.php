@@ -6,7 +6,7 @@ $category_title = single_cat_title('', false);
 // Override the global define for a specific page
 define('CUSTOM_PAGE_HEADER', [
     'subtitle' => "Explore Your Dream Space",
-    'title' => 'Cities List - ' . $category_title,
+    'title' => 'Properties in ' . $category_title,
 ]);
 
 // Include the custom-page-header.php file
