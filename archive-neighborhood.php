@@ -36,20 +36,20 @@ get_header();
     .flex-btn{
         margin: 0px 10px 0px 0px;
     }
-    .flex-input{
-        background-color: #fff3cf;
-        border-color: var(--main-color);
+    .flex-input {
+        background-color: #ffffff;
         color: black;
         inset: 0px;
         border-radius: 4px;
         padding-left: 10px;
         padding-right: 10px;
         margin-right: 10px;
+        border: 2px solid #f7cb00;
     }
     .btn-submit-flex {
-        background-color: #ffc107;
-        border-color: var(--main-color);
-        color: black
+        background-color: #ffd100;
+        border-color: #f7cb00;
+        color: #252525;
     }
     .top-search-bar{
         z-index: 9;
