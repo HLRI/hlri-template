@@ -3,54 +3,37 @@
 get_header();
 ?>
 
-<div class="container my-5">
+<div class="container">
     <div class="row">
         <?php
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        $args = array(
+        // Query all terms from the 'neighborhood' taxonomy
+        $neighborhoods = get_terms( array(
             'taxonomy' => 'neighborhood',
-            'hide_empty' => false,
-            'paged' => $paged,
-        );
+            'hide_empty' => false, // Set to true if you want to hide empty neighborhoods
+        ) );
 
-        $neighborhoods_query = new WP_Query($args);
+        // Loop through each neighborhood
+        foreach ( $neighborhoods as $neighborhood ) :
+            $meta = get_term_meta($neighborhood->term_id, 'neighborhood_options', true);
 
-        if ($neighborhoods_query->have_posts()) :
-            while ($neighborhoods_query->have_posts()) :
-                $neighborhoods_query->the_post();
-                $neighborhood = get_queried_object();
-                $meta = get_term_meta($neighborhood->term_id, 'neighborhood_options', true);
-
-                if (isset($meta['opt-neighborhood-image']) && !empty($meta['opt-neighborhood-image']['url'])) :
-                    ?>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card mb-4">
-                            <a href="<?= get_term_link($neighborhood); ?>">
-                                <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="card-img-top" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : $neighborhood->name ?>">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $neighborhood->name ?></h5>
-                                <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary">Explore</a>
-                            </div>
-                        </div>
+            ?>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mb-4">
+                    <a href="<?= get_term_link($neighborhood); ?>">
+                        <?php if (isset($meta['opt-neighborhood-image']) && !empty($meta['opt-neighborhood-image']['url'])) : ?>
+                            <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="card-img-top" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : $neighborhood->name ?>">
+                        <?php else : ?>
+                            <img loading="lazy" src="placeholder_image_url_here" class="card-img-top" alt="Placeholder Image">
+                        <?php endif; ?>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $neighborhood->name ?></h5>
+                        <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary">Explore</a>
                     </div>
-                <?php
-                endif;
-            endwhile;
-
-            // Pagination
-            echo '<div class="col-12">';
-            echo paginate_links(array(
-                'total' => $neighborhoods_query->max_num_pages,
-                'prev_text' => __('« Previous'),
-                'next_text' => __('Next »'),
-            ));
-            echo '</div>';
-
-            wp_reset_postdata();
-        else :
-            echo '<div class="col-12"><p>No neighborhoods found.</p></div>';
-        endif;
+                </div>
+            </div>
+        <?php
+        endforeach;
         ?>
     </div>
 </div>
