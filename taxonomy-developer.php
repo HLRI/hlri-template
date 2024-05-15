@@ -10,9 +10,11 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
                 <h2>Property Listings</h2>
                 <ul>
                     <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $args = array(
                         'post_type' => 'properties',
-                        'posts_per_page' => 10, // Adjust as needed
+                        'posts_per_page' => 5, // Adjust as needed
+                        'paged' => $paged,
                     );
                     $properties_query = new WP_Query($args);
                     if ($properties_query->have_posts()) :
@@ -28,6 +30,12 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
                     endif;
                     ?>
                 </ul>
+                <?php
+                // Pagination
+                echo paginate_links(array(
+                    'total' => $properties_query->max_num_pages,
+                ));
+                ?>
             </div>
         </div>
     </div>
