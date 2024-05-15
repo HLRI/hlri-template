@@ -48,6 +48,7 @@ width: 300px;
 margin: 0px auto;
 position: relative;
 "><input type="search" id="searchInput" placeholder="Search...">
+    <button id="searchButton">Search</button>
 </div>
     <div class="row" id="searchResults">
         <!-- Your existing card elements will be dynamically added here -->
@@ -104,7 +105,7 @@ position: relative;
 <script>
     // Function to filter cards based on search input
     function filterCards() {
-        var input, filter, cards, card, title, i, txtValue;
+        var input, filter, cards, card, parentCol, title, i, txtValue;
         input = document.getElementById("searchInput");
         filter = input.value.toUpperCase();
         cards = document.getElementsByClassName("card");
@@ -112,18 +113,19 @@ position: relative;
         // Loop through all cards, and hide those who don't match the search query
         for (i = 0; i < cards.length; i++) {
             card = cards[i];
+            parentCol = card.closest('.col-lg-3'); // Find the parent col-lg-3
             title = card.querySelector(".card-title");
             txtValue = title.textContent || title.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                card.style.display = "";
+                parentCol.style.display = ""; // Show parent col-lg-3
             } else {
-                card.style.display = "none";
+                parentCol.style.display = "none"; // Hide parent col-lg-3
             }
         }
     }
 
-    // Add event listener for input changes
-    document.getElementById("searchInput").addEventListener("input", filterCards);
+    // Add event listener for button click
+    document.getElementById("searchButton").addEventListener("click", filterCards);
 </script>
 
 <?php get_footer(); ?>
