@@ -17,7 +17,7 @@ foreach (json_decode(stripslashes($_COOKIE['visit_history']), true) as $key => $
     </div>
 
 
-    <?php print_r($visit_histories);foreach ($visit_histories as $visit) : ?>
+    <?php foreach ($visit_histories as $visit) : ?>
         <div class="col-lg-4 mb-3">
             <a href="<?= $visit['url'] ?>" target="_blank">
                 <div class="card-visit-history">
