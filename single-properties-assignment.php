@@ -268,21 +268,6 @@ function addOrdinalSuffix($number)
             </div>
         </div>
 
-        <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4">
-            <div class="col-12  rounded mb-3 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
-                <!-- map details -->
-                <!-- Properties map -->
-                <!--location:  inc/scripts.php -->
-                <div class="col-12 p-0 map-container rounded">
-                    <div id="map"></div>
-                </div>
-            </div>
-
-
-
-
-
-    </div>
     <!-- Content Section  -->
 
 
