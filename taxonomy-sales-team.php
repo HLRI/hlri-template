@@ -44,7 +44,7 @@
 
         <?php if ($peroperties->have_posts()) : ?>
 
-            <div class="container">
+            <div class="container mt-5">
                 <div class="row">
                     <?php while ($peroperties->have_posts()) : $peroperties->the_post(); ?>
                         <?php $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true); ?>
