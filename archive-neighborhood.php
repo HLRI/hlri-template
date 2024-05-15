@@ -1,64 +1,60 @@
 <?php
-/*
-Template Name: Neighborhood Archive
-*/
+/* Template Name: Archive Neighborhoods */
 get_header();
-
-function get_post_count_taxonomy($term_id, $taxonomy, $post_type) {
-    $args = array(
-        'post_type'      => $post_type,
-        'posts_per_page' => -1,
-        'tax_query'      => array(
-            array(
-                'taxonomy' => $taxonomy,
-                'field'    => 'term_id',
-                'terms'    => $term_id,
-            ),
-        ),
-    );
-    $query = new WP_Query($args);
-    $count = $query->found_posts;
-    return $count;
-}
-
-$terms = get_terms([
-    'taxonomy'   => 'neighborhood',
-    'hide_empty' => false,
-]);
-$terms = array_slice($terms, 0, 8);
 ?>
-<div class="container-fluid my-5">
+<style>
+    .card-img-top {
+        height: 230px;
+        object-fit: cover;
+    }
+</style>
+<div class="container my-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="titr-list">
-                <h3 class="font-weight-bold">Neighborhood</h3>
-                <a href="#" title="" class="view-more">View more</a>
-            </div>
-            <div class="d-flex justify-content-center">
-                <div class="owl-carousel owl-theme neighborhood wrap-list">
-                    <?php foreach ($terms as $term) :
-                        $meta = get_term_meta($term->term_id, 'neighborhood_options', true);
+        <?php
+        // Query all terms from the 'neighborhood' taxonomy
+        $neighborhoods = get_terms(array(
+            'taxonomy'   => 'neighborhood',
+            'hide_empty' => false, // Set to true if you want to hide empty neighborhoods
+        ));
 
-                        if (isset($meta['opt-neighborhood-image']) && !empty($meta['opt-neighborhood-image']['url'])) :
-                            $property_count = get_post_count_taxonomy($term->term_id, 'neighborhood', 'property');
-                            ?>
-                            <div class="wrap-neighborhood">
-                                <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" title="<?= $term->name ?>">
-                                    <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : $term->name ?>">
-                                </a>
-                                <div class="neighborhood-title">
-                                    <?= $term->name ?>
-                                </div>
-                                <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" class="neighborhood-link"><?= $property_count ?> Listing</a>
-                            </div>
-                        <?php
-                        endif;
-                    endforeach;
-                    ?>
-                    <?php wp_reset_postdata(); ?>
+        // Loop through each neighborhood
+        foreach ($neighborhoods as $neighborhood) :
+            $meta        = get_term_meta($neighborhood->term_id, 'neighborhood_options', true);
+            $neighborhood_id = $neighborhood->term_id;
+            // Query the number of properties for each neighborhood
+            $property_count_query = new WP_Query(array(
+                'post_type'      => 'property',
+                'posts_per_page' => -1,
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => 'neighborhood',
+                        'field'    => 'term_id',
+                        'terms'    => $neighborhood_id,
+                    ),
+                ),
+            ));
+            $property_count = $property_count_query->found_posts;
+            ?>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mb-4">
+                    <a href="<?= get_term_link($neighborhood); ?>">
+                        <?php if (isset($meta['opt-neighborhood-image']) && !empty($meta['opt-neighborhood-image']['url'])) : ?>
+                            <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="card-img-top" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : $neighborhood->name ?>">
+                        <?php else : ?>
+                            <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/No-Image-Placeholder.jpg' ?>" class="card-img-top" alt="Placeholder Image">
+                        <?php endif; ?>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $neighborhood->name ?></h5>
+                        <p>Available Properties: <?= $property_count ?></p>
+                        <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary">Explore</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php
+        endforeach;
+        ?>
     </div>
 </div>
 
