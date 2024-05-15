@@ -45,6 +45,7 @@ get_header();
         padding-right: 10px;
         margin-right: 10px;
         border: 2px solid #f7cb00;
+        width: inherit;
     }
     .btn-submit-flex {
         background-color: #ffd100;
