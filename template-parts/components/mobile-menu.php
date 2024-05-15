@@ -1,7 +1,7 @@
 <?php
 $locations = get_nav_menu_locations();
-$mobile = wp_get_nav_menu_object($locations['mobile-menu']);
-$menuitems = wp_get_nav_menu_items($mobile->term_id, array('order' => 'DESC'));
+$menu = wp_get_nav_menu_object($locations['main-menu']);
+$menuitems = wp_get_nav_menu_items($menu->term_id, array('order' => 'DESC'));
 
 foreach ($menuitems as $child) {
     if ($child->menu_item_parent != 0) {
@@ -10,7 +10,6 @@ foreach ($menuitems as $child) {
 }
 
 foreach ($menuitems as $parent) {
-    $menu_children = []; // Reset $menu_children array here
     if (!empty($children)) {
         foreach ($children as $child) {
             if ($child->menu_item_parent == $parent->ID) {
@@ -18,6 +17,7 @@ foreach ($menuitems as $parent) {
             }
         }
         $parent->children = $menu_children;
+        $menu_children = [];
     }
 }
 if (!empty($menuitems)) : ?>
@@ -124,27 +124,35 @@ if (!empty($menuitems)) : ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 <?php else : ?>
-                                    <nav class='animated bounceInDown side-nav-dropdown'>
-                                        <ul>
-                                            <li class='sub-menu first'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-                                                <?php if (!empty($item->children)) : ?>
-                                                    <ul>
-                                                        <?php foreach ($item->children as $sub) : ?>
-                                                            <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-                                                                <?php if (!empty($sub->children)) : ?>
-                                                                    <ul>
-                                                                        <?php foreach ($sub->children as $sub2) : ?>
-                                                                            <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
-                                                                        <?php endforeach; ?>
-                                                                    </ul>
-                                                                <?php endif; ?>
-                                                            </li>
-                                                        <?php endforeach; ?>
-                                                    </ul>
-                                                <?php endif; ?>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                    <?php $i = 0 ?>
+                                    <?php if ($i <= 0) : ?>
+                                        <nav class='animated bounceInDown side-nav-dropdown'>
+                                            <ul>
+                                            <?php endif; ?>
+                                            <?php if ($item->menu_item_parent == 0) : ?>
+                                                <li class='sub-menu first'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
+                                                    <?php if (!empty($item->children)) : ?>
+                                                        <ul>
+                                                            <?php foreach ($item->children as $sub) : ?>
+                                                                <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
+                                                                    <?php if (!empty($sub->children)) : ?>
+                                                                        <ul>
+                                                                            <?php foreach ($sub->children as $sub2) : ?>
+                                                                                <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
+                                                                            <?php endforeach; ?>
+                                                                        </ul>
+                                                                    <?php endif; ?>
+                                                                </li>
+                                                            <?php endforeach; ?>
+                                                        </ul>
+                                                    <?php endif; ?>
+                                                </li>
+                                            <?php endif; ?>
+                                            <?php if ($i <= 0) : ?>
+                                            </ul>
+                                        </nav>
+                                    <?php endif; ?>
+                                    <?php $i++; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
