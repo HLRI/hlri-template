@@ -49,6 +49,7 @@ margin: 0px auto;
 position: relative;
 "><input type="search" id="searchInput" placeholder="Search...">
     <button id="searchButton">Search</button>
+    <button id="clearButton">Clear</button>
 </div>
     <div class="row" id="searchResults">
         <!-- Your existing card elements will be dynamically added here -->
@@ -124,8 +125,20 @@ position: relative;
         }
     }
 
+    // Function to clear search input and display all results
+    function clearSearch() {
+        document.getElementById("searchInput").value = "";
+        var cols = document.querySelectorAll(".col-lg-3");
+        cols.forEach(function(col) {
+            col.style.display = "";
+        });
+    }
+
     // Add event listener for button click
     document.getElementById("searchButton").addEventListener("click", filterCards);
+
+    // Add event listener for clear button click
+    document.getElementById("clearButton").addEventListener("click", clearSearch);
 </script>
 
 <?php get_footer(); ?>
