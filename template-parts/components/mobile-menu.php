@@ -124,33 +124,38 @@ if (!empty($menuitems)) : ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 <?php else : ?>
-                                    <?php if ($item->menu_item_parent == 0) : ?>
+                                    <?php $i = 0 ?>
+                                    <?php if ($i <= 0) : ?>
                                         <nav class='animated bounceInDown side-nav-dropdown'>
                                             <ul>
-                                                <?php foreach ($item->children as $sub) : ?>
-                                                    <?php if ($sub->menu_item_parent == $item->ID) : ?>
-                                                        <li class='sub-menu'>
-                                                            <a href='<?= !empty($sub->children) ? 'javascript:void(0);' : $sub->url ?>'>
-                                                                <?= $sub->title ?>
-                                                                <?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?>
-                                                            </a>
-                                                            <?php if (!empty($sub->children)) : ?>
-                                                                <ul>
-                                                                    <?php foreach ($sub->children as $sub2) : ?>
-                                                                        <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
-                                                                    <?php endforeach; ?>
-                                                                </ul>
-                                                            <?php endif; ?>
-                                                        </li>
+                                            <?php endif; ?>
+                                            <?php if ($item->menu_item_parent == 0) : ?>
+                                                <li class='sub-menu'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
+                                                    <?php if (!empty($item->children)) : ?>
+                                                        <ul>
+                                                            <?php foreach ($item->children as $sub) : ?>
+                                                                <li class='sub-menu'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
+                                                                    <?php if (!empty($sub->children)) : ?>
+                                                                        <ul>
+                                                                            <?php foreach ($sub->children as $sub2) : ?>
+                                                                                <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
+                                                                            <?php endforeach; ?>
+                                                                        </ul>
+                                                                    <?php endif; ?>
+                                                                </li>
+                                                            <?php endforeach; ?>
+                                                        </ul>
                                                     <?php endif; ?>
-                                                <?php endforeach; ?>
+                                                </li>
+                                            <?php endif; ?>
+                                            <?php if ($i <= 0) : ?>
                                             </ul>
                                         </nav>
                                     <?php endif; ?>
+                                    <?php $i++; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-
                     </div>
                 </div>
                 <?php if ($theme_options['footer-mobile-menu']['opt-display-footer-mobile-menu']) : ?>
