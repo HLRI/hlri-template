@@ -86,7 +86,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
 } else {
     // If user is not logged in or does not have the appropriate role, display login form
     get_header();
- echo '<br><br><br><div class="container">You don`t have the permission to access this page, please login or update you role by contacting the website administrator at info@CondoY.com</div>';
+ echo '<br><br><br><div class="container mt-5 mb-5 pt-5 pb-5">You don`t have the permission to access this page, please login or update you role by contacting the website administrator at info@CondoY.com</div>';
  get_footer();
 }
 ?>
