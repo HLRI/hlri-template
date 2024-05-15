@@ -11,10 +11,11 @@ $neighborhoods = get_terms( array(
 // Loop through each neighborhood
 foreach ( $neighborhoods as $neighborhood ) {
 //    $thumbnail_id = get_term_meta( $neighborhood->term_id, 'thumbnail', true ); // Assuming 'thumbnail' is the meta key for the thumbnail image
-
+    print_r($neighborhood);
+    die();
     // Output the neighborhood name and its thumbnail image if available
     echo '<div class="neighborhood">';
-    echo '<h3>' . $neighborhood->name . '</h3>';
+    echo '<a href="' . $neighborhood . $neighborhood->name . '</a>';
 
 //    if ( $thumbnail_id ) {
 //        $thumbnail_url = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail' ); // Change 'thumbnail' to your desired image size
