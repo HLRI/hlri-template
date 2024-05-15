@@ -36,6 +36,16 @@ get_header();
     .flex-btn{
         margin: 0px 10px 0px 0px;
     }
+    .flex-input{
+        background-color: #fff3cf;
+        border-color: var(--main-color);
+        color: black;
+        inset: 0px;
+        border-radius: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 10px;
+    }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
     <div class="page-header-title text-center">
@@ -51,7 +61,7 @@ width: 300px;
 margin: 0px auto;
 position: relative;
 padding-bottom:10px;
-"><input type="search" id="searchInput" placeholder="Search...">
+"><input type="search" id="searchInput" class="flex-input" placeholder="Search...">
     <button id="searchButton" class="btn btn-primary flex-btn">Search</button>
     <button id="clearButton" class="btn btn-primary flex-btn">Clear</button>
 </div>
