@@ -141,13 +141,13 @@ if (!empty($menuitems)) : ?>
     }
     ?>
                                                                 <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-<!--                                                                    --><?php //if (!empty($sub->children)) : ?>
-<!--                                                                        <ul>-->
-<!--                                                                            --><?php //foreach ($sub->children as $sub2) : ?>
-<!--                                                                                <li><a href='--><?php //= $sub2->url ?><!--'>--><?php //= $sub2->title ?><!--</a></li>-->
-<!--                                                                            --><?php //endforeach; ?>
-<!--                                                                        </ul>-->
-<!--                                                                    --><?php //endif; ?>
+                                                                    <?php if (!empty($sub->children)) : ?>
+                                                                        <ul>
+                                                                            <?php foreach ($sub->children as $sub2) : ?>
+                                                                                <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
+                                                                            <?php endforeach; ?>
+                                                                        </ul>
+                                                                    <?php endif; ?>
                                                                 </li>
                                                             <?php endforeach; ?>
                                                         </ul>
