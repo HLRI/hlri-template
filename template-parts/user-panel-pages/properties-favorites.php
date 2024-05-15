@@ -10,16 +10,14 @@ if (empty(get_user_meta(get_current_user_id(), 'properties_favorites', true))) {
 
 if($post_ids == -1){
     $arg = [
-        'post_type' => 'properties',
-        'post_status' => 'publish',
-        'posts_per_page' => 0
+
     ];
 }else{
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',
         'post__in' => $post_ids,
-        'posts_per_page' => 0
+        'posts_per_page' => 12
     ];
 }
 
