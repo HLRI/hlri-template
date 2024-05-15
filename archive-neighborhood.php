@@ -34,7 +34,7 @@ get_header();
         text-overflow: ellipsis;
     }
     .flex-btn{
-        margin: 0px 10px;
+        margin: 0px 10px 0px 0px;
     }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
