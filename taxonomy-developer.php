@@ -1,19 +1,20 @@
-<?php get_header(); ?>
-
 <?php
-$category_title = single_cat_title('', false);
+// Check if user is logged in and has the appropriate role, otherwise display login form
+if (is_user_logged_in() && (current_user_can('administrator') || current_user_can('editor') || current_user_can('agent'))) {
+    get_header();
 
-// Override the global define for a specific page
-define('CUSTOM_PAGE_HEADER', [
-    'subtitle' => "Explore Properties",
-    'title' => 'Made by: ' . $category_title,
-]);
+    $category_title = single_cat_title('', false);
 
-// Include the custom-page-header.php file
-include(HLR_THEME_COMPONENT . 'custom-page-header.php');
-?>
+    // Override the global define for a specific page
+    define('CUSTOM_PAGE_HEADER', [
+        'subtitle' => "Explore Properties",
+        'title' => 'Made by: ' . $category_title,
+    ]);
 
-<div class="container-lg">
+    // Include the custom-page-header.php file
+    include(HLR_THEME_COMPONENT . 'custom-page-header.php');
+    ?>
+    <div class="container-lg">
     <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
@@ -70,9 +71,11 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
         <?php
         endif;
         ?>
-    <?php
-    endif;
-    wp_reset_postdata();
-    ?>
-</div>
-<?php get_footer(); ?>
+        </div>
+        <?php
+        get_footer();
+    } else {
+    // If user is not logged in or does not have the appropriate role, display login form
+    echo do_shortcode('[nextend_social_login]');
+}
+?>
