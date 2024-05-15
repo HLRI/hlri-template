@@ -1,4 +1,5 @@
 <?php
+/* Template Name: Archive Neighborhoods */
 get_header();
 // Query all terms from the 'neighborhood' taxonomy
 $neighborhoods = get_terms( array(
