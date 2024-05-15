@@ -41,6 +41,10 @@ get_header();
     </div>
 </div>
 <div class="container my-5">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <div class="row" id="searchResults">
+        <!-- Your existing card elements will be dynamically added here -->
+    </div>
     <div class="row">
         <?php
         // Query all terms from the 'neighborhood' taxonomy
@@ -89,5 +93,30 @@ get_header();
         ?>
     </div>
 </div>
+
+<script>
+    // Function to filter cards based on search input
+    function filterCards() {
+        var input, filter, cards, card, title, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        cards = document.getElementsByClassName("card");
+
+        // Loop through all cards, and hide those who don't match the search query
+        for (i = 0; i < cards.length; i++) {
+            card = cards[i];
+            title = card.querySelector(".card-title");
+            txtValue = title.textContent || title.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    }
+
+    // Add event listener for input changes
+    document.getElementById("searchInput").addEventListener("input", filterCards);
+</script>
 
 <?php get_footer(); ?>
