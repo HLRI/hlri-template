@@ -134,7 +134,12 @@ if (!empty($menuitems)) : ?>
                                                     <?php if (!empty($item->children)) : ?>
                                                         <ul>
 
-                                                            <?php echo intval(intval(count($item->children))/2)-1;foreach ($item->children as $sub) : ?>
+                                                            <?php $limit = intval(intval(count($item->children))/2)-1;foreach ($item->children as $index => $sub) : ?>
+                                                            <?php     if ($index >= $limit) {
+        // Continue after the specified number of iterations
+        continue;
+    }
+    ?>
                                                                 <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
 <!--                                                                    --><?php //if (!empty($sub->children)) : ?>
 <!--                                                                        <ul>-->
