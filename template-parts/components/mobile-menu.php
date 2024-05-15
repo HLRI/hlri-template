@@ -111,7 +111,7 @@ if (!empty($menuitems)) : ?>
                             <?php endif; ?>
                         </div>
                         <div class="side-content">
-                            <?php foreach ($menuitems as $item) : ?>
+                            <?php echo json_encode($menuitems);foreach ($menuitems as $item) : ?>
                                 <?php if (empty($item->children)) : ?>
                                     <?php if ($item->menu_item_parent == 0) : ?>
                                         <?php if ($item->title == 'hr') : ?>
