@@ -51,6 +51,17 @@ get_header();
         border-color: var(--main-color);
         color: black
     }
+    .top-search-bar{
+        z-index: 9;
+        display: flex;
+        width: 100%;
+        margin: 0px auto;
+        position: relative;
+        padding: 10px;
+        border: 1px solid #eeeeee;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
     <div class="page-header-title text-center">
@@ -59,14 +70,7 @@ get_header();
     </div>
 </div>
 <div class="container my-5">
-<div style="
-z-index: 9;
-display: flex;
-width: 300px;
-margin: 0px auto;
-position: relative;
-padding-bottom:10px;
-"><input type="search" id="searchInput" class="flex-input" placeholder="Search...">
+<div class="top-search-bar"><input type="search" id="searchInput" class="flex-input" placeholder="Search...">
     <button id="searchButton" class="btn btn-submit-flex flex-btn">Search</button>
     <button id="clearButton" class="btn btn-submit-flex flex-btn">Clear</button>
 </div>
