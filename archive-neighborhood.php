@@ -33,6 +33,9 @@ get_header();
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .flex-btn{
+        margin: 0px 10px;
+    }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
     <div class="page-header-title text-center">
@@ -48,8 +51,8 @@ width: 300px;
 margin: 0px auto;
 position: relative;
 "><input type="search" id="searchInput" placeholder="Search...">
-    <button id="searchButton" class="btn btn-primary">Search</button>
-    <button id="clearButton" class="btn btn-primary">Clear</button>
+    <button id="searchButton" class="btn btn-primary flex-btn">Search</button>
+    <button id="clearButton" class="btn btn-primary flex-btn">Clear</button>
 </div>
     <div class="row" id="searchResults">
         <!-- Your existing card elements will be dynamically added here -->
