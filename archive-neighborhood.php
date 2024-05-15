@@ -58,8 +58,8 @@ get_header();
                     </a>
                     <div class="card-body">
                         <h6 class="card-title"><?= $neighborhood->name ?></h6>
-                        <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary"><?= get_post_count_taxonomy($neighborhood_id, 'neighborhood', 'properties') ?> Listing</a>
-                        <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary">Explore</a>
+                        <a href="<?= get_term_link($neighborhood); ?>" title="All listings in <?= $neighborhood->name ?>"  class="btn btn-primary"><?= get_post_count_taxonomy($neighborhood_id, 'neighborhood', 'properties') ?> Listing</a>
+                        <a title="This option will be available soon" style="background-color:grey" class="btn btn-primary">Explore on Map</a>
                     </div>
                 </div>
             </div>
