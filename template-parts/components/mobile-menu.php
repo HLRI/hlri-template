@@ -105,8 +105,9 @@ if (!empty($menuitems)) : ?>
                         <div class="side-header">
                             <?php if (!empty($theme_options['opt-menu-logo']['url'])) : ?>
                                 <div class="side-logo text-center">
-                                    <img loading="lazy" class="img-fluid w-img-logo-sidebar" src="<?= $theme_options['opt-menu-logo']['url'] ?>" alt="<?= $theme_options['opt-menu-logo']['alt'] ?>" title="<?= $theme_options['opt-menu-logo']['alt'] ?>">
-                                </div>
+                                    <a href="https://condoy.com">
+                                        <img loading="lazy" class="img-fluid w-img-logo-sidebar" src="<?= $theme_options['opt-menu-logo']['url'] ?>" alt="<?= $theme_options['opt-menu-logo']['alt'] ?>" title="<?= $theme_options['opt-menu-logo']['alt'] ?>">
+                                    </a>                                </div>
                             <?php endif; ?>
                         </div>
                         <div class="side-content">
