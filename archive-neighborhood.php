@@ -43,7 +43,7 @@ get_header();
 <div class="container my-5">
 <div style="
 z-index: 9;
-display: inline-block;
+display: flex;
 width: 300px;
 margin: 0px auto;
 position: relative;
