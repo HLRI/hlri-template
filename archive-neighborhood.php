@@ -50,6 +50,7 @@ display: flex;
 width: 300px;
 margin: 0px auto;
 position: relative;
+padding-bottom:10px;
 "><input type="search" id="searchInput" placeholder="Search...">
     <button id="searchButton" class="btn btn-primary flex-btn">Search</button>
     <button id="clearButton" class="btn btn-primary flex-btn">Clear</button>
