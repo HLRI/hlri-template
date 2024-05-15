@@ -1,7 +1,7 @@
 <?php
 /* Template Name: Archive Neighborhoods */
 get_header();
-echo '<div class="container">';
+echo '<div class="containerjj">';
 // Query all terms from the 'neighborhood' taxonomy
 $neighborhoods = get_terms( array(
     'taxonomy' => 'neighborhood',
