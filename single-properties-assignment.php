@@ -432,6 +432,27 @@ function addOrdinalSuffix($number)
     </div>
     <!-- Content Section  -->
 
+    <div class="container-lg mx-auto row mt-3 px-lg-5">
+        <!-- content sidebar -->
+        <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center ">
+            <nav class="xm-auto position-sticky top-48" id="table-of-contents">
+                <div class="title toggle-list-btn">
+                    Table of Contents
+                    <i class="fa fa-arrow-up toggle-list arrow-toggle"></i>
+                </div>
+                <ol id="tag-list">
+                    <?php if (!($data['opt-sales-type'] == "Assignment") && !($data['opt-sales-type'] == "Resale")) : ?>
+                        <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
+                        <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
+                    <?php endif; ?>
+                </ol>
+            </nav>
+        </div>
+
+
+
+
+    </div>
     <br><br>
 <?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
     <!-- End Content Section -->
