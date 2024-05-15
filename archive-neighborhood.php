@@ -1,4 +1,9 @@
 <?php
+/*
+Template Name: Neighborhood Archive
+*/
+get_header();
+
 function get_post_count_taxonomy($term_id, $taxonomy, $post_type) {
     $args = array(
         'post_type'      => $post_type,
@@ -15,8 +20,6 @@ function get_post_count_taxonomy($term_id, $taxonomy, $post_type) {
     $count = $query->found_posts;
     return $count;
 }
-
-get_header();
 
 $terms = get_terms([
     'taxonomy'   => 'neighborhood',
