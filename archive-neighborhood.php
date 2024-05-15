@@ -48,6 +48,7 @@ get_header();
                     <div class="card-body">
                         <h5 class="card-title"><?= $neighborhood->name ?></h5>
                         <p>Available Properties: <?= $property_count ?></p>
+                        <?= get_post_count_taxonomy($neighborhood->id, 'neighborhood', 'properties') ?>
                         <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary">Explore</a>
                     </div>
                 </div>
