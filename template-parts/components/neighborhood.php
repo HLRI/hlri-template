@@ -27,8 +27,10 @@ $terms = array_slice($terms, 0, 8);
                                 <div class="neighborhood-title">
                                     <?= $term->name ?>
                                 </div>
-                                <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" class="neighborhood-link"><?= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?> Listing</a>
-<!--                                <a target="_blank" class="neighborhood-link">Show on Map</a>-->
+                                <div class="neighborhood-link">
+                                <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" class="neighborhood-link-item"><?= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?> Listing</a>
+                                <a target="_blank" class="neighborhood-link-item" style="margin-left:5px;">Show on Map</a>
+                                </div>
 <!--                                <a target="_blank" href="--><?php //= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?><!--" class="neighborhood-link">--><?php //= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?><!-- Show on Map</a>-->
                             </div>
                     <?php
@@ -41,3 +43,22 @@ $terms = array_slice($terms, 0, 8);
         </div>
     </div>
 </div>
+
+<style>div.neighborhood-link {
+        position: absolute;
+        bottom: 30px;
+        background: #ffad00;
+        border-radius: 4px;
+        text-align: center;
+        color: white;
+        padding: 0.4rem 1rem;
+        z-index: 10;
+    }
+    a.neighborhood-link-item {
+        background: #ffad00;
+        border-radius: 4px;
+        text-align: center;
+        color: white;
+        padding: 0.4rem 1rem;
+        z-index: 10;
+    }</style>
