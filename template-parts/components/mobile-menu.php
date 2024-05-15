@@ -134,7 +134,7 @@ if (!empty($menuitems)) : ?>
                                                     <?php if (!empty($item->children)) : ?>
                                                         <ul>
 
-                                                            <?php echo count($item->children);foreach ($item->children as $sub) : ?>
+                                                            <?php echo count($item->children)/2;foreach ($item->children as $sub) : ?>
                                                                 <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
 <!--                                                                    --><?php //if (!empty($sub->children)) : ?>
 <!--                                                                        <ul>-->
