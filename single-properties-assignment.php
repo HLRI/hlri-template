@@ -498,7 +498,114 @@ function addOrdinalSuffix($number)
                     </div>
                 </div>
             <?php endif; ?>
+            <div class="container-fluid px-lg-5 mb-4">
+                <!-- Development Detail -->
+                <?php if (!empty($psd['developments'])) : ?>
+                    <div class="row border-top  mt-5 mb-4" id="development-detail">
+                        <div class="col-12">
+                            <div class="titr-list ml-0">
+                                <h3 class="font-weight-bold">Development Details</h3>
+                            </div>
+                        </div>
+                        <?php foreach ($psd['developments'] as $development) : ?>
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card-developments">
+                                    <div class="card-developments-title">
+                                        <?= $development['opt-development-details-title'] ?>
+                                    </div>
+                                    <div class="card-developments-content">
+                                        <?= $development['opt-development-details-content'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
 
+                <?php if (!empty($psd['price_images'])) : ?>
+                    <div class="row mt-5 border-top  mb-4" id="PriceList">
+                        <div class="col-12">
+                            <div class="titr-list ml-0">
+                                <h3 class="font-weight-bold">Price List</h3>
+                            </div>
+                        </div>
+                        <?php foreach ($psd['price_images'] as $image) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                                <div class="image-price">
+                                    <img loading="lazy" src="<?= $image['opt-price-list-image']['url'] ?>"
+                                         alt="<?= $image['opt-price-list-image']['alt'] ?>">
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!empty($floorplans_ids[0])) : ?>
+                    <div class="row border-top  my-4">
+                        <div class="col-12">
+                            <div class="titr-list ml-0">
+                                <h3 class="font-weight-bold">Floor Plans</h3>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row px-4">
+                                <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
+                                    <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
+                                        <div class="card-floolplan">
+                                            <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>"
+                                               title="<?= wp_get_attachment_caption($floorplans_item_id) ?>"
+                                               data-lightbox="roadtrip">
+                                                <img loading="lazy" class="img-floorplan"
+                                                     src="<?= wp_get_attachment_url($floorplans_item_id) ?>"
+                                                     alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <div class="top-48"
+                     style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
+                    <!--                    --><?php
+                    //                    function getWalkScore($lat, $lon, $address) {
+                    //                        $address=urlencode($address);
+                    //                        $url = "https://api.walkscore.com/score?format=json&address=$address";
+                    //                        $url .= "&lat=$lat&lon=$lon&wsapikey=303447da1a4a6f6f0ea4815b2bda134f";
+                    //                        $str = file_get_contents($url);
+                    //                        return $str;
+                    //                    }
+                    //                    function getWalkScore2($address) {
+                    //                        $address=urlencode($address);
+                    //                        $url = "https://www.walkscore.com/professional/badges.php?address=$address#hood-widge";
+                    //                        $str = file_get_contents($url);
+                    //                        return $str;
+                    //                    }
+                    ////                    print_r(getWalkScore2("300 Richmond Street West Toronto,  CA-ON M5V 1X2"));
+                    //
+                    //
+                    ////                    $lat = $_GET['lat'];
+                    //                    $lat = 43.6490596;
+                    ////                    $lon = $_GET['lon'];
+                    //                    $lon = -79.391674;
+                    //                    $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
+                    ////                    $address = stripslashes($_GET['address']);
+                    //                    $json = getWalkScore($lat,$lon,$address);
+                    ////                    echo $json;
+                    //                    // Decode the JSON response
+                    //                    $responseData = json_decode($json, true);
+                    //
+                    //                    // Display the HTML using the information from the response
+                    //                    echo '<h1>Walkscore: ' . $responseData['walkscore'] . '</h1>';
+                    //                    echo '<p>Description: ' . $responseData['description'] . '</p>';
+                    //                    echo '<img src="' . $responseData['logo_url'] . '" alt="Walkscore Logo">';
+                    //                    // Add more HTML elements using other information from the response as needed
+                    //
+                    //                    ?>
+                </div>
+            </div>
 
         </div>
 
