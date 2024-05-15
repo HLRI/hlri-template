@@ -71,11 +71,16 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         <?php
         endif;
         ?>
-        </div>
+        </div> <!-- Close container -->
         <?php
         get_footer();
-    } else {
-    // If user is not logged in or does not have the appropriate role, display login form
-    echo do_shortcode('[nextend_social_login]');
+    else:
+        // If user is not logged in or does not have the appropriate role, display login form
+        echo do_shortcode('[nextend_social_login]');
+    endif;
+} else {
+    // Redirect to login page if user is not logged in or does not have the appropriate role
+    wp_redirect(wp_login_url());
+    exit;
 }
 ?>
