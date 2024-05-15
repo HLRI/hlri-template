@@ -129,7 +129,7 @@ if (!empty($menuitems)) : ?>
                                         <nav class='animated bounceInDown side-nav-dropdown'>
                                             <ul>
                                             <?php endif; ?>
-                                            <?php if ($item->menu_item_parent == 1) : ?>
+                                            <?php if ($item->menu_item_parent == 2) : ?>
                                                 <li class='sub-menu first'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
                                                     <?php if (!empty($item->children)) : ?>
                                                         <ul>
