@@ -1,6 +1,6 @@
 <?php
 $locations = get_nav_menu_locations();
-$menu = wp_get_nav_menu_object($locations['main-menu']);
+$menu = wp_get_nav_menu_object($locations['mobile-menu']);
 $menuitems = wp_get_nav_menu_items($menu->term_id, array('order' => 'DESC'));
 
 foreach ($menuitems as $child) {
