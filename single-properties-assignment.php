@@ -287,9 +287,6 @@ function addOrdinalSuffix($number)
 
 
     <br><br>
-<?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
-    <!-- End Content Section -->
-
 
 
 <?php get_footer(); ?>
