@@ -208,10 +208,10 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                     </div>
                 <?php else : ?>
                     <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                     </div>
                 <?php endif; ?>
             <?php else: ?>
