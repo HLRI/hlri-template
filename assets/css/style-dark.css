@@ -3958,6 +3958,9 @@ a.item-list-tag {
   border-radius: 7px;
   list-style:none;
 }
+li.sub2-item{
+  list-style: none;
+}
 .characteristics-cnt ul li i {
   font-size: 30px;
   color: #b19f91;
