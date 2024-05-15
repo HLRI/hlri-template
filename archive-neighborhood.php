@@ -2,7 +2,12 @@
 /* Template Name: Archive Neighborhoods */
 get_header();
 ?>
-
+<style>
+    .card-img-top {
+        height: 230px;
+        object-fit: cover;
+    }
+</style>
 <div class="container">
     <div class="row">
         <?php
