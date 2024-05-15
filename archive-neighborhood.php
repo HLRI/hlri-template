@@ -13,6 +13,12 @@ get_header();
         color: black;
     }
 </style>
+<div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
+    <div class="page-header-title text-center">
+        <h3>Toronto Neighborhoods</h3>
+        <h2 class="font-weight-bold">click the neighborhood to view the listings</h2>
+    </div>
+</div>
 <div class="container my-5">
     <div class="row">
         <?php
