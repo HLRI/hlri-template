@@ -46,7 +46,7 @@
                                             ?>
                                         </p>
                                         <div class="join-us__right_image_buttons">
-                                            <button onclick="window.location('https://condoy.com/privacy-policy/')">Privacy Policy</button>
+                                            <button onclick="location.href='https://condoy.com/privacy-policy/'">Privacy Policy</button>
                                             <a href="/about-us/" >learn more about us ↗</a>
                                         </div>
                                     </div>
