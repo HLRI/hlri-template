@@ -136,20 +136,7 @@ if (!empty($menuitems)) : ?>
                                                             <?php foreach ($item->children as $sub) : ?>
                                                                 <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
                                                                     <?php if (!empty($sub->children)) : ?>
-                                                                        <ul>
-                                                                            <?php
-                                                                            $titles = []; // Array to store already inserted titles
-                                                                            foreach ($item->children as $sub) :
-                                                                                if (!in_array($sub->title, $titles)): // Check if title has not been inserted before
-                                                                                    $titles[] = $sub->title; // Add title to the list
-                                                                                    ?>
-                                                                                    <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a></li>
-                                                                                <?php
-                                                                                endif;
-                                                                            endforeach;
-                                                                            ?>
 
-                                                                        </ul>
                                                                     <?php endif; ?>
                                                                 </li>
                                                             <?php endforeach; ?>
