@@ -20,6 +20,11 @@ get_header();
         color: grey;
         border-color: #c9c9c9;
     }
+    .btn-grayed-out:hover{
+        background-color: #c9c9c9;
+        color: grey;
+        border-color: #c9c9c9;
+    }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
     <div class="page-header-title text-center">
