@@ -110,61 +110,44 @@ if (!empty($menuitems)) : ?>
                                     </a>                                </div>
                             <?php endif; ?>
                         </div>
-                        <?php if ($theme_options['opt-display-menu']) : ?>
-
+                        <div class="side-content">
                             <?php
-                            $locations = get_nav_menu_locations();
-                            $menu = wp_get_nav_menu_object($locations['main-menu']);
-                            $menuitems = wp_get_nav_menu_items($menu->term_id, array('order' => 'DESC'));
+                            // Initialize flag
+                            $subMenuDisplayed = false;
 
-                            foreach ($menuitems as $child) {
-                                if ($child->menu_item_parent != 0) {
-                                    $children[] = $child;
-                                }
-                            }
-
-                            foreach ($menuitems as $parent) {
-                                if (!empty($children)) {
-                                    $menu_children=[];
-                                    foreach ($children as $child) {
-                                        if ($child->menu_item_parent == $parent->ID) {
-                                            $menu_children[] = $child;
-                                        }
-                                    }
-                                    $parent->children = $menu_children;
-                                    $menu_children = [];
-                                }
-                            }
-                            if (!empty($menuitems)) : ?>
-                                <ul class="list-nav">
-                                    <?php foreach ($menuitems as $item) : ?>
-                                        <?php if ($item->menu_item_parent == 0) :
-                                            $meta = get_post_meta($item->ID, '_prefix_menu_options', true);
-                                            ?>
-                                            <li class="nav-item"><a href="<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>" title="<?php $item->title ?>"><?php if (!empty($meta['icon'])) : ?><i class="<?= str_replace('fas', 'fa', $meta['icon']) ?> icon-main-menu"></i><?php endif; ?><?= $item->title ?> <?= !empty($item->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
-                                                <?php if (!empty($item->children)) : ?>
-                                                    <ul class="submenu">
-                                                        <?php foreach ($item->children as $sub) : ?>
-                                                            <li class="sub-item"><a class="nav-title" href="<?= $sub->url ?>" title="<?php $sub->title ?>"><span><?= $sub->title ?></span> <?= !empty($sub->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
-                                                                <?php if (!empty($sub->children)) : ?>
-                                                                    <ul class="submenu2">
-                                                                        <?php foreach ($sub->children as $sub2) : ?>
-                                                                            <li class="sub2-item"><a class="nav-title" href="<?= $sub2->url ?>" title="<?php $sub2->title ?>"><?= $sub2->title ?></a></li>
-                                                                        <?php endforeach; ?>
-                                                                    </ul>
-                                                                <?php endif; ?>
-                                                            </li>
-                                                        <?php endforeach; ?>
-                                                    </ul>
-                                                <?php endif; ?>
-                                            </li>
+                            foreach ($menuitems as $item) :
+                            if ($item->menu_item_parent == 0) : ?>
+                        <?php if (!$subMenuDisplayed) : ?>
+                            <nav class='animated bounceInDown side-nav-dropdown'>
+                                <ul>
+                                    <?php endif; ?>
+                                    <?php $subMenuDisplayed = false; ?>
+                                    <li class='sub-menu'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
+                                        <?php if (!empty($item->children)) : ?>
+                                            <?php $subMenuDisplayed = true; ?>
+                                            <ul>
+                                                <?php foreach ($item->children as $sub) : ?>
+                                                    <li class='sub-menu'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
+                                                        <?php if (!empty($sub->children)) : ?>
+                                                            <ul>
+                                                                <?php foreach ($sub->children as $sub2) : ?>
+                                                                    <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
+                                                                <?php endforeach; ?>
+                                                            </ul>
+                                                        <?php endif; ?>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         <?php endif; ?>
+                                    </li>
+                                    <?php endif; ?>
                                     <?php endforeach; ?>
+                                    <?php if ($subMenuDisplayed) : ?>
                                 </ul>
-                            <?php else : ?>
-                                <p>please set menu</p>
-                            <?php endif; ?>
-                        <?php endif; ?>                    </div>
+                            </nav>
+                        <?php endif; ?>
+                        </div>
+                    </div>
                 </div>
                 <?php if ($theme_options['footer-mobile-menu']['opt-display-footer-mobile-menu']) : ?>
                     <div class="modal-footer">
