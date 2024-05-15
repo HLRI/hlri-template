@@ -111,50 +111,53 @@ if (!empty($menuitems)) : ?>
                             <?php endif; ?>
                         </div>
                         <div class="side-content">
-                            <?php foreach ($menuitems as $item) : ?>
-                                <?php if (empty($item->children)) : ?>
-                                    <?php if ($item->menu_item_parent == 0) : ?>
-                                        <?php if ($item->title == 'hr') : ?>
-                                            <hr class="my-3">
-                                        <?php else : ?>
-                                            <?php
-                                            $meta = get_post_meta($item->ID, '_prefix_menu_options', true);
-                                            ?>
-                                            <li><a href="<?= $item->url ?>" class="d-flex align-items-center nav-link nav-item"><?php if (!empty($meta['icon'])) : ?><i class="<?= str_replace('fas', 'fa', $meta['icon']) ?> fontsize-icon-account icon-color-sidebar"></i><?php endif; ?><span class="ml-2 pr-2 color-text-sidebar" $attributes=""><?= $item->title ?></span></a></li>
-                                        <?php endif; ?>
+    foreach ($menuitems as $child) {
+    if ($child->menu_item_parent != 0) {
+    $children[] = $child;
+    }
+    }
+
+    foreach ($menuitems as $parent) {
+    if (!empty($children)) {
+    $menu_children=[];
+    foreach ($children as $child) {
+    if ($child->menu_item_parent == $parent->ID) {
+    $menu_children[] = $child;
+    }
+    }
+    $parent->children = $menu_children;
+    $menu_children = [];
+    }
+    }
+    if (!empty($menuitems)) : ?>
+    <ul class="list-nav">
+        <?php foreach ($menuitems as $item) : ?>
+            <?php if ($item->menu_item_parent == 0) :
+                $meta = get_post_meta($item->ID, '_prefix_menu_options', true);
+                ?>
+                <li class="nav-item"><a href="<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>" title="<?php $item->title ?>"><?php if (!empty($meta['icon'])) : ?><i class="<?= str_replace('fas', 'fa', $meta['icon']) ?> icon-main-menu"></i><?php endif; ?><?= $item->title ?> <?= !empty($item->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
+                    <?php if (!empty($item->children)) : ?>
+                        <ul class="submenu">
+                            <?php foreach ($item->children as $sub) : ?>
+                                <li class="sub-item"><a class="nav-title" href="<?= $sub->url ?>" title="<?php $sub->title ?>"><span><?= $sub->title ?></span> <?= !empty($sub->children) ? '<i class="fa fa-caret-down"></i>' : '' ?></a>
+                                    <?php if (!empty($sub->children)) : ?>
+                                        <ul class="submenu2">
+                                            <?php foreach ($sub->children as $sub2) : ?>
+                                                <li class="sub2-item"><a class="nav-title" href="<?= $sub2->url ?>" title="<?php $sub2->title ?>"><?= $sub2->title ?></a></li>
+                                            <?php endforeach; ?>
+                                        </ul>
                                     <?php endif; ?>
-                                <?php else : ?>
-                                    <?php $i = 0 ?>
-                                    <?php if ($i <= 0) : ?>
-                                        <nav class='animated bounceInDown side-nav-dropdown'>
-                                            <ul>
-                                            <?php endif; ?>
-                                            <?php if ($item->menu_item_parent == 0) : ?>
-                                                <li class='sub-menu first'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-                                                    <?php if (!empty($item->children)) : ?>
-                                                        <ul>
-                                                            <?php foreach ($item->children as $sub) : ?>
-                                                                <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-                                                                    <?php if (!empty($sub->children)) : ?>
-                                                                        <ul>
-                                                                            <?php foreach ($sub->children as $sub2) : ?>
-                                                                                <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
-                                                                            <?php endforeach; ?>
-                                                                        </ul>
-                                                                    <?php endif; ?>
-                                                                </li>
-                                                            <?php endforeach; ?>
-                                                        </ul>
-                                                    <?php endif; ?>
-                                                </li>
-                                            <?php endif; ?>
-                                            <?php if ($i <= 0) : ?>
-                                            </ul>
-                                        </nav>
-                                    <?php endif; ?>
-                                    <?php $i++; ?>
-                                <?php endif; ?>
+                                </li>
                             <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+<?php else : ?>
+    <p>please set menu</p>
+<?php endif; ?>
                         </div>
                     </div>
                 </div>
