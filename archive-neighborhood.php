@@ -48,8 +48,8 @@ width: 300px;
 margin: 0px auto;
 position: relative;
 "><input type="search" id="searchInput" placeholder="Search...">
-    <button id="searchButton" class="btn">Search</button>
-    <button id="clearButton" class="btn">Clear</button>
+    <button id="searchButton" class="btn btn-primary">Search</button>
+    <button id="clearButton" class="btn btn-primary">Clear</button>
 </div>
     <div class="row" id="searchResults">
         <!-- Your existing card elements will be dynamically added here -->
