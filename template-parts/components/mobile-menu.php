@@ -112,8 +112,9 @@ if (!empty($menuitems)) : ?>
                         </div>
                         <div class="side-content">
                             <?php
-                            // Retrieve menu items and their children
+                            // Initialize $i
                             $i = 0;
+
                             foreach ($menuitems as $item) :
                             if ($item->menu_item_parent == 0) : ?>
                         <?php if ($i <= 0) : ?>
