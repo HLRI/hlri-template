@@ -16,6 +16,8 @@ function get_post_count_taxonomy($term_id, $taxonomy, $post_type) {
     return $count;
 }
 
+get_header();
+
 $terms = get_terms([
     'taxonomy'   => 'neighborhood',
     'hide_empty' => false,
@@ -56,3 +58,5 @@ $terms = array_slice($terms, 0, 8);
         </div>
     </div>
 </div>
+
+<?php get_footer(); ?>
