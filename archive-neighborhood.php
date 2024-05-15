@@ -23,7 +23,7 @@ get_header();
                         <?php if (isset($meta['opt-neighborhood-image']) && !empty($meta['opt-neighborhood-image']['url'])) : ?>
                             <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="card-img-top" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : $neighborhood->name ?>">
                         <?php else : ?>
-                            <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/No-Image_Placeholder.jpg' ?>" class="card-img-top" alt="Placeholder Image">
+                            <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/No-Image-Placeholder.jpg' ?>" class="card-img-top" alt="Placeholder Image">
                         <?php endif; ?>
                     </a>
                     <div class="card-body">
