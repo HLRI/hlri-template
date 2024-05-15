@@ -1,6 +1,6 @@
 <?php
 // Check if user is logged in and has the appropriate role, otherwise display login form
-if (is_user_logged_in()) {
+if (is_user_logged_in() && (current_user_can('administrator') || current_user_can('editor') || current_user_can('agent'))) {
     get_header();
 
     $category_title = single_cat_title('', false);
@@ -76,7 +76,10 @@ if (is_user_logged_in()) {
         get_footer();
     else:
         // If user is not logged in or does not have the appropriate role, display login form
-        echo do_shortcode('[nextend_social_login]');
+
     endif;
+} else {
+    // Redirect to login page if user is not logged in or does not have the appropriate role
+    echo do_shortcode('[nextend_social_login]');
 }
 ?>
