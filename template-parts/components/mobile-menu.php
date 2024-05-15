@@ -131,30 +131,21 @@ if (!empty($menuitems)) : ?>
                                             <?php endif; ?>
                                             <?php if ($item->menu_item_parent == 0) : ?>
                                                 <li class='sub-menu first'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-                                                    <?php if (!empty($item->children)) : ?>
-                                                        <ul>
-                                                            <?php $titles0 = []; foreach ($item->children as $sub) : ?>
-                                                                <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-                                                                    <?php if (!empty($sub->children)) : ?>
-                                                                        <ul>
-                                                                            <?php
-                                                                            $titles = []; // Array to store already inserted titles
-                                                                            foreach ($item->children as $sub) :
-                                                                                if (!in_array($sub->title, $titles)): // Check if title has not been inserted before
-                                                                                    $titles[] = $sub->title; // Add title to the list
-                                                                                    ?>
-                                                                                    <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a></li>
-                                                                                <?php
-                                                                                endif;
-                                                                            endforeach;
-                                                                            ?>
-
-                                                                        </ul>
-                                                                    <?php endif; ?>
-                                                                </li>
-                                                            <?php endforeach; ?>
-                                                        </ul>
-                                                    <?php endif; ?>
+<!--                                                    --><?php //if (!empty($item->children)) : ?>
+<!--                                                        <ul>-->
+<!--                                                            --><?php //foreach ($item->children as $sub) : ?>
+<!--                                                                <li class='sub-menu second'><a href='--><?php //= $sub->url ?><!--'>--><?php //= $sub->title ?><!----><?php //= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?><!--</a>-->
+<!--                                                                    --><?php //if (!empty($sub->children)) : ?>
+<!--                                                                        <ul>-->
+<!--                                                                            --><?php //foreach ($sub->children as $sub2) : ?>
+<!--                                                                                <li><a href='--><?php //= $sub2->url ?><!--'>--><?php //= $sub2->title ?><!--</a></li>-->
+<!--                                                                            --><?php //endforeach; ?>
+<!--                                                                        </ul>-->
+<!--                                                                    --><?php //endif; ?>
+<!--                                                                </li>-->
+<!--                                                            --><?php //endforeach; ?>
+<!--                                                        </ul>-->
+<!--                                                    --><?php //endif; ?>
                                                 </li>
                                             <?php endif; ?>
                                             <?php if ($i <= 0) : ?>
