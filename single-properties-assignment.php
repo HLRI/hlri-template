@@ -181,41 +181,91 @@ function addOrdinalSuffix($number)
                     </style>
 
 
+                    <div class="row mb-2 justify-content-start px-0 px-md-3 ">
+                        <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
+                            <div class="rating-stars">
+                                <span class="update-label bg-foreground text-muted ">Last Update : <?= isset($psd['modified_date']) ? $psd['modified_date'] : 'No Update' ?></span>
+                                <ul class="mt-3" id="stars">
+                                    <?php if ($psd['properties_rated_id'] != get_the_ID()) : ?>
+                                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                                            <?php
+                                            switch ($i + 1) {
+                                                case 1:
+                                                    $status = 'Poor';
+                                                    break;
+                                                case 2:
+                                                    $status = 'Fair';
+                                                    break;
+                                                case 3:
+                                                    $status = 'Good';
+                                                    break;
+                                                case 4:
+                                                    $status = 'Excellent';
+                                                    break;
+                                                default:
+                                                    $status = 'WOW';
+                                                    break;
+                                            }
+                                            ?>
+                                            <?php if ($i < $psd['rates']) : ?>
+                                                <li class="star selected" data-value="<?= $i + 1 ?>"
+                                                    title="<?= $status ?>">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php else : ?>
+                                                <li class="star" data-value="<?= $i + 1 ?>" title="<?= $status ?>">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                    <?php else : ?>
+                                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                                            <?php if ($i < $psd['rates']) : ?>
+                                                <li class="star-rated selected">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php else : ?>
+                                                <li class="star-rated">
+                                                    <i class="fa fa-star fa-fw"></i>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                            <?php if (!empty($psd['user_rates'])) : ?>
+                                <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
+                            <?php endif; ?>
+                        </div>
+                        <?php if (!empty($data['opt-price-min'])) : ?>
+                            <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
+                                <div class="start-price mb-3">
+                                    <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
+                                        Asking Price
+                                    <?php else : ?>
+                                        Starting from
+                                    <?php endif; ?><span>
+                                    $<?= number_format($data['opt-price-min']) ?>
+                                </span>
+                                </div>
+                                <div class="btn-group">
+                                    <!-- <button class="btn btn-primary"> <i class="fa fa-share" ></i> Share </button> -->
+                                    <button class="btn btn-primary"
+                                            onclick="setLikeProperties(this, <?= get_the_ID() ?>)"><i
+                                                class="fa fa-heart" <?= isset($_COOKIE[get_the_ID()]) ? ' style="color:red" ' : '' ?>></i>
+                                        Favorite
+                                    </button>
+                                    <button class="btn btn-primary" onclick="bookmark(this,<?= get_the_ID() ?>)">
+                                        <i <?= is_user_logged_in() && in_array(get_the_ID(), (array)get_user_meta(get_current_user_id(), 'properties_favorites', false)) ? 'style="color:#9de450"' : '' ?>
+                                                class="fa fa-bookmark"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
-            <?php if (isset($psd['galleries'][0]['gallery_url'])) : ?>
-                <?php if ($psd['galleries'][0]['gallery_url']) : ?>
-                    <div class="vrmedia-gallery">
-                        <ul class="ecommerce-gallery">
-                            <?php foreach ($psd['galleries'] as $gallery_item) : ?>
-                                <li class="rounded" data-fancybox="gallery"
-                                    data-caption="<?= $gallery_item['caption'] ?>"
-                                    data-src="<?= $gallery_item['gallery_url'] ?>"
-                                    data-thumb="<?= $gallery_item['gallery_url'] ?>"
-                                    data-src="<?= $gallery_item['gallery_url'] ?>">
-                                    <img class="rounded" loading="lazy" src="<?= $gallery_item['gallery_url'] ?>"
-                                         alt="<?= $gallery_item['caption'] ?>">
-
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php else : ?>
-                    <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                        <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                    </div>
-                <?php endif; ?>
-            <?php else: ?>
-                <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
-                    <h2 class="text-2xl font-bold">Gallery</h2>
-                    <p class="text-gray-500">No images available at this time.</p>
-                </div>
-            <?php endif; ?>
         </div>
 
         <div class="row mt-4 properties-image-gallery px-3  mb-4 border-top pt-4">
