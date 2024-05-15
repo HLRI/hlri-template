@@ -12,14 +12,14 @@ if($post_ids == -1){
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',
-        'posts_per_page' => 12
+        'posts_per_page' => 0
     ];
 }else{
     $arg = [
         'post_type' => 'properties',
         'post_status' => 'publish',
         'post__in' => $post_ids,
-        'posts_per_page' => 0
+        'posts_per_page' => 12
     ];
 }
 
