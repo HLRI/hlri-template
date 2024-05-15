@@ -11,7 +11,7 @@ $terms = array_slice($terms, 0, 8);
         <div class="col-lg-12">
             <div class="titr-list">
                 <h3 class="font-weight-bold">Neighborhood</h3>
-                <a href="#" title="" class="view-more">View more</a>
+                <a href="https://condoy.com/neighborhoods" title="" class="view-more">View more</a>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="owl-carousel owl-theme neighborhood wrap-list">
