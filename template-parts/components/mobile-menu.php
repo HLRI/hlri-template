@@ -133,7 +133,8 @@ if (!empty($menuitems)) : ?>
                                                 <li class='sub-menu first'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
                                                     <?php if (!empty($item->children)) : ?>
                                                         <ul>
-                                                            <?php foreach ($item->children as $sub) : ?>
+
+                                                            <?php echo json_encode($item->children);foreach ($item->children as $sub) : ?>
                                                                 <li class='sub-menu second'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
 <!--                                                                    --><?php //if (!empty($sub->children)) : ?>
 <!--                                                                        <ul>-->
