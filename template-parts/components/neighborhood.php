@@ -28,6 +28,8 @@ $terms = array_slice($terms, 0, 8);
                                     <?= $term->name ?>
                                 </div>
                                 <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" class="neighborhood-link"><?= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?> Listing</a>
+                                <a target="_blank" class="neighborhood-link">Show on Map</a>
+<!--                                <a target="_blank" href="--><?php //= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?><!--" class="neighborhood-link">--><?php //= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?><!-- Show on Map</a>-->
                             </div>
                     <?php
                         endif;
