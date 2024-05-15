@@ -51,7 +51,7 @@ get_header();
                         <?php endif; ?>
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title"><?= $neighborhood->name ?></h5>
+                        <h6 class="card-title"><?= $neighborhood->name ?></h6>
                         <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary"><?= get_post_count_taxonomy($neighborhood_id, 'neighborhood', 'properties') ?> Listing</a>
                         <a href="<?= get_term_link($neighborhood); ?>" class="btn btn-primary">Explore</a>
                     </div>
