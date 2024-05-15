@@ -1,6 +1,7 @@
 <?php
 /* Template Name: Archive Neighborhoods */
 get_header();
+echo '<div class="container">';
 // Query all terms from the 'neighborhood' taxonomy
 $neighborhoods = get_terms( array(
     'taxonomy' => 'neighborhood',
@@ -22,5 +23,7 @@ foreach ( $neighborhoods as $neighborhood ) {
 
     echo '</div>';
 }
+echo '</div>';
+
 get_footer();
 ?>
