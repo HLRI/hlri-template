@@ -19,7 +19,7 @@ if($post_ids == -1){
         'post_type' => 'properties',
         'post_status' => 'publish',
         'post__in' => $post_ids,
-        'posts_per_page' => 12
+        'posts_per_page' => 0
     ];
 }
 
