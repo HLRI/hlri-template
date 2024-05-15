@@ -8,7 +8,7 @@ get_header();
         object-fit: cover;
     }
 </style>
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <?php
         // Query all terms from the 'neighborhood' taxonomy
