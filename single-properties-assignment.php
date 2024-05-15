@@ -165,20 +165,6 @@ function addOrdinalSuffix($number)
                         </div>
                     </div>
 
-                    <style>
-                        .characteristics-cnt ul {
-                            margin-top: 20px;
-                            display: grid;
-                            gap: 10px;
-                            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                            grid-template-rows: masonry;
-                        }
-
-                        .characteristics-cnt li {
-                            margin-bottom: 10px;
-                            margin-right: 8px;
-                        }
-                    </style>
 
 
                     <div class="row mb-2 justify-content-start px-0 px-md-3 ">
@@ -430,7 +416,259 @@ function addOrdinalSuffix($number)
             </div>
         </div>
     </div>
+    <!-- Content Section  -->
 
+    <div class="container-lg mx-auto row mt-3 px-lg-5">
+        <!-- content sidebar -->
+        <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center ">
+            <nav class="xm-auto position-sticky top-48" id="table-of-contents">
+                <div class="title toggle-list-btn">
+                    Table of Contents
+                    <i class="fa fa-arrow-up toggle-list arrow-toggle"></i>
+                </div>
+                <ol id="tag-list">
+                    <?php if (!($data['opt-sales-type'] == "Assignment") && !($data['opt-sales-type'] == "Resale")) : ?>
+                        <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
+                        <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
+                    <?php endif; ?>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- content  -->
+        <div class="col-12 col-sm-9 col-md-9  border-right border-left mb-4">
+            <div class="container-fluid px-lg-5">
+                <?php if (!empty($psd['content'])) : ?>
+                    <div class="row mt-2 border-top  mb-4" id="Overview">
+                        <div class="col-12">
+                            <div class=" content-original">
+                                <?= wpautop($psd['content']) ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <?php if (!empty($psd['videos'])) : ?>
+                <div class="container-fluid px-lg-5 py-4">
+                    <div class="row border-top pt-2 mt-2 mb-4">
+                        <div class="col-12">
+                            <div class="rvs-container">
+                                <div class="rvs-item-container">
+                                    <div class="rvs-item-stage">
+                                        <?php foreach ($psd['videos'] as $video) : ?>
+                                            <div class="rvs-item"
+                                                 style="background-image: url('<?= $video['opt-video-thumbnail']['url'] ?>')">
+                                                <p class="rvs-item-text"><?= $video['opt-video-title'] ?> <small>by Home
+                                                        Leader Realty</small></p>
+                                                <a href="<?= $video['opt-video-url'] ?>" class="rvs-play-video"></a>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                <div class="rvs-nav-container">
+                                    <a class="rvs-nav-prev"></a>
+                                    <div class="rvs-nav-stage">
+                                        <?php foreach ($psd['videos'] as $video) : ?>
+                                            <a class="rvs-nav-item">
+                                                <span class="rvs-nav-item-thumb"
+                                                      style="background-image: url('<?= $video['opt-video-thumbnail']['url'] ?>')"></span>
+                                                <h4 class="rvs-nav-item-title"><?= $video['opt-video-title'] ?></h4>
+                                                <small class="rvs-nav-item-credits">by Home Leader Realty</small>
+                                            </a>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <a class="rvs-nav-next"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="container-fluid px-lg-5 mb-4">
+                <!-- Development Detail -->
+                <?php if (!empty($psd['developments'])) : ?>
+                    <div class="row border-top  mt-5 mb-4" id="development-detail">
+                        <div class="col-12">
+                            <div class="titr-list ml-0">
+                                <h3 class="font-weight-bold">Development Details</h3>
+                            </div>
+                        </div>
+                        <?php foreach ($psd['developments'] as $development) : ?>
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card-developments">
+                                    <div class="card-developments-title">
+                                        <?= $development['opt-development-details-title'] ?>
+                                    </div>
+                                    <div class="card-developments-content">
+                                        <?= $development['opt-development-details-content'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!empty($psd['price_images'])) : ?>
+                    <div class="row mt-5 border-top  mb-4" id="PriceList">
+                        <div class="col-12">
+                            <div class="titr-list ml-0">
+                                <h3 class="font-weight-bold">Price List</h3>
+                            </div>
+                        </div>
+                        <?php foreach ($psd['price_images'] as $image) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                                <div class="image-price">
+                                    <img loading="lazy" src="<?= $image['opt-price-list-image']['url'] ?>"
+                                         alt="<?= $image['opt-price-list-image']['alt'] ?>">
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!empty($floorplans_ids[0])) : ?>
+                    <div class="row border-top  my-4">
+                        <div class="col-12">
+                            <div class="titr-list ml-0">
+                                <h3 class="font-weight-bold">Floor Plans</h3>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row px-4">
+                                <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
+                                    <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
+                                        <div class="card-floolplan">
+                                            <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>"
+                                               title="<?= wp_get_attachment_caption($floorplans_item_id) ?>"
+                                               data-lightbox="roadtrip">
+                                                <img loading="lazy" class="img-floorplan"
+                                                     src="<?= wp_get_attachment_url($floorplans_item_id) ?>"
+                                                     alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <div class="top-48"
+                     style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
+                    <!--                    --><?php
+                    //                    function getWalkScore($lat, $lon, $address) {
+                    //                        $address=urlencode($address);
+                    //                        $url = "https://api.walkscore.com/score?format=json&address=$address";
+                    //                        $url .= "&lat=$lat&lon=$lon&wsapikey=303447da1a4a6f6f0ea4815b2bda134f";
+                    //                        $str = file_get_contents($url);
+                    //                        return $str;
+                    //                    }
+                    //                    function getWalkScore2($address) {
+                    //                        $address=urlencode($address);
+                    //                        $url = "https://www.walkscore.com/professional/badges.php?address=$address#hood-widge";
+                    //                        $str = file_get_contents($url);
+                    //                        return $str;
+                    //                    }
+                    ////                    print_r(getWalkScore2("300 Richmond Street West Toronto,  CA-ON M5V 1X2"));
+                    //
+                    //
+                    ////                    $lat = $_GET['lat'];
+                    //                    $lat = 43.6490596;
+                    ////                    $lon = $_GET['lon'];
+                    //                    $lon = -79.391674;
+                    //                    $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
+                    ////                    $address = stripslashes($_GET['address']);
+                    //                    $json = getWalkScore($lat,$lon,$address);
+                    ////                    echo $json;
+                    //                    // Decode the JSON response
+                    //                    $responseData = json_decode($json, true);
+                    //
+                    //                    // Display the HTML using the information from the response
+                    //                    echo '<h1>Walkscore: ' . $responseData['walkscore'] . '</h1>';
+                    //                    echo '<p>Description: ' . $responseData['description'] . '</p>';
+                    //                    echo '<img src="' . $responseData['logo_url'] . '" alt="Walkscore Logo">';
+                    //                    // Add more HTML elements using other information from the response as needed
+                    //
+                    //                    ?>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- sidebar -->
+        <div class="col-12 col-sm-12 col-md-12 ">
+
+            <div class="hlri-container">
+<!--                <img src="img/shape.png" class="hlri-square" alt="" />-->
+                <div class="hlri-formsection">
+                    <div class="hlri-contact-info">
+                        <h3 class="title">Register Now</h3>
+                        <p class="hlri-text">
+                            to get full package , book your unit
+                        </p>
+
+                        <div class="hlri-info">
+                            <div class="hlri-information">
+                                <i class="fas fa-map-marker-alt"></i> &nbsp &nbsp
+
+                                <p>300 Richmond St W #300, Toronto, ON M5V 1X2</p>
+                            </div>
+                            <div class="hlri-information">
+                                <i class="fas fa-envelope"></i> &nbsp &nbsp
+                                <p>inquiries@Condoy.com</p>
+                            </div>
+                            <div class="hlri-information">
+                                <i class="fas fa-phone"></i>&nbsp&nbsp
+                                <p>(416) 599-9599</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hlri-contact-form">
+                        <span class="hlri-circle one"></span>
+                        <span class="hlri-circle two"></span>
+
+<!--                        <form action="index.html" autocomplete="off">-->
+<!--                            <h3 class="hlri-title">Register for --><?php //= $psd['title'] ?><!--</h3>-->
+<!--                            -->
+<!--                            --><?php //= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
+<!---->
+<!--                        </form>-->
+                        <style>
+                            #assignment_form{
+                                padding-top: 10px;
+                            }
+                        </style>
+                        <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?></h3>
+                        <?= do_shortcode('[contact-form-7 id="1891ff1" html_id="assignment_form" title="Assignment contact form"]') ?>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const inputs = document.querySelectorAll(".hlri-input");
+
+                function focusFunc() {
+                    let parent = this.parentNode;
+                    parent.classList.add("focus");
+                }
+
+                function blurFunc() {
+                    let parent = this.parentNode;
+                    if (this.value == "") {
+                        parent.classList.remove("focus");
+                    }
+                }
+
+                inputs.forEach((input) => {
+                    input.addEventListener("focus", focusFunc);
+                    input.addEventListener("blur", blurFunc);
+                });
+            </script>
+        </div>
+
+
+    </div>
+    <br><br>
 <?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
     <!-- End Content Section -->
 <?php
