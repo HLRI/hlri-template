@@ -47,7 +47,7 @@ display: inline-block;
 width: 300px;
 margin: 0px auto;
 position: relative;
-"><input type="text" id="searchInput" placeholder="Search...">
+"><input type="search" id="searchInput" placeholder="Search...">
 </div>
     <div class="row" id="searchResults">
         <!-- Your existing card elements will be dynamically added here -->
