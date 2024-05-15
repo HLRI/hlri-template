@@ -43,8 +43,6 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
                 $properties_query->the_post();
                 $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                 include(HLR_THEME_COMPONENT . 'properties/card.php');
-                echo do_shortcode('[nextend_social_login trackerdata="source"]');
-
             endwhile;
             ?>
         </div>
