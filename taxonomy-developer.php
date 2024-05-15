@@ -17,61 +17,28 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
                 </div>
             </div>
         </div>
-        <?php
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        $term = get_queried_object();
-
-        $args = [
-            'post_type' => 'properties',
-            'post_status' => 'publish',
-            'posts_per_page' => get_option('posts_per_page'),
-            'tax_query' => [
-                [
-                    'taxonomy' => $term->taxonomy,
-                    'field' => 'slug',
-                    'terms' => $term->slug,
-                ]
-            ],
-            'paged' => $paged,
-        ];
-
-        $properties_query = new WP_Query($args);
-
-        if ($properties_query->have_posts()) :
-            ?>
-            <div class="row">
+        <div class="row">
+            <div class="col-12">
                 <?php
-                while ($properties_query->have_posts()) :
-                    $properties_query->the_post();
-                    // Your property listing HTML goes here
-                endwhile;
-                wp_reset_postdata();
+                // Custom query to fetch properties
+                $args = [
+                    'post_type' => 'properties',
+                    'posts_per_page' => 10, // Adjust as needed
+                ];
+                $properties_query = new WP_Query($args);
+
+                if ($properties_query->have_posts()) :
+                    while ($properties_query->have_posts()) :
+                        $properties_query->the_post();
+                        // Display property information here
+                    endwhile;
+                    wp_reset_postdata();
+                else :
+                    echo '<p>No properties found.</p>';
+                endif;
                 ?>
             </div>
-            <?php
-            if ($properties_query->max_num_pages > 1) :
-                ?>
-                <div class="mt-5 row d-flex align-items-center justify-content-center">
-                    <?php
-                    echo paginate_links([
-                        'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-                        'total' => $properties_query->max_num_pages,
-                        'current' => max(1, get_query_var('paged')),
-                        'format' => '?paged=%#%',
-                        'show_all' => false,
-                        'type' => 'plain',
-                        'end_size' => 2,
-                        'mid_size' => 1,
-                        'prev_next' => true,
-                        'prev_text' => sprintf('<i></i> %1$s', __('Newer Posts', 'text-domain')),
-                        'next_text' => sprintf('%1$s <i></i>', __('Older Posts', 'text-domain')),
-                        'add_args' => false,
-                        'add_fragment' => '',
-                    ]);
-                    ?>
-                </div>
-            <?php endif;
-        endif; ?>
+        </div>
     </div>
     <?php
     get_footer();
