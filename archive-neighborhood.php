@@ -38,8 +38,6 @@ get_header();
                 endif;
             endwhile;
             wp_reset_postdata();
-        else :
-            echo '<div class="col-12"><p>No neighborhoods found.</p></div>';
         endif;
         ?>
     </div>
