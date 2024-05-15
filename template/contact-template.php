@@ -100,7 +100,7 @@
 
                 <div class="card mt-4 pb-3 mb-4">
                     <h4 class="pt-2 px-4" >Contact Us</h4>
-                      <?php echo do_shortcode('[hrl_contact_us_form]'); ?>
+                      <?php echo do_shortcode('[contact-form-7 id="bdcd689" title="Contact Us"]'); ?>
                 </div>
 
             </div>
