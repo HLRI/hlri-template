@@ -47,7 +47,6 @@ $terms = array_slice($terms, 0, 8);
 <style>div.neighborhood-link {
         position: absolute;
         bottom: 30px;
-        background: #ffad00;
         border-radius: 4px;
         text-align: center;
         color: white;
