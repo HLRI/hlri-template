@@ -15,6 +15,11 @@ get_header();
     .btn {
         font-size: 0.9rem;
     }
+    .btn-grayed-out{
+        background-color: #c9c9c9;
+        color: grey;
+        border-color: #c9c9c9;
+    }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
     <div class="page-header-title text-center">
@@ -62,7 +67,7 @@ get_header();
                     <div class="card-body">
                         <h6 class="card-title"><?= $neighborhood->name ?></h6>
                         <a href="<?= get_term_link($neighborhood); ?>" title="All listings in <?= $neighborhood->name ?>"  class="btn btn-primary"><?= get_post_count_taxonomy($neighborhood_id, 'neighborhood', 'properties') ?> Listing</a>
-                        <a title="This option will be available soon" style="background-color:grey" class="btn btn-primary">Explore on Map</a>
+                        <a title="This option will be available soon" style="background-color:grey" class="btn btn-primary btn-grayed-out">Explore on Map</a>
                     </div>
                 </div>
             </div>
