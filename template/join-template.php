@@ -35,7 +35,7 @@
                                             ?>
                                     </p>
                                 </div>
-                                <?php echo do_shortcode('[hrl_join_our_team_form]'); ?>
+                                <?php echo do_shortcode('[contact-form-7 id="99141d2" title="Join Us"]'); ?>
                                 <div class="join-us__right_image_detail d-md-none bg-foreground" >
                                         <img loading="lazy" class="mb-2" style="width: 80%;z-index:2;" src="<?= HLR_THEME_ASSETS . 'images/join-us-logo.png' ?>" alt="join-us-logo">
                                         <p class="text-center">
