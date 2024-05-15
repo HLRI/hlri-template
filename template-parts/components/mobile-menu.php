@@ -113,7 +113,7 @@ if (!empty($menuitems)) : ?>
                         <?php
                         $addedSubmenuItems = []; // Array to keep track of added submenu items
 
-                        foreach ($item->children as $sub) :
+                        foreach ($menuitems->children as $sub) :
                             // Check if the submenu item has already been added
                             if (!in_array($sub->title, $addedSubmenuItems)) :
                                 // Add the submenu item to the array of added items
