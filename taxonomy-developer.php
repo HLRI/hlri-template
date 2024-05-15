@@ -85,6 +85,8 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
     endif;
 } else {
     // If user is not logged in or does not have the appropriate role, display login form
+    get_header();
     echo do_shortcode('[nextend_social_login]');
+    get_footer();
 }
 ?>
