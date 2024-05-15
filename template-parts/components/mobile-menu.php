@@ -126,6 +126,22 @@ if (!empty($menuitems)) : ?>
                                                 <?php endif; ?>
                                                 <span class="ml-2 pr-2 color-text-sidebar" $attributes=""><?= $item->title ?></span>
                                             </a>
+                                            <?php if (!empty($item->children)) : ?>
+                                                <ul>
+                                                    <?php foreach ($item->children as $sub) : ?>
+                                                        <li class='sub-menu'>
+                                                            <a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
+                                                            <?php if (!empty($sub->children)) : ?>
+                                                                <ul>
+                                                                    <?php foreach ($sub->children as $sub2) : ?>
+                                                                        <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
+                                                                    <?php endforeach; ?>
+                                                                </ul>
+                                                            <?php endif; ?>
+                                                        </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            <?php endif; ?>
                                         </li>
                                     <?php endif; ?>
                                 <?php endif; ?>
