@@ -110,7 +110,8 @@ if (!empty($menuitems)) : ?>
                                     </a>                                </div>
                             <?php endif; ?>
                         </div>
-                        <div class="side-content">
+                        <div class="side-content">                                        <nav class='animated bounceInDown side-nav-dropdown'>
+
                             <?php foreach ($menuitems as $item) : ?>
                                 <?php if (empty($item->children)) : ?>
                                     <?php if ($item->menu_item_parent == 0) : ?>
@@ -126,7 +127,6 @@ if (!empty($menuitems)) : ?>
                                 <?php else : ?>
                                     <?php $i = 0 ?>
                                     <?php if ($i <= 0) : ?>
-                                        <nav class='animated bounceInDown side-nav-dropdown'>
                                             <ul>
                                             <?php endif; ?>
                                             <?php if ($item->menu_item_parent == 0) : ?>
@@ -135,7 +135,13 @@ if (!empty($menuitems)) : ?>
                                                         <ul>
                                                             <?php foreach ($item->children as $sub) : ?>
                                                                 <li class='sub-menu'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
-
+                                                                    <?php if (!empty($sub->children)) : ?>
+                                                                        <ul>
+                                                                            <?php foreach ($sub->children as $sub2) : ?>
+                                                                                <li><a href='<?= $sub2->url ?>'><?= $sub2->title ?></a></li>
+                                                                            <?php endforeach; ?>
+                                                                        </ul>
+                                                                    <?php endif; ?>
                                                                 </li>
                                                             <?php endforeach; ?>
                                                         </ul>
@@ -144,12 +150,12 @@ if (!empty($menuitems)) : ?>
                                             <?php endif; ?>
                                             <?php if ($i <= 0) : ?>
                                             </ul>
-                                        </nav>
                                     <?php endif; ?>
                                     <?php $i++; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
-                        </div>
+
+                            </nav></div>
                     </div>
                 </div>
                 <?php if ($theme_options['footer-mobile-menu']['opt-display-footer-mobile-menu']) : ?>
