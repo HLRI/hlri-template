@@ -21,7 +21,7 @@ $terms = array_slice($terms, 0, 8);
                         if (isset($meta['opt-neighborhood-image']) && !empty($meta['opt-neighborhood-image']['url'])) :
                     ?>
                             <div class="wrap-neighborhood">
-                                <a target="_blank" href="<?= isset($meta['opt-neighborhood-link']) ? $meta['opt-neighborhood-link']['url'] : '' ?>" title="<?= $term->name ?>">
+                                <a target="_blank" href="<?= get_term_link($term->term_id); ?>" title="<?= $term->name ?>">
                                     <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : $term->name ?>">
                                 </a>
                                 <div class="neighborhood-title">
