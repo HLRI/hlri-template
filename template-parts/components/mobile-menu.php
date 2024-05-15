@@ -112,17 +112,19 @@ if (!empty($menuitems)) : ?>
                         </div>
                         <div class="side-content">
                             <?php
-                            // Initialize $i
-                            $i = 0;
+                            // Initialize flag
+                            $subMenuDisplayed = false;
 
                             foreach ($menuitems as $item) :
                             if ($item->menu_item_parent == 0) : ?>
-                        <?php if ($i <= 0) : ?>
+                        <?php if (!$subMenuDisplayed) : ?>
                             <nav class='animated bounceInDown side-nav-dropdown'>
                                 <ul>
                                     <?php endif; ?>
+                                    <?php $subMenuDisplayed = false; ?>
                                     <li class='sub-menu'><a href='<?= !empty($item->children) ? 'javascript:void(0);' : $item->url ?>'><?= $item->title ?><?= !empty($item->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
                                         <?php if (!empty($item->children)) : ?>
+                                            <?php $subMenuDisplayed = true; ?>
                                             <ul>
                                                 <?php foreach ($item->children as $sub) : ?>
                                                     <li class='sub-menu'><a href='<?= $sub->url ?>'><?= $sub->title ?><?= !empty($sub->children) ? '<div class="fa fa-caret-down right"></div>' : '' ?></a>
@@ -138,10 +140,9 @@ if (!empty($menuitems)) : ?>
                                             </ul>
                                         <?php endif; ?>
                                     </li>
-                                    <?php $i++; ?>
                                     <?php endif; ?>
                                     <?php endforeach; ?>
-                                    <?php if ($i > 0) : ?>
+                                    <?php if ($subMenuDisplayed) : ?>
                                 </ul>
                             </nav>
                         <?php endif; ?>
