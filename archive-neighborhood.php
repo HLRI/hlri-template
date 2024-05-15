@@ -46,6 +46,11 @@ get_header();
         padding-right: 10px;
         margin-right: 10px;
     }
+    .btn-submit-flex {
+        background-color: #ffc107;
+        border-color: var(--main-color);
+        color: black
+    }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
     <div class="page-header-title text-center">
@@ -62,8 +67,8 @@ margin: 0px auto;
 position: relative;
 padding-bottom:10px;
 "><input type="search" id="searchInput" class="flex-input" placeholder="Search...">
-    <button id="searchButton" class="btn btn-primary flex-btn">Search</button>
-    <button id="clearButton" class="btn btn-primary flex-btn">Clear</button>
+    <button id="searchButton" class="btn btn-submit-flex flex-btn">Search</button>
+    <button id="clearButton" class="btn btn-submit-flex flex-btn">Clear</button>
 </div>
     <div class="row" id="searchResults">
         <!-- Your existing card elements will be dynamically added here -->
