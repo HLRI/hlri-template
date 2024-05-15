@@ -359,7 +359,7 @@ function addOrdinalSuffix($number)
             <!--                    <p class="text-gray-500">No floorplan image available at this time.</p>-->
             <!--                </div>-->
             <!--            --><?php //endif; ?>
-                    </div>
+            <!--        </div>-->
 
 
             <?php if ($associated_floorplans->have_posts()) : ?>
