@@ -120,7 +120,7 @@ if (!empty($menuitems)) : ?>
                                             <?php
                                             $meta = get_post_meta($item->ID, '_prefix_menu_options', true);
                                             ?>
-                                            <li><a href="<?= $item->url ?>" class="d-flex align-items-center nav-link nav-item"><?php if (!empty($meta['icon'])) : ?><i class="<?= str_replace('fas', 'fa', $meta['icon']) ?> fontsize-icon-account icon-color-sidebar"></i><?php endif; ?><span class="ml-2 pr-2 color-text-sidebar" $attributes=""><?= $item->title ?></span></a></li>
+                                            <li class="single-item"><a href="<?= $item->url ?>" class="d-flex align-items-center nav-link nav-item"><?php if (!empty($meta['icon'])) : ?><i class="<?= str_replace('fas', 'fa', $meta['icon']) ?> fontsize-icon-account icon-color-sidebar"></i><?php endif; ?><span class="ml-2 pr-2 color-text-sidebar" $attributes=""><?= $item->title ?></span></a></li>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 <?php else : ?>
