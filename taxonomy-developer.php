@@ -86,7 +86,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
 } else {
     // If user is not logged in or does not have the appropriate role, display login form
     get_header();
-    include HLR_THEME_PATH . 'template-parts/components/login-popup.php';
+    include HLR_THEME_PATH . 'template-parts/components/login-role.php';
     get_footer();
 }
 ?>
