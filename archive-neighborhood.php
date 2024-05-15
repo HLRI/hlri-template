@@ -17,7 +17,7 @@ foreach ( $neighborhoods as $neighborhood ) {
 
     if ( $thumbnail_id ) {
         $thumbnail_url = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail' ); // Change 'thumbnail' to your desired image size
-        echo '<img src="' . $thumbnail_url[0] . '" alt="' . $neighborhood->name . ' Thumbnail">';
+//        echo '<img src="' . $thumbnail_url[0] . '" alt="' . $neighborhood->name . ' Thumbnail">';
     }
 
     echo '</div>';
