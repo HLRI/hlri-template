@@ -12,6 +12,9 @@ get_header();
         border-color: var(--main-color);
         color: black;
     }
+    .btn {
+        font-size: 0.9rem;
+    }
 </style>
 <div class="page-header" style="background-image: url('https://condoy.com/wp-content/uploads/2023/09/250-Lawrence-Avenue-West-condos-8.jpg');">
     <div class="page-header-title text-center">
