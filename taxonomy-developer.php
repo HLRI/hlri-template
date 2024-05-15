@@ -1,4 +1,7 @@
 <?php
+// Start output buffering
+ob_start();
+
 // Check if user is logged in and has the appropriate role, otherwise display login form
 if (is_user_logged_in() && (current_user_can('administrator') || current_user_can('editor') || current_user_can('agent'))) {
     get_header();
@@ -75,11 +78,13 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         <?php
         get_footer();
     else:
-        // If user is not logged in or does not have the appropriate role, display login form
-
+        // If user is not logged in or does not have the appropriate role, buffer the login form output
+        ob_end_clean();
+        echo do_shortcode('[nextend_social_login]');
     endif;
 } else {
-    // Redirect to login page if user is not logged in or does not have the appropriate role
+    // If user is not logged in or does not have the appropriate role, buffer the login form output
+    ob_end_clean();
     echo do_shortcode('[nextend_social_login]');
 }
 ?>
