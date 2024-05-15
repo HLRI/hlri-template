@@ -610,7 +610,9 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
           totalLike +
           "</span>" +
           "                </div>" +
-          '  <div style="" class="properties-card_actions_btn" role="button" onclick="bookmark(this, post.id )"> ' +
+          '  <div style="" class="properties-card_actions_btn" role="button" onclick="bookmark(this, ' +
+            post.id +
+            ')"> ' +
           `<i class="fa fa-bookmark"></i>` +
           "</div>" +
           "            </div>" +
