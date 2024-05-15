@@ -3390,6 +3390,9 @@ a.item-list-tag {
 }
 
 @media (max-width: 768px) {
+  .hlri-formsection {
+    display: block !important;
+  }
   .page-header {
     margin-bottom: -200px;
   }
