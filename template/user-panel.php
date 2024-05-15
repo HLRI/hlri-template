@@ -100,11 +100,11 @@ $user_info = wp_get_current_user();
                                 </div>
                                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                                    <p class="text-gray mb-0"> 18 Minutes ago </p>
+                                    <p class="text-gray mb-0"> long ago </p>
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+                            <h6 class="p-3 mb-0 text-center">0 new messages</h6>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
