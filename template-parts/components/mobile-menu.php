@@ -113,36 +113,20 @@ if (!empty($menuitems)) : ?>
                         <div class="side-content">
                             <nav class="animated bounceInDown side-nav-dropdown">
                                 <ul>
-                                    <?php foreach ($menuitems as $item) : ?>
-                                        <?php if ($item->menu_item_parent == 0) : ?>
-                                            <?php renderMenuItem($item); ?>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
+                                    <?php
+                                    $renderedParentItems = array(); // To keep track of rendered parent items
+                                    foreach ($menuitems as $item) :
+                                        if ($item->menu_item_parent == 0) : // Check if it's a parent item
+                                            renderMenuItem($item); // Render the parent item
+                                            $renderedParentItems[] = $item->ID; // Add parent item ID to the rendered list
+                                        elseif (!in_array($item->menu_item_parent, $renderedParentItems)) : // Check if parent item is already rendered
+                                            renderMenuItem($item); // Render the submenu item
+                                        endif;
+                                    endforeach;
+                                    ?>
                                 </ul>
                             </nav>
                         </div>
-
-                        <?php
-                        function renderMenuItem($item) {
-                            $meta = get_post_meta($item->ID, '_prefix_menu_options', true);
-                            $hasChildren = !empty($item->children);
-                            ?>
-                            <li class="<?= $hasChildren ? 'sub-menu' : '' ?>">
-                                <a href="<?= $hasChildren ? 'javascript:void(0);' : $item->url ?>">
-                                    <?= $item->title ?>
-                                    <?php if ($hasChildren) : ?>
-                                        <div class="fa fa-caret-down right"></div>
-                                    <?php endif; ?>
-                                </a>
-                                <?php if ($hasChildren) : ?>
-                                    <ul>
-                                        <?php foreach ($item->children as $child) : ?>
-                                            <?php renderMenuItem($child); ?>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php endif; ?>
-                            </li>
-                        <?php } ?>
 
                     </div>
                 </div>
