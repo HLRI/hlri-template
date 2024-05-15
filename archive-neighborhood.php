@@ -7,6 +7,11 @@ get_header();
         height: 230px;
         object-fit: cover;
     }
+    .btn-primary {
+        background-color: #fff3cf;
+        border-color: var(--main-color);
+        color: black;
+    }
 </style>
 <div class="container my-5">
     <div class="row">
