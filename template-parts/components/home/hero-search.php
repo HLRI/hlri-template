@@ -11,5 +11,6 @@
         <i class="fa fa-location-dot"></i>
     </a>
     <div class="search-result">
+
     </div>
 </div>

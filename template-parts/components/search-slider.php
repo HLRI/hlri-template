@@ -4,13 +4,18 @@
         <i onchange="hlr_search()" style="cursor: pointer" class="fa fa-search"></i>
     </div>
     <div class="search-result">
+        <button id="close-search">x</button>
     </div>
 </div>
 
 <script>
     // Get references to the search box and search button
+    const closeSearchBox = document.getElementById('close-search');
     const searchBox = document.getElementById('main-search-field');
 
+
+    // Add event listener to search button
+    closeSearchBox.addEventListener('click', this.classList.remove("d-block"));
     // Add event listener for 'keypress' event on search box
     searchBox.addEventListener('keypress', function(event) {
         // Check if Enter key is pressed
