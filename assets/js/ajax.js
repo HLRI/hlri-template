@@ -293,7 +293,7 @@ function hlr_search() {
           keyword: query,
         },
         success: function (data) {
-          jQuery(".search-result").html(data);
+          jQuery(".search-result").html('<button id="close-search">x</button>'+data);
           // setTimeout(() => {
           // var items = jQuery('.pac-item');
           // if (items.length != 0) {
