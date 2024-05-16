@@ -131,7 +131,6 @@ add_filter('wpcf7_form_elements', function( $content ) {
 
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-add_filter( 'shortcode_atts_wpcf7', 'custom_shortcode_atts_wpcf7_filter', 10, 3 );
 
 function custom_shortcode_atts_wpcf7_filter( $out, $pairs, $atts ) {
     $my_attr = 'your-subject';
@@ -142,3 +141,4 @@ function custom_shortcode_atts_wpcf7_filter( $out, $pairs, $atts ) {
 
     return $out;
 }
+add_filter( 'shortcode_atts_wpcf7', 'custom_shortcode_atts_wpcf7_filter', 10, 3 );
