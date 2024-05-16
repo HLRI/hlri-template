@@ -12,7 +12,6 @@
     const closeSearchBox = document.getElementById('close-search');
     const searchBox = document.getElementById('main-search-field');
 
-
     // Add event listener to search button
     closeSearchBox.addEventListener('click', this.classList.remove("d-block"));
     // Add event listener for 'keypress' event on search box
