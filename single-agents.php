@@ -94,7 +94,7 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
             <?php $agentname = $page_subtitle;
             echo '[contact-form-7 id="2f2fdf4" title="Contact Agent" your-subject="{$agentname}"]';
             echo '<br>';
-            echo do_shortcode('[contact-form-7 id="2f2fdf4" title="Contact Agent"]'); ?>
+            echo do_shortcode('[contact-form-7 id="2f2fdf4" title="Contact Agent" your-subject="{$agentname}"]'); ?>
         </div>
     </div>
 </div>
