@@ -9,11 +9,8 @@
 
 <script>
     // Get references to the search box and search button
-    const closeSearchBox = document.getElementById('close-search');
     const searchBox = document.getElementById('main-search-field');
 
-    // Add event listener to search button
-    closeSearchBox.addEventListener('click', this.classList.remove("d-block"));
     // Add event listener for 'keypress' event on search box
     searchBox.addEventListener('keypress', function(event) {
         // Check if Enter key is pressed
