@@ -4453,7 +4453,7 @@ textarea.hlri-input {
 #Gallery{
   max-height:610px;
 }
-.close-search{
+#close-search{
   height: 22px;
   width: 25px;
   line-height: 100%;
