@@ -21,7 +21,7 @@
         searchBox.addEventListener('keypress', function(event) {
             // Check if Enter key is pressed
             if (event.key === 'Enter') {
-                hlr_search();
+                hlr_search_mobile();
             }
         });
     </script>
