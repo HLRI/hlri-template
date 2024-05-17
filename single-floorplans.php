@@ -370,7 +370,7 @@ $property = new WP_Query($args);
         position: relative;
         top: -19px;
     }
-    ..wpcf7-spinner::before{
+    .wpcf7-spinner::before{
         opacity:1;
     }
 </style>
