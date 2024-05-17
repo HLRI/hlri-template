@@ -57,7 +57,7 @@ if (!empty($menuitems)) : ?>
                             $user_meta = get_userdata(get_current_user_id());
                             $user_roles = $user_meta->roles;
                             if (in_array('administrator', $user_roles)) {
-                                $url = home_url('wp-admin');
+                                $url = home_url('panel');
                             } else {
                                 $url = home_url('panel');
                             }
