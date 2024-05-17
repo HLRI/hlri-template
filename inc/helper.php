@@ -100,6 +100,7 @@ function sign_in_with_microsoft($input = '')
                 max-height: 41px;
                 min-height: 41px;
                 height: 41px;
+                background: gainsboro;
             }
 
             .wpo365-mssignin-logo {
