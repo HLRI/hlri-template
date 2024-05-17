@@ -365,6 +365,7 @@ $property = new WP_Query($args);
 
         </div>
         <div class="col-lg-3 pl-lg-4 pr-lg-0 px-4">
+            <h3 class="font-weight-bold h5 mb-0 text-center">Register Now to get full package , book your unit</h3>
             <div style="background: orange;"><?php echo do_shortcode('[contact-form-7 id="b14d9c3" title="floorplan contact form"]') ?></div>
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
