@@ -394,6 +394,10 @@ $property = new WP_Query($args);
         color: white;
         background: #5dae44;
     }
+    .square-foot-wrap {
+        max-height: 370px;
+        overflow: auto;
+    }
 </style>
             <div style="background: orange;border-radius: 10px;"><br><h3 class="font-weight-bold h5 mb-0 mt-2 text-center text-white">Register Now to get full package , book your unit</h3>
                 <?php echo do_shortcode('[contact-form-7 id="b14d9c3" title="floorplan contact form"]') ?></div>
