@@ -365,8 +365,7 @@ $property = new WP_Query($args);
 
         </div>
         <div class="col-lg-3 pl-lg-4 pr-lg-0 px-4">
-            <?php echo do_shortcode('[contact-form-7 id="b14d9c3" title="floorplan contact form"]') ?>
-
+            <div style="background: orange;"><?php echo do_shortcode('[contact-form-7 id="b14d9c3" title="floorplan contact form"]') ?></div>
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
