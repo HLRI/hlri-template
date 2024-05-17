@@ -197,6 +197,9 @@ $user_info = wp_get_current_user();
                 .disablednav{
                     background-color: #e7e7e7;
                 }
+                .disablednav a{
+                    color: #afafaf;
+                }
             </style>
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
