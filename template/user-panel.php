@@ -193,6 +193,11 @@ $user_info = wp_get_current_user();
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
+            <style>
+                .disablednav{
+                    background-color: #e7e7e7;
+                }
+            </style>
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-profile">
@@ -226,19 +231,19 @@ $user_info = wp_get_current_user();
                             <i class="mdi mdi-eye menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item disablednav">
                         <a class="nav-link" href="">
                             <span class="menu-title">Your Listings</span>
                             <i class="mdi mdi-format-list-bulleted-type menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item disablednav">
                         <a class="nav-link" href="">
                             <span class="menu-title">Saved Searches</span>
                             <i class="mdi mdi-account-search menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item disablednav">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" <?= (isset($_GET['page-url'])) && (isset($_GET['menu']) == 'ads') ? 'aria-expanded="true"' : 'aria-expanded="false"' ?> aria-controls="ui-basic">
                             <span class="menu-title">Support</span>
                             <i class="menu-arrow"></i>
