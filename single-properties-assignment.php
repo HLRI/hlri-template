@@ -166,6 +166,18 @@ function addOrdinalSuffix($number)
                     </div>
 
                     <style>
+                        <style>
+                        .hlri-input-container span.wpcf7-spinner {
+                            position: relative;
+                            top: -19px;
+                        }
+                        .wpcf7-spinner:before {
+                            opacity: 1 !important;
+                            background-color: white !important;
+                            width: 5px !important;
+                            top: 4px !important;
+                            left: 4px !important;
+                        }
                         .characteristics-cnt ul {
                             margin-top: 20px;
                             display: grid;
