@@ -380,7 +380,7 @@ $property = new WP_Query($args);
                         </style>
                         <div class="card-form">
                             <?= do_shortcode($theme_options['opt-properties-shortcode']) ?>
-                            <?= do_shortcode('[contact-form-7 id="b14d9c3" title="floorplan contact form"]') ?>
+                            <?= echo do_shortcode('[contact-form-7 id="b14d9c3" title="floorplan contact form"]') ?>
                         </div>
                     </div>
                 <?php endif; ?>
