@@ -370,8 +370,12 @@ $property = new WP_Query($args);
         position: relative;
         top: -19px;
     }
-    .wpcf7-spinner:before{
-        opacity:1;
+    .wpcf7-spinner:before {
+        opacity: 1 !important;
+        background-color: white !important;
+        width: 5px !important;
+        top: 4px !important;
+        left: 4px !important;
     }
 </style>
             <div style="background: orange;"><br><h3 class="font-weight-bold h5 mb-0 text-center">Register Now to get full package , book your unit</h3>
