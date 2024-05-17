@@ -166,7 +166,6 @@ function addOrdinalSuffix($number)
                     </div>
 
                     <style>
-                        <style>
                         .hlri-input-container span.wpcf7-spinner {
                             position: relative;
                             top: -19px;
