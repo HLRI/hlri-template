@@ -366,8 +366,12 @@ $property = new WP_Query($args);
         </div>
         <div class="col-lg-3 pl-lg-4 pr-lg-0 px-4">
 <style>
-    .hlri-input-container span.wpcf7-spinner{
-        position:relative;
+    .hlri-input-container span.wpcf7-spinner {
+        position: relative;
+        top: -19px;
+    }
+    ..wpcf7-spinner::before{
+        opacity:1;
     }
 </style>
             <div style="background: orange;"><br><h3 class="font-weight-bold h5 mb-0 text-center">Register Now to get full package , book your unit</h3>
