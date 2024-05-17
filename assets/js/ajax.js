@@ -355,7 +355,7 @@ function hlr_search_mobile() {
           keyword: query,
         },
         success: function (data) {
-          jQuery(".search-result").html(data);
+          jQuery(".search-result").html('<button id="close-search" onclick="document.getElementsByClassName(\'search-result\')[0].classList.remove(\'d-block\')">x</button>'+data);
           // setTimeout(() => {
           // var items = jQuery('.pac-item');
           // if (items.length != 0) {
