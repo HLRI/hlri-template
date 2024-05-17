@@ -14,6 +14,7 @@ get_header();
     }
     .btn {
         font-size: 0.9rem;
+        padding: .375rem .6rem;
     }
     .btn-grayed-out{
         background-color: #c9c9c9;
