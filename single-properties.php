@@ -54,13 +54,13 @@ function addOrdinalSuffix($number)
                                         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo $data['opt-min-bed']; ?> - <?php echo $data['opt-max-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?> - <?php echo $data['opt-max-bed'] ?></strong>
                                             <span
-                                                    class="gray normal-lbl">Bedroom<?php (intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
+                                                    class="gray normal-lbl">Bedroom<?php echo (intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
                                                     class="gray short-lbl"></span>
                                         </li>
                                         <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo $data['opt-min-bath']; ?> - <?php echo $data['opt-max-bath']; ?>">
                                             <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?> - <?php echo $data['opt-max-bath'] ?></strong>
                                             <span
-                                                    class="gray normal-lbl">Bathroom<?php (intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
+                                                    class="gray normal-lbl">Bathroom<?php echo (intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
                                                     class="gray short-lbl"></span>
                                         </li>
                                         <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo $data['opt-size-min']; ?> - <?php echo $data['opt-size-max']; ?> Sqft.">
