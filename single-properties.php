@@ -51,22 +51,22 @@ function addOrdinalSuffix($number)
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
-                                        <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo $data['opt-min-bed']; ?> to <?php echo $data['opt-max-bed']; ?>">
+                                        <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo $data['opt-min-bed']; ?> - <?php echo $data['opt-max-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?> to <?php echo $data['opt-max-bed'] ?></strong>
                                             <span
-                                                    class="gray normal-lbl">Beds</span><span
+                                                    class="gray normal-lbl">Bedroom(s)</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
-                                        <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo $data['opt-min-bath']; ?> to <?php echo $data['opt-max-bath']; ?>">
+                                        <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo $data['opt-min-bath']; ?> - <?php echo $data['opt-max-bath']; ?>">
                                             <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?> to <?php echo $data['opt-max-bath'] ?></strong>
                                             <span
-                                                    class="gray normal-lbl">Baths</span><span
+                                                    class="gray normal-lbl">Bathroom(s)</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
-                                        <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo $data['opt-size-min']; ?> to <?php echo $data['opt-size-max']; ?> Sqft.">
+                                        <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo $data['opt-size-min']; ?> - <?php echo $data['opt-size-max']; ?> Sqft.">
                                             <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?> to <?php echo $data['opt-size-max'] ?></strong>
                                             <span
-                                                    class="gray normal-lbl">Sqft</span><span
+                                                    class="gray normal-lbl">Sq Ft</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
                                         <?php if (!empty($data['opt-parking-quantity'])) : ?>
