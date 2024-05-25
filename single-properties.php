@@ -66,7 +66,7 @@ function addOrdinalSuffix($number)
                                         <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo $data['opt-size-min']; ?> - <?php echo $data['opt-size-max']; ?> Sqft.">
                                             <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?> to <?php echo $data['opt-size-max'] ?></strong>
                                             <span
-                                                    class="gray normal-lbl">Sq Ft</span><span
+                                                    class="gray normal-lbl">Sqft</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
                                         <?php if (!empty($data['opt-parking-quantity'])) : ?>
