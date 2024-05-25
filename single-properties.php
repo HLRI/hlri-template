@@ -127,14 +127,28 @@ function addOrdinalSuffix($number)
                     </div>
 
                     <style>
+                        .hlri-input-container span.wpcf7-spinner {
+                            position: relative;
+                            top: -19px;
+                        }
+                        .wpcf7-spinner:before {
+                            opacity: 1 !important;
+                            background-color: white !important;
+                            width: 5px !important;
+                            top: 4px !important;
+                            left: 4px !important;
+                        }
                         .characteristics-cnt ul {
-                            display: flex;
                             margin-top: 20px;
+                            display: grid;
+                            gap: 10px;
+                            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                            grid-template-rows: masonry;
                         }
 
                         .characteristics-cnt li {
                             margin-bottom: 10px;
-                            margin-right: 25px;
+                            margin-right: 8px;
                         }
                     </style>
 
