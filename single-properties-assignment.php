@@ -106,7 +106,6 @@ function addOrdinalSuffix($number)
                                                 <b><?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?></b>/Sqft.
                                             </li>
                                         <?php endif; ?>
-                                        <?php endif; ?>
                                         <?php $terms = get_the_terms(get_the_ID(), 'neighborhood');
                                         if (!empty($terms)) {
                                             foreach ($terms as $term) {
@@ -162,6 +161,7 @@ function addOrdinalSuffix($number)
                                         <?php endif; ?>
                                     </ul>
                                 </div>
+                            <?php endif; ?>
                         </div>
                     </div>
 
