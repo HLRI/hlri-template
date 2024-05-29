@@ -2750,6 +2750,9 @@ h4.info-title {
   text-shadow: 1px 1px 2px #e9e9e9;
   width: 200px;
 }
+.navsearch-fixed{
+  max-width: 245px;
+}
 
 a.neighborhood-link {
   position: absolute;

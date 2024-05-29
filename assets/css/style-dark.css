@@ -2717,12 +2717,21 @@ h4.info-title {
 .neighborhood-title {
   position: absolute;
   bottom: 100px;
-  font-size: 25px;
+  font-size: 21px;
   z-index: 10;
-  color: white;
+  color: #ac9b8d;
   font-family: "Russo One", sans-serif;
+  background: #3c3836e8;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  text-shadow: 1px 1px 2px #2a2a2a;
+  width: 200px;
 }
-
+.navsearch-fixed{
+  max-width: 245px;
+}
 a.neighborhood-link {
   position: absolute;
   bottom: 30px;
