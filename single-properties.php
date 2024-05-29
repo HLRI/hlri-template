@@ -75,11 +75,6 @@ function addOrdinalSuffix($number)
                                             </li>
                                         <?php endif; ?>
 
-                                        <?php if (!empty($firstfloor['opt-floorplans-view'])) : ?>
-                                            <li class="property-type ic-proptype" title="Exposure: <?php echo $firstfloor['opt-floorplans-view']; ?>"><span><i class="fas fa-eye"></i><br>
-                                                <?php echo $firstfloor['opt-floorplans-view'] . ' View'; ?></span>
-                                            </li>
-                                        <?php endif; ?>
                                         <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
                                             <li class="property-type ic-proptype" title="Level: <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?>"><i
                                                         class="fa-solid fa-elevator"></i><br>
