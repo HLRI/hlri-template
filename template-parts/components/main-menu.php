@@ -122,7 +122,7 @@
     justify-content: start;
     align-items: center;">
 
-                    <img src="https://condoy.com/wp-content/uploads/2024/05/hlri.png" style="
+                    <img id="hlriLogo" src="https://condoy.com/wp-content/uploads/2024/05/hlri.png" style="
     height: 22px;
 ">
                 </div>

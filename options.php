@@ -118,20 +118,34 @@ if (class_exists('CSF')) {
 		'parent'		=>	'header',
 		'title'			=>	'Menu Settings',
 		'fields'	=>	array(
-			array(
-				'id'    	=>	'opt-menu-logo',
-				'type'  	=>	'media',
-				'title'		=>	'Light Logo',
-				'subtitle'	=>	'Please select an image',
-				'library'	=>	'image'
-			),
-			array(
-				'id'    	=>	'opt-menu-logo-dark',
-				'type'  	=>	'media',
-				'title'		=>	'Dark Logo',
-				'subtitle'	=>	'Please select an image',
-				'library'	=>	'image'
-			),
+            array(
+                'id'    	=>	'opt-menu-logo',
+                'type'  	=>	'media',
+                'title'		=>	'Light Logo',
+                'subtitle'	=>	'Please select an image',
+                'library'	=>	'image'
+            ),
+            array(
+                'id'    	=>	'opt-menu-logo-dark',
+                'type'  	=>	'media',
+                'title'		=>	'Dark Logo',
+                'subtitle'	=>	'Please select an image',
+                'library'	=>	'image'
+            ),
+            array(
+                'id'    	=>	'opt-menu-hlri-logo',
+                'type'  	=>	'media',
+                'title'		=>	'HLRI Light Logo',
+                'subtitle'	=>	'Please select an image',
+                'library'	=>	'image'
+            ),
+            array(
+                'id'    	=>	'opt-menu-hlri-logo-dark',
+                'type'  	=>	'media',
+                'title'		=>	'HLRI Dark Logo',
+                'subtitle'	=>	'Please select an image',
+                'library'	=>	'image'
+            ),
 			array(
 				'id'         => 'opt-display-menu',
 				'type'       => 'button_set',
