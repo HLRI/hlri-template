@@ -161,8 +161,8 @@ function theme_head()
         var darkStyle = '<?= HLR_THEME_ASSETS . 'css/style-dark.css' ?>';
         var darkLogo = '<?= $theme_option['opt-menu-logo-dark']['url'] ?>';
         var lightLogo = '<?= $theme_option['opt-menu-logo']['url'] ?>';
-        var hlriDarkLogo = '<?= $theme_option['opt-menu-logo-dark']['url'] ?>';
-        var hlriLightLogo = '<?= $theme_option['opt-menu-logo']['url'] ?>';
+        var hlriDarkLogo = '<?= $theme_option['opt-menu-hlri-logo-dark']['url'] ?>';
+        var hlriLightLogo = '<?= $theme_option['opt-menu-hlri-logo']['url'] ?>';
         var lightStyle = '<?= HLR_THEME_ASSETS . 'css/style.css' ?>';
     </script>
 <?php
