@@ -374,10 +374,12 @@ jQuery(document).ready(function ($) {
     if ($("#style-css").hasClass("dark-mode")) {
       $("div.site-logo a img").attr("src", lightLogo);
       $("#style-css").attr("href", lightStyle).removeClass("dark-mode");
+      $("#hlriLogo").attr("src", hlriLightLogo);
       localStorage.setItem("style-mode", "light");
     } else {
       $("div.site-logo a img").attr("src", darkLogo);
       $("#style-css").attr("href", darkStyle).addClass("dark-mode");
+      $("#hlriLogo").attr("src", hlriLightLogo);
       localStorage.setItem("style-mode", "dark");
     }
     $(".sw-mode").toggleClass("d-none d-block");
