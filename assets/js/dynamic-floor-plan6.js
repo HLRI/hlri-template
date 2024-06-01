@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     function updateFloorPlanTypes() {
-        var propertySelect = document.getElementById('associated_property');
+        var propertySelect = document.querySelector('[name="associated_property"]');
         var propertyId = propertySelect ? propertySelect.value : '';
-        var floorPlanTypeSelect = document.getElementById('floor_plan_type_select');
+        var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
 
-        if (propertyId) {
+        if (propertyId && floorPlanTypeSelect) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', ajaxurl.url, true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             };
             xhr.send('action=get_floor_plan_types&property_id=' + propertyId);
-        } else {
+        } else if (floorPlanTypeSelect) {
             floorPlanTypeSelect.parentElement.style.display = 'none'; // Hide if no property selected
         }
     }
 
-    var propertySelect = document.getElementById('associated_property');
+    var propertySelect = document.querySelector('[name="associated_property"]');
     if (propertySelect) {
         propertySelect.addEventListener('change', updateFloorPlanTypes);
     }
