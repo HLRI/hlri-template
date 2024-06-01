@@ -628,7 +628,7 @@ function create_routes()
     ]);
     register_rest_route('floorplans/v5', 'getResult', [
         'methods' => 'GET',
-        'callback' => 'get_floor_plan_types2',
+        'callback' => 'get_floor_plan_tu',
     ]);
     register_rest_route('mapdata/v3', 'getResult', [
         'methods' => 'GET',
@@ -1361,7 +1361,7 @@ function get_PreConstruction() {
 add_action('wp_ajax_get_floor_plan_types', 'get_floor_plan_types');
 add_action('wp_ajax_nopriv_get_floor_plan_types', 'get_floor_plan_types');
 
-function get_floor_plan_types2(WP_REST_Request $request) {
+function get_floor_plan_tu(WP_REST_Request $request) {
      wp_send_json_error('Property ID not provided');
         return;
     if ( ! isset( $_GET['property_id'] ) ) {
