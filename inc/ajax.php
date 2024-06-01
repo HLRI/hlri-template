@@ -626,6 +626,10 @@ function create_routes()
         'methods' => 'GET',
         'callback' => 'my_awesome_func_tree',
     ]);
+    register_rest_route('floorplans/v5', 'getResult', [
+        'methods' => 'GET',
+        'callback' => 'get_floor_plan_types',
+    ]);
     register_rest_route('mapdata/v3', 'getResult', [
         'methods' => 'GET',
         'callback' => 'my_awesome_func_final',
