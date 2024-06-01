@@ -1636,11 +1636,6 @@ if (class_exists('CSF')) {
                     'options' => array(), // Initially empty, populated by JavaScript
                     'dependency' => array('associated_property', '!=', ''),
                 ),
-                array(
-                    'id'    => 'opt-floorplans-test',
-                    'type'  => 'wp_editor',
-                    'title' => 'test item'
-                ),
 			)
 		)
 	);
