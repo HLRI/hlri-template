@@ -1438,6 +1438,24 @@ if (class_exists('CSF')) {
 					'type'   => 'number',
 					'title' => 'External ID'
 				),
+                array(
+                    'id'    => 'floor_plan_types',
+                    'type'  => 'group',
+                    'title' => 'Floor Plan Types',
+                    'fields' => array(
+                        array(
+                            'id'    => 'title',
+                            'type'  => 'text',
+                            'title' => 'Title',
+                        ),
+                        array(
+                            'id'    => 'deposit_structure',
+                            'type'  => 'textarea',
+                            'title' => 'Deposit Structure',
+                        ),
+                        // Add more fields as needed for each floor plan type
+                    ),
+                ),
 			)
 		)
 	);
