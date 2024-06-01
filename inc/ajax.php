@@ -1370,20 +1370,20 @@ function get_floor_plan_tu(WP_REST_Request $request) {
     $property_id = intval( $_GET['property_id'] );
     $floor_plan_types = get_post_meta( $property_id, 'hlr_framework_mapdata', true );
 
-    if ( empty( $floor_plan_types ) ) {
-        wp_send_json_error('No floor plan types found');
-        return;
-    }
+//    if ( empty( $floor_plan_types ) ) {
+//        wp_send_json_error('No floor plan types found');
+//        return;
+//    }
+//
+//    $options = array();
+//    foreach ( $floor_plan_types as $type ) {
+//        $options[] = array(
+//            'value' => $type['title'],
+//            'label' => $type['title'],
+//        );
+//    }
 
-    $options = array();
-    foreach ( $floor_plan_types as $type ) {
-        $options[] = array(
-            'value' => $type['title'],
-            'label' => $type['title'],
-        );
-    }
-
-    wp_send_json_success( $options );
+    wp_send_json_success( $floor_plan_types );
 }
 function get_floor_plan_types() {
     if ( ! isset( $_POST['property_id'] ) ) {
