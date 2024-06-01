@@ -1374,7 +1374,7 @@ function get_floor_plan_types() {
 }
 
 function enqueue_dynamic_floor_plan_script() {
-    wp_enqueue_script('dynamic-floor-plan-script', get_template_directory_uri() . '/assets/js/dynamic-floor-plan4.js', array(), null, true);
+    wp_enqueue_script('dynamic-floor-plan-script', get_template_directory_uri() . '/assets/js/dynamic-floor-plan5.js', array(), null, true);
     wp_localize_script('dynamic-floor-plan-script', 'ajaxurl', array('url' => admin_url('admin-ajax.php')));
 }
 add_action('admin_enqueue_scripts', 'enqueue_dynamic_floor_plan_script');
