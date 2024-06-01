@@ -14,7 +14,10 @@ jQuery(document).ready(function($) {
                         text: option.label
                     }));
                 });
+                $floorPlanTypeSelect.parent().show(); // Ensure the field is shown
             });
+        } else {
+            $('#floor_plan_type_select').parent().hide(); // Hide if no property selected
         }
     }
 
