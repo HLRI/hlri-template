@@ -1633,7 +1633,9 @@ if (class_exists('CSF')) {
                     'id'    => 'floor_plan_type_select',
                     'type'  => 'select',
                     'title' => 'Floor Plan Type',
-                    'options' => array(), // Initially empty, populated by JavaScript
+                    'options' => array(
+                        'test' => 'test'
+                    ), // Initially empty, populated by JavaScript
                 ),
 			)
 		)
