@@ -1354,3 +1354,27 @@ function get_PreConstruction() {
     wp_die();
 }
 
+add_action('wp_ajax_get_floor_plan_types', 'get_floor_plan_types');
+add_action('wp_ajax_nopriv_get_floor_plan_types', 'get_floor_plan_types');
+
+function get_floor_plan_types() {
+    $property_id = intval($_POST['property_id']);
+    $floor_plan_types = get_post_meta($property_id, 'floor_plan_types', true);
+
+    $options = array();
+    if ($floor_plan_types) {
+        foreach ($floor_plan_types as $type) {
+            $options[] = array(
+                'value' => $type['title'],
+                'label' => $type['title'],
+            );
+        }
+    }
+    wp_send_json($options);
+}
+
+function enqueue_dynamic_floor_plan_script() {
+    wp_enqueue_script('dynamic-floor-plan-script', get_template_directory_uri() . 'assets/js/dynamic-floor-plan.js', array('jquery'), null, true);
+    wp_localize_script('dynamic-floor-plan-script', 'ajaxurl', admin_url('admin-ajax.php'));
+}
+add_action('admin_enqueue_scripts', 'enqueue_dynamic_floor_plan_script');
