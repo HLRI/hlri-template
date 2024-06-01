@@ -628,7 +628,7 @@ function create_routes()
     ]);
     register_rest_route('floorplans/v5', 'getResult', [
         'methods' => 'GET',
-        'callback' => 'get_floor_plan_types',
+        'callback' => 'get_floor_plan_types2',
     ]);
     register_rest_route('mapdata/v3', 'getResult', [
         'methods' => 'GET',
