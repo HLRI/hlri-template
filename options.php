@@ -1629,6 +1629,29 @@ if (class_exists('CSF')) {
 					'type'  => 'wp_editor',
 					'title' => 'Deposit Structure'
 				),
+                'fields' => array(
+                    array(
+                        'id'    => 'floor_plan_type',
+                        'type'  => 'select',
+                        'title' => 'Floor Plan Type',
+                        'options' => function() {
+                            global $post;
+                            $associated_property = get_post_meta($post->ID, 'associated_property', true);
+                            $options = array();
+                            if ($associated_property) {
+                                $floor_plan_types = get_post_meta($associated_property, 'floor_plan_types', true);
+                                if ($floor_plan_types) {
+                                    foreach ($floor_plan_types as $type) {
+                                        $options[$type['title']] = $type['title'];
+                                    }
+                                }
+                            }
+                            return $options;
+                        },
+                        'dependency' => array('associated_property', '!=', ''),
+                    ),
+                    // Other fields for floor plan post type
+                ),
 			)
 		)
 	);
