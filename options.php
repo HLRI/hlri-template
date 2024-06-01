@@ -1450,7 +1450,7 @@ if (class_exists('CSF')) {
                         ),
                         array(
                             'id'    => 'deposit_structure',
-                            'type'  => 'textarea',
+                            'type'  => 'wp_editor',
                             'title' => 'Deposit Structure',
                         ),
                         // Add more fields as needed for each floor plan type
