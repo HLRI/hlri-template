@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     function updateFloorPlanTypes() {
-        var propertySelect = document.querySelector('[name="associated_property"]');
-        var propertyId = propertySelect ? propertySelect.value : '';
+        var propertySelect = document.getElementById('associated_property');
+        var propertyId = propertySelect.value;
+
         var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
 
         if (propertyId && floorPlanTypeSelect) {
@@ -21,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     floorPlanTypeSelect.parentElement.style.display = 'block'; // Ensure the field is shown
                 }
             };
-            xhr.send('action=get_floor_plan_types&property_id=' + propertyId);
+            // xhr.send('action=get_floor_plan_types&property_id=' + propertyId);
+            xhr.send('action=get_floor_plan_types&property_id=' + 6759);
         } else if (floorPlanTypeSelect) {
             floorPlanTypeSelect.parentElement.style.display = 'none'; // Hide if no property selected
         }
