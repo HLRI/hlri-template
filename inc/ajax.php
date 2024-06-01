@@ -1385,7 +1385,16 @@ function get_floor_plan_types() {
         wp_send_json_error('No floor plan types found');
         return;
     }
-    wp_send_json_success( $floor_plan_types['floor_plan_types'] );
+
+    $options = array();
+    foreach ( $floor_plan_types['floor_plan_types'] as $type ) {
+        $options[] = array(
+            'title' => $type['title'],
+            'label' => $type['title'],
+        );
+    }
+
+    wp_send_json_success( $options );
 }
 
 function enqueue_dynamic_floor_plan_script() {
