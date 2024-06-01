@@ -1362,8 +1362,6 @@ add_action('wp_ajax_get_floor_plan_types', 'get_floor_plan_types');
 add_action('wp_ajax_nopriv_get_floor_plan_types', 'get_floor_plan_types');
 
 function get_floor_plan_tu(WP_REST_Request $request) {
-     wp_send_json_error($_GET['property_id']);
-        return;
     if ( ! isset( $_GET['property_id'] ) ) {
         wp_send_json_success($_GET['property_id']);
         return;
