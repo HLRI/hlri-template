@@ -1371,7 +1371,7 @@ function get_floor_plan_tu(WP_REST_Request $request) {
     $floor_plan_types = get_post_meta( $property_id, 'hlr_framework_mapdata', true );
 
 
-    wp_send_json_success( $floor_plan_types['floor_plan_types']['data'] );
+    wp_send_json_success( $floor_plan_types['floor_plan_types'] );
 }
 function get_floor_plan_types() {
     if ( ! isset( $_POST['property_id'] ) ) {
