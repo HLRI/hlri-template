@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var propertyId = propertySelect.value;
 
         var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
-        var floorPlanTypeText = document.getElementById('floor_plan_type_text');
+        var floorPlanTypeText = document.querySelector('[data-depend-id="floor_plan_type_text"]');
 
         console.log('Floor Plan Type Select:', floorPlanTypeSelect);
         console.log('Floor Plan Type Text:', floorPlanTypeText);
