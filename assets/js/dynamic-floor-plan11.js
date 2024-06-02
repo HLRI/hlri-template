@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                 var opt = document.createElement('option');
                                 opt.value = option.title; // Adjust as needed
                                 opt.text = option.label;  // Adjust as needed
+
+                                // Check if the option's title matches the selected value
+                                if (option.title === selectedValue) {
+                                    opt.selected = true; // Mark the option as selected
+                                }
+
                                 floorPlanTypeSelect.appendChild(opt);
                             });
                             floorPlanTypeSelect.parentElement.style.display = 'block'; // Ensure the field is shown
