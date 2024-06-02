@@ -346,10 +346,6 @@ $property = new WP_Query($args);
                                                 $selectedFloorPlanType = isset($floorplans['floor_plan_type_text']) ? $floorplans['floor_plan_type_text'] : '';
                                                 // Check if the selected floor plan type is not empty
                                                 if (!empty($selectedFloorPlanType)) {
-
-
-
-
                                                     $floor_plan_types = get_post_meta( $pid, 'hlr_framework_mapdata', true );
                                                             $floorPlanTypes = $floor_plan_types['floor_plan_types'];
                                                             foreach ($floorPlanTypes as $floorPlanType) {
@@ -361,16 +357,22 @@ $property = new WP_Query($args);
                                                                     break; // Exit the loop once a match is found
                                                                 }
                                                             }
-
-
-
-
-
-
+                                                }  else {
+                                                    // here
+                                                    if ($property->have_posts()) :
+                                                        while ($property->have_posts()) : $property->the_post();
+                                                            $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                                                            ?>
+                                                            <div class="square-foot-title">Deposit Structure</div>
+                                                            <?php echo wpautop($mdata_single['opt-deposit-structue'], true); ?>
+                                                        <?php
+                                                        endwhile;
+                                                    endif;
+                                                    wp_reset_postdata();
+                                                    wp_reset_query();
                                                 }
                                             }
                                             ?>
-
                                         </div>
                                     </div>
                                 </div>
