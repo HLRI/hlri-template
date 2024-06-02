@@ -351,7 +351,6 @@ $property = new WP_Query($args);
 
 
                                                     $floor_plan_types = get_post_meta( $pid, 'hlr_framework_mapdata', true );
-print_r($floor_plan_types);
                                                             $floorPlanTypes = $floor_plan_types['floor_plan_types'];
                                                             foreach ($floorPlanTypes as $floorPlanType) {
                                                                 // Check if the title of the floor plan type matches the selected floor plan type
