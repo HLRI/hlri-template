@@ -11,19 +11,26 @@ document.addEventListener('DOMContentLoaded', function() {
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    console.log(response);
-                    floorPlanTypeSelect.innerHTML = '';
-                    response.forEach(function(option) {
-                        var opt = document.createElement('option');
-                        opt.value = option.value;
-                        opt.text = option.label;
-                        floorPlanTypeSelect.appendChild(opt);
-                    });
-                    floorPlanTypeSelect.parentElement.style.display = 'block'; // Ensure the field is shown
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        console.log('API Response:', response); // Log the response for debugging
+                        if (Array.isArray(response)) {
+                            floorPlanTypeSelect.innerHTML = '';
+                            response.forEach(function(option) {
+                                var opt = document.createElement('option');
+                                opt.value = option.title; // Adjust as needed
+                                opt.text = option.title;  // Adjust as needed
+                                floorPlanTypeSelect.appendChild(opt);
+                            });
+                            floorPlanTypeSelect.parentElement.style.display = 'block'; // Ensure the field is shown
+                        } else {
+                            console.error('Unexpected response format:', response);
+                        }
+                    } catch (e) {
+                        console.error('Failed to parse JSON response:', e);
+                    }
                 }
             };
-            // xhr.send('action=get_floor_plan_types&property_id=' + propertyId);
             xhr.send('action=get_floor_plan_types&property_id=' + 6759);
         } else if (floorPlanTypeSelect) {
             floorPlanTypeSelect.parentElement.style.display = 'none'; // Hide if no property selected
