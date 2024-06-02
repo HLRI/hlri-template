@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
         var floorPlanTypeText = document.getElementById('floor_plan_type_text');
 
+        console.log('Floor Plan Type Select:', floorPlanTypeSelect);
+        console.log('Floor Plan Type Text:', floorPlanTypeText);
+
         if (propertyId && floorPlanTypeSelect) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', ajaxurl.url, true);
@@ -54,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
         floorPlanTypeSelect.addEventListener('change', function() {
             var selectedValue = floorPlanTypeSelect.value;
             var floorPlanTypeText = document.getElementById('floor_plan_type_text');
+            console.log('Selected Value:', selectedValue);
+            console.log('Floor Plan Type Text:', floorPlanTypeText);
             if (floorPlanTypeText) {
                 floorPlanTypeText.value = selectedValue; // Update the text field with the selected value
             }
