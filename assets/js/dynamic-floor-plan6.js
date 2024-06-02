@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var response = JSON.parse(xhr.responseText);
+                    console.log(response);
                     floorPlanTypeSelect.innerHTML = '';
                     response.forEach(function(option) {
                         var opt = document.createElement('option');
