@@ -1634,7 +1634,7 @@ if (class_exists('CSF')) {
                     'type'  => 'select',
                     'title' => 'Floor Plan Type',
                     'options' => array(
-                        'test' => 'test'
+                        'default' => 'no available floorplan type or it\'s not loaded correctly'
                     ), // Initially empty, populated by JavaScript
                 ),
                 array(
