@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
         var floorPlanTypeText = document.querySelector('[data-depend-id="floor_plan_type_text"]');
         var selectedValue = floorPlanTypeSelect.value;
 
+        // Retrieve the selected floor plan type from local storage or hidden input field
+        var storedSelectedValue = localStorage.getItem('selectedFloorPlanType');
+        if (storedSelectedValue && !selectedValue) {
+            selectedValue = storedSelectedValue;
+        }
+
         console.log('Floor Plan Type Select:', floorPlanTypeSelect);
         console.log('Floor Plan Type Text:', floorPlanTypeText);
 
@@ -39,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             if (floorPlanTypeText) {
                                 floorPlanTypeText.value = selectedValue; // Update the text field with the selected value
                             }
+
+                            // Store the selected floor plan type in local storage or hidden input field
+                            localStorage.setItem('selectedFloorPlanType', selectedValue);
                         } else {
                             console.error('Unexpected response format:', response);
                         }
@@ -69,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (floorPlanTypeText) {
                 floorPlanTypeText.value = selectedValue; // Update the text field with the selected value
             }
+
+            // Store the selected floor plan type in local storage or hidden input field
+            localStorage.setItem('selectedFloorPlanType', selectedValue);
         });
     }
 
