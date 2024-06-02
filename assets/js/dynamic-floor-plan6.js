@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
 
-        if (propertyId && floorPlanTypeSelect) {
+        // Check if floorPlanTypeSelect already has a value
+        if (propertyId && floorPlanTypeSelect && !floorPlanTypeSelect.value) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', ajaxurl.url, true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
