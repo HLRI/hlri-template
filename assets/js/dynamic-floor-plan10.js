@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
         var floorPlanTypeText = document.querySelector('[data-depend-id="floor_plan_type_text"]');
+        var selectedValue = floorPlanTypeSelect.value;
 
         console.log('Floor Plan Type Select:', floorPlanTypeSelect);
         console.log('Floor Plan Type Text:', floorPlanTypeText);
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                             // Update the read-only text field with the selected value
                             if (floorPlanTypeText) {
-                                floorPlanTypeText.value = floorPlanTypeSelect.value;
+                                floorPlanTypeText.value = selectedValue; // Update the text field with the selected value
                             }
                         } else {
                             console.error('Unexpected response format:', response);
