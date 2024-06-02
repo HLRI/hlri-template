@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
         var floorPlanTypeText = document.getElementById('floor_plan_type_text');
-        var savedFloorPlanType = floorPlanTypeText ? floorPlanTypeText.value : ''; // Retrieve saved value from text field
 
         if (propertyId && floorPlanTypeSelect) {
             var xhr = new XMLHttpRequest();
@@ -22,12 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
                                 var opt = document.createElement('option');
                                 opt.value = option.title; // Adjust as needed
                                 opt.text = option.label;  // Adjust as needed
-                                if (option.title === savedFloorPlanType) {
-                                    opt.selected = true; // Pre-select the saved value
-                                }
                                 floorPlanTypeSelect.appendChild(opt);
                             });
                             floorPlanTypeSelect.parentElement.style.display = 'block'; // Ensure the field is shown
+
+                            // Update the read-only text field with the selected value
+                            if (floorPlanTypeText) {
+                                floorPlanTypeText.value = floorPlanTypeSelect.value;
+                            }
                         } else {
                             console.error('Unexpected response format:', response);
                         }
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         propertySelect.addEventListener('change', updateFloorPlanTypes);
     }
 
-    // Update the text field when the dropdown value changes
+    // Update the read-only text field when the dropdown value changes
     var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
     if (floorPlanTypeSelect) {
         floorPlanTypeSelect.addEventListener('change', function() {
