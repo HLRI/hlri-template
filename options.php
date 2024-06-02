@@ -1637,7 +1637,15 @@ if (class_exists('CSF')) {
                         'test' => 'test'
                     ), // Initially empty, populated by JavaScript
                 ),
-			)
+                array(
+                    'id'    => 'floor_plan_type_text',
+                    'type'  => 'text',
+                    'title' => 'Selected Floor Plan Type',
+                    'attributes' => array(
+                        'readonly' => 'readonly', // Make the field read-only
+                    ),
+                ),
+            )
 		)
 	);
 

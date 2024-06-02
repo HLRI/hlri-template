@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var propertyId = propertySelect.value;
 
         var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
+        var floorPlanTypeText = document.getElementById('floor_plan_type_text');
+        var savedFloorPlanType = floorPlanTypeText ? floorPlanTypeText.value : ''; // Retrieve saved value from text field
 
-        // Check if floorPlanTypeSelect already has a value
-        if (propertyId && floorPlanTypeSelect && !floorPlanTypeSelect.value) {
+        if (propertyId && floorPlanTypeSelect) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', ajaxurl.url, true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -21,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                 var opt = document.createElement('option');
                                 opt.value = option.title; // Adjust as needed
                                 opt.text = option.label;  // Adjust as needed
+                                if (option.title === savedFloorPlanType) {
+                                    opt.selected = true; // Pre-select the saved value
+                                }
                                 floorPlanTypeSelect.appendChild(opt);
                             });
                             floorPlanTypeSelect.parentElement.style.display = 'block'; // Ensure the field is shown
@@ -41,6 +45,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var propertySelect = document.querySelector('[name="associated_property"]');
     if (propertySelect) {
         propertySelect.addEventListener('change', updateFloorPlanTypes);
+    }
+
+    // Update the text field when the dropdown value changes
+    var floorPlanTypeSelect = document.querySelector('[data-depend-id="floor_plan_type_select"]');
+    if (floorPlanTypeSelect) {
+        floorPlanTypeSelect.addEventListener('change', function() {
+            var selectedValue = floorPlanTypeSelect.value;
+            var floorPlanTypeText = document.getElementById('floor_plan_type_text');
+            if (floorPlanTypeText) {
+                floorPlanTypeText.value = selectedValue; // Update the text field with the selected value
+            }
+        });
     }
 
     // Initial load
