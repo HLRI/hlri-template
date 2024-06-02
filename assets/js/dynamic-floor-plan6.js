@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     try {
                         var response = JSON.parse(xhr.responseText);
                         console.log('API Response:', response); // Log the response for debugging
-                        if (Array.isArray(response)) {
+                        if (response.success && Array.isArray(response.data)) {
                             floorPlanTypeSelect.innerHTML = '';
-                            response.forEach(function(option) {
+                            response.data.forEach(function(option) {
                                 var opt = document.createElement('option');
                                 opt.value = option.title; // Adjust as needed
-                                opt.text = option.title;  // Adjust as needed
+                                opt.text = option.label;  // Adjust as needed
                                 floorPlanTypeSelect.appendChild(opt);
                             });
                             floorPlanTypeSelect.parentElement.style.display = 'block'; // Ensure the field is shown
