@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (floorPlanTypeSelect) {
         floorPlanTypeSelect.addEventListener('change', function() {
             var selectedValue = floorPlanTypeSelect.value;
-            var floorPlanTypeText = document.getElementById('floor_plan_type_text');
+            var floorPlanTypeText = document.querySelector('[data-depend-id="floor_plan_type_text"]');
             console.log('Selected Value:', selectedValue);
             console.log('Floor Plan Type Text:', floorPlanTypeText);
             if (floorPlanTypeText) {
