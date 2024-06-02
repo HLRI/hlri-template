@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             };
-            xhr.send('action=get_floor_plan_types&property_id=' + 6759);
+            xhr.send('action=get_floor_plan_types&property_id=' + propertyId);
         } else if (floorPlanTypeSelect) {
             floorPlanTypeSelect.parentElement.style.display = 'none'; // Hide if no property selected
         }
