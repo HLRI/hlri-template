@@ -344,7 +344,7 @@ $property = new WP_Query($args);
                                             } else {
                                                 // If the deposit structure of the floor plan is empty, retrieve it from the associated property
                                                 $selectedFloorPlanType = isset($floorplans['floor_plan_type_text']) ? $floorplans['floor_plan_type_text'] : '';
-
+echo $selectedFloorPlanType;
                                                 // Check if the selected floor plan type is not empty
                                                 if (!empty($selectedFloorPlanType)) {
                                                     // Query the property to get the deposit structure of the selected floor plan type
