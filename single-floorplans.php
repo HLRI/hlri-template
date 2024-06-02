@@ -349,7 +349,7 @@ print_r($floorplans);
                                                 if (!empty($selectedFloorPlanType)) {
 
 
-
+echo $pid;
 
 
 //
