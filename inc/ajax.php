@@ -1397,6 +1397,10 @@ function get_floor_plan_types() {
         'title' => 'NA',
         'label' => 'NA',
     );
+    $options[] = array(
+        'title' => '',
+        'label' => 'Empty',
+    );
     wp_send_json_success( $options );
 }
 
