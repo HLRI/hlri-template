@@ -1,13 +1,15 @@
+<h6>Home Leader Realty Song</h6>
 <style>
     /* Add your custom styles here */
     .audio-player {
         display: flex;
         align-items: center;
-        background-color: #ff7171;
+        background-color: #fec20f;
         padding: 4px;
         border-radius: 5px;
         width: 231px;
-        margin-top:10px;
+        margin-top: 10px !important;
+        margin: 0px auto;
     }
     audio{
         display:none;
