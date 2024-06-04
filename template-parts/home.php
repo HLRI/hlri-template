@@ -11,6 +11,7 @@ endif;
 
 <!--  homepage content -->
 <div class="container-lg">
+    jj
     <?php include(HLR_THEME_COMPONENT . 'top-section.php'); ?>
     <?php include(HLR_THEME_COMPONENT . 'neighborhood.php'); ?>
     <?php include(HLR_THEME_COMPONENT . 'properties-category/just-launched.php'); ?>
