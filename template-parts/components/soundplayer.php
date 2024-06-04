@@ -7,6 +7,7 @@
         padding: 4px;
         border-radius: 5px;
         width: 231px;
+        margin-top:10px;
     }
     audio{
         display:none;
