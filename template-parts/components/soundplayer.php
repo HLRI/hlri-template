@@ -1,4 +1,4 @@
-<h6>Home Leader Realty Song</h6>
+<h6 style="text-align: center;margin-top: 10px;font-weight: bold;color: #787878;margin-bottom: -10px;">Home Leader Realty Song</h6>
 <style>
     /* Add your custom styles here */
     .audio-player {
