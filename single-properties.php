@@ -69,6 +69,12 @@ function addOrdinalSuffix($number)
                                                     class="gray normal-lbl">Sqft</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
+                                        <?php if (!empty($data['opt-occupancy'])) : ?>
+                                            <li class="property-type ic-proptype">
+                                                <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
+                                                echo 'occup ' . $occupancyOp . $data['opt-occupancy']; ?>
+                                            </li>
+                                        <?php endif; ?>
                                         <?php if (!empty($data['opt-parking-quantity'])) : ?>
                                             <li class="property-type ic-proptype" title="Number of Parkings: <?php echo $data['opt-parking-quantity']; ?>">
                                                 <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' Parking' ?>
