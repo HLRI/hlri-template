@@ -45,7 +45,7 @@ function addOrdinalSuffix($number)
                             }
                             ?>
                             <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale")) : ?>
-                                <div class="characteristics-cnt">
+                                <div class="characteristics-cnt">asas
                                     <ul>
                                         <li class="property-type ic-proptype" title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>" >
                                             <i class="fas fa-fas fa-building"></i><br>
