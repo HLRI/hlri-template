@@ -1178,7 +1178,7 @@ if (class_exists('CSF')) {
                     'chosen'      => true,
                     'multiple'    => true,
                     'options'     => array(
-                        'Detached'  => 'Condominium',
+                        'Condominium'  => 'Condominium',
                         'Freehold'  => 'Freehold'
                     ),
                     'default'     => ''
