@@ -51,7 +51,7 @@ function addOrdinalSuffix($number)
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
-                                        <li class="property-type ic-proptype" title="Property type: <?php echo $data['opt-ownership-type'] . ' ' . implode(', ', $data['opt-ownership-type']); ?>" >
+                                        <li class="property-type ic-proptype" title="Property type: <?php echo implode(', ', $data['opt-ownership-type']); ?>" >
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo implode(', ', $data['opt-ownership-type']); ?>
                                         </li>
