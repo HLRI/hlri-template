@@ -1171,7 +1171,7 @@ if (class_exists('CSF')) {
                     'default'     => ''
                 ),
                 array(
-                    'id'          => 'opt-ownership-type',
+                    'id'          => 'opt-ownership',
                     'type'        => 'select',
                     'title'       => 'Ownership',
                     'placeholder' => 'Select an option',
