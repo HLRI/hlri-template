@@ -49,7 +49,7 @@ function addOrdinalSuffix($number)
                                     <ul>
                                         <?php if (($data['opt-sales-type'] == "Preconstruction")) : ?>
                                             <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
-                                                <i class="fas fa-user-hard-hat"></i>
+                                                <i class="fas fa-tools"></i>
                                                 <?php echo $data['opt-sales-type'] ?>
                                             </li>
                                         <?php endif; ?>
