@@ -47,9 +47,9 @@ function addOrdinalSuffix($number)
                             <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
-    <?php if (($key = array_search('Preconstruction', $data['opt-sales-type'] ?? [])) !== false) : ?>
+    <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale") || ($data['opt-sales-type'] == "Assignment")) : ?>
         <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
-            <i class="fas fa-fas fa-building"></i><br>
+            <i class="fas fa-fas fa-check-circle"></i><br>
             <?php echo $data['opt-sales-type'] ?>
         </li>
     <?php endif; ?>
