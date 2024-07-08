@@ -1154,22 +1154,35 @@ if (class_exists('CSF')) {
 					'type'  => 'number',
 					'title' => 'Max Bath'
 				),
-				array(
-					'id'          => 'opt-type',
-					'type'        => 'select',
-					'title'       => 'Type',
-					'placeholder' => 'Select an option',
-					'chosen'      => true,
-					'multiple'    => true,
-					'options'     => array(
-						'Detached'  => 'Detached',
-						'Freehold'  => 'Freehold',
-						'TownHouse'  => 'TownHouse',
-						'Condo'  => 'Condo',
-						'Commercial'  => 'Commercial',
-					),
-					'default'     => ''
-				),
+                array(
+                    'id'          => 'opt-type',
+                    'type'        => 'select',
+                    'title'       => 'Type',
+                    'placeholder' => 'Select an option',
+                    'chosen'      => true,
+                    'multiple'    => true,
+                    'options'     => array(
+                        'Detached'  => 'Detached',
+                        'Freehold'  => 'Freehold',
+                        'TownHouse'  => 'TownHouse',
+                        'Condo'  => 'Condo',
+                        'Commercial'  => 'Commercial',
+                    ),
+                    'default'     => ''
+                ),
+                array(
+                    'id'          => 'opt-ownership-type',
+                    'type'        => 'select',
+                    'title'       => 'Ownership',
+                    'placeholder' => 'Select an option',
+                    'chosen'      => true,
+                    'multiple'    => true,
+                    'options'     => array(
+                        'Detached'  => 'Condominium',
+                        'Freehold'  => 'Freehold'
+                    ),
+                    'default'     => ''
+                ),
 				array(
 					'id'    => 'opt-min-price-sqft',
 					'type'  => 'number',
