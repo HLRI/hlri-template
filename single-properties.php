@@ -47,7 +47,16 @@ function addOrdinalSuffix($number)
                             <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
-                                        <li class="property-type ic-proptype" title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>" >
+    <?php if (($key = array_search('Preconstruction', $data['opt-sales-type'] ?? [])) !== false) : ?>
+        <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
+            <i class="fas fa-fas fa-building"></i><br>
+            <?php echo $data['opt-sales-type'] ?>
+        </li>
+    <?php endif; ?>
+                                        <?php if (($key = array_search('Preconstruction', $data['opt-sales-type'] ?? [])) !== false) {
+                                            $data['opt-sales-type'] = array_values(array_diff($data['opt-sales-type'] ?? [], ['Preconstruction']));
+                                        } ?>
+        <li class="property-type ic-proptype" title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>" >
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
