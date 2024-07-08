@@ -53,7 +53,7 @@ function addOrdinalSuffix($number)
                                         </li>
                                         <li class="property-type ic-proptype" title="Ownership: <?php echo implode(', ', $data['opt-ownership-type']); ?>" >
                                             <i class="fas fa-fas fa-building"></i><br>
-                                            <?php echo implode(', ', $data['opt-ownership-type']); ?>
+                                            <?php print_r($data['opt-ownership-type']);echo implode(', ', $data['opt-ownership-type']); ?>
                                         </li>
                                         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo $data['opt-min-bed']; ?> - <?php echo $data['opt-max-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?> - <?php echo $data['opt-max-bed'] ?></strong>
