@@ -103,10 +103,16 @@ function addOrdinalSuffix($number)
                                                     class="gray short-lbl"></span>
                                         </li>
                                         <?php if (!empty($data['opt-floors'])) : ?>
-                                        <li class="property-type ic-proptype" title="Level: <?php echo $data['opt-floors'] ?>"><i
-                                                    class="fa-solid fa-elevator"></i><br>
-                                            <b><?php echo $data['opt-floors'] ?></b>  Storeys
-                                        </li>
+                                            <li class="property-type ic-proptype" title="Level: <?php echo $data['opt-floors'] ?>"><i
+                                                        class="fa-solid fa-elevator"></i><br>
+                                                <b><?php echo $data['opt-floors'] ?></b>  Storeys
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-suites'])) : ?>
+                                            <li class="property-type ic-proptype" title="Level: <?php echo $data['opt-suites'] ?>"><i
+                                                        class="fa-solid fa-elevator"></i><br>
+                                                <b><?php echo $data['opt-suites'] ?></b>  Suites
+                                            </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
                                             <li class="property-type ic-proptype">
