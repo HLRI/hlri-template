@@ -54,7 +54,7 @@ function addOrdinalSuffix($number)
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
-                                        <?php if (($data['opt-ownership'] !== "")) : ?>
+                                        <?php if (($data['opt-ownership'] != "")) : ?>
                                         <li class="ownership ic-ownership" title="Ownership: <?php echo implode(', ', $data['opt-ownership']); ?>" >
                                             <i class="fas fa-fas fa-key"></i><br>
                                             <?php echo implode(', ', $data['opt-ownership']); ?>
