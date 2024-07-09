@@ -109,8 +109,8 @@ function addOrdinalSuffix($number)
                                             </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-suites'])) : ?>
-                                            <li class="property-type ic-proptype" title="Level: <?php echo $data['opt-suites'] ?>"><i
-                                                        class="fa-solid fa-elevator"></i><br>
+                                            <li class="property-type ic-proptype" title="Level: <?php echo $data['opt-suites'] ?>">
+                                                <i class="bi bi-building-up"></i>
                                                 <b><?php echo $data['opt-suites'] ?></b>  Suites
                                             </li>
                                         <?php endif; ?>
