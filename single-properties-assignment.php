@@ -41,6 +41,41 @@ function addOrdinalSuffix($number)
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
+                                        <?php if (($data['opt-sales-type'] == "Preconstruction")) : ?>
+                                            <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
+                                                <img src="https://condoy.com/wp-content/themes/homeleaderrealty/assets/images/building-construction-icon.svg" style="margin-bottom: 4px;height: 30px;">
+                                                <?php echo $data['opt-sales-type'] ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if ($data['opt-sales-type'] == "Resale") : ?>
+                                            <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
+                                                <i class="fa-solid fa-bullhorn"></i>
+                                                <?php echo $data['opt-sales-type'] ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if ($data['opt-sales-type'] == "SoldOut") : ?>
+                                            <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
+                                                <i class="fa-solid fa-tag"></i>
+                                                <?php echo $data['opt-sales-type'] ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if ($data['opt-sales-type'] == "Comming soon") : ?>
+                                            <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
+                                                <i class="fas fa-clock"></i>
+                                                <?php echo $data['opt-sales-type'] ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (($key = array_search('Preconstruction', $data['opt-sales-type'] ?? [])) !== false) {
+                                            $data['opt-sales-type'] = array_values(array_diff($data['opt-sales-type'] ?? [], ['Preconstruction']));
+                                        } ?>
+                                        <li class="property-type ic-proptype" title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>" >
+                                            <i class="fas fa-fas fa-building"></i><br>
+                                            <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
+                                        </li>
+                                        <li class="ownership ic-ownership" title="Ownership: <?php echo implode(', ', $data['opt-ownership']); ?>" >
+                                            <i class="fas fa-fas fa-key"></i><br>
+                                            <?php echo implode(', ', $data['opt-ownership']); ?>
+                                        </li>
                                         <li class="property-type ic-proptype" title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>" >
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
