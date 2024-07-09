@@ -49,7 +49,7 @@ function addOrdinalSuffix($number)
                                     <ul>
                                         <?php if (($data['opt-sales-type'] == "Preconstruction")) : ?>
                                             <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
-                                                <i class="fas fa-tools"></i>
+                                                <img src="https://condoy.com/wp-content/themes/homeleaderrealty/assets/images/building-construction-icon.svg" style="margin-bottom: 4px;height: 30px;">
                                                 <?php echo $data['opt-sales-type'] ?>
                                             </li>
                                         <?php endif; ?>
@@ -75,7 +75,7 @@ function addOrdinalSuffix($number)
                                             $data['opt-sales-type'] = array_values(array_diff($data['opt-sales-type'] ?? [], ['Preconstruction']));
                                         } ?>
         <li class="property-type ic-proptype" title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>" >
-            <img src="https://condoy.com/wp-content/themes/homeleaderrealty/assets/images/building-construction-icon.svg" style="margin-bottom: 4px;height: 30px;">
+                                            <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
                                         <li class="ownership ic-ownership" title="Ownership: <?php echo implode(', ', $data['opt-ownership']); ?>" >
