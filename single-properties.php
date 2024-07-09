@@ -102,9 +102,9 @@ function addOrdinalSuffix($number)
                                                     class="gray normal-lbl">Sqft</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
-                                        <li class="property-type ic-proptype" title="Level: <?php echo addOrdinalSuffix($data['opt-floor-range']) ?>"><i
+                                        <li class="property-type ic-proptype" title="Level: <?php echo addOrdinalSuffix($data['opt-floors']) ?>"><i
                                                     class="fa-solid fa-elevator"></i><br>
-                                            <b><?php echo addOrdinalSuffix($data['opt-floor-range']) ?></b>  Level
+                                            <b><?php echo addOrdinalSuffix($data['opt-floors']) ?></b>  Level
                                         </li>
                                         <?php if (!empty($data['opt-occupancy'])) : ?>
                                             <li class="property-type ic-proptype">
