@@ -84,14 +84,13 @@ function addOrdinalSuffix($number)
                                                 <?php echo implode(', ', $data['opt-ownership']); ?>
                                             </li>
                                         <?php endif; ?>
-    <?php if (($data['opt-max-bed'] != "")) : ?>
         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo $data['opt-min-bed']; ?> - <?php echo $data['opt-max-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo $data['opt-min-bed'] ?> - <?php echo $data['opt-max-bed'] ?></strong>
                                             <span
-                                                    class="gray normal-lbl">Bedroom<?php echo (intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
+                                                    class="gray normal-lbl">Bedroom<?php echo (intval($data['opt-max-bed']) >= 2 ? 's' : 'TBA'); ?></span><span
                                                     class="gray short-lbl"></span>
                                         </li>
-    <?php endif; ?>
+
                                         <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo $data['opt-min-bath']; ?> - <?php echo $data['opt-max-bath']; ?>">
                                             <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?> - <?php echo $data['opt-max-bath'] ?></strong>
                                             <span
