@@ -66,9 +66,9 @@ function addOrdinalSuffix($number)
                                             </li>
                                         <?php endif; ?>
                                         <?php if ($data['opt-sales-type'] == "Comming soon") : ?>
-                                            <li class="sales-tatus ic-salesstatus" title="Sales Status: <?php echo $data['opt-sales-type']; ?>" >
+                                            <li class="sales-tatus ic-salesstatus" title="Sales Status: Coming Soon" >
                                                 <i class="fas fa-clock"></i>
-                                                <?php echo $data['opt-sales-type'] ?>
+                                                Coming Soon
                                             </li>
                                         <?php endif; ?>
                                         <?php if (($key = array_search('Preconstruction', $data['opt-sales-type'] ?? [])) !== false) {
