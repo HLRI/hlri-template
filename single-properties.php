@@ -44,7 +44,7 @@ function addOrdinalSuffix($number)
                                 }
                             }
                             ?>
-                            <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale")) : ?>
+                            <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale") || ($data['opt-sales-type'] == "Comming soon")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
                                         <?php if (($data['opt-sales-type'] == "Preconstruction")) : ?>
