@@ -67,7 +67,7 @@ function addOrdinalSuffix($number)
                                         <?php endif; ?>
                                         <?php if ($data['opt-sales-type'] == "Comming soon") : ?>
                                             <li class="sales-tatus ic-salesstatus" title="Sales Status: Coming Soon" >
-                                                <i class="fas fa-clock"></i>
+                                                <i class="fas fa-clock"></i><br>
                                                 Coming Soon
                                             </li>
                                         <?php endif; ?>
