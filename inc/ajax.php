@@ -1047,7 +1047,7 @@ function sold_out_list($request)
             while ($my_query->have_posts()) : $my_query->the_post();
 
                 $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                // if($mapMeta['opt-status'] !== "sold out"){
+                 if($mapMeta['opt-status'] !== "sold out"){
                 if (true == true) {
                     if (!empty($mapMeta)) {
                         $slug = get_post_field('post_name', get_post());
@@ -1112,7 +1112,7 @@ function sold_out_list($request)
                         ];
                     }
                 }
-
+            }
             endwhile;
             wp_reset_postdata();
         else :
@@ -1167,7 +1167,7 @@ function my_awesome_func_final($request)
             while ($my_query->have_posts()) : $my_query->the_post();
 
                 $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                // if($mapMeta['opt-status'] !== "sold out"){
+                 if($mapMeta['opt-status'] !== "sold out"){
                 if (true == true) {
                     if (!empty($mapMeta)) {
                         $slug = get_post_field('post_name', get_post());
@@ -1230,7 +1230,7 @@ function my_awesome_func_final($request)
                         ];
                     }
                 }
-
+            }
             endwhile;
             wp_reset_postdata();
         else :
@@ -1317,7 +1317,7 @@ function my_awesome_func_four($request)
         while ($my_query->have_posts()) : $my_query->the_post();
 
             $mapMeta = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-            // if($mapMeta['opt-status'] !== "sold out"){
+             if($mapMeta['opt-status'] !== "sold out"){
             if (true == true) {
                 if (!empty($mapMeta)) {
                     $slug = get_post_field('post_name', get_post());
@@ -1383,7 +1383,7 @@ function my_awesome_func_four($request)
                     ];
                 }
             }
-
+        }
         endwhile;
         wp_reset_postdata();
     else :
