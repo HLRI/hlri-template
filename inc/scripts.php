@@ -492,7 +492,7 @@ function add_search_input_to_meta_box($meta_box_id)
 
     if (($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') || ($pagenow === 'post-new.php' && get_post_type($_GET['post']) === 'properties')) {
         ?>
-        <script>
+        <style>.categorydiv div.tabs-panel{height:250px;}</style><script>
             jQuery(document).ready(function($) {
                 $('#<?php echo esc_attr($meta_box_id); ?>').before('<div style="height: 45px;"><input type="text" class="live-search" placeholder="Search..." style="margin-top: 20px;width: 100%;"></div>');
                 $('.live-search').on('keyup', function() {
