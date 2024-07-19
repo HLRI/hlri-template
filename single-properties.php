@@ -637,7 +637,7 @@ function addOrdinalSuffix($number)
 
         <!-- sidebar -->
         <div class="col-12 col-sm-12 col-md-12 ">
-
+sadsadsad
             <?php if ($psd['theme_options']['opt-properties-status']) : ?>
                 <?php if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>
                     <div class="d-flex flex-column  properties-shortcode position-sticky top-48 bg-foreground rounded pb-3"
