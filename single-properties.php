@@ -662,7 +662,7 @@ function addOrdinalSuffix($number)
                                 <?php echo $psd['theme_options']['opt-properties-style'] ?>
                             </style>
                             <div class="card-form">
-                                <?= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
+                                <?= do_shortcode('[contact-form-7 id="88b86af" title="Preconstruction contact form"]') ?>
                             </div>
                         </div>
                     </div>
