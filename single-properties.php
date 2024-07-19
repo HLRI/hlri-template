@@ -637,38 +637,73 @@ function addOrdinalSuffix($number)
 
         <!-- sidebar -->
         <div class="col-12 col-sm-12 col-md-12 ">
-sadsadsad
-            <?php if ($psd['theme_options']['opt-properties-status']) : ?>
-                <?php if (!empty($psd['theme_options']['opt-properties-shortcode'])) : ?>
-                    <div class="d-flex flex-column  properties-shortcode position-sticky top-48 bg-foreground rounded pb-3"
-                         style="gap:10px;" id="RegisterNow">
-                        <div class="col-12">
-                            <div class="titr-list ml-0 mb-2">
-                                <?php if ($psd['opt-project-status']) : ?>
-                                    <h3 class="font-weight-bold">Fill the Form to get latest available Listings in This
-                                        building</h3>
-                                <?php else : ?>
-                                    <div>
-                                        <h3 class="font-weight-bold">Register Now</h3>
-                                        <p>
-                                            to get full package , book your unit
-                                        </p>
-                                    </div>
-                                <?php endif; ?>
+
+            <div class="hlri-container">
+                <!--                <img src="img/shape.png" class="hlri-square" alt="" />-->
+                <div class="hlri-formsection">
+                    <div class="hlri-contact-info">
+                        <h3 class="title">Register Now</h3>
+                        <p class="hlri-text">
+                            to get full package , book your unit
+                        </p>
+
+                        <div class="hlri-info">
+                            <div class="hlri-information">
+                                <i class="fas fa-map-marker-alt"></i> &nbsp &nbsp
+
+                                <p>300 Richmond St W #300, Toronto, ON M5V 1X2</p>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <style>
-                                <?php echo $psd['theme_options']['opt-properties-style'] ?>
-                            </style>
-                            <div class="card-form">
-                                <?= do_shortcode('[contact-form-7 id="88b86af" title="Preconstruction contact form"]') ?>
+                            <div class="hlri-information">
+                                <i class="fas fa-envelope"></i> &nbsp &nbsp
+                                <p>inquiries@Condoy.com</p>
+                            </div>
+                            <div class="hlri-information">
+                                <i class="fas fa-phone"></i>&nbsp&nbsp
+                                <p>(416) 599-9599</p>
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
-            <?php endif; ?>
 
+                    <div class="hlri-contact-form">
+                        <span class="hlri-circle one"></span>
+                        <span class="hlri-circle two"></span>
+
+                        <!--                        <form action="index.html" autocomplete="off">-->
+                        <!--                            <h3 class="hlri-title">Register for --><?php //= $psd['title'] ?><!--</h3>-->
+                        <!--                            -->
+                        <!--                            --><?php //= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
+                        <!---->
+                        <!--                        </form>-->
+                        <style>
+                            #assignment_form{
+                                padding-top: 10px;
+                            }
+                        </style>
+                        <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?></h3>
+                        <?= do_shortcode('[contact-form-7 id="88b86af" title="Preconstruction contact form"]') ?>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const inputs = document.querySelectorAll(".hlri-input");
+
+                function focusFunc() {
+                    let parent = this.parentNode;
+                    parent.classList.add("focus");
+                }
+
+                function blurFunc() {
+                    let parent = this.parentNode;
+                    if (this.value == "") {
+                        parent.classList.remove("focus");
+                    }
+                }
+
+                inputs.forEach((input) => {
+                    input.addEventListener("focus", focusFunc);
+                    input.addEventListener("blur", blurFunc);
+                });
+            </script>
         </div>
 
 
