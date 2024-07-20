@@ -476,22 +476,22 @@ function addOrdinalSuffix($number)
 
                 <div class="top-48"
                      style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
-                                        <?php
-                                        function getWalkScore($url) {
-                                            // Fetch the webpage content
-                                            $htmlContent = file_get_contents($url);
-                                            if ($htmlContent === FALSE) {
-                                                return "Failed to fetch content.";
-                                            } else{
-                                                return $htmlContent;
-                                            }
-                                        }
-                                        $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
-                                        $address = str_replace(" ", "-", $address);
-                                        $url = "https://www.walkscore.com/badge/html/$address-?fixed=true&badges=available";
-                                        $value = getWalkScore($url);
-                                        echo $value;
-                                        ?>
+<!--                                        --><?php
+//                                        function getWalkScore($url) {
+//                                            // Fetch the webpage content
+//                                            $htmlContent = file_get_contents($url);
+//                                            if ($htmlContent === FALSE) {
+//                                                return "Failed to fetch content.";
+//                                            } else{
+//                                                return $htmlContent;
+//                                            }
+//                                        }
+//                                        $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
+//                                        $address = str_replace(" ", "-", $address);
+//                                        $url = "https://www.walkscore.com/badge/html/$address-?fixed=true&badges=available";
+//                                        $value = getWalkScore($url);
+//                                        echo $value;
+//                                        ?>
                 </div>
                 <?php if ($associated_floorplans->have_posts()) : ?>
                     <div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
