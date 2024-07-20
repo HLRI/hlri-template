@@ -643,9 +643,6 @@ function addOrdinalSuffix($number)
                 <div class="hlri-formsection">
                     <div class="hlri-contact-info">
                         <h3 class="title">Register Now</h3>
-                        <p class="hlri-text">
-                            to get full package , book your unit
-                        </p>
 
                         <div class="hlri-info">
                             <div class="hlri-information">
@@ -684,6 +681,7 @@ function addOrdinalSuffix($number)
                             }
                         </style>
                         <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?></h3>
+                        <h3>to get full package</h3>
                         <?= do_shortcode('[contact-form-7 id="88b86af" title="Preconstruction contact form"]') ?>
                     </div>
                 </div>
