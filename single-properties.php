@@ -477,6 +477,39 @@ function addOrdinalSuffix($number)
                 <div class="top-48"
                      style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
                                         <?php
+                                        function getTextAreaValue($url, $elementId) {
+                                            // Fetch the webpage content
+                                            $htmlContent = file_get_contents($url);
+                                            if ($htmlContent === FALSE) {
+                                                return "Failed to fetch content.";
+                                            }
+
+                                            // Load the HTML into a DOMDocument
+                                            $dom = new DOMDocument;
+                                            // Suppress errors due to malformed HTML
+                                            @$dom->loadHTML($htmlContent);
+
+                                            // Use DOMXPath to find the textarea element by its id
+                                            $xpath = new DOMXPath($dom);
+                                            $textareaNode = $xpath->query("//textarea[@id='$elementId']")->item(0);
+
+                                            // Check if the textarea element is found
+                                            if ($textareaNode !== null) {
+                                                return $textareaNode->nodeValue;
+                                            } else {
+                                                return "Textarea not found.";
+                                            }
+                                        }
+
+                                        // URL of the webpage
+                                        $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
+                                        $url = "https://www.walkscore.com/professional/badges.php?address=$address#hood-widge";
+                                        // ID of the textarea element
+                                        $elementId = "code-box-6";
+
+                                        // Get the value of the textarea
+                                        $value = getTextAreaValue($url, $elementId);
+                                        echo $value;
                                         function getWalkScore($lat, $lon, $address) {
                                             $address=urlencode($address);
                                             $url = "https://api.walkscore.com/score?format=json&address=$address";
