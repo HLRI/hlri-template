@@ -477,32 +477,20 @@ function addOrdinalSuffix($number)
                 <div class="top-48"
                      style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
                                         <?php
-                                        function getWalkScoreHtml($url) {
+                                        function getWalkScore($url) {
                                             // Fetch the webpage content
                                             $htmlContent = file_get_contents($url);
                                             if ($htmlContent === FALSE) {
-                                                return "Failed to fetch Walkscore.";
+                                                return "Failed to fetch content.";
+                                            } else{
+                                                return $htmlContent;
                                             }
-                                            return $htmlContent;
                                         }
-
-                                        function getWalkScore($lat, $lon, $address) {
-                                            $address=urlencode($address);
-                                            $url = "https://api.walkscore.com/score?format=json&address=$address";
-                                            $url .= "&lat=$lat&lon=$lon&wsapikey=303447da1a4a6f6f0ea4815b2bda134f";
-                                            $str = file_get_contents($url);
-                                            return $str;
-                                        }
-                                        function getWalkScore2($address) {
-                                            $address=urlencode($address);
-                                            $url = "https://www.walkscore.com/professional/badges.php?address=$address#hood-widge";
-                                            $str = file_get_contents($url);
-                                            return $str;
-                                        }
-
                                         $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
+                                        $address = str_replace(" ", "-", $address);
                                         $url = "https://www.walkscore.com/badge/html/$address-?fixed=true&badges=available";
-                                        echo getWalkScoreHtml($url);
+                                        $value = getWalkScore($url);
+                                        echo $value;
                                         ?>
                 </div>
                 <?php if ($associated_floorplans->have_posts()) : ?>
