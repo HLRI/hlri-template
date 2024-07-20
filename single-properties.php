@@ -662,6 +662,7 @@ function addOrdinalSuffix($number)
                                 We are independent realtors® with Home leader Realty Inc. Brokerage in Toronto.
                                 Our team specializes in pre-construction sales and through our developer relationships have access to PLATINUM SALES &amp; TRUE UNIT ALLOCATION in advance of the general REALTOR® and the general public.
                                 We do not represent the builder directly.</p>
+                            <br>
                             <img loading="lazy" src="https://condoy.com/wp-content/uploads/2023/07/CondoY_logo.png"/>
                         </div>
                     </div>
