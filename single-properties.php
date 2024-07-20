@@ -477,12 +477,27 @@ function addOrdinalSuffix($number)
                 <div class="top-48"
                      style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
                                         <?php
+                                        // Function to fetch and parse the HTML content
                                         function getTextAreaValue($url, $elementId) {
-                                            // Fetch the webpage content
-                                            $htmlContent = file_get_contents($url);
-                                            if ($htmlContent === FALSE) {
-                                                return "Failed to fetch content.";
+                                            // Initialize a cURL session
+                                            $ch = curl_init();
+
+                                            // Set cURL options
+                                            curl_setopt($ch, CURLOPT_URL, $url);
+                                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+                                            // Execute the cURL request
+                                            $htmlContent = curl_exec($ch);
+
+                                            // Check for cURL errors
+                                            if (curl_errno($ch)) {
+                                                curl_close($ch);
+                                                return "cURL error: " . curl_error($ch);
                                             }
+
+                                            // Close the cURL session
+                                            curl_close($ch);
 
                                             // Load the HTML into a DOMDocument
                                             $dom = new DOMDocument;
@@ -502,8 +517,7 @@ function addOrdinalSuffix($number)
                                         }
 
                                         // URL of the webpage
-                                        $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
-                                        $url = "https://www.walkscore.com/professional/badges.php?address=$address#hood-widge";
+                                        $url = "https://www.walkscore.com/professional/badges.php?address=300%20Richmond%20St%20W%20#300,%20Toronto,%20ON%20M5V%201X2#hood-widge";
                                         // ID of the textarea element
                                         $elementId = "code-box-6";
 
