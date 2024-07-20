@@ -639,13 +639,10 @@ function addOrdinalSuffix($number)
         <div class="col-12 col-sm-12 col-md-12 ">
 
             <div class="hlri-container">
-<!--                <img src="img/shape.png" class="hlri-square" alt="" />-->
+                <!--                <img src="img/shape.png" class="hlri-square" alt="" />-->
                 <div class="hlri-formsection">
                     <div class="hlri-contact-info">
                         <h3 class="title">Register Now</h3>
-                        <p class="hlri-text">
-                            to get full package , book your unit
-                        </p>
 
                         <div class="hlri-info">
                             <div class="hlri-information">
@@ -661,6 +658,12 @@ function addOrdinalSuffix($number)
                                 <i class="fas fa-phone"></i>&nbsp&nbsp
                                 <p>(416) 599-9599</p>
                             </div>
+                            <p style="font-size: 13px;line-height: 20px;">
+                                We are independent realtors® with Home leader Realty Inc. Brokerage in Toronto.
+                                Our team specializes in pre-construction sales and through our developer relationships have access to PLATINUM SALES &amp; TRUE UNIT ALLOCATION in advance of the general REALTOR® and the general public.
+                                We do not represent the builder directly.</p>
+                            <br>
+                            <img loading="lazy" src="https://condoy.com/wp-content/uploads/2023/07/CondoY_logo.png" style="opacity: 0.1;width: 95%;margin-top: 20px;">
                         </div>
                     </div>
 
@@ -668,18 +671,21 @@ function addOrdinalSuffix($number)
                         <span class="hlri-circle one"></span>
                         <span class="hlri-circle two"></span>
 
-<!--                        <form action="index.html" autocomplete="off">-->
-<!--                            <h3 class="hlri-title">Register for --><?php //= $psd['title'] ?><!--</h3>-->
-<!--                            -->
-<!--                            --><?php //= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
-<!---->
-<!--                        </form>-->
+                        <!--                        <form action="index.html" autocomplete="off">-->
+                        <!--                            <h3 class="hlri-title">Register for --><?php //= $psd['title'] ?><!--</h3>-->
+                        <!--                            -->
+                        <!--                            --><?php //= do_shortcode($psd['theme_options']['opt-properties-shortcode']) ?>
+                        <!---->
+                        <!--                        </form>-->
                         <style>
                             #assignment_form{
                                 padding-top: 10px;
                             }
+                            .wpcf7-form{
+                                padding-top:0px;
+                            }
                         </style>
-                        <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?></h3>
+                        <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?> <span style="font-size: 13px;">(to get full package)</span></h3>
                         <?= do_shortcode('[contact-form-7 id="1891ff1" html_id="assignment_form" title="Assignment contact form"]') ?>
                     </div>
                 </div>
@@ -705,7 +711,6 @@ function addOrdinalSuffix($number)
                 });
             </script>
         </div>
-
 
     </div>
     <br><br>
