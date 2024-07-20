@@ -661,6 +661,10 @@ function addOrdinalSuffix($number)
                                 <i class="fas fa-phone"></i>&nbsp&nbsp
                                 <p>(416) 599-9599</p>
                             </div>
+                            <p style="font-size: 13px;line-height: 20px;">
+                                We are independent realtors® with Home leader Realty Inc. Brokerage in Toronto.
+                                Our team specializes in pre-construction sales and through our developer relationships have access to PLATINUM SALES &amp; TRUE UNIT ALLOCATION in advance of the general REALTOR® and the general public.
+                                We do not represent the builder directly.</p>
                         </div>
                     </div>
 
