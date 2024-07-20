@@ -663,7 +663,7 @@ function addOrdinalSuffix($number)
                                 Our team specializes in pre-construction sales and through our developer relationships have access to PLATINUM SALES &amp; TRUE UNIT ALLOCATION in advance of the general REALTOR® and the general public.
                                 We do not represent the builder directly.</p>
                             <br>
-                            <img loading="lazy" src="https://condoy.com/wp-content/uploads/2023/07/CondoY_logo.png"/>
+                            <img loading="lazy" src="https://condoy.com/wp-content/uploads/2023/07/CondoY_logo.png" style="opacity: 0.1;width: 95%;margin-top: 20px;">
                         </div>
                     </div>
 
