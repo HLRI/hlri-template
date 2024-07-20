@@ -680,10 +680,7 @@ function addOrdinalSuffix($number)
                                 padding-top: 10px;
                             }
                         </style>
-                        <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?> <span style="
-    font-size: 13px;
-    padding-left: 7px;
-">(to get full package)</span></h3>
+                        <h3 class="hlri-title" style="padding:2.3rem 2.2rem 0 2.2rem">Register for <?= $psd['title'] ?> <span style="font-size: 13px;padding-left: 7px;">(to get full package)</span></h3>
                         <h3>to get full package</h3>
                         <?= do_shortcode('[contact-form-7 id="88b86af" title="Preconstruction contact form"]') ?>
                     </div>
