@@ -476,41 +476,41 @@ function addOrdinalSuffix($number)
 
                 <div class="top-48"
                      style="background: #f7f7f7;padding: 10px;border-radius: 10px;margin-bottom: 20px;font-size: 12px;width: 100%;height: fit-content;">
-                    <!--                    --><?php
-                    //                    function getWalkScore($lat, $lon, $address) {
-                    //                        $address=urlencode($address);
-                    //                        $url = "https://api.walkscore.com/score?format=json&address=$address";
-                    //                        $url .= "&lat=$lat&lon=$lon&wsapikey=303447da1a4a6f6f0ea4815b2bda134f";
-                    //                        $str = file_get_contents($url);
-                    //                        return $str;
-                    //                    }
-                    //                    function getWalkScore2($address) {
-                    //                        $address=urlencode($address);
-                    //                        $url = "https://www.walkscore.com/professional/badges.php?address=$address#hood-widge";
-                    //                        $str = file_get_contents($url);
-                    //                        return $str;
-                    //                    }
-                    ////                    print_r(getWalkScore2("300 Richmond Street West Toronto,  CA-ON M5V 1X2"));
-                    //
-                    //
-                    ////                    $lat = $_GET['lat'];
-                    //                    $lat = 43.6490596;
-                    ////                    $lon = $_GET['lon'];
-                    //                    $lon = -79.391674;
-                    //                    $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
-                    ////                    $address = stripslashes($_GET['address']);
-                    //                    $json = getWalkScore($lat,$lon,$address);
-                    ////                    echo $json;
-                    //                    // Decode the JSON response
-                    //                    $responseData = json_decode($json, true);
-                    //
-                    //                    // Display the HTML using the information from the response
-                    //                    echo '<h1>Walkscore: ' . $responseData['walkscore'] . '</h1>';
-                    //                    echo '<p>Description: ' . $responseData['description'] . '</p>';
-                    //                    echo '<img src="' . $responseData['logo_url'] . '" alt="Walkscore Logo">';
-                    //                    // Add more HTML elements using other information from the response as needed
-                    //
-                    //                    ?>
+                                        <?php
+                                        function getWalkScore($lat, $lon, $address) {
+                                            $address=urlencode($address);
+                                            $url = "https://api.walkscore.com/score?format=json&address=$address";
+                                            $url .= "&lat=$lat&lon=$lon&wsapikey=303447da1a4a6f6f0ea4815b2bda134f";
+                                            $str = file_get_contents($url);
+                                            return $str;
+                                        }
+                                        function getWalkScore2($address) {
+                                            $address=urlencode($address);
+                                            $url = "https://www.walkscore.com/professional/badges.php?address=$address#hood-widge";
+                                            $str = file_get_contents($url);
+                                            return $str;
+                                        }
+                    //                    print_r(getWalkScore2("300 Richmond Street West Toronto,  CA-ON M5V 1X2"));
+
+
+                    //                    $lat = $_GET['lat'];
+                                        $lat = 43.6490596;
+                    //                    $lon = $_GET['lon'];
+                                        $lon = -79.391674;
+                                        $address = stripslashes("300 Richmond St W #300, Toronto, ON M5V 1X2");
+                    //                    $address = stripslashes($_GET['address']);
+                                        $json = getWalkScore($lat,$lon,$address);
+                    //                    echo $json;
+                                        // Decode the JSON response
+                                        $responseData = json_decode($json, true);
+
+                                        // Display the HTML using the information from the response
+                                        echo '<h1>Walkscore: ' . $responseData['walkscore'] . '</h1>';
+                                        echo '<p>Description: ' . $responseData['description'] . '</p>';
+                                        echo '<img src="' . $responseData['logo_url'] . '" alt="Walkscore Logo">';
+                                        // Add more HTML elements using other information from the response as needed
+
+                                        ?>
                 </div>
                 <?php if ($associated_floorplans->have_posts()) : ?>
                     <div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
