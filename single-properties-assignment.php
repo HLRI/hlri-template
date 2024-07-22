@@ -667,7 +667,7 @@ function addOrdinalSuffix($number)
                         </div>
                     </div>
 
-                    <div class="hlri-contact-form">
+                    <div class="hlri-contact-form" id="register">
                         <span class="hlri-circle one"></span>
                         <span class="hlri-circle two"></span>
 
