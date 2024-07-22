@@ -421,6 +421,26 @@ $property = new WP_Query($args);
 </style>
             <div style="background: orange;border-radius: 10px;"><br><h3 class="font-weight-bold h5 mb-0 mt-2 text-center text-white">Register Now to get full package , book your unit</h3>
                 <?php echo do_shortcode('[contact-form-7 id="b14d9c3" title="floorplan contact form"]') ?></div>
+            <script>
+                const inputs = document.querySelectorAll(".hlri-input");
+
+                function focusFunc() {
+                    let parent = this.parentNode;
+                    parent.classList.add("focus");
+                }
+
+                function blurFunc() {
+                    let parent = this.parentNode;
+                    if (this.value == "") {
+                        parent.classList.remove("focus");
+                    }
+                }
+
+                inputs.forEach((input) => {
+                    input.addEventListener("focus", focusFunc);
+                    input.addEventListener("blur", blurFunc);
+                });
+            </script>
             <?php if ($theme_options['opt-properties-status']) : ?>
                 <?php if (!empty($theme_options['opt-properties-shortcode'])) : ?>
                     <div class="properties-shortcode">
