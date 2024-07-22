@@ -54,7 +54,7 @@ function addOrdinalSuffix($number)
                                             <i class="fas fa-fas fa-building"></i><br>
                                             <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                         </li>
-                                        <?php if (($data['opt-ownership'] != "")) : ?>
+                                        <?php if (($data['opt-ownership'] != "freehold")) : ?>
                                         <li class="ownership ic-ownership" title="Ownership: <?php echo implode(', ', $data['opt-ownership']); ?>" >
                                             <i class="fas fa-fas fa-key"></i><br>
                                             <?php echo implode(', ', $data['opt-ownership']); ?>
@@ -269,9 +269,9 @@ function addOrdinalSuffix($number)
                                     <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                         Asking Price
                                     <?php else : ?>
-                                        Starting from
+                                        Asking Price
                                     <?php endif; ?><span>
-                                    $<?= number_format($data['opt-price-min']) ?>
+                                    $<?= number_format($data['opt-price']) ?>
                                 </span>
                                 </div>
                                 <div class="btn-group">
