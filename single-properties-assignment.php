@@ -469,7 +469,6 @@ function addOrdinalSuffix($number)
                 <ol id="tag-list">
                     <?php if (!($data['opt-sales-type'] == "Assignment") && !($data['opt-sales-type'] == "Resale")) : ?>
                         <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
-                        <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
                     <?php endif; ?>
                 </ol>
             </nav>
