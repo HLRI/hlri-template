@@ -99,8 +99,8 @@ function addOrdinalSuffix($number)
                                                     class="gray normal-lbl">Bathroom<?php echo (intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
                                                     class="gray short-lbl"></span>
                                         </li>
-                                        <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-min'] ?> Sqft.">
-                                            <i class="fas fa-vector-square"></i><br><strong><?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-min'] ?></strong>
+                                        <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?> Sqft.">
+                                            <i class="fas fa-vector-square"></i><br><strong><?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?></strong>
                                             <span
                                                     class="gray normal-lbl">Sqft</span><span
                                                     class="gray short-lbl"></span>
