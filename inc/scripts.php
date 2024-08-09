@@ -543,7 +543,7 @@ function add_search_input_to_meta_box($meta_box_id)
                         divToToggle3.style.display = 'none';
                         divToToggle4.style.display = 'none';
                     }
-                    if ((selectValue === 'Comming soon')) {
+                    if ((selectValue === 'Coming soon')) {
                         divToToggle5.style.display = 'block';
                     } else{
                         divToToggle5.style.display = 'none';
