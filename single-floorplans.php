@@ -102,14 +102,14 @@ if (!empty($galleries['floorplans_gallery'])) {
 }
 ?>
 
-                        <div class="your-gallery-class">
-                            <?php foreach ($gallery_ids as $image_id) : ?>
-                                <?php print_r($gallery_ids);$image_url = wp_get_attachment_url($image_id); ?>
-                                <div class="your-gallery-item-class">
-                                    <img src="<?php echo esc_url($image_url); ?>" alt="Gallery Image">
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
+<!--                        <div class="your-gallery-class">-->
+<!--                            --><?php //foreach ($gallery_ids as $image_id) : ?>
+<!--                                --><?php //print_r($gallery_ids);$image_url = wp_get_attachment_url($image_id); ?>
+<!--                                <div class="your-gallery-item-class">-->
+<!--                                    <img src="--><?php //echo esc_url($image_url); ?><!--" alt="Gallery Image">-->
+<!--                                </div>-->
+<!--                            --><?php //endforeach; ?>
+<!--                        </div>-->
 
                     <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="floors-gallery2">
                             <?php if (isset($gallery_ids)): ?>
@@ -119,10 +119,10 @@ if (!empty($galleries['floorplans_gallery'])) {
                                             <?php $gallery_item = wp_get_attachment_url($image_id); ?>
                                             <li class="rounded" data-fancybox="gallery"
                                                 data-caption="<?= $gallery_item['caption'] ?>"
-                                                data-src="<?= $gallery_item['gallery_url'] ?>"
-                                                data-thumb="<?= $gallery_item['gallery_url'] ?>"
-                                                data-src="<?= $gallery_item['gallery_url'] ?>">
-                                                <img class="rounded" loading="lazy" src="<?= $gallery_item['gallery_url'] ?>"
+                                                data-src="<?= $gallery_item ?>"
+                                                data-thumb="<?= $gallery_item ?>"
+                                                data-src="<?= $gallery_item ?>">
+                                                <img class="rounded" loading="lazy" src="<?= $gallery_item ?>"
                                                      alt="<?= $gallery_item['caption'] ?>">
 
                                             </li>
