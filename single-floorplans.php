@@ -92,12 +92,19 @@ $property = new WP_Query($args);
                 <div class="col-12 px-lg-0">
 
 
-<?php $gallery_images = get_post_meta(get_the_ID(), 'floorplans_gallery', true);
+<?php
+
+$galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
+if (!empty($galleries['floorplans_gallery'])) {
+    $gallery_ids = explode(',', $galleries['floorplans_gallery']);
+} else {
+    $gallery_ids = [];
+}
 ?>
 
-                    <?php if (!empty($gallery_images)) : ?>
+                    <?php if (!empty($gallery_ids)) : ?>
                         <div class="your-gallery-class">
-                            <?php foreach ($gallery_images as $image_id) : ?>
+                            <?php foreach ($gallery_ids as $image_id) : ?>
                                 <?php $image_url = wp_get_attachment_url($image_id); ?>
                                 <div class="your-gallery-item-class">
                                     <img src="<?php echo esc_url($image_url); ?>" alt="Gallery Image">
