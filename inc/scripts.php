@@ -84,6 +84,8 @@ function theme_scripts()
     if (is_singular('floorplans') || is_singular('properties')) {
         wp_enqueue_style('lightbox2');
         wp_enqueue_script('lightbox2');
+        wp_enqueue_style('lightslider');
+        wp_enqueue_script('lightslider');
     }
 
     if (is_singular('floorplans') || is_singular('properties')) {
