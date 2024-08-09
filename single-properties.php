@@ -121,7 +121,7 @@ function addOrdinalSuffix($number)
                                                 <b><?php echo $data['opt-suites'] ?></b>  Suites
                                             </li>
                                         <?php endif; ?>
-                                        <?php if (!empty($data['opt-occupancy'])) : ?>
+                                        <?php if (!empty($data['opt-occupancy']) || !empty($data['opt-occupancy-time-period'])) : ?>
                                             <li class="property-type ic-proptype">
                                                 <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
                                                 echo 'occup ' . $occupancyOp . $data['opt-occupancy']; ?>
