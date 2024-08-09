@@ -380,13 +380,12 @@ $property = new WP_Query($args);
                                 <div class="row mt-4">
                                     <div class="col-lg-4 mb-5 mb-lg-0">
                                         <p class="additional-note-wrap">
-                                            <div class="additional-note-title">Additional Note</div>
-                                            <?php if (!empty($floorplans['opt-floorplans-note'])) : ?>
-                                                <p>
-                                                    <?= $floorplans['opt-floorplans-note'] ?>
-                                                </p>
-                                            <?php endif; ?>
-                                        </div>
+                                        <div class="additional-note-title">Additional Note</div>
+                                        <?php if (!empty($floorplans['opt-floorplans-note'])) : ?>
+                                            <p>
+                                                <?= $floorplans['opt-floorplans-note'] ?>
+                                            </p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
