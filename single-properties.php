@@ -269,9 +269,9 @@ function addOrdinalSuffix($number)
                                         Asking Price
                                     <?php else : ?>
                                         Starting from
-                                    <?php endif; ?><span>$<?= number_format($data['opt-cominsoon-price']) ?>
+                                    <?php endif; ?><span>
                                                 <?php if (!empty($data['opt-cominsoon-price'])) : ?>
-                                                    $<?= number_format($data['opt-cominsoon-price']) ?>
+                                                    $<?= $data['opt-cominsoon-price'] ?>
                                                 <?php else : ?>
                                                     $<?= number_format($data['opt-price-min']) ?>
                                                 <?php endif; ?>
