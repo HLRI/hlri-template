@@ -319,6 +319,12 @@ function theme_footer()
                     gallery: false,
                     item: 1,
                 });
+                $(".floors-gallery2").lightSlider({
+                    lazyLoad: true,
+                    clone: false,
+                    gallery: false,
+                    item: 1,
+                });
                 
 
             });

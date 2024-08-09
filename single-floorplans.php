@@ -104,7 +104,7 @@ if (!empty($galleries['floorplans_gallery'])) {
 
 
 
-                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
+                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="floors-gallery2">
                         <?php if (isset($gallery_ids)) : ?>
                             <?php if ($gallery_ids[0]['gallery_url']) : ?>
                                 <div class="vrmedia-gallery">
