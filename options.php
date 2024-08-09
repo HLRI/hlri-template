@@ -1095,11 +1095,16 @@ if (class_exists('CSF')) {
 					'type'  => 'text',
 					'title' => 'Pricepersqft'
 				),
-				array(
-					'id'    => 'opt-price',
-					'type'  => 'number',
-					'title' => 'Price'
-				),
+                array(
+                    'id'    => 'opt-cominsoon-price',
+                    'type'  => 'text',
+                    'title' => 'CP Price'
+                ),
+                array(
+                    'id'    => 'opt-price',
+                    'type'  => 'number',
+                    'title' => 'Price'
+                ),
 				array(
 					'id'    => 'opt-price-min',
 					'type'  => 'number',

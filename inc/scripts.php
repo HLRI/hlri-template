@@ -529,6 +529,7 @@ function add_search_input_to_meta_box($meta_box_id)
                 var divToToggle2 = findDivToToggle("Paid Deposit");
                 var divToToggle3 = findDivToToggle("Total Cash Required");
                 var divToToggle4 = findDivToToggle("Remaining Deposit");
+                var divToToggle5 = findDivToToggle("CP Price");
 
                 if (divToToggle) {
                     if ((selectValue === 'Assignment') || selectValue === 'Resale') {
@@ -541,6 +542,11 @@ function add_search_input_to_meta_box($meta_box_id)
                         divToToggle2.style.display = 'none';
                         divToToggle3.style.display = 'none';
                         divToToggle4.style.display = 'none';
+                    }
+                    if ((selectValue === 'Comming soon')) {
+                        divToToggle5.style.display = 'block';
+                    } else{
+                        divToToggle5.style.display = 'none';
                     }
                 }
             }
