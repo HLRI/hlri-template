@@ -348,16 +348,16 @@ $property = new WP_Query($args);
                                                 // Check if the selected floor plan type is not empty
                                                 if (!empty($selectedFloorPlanType)) {
                                                     $floor_plan_types = get_post_meta( $pid, 'hlr_framework_mapdata', true );
-                                                            $floorPlanTypes = $floor_plan_types['floor_plan_types'];
-                                                            foreach ($floorPlanTypes as $floorPlanType) {
-                                                                // Check if the title of the floor plan type matches the selected floor plan type
-                                                                if ($floorPlanType['title'] === $selectedFloorPlanType) {
-                                                                    // Display the deposit structure of the matched floor plan type
-                                                                    echo '<div class="square-foot-title">Deposit Structure</div>';
-                                                                    echo apply_filters('the_content', $floorPlanType['deposit_structure']);
-                                                                    break; // Exit the loop once a match is found
-                                                                }
-                                                            }
+                                                    $floorPlanTypes = $floor_plan_types['floor_plan_types'];
+                                                    foreach ($floorPlanTypes as $floorPlanType) {
+                                                        // Check if the title of the floor plan type matches the selected floor plan type
+                                                        if ($floorPlanType['title'] === $selectedFloorPlanType) {
+                                                            // Display the deposit structure of the matched floor plan type
+                                                            echo '<div class="square-foot-title">Deposit Structure</div>';
+                                                            echo apply_filters('the_content', $floorPlanType['deposit_structure']);
+                                                            break; // Exit the loop once a match is found
+                                                        }
+                                                    }
                                                 }  else {
                                                     // here
                                                     if ($property->have_posts()) :
@@ -374,6 +374,18 @@ $property = new WP_Query($args);
                                                 }
                                             }
                                             ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
+                                        <p class="additional-note-wrap">
+                                            <div class="additional-note-title">Additional Note</div>
+                                            <?php if (!empty($floorplans['opt-floorplans-note'])) : ?>
+                                                <p>
+                                                    <?= $floorplans['opt-floorplans-note'] ?>
+                                                </p>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
