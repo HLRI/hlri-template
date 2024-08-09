@@ -271,7 +271,7 @@ function addOrdinalSuffix($number)
                                         Starting from
                                     <?php endif; ?><span>
                                                 <?php if (!empty($data['opt-cominsoon-price'])) : ?>
-                                                    $<?= $data['opt-cominsoon-price'] ?>
+                                                    <?= $data['opt-cominsoon-price'] ?>
                                                 <?php else : ?>
                                                     $<?= number_format($data['opt-price-min']) ?>
                                                 <?php endif; ?>
