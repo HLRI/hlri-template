@@ -270,12 +270,7 @@ function addOrdinalSuffix($number)
                                     <?php else : ?>
                                         Starting from
                                     <?php endif; ?><span>
-    <?php if ($data['opt-sales-type'] == "Comming soon") : ?>
-        $<?= number_format($data['opt-cominsoon-price']) ?>
-    <?php else : ?>
-        $<?= number_format($data['opt-price-min']) ?>
-    <?php endif; ?>
-
+                                    $<?= number_format($data['opt-price-min']) ?>
                                 </span>
                                 </div>
                                 <div class="btn-group">
