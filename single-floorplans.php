@@ -109,7 +109,8 @@ if (!empty($galleries['floorplans_gallery'])) {
                             <?php if ($gallery_ids[0]['gallery_url']) : ?>
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
-                                        <?php foreach ($gallery_ids as $gallery_item) : ?>
+                                        <?php foreach ($gallery_ids as $item) : ?>
+                                            <?php $gallery_item = wp_get_attachment_url($image_id); ?>
                                             <li class="rounded" data-fancybox="gallery"
                                                 data-caption="<?= $gallery_item['caption'] ?>"
                                                 data-src="<?= $gallery_item['gallery_url'] ?>"
