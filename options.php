@@ -1637,11 +1637,16 @@ if (class_exists('CSF')) {
 					'type'  => 'text',
 					'title' => 'Locker'
 				),
-				array(
-					'id'    => 'opt-floorplans-deposit-structure',
-					'type'  => 'wp_editor',
-					'title' => 'Deposit Structure'
-				),
+                array(
+                    'id'    => 'opt-floorplans-deposit-structure',
+                    'type'  => 'wp_editor',
+                    'title' => 'Deposit Structure'
+                ),
+                array(
+                    'id'    => 'opt-floorplans-note',
+                    'type'  => 'wp_editor',
+                    'title' => 'Additional Note'
+                ),
                 array(
                     'id'    => 'floor_plan_type_select',
                     'type'  => 'select',
