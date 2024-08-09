@@ -116,14 +116,14 @@ if (!empty($galleries['floorplans_gallery'])) {
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
                                         <?php foreach ($gallery_ids as $image_id) : ?>
-                                            <?php $gallery_item = wp_get_attachment_url($image_id); ?>
+                                            <?php $gallery_item_url = wp_get_attachment_url($image_id); $gallery_item_caption = wp_get_attachment_caption($image_id); ?>
                                             <li class="rounded" data-fancybox="gallery"
-                                                data-caption="<?= $gallery_item['caption'] ?>"
-                                                data-src="<?= $gallery_item ?>"
-                                                data-thumb="<?= $gallery_item ?>"
-                                                data-src="<?= $gallery_item ?>">
-                                                <img class="rounded" loading="lazy" src="<?= $gallery_item ?>"
-                                                     alt="<?= $gallery_item['caption'] ?>">
+                                                data-caption="<?= $gallery_item_caption ?>"
+                                                data-src="<?= $gallery_item_url ?>"
+                                                data-thumb="<?= $gallery_item_url ?>"
+                                                data-src="<?= $gallery_item_url ?>">
+                                                <img class="rounded" loading="lazy" src="<?= $gallery_item_url ?>"
+                                                     alt="<?= $gallery_item_caption ?>">
 
                                             </li>
                                         <?php endforeach; ?>
