@@ -3116,7 +3116,6 @@ button.btn.btn-link:hover {
   background: none;
 }
 
-.additional-note-title,
 .square-foot-head {
   font-size: 14px;
   color: #b19f91;
@@ -3133,6 +3132,7 @@ button.btn.btn-link:hover {
   margin-right: 20px;
 }
 
+.additional-note-title,
 .square-foot-title {
   font-weight: bold;
   font-size: 30px;

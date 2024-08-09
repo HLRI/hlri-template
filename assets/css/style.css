@@ -3102,7 +3102,7 @@ button.btn.btn-link:hover {
 .card-header {
   background: none;
 }
-.additional-note-title,
+
 .square-foot-head {
   font-size: 14px;
   color: #aaa;
@@ -3119,6 +3119,7 @@ button.btn.btn-link:hover {
   margin-right: 10px;
 }
 
+.additional-note-title,
 .square-foot-title {
   font-weight: bold;
   font-size: 30px;
