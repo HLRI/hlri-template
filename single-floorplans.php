@@ -425,6 +425,7 @@ $property = new WP_Query($args);
         color: white;
         background: #5dae44;
     }
+    .additional-note-wrap,
     .square-foot-wrap {
         max-height: 370px;
         overflow: auto;
