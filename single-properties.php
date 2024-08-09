@@ -262,7 +262,7 @@ function addOrdinalSuffix($number)
                                 <span class="votes"> <?= $psd['user_rates'] ?> votes</span>
                             <?php endif; ?>
                         </div>
-                        <?php if (!empty($data['opt-price-min'])) : ?>
+                        <?php if (!empty($data['opt-price-min']) || !empty($data['opt-cominsoon-price'])) : ?>
                             <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
                                 <div class="start-price mb-3">
                                     <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
