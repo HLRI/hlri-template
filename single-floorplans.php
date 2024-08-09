@@ -138,10 +138,10 @@ if (!empty($galleries['floorplans_gallery'])) {
                                 </div>
                             <?php endif; ?>
 
-                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
-                                <h2 class="text-2xl font-bold">Gallery</h2>
-                                <p class="text-gray-500">No images available at this time.</p>
-                            </div>
+<!--                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">-->
+<!--                                <h2 class="text-2xl font-bold">Gallery</h2>-->
+<!--                                <p class="text-gray-500">No images available at this time.</p>-->
+<!--                            </div>-->
 
                     </div>
 
