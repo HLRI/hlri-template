@@ -105,7 +105,7 @@ $property = new WP_Query($args);
                                 jQuery(document).ready(function($) {
                                     $(".ecommerce-gallery").lightSlider({
                                         lazyLoad: true,
-                                        gallery: true,
+                                        gallery: false,
                                         item: 1,
                                         loop: false,
                                         thumbItem: <?php echo count($gallery_ids); ?>,
