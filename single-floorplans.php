@@ -95,8 +95,8 @@ $property = new WP_Query($args);
 <?php
 
 $galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
-if (!empty($galleries['floorplans_gallery'])) {
-    $gallery_ids = explode(',', $galleries['floorplans_gallery']);
+if (!empty($galleries['opt-gallery-properties-floorplan'])) {
+    $gallery_ids = explode(',', $galleries['opt-gallery-properties-floorplan']);
 } else {
     $gallery_ids = [];
 }
