@@ -100,7 +100,7 @@ if (!empty($galleries['floorplans_gallery'])) {
 } else {
     $gallery_ids = [];
 }
-echo count($gallery_ids);
+echo '<hr>' . count($gallery_ids);
 ?>
 
 <!--                        <div class="your-gallery-class">-->
