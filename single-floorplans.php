@@ -122,16 +122,19 @@ $property = new WP_Query($args);
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
                                         <?php foreach ($gallery_ids as $gallery_item) : ?>
+                                            <?php
+                                            $attachment = get_post($gallery_item);
+                                            $caption = $attachment->post_excerpt; // Captions are stored in post_excerpt
+                                            ?>
                                             <li class="rounded" data-fancybox="gallery"
-                                                data-caption="<?= wp_get_attachment_caption($gallery_item) ?>"
-                                                data-src="<?= wp_get_attachment_url($gallery_item) ?>"
-                                                data-thumb="<?= wp_get_attachment_url($gallery_item) ?>"
-                                                data-src="<?= wp_get_attachment_url($gallery_item) ?>">
-                                                <img class="rounded" loading="lazy" src="<?= wp_get_attachment_url($gallery_item) ?>"
-                                                     alt="<?= wp_get_attachment_caption($gallery_item) ?>">
-
+                                                data-caption="<?= esc_attr($caption) ?>"
+                                                data-src="<?= esc_url(wp_get_attachment_url($gallery_item)) ?>"
+                                                data-thumb="<?= esc_url(wp_get_attachment_url($gallery_item)) ?>">
+                                                <img class="rounded" loading="lazy" src="<?= esc_url(wp_get_attachment_url($gallery_item)) ?>"
+                                                     alt="<?= esc_attr($caption) ?>">
                                             </li>
                                         <?php endforeach; ?>
+
                                     </ul>
                                 </div>
                             </div>
