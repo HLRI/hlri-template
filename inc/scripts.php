@@ -293,175 +293,214 @@ function theme_footer()
 <!-- Properties map -->
 
     <?php if (is_singular('properties')) :
-        if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true))) {
-            $locations = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords'];
-        } else {
-            $locations = '';
-        }
+    if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true))) {
+        $locations = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords'];
+    } else {
+        $locations = '';
+    }
     ?>
-        <script>
-            jQuery(document).ready(function($) {
-                
-                $('.pgwSlideshow').pgwSlideshow({
-                    lazyLoad: true,
-                    autoSlide: true,
-                    displayControls: false,
-                    maxHeight: 600,
-                    intervalDuration: 6000,
-                    transitionDuration: 2000,
-                });
+    <script>
+        jQuery(document).ready(function($) {
 
-                $(".ecommerce-gallery").lightSlider({
-                    lazyLoad: true,
-                    gallery: true,
-                    item: 1,
-                    loop: true,
-                    thumbItem: 10,
-                    thumbMargin: 10,
-                });
-                $(".floors-gallery").lightSlider({
-                    lazyLoad: true,
-                    clone: false,
-                    gallery: false,
-                    item: 1,
-                });
-                $(".flr-gallery").lightSlider({
-                    lazyLoad: true,
-                    clone: false,
-                    gallery: false,
-                    item: 1,
-                });
-                
-
+            $('.pgwSlideshow').pgwSlideshow({
+                lazyLoad: true,
+                autoSlide: true,
+                displayControls: false,
+                maxHeight: 600,
+                intervalDuration: 6000,
+                transitionDuration: 2000,
             });
 
-            try {
-              var map = L.map('map', {
-                    zoomControl: true,
-                    fullscreenControl: true,
-                }).setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
-                L.tileLayer('https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                    attribution: ''
-                }).addTo(map);
-                var customIcon = L.icon({
-                    iconUrl: '<?= HLR_THEME_ASSETS . 'images/pin.png' ?>',
-                    iconSize: [50, 50],
-                    iconAnchor: [25, 50]
-                });
-                L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], {
-                    icon: customIcon
-                }).addTo(map);
-                map.dragging.disable();
-                map.touchZoom.disable();
-                map.doubleClickZoom.disable();
-                map.scrollWheelZoom.disable();
-                // map.boxZoom.disable();
-                map.keyboard.disable();
-                jQuery('.leaflet-control-attribution').remove();
-            } catch (error) {}
+            $(".ecommerce-gallery").lightSlider({
+                lazyLoad: true,
+                gallery: true,
+                item: 1,
+                loop: true,
+                thumbItem: 10,
+                thumbMargin: 10,
+            });
+            $(".floors-gallery").lightSlider({
+                lazyLoad: true,
+                clone: false,
+                gallery: false,
+                item: 1,
+            });
+            $(".flr-gallery").lightSlider({
+                lazyLoad: true,
+                clone: false,
+                gallery: false,
+                item: 1,
+            });
 
-            jQuery('.rvs-container').rvslider();
 
-            lightbox.option({
-                'resizeDuration': 200,
-                'wrapAround': true,
-                'maxHeight': 500
-            })
+        });
 
-            jQuery(document).ready(function($) {
+        try {
+            var map = L.map('map', {
+                zoomControl: true,
+                fullscreenControl: true,
+            }).setView(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], 15);
+            L.tileLayer('https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                attribution: ''
+            }).addTo(map);
+            var customIcon = L.icon({
+                iconUrl: '<?= HLR_THEME_ASSETS . 'images/pin.png' ?>',
+                iconSize: [50, 50],
+                iconAnchor: [25, 50]
+            });
+            L.marker(['<?= $locations['latitude'] ?>', '<?= $locations['longitude'] ?>'], {
+                icon: customIcon
+            }).addTo(map);
+            map.dragging.disable();
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+            // map.boxZoom.disable();
+            map.keyboard.disable();
+            jQuery('.leaflet-control-attribution').remove();
+        } catch (error) {}
 
-                // var navigationsticker = $("#navigation-sticker");
-                // var targetOffset = navigationsticker.offset().top;
-                //
-                // $(window).scroll(function() {
-                //     var scrollDistance = $(window).scrollTop();
-                //     var stickermobile = $('#sticker-mobile');
-                //     if (scrollDistance > 0) {
-                //         stickermobile.addClass('fixed-menu top-0');
-                //     } else {
-                //         stickermobile.removeClass('fixed-menu top-0');
-                //     }
-                //     if (scrollDistance >= targetOffset - 48) {
-                //         navigationsticker.addClass('fixed-menu top-48');
-                //     } else {
-                //         navigationsticker.removeClass('fixed-menu top-48');
-                //     }
-                // });
+        jQuery('.rvs-container').rvslider();
 
-                $('#stars .star').on('mouseover', function() {
-                    var onStar = parseInt($(this).data('value'), 10);
-                    $(this).parent().children('li.star').each(function(e) {
-                        if (e < onStar) {
-                            $(this).addClass('hover');
-                        } else {
-                            $(this).removeClass('hover');
-                        }
-                    });
-                }).on('mouseout', function() {
-                    $(this).parent().children('li.star').each(function(e) {
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'maxHeight': 500
+        })
+
+        jQuery(document).ready(function($) {
+
+            // var navigationsticker = $("#navigation-sticker");
+            // var targetOffset = navigationsticker.offset().top;
+            //
+            // $(window).scroll(function() {
+            //     var scrollDistance = $(window).scrollTop();
+            //     var stickermobile = $('#sticker-mobile');
+            //     if (scrollDistance > 0) {
+            //         stickermobile.addClass('fixed-menu top-0');
+            //     } else {
+            //         stickermobile.removeClass('fixed-menu top-0');
+            //     }
+            //     if (scrollDistance >= targetOffset - 48) {
+            //         navigationsticker.addClass('fixed-menu top-48');
+            //     } else {
+            //         navigationsticker.removeClass('fixed-menu top-48');
+            //     }
+            // });
+
+            $('#stars .star').on('mouseover', function() {
+                var onStar = parseInt($(this).data('value'), 10);
+                $(this).parent().children('li.star').each(function(e) {
+                    if (e < onStar) {
+                        $(this).addClass('hover');
+                    } else {
                         $(this).removeClass('hover');
-                    });
+                    }
                 });
-                $('#stars .star').on('click', function() {
-                    var onStar = parseInt($(this).data('value'), 10);
-                    var stars = $(this).parent().children('li.star');
-                    for (i = 0; i < stars.length; i++) {
-                        $(stars[i]).removeClass('selected');
+            }).on('mouseout', function() {
+                $(this).parent().children('li.star').each(function(e) {
+                    $(this).removeClass('hover');
+                });
+            });
+            $('#stars .star').on('click', function() {
+                var onStar = parseInt($(this).data('value'), 10);
+                var stars = $(this).parent().children('li.star');
+                for (i = 0; i < stars.length; i++) {
+                    $(stars[i]).removeClass('selected');
+                }
+                for (i = 0; i < onStar; i++) {
+                    $(stars[i]).addClass('selected');
+                }
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-start',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
-                    for (i = 0; i < onStar; i++) {
-                        $(stars[i]).addClass('selected');
+                })
+
+                jQuery.ajax({
+                    type: "post",
+                    url: '/wp-admin/admin-ajax.php',
+                    data: {
+                        'action': 'propertiesRating',
+                        'post_id': <?= get_the_ID() ?>,
+                        'rate': onStar
+                    },
+                    success: function(data) {
+                        if (data.status == 'notLogin') {
+
+                            $('#login-modal').modal('show');
+
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'To submit your rating, you need to login first'
+                            })
+
+                        } else if (data.status == 'added') {
+                            $('.votes').html(data.votes + ' votes');
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Your rating has been saved'
+                            })
+                        } else if (data.status == 'exists') {
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'You have already voted for this item'
+                            })
+                        }
                     }
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'bottom-start',
-                        showConfirmButton: false,
-                        timer: 1500,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-
-                    jQuery.ajax({
-                        type: "post",
-                        url: '/wp-admin/admin-ajax.php',
-                        data: {
-                            'action': 'propertiesRating',
-                            'post_id': <?= get_the_ID() ?>,
-                            'rate': onStar
-                        },
-                        success: function(data) {
-                            if (data.status == 'notLogin') {
-
-                                $('#login-modal').modal('show');
-
-                                Toast.fire({
-                                    icon: 'error',
-                                    title: 'To submit your rating, you need to login first'
-                                })
-
-                            } else if (data.status == 'added') {
-                                $('.votes').html(data.votes + ' votes');
-                                Toast.fire({
-                                    icon: 'success',
-                                    title: 'Your rating has been saved'
-                                })
-                            } else if (data.status == 'exists') {
-                                Toast.fire({
-                                    icon: 'error',
-                                    title: 'You have already voted for this item'
-                                })
-                            }
-                        }
-                    });
-
                 });
 
             });
-        </script>
-    <?php endif; ?>
+
+        });
+    </script>
+<?php endif; ?>
+    <?php if (is_singular('floorplans')) :
+    if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true))) {
+        $locations = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords'];
+    } else {
+        $locations = '';
+    }
+    ?>
+    <script>
+        jQuery(document).ready(function($) {
+
+            $('.pgwSlideshow').pgwSlideshow({
+                lazyLoad: true,
+                autoSlide: true,
+                displayControls: false,
+                maxHeight: 600,
+                intervalDuration: 6000,
+                transitionDuration: 2000,
+            });
+
+            $(".ecommerce-gallery").lightSlider({
+                lazyLoad: true,
+                gallery: true,
+                item: 1,
+                loop: true,
+                thumbItem: 10,
+                thumbMargin: 10,
+            });
+        });
+
+
+        jQuery('.rvs-container').rvslider();
+
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'maxHeight': 500
+        })
+    </script>
+<?php endif; ?>
 
 <?php
 }
