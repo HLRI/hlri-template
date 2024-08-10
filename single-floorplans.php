@@ -100,6 +100,7 @@ if (!empty($galleries['floorplans_gallery'])) {
 } else {
     $gallery_ids = [];
 }
+echo count($gallery_ids);
 ?>
 
 <!--                        <div class="your-gallery-class">-->
@@ -112,6 +113,24 @@ if (!empty($galleries['floorplans_gallery'])) {
 <!--                        </div>-->
 
 
+                    <script>
+                        jQuery(document).ready(function($) {
+                            $(".ecommerce-gallery").lightSlider({
+                                lazyLoad: true,
+                                gallery: true,
+                                item: 1,
+                                loop: true,
+                                thumbItem: 10,
+                                thumbMargin: 10,
+                            });
+                        });
+
+                        lightbox.option({
+                            'resizeDuration': 200,
+                            'wrapAround': true,
+                            'maxHeight': 500
+                        })
+                    </script>
 
                     <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
                         <?php if (isset($gallery_ids)) : ?>
@@ -140,6 +159,9 @@ if (!empty($galleries['floorplans_gallery'])) {
                                 </div>
                             <?php endif; ?>
                         <?php else: ?>
+
+
+                        // default thumbnail
                             <div class="image-floorplan">
                                 <?php
                                 while ($property->have_posts()) : $property->the_post();
@@ -186,6 +208,10 @@ if (!empty($galleries['floorplans_gallery'])) {
                                     <img loading="lazy" class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="<?= $infoimg ?>">
                                 </a>
                             </div>
+// end of default thumbnail
+
+
+
                         <?php endif; ?>
                     </div>
                 </div>

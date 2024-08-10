@@ -467,32 +467,7 @@ function theme_footer()
         });
     </script>
 <?php endif; ?>
-    <?php if (is_singular('floorplans')) :
-    if (!empty(get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true))) {
-        $locations = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords'];
-    } else {
-        $locations = '';
-    }
-    ?>
-    <script>
-        jQuery(document).ready(function($) {
-            $(".ecommerce-gallery").lightSlider({
-                lazyLoad: true,
-                gallery: true,
-                item: 1,
-                loop: true,
-                thumbItem: 10,
-                thumbMargin: 10,
-            });
-        });
 
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'maxHeight': 500
-        })
-    </script>
-<?php endif; ?>
 
 <?php
 }
