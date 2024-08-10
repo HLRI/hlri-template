@@ -112,29 +112,11 @@ if (!empty($galleries['floorplans_gallery'])) {
 <!--                        </div>-->
 
 
-                    <script>
-                        jQuery(document).ready(function($) {
-                            $(".ecommerce-gallery").lightSlider({
-                                lazyLoad: true,
-                                gallery: true,
-                                item: 1,
-                                loop: true,
-                                thumbItem: <?php echo count($gallery_ids); ?>,
-                                thumbMargin: 10,
-                            });
-                        });
 
-                        lightbox.option({
-                            'resizeDuration': 200,
-                            'wrapAround': true,
-                            'maxHeight': 500
-                        })
-                    </script>
-
+                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
                         <?php if (isset($gallery_ids)) : ?>
                             <?php if ($gallery_ids[0]) : ?>
-                        <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
-                            <div class="vrmedia-gallery">
+                                <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
                                         <?php foreach ($gallery_ids as $gallery_item) : ?>
                                             <li class="rounded" data-fancybox="gallery"
@@ -149,58 +131,70 @@ if (!empty($galleries['floorplans_gallery'])) {
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
-                        </div>
                             <?php else : ?>
-                                <!--                                 default thumbnail-->
-                                <div class="image-floorplan">
-                                    <?php
-                                    while ($property->have_posts()) : $property->the_post();
-                                        $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-                                        if (!empty($mdata_single['opt-developer'])) {
-                                            $title_img = strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']);
-                                        } else {
-                                            $title_img = strtoupper(get_the_title());
-                                        }
-                                    endwhile;
-                                    wp_reset_postdata();
-                                    wp_reset_query();
-
-                                    if (!empty($floorplans['opt-floorplans-price-from'])) {
-                                        $fp = 'From $' . number_format($floorplans['opt-floorplans-price-from']);
-                                    } else {
-                                        $fp = '';
-                                    }
-
-                                    if (!empty($floorplans['opt-floorplans-interior-size'])) {
-                                        $sq = $floorplans['opt-floorplans-interior-size'] . 'sq.ft';
-                                    } else {
-                                        $sq = '';
-                                    }
-
-                                    if (!empty($floorplans['opt-floorplans-beds'])) {
-                                        $bed = $floorplans['opt-floorplans-beds'] . ' Bed';
-                                    } else {
-                                        $bed = '';
-                                    }
-
-                                    if (!empty($floorplans['opt-floorplans-baths'])) {
-                                        $baths = $floorplans['opt-floorplans-baths'] . ' Bath';
-                                    } else {
-                                        $baths = '';
-                                    }
-                                    $view = $floorplans['opt-floorplans-view'];
-
-                                    $info = implode(', ', array_filter([$sq, $bed, $baths, $view]));
-                                    $infoimg = implode(', ', array_filter([$title_img, $fp, $baths, $info]));
-
-                                    ?>
-                                    <a href="<?= get_the_post_thumbnail_url() ?>"  title="<?= $infoimg ?>" data-lightbox="roadtrip">
-                                        <img loading="lazy" class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="<?= $infoimg ?>">
-                                    </a>
+                                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                                 </div>
-                                <!--                                 end of default thumbnail-->
                             <?php endif; ?>
+                        <?php else: ?>
+                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
+                                <h2 class="text-2xl font-bold">Gallery</h2>
+                                <p class="text-gray-500">No images available at this time.</p>
+                            </div>
                         <?php endif; ?>
+                    </div>
+
+
+
+                    <div class="image-floorplan">
+                        <?php
+                        while ($property->have_posts()) : $property->the_post();
+                            $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                            if (!empty($mdata_single['opt-developer'])) {
+                                $title_img = strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']);
+                            } else {
+                                $title_img = strtoupper(get_the_title());
+                            }
+                        endwhile;
+                        wp_reset_postdata();
+                        wp_reset_query();
+
+                        if (!empty($floorplans['opt-floorplans-price-from'])) {
+                            $fp = 'From $' . number_format($floorplans['opt-floorplans-price-from']);
+                        } else {
+                            $fp = '';
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-interior-size'])) {
+                            $sq = $floorplans['opt-floorplans-interior-size'] . 'sq.ft';
+                        } else {
+                            $sq = '';
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-beds'])) {
+                            $bed = $floorplans['opt-floorplans-beds'] . ' Bed';
+                        } else {
+                            $bed = '';
+                        }
+
+                        if (!empty($floorplans['opt-floorplans-baths'])) {
+                            $baths = $floorplans['opt-floorplans-baths'] . ' Bath';
+                        } else {
+                            $baths = '';
+                        }
+                        $view = $floorplans['opt-floorplans-view'];
+
+                        $info = implode(', ', array_filter([$sq, $bed, $baths, $view]));
+                        $infoimg = implode(', ', array_filter([$title_img, $fp, $baths, $info]));
+
+                        ?>
+                        <a href="<?= get_the_post_thumbnail_url() ?>"  title="<?= $infoimg ?>" data-lightbox="roadtrip">
+                            <img loading="lazy" class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="<?= $infoimg ?>">
+                        </a>
+                    </div>
                 </div>
             </div>
 
