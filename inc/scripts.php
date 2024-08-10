@@ -84,6 +84,10 @@ function theme_scripts()
     if (is_singular('floorplans') || is_singular('properties')) {
         wp_enqueue_style('lightbox2');
         wp_enqueue_script('lightbox2');
+        wp_enqueue_script('rvslider');
+        wp_enqueue_style('rvslider');
+        wp_enqueue_style('pgwslideshow');
+        wp_enqueue_script('pgwslideshow');
         wp_enqueue_style('lightslider');
         wp_enqueue_script('lightslider');
     }
@@ -321,7 +325,7 @@ function theme_footer()
                     gallery: false,
                     item: 1,
                 });
-                $(".floors-gallery2").lightSlider({
+                $(".flr-gallery").lightSlider({
                     lazyLoad: true,
                     clone: false,
                     gallery: false,
