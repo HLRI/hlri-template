@@ -111,19 +111,21 @@ if (!empty($galleries['floorplans_gallery'])) {
 <!--                            --><?php //endforeach; ?>
 <!--                        </div>-->
 
+
+
                     <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
-                            <?php if (isset($gallery_ids)): ?>
+                        <?php if (isset($gallery_ids)) : ?>
+                            <?php if ($gallery_ids[0]) : ?>
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
-                                        <?php foreach ($gallery_ids as $image_id) : ?>
-                                            <?php $gallery_item_url = wp_get_attachment_url($image_id); $gallery_item_caption = wp_get_attachment_caption($image_id);?>
+                                        <?php foreach ($gallery_ids as $gallery_item) : ?>
                                             <li class="rounded" data-fancybox="gallery"
-                                                data-caption="<?= $gallery_item_caption ?>"
-                                                data-src="<?= $gallery_item_url ?>"
-                                                data-thumb="<?= $gallery_item_url ?>"
-                                                data-src="<?= $gallery_item_url ?>">
-                                                <img class="rounded" loading="lazy" src="<?= $gallery_item_url ?>"
-                                                     alt="<?= $gallery_item_caption ?>">
+                                                data-caption="<?= wp_get_attachment_caption($gallery_item) ?>"
+                                                data-src="<?= wp_get_attachment_url($gallery_item) ?>"
+                                                data-thumb="<?= wp_get_attachment_url($gallery_item) ?>"
+                                                data-src="<?= wp_get_attachment_url($gallery_item) ?>">
+                                                <img class="rounded" loading="lazy" src="<?= wp_get_attachment_url($gallery_item) ?>"
+                                                     alt="<?= wp_get_attachment_caption($gallery_item) ?>">
 
                                             </li>
                                         <?php endforeach; ?>
@@ -137,13 +139,48 @@ if (!empty($galleries['floorplans_gallery'])) {
                                     <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                                 </div>
                             <?php endif; ?>
-
-<!--                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">-->
-<!--                                <h2 class="text-2xl font-bold">Gallery</h2>-->
-<!--                                <p class="text-gray-500">No images available at this time.</p>-->
-<!--                            </div>-->
-
+                        <?php else: ?>
+                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
+                                <h2 class="text-2xl font-bold">Gallery</h2>
+                                <p class="text-gray-500">No images available at this time.</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
+
+
+<!--                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">-->
+<!--                            --><?php //if (isset($gallery_ids)): ?>
+<!--                                <div class="vrmedia-gallery">-->
+<!--                                    <ul class="ecommerce-gallery">-->
+<!--                                        --><?php //foreach ($gallery_ids as $image_id) : ?>
+<!--                                            --><?php //$gallery_item_url = wp_get_attachment_url($image_id); $gallery_item_caption = wp_get_attachment_caption($image_id);?>
+<!--                                            <li class="rounded" data-fancybox="gallery"-->
+<!--                                                data-caption="--><?php //= $gallery_item_caption ?><!--"-->
+<!--                                                data-src="--><?php //= $gallery_item_url ?><!--"-->
+<!--                                                data-thumb="--><?php //= $gallery_item_url ?><!--"-->
+<!--                                                data-src="--><?php //= $gallery_item_url ?><!--">-->
+<!--                                                <img class="rounded" loading="lazy" src="--><?php //= $gallery_item_url ?><!--"-->
+<!--                                                     alt="--><?php //= $gallery_item_caption ?><!--">-->
+<!---->
+<!--                                            </li>-->
+<!--                                        --><?php //endforeach; ?>
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            --><?php //else : ?>
+<!--                                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">-->
+<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
+<!--                                </div>-->
+<!--                            --><?php //endif; ?>
+<!---->
+<!--<!--                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">-->-->
+<!--<!--                                <h2 class="text-2xl font-bold">Gallery</h2>-->-->
+<!--<!--                                <p class="text-gray-500">No images available at this time.</p>-->-->
+<!--<!--                            </div>-->-->
+<!---->
+<!--                    </div>-->
 
 
 
