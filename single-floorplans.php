@@ -125,6 +125,12 @@ $property = new WP_Query($args);
                                             <?php
                                             $attachment = get_post($gallery_item);
                                             $caption = $attachment->post_excerpt; // Captions are stored in post_excerpt
+
+                                            // Debugging output
+                                            echo '<pre>';
+                                            echo 'Image ID: ' . $gallery_item . '<br>';
+                                            echo 'Caption: ' . $caption . '<br>';
+                                            echo '</pre>';
                                             ?>
                                             <li class="rounded" data-fancybox="gallery"
                                                 data-caption="<?= esc_attr($caption) ?>"
@@ -134,6 +140,7 @@ $property = new WP_Query($args);
                                                      alt="<?= esc_attr($caption) ?>">
                                             </li>
                                         <?php endforeach; ?>
+
 
                                     </ul>
                                 </div>
