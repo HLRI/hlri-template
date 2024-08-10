@@ -85,9 +85,6 @@ function theme_scripts()
         wp_enqueue_style('lightbox2');
         wp_enqueue_script('lightbox2');
         wp_enqueue_script('rvslider');
-        wp_enqueue_style('rvslider');
-        wp_enqueue_style('pgwslideshow');
-        wp_enqueue_script('pgwslideshow');
         wp_enqueue_style('lightslider');
         wp_enqueue_script('lightslider');
     }
