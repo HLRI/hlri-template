@@ -131,7 +131,7 @@ if (!empty($galleries['floorplans_gallery'])) {
                         })
                     </script>
 
-                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
+                    <div class="d-flex flex-wrap justify-content-between" style="gap:10px;" id="Gallery">
                         <?php if (isset($gallery_ids)) : ?>
                             <?php if ($gallery_ids[0]) : ?>
                                 <div class="vrmedia-gallery">
