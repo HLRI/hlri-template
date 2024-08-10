@@ -101,32 +101,37 @@ $property = new WP_Query($args);
                 <?php if ($gallery_ids[0]) : ?>
                     <div class="row">
                         <div class="col-12 px-lg-0">
-                            <script>
-                                jQuery(document).ready(function($) {
-                                    $(".ecommerce-gallery").lightSlider({
-                                        lazyLoad: true,
-                                        gallery: true,
-                                        item: 1,
-                                        loop: false,
-                                        thumbItem: <?php echo count($gallery_ids); ?>,
-                                        thumbMargin: 10,
-                                    });
-                                });
-                                lightbox.option({
-                                    'resizeDuration': 200,
-                                    'wrapAround': true,
-                                    'maxHeight': 500
-                                })
-                            </script>
+<!--                            <script>-->
+<!--                                jQuery(document).ready(function($) {-->
+<!--                                    $(".ecommerce-gallery").lightSlider({-->
+<!--                                        lazyLoad: true,-->
+<!--                                        gallery: true,-->
+<!--                                        item: 1,-->
+<!--                                        loop: false,-->
+<!--                                        thumbItem: --><?php //echo count($gallery_ids); ?>//,
+//                                        thumbMargin: 10,
+//                                    });
+//                                });
+//                                lightbox.option({
+//                                    'resizeDuration': 200,
+//                                    'wrapAround': true,
+//                                    'maxHeight': 500
+//                                })
+//                            </script>
                             <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
-                                        <?php foreach ($gallery_ids as $gallery_item) : ?>
-                                            <?php
-                                            $attachment = get_post($gallery_item);
-                                            $caption = $attachment->post_excerpt; // Captions are stored in post_excerpt
+                                        <?php
+                                        // Debugging: Output the entire gallery_ids array
+                                        echo '<pre>';
+                                        print_r($gallery_ids);
+                                        echo '</pre>';
 
-                                            // Debugging output
+                                        foreach ($gallery_ids as $gallery_item) :
+                                            $attachment = get_post($gallery_item);
+                                            $caption = $attachment->post_excerpt; // Retrieve caption from post_excerpt
+
+                                            // Debugging: Output the ID and caption for each iteration
                                             echo '<pre>';
                                             echo 'Image ID: ' . $gallery_item . '<br>';
                                             echo 'Caption: ' . $caption . '<br>';
@@ -140,7 +145,6 @@ $property = new WP_Query($args);
                                                      alt="<?= esc_attr($caption) ?>">
                                             </li>
                                         <?php endforeach; ?>
-
 
                                     </ul>
                                 </div>
