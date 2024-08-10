@@ -107,7 +107,7 @@ $property = new WP_Query($args);
                                         lazyLoad: true,
                                         gallery: true,
                                         item: <?php echo count($gallery_ids); ?>,
-                                        loop: true,
+                                        loop: false,
                                         thumbItem: 0,
                                         thumbMargin: 10,
                                     });
