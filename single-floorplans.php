@@ -90,17 +90,17 @@ $property = new WP_Query($args);
 
 
 
-
+            <?php
+            $galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
+            if (!empty($galleries['floorplans_gallery'])) {
+                $gallery_ids = explode(',', $galleries['floorplans_gallery']);
+            } else {
+                $gallery_ids = [];
+            }
+            ?>
+    <?php if ($gallery_ids[0]) : ?>
             <div class="row">
                 <div class="col-12 px-lg-0">
-                    <?php
-                    $galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
-                    if (!empty($galleries['floorplans_gallery'])) {
-                        $gallery_ids = explode(',', $galleries['floorplans_gallery']);
-                    } else {
-                        $gallery_ids = [];
-                    }
-                    ?>
                     <script>
                         jQuery(document).ready(function($) {
                             $(".ecommerce-gallery").lightSlider({
@@ -118,8 +118,6 @@ $property = new WP_Query($args);
                             'maxHeight': 500
                         })
                     </script>
-                    <?php if (isset($gallery_ids)) : ?>
-                        <?php if ($gallery_ids[0]) : ?>
                             <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
@@ -137,10 +135,9 @@ $property = new WP_Query($args);
                                     </ul>
                                 </div>
                             </div>
-                        <?php endif; ?>
-                    <?php endif; ?>
                 </div>
             </div>
+            <?php else : ?>
 
             <div class="row">
                 <div class="col-12 px-lg-0">
@@ -192,6 +189,8 @@ $property = new WP_Query($args);
                     </div>
                 </div>
             </div>
+
+    <?php endif; ?>
 
             <div class="row mt-4 p-lg-2 py-2 rounded ">
                 <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
