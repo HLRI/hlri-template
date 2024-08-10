@@ -88,59 +88,78 @@ $property = new WP_Query($args);
                 </div>
             </div>
 
-
-
-            <?php
-            $galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
-            if (!empty($galleries['floorplans_gallery'])) {
-                $gallery_ids = explode(',', $galleries['floorplans_gallery']);
-            } else {
-                $gallery_ids = [];
-            }
-            ?>
-    <?php if ($gallery_ids[0]) : ?>
             <div class="row">
                 <div class="col-12 px-lg-0">
-                    <script>
-                        jQuery(document).ready(function($) {
-                            $(".ecommerce-gallery").lightSlider({
-                                lazyLoad: true,
-                                gallery: true,
-                                item: 1,
-                                loop: true,
-                                thumbItem: <?php echo count($gallery_ids); ?>,
-                                thumbMargin: 10,
-                            });
-                        });
-                        lightbox.option({
-                            'resizeDuration': 200,
-                            'wrapAround': true,
-                            'maxHeight': 500
-                        })
-                    </script>
-                            <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
+
+
+<?php
+
+$galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
+if (!empty($galleries['floorplans_gallery'])) {
+    $gallery_ids = explode(',', $galleries['floorplans_gallery']);
+} else {
+    $gallery_ids = [];
+}
+?>
+
+<!--                        <div class="your-gallery-class">-->
+<!--                            --><?php //foreach ($gallery_ids as $image_id) : ?>
+<!--                                --><?php //print_r($gallery_ids);$image_url = wp_get_attachment_url($image_id); ?>
+<!--                                <div class="your-gallery-item-class">-->
+<!--                                    <img src="--><?php //echo esc_url($image_url); ?><!--" alt="Gallery Image">-->
+<!--                                </div>-->
+<!--                            --><?php //endforeach; ?>
+<!--                        </div>-->
+
+                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="floors-gallery2">
+                            <?php if (isset($gallery_ids)): ?>
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
-                                        <?php foreach ($gallery_ids as $gallery_item) : ?>
+                                        <?php foreach ($gallery_ids as $image_id) : ?>
+                                            <?php $gallery_item_ = wp_get_attachment_url($image_id); ?>
                                             <li class="rounded" data-fancybox="gallery"
-                                                data-caption="<?= wp_get_attachment_caption($gallery_item) ?>"
-                                                data-src="<?= wp_get_attachment_url($gallery_item) ?>"
-                                                data-thumb="<?= wp_get_attachment_url($gallery_item) ?>"
-                                                data-src="<?= wp_get_attachment_url($gallery_item) ?>">
-                                                <img class="rounded" loading="lazy" src="<?= wp_get_attachment_url($gallery_item) ?>"
-                                                     alt="<?= wp_get_attachment_caption($gallery_item) ?>">
+                                                data-caption="<?= wp_get_attachment_caption($image_id) ?>"
+                                                data-src="<?= $gallery_item ?>"
+                                                data-thumb="<?= $gallery_item ?>"
+                                                data-src="<?= $gallery_item ?>">
+                                                <img class="rounded" loading="lazy" src="<?= $gallery_item ?>"
+                                                     alt="<?= $gallery_item['caption'] ?>">
 
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
-                            </div>
-                </div>
-            </div>
-            <?php else : ?>
+                            <?php else : ?>
+                                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                                </div>
+                            <?php endif; ?>
 
-            <div class="row">
-                <div class="col-12 px-lg-0">
+                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
+                                <h2 class="text-2xl font-bold">Gallery</h2>
+                                <p class="text-gray-500">No images available at this time.</p>
+                            </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <div class="image-floorplan">
                         <?php
                         while ($property->have_posts()) : $property->the_post();
@@ -189,8 +208,6 @@ $property = new WP_Query($args);
                     </div>
                 </div>
             </div>
-
-    <?php endif; ?>
 
             <div class="row mt-4 p-lg-2 py-2 rounded ">
                 <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
