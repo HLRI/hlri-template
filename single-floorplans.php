@@ -150,7 +150,10 @@ if (!empty($galleries['floorplans_gallery'])) {
                                     </ul>
                                 </div>
                             <?php else : ?>
-<!--                                 default thumbnail-->
+                                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
+                                </div>
+
+                                <!--                                 default thumbnail-->
                                 <div class="image-floorplan">
                                     <?php
                                     while ($property->have_posts()) : $property->the_post();
@@ -197,7 +200,7 @@ if (!empty($galleries['floorplans_gallery'])) {
                                         <img loading="lazy" class="img-floorplan" src="<?= get_the_post_thumbnail_url() ?>" alt="<?= $infoimg ?>">
                                     </a>
                                 </div>
-<!--                                 end of default thumbnail-->
+                                <!--                                 end of default thumbnail-->
                             <?php endif; ?>
                         <?php endif; ?>
                     </div>
