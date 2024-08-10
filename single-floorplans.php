@@ -88,34 +88,39 @@ $property = new WP_Query($args);
                 </div>
             </div>
 
+
+
+
             <div class="row">
                 <div class="col-12 px-lg-0">
-
-
-<?php
-
-$galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
-if (!empty($galleries['floorplans_gallery'])) {
-    $gallery_ids = explode(',', $galleries['floorplans_gallery']);
-} else {
-    $gallery_ids = [];
-}
-?>
-
-<!--                        <div class="your-gallery-class">-->
-<!--                            --><?php //foreach ($gallery_ids as $image_id) : ?>
-<!--                                --><?php //print_r($gallery_ids);$image_url = wp_get_attachment_url($image_id); ?>
-<!--                                <div class="your-gallery-item-class">-->
-<!--                                    <img src="--><?php //echo esc_url($image_url); ?><!--" alt="Gallery Image">-->
-<!--                                </div>-->
-<!--                            --><?php //endforeach; ?>
-<!--                        </div>-->
-
-
-
-                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
-                        <?php if (isset($gallery_ids)) : ?>
-                            <?php if ($gallery_ids[0]) : ?>
+                    <?php
+                    $galleries = get_post_meta($post_id, 'hlr_framework_floorplan_images_gallery', true);
+                    if (!empty($galleries['floorplans_gallery'])) {
+                        $gallery_ids = explode(',', $galleries['floorplans_gallery']);
+                    } else {
+                        $gallery_ids = [];
+                    }
+                    ?>
+                    <script>
+                        jQuery(document).ready(function($) {
+                            $(".ecommerce-gallery").lightSlider({
+                                lazyLoad: true,
+                                gallery: true,
+                                item: 1,
+                                loop: true,
+                                thumbItem: <?php echo count($gallery_ids); ?>,
+                                thumbMargin: 10,
+                            });
+                        });
+                        lightbox.option({
+                            'resizeDuration': 200,
+                            'wrapAround': true,
+                            'maxHeight': 500
+                        })
+                    </script>
+                    <?php if (isset($gallery_ids)) : ?>
+                        <?php if ($gallery_ids[0]) : ?>
+                            <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
                                         <?php foreach ($gallery_ids as $gallery_item) : ?>
@@ -131,24 +136,14 @@ if (!empty($galleries['floorplans_gallery'])) {
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
-                            <?php else : ?>
-                                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
-                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                                    <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                                </div>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">
-                                <h2 class="text-2xl font-bold">Gallery</h2>
-                                <p class="text-gray-500">No images available at this time.</p>
                             </div>
                         <?php endif; ?>
-                    </div>
+                    <?php endif; ?>
+                </div>
+            </div>
 
-
-
+            <div class="row">
+                <div class="col-12 px-lg-0">
                     <div class="image-floorplan">
                         <?php
                         while ($property->have_posts()) : $property->the_post();
