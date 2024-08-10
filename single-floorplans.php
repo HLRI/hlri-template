@@ -119,7 +119,7 @@ if (!empty($galleries['floorplans_gallery'])) {
                                 gallery: true,
                                 item: 1,
                                 loop: true,
-                                thumbItem: <?php count($gallery_ids); ?>,
+                                thumbItem: <?php echo count($gallery_ids); ?>,
                                 thumbMargin: 10,
                             });
                         });
