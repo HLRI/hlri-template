@@ -100,7 +100,6 @@ if (!empty($galleries['floorplans_gallery'])) {
 } else {
     $gallery_ids = [];
 }
-echo '<hr>' . count($gallery_ids);
 ?>
 
 <!--                        <div class="your-gallery-class">-->
@@ -120,7 +119,7 @@ echo '<hr>' . count($gallery_ids);
                                 gallery: true,
                                 item: 1,
                                 loop: true,
-                                thumbItem: 10,
+                                thumbItem: <?php count($gallery_ids); ?>,
                                 thumbMargin: 10,
                             });
                         });
