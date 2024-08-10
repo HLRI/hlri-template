@@ -100,7 +100,6 @@ if (!empty($galleries['floorplans_gallery'])) {
 } else {
     $gallery_ids = [];
 }
-print_r($gallery_ids);
 ?>
 
 <!--                        <div class="your-gallery-class">-->
