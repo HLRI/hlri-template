@@ -111,12 +111,12 @@ if (!empty($galleries['floorplans_gallery'])) {
 <!--                            --><?php //endforeach; ?>
 <!--                        </div>-->
 
-                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="floors-gallery">
+                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="floors-gallery2">
                             <?php if (isset($gallery_ids)): ?>
                                 <div class="vrmedia-gallery">
                                     <ul class="flr-gallery">
                                         <?php foreach ($gallery_ids as $image_id) : ?>
-                                            <?php $gallery_item_url = wp_get_attachment_url($image_id); $gallery_item_caption = wp_get_attachment_caption($image_id); echo $gallery_item_url;?>
+                                            <?php $gallery_item_url = wp_get_attachment_url($image_id); $gallery_item_caption = wp_get_attachment_caption($image_id);?>
                                             <li class="rounded" data-fancybox="gallery"
                                                 data-caption="<?= $gallery_item_caption ?>"
                                                 data-src="<?= $gallery_item_url ?>"
