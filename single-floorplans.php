@@ -148,54 +148,6 @@ if (!empty($galleries['floorplans_gallery'])) {
                     </div>
 
 
-<!--                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">-->
-<!--                            --><?php //if (isset($gallery_ids)): ?>
-<!--                                <div class="vrmedia-gallery">-->
-<!--                                    <ul class="ecommerce-gallery">-->
-<!--                                        --><?php //foreach ($gallery_ids as $image_id) : ?>
-<!--                                            --><?php //$gallery_item_url = wp_get_attachment_url($image_id); $gallery_item_caption = wp_get_attachment_caption($image_id);?>
-<!--                                            <li class="rounded" data-fancybox="gallery"-->
-<!--                                                data-caption="--><?php //= $gallery_item_caption ?><!--"-->
-<!--                                                data-src="--><?php //= $gallery_item_url ?><!--"-->
-<!--                                                data-thumb="--><?php //= $gallery_item_url ?><!--"-->
-<!--                                                data-src="--><?php //= $gallery_item_url ?><!--">-->
-<!--                                                <img class="rounded" loading="lazy" src="--><?php //= $gallery_item_url ?><!--"-->
-<!--                                                     alt="--><?php //= $gallery_item_caption ?><!--">-->
-<!---->
-<!--                                            </li>-->
-<!--                                        --><?php //endforeach; ?>
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            --><?php //else : ?>
-<!--                                <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">-->
-<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-<!--                                    <img loading="lazy" src="--><?php //= HLR_THEME_ASSETS . 'images/noimage.jpg' ?><!--" alt="">-->
-<!--                                </div>-->
-<!--                            --><?php //endif; ?>
-<!---->
-<!--<!--                            <div class="h-100 d-flex justify-content-center align-items-center flex-column bg-foreground">-->-->
-<!--<!--                                <h2 class="text-2xl font-bold">Gallery</h2>-->-->
-<!--<!--                                <p class="text-gray-500">No images available at this time.</p>-->-->
-<!--<!--                            </div>-->-->
-<!---->
-<!--                    </div>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     <div class="image-floorplan">
                         <?php

@@ -87,6 +87,8 @@ function theme_scripts()
         wp_enqueue_script('rvslider');
         wp_enqueue_style('lightslider');
         wp_enqueue_script('lightslider');
+        wp_enqueue_style('fancybox');
+        wp_enqueue_script('fancybox');
     }
 
     if (is_singular('floorplans') || is_singular('properties')) {
