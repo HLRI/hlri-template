@@ -471,16 +471,6 @@ function theme_footer()
     ?>
     <script>
         jQuery(document).ready(function($) {
-
-            $('.pgwSlideshow').pgwSlideshow({
-                lazyLoad: true,
-                autoSlide: true,
-                displayControls: false,
-                maxHeight: 600,
-                intervalDuration: 6000,
-                transitionDuration: 2000,
-            });
-
             $(".ecommerce-gallery").lightSlider({
                 lazyLoad: true,
                 gallery: true,
@@ -490,9 +480,6 @@ function theme_footer()
                 thumbMargin: 10,
             });
         });
-
-
-        jQuery('.rvs-container').rvslider();
 
         lightbox.option({
             'resizeDuration': 200,
