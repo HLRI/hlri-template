@@ -348,6 +348,12 @@ $property = new WP_Query($args);
                                                         <span class="value"><?= $floorplans['opt-floorplans-interior-size'] ?> sq.ft.</span>
                                                     </div>
                                                 <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-balcony-sqft'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Balcony Size : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-balcony-sqft'] ?> sq.ft.</span>
+                                                    </div>
+                                                <?php endif; ?>
                                                 <?php if (!empty($floorplans['opt-floorplans-floor-range'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Floor Range : </span>
