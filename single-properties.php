@@ -85,23 +85,22 @@ function addOrdinalSuffix($number)
                                             </li>
                                         <?php endif; ?>
     <?php if (array_search('Commercial', $data['opt-type']) !== false) : ?>
-new icon
-    <?php endif; ?>
         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo ($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bed'] ?>">
-                                            <i class="fas fa-bed"></i><br>
-<!--            <strong>--><?php //echo $data['opt-min-bed'] ?><!-- - --><?php //echo $data['opt-max-bed'] ?><!--</strong>-->
+            <i class="fas fa-bed"></i><br>
+            <!--            <strong>--><?php //echo $data['opt-min-bed'] ?><!-- - --><?php //echo $data['opt-max-bed'] ?><!--</strong>-->
             <strong><?php echo ($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bed'] ?></strong>
-                                            <span
-                                                    class="gray normal-lbl">Bedroom<?php echo (intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
-                                                    class="gray short-lbl"></span>
-                                        </li>
+            <span
+                    class="gray normal-lbl">Bedroom<?php echo (intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
+                    class="gray short-lbl"></span>
+        </li>
 
-                                        <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo ($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?>">
-                                            <i class="fas fa-bath"></i><br><strong><?php echo ($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?></strong>
-                                            <span
-                                                    class="gray normal-lbl">Bathroom<?php echo (intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
-                                                    class="gray short-lbl"></span>
-                                        </li>
+        <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo ($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?>">
+            <i class="fas fa-bath"></i><br><strong><?php echo ($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?></strong>
+            <span
+                    class="gray normal-lbl">Bathroom<?php echo (intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
+                    class="gray short-lbl"></span>
+        </li>    <?php endif; ?>
+
                                         <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?> Sqft.">
                                             <i class="fas fa-vector-square"></i><br><strong><?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?></strong>
                                             <span
