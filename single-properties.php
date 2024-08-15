@@ -84,6 +84,7 @@ function addOrdinalSuffix($number)
                                                 <?php echo implode(', ', $data['opt-ownership']); ?>
                                             </li>
                                         <?php endif; ?>
+                                        <?php if (($key = array_search('Commercial', $data['opt-type'] ?? [])) !== false) : ?>
         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo ($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bed'] ?>">
                                             <i class="fas fa-bed"></i><br>
 <!--            <strong>--><?php //echo $data['opt-min-bed'] ?><!-- - --><?php //echo $data['opt-max-bed'] ?><!--</strong>-->
@@ -99,6 +100,7 @@ function addOrdinalSuffix($number)
                                                     class="gray normal-lbl">Bathroom<?php echo (intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
                                                     class="gray short-lbl"></span>
                                         </li>
+                                        <?php endif; ?>
                                         <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?> Sqft.">
                                             <i class="fas fa-vector-square"></i><br><strong><?php echo ($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?></strong>
                                             <span
