@@ -9,7 +9,7 @@
 
                 <?php include(HLR_THEME_COMPONENT . 'search-slider.php'); ?>
 
-                <a target="_blank" href="https://hlric.com/" class="btn-slider">Search Condos on Map</a>
+                <a target="_blank" href="https://map.hlrihub.com/" class="btn-slider">Search Condos on Map</a>
             </div>
             <div class="carousel-inner">
                 <?php
