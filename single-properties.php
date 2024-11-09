@@ -361,7 +361,7 @@ function addOrdinalSuffix($number)
 
         <style>
             .wp-caption{
-                width:unset;
+                width:auto !important;
             }
         </style>
         <!-- content  -->
