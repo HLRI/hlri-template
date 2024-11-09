@@ -366,7 +366,8 @@ function addOrdinalSuffix($number)
                     <div class="row mt-2 border-top  mb-4" id="Overview">
                         <div class="col-12">
                             <div class=" content-original">
-                                <?= wpautop($psd['content']) ?>
+<!--                                --><?php //= wpautop($psd['content']) ?>
+                                <?= the_content(); ?>
                             </div>
                         </div>
                     </div>
