@@ -25,7 +25,7 @@ $terms = array_slice($terms, 0, 8);
                                     <img loading="lazy" src="<?= $meta['opt-neighborhood-image']['url'] ?>" class="neighborhood-image" alt="<?= isset($meta['opt-neighborhood-image']['alt']) ? $meta['opt-neighborhood-image']['alt'] : $term->name ?>">
                                 </a>
                                 <div class="neighborhood-title">
-                                    <?= $term->name ?>
+                                    <?= $term->name ?>xcfbnhv
                                 </div>
                                 <div class="neighborhood-link">
                                 <a target="_blank" title="All listings in <?= $term->name ?>" href="<?= get_term_link($term->term_id); ?>" class="neighborhood-link-item"><?= get_post_count_taxonomy($term->term_id, 'neighborhood', 'properties') ?> Listing</a>
