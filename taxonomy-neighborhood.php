@@ -35,7 +35,7 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
     ];
 
     $properties_query = new WP_Query($args);
-             term_description();
+             echo term_description();
 
 
     if ($properties_query->have_posts()) :
