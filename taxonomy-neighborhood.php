@@ -6,7 +6,7 @@
 $term = get_queried_object();
 
 // Display the name and description of the term
-$description = esc_html(term_description($term->term_id, $term->taxonomy));
+$description = term_description($term->term_id, $term->taxonomy);
 echo $description;
 // Get all custom fields (meta data) for this term
 //$custom_fields = get_term_meta($term->term_id);
