@@ -18,6 +18,7 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
 
+    dd($term->taxonomy);
     $args = [
         'post_type' => 'properties',
         'post_status' => 'publish',
