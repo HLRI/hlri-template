@@ -7,7 +7,6 @@ $term = get_queried_object();
 
 // Display the name and description of the term
 $description = term_description($term->term_id, $term->taxonomy);
-echo $description;
 // Get all custom fields (meta data) for this term
 //$custom_fields = get_term_meta($term->term_id);
 //
@@ -37,10 +36,11 @@ define('CUSTOM_PAGE_HEADER', [
 
 // Include the custom-page-header.php file
 include(HLR_THEME_COMPONENT . 'custom-page-header.php');
-echo '<div class="jd" style="color:black">' . $description . '</div>';
 ?>
 <div class="container-lg">
     <?php
+    echo '<div class="jd" style="color: black;z-index: 99999;display: block;text-align: center;position: relative;">' . $description . '</div>';
+
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
 
