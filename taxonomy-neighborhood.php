@@ -7,7 +7,7 @@ $term = get_queried_object();
 
 // Display the name and description of the term
 $description = term_description($term->term_id, $term->taxonomy);
-
+echo $description;
 // Get all custom fields (meta data) for this term
 //$custom_fields = get_term_meta($term->term_id);
 //
@@ -37,6 +37,7 @@ define('CUSTOM_PAGE_HEADER', [
 
 // Include the custom-page-header.php file
 include(HLR_THEME_COMPONENT . 'custom-page-header.php');
+echo $description;
 ?>
 
 <div class="container-lg">
@@ -44,7 +45,6 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
 
-    echo $description;
     $args = [
         'post_type' => 'properties',
         'post_status' => 'publish',
@@ -64,6 +64,7 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
     if ($properties_query->have_posts()) :
         ?>
         <div class="row justify-content-center">
+
             <?php
             while ($properties_query->have_posts()) :
                 $properties_query->the_post();
