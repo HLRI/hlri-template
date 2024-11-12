@@ -15,6 +15,16 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 
 <div class="container-lg">
     <div>
+        <?php
+        // Retrieve the term object
+        $term = get_queried_object();
+
+        // Check if there's a custom field 'content' for this term
+        $description = get_term_meta($term->term_id, 'content', true);
+
+        // Display the custom description if available, otherwise fallback to term_description()
+        echo !empty($description) ? $description : term_description($term->term_id);
+        ?>
     </div>
     <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -35,8 +45,6 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
     ];
 
     $properties_query = new WP_Query($args);
-             echo $term->description;
-
 
     if ($properties_query->have_posts()) :
         ?>
