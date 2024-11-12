@@ -14,6 +14,9 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 ?>
 
 <div class="container-lg">
+    <div>
+        <?php the_content();?>
+    </div>
     <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
