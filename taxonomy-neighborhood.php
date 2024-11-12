@@ -63,6 +63,7 @@ echo $description;
 
     if ($properties_query->have_posts()) :
         ?>
+    gfgh
         <div class="row justify-content-center">
 
             <?php
