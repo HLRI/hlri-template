@@ -65,7 +65,7 @@ aaa
         ?>
     gfgh
         <div class="row justify-content-center">
-11111
+11111111111111111111111111111111111111111111111111111
             <?php
             while ($properties_query->have_posts()) :
                 $properties_query->the_post();
@@ -74,7 +74,6 @@ aaa
             endwhile;
             ?>
         </div>
-    4444
         <?php
         if ($properties_query->max_num_pages > 1) :
             ?>
