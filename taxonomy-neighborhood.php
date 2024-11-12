@@ -37,9 +37,8 @@ define('CUSTOM_PAGE_HEADER', [
 
 // Include the custom-page-header.php file
 include(HLR_THEME_COMPONENT . 'custom-page-header.php');
-echo $description;
+echo '<div class="jd" style="color:black">' . $description . '</div>';
 ?>
-aaa
 <div class="container-lg">
     <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -63,9 +62,7 @@ aaa
 
     if ($properties_query->have_posts()) :
         ?>
-    gfgh
         <div class="row justify-content-center">
-11111111111111111111111111111111111111111111111111111
             <?php
             while ($properties_query->have_posts()) :
                 $properties_query->the_post();
