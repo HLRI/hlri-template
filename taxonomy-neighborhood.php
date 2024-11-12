@@ -39,7 +39,7 @@ define('CUSTOM_PAGE_HEADER', [
 include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 echo $description;
 ?>
-
+aaa
 <div class="container-lg">
     <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -65,7 +65,7 @@ echo $description;
         ?>
     gfgh
         <div class="row justify-content-center">
-
+11111
             <?php
             while ($properties_query->have_posts()) :
                 $properties_query->the_post();
@@ -74,6 +74,7 @@ echo $description;
             endwhile;
             ?>
         </div>
+    4444
         <?php
         if ($properties_query->max_num_pages > 1) :
             ?>
