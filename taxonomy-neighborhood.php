@@ -22,6 +22,11 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
         // Check if there's a custom field 'content' for this term
         $description = get_term_meta($term->term_id, 'content', true);
 
+        // Debugging: Output a message if 'content' is empty
+        if (empty($description)) {
+            echo '<p>Debug: No custom "content" meta found for this term. Using term description instead.</p>';
+        }
+
         // Display the custom description if available, otherwise fallback to term_description()
         echo !empty($description) ? $description : term_description($term->term_id);
         ?>
