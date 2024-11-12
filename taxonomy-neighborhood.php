@@ -1,5 +1,32 @@
 <?php get_header(); ?>
 
+
+<?php
+// Retrieve the current term object for the taxonomy 'neighborhood'
+$term = get_queried_object();
+
+// Display the name and description of the term
+echo '<h1>' . esc_html($term->name) . '</h1>';
+echo '<p>' . esc_html(term_description($term->term_id, $term->taxonomy)) . '</p>';
+
+// Get all custom fields (meta data) for this term
+$custom_fields = get_term_meta($term->term_id);
+
+// Display each custom field
+if ($custom_fields) {
+    echo '<div class="neighborhood-custom-fields">';
+    foreach ($custom_fields as $field_name => $field_values) {
+        // Each field may have multiple values, so loop through them
+        foreach ($field_values as $value) {
+            echo '<p><strong>' . esc_html($field_name) . ':</strong> ' . esc_html($value) . '</p>';
+        }
+    }
+    echo '</div>';
+} else {
+    echo '<p>No custom fields found for this neighborhood.</p>';
+}
+?>
+
 <?php
 $category_title = single_cat_title('', false);
 
@@ -18,7 +45,6 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
 
-    dd($term->taxonomy);
     $args = [
         'post_type' => 'properties',
         'post_status' => 'publish',
