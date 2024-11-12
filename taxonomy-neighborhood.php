@@ -15,7 +15,6 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 
 <div class="container-lg">
     <div>
-        <?php term_description();?>
     </div>
     <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -36,6 +35,8 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
     ];
 
     $properties_query = new WP_Query($args);
+             term_description();
+
 
     if ($properties_query->have_posts()) :
         ?>
