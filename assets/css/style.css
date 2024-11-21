@@ -3431,7 +3431,9 @@ table.dataTable thead tr th {
   list-style: inside;
   color: #ffad00;
 }
-
+.content-original{
+  padding-top:25px;
+}
 .content-original ul, .content-original li {
   list-style: disc;
 }
