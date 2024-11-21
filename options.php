@@ -1474,6 +1474,18 @@ if (class_exists('CSF')) {
                         // Add more fields as needed for each floor plan type
                     ),
                 ),
+                array(
+                    'id'     => 'opt-old_website_link',
+                    'type'   => 'text',
+                    'title' => 'Link to Locatecondo.com'
+                ),
+                array(
+                    'id'      => 'opt-floorplans_from_old_website',
+                    'type'    => 'checkbox',
+                    'title'   => 'Display Floorplans from Locatecondo.com',
+                    'label'   => 'Yes',
+                    'default' => False // or false
+                ),
 			)
 		)
 	);
