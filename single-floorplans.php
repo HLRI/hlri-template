@@ -201,45 +201,9 @@ $property = new WP_Query($args);
                     <div class="col-12 px-lg-0">
 
                         <?php
-                        $url = 'https://locatecondo.com/i/juniper-gate-homes/';
-                        try {
-                            $html = file_get_contents($url);
-                            if ($html === false) {
-                                throw new Exception('Failed to retrieve the content of the URL.');
-                            }
+                        $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
 
-                            libxml_use_internal_errors(true);
-                            $dom = new DOMDocument();
-                            $dom->loadHTML($html);
-                            libxml_clear_errors();
-
-                            $xpath = new DOMXPath($dom);
-                            $query = '//div[contains(@class, "flex_cell_inner")][.//h3[@class="av-special-heading-tag " and contains(text(), "Floor Plans")]]';
-                            $nodes = $xpath->query($query);
-
-                            $floorplans = [];
-                            foreach ($nodes as $node) {
-                                $floorplans[] = $dom->saveHTML($node);
-                            }
-
-                            foreach ($floorplans as $floorplan) {
-                                echo $floorplan . "\n\n";
-                            }
-                        } catch (Exception $e) {
-                        }
-                        $scraped_html = '<body><div class="flex_cell_inner">
-<div style="padding-bottom:10px; color:#f15d1f;" class="av-special-heading av-special-heading-h3 custom-color-heading   avia-builder-el-40  el_before_av_gallery  avia-builder-el-first  "><h3 class="av-special-heading-tag " itemprop="headline">Front Loaded Townhomes Floor Plans</h3><div class="special-heading-border"><div class="special-heading-inner-border" style="border-color:#f15d1f"></div></div></div>
-<div class="avia-gallery  avia-gallery-2 avia_lazyload avia_animate_when_visible  avia-builder-el-41  el_after_av_heading  avia-builder-el-last " itemprop="ImageObject" itemscope="itemscope" itemtype="https://schema.org/ImageObject"><div class="avia-gallery-thumb"> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" class="first_thumb lightbox " data-onclick="1" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" width="495" height="400" title="25 FT. FRONT LOADED TOWNHOMES" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" class="lightbox " data-onclick="2" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" width="495" height="400" title="THE ACORN" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-WHITETAIL-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-WHITETAIL-495x400.jpg" class="lightbox " data-onclick="3" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-WHITETAIL-495x400.jpg" width="495" height="400" title="THE WHITETAIL" alt=""></a></div></div>
-</div>
-
-<div class="flex_cell_inner">
-<div style="padding-bottom:10px; color:#f15d1f;" class="av-special-heading av-special-heading-h3 custom-color-heading   avia-builder-el-43  el_before_av_gallery  avia-builder-el-first  "><h3 class="av-special-heading-tag " itemprop="headline">Rear Lane Townhomes Floor Plans</h3><div class="special-heading-border"><div class="special-heading-inner-border" style="border-color:#f15d1f"></div></div></div>
-<div class="avia-gallery  avia-gallery-3 avia_lazyload avia_animate_when_visible  avia-builder-el-44  el_after_av_heading  avia-builder-el-last " itemprop="ImageObject" itemscope="itemscope" itemtype="https://schema.org/ImageObject"><div class="avia-gallery-thumb"> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/REAR-LANE-TOWNHOMES-1030x848.jpg" data-rel="gallery-3" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/REAR-LANE-TOWNHOMES-495x400.jpg" class="first_thumb lightbox " data-onclick="1" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/REAR-LANE-TOWNHOMES-495x400.jpg" width="495" height="400" title="REAR LANE TOWNHOMES" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BARBERRY-1030x848.jpg" data-rel="gallery-3" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BARBERRY-495x400.jpg" class="lightbox " data-onclick="2" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BARBERRY-495x400.jpg" width="495" height="400" title="THE BARBERRY" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BRISTOL-1030x848.jpg" data-rel="gallery-3" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BRISTOL-495x400.jpg" class="lightbox " data-onclick="3" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BRISTOL-495x400.jpg" width="495" height="400" title="THE BRISTOL" alt=""></a> </div></div>
-</div>
-
-
-
-</body>';
+                        $scraped_html = file_get_contents($url);
 
                         $dom = new DOMDocument();
                         libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
