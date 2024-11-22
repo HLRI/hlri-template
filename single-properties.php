@@ -560,7 +560,7 @@ function addOrdinalSuffix($number)
                                 </script>
                                 <?php foreach ($galleries as $index => $gallery_items): ?>
                                     <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery-<?php echo $index; ?>">
-                                        <h3><?php echo htmlspecialchars($titles[$index] ?? 'Gallery ' . ($index + 1)); ?></h3>
+                                        <h3 class="mt-2"><?php echo htmlspecialchars($titles[$index] ?? 'Gallery ' . ($index + 1)); ?></h3>
                                         <div class="vrmedia-gallery">
                                             <ul class="ecommerce-gallery-<?php echo $index; ?>">
                                                 <?php foreach ($gallery_items as $item): ?>
