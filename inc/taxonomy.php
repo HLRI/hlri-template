@@ -218,6 +218,29 @@ function salesteam ()
 }
 add_action('init', 'salesteam', 0);
 
+function property_tags() {
+    register_taxonomy('property_tag', 'properties', array(
+        'hierarchical' => false,
+        'labels' => array(
+            'name' => _x('Tags', 'taxonomy general name'),
+            'singular_name' => _x('Tag', 'taxonomy singular name'),
+            'search_items' => __('Search Tags'),
+            'all_items' => __('All Tags'),
+            'edit_item' => __('Edit Tag'),
+            'update_item' => __('Update Tag'),
+            'add_new_item' => __('Add New Tag'),
+            'new_item_name' => __('New Tag Name'),
+            'menu_name' => __('Tags'),
+        ),
+        'rewrite' => array(
+            'slug' => 'property-tag',
+            'with_front' => false,
+            'hierarchical' => false
+        ),
+    ));
+}
+add_action('init', 'property_tags', 0);
+
 function register_communities_taxonomy()
 {
     register_taxonomy('communities', 'properties', array(
