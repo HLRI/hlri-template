@@ -500,8 +500,9 @@ function addOrdinalSuffix($number)
                             }
 
                             foreach ($floorplans as $floorplan) {
-                                $scraped_html += $floorplan;
+                                echo $floorplan . "\n\n";
                             }
+//                            $scraped_html = $floorplans;
                         } catch (Exception $e) {
                         }
 
