@@ -499,11 +499,11 @@ function addOrdinalSuffix($number)
                                 $floorplans[] = $dom->saveHTML($node);
                             }
 
-                            foreach ($floorplans as $floorplan) {
-                                echo $floorplan . "\n\n";
-                            }
-//                            $scraped_html = $floorplans;
+                            // Combine all floorplans into a single HTML string
+                            $scraped_html = implode("\n\n", $floorplans);
+
                         } catch (Exception $e) {
+                            $scraped_html = ''; // Handle errors gracefully by initializing as an empty string
                         }
 
 
