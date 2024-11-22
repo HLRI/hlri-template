@@ -71,7 +71,7 @@ $property = new WP_Query($args);
                             <?php if (!empty($floorplans['opt-floorplans-status'])) : ?>
                                 <span class="status-floorplan <?= $floorplans['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
                             <?php endif; ?>
-                            <h1 class="font-weight-bold h2"><?= $floorplans['opt-floorplans-suite-name'] ?></h1>
+                            <a href="<?php get_permalink() ?>" title="<?php the_title() ?>"><h1 class="font-weight-bold h2"><?= $floorplans['opt-floorplans-suite-name'] ?></h1></a>
                         </div>
                     </div>
                     <div class="col-lg-4 text-right px-lg-0">
