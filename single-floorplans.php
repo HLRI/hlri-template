@@ -198,6 +198,7 @@ $property = new WP_Query($args);
                     <div class="col-12 px-lg-0">
 
                         <?php
+                        echo 'new1';
                         // Scraped static HTML
                         $scraped_html = '
 <div class="flex_cell_inner">
