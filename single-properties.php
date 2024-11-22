@@ -498,7 +498,10 @@ function addOrdinalSuffix($number)
                             foreach ($nodes as $node) {
                                 $floorplans[] = $dom->saveHTML($node);
                             }
-                            $scraped_html = $floorplans;
+
+                            foreach ($floorplans as $floorplan) {
+                                $scraped_html += $floorplan;
+                            }
                         } catch (Exception $e) {
                         }
 
