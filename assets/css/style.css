@@ -4481,3 +4481,7 @@ textarea.hlri-input {
 #storiesIcon{
   fill: #6c6c6c;
 }
+hr{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}

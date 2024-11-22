@@ -4353,3 +4353,7 @@ textarea.hlri-input {
 #storiesIcon{
   fill: #b19f91;
 }
+hr{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
