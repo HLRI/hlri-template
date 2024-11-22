@@ -480,6 +480,7 @@ function addOrdinalSuffix($number)
                             $html = curl_exec($ch);
                             curl_close($ch);
 
+                            echo $html;
                             libxml_use_internal_errors(true);
                             $dom = new DOMDocument();
                             $dom->loadHTML($html);
