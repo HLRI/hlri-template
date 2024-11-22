@@ -460,7 +460,7 @@ function addOrdinalSuffix($number)
 
 
 
-                // scrapped floorplan
+<!-- scrapped floorplan-->
 
 
                 <div class="row">
@@ -581,7 +581,7 @@ function addOrdinalSuffix($number)
 
 
 
-                // scrapped floorplan
+<!-- scrapped floorplan-->
 
 
 
