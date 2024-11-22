@@ -202,29 +202,51 @@ $property = new WP_Query($args);
 
                         <?php
                         $scraped_html = '<div class="flex_cell_inner">
-<div style="padding-bottom:10px; color:#f15d1f;" class="av-special-heading av-special-heading-h3 custom-color-heading   avia-builder-el-46  el_before_av_gallery  avia-builder-el-first  "><h3 class="av-special-heading-tag " itemprop="headline">Bungalow Collection Floor Plans</h3><div class="special-heading-border"><div class="special-heading-inner-border" style="border-color:#f15d1f"></div></div></div>
-<div class="avia-gallery  avia-gallery-4 avia_lazyload avia_animate_when_visible  avia-builder-el-47  el_after_av_heading  avia-builder-el-last " itemprop="ImageObject" itemscope="itemscope" itemtype="https://schema.org/ImageObject"><div class="avia-gallery-thumb"> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/Bungalow-Collection-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/Bungalow-Collection-495x400.jpg" class="first_thumb lightbox " data-onclick="1" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/Bungalow-Collection-495x400.jpg" width="495" height="400" title="Bungalow Collection" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ABLEFORTH-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ABLEFORTH-495x400.jpg" class="lightbox " data-onclick="2" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ABLEFORTH-495x400.jpg" width="495" height="400" title="THE ABLEFORTH" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-CITADELLE-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-CITADELLE-495x400.jpg" class="lightbox " data-onclick="3" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-CITADELLE-495x400.jpg" width="495" height="400" title="THE CITADELLE" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-HAWTHORN-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-HAWTHORN-495x400.jpg" class="lightbox " data-onclick="4" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-HAWTHORN-495x400.jpg" width="495" height="400" title="THE HAWTHORN" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-HENDRICKS-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-HENDRICKS-495x400.jpg" class="first_thumb lightbox " data-onclick="5" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-HENDRICKS-495x400.jpg" width="495" height="400" title="THE HENDRICKS" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-LINDEN-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-LINDEN-495x400.jpg" class="lightbox " data-onclick="6" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-LINDEN-495x400.jpg" width="495" height="400" title="THE LINDEN" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-MAYFAIR-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-MAYFAIR-495x400.jpg" class="lightbox " data-onclick="7" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-MAYFAIR-495x400.jpg" width="495" height="400" title="THE MAYFAIR" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ROYAL-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ROYAL-495x400.jpg" class="lightbox " data-onclick="8" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ROYAL-495x400.jpg" width="495" height="400" title="THE ROYAL" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-STAFFORD-1030x848.jpg" data-rel="gallery-4" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-STAFFORD-495x400.jpg" class="first_thumb lightbox " data-onclick="9" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-STAFFORD-495x400.jpg" width="495" height="400" title="THE STAFFORD" alt=""></a></div></div>
-</div>';
+<div style="padding-bottom:10px; color:#f15d1f;" class="av-special-heading av-special-heading-h3 custom-color-heading   avia-builder-el-40  el_before_av_gallery  avia-builder-el-first  "><h3 class="av-special-heading-tag " itemprop="headline">Front Loaded Townhomes Floor Plans</h3><div class="special-heading-border"><div class="special-heading-inner-border" style="border-color:#f15d1f"></div></div></div>
+<div class="avia-gallery  avia-gallery-2 avia_lazyload avia_animate_when_visible  avia-builder-el-41  el_after_av_heading  avia-builder-el-last " itemprop="ImageObject" itemscope="itemscope" itemtype="https://schema.org/ImageObject"><div class="avia-gallery-thumb"> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" class="first_thumb lightbox " data-onclick="1" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" width="495" height="400" title="25 FT. FRONT LOADED TOWNHOMES" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" class="lightbox " data-onclick="2" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" width="495" height="400" title="THE ACORN" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-WHITETAIL-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-WHITETAIL-495x400.jpg" class="lightbox " data-onclick="3" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-WHITETAIL-495x400.jpg" width="495" height="400" title="THE WHITETAIL" alt=""></a></div></div>
+</div>
+
+<div class="flex_cell_inner">
+<div style="padding-bottom:10px; color:#f15d1f;" class="av-special-heading av-special-heading-h3 custom-color-heading   avia-builder-el-43  el_before_av_gallery  avia-builder-el-first  "><h3 class="av-special-heading-tag " itemprop="headline">Rear Lane Townhomes Floor Plans</h3><div class="special-heading-border"><div class="special-heading-inner-border" style="border-color:#f15d1f"></div></div></div>
+<div class="avia-gallery  avia-gallery-3 avia_lazyload avia_animate_when_visible  avia-builder-el-44  el_after_av_heading  avia-builder-el-last " itemprop="ImageObject" itemscope="itemscope" itemtype="https://schema.org/ImageObject"><div class="avia-gallery-thumb"> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/REAR-LANE-TOWNHOMES-1030x848.jpg" data-rel="gallery-3" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/REAR-LANE-TOWNHOMES-495x400.jpg" class="first_thumb lightbox " data-onclick="1" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/REAR-LANE-TOWNHOMES-495x400.jpg" width="495" height="400" title="REAR LANE TOWNHOMES" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BARBERRY-1030x848.jpg" data-rel="gallery-3" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BARBERRY-495x400.jpg" class="lightbox " data-onclick="2" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BARBERRY-495x400.jpg" width="495" height="400" title="THE BARBERRY" alt=""></a> <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BRISTOL-1030x848.jpg" data-rel="gallery-3" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BRISTOL-495x400.jpg" class="lightbox " data-onclick="3" title="" itemprop="thumbnailUrl"><img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-BRISTOL-495x400.jpg" width="495" height="400" title="THE BRISTOL" alt=""></a> </div></div>
+</div>'; // Your full HTML goes here
+
                         $dom = new DOMDocument();
                         libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
                         $dom->loadHTML($scraped_html);
                         libxml_clear_errors();
 
-                        // Find all <a> tags with image links
+                        // Create an XPath object
                         $xpath = new DOMXPath($dom);
-                        $anchors = $xpath->query("//a[contains(@href, 'http')]");
 
-                        $gallery_items = [];
-                        foreach ($anchors as $anchor) {
-                            $image_url = $anchor->getAttribute('href');
-                            $thumbnail_url = $anchor->getAttribute('data-prev-img');
-                            $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
-                            $gallery_items[] = [
-                                'image' => $image_url,
-                                'thumbnail' => $thumbnail_url,
-                                'caption' => $title,
-                            ];
+                        // Find all flex_cell_inner sections
+                        $flex_cells = $xpath->query("//div[contains(@class, 'flex_cell_inner')]");
+
+                        $all_gallery_items = [];
+
+                        foreach ($flex_cells as $cell) {
+                            // Find all <a> tags with image links inside this specific flex_cell_inner
+                            $anchors = (new DOMXPath($cell->ownerDocument))->query(".//a[contains(@href, 'http')]", $cell);
+
+                            $gallery_items = [];
+                            foreach ($anchors as $anchor) {
+                                $image_url = $anchor->getAttribute('href');
+                                $thumbnail_url = $anchor->getAttribute('data-prev-img');
+                                $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
+                                $gallery_items[] = [
+                                    'image' => $image_url,
+                                    'thumbnail' => $thumbnail_url,
+                                    'caption' => $title,
+                                ];
+                            }
+
+                            // Store gallery items for this flex_cell_inner
+                            if (!empty($gallery_items)) {
+                                $all_gallery_items[] = $gallery_items;
+                            }
                         }
+
+                        // Render all galleries
                         ?>
                         <div class="row">
                             <div class="col-12 px-lg-0">
@@ -235,31 +257,32 @@ $property = new WP_Query($args);
                                             gallery: true,
                                             item: 1,
                                             loop: false,
-                                            thumbItem: <?php echo count($gallery_items); ?>,
                                             thumbMargin: 10,
                                         });
-                                    });
-                                    lightbox.option({
-                                        'resizeDuration': 200,
-                                        'wrapAround': true,
-                                        'maxHeight': 500
+                                        lightbox.option({
+                                            'resizeDuration': 200,
+                                            'wrapAround': true,
+                                            'maxHeight': 500
+                                        });
                                     });
                                 </script>
-                                <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
-                                    <div class="vrmedia-gallery">
-                                        <ul class="ecommerce-gallery">
-                                            <?php foreach ($gallery_items as $item): ?>
-                                                <li class="rounded" data-fancybox="gallery"
-                                                    data-caption="<?= esc_attr($item['caption']) ?>"
-                                                    data-src="<?= esc_url($item['image']) ?>"
-                                                    data-thumb="<?= esc_url($item['thumbnail']) ?>">
-                                                    <img class="rounded" loading="lazy" src="<?= esc_url($item['thumbnail']) ?>"
-                                                         alt="<?= esc_attr($item['caption']) ?>">
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
+                                <?php foreach ($all_gallery_items as $index => $gallery_items): ?>
+                                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery-<?= $index ?>">
+                                        <div class="vrmedia-gallery">
+                                            <ul class="ecommerce-gallery">
+                                                <?php foreach ($gallery_items as $item): ?>
+                                                    <li class="rounded" data-fancybox="gallery-<?= $index ?>"
+                                                        data-caption="<?= esc_attr($item['caption']) ?>"
+                                                        data-src="<?= esc_url($item['image']) ?>"
+                                                        data-thumb="<?= esc_url($item['thumbnail']) ?>">
+                                                        <img class="rounded" loading="lazy" src="<?= esc_url($item['thumbnail']) ?>"
+                                                             alt="<?= esc_attr($item['caption']) ?>">
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
 
