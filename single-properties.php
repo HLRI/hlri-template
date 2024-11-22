@@ -467,21 +467,38 @@ function addOrdinalSuffix($number)
                     <div class="col-12 px-lg-0">
 
                         <?php
-                        $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
 
-                        $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_URL, $url);
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)');
-                        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                        $scraped_html = curl_exec($ch);
-                        curl_close($ch);
 
+                        $url = 'https://locatecondo.com/i/juniper-gate-homes/';
+                        try {
+                            $ch = curl_init();
+                            curl_setopt($ch, CURLOPT_URL, $url);
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)');
+                            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                            $html = curl_exec($ch);
+                            curl_close($ch);
+
+                            libxml_use_internal_errors(true);
+                            $dom = new DOMDocument();
+                            $dom->loadHTML($html);
+                            libxml_clear_errors();
+
+                            $xpath = new DOMXPath($dom);
+                            $query = '//div[contains(@class, "flex_cell_inner")][.//h3[@class="av-special-heading-tag " and contains(text(), "Floor Plans")]]';
+                            $nodes = $xpath->query($query);
+
+                            $floorplans = [];
+                            foreach ($nodes as $node) {
+                                $floorplans[] = $dom->saveHTML($node);
+                            }
+                        } catch (Exception $e) {
+                        }
 
                         $dom = new DOMDocument();
                         libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
-                        $dom->loadHTML($scraped_html);
+                        $dom->loadHTML($html);
                         libxml_clear_errors();
 
                         // Find all <div> with class "flex_cell_inner"
