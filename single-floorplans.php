@@ -202,7 +202,7 @@ $property = new WP_Query($args);
 
                         <?php
 
-                        $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
+                        $url = 'https://locatecondo.com/i/juniper-gate-homes/';
 
                         $options = [
                             'ssl' => [
