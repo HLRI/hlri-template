@@ -201,59 +201,26 @@ $property = new WP_Query($args);
                     <div class="col-12 px-lg-0">
 
                         <?php
+                        $scraped_html = '';
+                        $dom = new DOMDocument();
+                        libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
+                        $dom->loadHTML($scraped_html);
+                        libxml_clear_errors();
 
+                        // Find all <a> tags with image links
+                        $xpath = new DOMXPath($dom);
+                        $anchors = $xpath->query("//a[contains(@href, 'http')]");
 
-//                        $url = $_GET['url'] ?? '';
-                        $url = 'https://locatecondo.com/i/juniper-gate-homes/';
-                        if (empty($url)) {
-                            die('Please provide a valid URL.');
-                        }
-
-                        try {
-                            $html = file_get_contents($url);
-                            if ($html === false) {
-                                throw new Exception('Failed to retrieve the content of the URL.');
-                            }
-
-                            libxml_use_internal_errors(true);
-                            $dom = new DOMDocument();
-                            $dom->loadHTML($html);
-                            libxml_clear_errors();
-
-                            $xpath = new DOMXPath($dom);
-                            $query = '//div[contains(@class, "flex_cell_inner")][.//h3[@class="av-special-heading-tag " and contains(text(), "Floor Plans")]]';
-                            $nodes = $xpath->query($query);
-
-                            $floorplans = [];
-                            foreach ($nodes as $node) {
-                                $floorplans[] = $dom->saveHTML($node);
-                            }
-
-                            foreach ($floorplans as $floorplan) {
-                                $scraped_html = $floorplan;
-                                $dom = new DOMDocument();
-                                libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
-                                $dom->loadHTML($scraped_html);
-                                libxml_clear_errors();
-
-                                // Find all <a> tags with image links
-                                $xpath = new DOMXPath($dom);
-                                $anchors = $xpath->query("//a[contains(@href, 'http')]");
-
-                                $gallery_items = [];
-                                foreach ($anchors as $anchor) {
-                                    $image_url = $anchor->getAttribute('href');
-                                    $thumbnail_url = $anchor->getAttribute('data-prev-img');
-                                    $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
-                                    $gallery_items[] = [
-                                        'image' => $image_url,
-                                        'thumbnail' => $thumbnail_url,
-                                        'caption' => $title,
-                                    ];
-                                }
-                            }
-                        } catch (Exception $e) {
-//                            echo 'An error occurred: ' . $e->getMessage();
+                        $gallery_items = [];
+                        foreach ($anchors as $anchor) {
+                            $image_url = $anchor->getAttribute('href');
+                            $thumbnail_url = $anchor->getAttribute('data-prev-img');
+                            $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
+                            $gallery_items[] = [
+                                'image' => $image_url,
+                                'thumbnail' => $thumbnail_url,
+                                'caption' => $title,
+                            ];
                         }
                         ?>
                         <div class="row">
@@ -292,6 +259,8 @@ $property = new WP_Query($args);
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
 
