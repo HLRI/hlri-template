@@ -194,7 +194,97 @@ $property = new WP_Query($args);
                     </div>
 
                 <?php endif; ?>
+                <div class="row">
+                    <div class="col-12 px-lg-0">
 
+                        <?php
+                        // Scraped static HTML
+                        $scraped_html = '
+<div class="flex_cell_inner">
+    <div style="padding-bottom:10px; color:#f15d1f;" class="av-special-heading av-special-heading-h3 custom-color-heading">
+        <h3 class="av-special-heading-tag">Front Loaded Townhomes Floor Plans</h3>
+        <div class="special-heading-border">
+            <div class="special-heading-inner-border" style="border-color:#f15d1f"></div>
+        </div>
+    </div>
+    <div class="avia-gallery avia-gallery-2 avia_lazyload avia_animate_when_visible" itemprop="ImageObject">
+        <div class="avia-gallery-thumb">
+            <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" class="first_thumb lightbox" data-onclick="1" title="" itemprop="thumbnailUrl">
+                <img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" width="495" height="400" title="25 FT. FRONT LOADED TOWNHOMES" alt="">
+            </a>
+            <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" class="lightbox" data-onclick="2" title="" itemprop="thumbnailUrl">
+                <img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" width="495" height="400" title="THE ACORN" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+';
+
+                        // Load the HTML content into DOMDocument for parsing
+                        $dom = new DOMDocument();
+                        libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
+                        $dom->loadHTML($scraped_html);
+                        libxml_clear_errors();
+
+                        // Find all <a> tags with image links
+                        $xpath = new DOMXPath($dom);
+                        $anchors = $xpath->query("//a[contains(@href, 'http')]");
+
+                        $gallery_items = [];
+                        foreach ($anchors as $anchor) {
+                            $image_url = $anchor->getAttribute('href');
+                            $thumbnail_url = $anchor->getAttribute('data-prev-img');
+                            $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
+                            $gallery_items[] = [
+                                'image' => $image_url,
+                                'thumbnail' => $thumbnail_url,
+                                'caption' => $title,
+                            ];
+                        }
+
+                        ?>
+
+                        <!-- Dynamic Gallery -->
+                        <div class="row">
+                            <div class="col-12 px-lg-0">
+                                <script>
+                                    jQuery(document).ready(function($) {
+                                        $(".ecommerce-gallery").lightSlider({
+                                            lazyLoad: true,
+                                            gallery: true,
+                                            item: 1,
+                                            loop: false,
+                                            thumbItem: <?php echo count($gallery_items); ?>,
+                                            thumbMargin: 10,
+                                        });
+                                    });
+                                    lightbox.option({
+                                        'resizeDuration': 200,
+                                        'wrapAround': true,
+                                        'maxHeight': 500
+                                    });
+                                </script>
+                                <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
+                                    <div class="vrmedia-gallery">
+                                        <ul class="ecommerce-gallery">
+                                            <?php foreach ($gallery_items as $item): ?>
+                                                <li class="rounded" data-fancybox="gallery"
+                                                    data-caption="<?= esc_attr($item['caption']) ?>"
+                                                    data-src="<?= esc_url($item['image']) ?>"
+                                                    data-thumb="<?= esc_url($item['thumbnail']) ?>">
+                                                    <img class="rounded" loading="lazy" src="<?= esc_url($item['thumbnail']) ?>"
+                                                         alt="<?= esc_attr($item['caption']) ?>">
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
                 <div class="row mt-4 p-lg-2 py-2 rounded ">
                     <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
                         <div class="col-6 col-lg-3 mb-3 mb-lg-0">
