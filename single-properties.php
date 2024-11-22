@@ -468,7 +468,7 @@ function addOrdinalSuffix($number)
 
                         <?php
 
-                        if(!empty($data['opt-old_website_link'])){
+                        if($data['opt-floorplans_from_old_website'] == true && !empty($data['opt-old_website_link'])){
                             $url = $data['opt-old_website_link'];
                         } else {
                             $url = '';
