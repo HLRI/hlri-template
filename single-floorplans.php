@@ -201,10 +201,15 @@ $property = new WP_Query($args);
                     <div class="col-12 px-lg-0">
 
                         <?php
-                        $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
-
-                        $scraped_html = file_get_contents($url);
+                        $options = [
+                            'http' => [
+                                'header' => "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36\r\n"
+                            ]
+                        ];
+                        $context = stream_context_create($options);
+                        $scraped_html = file_get_contents($url, false, $context);
                         echo $scraped_html;
+
 
                         $dom = new DOMDocument();
                         libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
