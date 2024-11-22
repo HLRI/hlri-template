@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
 <?php
-$category_title = single_cat_title('', false);
+$tag_title = single_cat_title('', false);
 
 // Override the global define for a specific page
 define('CUSTOM_PAGE_HEADER', [
-    'subtitle' => "Explore Your Dream Space",
-    'title' => $category_title,
+    'subtitle' => "Discover Properties by Tag",
+    'title' => $tag_title,
 ]);
 
 // Include the custom-page-header.php file
