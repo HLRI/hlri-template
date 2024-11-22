@@ -471,16 +471,11 @@ function addOrdinalSuffix($number)
 
                         $url = 'https://locatecondo.com/i/juniper-gate-homes/';
                         try {
-                            $ch = curl_init();
-                            curl_setopt($ch, CURLOPT_URL, $url);
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)');
-                            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                            $html = curl_exec($ch);
-                            curl_close($ch);
+                            $html = file_get_contents($url);
+                            if ($html === false) {
+                                throw new Exception('Failed to retrieve the content of the URL.');
+                            }
 
-                            echo $html;
                             libxml_use_internal_errors(true);
                             $dom = new DOMDocument();
                             $dom->loadHTML($html);
@@ -494,12 +489,29 @@ function addOrdinalSuffix($number)
                             foreach ($nodes as $node) {
                                 $floorplans[] = $dom->saveHTML($node);
                             }
+                            echo $floorplans;
                         } catch (Exception $e) {
                         }
 
+
+
+
+
+                        $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
+
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_URL, $url);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)');
+                        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                        $scraped_html = curl_exec($ch);
+                        curl_close($ch);
+
+
                         $dom = new DOMDocument();
                         libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
-                        $dom->loadHTML($html);
+                        $dom->loadHTML($scraped_html);
                         libxml_clear_errors();
 
                         // Find all <div> with class "flex_cell_inner"
