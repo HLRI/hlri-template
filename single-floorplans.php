@@ -202,17 +202,19 @@ $property = new WP_Query($args);
 
                         <?php
 
-                        $url = 'https://locatecondo.com/i/juniper-gate-homes/';
+                        $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
 
-                        $options = [
-                            'ssl' => [
-                                'verify_peer' => false,
-                                'verify_peer_name' => false,
-                            ]
-                        ];
-                        $context = stream_context_create($options);
-                        $scraped_html = file_get_contents($url, false, $context);
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_URL, $url);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)');
+                        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                        $scraped_html = curl_exec($ch);
+                        curl_close($ch);
+
                         echo $scraped_html;
+
 
 
 
