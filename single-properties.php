@@ -467,9 +467,8 @@ function addOrdinalSuffix($number)
                     <div class="col-12 px-lg-0">
 
                         <?php
-                        $url = 'http://locatecondo.com/i/juniper-gate-homes/';
-                        $galleries = [];
 
+                        $url = 'http://locatecondo.com/i/juniper-gate-homes/';
                         try {
                             $ch = curl_init();
                             curl_setopt($ch, CURLOPT_URL, $url);
@@ -479,7 +478,6 @@ function addOrdinalSuffix($number)
                             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                             $html = curl_exec($ch);
                             curl_close($ch);
-
                             if ($html === false) {
                                 throw new Exception('Failed to retrieve the content of the URL.');
                             }
@@ -494,85 +492,92 @@ function addOrdinalSuffix($number)
                             $nodes = $xpath->query($query);
 
                             $floorplans = [];
+                            $titles = [];
                             foreach ($nodes as $node) {
                                 $floorplans[] = $dom->saveHTML($node);
-                            }
 
-                            if (!empty($floorplans)) {
-                                $scraped_html = implode("\n\n", $floorplans);
-
-                                $dom = new DOMDocument();
-                                libxml_use_internal_errors(true);
-                                $dom->loadHTML($scraped_html);
-                                libxml_clear_errors();
-
-                                $xpath = new DOMXPath($dom);
-                                $flex_cells = $xpath->query("//div[contains(@class, 'flex_cell_inner')]");
-
-                                foreach ($flex_cells as $index => $flex_cell) {
-                                    $anchors = (new DOMXPath($dom))->query(".//a[contains(@href, 'http')]", $flex_cell);
-                                    $gallery_items = [];
-                                    foreach ($anchors as $anchor) {
-                                        $image_url = $anchor->getAttribute('href');
-                                        $thumbnail_url = $anchor->getAttribute('data-prev-img');
-                                        $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
-                                        $gallery_items[] = [
-                                            'image' => $image_url,
-                                            'thumbnail' => $thumbnail_url,
-                                            'caption' => $title,
-                                        ];
-                                    }
-                                    $galleries[] = $gallery_items;
+                                // Extract the content of the <h3> tag
+                                $h3 = $xpath->query('.//h3[@class="av-special-heading-tag "]', $node);
+                                if ($h3->length > 0) {
+                                    $titles[] = trim($h3->item(0)->textContent);
+                                } else {
+                                    $titles[] = 'Gallery'; // Default title if no <h3> is found
                                 }
                             }
+                            $scraped_html = implode("\n\n", $floorplans);
 
                         } catch (Exception $e) {
-                            // Log error if needed
+                            $scraped_html = '';
+                            $titles = []; // Ensure titles are empty in case of failure
                         }
 
-                        if (!empty($galleries)) : ?>
-                            <div class="row">
-                                <div class="col-12 px-lg-0">
-                                    <script>
-                                        jQuery(document).ready(function($) {
-                                            <?php foreach ($galleries as $index => $gallery): ?>
-                                            $(".ecommerce-gallery-<?php echo $index; ?>").lightSlider({
-                                                lazyLoad: true,
-                                                gallery: true,
-                                                item: 1,
-                                                loop: false,
-                                                thumbItem: <?php echo count($gallery); ?>,
-                                                thumbMargin: 10,
-                                            });
-                                            <?php endforeach; ?>
-                                            lightbox.option({
-                                                'resizeDuration': 200,
-                                                'wrapAround': true,
-                                                'maxHeight': 500
-                                            });
+                        $dom = new DOMDocument();
+                        libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
+                        $dom->loadHTML($scraped_html);
+                        libxml_clear_errors();
+
+                        // Find all <div> with class "flex_cell_inner"
+                        $xpath = new DOMXPath($dom);
+                        $flex_cells = $xpath->query("//div[contains(@class, 'flex_cell_inner')]");
+
+                        $galleries = [];
+                        foreach ($flex_cells as $index => $flex_cell) {
+                            $anchors = (new DOMXPath($dom))->query(".//a[contains(@href, 'http')]", $flex_cell);
+                            $gallery_items = [];
+                            foreach ($anchors as $anchor) {
+                                $image_url = $anchor->getAttribute('href');
+                                $thumbnail_url = $anchor->getAttribute('data-prev-img');
+                                $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
+                                $gallery_items[] = [
+                                    'image' => $image_url,
+                                    'thumbnail' => $thumbnail_url,
+                                    'caption' => $title,
+                                ];
+                            }
+                            $galleries[] = $gallery_items;
+                        }
+                        ?>
+                        <div class="row">
+                            <div class="col-12 px-lg-0">
+                                <script>
+                                    jQuery(document).ready(function($) {
+                                        <?php foreach ($galleries as $index => $gallery): ?>
+                                        $(".ecommerce-gallery-<?php echo $index; ?>").lightSlider({
+                                            lazyLoad: true,
+                                            gallery: true,
+                                            item: 1,
+                                            loop: false,
+                                            thumbItem: <?php echo count($gallery); ?>,
+                                            thumbMargin: 10,
                                         });
-                                    </script>
-                                    <?php foreach ($galleries as $index => $gallery_items): ?>
-                                        <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery-<?php echo $index; ?>">
-                                            <h3>Gallery <?php echo $index + 1; ?></h3>
-                                            <div class="vrmedia-gallery">
-                                                <ul class="ecommerce-gallery-<?php echo $index; ?>">
-                                                    <?php foreach ($gallery_items as $item): ?>
-                                                        <li class="rounded" data-fancybox="gallery-<?php echo $index; ?>"
-                                                            data-caption="<?= esc_attr($item['caption']) ?>"
-                                                            data-src="<?= esc_url($item['image']) ?>"
-                                                            data-thumb="<?= esc_url($item['thumbnail']) ?>">
-                                                            <img class="rounded" loading="lazy" src="<?= esc_url($item['thumbnail']) ?>"
-                                                                 alt="<?= esc_attr($item['caption']) ?>">
-                                                        </li>
-                                                    <?php endforeach; ?>
-                                                </ul>
-                                            </div>
+                                        <?php endforeach; ?>
+                                        lightbox.option({
+                                            'resizeDuration': 200,
+                                            'wrapAround': true,
+                                            'maxHeight': 500
+                                        });
+                                    });
+                                </script>
+                                <?php foreach ($galleries as $index => $gallery_items): ?>
+                                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery-<?php echo $index; ?>">
+                                        <h3><?php echo htmlspecialchars($titles[$index] ?? 'Gallery ' . ($index + 1)); ?></h3>
+                                        <div class="vrmedia-gallery">
+                                            <ul class="ecommerce-gallery-<?php echo $index; ?>">
+                                                <?php foreach ($gallery_items as $item): ?>
+                                                    <li class="rounded" data-fancybox="gallery-<?php echo $index; ?>"
+                                                        data-caption="<?= esc_attr($item['caption']) ?>"
+                                                        data-src="<?= esc_url($item['image']) ?>"
+                                                        data-thumb="<?= esc_url($item['thumbnail']) ?>">
+                                                        <img class="rounded" loading="lazy" src="<?= esc_url($item['thumbnail']) ?>"
+                                                             alt="<?= esc_attr($item['caption']) ?>">
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         </div>
-                                    <?php endforeach; ?>
-                                </div>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
-                        <?php endif; ?>
+                        </div>
 
                     </div>
                 </div>
