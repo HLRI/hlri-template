@@ -471,7 +471,16 @@ function addOrdinalSuffix($number)
 
                         $url = 'https://locatecondo.com/i/juniper-gate-homes/';
                         try {
-                            $html = file_get_contents($url);
+
+
+                            $ch = curl_init();
+                            curl_setopt($ch, CURLOPT_URL, $url);
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)');
+                            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                            $html = curl_exec($ch);
+                            curl_close($ch);
                             if ($html === false) {
                                 throw new Exception('Failed to retrieve the content of the URL.');
                             }
