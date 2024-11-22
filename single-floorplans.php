@@ -194,58 +194,68 @@ $property = new WP_Query($args);
                     </div>
 
                 <?php endif; ?>
+
+
+
                 <div class="row">
                     <div class="col-12 px-lg-0">
 
                         <?php
-                        echo 'new1';
-                        // Scraped static HTML
-                        $scraped_html = '
-<div class="flex_cell_inner">
-    <div style="padding-bottom:10px; color:#f15d1f;" class="av-special-heading av-special-heading-h3 custom-color-heading">
-        <h3 class="av-special-heading-tag">Front Loaded Townhomes Floor Plans</h3>
-        <div class="special-heading-border">
-            <div class="special-heading-inner-border" style="border-color:#f15d1f"></div>
-        </div>
-    </div>
-    <div class="avia-gallery avia-gallery-2 avia_lazyload avia_animate_when_visible" itemprop="ImageObject">
-        <div class="avia-gallery-thumb">
-            <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" class="first_thumb lightbox" data-onclick="1" title="" itemprop="thumbnailUrl">
-                <img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/25-FT.-FRONT-LOADED-TOWNHOMES-495x400.jpg" width="495" height="400" title="25 FT. FRONT LOADED TOWNHOMES" alt="">
-            </a>
-            <a href="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-1030x848.jpg" data-rel="gallery-2" data-prev-img="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" class="lightbox" data-onclick="2" title="" itemprop="thumbnailUrl">
-                <img src="https://locatecondo.s3.ca-central-1.amazonaws.com/wp-content/uploads/2024/03/THE-ACORN-495x400.jpg" width="495" height="400" title="THE ACORN" alt="">
-            </a>
-        </div>
-    </div>
-</div>
-';
 
-                        // Load the HTML content into DOMDocument for parsing
-                        $dom = new DOMDocument();
-                        libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
-                        $dom->loadHTML($scraped_html);
-                        libxml_clear_errors();
 
-                        // Find all <a> tags with image links
-                        $xpath = new DOMXPath($dom);
-                        $anchors = $xpath->query("//a[contains(@href, 'http')]");
-
-                        $gallery_items = [];
-                        foreach ($anchors as $anchor) {
-                            $image_url = $anchor->getAttribute('href');
-                            $thumbnail_url = $anchor->getAttribute('data-prev-img');
-                            $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
-                            $gallery_items[] = [
-                                'image' => $image_url,
-                                'thumbnail' => $thumbnail_url,
-                                'caption' => $title,
-                            ];
+//                        $url = $_GET['url'] ?? '';
+                        $url = 'https://locatecondo.com/i/juniper-gate-homes/';
+                        if (empty($url)) {
+                            die('Please provide a valid URL.');
                         }
 
-                        ?>
+                        try {
+                            $html = file_get_contents($url);
+                            if ($html === false) {
+                                throw new Exception('Failed to retrieve the content of the URL.');
+                            }
 
-                        <!-- Dynamic Gallery -->
+                            libxml_use_internal_errors(true);
+                            $dom = new DOMDocument();
+                            $dom->loadHTML($html);
+                            libxml_clear_errors();
+
+                            $xpath = new DOMXPath($dom);
+                            $query = '//div[contains(@class, "flex_cell_inner")][.//h3[@class="av-special-heading-tag " and contains(text(), "Floor Plans")]]';
+                            $nodes = $xpath->query($query);
+
+                            $floorplans = [];
+                            foreach ($nodes as $node) {
+                                $floorplans[] = $dom->saveHTML($node);
+                            }
+
+                            foreach ($floorplans as $floorplan) {
+                                $scraped_html = $floorplan;
+                                $dom = new DOMDocument();
+                                libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
+                                $dom->loadHTML($scraped_html);
+                                libxml_clear_errors();
+
+                                // Find all <a> tags with image links
+                                $xpath = new DOMXPath($dom);
+                                $anchors = $xpath->query("//a[contains(@href, 'http')]");
+
+                                $gallery_items = [];
+                                foreach ($anchors as $anchor) {
+                                    $image_url = $anchor->getAttribute('href');
+                                    $thumbnail_url = $anchor->getAttribute('data-prev-img');
+                                    $title = $anchor->getElementsByTagName('img')->item(0)->getAttribute('title');
+                                    $gallery_items[] = [
+                                        'image' => $image_url,
+                                        'thumbnail' => $thumbnail_url,
+                                        'caption' => $title,
+                                    ];
+                                }
+                            }
+                        } catch (Exception $e) {
+//                            echo 'An error occurred: ' . $e->getMessage();
+                        }
+                        ?>
                         <div class="row">
                             <div class="col-12 px-lg-0">
                                 <script>
@@ -282,10 +292,14 @@ $property = new WP_Query($args);
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
+
+
+
+
+
+
                 <div class="row mt-4 p-lg-2 py-2 rounded ">
                     <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
                         <div class="col-6 col-lg-3 mb-3 mb-lg-0">
