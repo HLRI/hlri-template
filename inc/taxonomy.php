@@ -241,6 +241,16 @@ function property_tags() {
 }
 add_action('init', 'property_tags', 0);
 
+
+add_action('init', function () {
+    register_taxonomy('property-tag', 'property', [
+        'label' => 'Property Tags',
+        'rewrite' => ['slug' => 'property-tag'],
+        'hierarchical' => false,
+    ]);
+});
+
+
 function register_communities_taxonomy()
 {
     register_taxonomy('communities', 'properties', array(
