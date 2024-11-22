@@ -469,7 +469,7 @@ function addOrdinalSuffix($number)
                         <?php
 
 
-                        $url = 'https://locatecondo.com/i/juniper-gate-homes/';
+                        $url = 'http://locatecondo.com/i/juniper-gate-homes/';
                         try {
 
 
