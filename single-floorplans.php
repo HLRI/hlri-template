@@ -201,7 +201,6 @@ $property = new WP_Query($args);
                     <div class="col-12 px-lg-0">
 
                         <?php
-
                         $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
 
                         $ch = curl_init();
@@ -212,10 +211,6 @@ $property = new WP_Query($args);
                         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                         $scraped_html = curl_exec($ch);
                         curl_close($ch);
-
-                        echo $scraped_html;
-
-
 
 
                         $dom = new DOMDocument();
