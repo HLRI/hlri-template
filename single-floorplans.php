@@ -204,6 +204,7 @@ $property = new WP_Query($args);
                         $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
 
                         $scraped_html = file_get_contents($url);
+                        echo $scraped_html;
 
                         $dom = new DOMDocument();
                         libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
