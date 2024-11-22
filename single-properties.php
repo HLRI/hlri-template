@@ -468,6 +468,9 @@ function addOrdinalSuffix($number)
 
                         <?php
 
+                        if(!empty($data['opt-old_website_link'])){
+                            echo $data['opt-old_website_link'];
+                        }
                         $url = 'http://locatecondo.com/i/juniper-gate-homes/';
                         try {
                             $ch = curl_init();
