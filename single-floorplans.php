@@ -201,6 +201,8 @@ $property = new WP_Query($args);
                     <div class="col-12 px-lg-0">
 
                         <?php
+                        $url = 'https://www.homeleaderrealty.com/tools/?url=https://locatecondo.com/i/juniper-gate-homes/';
+
                         $options = [
                             'http' => [
                                 'header' => "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36\r\n"
