@@ -32,6 +32,7 @@ function addOrdinalSuffix($number)
                             <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty(the_excerpt())) : ?>
                                 <p class="text-muted"> <?= the_excerpt() ?></p>
+                            <?php endif; ?>
                             <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale") || ($data['opt-sales-type'] == "Comming soon")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
@@ -327,7 +328,6 @@ function addOrdinalSuffix($number)
                 </div>
             </div>
             <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
-                <?php endif; ?>
                 <?php // Get the developer taxonomy terms for the current post
                 $developer_terms = get_the_terms(get_the_ID(), 'developer');
                 // Check if any terms were found
