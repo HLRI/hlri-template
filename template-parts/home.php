@@ -10,7 +10,7 @@ endif;
 
 
 <!--  homepage content -->
-<div class="container-lg">
+<div class="container-fluid">
     <?php include(HLR_THEME_COMPONENT . 'soundplayer.php'); ?>
     <?php include(HLR_THEME_COMPONENT . 'top-section.php'); ?>
     <?php include(HLR_THEME_COMPONENT . 'neighborhood.php'); ?>
