@@ -270,8 +270,8 @@ function addOrdinalSuffix($number)
                             <?php endif; ?>
                         </div>
                         <?php if (!empty($data['opt-price-min']) || !empty($data['opt-cominsoon-price'])) : ?>
-                            <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
-                                <div class="mb-center start-price mb-3">
+                            <div class="mb-center col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
+                                <div class="start-price mb-3">
                                     <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                         Asking Price
                                     <?php else : ?>
