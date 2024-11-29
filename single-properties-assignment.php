@@ -229,7 +229,7 @@ function addOrdinalSuffix($number)
 
 
                     <div class="row mb-2 justify-content-start px-0 px-md-3 ">
-                        <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
+                        <div class="mb-center col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
                             <div class="rating-stars">
                                 <span class="update-label bg-foreground text-muted ">Last Update : <?= isset($psd['modified_date']) ? $psd['modified_date'] : 'No Update' ?></span>
                                 <ul class="mt-3" id="stars">
