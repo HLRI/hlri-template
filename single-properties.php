@@ -332,12 +332,13 @@ function addOrdinalSuffix($number)
                 $developer_terms = get_the_terms(get_the_ID(), 'developer');
                 // Check if any terms were found
                 if ($developer_terms && !is_wp_error($developer_terms)) {
-                    echo 'Developer: ';
+                    echo '<p>Developer: ';
                     // Loop through each term
                     foreach ($developer_terms as $developer_term) {
                         // Output the term name
-                        echo '<p>' . $developer_term->name . '</p>';
+                        echo '' . $developer_term->name;
                     }
+                    echo '</p>';
                 }
                 ?>
             </div>
