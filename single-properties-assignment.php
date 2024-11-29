@@ -217,6 +217,13 @@ function addOrdinalSuffix($number)
                             .excerpt-top{
                                 text-align:center;
                             }
+
+                            .mb-center {
+                                -ms-flex-pack: center !important;
+                                justify-content: center !important;
+                                text-align:center !important;
+                                justify-items: center !important;
+                            }
                         }
                     </style>
 

@@ -207,7 +207,8 @@ function addOrdinalSuffix($number)
                             .mb-center {
                                 -ms-flex-pack: center !important;
                                 justify-content: center !important;
-                                text-align:center;
+                                text-align:center !important;
+                                justify-items: center !important;
                             }
                         }
                     </style>
