@@ -58,7 +58,7 @@ $property = new WP_Query($args);
                                     <?php if (!empty($mdata_single['opt-developer'])) : ?>
                                         <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
                                     <?php else : ?>
-                                        <a title="<?= strtoupper(get_the_title()) ?>" href="<?php echo preg_replace('~(/properties/[^/]+).*~', '$1/', get_permalink()); ?>"><h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4></a>
+                                        <a class="text-dark" title="<?= strtoupper(get_the_title()) ?>" href="<?php echo preg_replace('~(/properties/[^/]+).*~', '$1/', get_permalink()); ?>"><h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4></a>
                                     <?php endif; ?>
                                 </div>
                             <?php
