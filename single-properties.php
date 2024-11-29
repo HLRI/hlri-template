@@ -355,7 +355,7 @@ function addOrdinalSuffix($number)
                 <ul class="list-unstyled mt-4">
                     <?php foreach ($incentives as $incentive): ?>
                         <li class="d-flex align-items-center mb-4" style="color: #ff6600;">
-                            <i style="font-size: x-large;margin-right: 20px;min-width:32px;text-align:center; text-dark" class="<?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
+                            <i style="font-size: x-large;margin-right: 20px;min-width:32px;text-align:center;" class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
                             <?php echo htmlspecialchars($incentive['opt-link-incentives']); ?>
                         </li>
                     <?php endforeach; ?>
