@@ -183,7 +183,7 @@ function addOrdinalSuffix($number)
                             margin-top: 20px;
                             display: grid;
                             gap: 10px;
-                            grid-template-columns: repeat(auto-fill, minmax(127px, 1fr));
+                            grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
                             grid-template-rows: masonry;
                         }
 
