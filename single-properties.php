@@ -192,23 +192,29 @@ function addOrdinalSuffix($number)
                             margin-right: 8px;
                         }
 
-@media screen and (max-width: 732px){
-    .project-logo-top{
-        max-width: 200px;
-        max-height: 200px;
-        margin: 0px auto !important;
-        margin-bottom: 20px !important;
-        margin-top: 20px !important;
-    }
-    .excerpt-top{
-        text-align:center;
-    }
-}
+                        @media screen and (max-width: 732px) {
+                            .project-logo-top {
+                                max-width: 200px;
+                                max-height: 200px;
+                                margin: 0px auto !important;
+                                margin-bottom: 20px !important;
+                                margin-top: 20px !important;
+                            }
+
+                            .excerpt-top {
+                                text-align: center;
+                            }
+                            .mb-center {
+                                -ms-flex-pack: center !important;
+                                justify-content: center !important;
+                                text-align:center;
+                            }
+                        }
                     </style>
 
 
                     <div class="row mb-2 justify-content-start px-0 px-md-3 ">
-                        <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
+                        <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start mb-center">
                             <div class="rating-stars">
                                 <span class="update-label bg-foreground text-muted ">Last Update : <?= isset($psd['modified_date']) ? $psd['modified_date'] : 'No Update' ?></span>
                                 <ul class="mt-3" id="stars">
@@ -265,7 +271,7 @@ function addOrdinalSuffix($number)
                         </div>
                         <?php if (!empty($data['opt-price-min']) || !empty($data['opt-cominsoon-price'])) : ?>
                             <div class=" col-12 col-sm-6 d-flex flex-column justify-content-center align-items-end">
-                                <div class="start-price mb-3">
+                                <div class="mb-center start-price mb-3">
                                     <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                         Asking Price
                                     <?php else : ?>
