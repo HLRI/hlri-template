@@ -209,6 +209,9 @@
 
 /* medium mobile */
 @media (min-width: 320px) and (max-width: 359px) {
+  .wrap-logo-menu{
+    display:flex;
+  }
   .wrap-search {
     display: none;
   }
@@ -605,6 +608,9 @@
 
 /* mobile */
 @media (min-width: 394px) and (max-width: 480px) {
+  .wrap-logo-menu{
+    display:flex;
+  }
   .wrap-search {
     display: none;
   }
@@ -786,6 +792,9 @@
 
 /* mobile landscape */
 @media (min-width: 481px) and (max-width: 732px) {
+  .wrap-logo-menu{
+    display:flex;
+  }
   .input-search {
     width: 160px !important;
   }
