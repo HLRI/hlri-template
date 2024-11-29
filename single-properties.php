@@ -12,7 +12,7 @@ function addOrdinalSuffix($number)
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
 
     <div id="navigation-fixed-location"></div>
-    <div class="container-lg px-lg-5">
+    <div class="container-fluid px-lg-5">
 
         <div class="mt-4">
             <div class="p-3 bg-foreground rounded mb-4">
