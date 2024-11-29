@@ -350,7 +350,7 @@ function addOrdinalSuffix($number)
                             }
                             foreach ($incentives as $incentive) {
                                 echo '<i class="'.$incentive['opt-icon-incentives'] .'"></i>';
-                                echo '<i class="'.$incentive['opt-link-incentives'] .'"></i>';
+                                echo $incentive['opt-link-incentives'];
                                 echo '<br>';
                             }
                             ?>
