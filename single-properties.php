@@ -342,6 +342,7 @@ function addOrdinalSuffix($number)
                 }
                 ?>
 
+                <div class="col-12  rounded mb-2 mb-md-0 col-md-6 d-flex">
                             <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
                             if (!empty($project_incentives['opt_properties_incentives_items'])) {
                                 $incentives = $project_incentives['opt_properties_incentives_items'];
@@ -358,6 +359,7 @@ function addOrdinalSuffix($number)
                             </a>
                         </li>
                     <?php endforeach; ?>
+                    <div>
                 </ul>
             </div>
         </div>
