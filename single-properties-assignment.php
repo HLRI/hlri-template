@@ -217,7 +217,8 @@ function addOrdinalSuffix($number)
                             .excerpt-top{
                                 text-align:center;
                             }
-
+                        }
+                        @media screen and (max-width: 575px){
                             .mb-center {
                                 -ms-flex-pack: center !important;
                                 justify-content: center !important;
