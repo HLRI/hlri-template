@@ -31,7 +31,7 @@ if (!empty($menuitems)) : ?>
                     </a>
 
                     <?php if (!empty($theme_options['opt-menu-logo']['url'])) : ?>
-                        <div class="site-logo d-logo-mobile d-md-block">
+                        <div class="site-logo d-mobile-logo d-md-block">
                             <a target="_self" href="<?= home_url('/') ?>" title="<?= $theme_options['opt-menu-logo']['alt'] ?>">
                                 <img loading="lazy" src="<?= $theme_options['opt-menu-logo']['url'] ?>" alt="<?= $theme_options['opt-menu-logo']['alt'] ?>" title="<?= $theme_options['opt-menu-logo']['alt'] ?>">
                             </a>
