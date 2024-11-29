@@ -341,6 +341,21 @@ function addOrdinalSuffix($number)
                     echo '</p>';
                 }
                 ?>
+
+                            <?php $incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
+                            dd($incentives);
+//                            if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
+//                                $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
+//                            } else {
+//                                $gallery_ids = [];
+//                            }
+//                            foreach ($gallery_ids as $gallery_item_id) {
+//                                $floor_galleries_data[] = [
+//                                    'gallery_url' => wp_get_attachment_url($gallery_item_id),
+//                                    'caption' => wp_get_attachment_caption($gallery_item_id)
+//                                ];
+//                            }
+                            ?>
             </div>
         </div>
     </div>
