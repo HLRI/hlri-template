@@ -910,13 +910,18 @@ if ($peroperties_single) :
                                             <div class="card-listing-description card-listing-description-v2">
                                                 <a href="<?= get_the_permalink() ?>"
                                                    title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
-                                                    <?= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : substr(strip_tags($psd['excerpt']), 0, 65) ?>
+<!--                                                    --><?php //= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : substr(strip_tags($psd['excerpt']), 0, 65) ?>
                                                 </a>
                                             </div>
                                         </div>
 
 
-
+<!--                                         <div class="card-listing-content card-listing-content-v2">
+                                        <h6 class="text-black"><?php /*= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() */?></h6>
+                                        <div class="card-listing-description card-listing-description-v2">
+                                            <?php /*= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) */?>
+                                        </div>
+                                    </div>-->
 
                                         <div class="lable-listing lable-listing-v2">
                                             <?php if (!empty($mdata['opt-min-price'])) : ?>
