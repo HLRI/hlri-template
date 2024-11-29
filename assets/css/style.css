@@ -2879,7 +2879,7 @@ a.neighborhood-link {
 .start-price {
   /* background: #ffad00; */
   display: inline;
-  padding: 6px 18px;
+  padding: 6px 12px;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
   font-size: 15px;
