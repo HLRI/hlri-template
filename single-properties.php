@@ -364,6 +364,7 @@ function addOrdinalSuffix($number)
             </div>
         </div>
     </div>
+    </div>
     <!-- Content Section  -->
 
     <div class="container-lg mx-auto row mt-3 px-lg-5">
