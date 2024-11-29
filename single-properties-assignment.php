@@ -811,7 +811,7 @@ if ($peroperties_single) :
                                            href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?= $psd['title'] ?>"><i
                                                     class="fa fa-reddit"></i></a>
                                         <a target="_blank"
-                                           href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= $psd['title'] ?>&summary=<?= get_the_excerpt() ?>"><i
+                                           href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= get_the_title() ?>&summary=<?= get_the_excerpt() ?>"><i
                                                     class="fa fa-linkedin-square"></i></a>
                                         <a target="_blank"
                                            href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
