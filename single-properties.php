@@ -910,7 +910,7 @@ if ($peroperties_single) :
                                             <div class="card-listing-description card-listing-description-v2">
                                                 <a href="<?= get_the_permalink() ?>"
                                                    title="<?= strlen(get_the_title()) > 12 ? substr(get_the_title(), 0, 12) . '...' : get_the_title() ?>">
-                                                    <?= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : strip_tags($psd['content']) ?>
+                                                    <?= strlen(strip_tags($psd['excerpt'])) > 65 ? substr(strip_tags($psd['excerpt']), 0, 65) . '...' : substr(strip_tags($psd['content']), 0, 65) ?>
                                                 </a>
                                             </div>
                                         </div>
