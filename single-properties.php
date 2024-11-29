@@ -367,7 +367,7 @@ function addOrdinalSuffix($number)
     </div>
     <!-- Content Section  -->
 
-    <div class="container-lg mx-auto row mt-3 px-lg-5">
+    <div class="container-fluid mx-auto row mt-3 px-lg-5">
         <!-- content sidebar -->
         <div class="col-12 col-sm-3 col-md-3 d-flex justify-content-center ">
             <nav class="xm-auto position-sticky top-48" id="table-of-contents">
