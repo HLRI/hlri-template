@@ -18,9 +18,9 @@ function addOrdinalSuffix($number)
             <div class="p-3 bg-foreground rounded mb-4">
                 <div class="p-0 position-relative">
 
-                    <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
+                    <div class="excerpt-top d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                         <?php if (!empty($psd['properties_logo']['url'])) : ?>
-                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" style="max-width:200px;max-height:200px;" class="w-auto rounded mr-4"
+                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" style="max-width:200px;max-height:200px;" class="project-logo-top w-auto rounded mr-4"
                                  alt="<?= $psd['properties_logo']['url'] ?>">
                         <?php elseif (!empty($psd['thumbnail_url'])) : ?>
                             <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
@@ -191,6 +191,19 @@ function addOrdinalSuffix($number)
                             margin-bottom: 10px;
                             margin-right: 8px;
                         }
+
+@media screen and (max-width: 732px){
+    .project-logo-top{
+        max-width: 200px;
+        max-height: 200px;
+        margin: 0px auto !important;
+        margin-bottom: 20px !important;
+        margin-top: 20px !important;
+    }
+    .excerpt-top{
+        text-align:center;
+    }
+}
                     </style>
 
 
