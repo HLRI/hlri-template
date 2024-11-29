@@ -327,12 +327,12 @@ function addOrdinalSuffix($number)
                     <div id="map"></div>
                 </div>
             </div>
-            <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
+            <div class="col-12  rounded mb-2 mb-md-0 col-md-6 d-flex">
                 <?php // Get the developer taxonomy terms for the current post
                 $developer_terms = get_the_terms(get_the_ID(), 'developer');
                 // Check if any terms were found
                 if ($developer_terms && !is_wp_error($developer_terms)) {
-                    echo 'Developer:';
+                    echo 'Developer: ';
                     // Loop through each term
                     foreach ($developer_terms as $developer_term) {
                         // Output the term name
