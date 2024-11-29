@@ -20,15 +20,15 @@ function addOrdinalSuffix($number)
 
                     <div class="d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                         <?php if (!empty($psd['properties_logo']['url'])) : ?>
-                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" class="w-25 rounded mr-4"
+                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy" style="max-width:200px;max-height:200px;" class="w-auto rounded mr-4"
                                  alt="<?= $psd['properties_logo']['url'] ?>">
                         <?php elseif (!empty($psd['thumbnail_url'])) : ?>
-                            <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-25 rounded mr-4"
+                            <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
                                  alt="<?= $psd['thumbnail_caption'] ?>">
                         <?php else : ?>
                             <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         <?php endif; ?>
-                        <div class="container">
+                        <div class="container-fluid">
                             <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty(the_excerpt())) : ?>
                                 <p class="text-muted"> <?= the_excerpt() ?></p>
