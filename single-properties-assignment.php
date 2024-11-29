@@ -206,6 +206,18 @@ function addOrdinalSuffix($number)
                             margin-bottom: 10px;
                             margin-right: 8px;
                         }
+                        @media screen and (max-width: 732px){
+                            .project-logo-top{
+                                max-width: 200px;
+                                max-height: 200px;
+                                margin: 0px auto !important;
+                                margin-bottom: 20px !important;
+                                margin-top: 20px !important;
+                            }
+                            .excerpt-top{
+                                text-align:center;
+                            }
+                        }
                     </style>
 
 
