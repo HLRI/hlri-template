@@ -1,5 +1,8 @@
 /* mini mobile */
 @media (min-width: 280px) and (max-width: 319px) {
+  .wrap-logo-menu{
+    display:flex;
+  }
   .wrap-search {
     display: none;
   }
