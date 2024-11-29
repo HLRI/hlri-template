@@ -1106,22 +1106,7 @@ if ($peroperties_month->have_posts()) :
                                     <a target="_blank"
                                        href="https://reddit.com/submit?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&title=<?= get_the_title() ?>"><i
                                                 class="fa fa-reddit"></i></a>
-                                    <a target="_blank"
-                                       href="https://www.linkedin.com/shareArticle?mini=true&url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=linkedin&title=<?= get_the_title() ?>&summary=<?= get_the_excerpt() ?>"><i
-                                                class="fa fa-linkedin-square"></i></a>
-                                    <a target="_blank"
-                                       href="https://wa.me/?text=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
-                                                class="fa fa-whatsapp"></i></a>
-                                    <a target="_blank"
-                                       href="https://telegram.me/share/url?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>?ref=telegram"><i
-                                                class="fa fa-telegram"></i></a>
-                                    <a target="_blank"
-                                       href="https://www.pinterest.com/pin/create/button?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>&media=<?= get_the_post_thumbnail_url() ?>&description=<?= get_the_title() ?>"><i
-                                                class="fa fa-pinterest"></i></a>
-                                    <a target="_blank"
-                                       href="https://twitter.com/intent/tweet?url=<?= wp_get_shortlink(get_the_ID(), 'post', true) ?>"><i
-                                                class="fa fa-twitter-square"></i></a>
-                                    <span class="share-close"><i role="button" class="fa fa-arrow-up"></i></span>
+
                                 </div>
                             </div>
                         <?php endwhile; ?>
