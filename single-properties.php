@@ -32,18 +32,6 @@ function addOrdinalSuffix($number)
                             <h2><?= $psd['title'] ?></h2>
                             <?php if (!empty(the_excerpt())) : ?>
                                 <p class="text-muted"> <?= the_excerpt() ?></p>
-                            <?php endif; ?>
-                            <?php // Get the developer taxonomy terms for the current post
-                            $developer_terms = get_the_terms(get_the_ID(), 'developer');
-                            // Check if any terms were found
-                            if ($developer_terms && !is_wp_error($developer_terms)) {
-                                // Loop through each term
-                                foreach ($developer_terms as $developer_term) {
-                                    // Output the term name
-                                    echo '<p>' . $developer_term->name . '</p>';
-                                }
-                            }
-                            ?>
                             <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale") || ($data['opt-sales-type'] == "Comming soon")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
@@ -337,6 +325,21 @@ function addOrdinalSuffix($number)
                 <div class="col-12 p-0 map-container rounded">
                     <div id="map"></div>
                 </div>
+            </div>
+            <div class="col-12  rounded mb-2 mb-md-0 justify-content-center align-items-center col-md-6 d-flex">
+                <?php endif; ?>
+                <?php // Get the developer taxonomy terms for the current post
+                $developer_terms = get_the_terms(get_the_ID(), 'developer');
+                // Check if any terms were found
+                if ($developer_terms && !is_wp_error($developer_terms)) {
+                    echo 'Developer:';
+                    // Loop through each term
+                    foreach ($developer_terms as $developer_term) {
+                        // Output the term name
+                        echo '<p>' . $developer_term->name . '</p>';
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
