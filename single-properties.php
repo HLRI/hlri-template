@@ -343,7 +343,7 @@ function addOrdinalSuffix($number)
                 ?>
 
                             <?php $incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
-                            dd($incentives);
+//                            dd($incentives);
 //                            if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
 //                                $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
 //                            } else {
