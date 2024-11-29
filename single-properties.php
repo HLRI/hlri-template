@@ -358,7 +358,7 @@ function addOrdinalSuffix($number)
                             <i style="font-size: x-large;margin-right: 20px;min-width:32px;text-align:center;" class="<?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
                             <a href="<?php echo htmlspecialchars($incentive['opt-link-incentives']); ?>" class="text-decoration-none">
                                 <?php echo htmlspecialchars($incentive['opt-link-incentives']); ?>
-                            </a>
+                            </a><br>
                         </li>
                     <?php endforeach; ?>
                     <div>
