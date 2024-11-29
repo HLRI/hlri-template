@@ -327,7 +327,7 @@ function addOrdinalSuffix($number)
                     <div id="map"></div>
                 </div>
             </div>
-            <div class="col-12  rounded mb-2 mb-md-0 col-md-6 d-flex">
+            <div class="col-12  rounded mb-2 mb-md-0 col-md-6">
                 <div class="row">
                 <?php // Get the developer taxonomy terms for the current post
                 $developer_terms = get_the_terms(get_the_ID(), 'developer');
