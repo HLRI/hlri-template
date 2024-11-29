@@ -3509,6 +3509,9 @@ a.item-list-tag {
 }
 
 @media (max-width: 768px) {
+  .d-mobile-logo{
+    display:inline-block;
+  }
   .hlri-formsection {
     display: block !important;
   }
