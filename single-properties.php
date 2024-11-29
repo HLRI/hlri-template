@@ -342,19 +342,17 @@ function addOrdinalSuffix($number)
                 }
                 ?>
 
-                            <?php $incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
-//                            dd($incentives);
-//                            if (!empty($assignmentFloor['opt-gallery-properties-floorplan'])) {
-//                                $gallery_ids = explode(',', $assignmentFloor['opt-gallery-properties-floorplan']);
-//                            } else {
-//                                $gallery_ids = [];
-//                            }
-//                            foreach ($gallery_ids as $gallery_item_id) {
-//                                $floor_galleries_data[] = [
-//                                    'gallery_url' => wp_get_attachment_url($gallery_item_id),
-//                                    'caption' => wp_get_attachment_caption($gallery_item_id)
-//                                ];
-//                            }
+                            <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
+                            if (!empty($project_incentives['opt_properties_incentives_items'])) {
+                                $incentives = $project_incentives['opt_properties_incentives_items'];
+                            } else {
+                                $incentives = [];
+                            }
+                            foreach ($incentives as $incentive) {
+                                echo '<i class="'.$incentive['opt-icon-incentives'] .'"></i>';
+                                echo '<i class="'.$incentive['opt-link-incentives'] .'"></i>';
+                                echo '<br>';
+                            }
                             ?>
             </div>
         </div>
