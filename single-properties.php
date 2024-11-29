@@ -328,6 +328,7 @@ function addOrdinalSuffix($number)
                 </div>
             </div>
             <div class="col-12  rounded mb-2 mb-md-0 col-md-6 d-flex">
+                <div class="row">
                 <?php // Get the developer taxonomy terms for the current post
                 $developer_terms = get_the_terms(get_the_ID(), 'developer');
                 // Check if any terms were found
@@ -341,6 +342,7 @@ function addOrdinalSuffix($number)
                     echo '</p>';
                 }
                 ?>
+                </div>
 
                 <div class="row">
                             <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
