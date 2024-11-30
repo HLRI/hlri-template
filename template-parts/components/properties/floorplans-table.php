@@ -25,7 +25,7 @@
     </div>
     <div class="card-form py-4">
         <div class="table-responsive">
-            <table class="secureTable table pt-4">
+            <table class="table pt-4">
                 <thead>
                     <tr>
                         <th></th>
@@ -61,7 +61,7 @@
                             $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                             $row_index++; // Increment the row index
                             ?>
-                            <tr <?php echo ($row_index >= 4) ? 'class="secureTable"' : ''; ?>>
+                            <tr <?php echo ($row_index >= 4) ? 'class="'. $loginClasses .'"' : ''; ?>>
                                 <td>
                                     <div class="d-none"><?= $floor['opt-floorplans-status'] ?></div>
                                     <div class="wrap-head-floorplan">
