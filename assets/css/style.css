@@ -4491,3 +4491,6 @@ hr{
 tr.secureTable td {
   filter: blur(4px);
 }
+.dataShowStyles{
+  filter: blur(4px);
+}
