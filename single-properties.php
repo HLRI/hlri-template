@@ -132,9 +132,9 @@ function addOrdinalSuffix($number)
                                                 <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker']; ?></b> Locker
                                             </li>
                                         <?php endif; ?>
-                                        <?php if (!empty($firstfloor['opt-floorplans-price-per'])) : ?>
-                                            <li class="property-type ic-proptype" title="Property Price/Sqft: <?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?>"><i class="fas fa-comments-dollar"></i><br>
-                                                <b><?php echo '$' . number_format($firstfloor['opt-floorplans-price-per'], 0) ?></b>/Sqft.
+                                        <?php if (!empty($firstfloor['opt-floorplans-interior-size']) && !empty($firstfloor['opt-floorplans-price-from'])) : ?>
+                                            <li class="property-type ic-proptype" title="Property Price/Sqft: <?= '$' . round(number_format($firstfloor['opt-floorplans-price-from'], 2, '.', '') / number_format($firstfloor['opt-floorplans-interior-size'], 2, '.', '')) ?>"><i class="fas fa-comments-dollar"></i><br>
+                                                <b><?= '$' . round(number_format($firstfloor['opt-floorplans-price-from'], 2, '.', '') / number_format($firstfloor['opt-floorplans-interior-size'], 2, '.', '')) ?></b>/Sqft.
                                             </li>
                                         <?php endif; ?>
                                         <?php $terms = get_the_terms(get_the_ID(), 'neighborhood');
@@ -793,9 +793,9 @@ function addOrdinalSuffix($number)
                                                     -
                                                 <?php endif; ?>
 
-                                                <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
-                                                    <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
-                                                <?php else : ?>
+                                                <?php if (!empty($floor['opt-floorplans-interior-size']) && !empty($floor['opt-floorplans-price-from'])) : ?>
+                                                        <small><?= '$' . round(number_format($floor['opt-floorplans-price-from'], 2, '.', '') / number_format($floor['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></small>
+                                                <?php endif; ?>
                                                     -
                                                 <?php endif; ?>
                                             </td>
