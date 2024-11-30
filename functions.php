@@ -254,7 +254,7 @@ function remove_just_launched_properties() {
             $query->the_post();
             $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
             $date = $mdata['opt-launched-date'];
-            if($date >= date('Y-m-d', strtotime('-6 months'))){
+            if($date < date('Y-m-d', strtotime('-6 months'))){
                 echo 'dfhjkhjdfhgfh';
             }
             //wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
