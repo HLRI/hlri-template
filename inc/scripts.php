@@ -196,6 +196,12 @@ function theme_footer()
                     } else {
                         sticker.removeClass('fixed-menu top-0');
                     }
+                    var sticker = $('#sticker-mobile');
+                    if (scrollDistance > 0) {
+                        sticker.addClass('fixed-menu top-0');
+                    } else {
+                        sticker.removeClass('fixed-menu top-0');
+                    }
                 });
             });
         </script>
