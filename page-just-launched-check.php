@@ -2,7 +2,7 @@
 /* Template Name: Remove Properties */
 
 $action = $_GET['action'];
-if ($action = '6_months'){
+if ($action == '6_months'){
 do_action('remove_just_launched_properties_event');
     echo "Action executed successfully.";
     exit;
