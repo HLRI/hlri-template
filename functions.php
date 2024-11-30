@@ -254,6 +254,7 @@ function remove_just_launched_properties() {
     $query = new WP_Query($args);
 
 
+    echo 'fgfgh' . '<br>';
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
