@@ -281,6 +281,7 @@ add_filter('query_vars', function ($vars) {
 add_action('template_redirect', function () {
     if (get_query_var('remove_properties')) {
         do_action('remove_just_launched_properties_event');
-        exit; // Prevent WordPress from rendering a page
+        exit; // Stop further processing
     }
 });
+
