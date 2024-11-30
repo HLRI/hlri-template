@@ -203,7 +203,7 @@ $property = new WP_Query($args);
 
                 <?php endif; ?>
 
-                <div class="row mt-4 p-lg-2 py-2 rounded ">
+                <div class="row mt-4 p-lg-2 py-2 rounded<?= $loginClasses ?>">
                     <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
                         <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                             <div class="floorplan-item">
@@ -254,7 +254,7 @@ $property = new WP_Query($args);
                     <?php endif; ?>
                 </div>
 
-                <div class="row mt-3">
+                <div class="row mt-3<?= $loginClasses ?>">
                     <div class="col-12 px-lg-0">
                         <div id="accordion">
                             <div class="">
