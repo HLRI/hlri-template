@@ -151,7 +151,7 @@ $property = new WP_Query($args);
                 <?php else : ?>
 
                     <div class="row">
-                        <div class="col-12 px-lg-0">
+                        <div class="col-12 px-lg-0<?= $loginClasses ?>">
                             <div class="image-floorplan">
                                 <?php
                                 while ($property->have_posts()) : $property->the_post();
