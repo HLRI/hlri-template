@@ -269,19 +269,3 @@ add_action('remove_just_launched_properties_event', 'remove_just_launched_proper
 
 
 
-add_action('init', function () {
-    add_rewrite_rule('^remove-properties/?$', 'index.php?remove_properties=1', 'top');
-});
-
-add_filter('query_vars', function ($vars) {
-    $vars[] = 'remove_properties';
-    return $vars;
-});
-
-add_action('template_redirect', function () {
-    if (get_query_var('remove_properties')) {
-        do_action('remove_just_launched_properties_event');
-        exit; // Stop further processing
-    }
-});
-
