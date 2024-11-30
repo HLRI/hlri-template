@@ -469,7 +469,7 @@ $property = new WP_Query($args);
                 </div>
 
             </div>
-            <div class="col-lg-3 pl-lg-4 pr-lg-0 px-4">
+            <div class="col-lg-3 pl-lg-4 pr-lg-0 px-4" id="register">
                 <style>
                     .hlri-input-container span.wpcf7-spinner {
                         position: relative;
