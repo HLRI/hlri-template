@@ -1,7 +1,10 @@
 <?php get_header(); ?>
 
 <?php
+$term = get_queried_object();
+
 $category_title = single_cat_title('', false);
+$description = term_description($term->term_id, $term->taxonomy);
 
 // Override the global define for a specific page
 define('CUSTOM_PAGE_HEADER', [
@@ -15,6 +18,8 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 
 <div class="container-lg">
     <?php
+    echo '<div class="mb-5 px-4" style="color: black;z-index: 99999;display: block;position: relative;">' . $description . '</div>';
+
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
 
