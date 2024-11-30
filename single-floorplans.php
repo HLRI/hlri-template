@@ -14,6 +14,12 @@ if (!is_user_logged_in()) {
     $loginClasses = '';
 }
 
+if ( is_user_logged_in() ) {
+    echo 'gfghgfh';
+} else {
+    echo '12';
+}
+
 
 global $wpdb;
 $post_id = get_the_ID();
