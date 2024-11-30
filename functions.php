@@ -253,7 +253,7 @@ function remove_just_launched_properties() {
         while ($query->have_posts()) {
             $query->the_post();
             $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-            dd($mdata);
+            dd($mdata['opt-launched-date']);
             echo 'title: ' . get_the_title() ;
             //wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
         }
