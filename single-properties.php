@@ -7,6 +7,13 @@ function addOrdinalSuffix($number)
 {
     return $number . ($number % 100 == 11 || $number % 100 == 12 || $number % 100 == 13 ? 'th' : ['th', 'st', 'nd', 'rd'][$number % 10] ?? 'th');
 }
+
+if ( is_user_logged_in() ) {
+    $loginClasses = ' dataShowStyle';
+
+} else {
+    $loginClasses = ' dataShowStyles';
+}
 ?>
 
 <?php //include HLR_THEME_COMPONENT . 'navigation-single-property.php' ?>
@@ -740,7 +747,7 @@ function addOrdinalSuffix($number)
                         </div>
                         <div class="card-form py-4">
                             <div class="table-responsive">
-                                <table id="example" class="secureTable table pt-4">
+                                <table id="example" class="table pt-4">
                                     <thead>
                                     <tr>
                                         <th></th>
@@ -761,7 +768,7 @@ function addOrdinalSuffix($number)
                                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
                                         $row_index++; // Increment the row index
                                         ?>
-                                        <tr <?php echo ($row_index >= 4) ? 'class="secureTable"' : ''; ?>>
+                                        <tr <?php echo ($row_index >= 4) ? 'class="'. $loginClasses .'"' : ''; ?>>
                                             <td>
                                                 <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
                                                 <div class="wrap-head-floorplan">
