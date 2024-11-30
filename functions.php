@@ -258,6 +258,7 @@ function remove_just_launched_properties() {
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
+            echo 'title: ' . get_the_title() ;
             wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
         }
     }
@@ -266,4 +267,30 @@ function remove_just_launched_properties() {
 }
 add_action('remove_just_launched_properties_event', 'remove_just_launched_properties');
 
-//do_action('remove_just_launched_properties_event');
+
+
+
+// Add a custom rewrite rule
+add_action('init', function () {
+    add_rewrite_rule('^remove-properties/?$', 'index.php?remove_properties=1', 'top');
+});
+
+// Register the custom query variable
+add_filter('query_vars', function ($vars) {
+    $vars[] = 'remove_properties';
+    return $vars;
+});
+
+// Handle the URL request
+add_action('template_redirect', function () {
+    $remove_properties = get_query_var('remove_properties');
+
+    if ($remove_properties) {
+        // Execute the action
+        do_action('remove_just_launched_properties_event');
+
+        // Optionally, display a success message
+        echo "Action executed successfully.";
+        exit;
+    }
+});
