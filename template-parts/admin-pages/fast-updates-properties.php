@@ -57,8 +57,7 @@ $peroperties = new WP_Query($args);
         <?php endif; ?>
 
         <div class="wrap-button">
-            <button name="btn-set" type="submit" class="button button-primary loading">Update</button>
-            <a target="_blank" href="https://condoy.com/just-launched-check/?action=6_months"> class="button button-success loading">Remove dated properties from Just-Launched Group (6 Months)</a>
+            <a target="_blank" href="https://condoy.com/just-launched-check/?action=6_months" class="button button-success loading">Remove dated properties from Just-Launched Group (6 Months)</a>
             <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-success loading">Download Backup</a>
         </div>
         <div style="color: red; font-weight: bold; font-size: 15px; padding: 6px 0;" class="loading">Make sure to download the backup before making any changes!</div>
