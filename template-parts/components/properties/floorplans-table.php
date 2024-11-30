@@ -102,8 +102,3 @@
         </div>
     </div>
 </div>
-<style>
-    .secureTable tr:nth-child(n+4) td {
-        filter: blur(4px);
-    }
-</style>

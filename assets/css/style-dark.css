@@ -4357,3 +4357,6 @@ hr{
   margin-top: 30px;
   margin-bottom: 20px;
 }
+.secureTable tr:nth-child(n+4) td {
+  filter: blur(4px);
+}

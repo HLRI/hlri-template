@@ -735,7 +735,7 @@ function addOrdinalSuffix($number)
                         </div>
                         <div class="card-form py-4">
                             <div class="table-responsive">
-                                <table id="example" class="table pt-4">
+                                <table id="example" class="secureTable table pt-4">
                                     <thead>
                                     <tr>
                                         <th></th>
