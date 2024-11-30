@@ -20,7 +20,7 @@
     </div>
     <div class="card-form py-4">
         <div class="table-responsive">
-            <table class="table pt-4">
+            <table class="secureTable table pt-4">
                 <thead>
                     <tr>
                         <th></th>
@@ -102,3 +102,8 @@
         </div>
     </div>
 </div>
+<style>
+    .secureTable tr:nth-child(n+4) td {
+        filter: blur(4px);
+    }
+</style>
