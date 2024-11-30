@@ -375,7 +375,7 @@ $property = new WP_Query($args);
                                                     <div class="square-foot-item">
                                                         <span class="name">Price Per Sq.Ft : </span>
 <!--                                                        <span class="value">--><?php //= '$' . number_format($floorplans['opt-floorplans-price-per']) . '/sq.ft' ?><!--</span>-->
-                                                        <?= dd($floorplans['opt-floorplans-interior-size,$floorplans['opt-floorplans-price-from']); ?>
+                                                        <?php dd($floorplans['opt-floorplans-interior-size,$floorplans['opt-floorplans-price-from']); ?>
                                                         <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
                                                     </div>
                                                 <?php endif; ?>
