@@ -262,9 +262,7 @@ function remove_just_launched_properties() {
                 $six_months_ago = strtotime('-6 months');
 
                 if ($date_timestamp && $date_timestamp <= $six_months_ago) {
-                    echo 'Property ID ' . get_the_ID() . ' should be removed.<br>';
-                    // Uncomment the next line to actually remove the term
-                    // wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
+                     wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
                 }
             }
         }
