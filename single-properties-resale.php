@@ -499,6 +499,11 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                             <option value="Available">Available</option>
                                         </select>
                                     </div>
+                                    <div class="btn-group submitter-group float-right">
+                                        <a style="padding: 5px 10px;border: 0px;background: #f1642c;color: white;border-radius: 4px;"
+                                           href="#register">Register Now to get full package
+                                        </a>
+                                    </div>
                                 </div>
                                 <!-- <div class="col-8">
                                 <div class="filter-wrapper">
