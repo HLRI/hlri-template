@@ -253,6 +253,8 @@ function remove_just_launched_properties() {
     ];
     $query = new WP_Query($args);
 
+
+    dd($query);
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
@@ -263,3 +265,5 @@ function remove_just_launched_properties() {
     wp_reset_postdata();
 }
 add_action('remove_just_launched_properties_event', 'remove_just_launched_properties');
+
+do_action('remove_just_launched_properties_event');
