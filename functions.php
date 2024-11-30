@@ -253,12 +253,13 @@ function remove_just_launched_properties() {
         while ($query->have_posts()) {
             $query->the_post();
             $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-            dd($mdata['opt-launched-date']);
-            echo 'title: ' . get_the_title() ;
+            $date = $mdata['opt-launched-date'];
+            if($date <= date('Y-m-d', strtotime('-6 months'))){
+                echo 'dfhjkhjdfhgfh';
+            }
             //wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
         }
     }
-
     wp_reset_postdata();
 }
 add_action('remove_just_launched_properties_event', 'remove_just_launched_properties');
