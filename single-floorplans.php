@@ -80,9 +80,9 @@ $property = new WP_Query($args);
                                 From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                             </div>
                         <?php endif; ?>
-                        <?php if (!empty($floorplans['opt-floorplans-price-per'])) : ?>
+                        <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
                             <div>
-                                <?= '$' . number_format($floorplans['opt-floorplans-price-per']) . '/sq.ft' ?>
+                                <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -262,8 +262,10 @@ $property = new WP_Query($args);
                                         <div class="col-lg-4 mb-5 mb-lg-0">
                                             <div class="square-foot-wrap">
                                                 <div class="square-foot-head">THIS FLOOR PLAN</div>
-                                                <?php if (!empty($floorplans['opt-floorplans-price-per'])) : ?>
-                                                    <div class="square-foot-price"><span><?= '$' . number_format($floorplans['opt-floorplans-price-per']) ?></span>/sq.ft</div>
+                                                <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                                    <div class="square-foot-price">
+                                                        <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                                    </div>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -371,13 +373,10 @@ $property = new WP_Query($args);
                                                         <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                                                     </div>
                                                 <?php endif; ?>
-                                                <?php if (!empty($floorplans['opt-floorplans-price-per'])) : ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Price Per Sq.Ft : </span>
 <!--                                                        <span class="value">--><?php //= '$' . number_format($floorplans['opt-floorplans-price-per']) . '/sq.ft' ?><!--</span>-->
-                                                        <?php echo $floorplans['opt-floorplans-interior-size'];
-                                                        echo '<br>';
-                                                        echo $floorplans['opt-floorplans-price-from']?>
                                                         <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
                                                     </div>
                                                 <?php endif; ?>
