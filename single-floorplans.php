@@ -108,7 +108,7 @@ $property = new WP_Query($args);
                 ?>
                 <?php if ($gallery_ids[0]) : ?>
                     <div class="row">
-                        <div class="col-12 px-lg-0">
+                        <div class="col-12 px-lg-0<?= $loginClasses ?>">
                             <script>
                                 jQuery(document).ready(function($) {
                                     $(".ecommerce-gallery").lightSlider({
