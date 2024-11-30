@@ -6,18 +6,11 @@ $associated_property = get_post_meta(get_the_ID(), 'associated_property', true);
 
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
 
-if (!is_user_logged_in()) {
-    // Code for users who are not logged in
-    $loginClasses = ' dataShowStyles';
-} else {
-    // Code for logged-in users
-    $loginClasses = '';
-}
 
 if ( is_user_logged_in() ) {
-    echo 'gfghgfh';
+    echo '';
 } else {
-    echo '12';
+    $loginClasses = ' dataShowStyles';
 }
 
 
