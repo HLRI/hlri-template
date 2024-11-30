@@ -1214,6 +1214,11 @@ if (class_exists('CSF')) {
 					'title' => 'Occupancy'
 				),
                 array(
+                    'id'    => 'opt-launched-date',
+                    'type'  => 'date',
+                    'title' => 'Launched Date'
+                ),
+                array(
                     'id'    => 'opt-assignment-original-price',
                     'type'  => 'number',
                     'title' => 'Original Price',
