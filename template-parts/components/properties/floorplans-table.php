@@ -84,8 +84,8 @@
                                     <?php else : ?>
                                         -
                                     <?php endif; ?>
-                                    <?php if (!empty($floor['opt-floorplans-price-per'])) : ?>
-                                        <small><?= '$' . number_format($floor['opt-floorplans-price-per']) . '/sq.ft' ?></small>
+                                    <?php if (!empty($floor['opt-floorplans-interior-size']) && !empty($floor['opt-floorplans-price-from'])) : ?>
+                                    <small><?= '$' . round(number_format($floor['opt-floorplans-price-from'], 2, '.', '') / number_format($floor['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></small>
                                     <?php else : ?>
                                         -
                                     <?php endif; ?>
