@@ -662,7 +662,7 @@ function addOrdinalSuffix($number)
 
             <div class="hlri-container">
                 <!--                <img src="img/shape.png" class="hlri-square" alt="" />-->
-                <div class="hlri-formsection">
+                <div id="register" class="hlri-formsection">
                     <div class="hlri-contact-info">
                         <h3 class="title">Register Now</h3>
 
