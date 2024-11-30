@@ -246,22 +246,33 @@ function remove_just_launched_properties() {
 
     $query = new WP_Query($args);
 
-
-    echo 'fgfgh' . '<br>';
+    echo 'Checking properties...' . '<br>';
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
             $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
-            $date = $mdata['opt-launched-date'];
-            if(!empty($date) && $date <= date('Y-m-d', strtotime('-6 months'))){
-                echo 'dfhjkhjdfhgfh';
+
+            // Ensure $mdata is an array and contains the opt-launched-date key
+            if (is_array($mdata) && !empty($mdata['opt-launched-date'])) {
+                $date = $mdata['opt-launched-date'];
+
+                // Convert stored date to timestamp for comparison
+                $date_timestamp = strtotime($date);
+                $six_months_ago = strtotime('-6 months');
+
+                if ($date_timestamp && $date_timestamp <= $six_months_ago) {
+                    echo 'Property ID ' . get_the_ID() . ' should be removed.<br>';
+                    // Uncomment the next line to actually remove the term
+                    // wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
+                }
             }
-            //wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
         }
     }
+
     wp_reset_postdata();
 }
+
 add_action('remove_just_launched_properties_event', 'remove_just_launched_properties');
 
 
