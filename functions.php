@@ -235,14 +235,6 @@ function remove_just_launched_properties() {
     $args = [
         'post_type'      => 'properties',
         'posts_per_page' => -1,
-        'meta_query'     => [
-            [
-                'key'     => 'hlr_framework_mapdata',
-                'value'   => serialize(['opt-launched-date' => date('Y-m-d', strtotime('-6 months'))]),
-                'compare' => '<=',
-                'type'    => 'DATE',
-            ],
-        ],
         'tax_query'      => [
             [
                 'taxonomy' => 'group',
