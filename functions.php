@@ -252,6 +252,8 @@ function remove_just_launched_properties() {
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
+            $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+            dd($mdata);
             echo 'title: ' . get_the_title() ;
             //wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
         }
