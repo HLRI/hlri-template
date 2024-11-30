@@ -5,6 +5,13 @@ $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 $associated_property = get_post_meta(get_the_ID(), 'associated_property', true);
 
 
+if (!is_user_logged_in()) {
+    // Code for users who are not logged in
+    $loginClasses = ' dataShowStyles';
+} else {
+    // Code for logged-in users
+    $loginClasses = '';
+}
 
 
 global $wpdb;
@@ -25,7 +32,7 @@ $property = new WP_Query($args);
 ?>
     <div class="container-lg  px-lg-5 my-4">
         <div class="row">
-            <div class="col-lg-9 px-4 dataShowStyles">
+            <div class="col-lg-9 px-4">
 
                 <div class="row floorplan-header mb-4">
                     <div class="col-lg-8 px-lg-0">
@@ -74,7 +81,7 @@ $property = new WP_Query($args);
                             <a class="text-dark" href="<?php get_permalink() ?>" title="<?php the_title() ?>"><h1 class="font-weight-bold h2"><?= $floorplans['opt-floorplans-suite-name'] ?></h1></a>
                         </div>
                     </div>
-                    <div class="col-lg-4 text-right px-lg-0">
+                    <div class="col-lg-4 text-right px-lg-0<?= $loginClasses ?>">
                         <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                             <div class="floorplan-price">
                                 From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
