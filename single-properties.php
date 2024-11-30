@@ -749,11 +749,14 @@ function addOrdinalSuffix($number)
                                     </thead>
                                     <tbody>
                                     <?php
+                                    $row_index = 0; // Initialize a counter for rows
+
                                     while ($associated_floorplans->have_posts()) :
                                         $associated_floorplans->the_post();
                                         $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                                        $row_index++; // Increment the row index
                                         ?>
-                                        <tr>
+                                        <tr <?php echo ($row_index >= 4) ? 'class="secureTable"' : ''; ?>>
                                             <td>
                                                 <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
                                                 <div class="wrap-head-floorplan">

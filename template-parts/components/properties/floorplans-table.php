@@ -50,11 +50,13 @@
 
                     $associated_floorplans = new WP_Query($args);
                     if ($associated_floorplans->have_posts()) :
+                        $row_index = 0; // Initialize a counter for rows
                         while ($associated_floorplans->have_posts()) :
                             $associated_floorplans->the_post();
                             $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                    ?>
-                            <tr>
+                            $row_index++; // Increment the row index
+                            ?>
+                            <tr <?php echo ($row_index >= 4) ? 'class="secureTable"' : ''; ?>>
                                 <td>
                                     <div class="d-none"><?= $floor['opt-floorplans-status'] ?></div>
                                     <div class="wrap-head-floorplan">
