@@ -126,7 +126,7 @@ $property = new WP_Query($args);
                                     'maxHeight': 500
                                 })
                             </script>
-                            <div class="col-12 col-md-12 justify-content-center align-items-center p-0" id="Gallery">
+                            <div class="col-12 col-md-12 justify-content-center align-items-center p-0<?= $loginClasses ?>" id="Gallery">
                                 <div class="vrmedia-gallery">
                                     <ul class="ecommerce-gallery">
                                         <?php foreach ($gallery_ids as $gallery_item) : ?>
