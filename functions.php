@@ -237,8 +237,8 @@ function remove_just_launched_properties() {
         'posts_per_page' => -1,
         'meta_query'     => [
             [
-                'key'     => 'hlr_framework_mapdata_opt-launched-date',
-                'value'   => date('Y-m-d', strtotime('-6 months')),
+                'key'     => 'hlr_framework_mapdata',
+                'value'   => serialize(['opt-launched-date' => date('Y-m-d', strtotime('-6 months'))]),
                 'compare' => '<=',
                 'type'    => 'DATE',
             ],
@@ -251,6 +251,7 @@ function remove_just_launched_properties() {
             ],
         ],
     ];
+
     $query = new WP_Query($args);
 
 
