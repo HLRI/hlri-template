@@ -4,6 +4,7 @@ $theme_options = get_option('hlr_framework');
 $floorplans = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
 $associated_property = get_post_meta(get_the_ID(), 'associated_property', true);
 
+require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
 
 if (!is_user_logged_in()) {
     // Code for users who are not logged in
