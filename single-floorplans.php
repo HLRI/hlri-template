@@ -25,7 +25,7 @@ $property = new WP_Query($args);
 ?>
     <div class="container-lg  px-lg-5 my-4">
         <div class="row">
-            <div class="col-lg-9 px-4">
+            <div class="col-lg-9 px-4 dataShowStyles">
 
                 <div class="row floorplan-header mb-4">
                     <div class="col-lg-8 px-lg-0">
