@@ -210,3 +210,56 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
 //         error_log("Form ID does not match. Skipping.");
 //     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function schedule_remove_just_launched() {
+    if (!wp_next_scheduled('remove_just_launched_properties_event')) {
+        wp_schedule_event(time(), 'daily', 'remove_just_launched_properties_event');
+    }
+}
+add_action('wp', 'schedule_remove_just_launched');
+
+
+function remove_just_launched_properties() {
+    $args = [
+        'post_type'      => 'properties',
+        'posts_per_page' => -1,
+        'meta_query'     => [
+            [
+                'key'     => 'hlr_framework_mapdata_opt-launched-date',
+                'value'   => date('Y-m-d', strtotime('-6 months')),
+                'compare' => '<=',
+                'type'    => 'DATE',
+            ],
+        ],
+        'tax_query'      => [
+            [
+                'taxonomy' => 'group',
+                'field'    => 'slug',
+                'terms'    => 'just-launched',
+            ],
+        ],
+    ];
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            wp_remove_object_terms(get_the_ID(), 'just-launched', 'group');
+        }
+    }
+
+    wp_reset_postdata();
+}
+add_action('remove_just_launched_properties_event', 'remove_just_launched_properties');
