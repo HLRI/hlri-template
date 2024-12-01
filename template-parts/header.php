@@ -31,6 +31,7 @@ if (is_front_page()) {
 </div>
         <meta itemprop="telephone" content="416-599-9599" />
         <meta itemprop="priceRange" content="$299,000 to $2,000,000" />
+        <meta itemprop="image" content="https://condoy.com/wp-content/uploads/2023/07/CondoY_logo.png" />
         <meta itemprop="description" content="Condoy.com: Toronto & GTA\'s top pre-construction condos and townhomes. Exclusive access to insider pricing, platinum sales, and expert investment insights." />
         <div itemprop="openingHoursSpecification" itemscope itemtype="http://schema.org/OpeningHoursSpecification">
             <meta itemprop="dayOfWeek" content="Monday, Tuesday, Wednesday, Thursday, Friday" />
