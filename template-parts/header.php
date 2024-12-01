@@ -39,7 +39,7 @@ if (is_front_page()) {
     </div>';
 
     echo '<div itemscope itemtype="http://schema.org/LocalBusiness">
-        <meta itemprop="name" content="HomeLeaderRealty.com" />
+        <meta itemprop="name" content="Home Leader Realty Inc" />
 <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <meta itemprop="streetAddress" content="300 Richmond St W #300" />
     <meta itemprop="addressLocality" content="Toronto" />
