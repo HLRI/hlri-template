@@ -178,7 +178,7 @@ function theme_head()
     "price": "<?= number_format($mdata_single['opt-price-min'], 2) ?>",
     <?php endif; ?>
         "aggregateRating": {
-            "@type": "AggregateRating",
+            "type": "AggregateRating",
             "bestRating": "5",
             "worstRating": "1",
             "ratingCount": "<?= !empty($user_rates) ? $user_rates : 1 ?>",
