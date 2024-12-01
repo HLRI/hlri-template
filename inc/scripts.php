@@ -159,36 +159,6 @@ function theme_head()
                 "url": "<?= get_the_permalink() ?>"
             }
         </script>
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "RealEstateListing",
-            "name": "<?= get_the_title() ?>",
-    "description": "<?= get_the_excerpt() ?>",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "<?= $city[0] ?>",
-        "addressRegion": "ON",
-        "streetAddress": "<?= $mdata_single['opt-address'] ?>",
-        "addressCountry": "CA"
-    },
-    "telephone": "<?= $theme_option['opt-schema-phone'] ?>",
-        <?php if (!empty($mdata_single['opt-price-min'])) : ?>
-    "priceCurrency": "CAD",
-    "price": "<?= number_format($mdata_single['opt-price-min'], 2) ?>",
-    <?php endif; ?>
-    "image": "<?= get_the_post_thumbnail_url() ?>",
-    "url": "<?= get_the_permalink() ?>",
-    "listingType": "<?= isset($mdata_single['opt-listing-type']) ? $mdata_single['opt-listing-type'] : 'Sale' ?>",
-    "floorSize": {
-        "type": "QuantitativeValue",
-        "value": "<?= isset($mdata_single['opt-floor-size']) ? $mdata_single['opt-floor-size'] : '0' ?>",
-        "unitCode": "MTK"
-    },
-    "numberOfRooms": "<?= isset($mdata_single['opt-number-of-rooms']) ? $mdata_single['opt-number-of-rooms'] : '0' ?>",
-    "propertyType": "<?= isset($mdata_single['opt-property-type']) ? $mdata_single['opt-property-type'] : 'Unknown' ?>"
-}
-    </script>
     <?php endif; ?>
 
 
