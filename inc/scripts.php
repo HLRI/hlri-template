@@ -188,7 +188,7 @@ function theme_head()
     "url": "<?= get_the_permalink() ?>",
     "listingType": "<?= isset($mdata_single['opt-listing-type']) ? $mdata_single['opt-listing-type'] : 'Sale' ?>",
     "floorSize": {
-        "@type": "QuantitativeValue",
+        "type": "QuantitativeValue",
         "value": "<?= isset($mdata_single['opt-floor-size']) ? $mdata_single['opt-floor-size'] : '0' ?>",
         "unitCode": "MTK"
     },
