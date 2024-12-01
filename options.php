@@ -1533,7 +1533,7 @@ if (class_exists('CSF')) {
 	CSF::createSection($prefix, array(
 		'fields' => array(
             array(
-                'id'    => 'opt-neighborhood-image',
+                'id'    => 'opt-city-image',
                 'type'  	=>	'media',
                 'library'	=>	'image',
                 'title' => 'Thumbnail',
