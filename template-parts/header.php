@@ -22,7 +22,9 @@
 if (is_front_page()) {
     echo '<div itemscope itemtype="http://schema.org/LocalBusiness">
         <meta itemprop="name" content="Condoy.com" />
+        <meta itemprop="address" content="300 Richmond St W #300, Toronto, ON M5V 1X2, Canada" />
         <meta itemprop="streetAddress" content="300 Richmond St W #300" />
+        <meta itemprop="telephone" content="416-599-9599" />
         <meta itemprop="addressLocality" content="Toronto" />
         <meta itemprop="addressRegion" content="on" />
         <meta itemprop="addressCountry" content="ca" />
