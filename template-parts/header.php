@@ -14,6 +14,13 @@
             }
         </style>
     </noscript>
+    <?php
+    // Ensure this only applies to the specific archive
+    if (is_post_type_archive('cities') || is_tax('cities')) {
+        echo '<meta name="robots" content="index, follow">';
+    }
+    ?>
+
 </head>
 
 <body <?php body_class('content-restricted'); ?>>
