@@ -178,12 +178,12 @@ function theme_head()
     "price": "<?= number_format($mdata_single['opt-price-min'], 2) ?>",
     <?php endif; ?>
         "aggregateRating": {
-            "type": "AggregateRating",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "<?= !empty($user_rates) ? $user_rates : 1 ?>",
-        "ratingValue": "<?= ($rates === 0 || is_nan($rates)) ? 1 : $rates ?>"
-    },
+                    "@type": "AggregateRating",
+                    "bestRating": "5",
+                    "worstRating": "1",
+                    "ratingCount": "<?= !empty($user_rates) ? $user_rates : 1  ?>",
+                    "ratingValue": "<?= ($rates === 0 || is_nan($rates)) ? 1 : $rates ?>"
+                },
     "image": "<?= get_the_post_thumbnail_url() ?>",
     "url": "<?= get_the_permalink() ?>",
     "listingType": "<?= isset($mdata_single['opt-listing-type']) ? $mdata_single['opt-listing-type'] : 'Sale' ?>",
