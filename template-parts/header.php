@@ -21,7 +21,7 @@
     }
 if (is_front_page()) {
     echo '<div itemscope itemtype="http://schema.org/LocalBusiness">
-        <meta itemprop="name" content="Condoy.com" />
+        <meta itemprop="name" content="CondoY.com" />
 <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <meta itemprop="streetAddress" content="300 Richmond St W #300" />
     <meta itemprop="addressLocality" content="Toronto" />
