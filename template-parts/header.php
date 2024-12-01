@@ -22,7 +22,10 @@
 if (is_front_page()) {
     echo '<div itemscope itemtype="http://schema.org/LocalBusiness">
         <meta itemprop="name" content="Condoy.com" />
-        <meta itemprop="address" content="300 Richmond St W #300, Toronto, ON M5V 1X2, Canada" />
+        <meta itemprop="streetAddress" content="300 Richmond St W #300" />
+        <meta itemprop="addressLocality" content="Toronto, ON" />
+        <meta itemprop="addressCountry" content="Canada" />
+        <meta itemprop="postalCode" content="M5V 1X2" />
         <meta itemprop="description" content="Condoy.com: Toronto & GTA\'s top pre-construction condos and townhomes. Exclusive access to insider pricing, platinum sales, and expert investment insights." />
         <div itemprop="openingHoursSpecification" itemscope itemtype="http://schema.org/OpeningHoursSpecification">
             <meta itemprop="dayOfWeek" content="Monday, Tuesday, Wednesday, Thursday, Friday" />
