@@ -143,7 +143,8 @@ function theme_head()
                     "@type": "PostalAddress",
                     "addressLocality": "<?= $city[0] ?>",
                     "addressRegion": "ON",
-                    "streetAddress": "<?= $mdata_single['opt-address'] ?>"
+                    "streetAddress": "<?= $mdata_single['opt-address'] ?>",
+                    "addressCountry": "CA"
                 },
                 "telephone": "<?= $theme_option['opt-schema-phone'] ?>",
                 <?php if (!empty($mdata_single['opt-price-min'])) : ?> "priceRange": "Starting at $<?= number_format($mdata_single['opt-price-min']) ?>",

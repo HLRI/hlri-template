@@ -40,6 +40,14 @@ if (is_front_page()) {
         </div>
     </div>';
 }
+if (single_property()) {
+        echo '<div itemscope itemprop=aggregateRating itemtype=http://schema.org/AggregateRating style=display:none>
+<span itemprop=bestRating>5</span>
+<span itemprop=worstRating>0</span>
+<span itemprop=reviewCount>3</span>
+<meta itemprop=ratingValue content=5>
+</div>';
+    }
 ?>
 
 
