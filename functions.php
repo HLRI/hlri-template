@@ -274,9 +274,9 @@ function remove_just_launched_properties() {
 add_action('remove_just_launched_properties_event', 'remove_just_launched_properties');
 
 
-add_action('save_post', 'calculate_average_price_per_sqft_on_floorplan_edit', 10, 3);
+add_action('save_post', 'update_property_price_per_sqft_on_floorplan_edit', 10, 3);
 
-function calculate_average_price_per_sqft_on_floorplan_edit($post_id, $post, $update) {
+function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $update) {
     // Exit if this is an auto-save or a revision
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if ($post->post_type !== 'floorplan') return;
@@ -312,7 +312,15 @@ function calculate_average_price_per_sqft_on_floorplan_edit($post_id, $post, $up
 
     $averagePropertySqft = count($totalFloors) ? ceil(array_sum($totalFloors) / count($totalFloors)) : 0;
 
-    // Save the average price per sqft to the associated property
-    update_post_meta($associated_property_id, 'average_price_per_sqft', $averagePropertySqft);
+    // Retrieve the existing map data for the associated property
+    $mapdata = get_post_meta($associated_property_id, 'hlr_framework_mapdata', true);
+
+    if (is_array($mapdata)) {
+        // Update the `opt-pricepersqft` field
+        $mapdata['opt-pricepersqft'] = $averagePropertySqft;
+
+        // Save the updated map data back to the property
+        update_post_meta($associated_property_id, 'hlr_framework_mapdata', $mapdata);
+    }
 }
 
