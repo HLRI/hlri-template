@@ -97,7 +97,9 @@ $propertyDetails = trim(sprintf(
                                     <?php if (!empty($mdata_single['opt-developer'])) : ?>
                                         <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?></h4>
                                     <?php else : ?>
-                                        <a class="text-dark" title="<?= strtoupper(get_the_title()) ?>" href="<?php echo preg_replace('~(/properties/[^/]+).*~', '$1/', get_permalink()); ?>"><h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4></a>
+                                        <a class="text-dark" title="<?= strtoupper(get_the_title()) ?>"
+                                           href="<?php echo preg_replace('~(/properties/[^/]+).*~', '$1/', get_permalink()); ?>">
+                                            <h4 class="font-weight-bold h6"><?= strtoupper(get_the_title()) ?></h4></a>
                                     <?php endif; ?>
                                 </div>
                             <?php
@@ -110,23 +112,41 @@ $propertyDetails = trim(sprintf(
                             <?php if (!empty($floorplans['opt-floorplans-status'])) : ?>
                                 <span class="status-floorplan <?= $floorplans['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
                             <?php endif; ?>
-                            <a class="text-dark" href="<?php get_permalink() ?>" title="<?php the_title() ?>"><h1 class="font-weight-bold h2"><?= $floorplans['opt-floorplans-suite-name'] ?></h1></a>
+                            <a class="text-dark" href="<?php get_permalink() ?>" title="<?php the_title() ?>"><h1
+                                        class="font-weight-bold h2"><?= $floorplans['opt-floorplans-suite-name'] ?></h1>
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-4 text-right px-lg-0<?= $loginClasses ?>">
                         <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                            <div class="floorplan-price">
-                                From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
-                            </div>
+                            <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                <div class="floorplan-price">
+                                    From <span
+                                            class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                    To <span
+                                            class="to-price"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
+                                </div>
+                            <?php else : ?>
+                                <div class="floorplan-price">
+                                    From <span
+                                            class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                </div>
+                            <?php endif; ?>
                         <?php endif; ?>
-                        <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
-                            <div>
-                                <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
-                            </div>
+                        <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
+                            <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                <div>
+                                    <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                    <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                        to <?= '$' . round(number_format($floorplans['opt-floorplans-price-to'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
                         <?php endif; ?>
+
+
                     </div>
                 </div>
-
 
 
                 <?php
