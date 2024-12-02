@@ -404,26 +404,21 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                             <div class="square-foot-wrap">
                                                 <div class="square-foot-title">Prices</div>
                                                 <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                                                    <div class="square-foot-item">
                                                         <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                                                             <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
-                                                                    <span class="name">Price (From) : </span>
+                                                                <div class="square-foot-item">
+                                                                <span class="name">Price (From) : </span>
                                                                     <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                                                                     <span class="name">Price (to) : </span>
-                                                                    <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>                                                                </div>
+                                                                    <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
+                                                                </div>
                                                             <?php else : ?>
-                                                                <span class="name">Price (From) : </span>
+                                                            <div class="square-foot-item">
+                                                            <span class="name">Price (From) : </span>
                                                                 <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                                            </div>
                                                             <?php endif; ?>
                                                         <?php endif; ?>
-
-
-
-
-
-
-
-
                                                     </div>
                                                 <?php endif; ?>
                                                 <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
