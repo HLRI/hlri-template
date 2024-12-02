@@ -394,27 +394,26 @@ $property = new WP_Query($args);
                                                         <span class="value"><?= $floorplans['opt-floorplans-mt-fees-per-month'] ?></span>
                                                     </div>
                                                 <?php endif; ?>
-                                                <?php if (!empty($floorplans['opt-floorplans-parking'])) : ?>
+                                                <?php if($mdata_status['opt-parking-waitlist']) : ?>
+                                                <div class="square-foot-item">
+                                                    <span class="name">Parking : </span>
+                                                    <span class="value">Waitlist</span>
+                                                </div>
+                                                <?php elseif (!empty($floorplans['opt-floorplans-parking'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Parking : </span>
-                                                        <span class="value"><?= $floorplans['opt-floorplans-parking'] ?></span>
-                                                    </div>
-                                                <?php elseif($floorplans['opt-parking-waitlist'] == true) : ?>
-                                                    <div class="square-foot-item">
-                                                        <span class="name">Parking : </span>
-                                                        <span class="value">Waitlist</span>
+                                                        <span class="value"><?= $mdata_status['opt-parking'] ?></span>
                                                     </div>
                                                 <?php endif; ?>
-                                                <?php dd($mdata_status['opt-parking-waitlist']); ?>
-                                                <?php if (!empty($floorplans['opt-floorplans-locker'])) : ?>
-                                                    <div class="square-foot-item">
-                                                        <span class="name">Locker : </span>
-                                                        <span class="value"><?= $floorplans['opt-floorplans-locker'] ?></span>
-                                                    </div>
-                                                <?php elseif($floorplans['opt-locker-waitlist'] == true) : ?>
+                                                <?php if ($mdata_status['opt-locker-waitlist']) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Locker : </span>
                                                         <span class="value">Waitlist</span>
+                                                    </div>
+                                                <?php elseif (!empty($floorplans['opt-floorplans-locker'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Locker : </span>
+                                                        <span class="value"><?= $mdata_status['opt-locker'] ?></span>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
