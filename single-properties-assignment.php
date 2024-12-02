@@ -229,7 +229,7 @@ function addOrdinalSuffix($number)
                         }
                     </style>
 
-                    <div class="container-fluid">
+                    <div class="container">
                         <div>
                             <?php
                             $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
