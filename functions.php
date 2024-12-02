@@ -310,7 +310,6 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
     }
 
     $averagePropertySqft = count($totalFloors) ? ceil(array_sum($totalFloors) / count($totalFloors)) : 0;
-dd($averagePropertySqft);
     // Retrieve the existing map data for the associated property
     $mapdata = get_post_meta($associated_property_id, 'hlr_framework_mapdata', true);
 
