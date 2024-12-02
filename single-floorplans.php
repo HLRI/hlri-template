@@ -113,7 +113,7 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
 
                         <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-to'])) : ?>
                             <div>
-                                to <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                to <?= '$' . round(number_format($floorplans['opt-floorplans-price-to'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
                             </div>
                         <?php endif; ?>
 
