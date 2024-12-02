@@ -270,7 +270,7 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                     <div class="col-12 px-lg-0">
                         <div id="accordion">
                             <div class="">
-                                <h4><?= $propertyDetails ?></h4>
+                                <h4 class="mt-4 mb-4"><?= $propertyDetails ?></h4>
 
                                 <div class="card-header p-0" id="headingOne">
                                     <h5 class="mb-0">
