@@ -438,7 +438,6 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                                     <?php endif; ?>
                                                 <?php endif; ?>
                                             </div>
-                                            <?php endif; ?>
                                             <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
 
                                                 <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
