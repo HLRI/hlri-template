@@ -306,7 +306,231 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                         </button>
                                     </h5>
                                 </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                     data-parent="#accordion">
+                                    <div class="row mt-4">
+                                        <div class="col-lg-4 mb-5 mb-lg-0">
+                                            <div class="square-foot-wrap">
+                                                <div class="square-foot-head">THIS FLOOR PLAN</div>
+                                                <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                                    <div class="square-foot-price">
+                                                        <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-5 mb-lg-0">
+                                            <div class="square-foot-wrap">
+                                                <div class="square-foot-head">
+                                                    <?php if ($property->have_posts()) : ?>
+                                                        <?php
+                                                        while ($property->have_posts()) : $property->the_post();
+                                                            $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                                                            ?>
+                                                            <div>
+                                                                <?php if (!empty($mdata_single['opt-developer'])) : ?>
+                                                                    <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
+                                                                <?php else : ?>
+                                                                    <?= strtoupper(get_the_title() . ' AVERAGE') ?>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                        <?php
+                                                        endwhile;
+                                                        wp_reset_postdata();
+                                                        wp_reset_query();
+                                                        ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <?php if ($property->have_posts()) : ?>
+                                                    <?php
+                                                    while ($property->have_posts()) : $property->the_post();
+                                                        $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                                                        ?>
+                                                        <?php if (!empty($mdata_single['opt-pricepersqft'])) : ?>
+                                                            <div class="square-foot-price">
+                                                                <span>$<?= $mdata_single['opt-pricepersqft'] ?></span>/sq.ft
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    <?php
+                                                    endwhile;
+                                                endif;
+                                                wp_reset_postdata();
+                                                wp_reset_query();
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-5 mb-lg-0">
+                                            <div class="square-foot-wrap">
+                                                <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
+                                                <?php if (!empty($avgn)) : ?>
+                                                    <div class="square-foot-price"><span>$<?= $avgn ?></span>/sq.ft
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-lg-4 mb-5 mb-lg-0">
+                                            <div class="square-foot-wrap">
+                                                <div class="square-foot-title">Suite Details</div>
+                                                <?php if (!empty($floorplans['opt-floorplans-suite-name'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Suite Name : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-suite-name'] ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-beds'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Beds : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-beds'] ?> Bed</span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-baths'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Baths : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-baths'] ?> Bath</span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-view'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">View : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-view']; ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Interior Size : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-interior-size'] ?> sq.ft.</span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-balcony-sqft'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Balcony Size : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-balcony-sqft'] ?> sq.ft.</span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-floor-range'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Floor Range : </span>
+                                                        <span class="value"><?= $floorplans['opt-floorplans-floor-range'] ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-5 mb-lg-0">
+                                            <div class="square-foot-wrap">
+                                                <div class="square-foot-title">Prices</div>
+                                                <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                                    <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price (From) : </span>
+                                                            <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                                        </div>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price (to) : </span>
+                                                            <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
+                                                        </div>
+                                                    <?php else : ?>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price (From) : </span>
+                                                            <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
 
+                                                <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Price Per Sq.Ft : </span>
+                                                        <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Price Per Sq.Ft (to) : </span>
+                                                        <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-to'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                            <?php if (!empty($floorplans['opt-floorplans-mt-fees-per-month'])) : ?>
+                                                <div class="square-foot-item">
+                                                    <span class="name">Mt. Fees per Month : </span>
+                                                    <span class="value"><?= $floorplans['opt-floorplans-mt-fees-per-month'] ?></span>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($mdata_status['opt-parking-waitlist']) : ?>
+                                                <div class="square-foot-item">
+                                                    <span class="name">Parking : </span>
+                                                    <span class="value">Waitlist</span>
+                                                </div>
+                                            <?php elseif (!empty($mdata_status['opt-parking-price'])) : ?>
+                                                <div class="square-foot-item">
+                                                    <span class="name">Parking : </span>
+                                                    <span class="value">$<?= number_format($mdata_status['opt-parking-price']) ?></span>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($mdata_status['opt-locker-waitlist']) : ?>
+                                                <div class="square-foot-item">
+                                                    <span class="name">Locker : </span>
+                                                    <span class="value">Waitlist</span>
+                                                </div>
+                                            <?php elseif (!empty($mdata_status['opt-locker-price'])) : ?>
+                                                <div class="square-foot-item">
+                                                    <span class="name">Locker : </span>
+                                                    <span class="value">$<?= number_format($mdata_status['opt-locker-price']) ?></span>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if (!empty($mdata_status['opt-parking-quantity'])) : ?>
+                                                <div class="square-foot-item">
+                                                    <span class="name">Number of Parking : </span>
+                                                    <span class="value"><?= $mdata_status['opt-parking-quantity'] ?></span>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
+                                        <div class="square-foot-wrap">
+                                            <?php
+                                            if (!empty($floorplans['opt-floorplans-deposit-structure'])) {
+                                                // If the deposit structure of the floor plan is not empty, display it
+                                                echo '<div class="square-foot-title">Deposit Structure</div>';
+                                                echo $floorplans['opt-floorplans-deposit-structure'];
+                                            } else {
+                                                // If the deposit structure of the floor plan is empty, retrieve it from the associated property
+                                                $selectedFloorPlanType = isset($floorplans['floor_plan_type_text']) ? $floorplans['floor_plan_type_text'] : '';
+                                                // Check if the selected floor plan type is not empty
+                                                if (!empty($selectedFloorPlanType)) {
+                                                    $floor_plan_types = get_post_meta($pid, 'hlr_framework_mapdata', true);
+                                                    $floorPlanTypes = $floor_plan_types['floor_plan_types'];
+                                                    foreach ($floorPlanTypes as $floorPlanType) {
+                                                        // Check if the title of the floor plan type matches the selected floor plan type
+                                                        if ($floorPlanType['title'] === $selectedFloorPlanType) {
+                                                            // Display the deposit structure of the matched floor plan type
+                                                            echo '<div class="square-foot-title">Deposit Structure</div>';
+                                                            echo apply_filters('the_content', $floorPlanType['deposit_structure']);
+                                                            break; // Exit the loop once a match is found
+                                                        }
+                                                    }
+                                                } else {
+                                                    // here
+                                                    if ($property->have_posts()) :
+                                                        while ($property->have_posts()) : $property->the_post();
+                                                            $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
+                                                            ?>
+                                                            <div class="square-foot-title">Deposit Structure</div>
+                                                            <?php echo wpautop($mdata_single['opt-deposit-structue'], true); ?>
+                                                        <?php
+                                                        endwhile;
+                                                    endif;
+                                                    wp_reset_postdata();
+                                                    wp_reset_query();
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
                                 <?php if (!empty($floorplans['opt-floorplans-note'])) : ?>
                                     <div class="row mt-4">
                                         <div class="col-lg-4 mb-5 mb-lg-0">
