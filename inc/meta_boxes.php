@@ -222,16 +222,52 @@ function custom_render_associated_floorplans() {
 // Modify the floorplans permalink structure
 function custom_modify_floorplans_permalink($permalink, $post) {
     if ($post->post_type === 'floorplans') {
+        // Check for manually set permalink
+        $manual_permalink = get_post_meta($post->ID, '_custom_manual_permalink', true);
+        if ($manual_permalink) {
+            return $manual_permalink;
+        }
+
+        // Fallback to dynamic generation
         $associated_property = get_post_meta($post->ID, 'associated_property', true);
         $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
         $floorplan_slug = $post->post_name;
 
-        $permalink = home_url("/properties/$property_name/floorplans/$floorplan_slug/");
+        return home_url("/properties/$property_name/floorplans/$floorplan_slug/");
     }
 
     return $permalink;
 }
+
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
+
+
+function custom_add_permalink_meta_box() {
+    add_meta_box(
+        'custom_permalink_meta_box',
+        'Custom Permalink',
+        'custom_render_permalink_meta_box',
+        'floorplans',
+        'side',
+        'low'
+    );
+}
+add_action('add_meta_boxes', 'custom_add_permalink_meta_box');
+
+function custom_render_permalink_meta_box($post) {
+    $manual_permalink = get_post_meta($post->ID, '_custom_manual_permalink', true);
+    ?>
+    <label for="custom_manual_permalink">Permalink:</label>
+    <input type="text" id="custom_manual_permalink" name="custom_manual_permalink" value="<?php echo esc_attr($manual_permalink); ?>" style="width: 100%;" />
+    <?php
+}
+
+function custom_save_permalink_meta($post_id) {
+    if (isset($_POST['custom_manual_permalink'])) {
+        update_post_meta($post_id, '_custom_manual_permalink', sanitize_text_field($_POST['custom_manual_permalink']));
+    }
+}
+add_action('save_post_floorplans', 'custom_save_permalink_meta');
 
 /*==================================================================================*/
 
