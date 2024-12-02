@@ -274,4 +274,45 @@ function remove_just_launched_properties() {
 add_action('remove_just_launched_properties_event', 'remove_just_launched_properties');
 
 
+add_action('save_post', 'calculate_average_price_per_sqft_on_floorplan_edit', 10, 3);
+
+function calculate_average_price_per_sqft_on_floorplan_edit($post_id, $post, $update) {
+    // Exit if this is an auto-save or a revision
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if ($post->post_type !== 'floorplan') return;
+
+    // Get the associated property ID from the floorplan
+    $associated_property_id = get_post_meta($post_id, 'associated_property', true);
+    if (empty($associated_property_id)) return;
+
+    // Fetch all floorplans for the associated property
+    $associated_floorplans = get_posts(array(
+        'post_type' => 'floorplans',
+        'posts_per_page' => -1,
+        'fields' => 'ids',
+        'meta_query' => array(
+            array(
+                'key' => 'associated_property',
+                'value' => $associated_property_id,
+                'compare' => '='
+            )
+        )
+    ));
+
+    $totalFloors = [];
+    foreach ($associated_floorplans as $floorplan_id) {
+        $floorplans = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
+        $interiorSize = floatval($floorplans['opt-floorplans-interior-size'] ?? 0);
+        $priceFrom = floatval($floorplans['opt-floorplans-price-from'] ?? 0);
+
+        if ($interiorSize > 0 && $priceFrom > 0) {
+            $totalFloors[] = round($priceFrom / $interiorSize, 2);
+        }
+    }
+
+    $averagePropertySqft = count($totalFloors) ? ceil(array_sum($totalFloors) / count($totalFloors)) : 0;
+
+    // Save the average price per sqft to the associated property
+    update_post_meta($associated_property_id, 'average_price_per_sqft', $averagePropertySqft);
+}
 
