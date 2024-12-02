@@ -296,11 +296,11 @@ function addOrdinalSuffix($number)
                         /* For mobile: further reduce icon and text size */
                         @media (max-width: 575px) {
                             .custom-incentive-item .custom-icon {
-                                font-size: 1rem; /* Even smaller icon on mobile */
+                                font-size: 0.9rem; /* Even smaller icon on mobile */
                             }
 
                             .custom-incentive-item .custom-text {
-                                font-size: 0.9rem; /* Even smaller text on mobile */
+                                font-size: 0.8rem; /* Even smaller text on mobile */
                             }
                         }
                     </style>
