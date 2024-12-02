@@ -231,14 +231,15 @@ function addOrdinalSuffix($number)
 
                     <div class="container-fluid">
                         <div class="row">
-                            <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
+                            <?php
+                            $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
                             if (!empty($project_incentives['opt_properties_incentives_items'])) {
                                 $incentives = $project_incentives['opt_properties_incentives_items'];
                             } else {
                                 $incentives = [];
                             }
                             ?>
-                            <ul class="list-unstyled mt-4 px-4" style="display: flex; gap: 20px;">
+                            <ul class="list-unstyled mt-4 px-4" style="display: flex; gap: 20px; justify-content: center; align-items: center;">
                                 <?php foreach ($incentives as $incentive): ?>
                                     <li class="d-flex align-items-center mb-4" style="color: #ff6600;">
                                         <i style="font-size: x-large;margin-right: 20px;min-width:32px;text-align:center;"
@@ -246,10 +247,10 @@ function addOrdinalSuffix($number)
                                         <?php echo $incentive['opt-link-incentives']; ?>
                                     </li>
                                 <?php endforeach; ?>
-                                <div>
                             </ul>
                         </div>
                     </div>
+
 
 
                     <div class="row mb-2 justify-content-start px-0 px-md-3 ">
