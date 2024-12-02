@@ -283,7 +283,7 @@ function addOrdinalSuffix($number)
                         }
 
                         /* For tablets: reduce icon and text size */
-                        @media (max-width: 991px) {
+                        @media (max-width: 1200px) {
                             .custom-incentive-item .custom-icon {
                                 font-size: 1.5rem; /* Smaller icon on tablets */
                                 margin-right:10px;
