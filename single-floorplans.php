@@ -34,8 +34,8 @@ $property = new WP_Query($args);
 
 <?php
 // Initialize variables with data from $property and $floorplans
-$propertyName = !empty($property->post_title) ? $property->post_title : 'Unknown Property';
-$developerName = !empty($property->developer_name) ? $property->developer_name : '';
+$propertyName = !empty(get_the_title($pid)) ? get_the_title($pid) : 'Property';
+$developerName = !empty($mdata_single['opt-developer']) ? $mdata_single['opt-developer'] : '';
 $suiteName = !empty($floorplans['opt-floorplans-suite-name']) ? $floorplans['opt-floorplans-suite-name'] : '';
 $numberOfBeds = !empty($floorplans['opt-floorplans-beds']) ? $floorplans['opt-floorplans-beds'] : '';
 $numberOfBaths = !empty($floorplans['opt-floorplans-baths']) ? $floorplans['opt-floorplans-baths'] : '';
