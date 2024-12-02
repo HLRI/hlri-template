@@ -280,7 +280,6 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
     // Exit if this is an auto-save or a revision
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if ($post->post_type !== 'floorplans') return;
-    dd($post_id);
 
     // Get the associated property ID from the floorplan
     $associated_property_id = get_post_meta($post_id, 'associated_property', true);
