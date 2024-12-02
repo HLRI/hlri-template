@@ -99,9 +99,9 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                             <div class="floorplan-price">
                                 From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                             </div>
-                        <?php endif; ?>
-                        <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                        <?php elseif (!empty($floorplans['opt-floorplans-price-to']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
                             <div class="floorplan-price">
+                                From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                                 To <span class="to-price"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
                             </div>
                         <?php endif; ?>
