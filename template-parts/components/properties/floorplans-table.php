@@ -87,10 +87,11 @@
                                 <td><?= $floor['opt-floorplans-view'] ?></td>
                                 <td>
                                     <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
-                                    <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
-                                        <span>from </span>
-                                    <?php endif; ?>
-                                        <div class="font-weight-bold"><?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
+                                        <div class="font-weight-bold">
+                                            <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                                <span>from </span>
+                                            <?php endif; ?>
+                                            <?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
                                     <?php else : ?>
                                         -
                                     <?php endif; ?>
