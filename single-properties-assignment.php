@@ -239,7 +239,7 @@ function addOrdinalSuffix($number)
                                 $incentives = [];
                             }
                             ?>
-                            <ul class="list-unstyled mt-4" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; padding: 0;">
+                            <ul class=" mt-4 px-4" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; padding: 0;">
                                 <?php foreach ($incentives as $incentive): ?>
                                     <li class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center mb-4" style="color: #ff6600; display: flex; align-items: center; justify-content: center;">
                                         <i style="font-size: x-large; margin-right: 10px; min-width: 32px; text-align: center;" class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
