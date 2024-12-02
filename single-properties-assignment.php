@@ -241,7 +241,7 @@ function addOrdinalSuffix($number)
                             ?>
                             <ul class="custom-incentive-list">
                                 <?php foreach ($incentives as $incentive): ?>
-                                    <li class="custom-incentive-item d-flex align-items-center mb-4 text-center">
+                                    <li class="custom-incentive-item d-flex align-items-center mb-2 text-center">
                                         <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2 custom-icon"></i>
                                         <span class="custom-text"><?php echo $incentive['opt-link-incentives']; ?></span>
                                     </li>
