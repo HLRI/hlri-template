@@ -239,16 +239,72 @@ function addOrdinalSuffix($number)
                                 $incentives = [];
                             }
                             ?>
-                            <ul class="mt-4" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; padding: 0;">
+                            <ul class="custom-incentive-list">
                                 <?php foreach ($incentives as $incentive): ?>
-                                    <li class="col-12 col-sm-12 col-md-6 col-lg-3 d-flex align-items-center mb-4" style="color: #ff6600; display: flex; align-items: center; justify-content: center;">
-                                        <i style="font-size: x-large; margin-right: 10px; min-width: 32px; text-align: center;" class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
-                                        <span><?php echo $incentive['opt-link-incentives']; ?></span>
+                                    <li class="custom-incentive-item d-flex align-items-center mb-4 text-center">
+                                        <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2 custom-icon"></i>
+                                        <span class="custom-text"><?php echo $incentive['opt-link-incentives']; ?></span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
                         </div>
                     </div>
+
+                    <style>
+                        /* Custom styling for the list container */
+                        .custom-incentive-list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            gap: 20px;
+                            padding: 0;
+                            margin-top: 1.5rem;
+                        }
+
+                        /* Custom styling for each incentive item */
+                        .custom-incentive-item {
+                            color: #ff6600;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        /* Custom styling for the icon */
+                        .custom-icon {
+                            font-size: 2rem;
+                            margin-right: 10px;
+                            min-width: 32px;
+                            text-align: center;
+                        }
+
+                        /* Custom styling for the text */
+                        .custom-text {
+                            font-size: 1.2rem;
+                        }
+
+                        /* For tablets: reduce icon and text size */
+                        @media (max-width: 991px) {
+                            .custom-incentive-item .custom-icon {
+                                font-size: 1.5rem; /* Smaller icon on tablets */
+                            }
+
+                            .custom-incentive-item .custom-text {
+                                font-size: 1rem; /* Smaller text on tablets */
+                            }
+                        }
+
+                        /* For mobile: further reduce icon and text size */
+                        @media (max-width: 575px) {
+                            .custom-incentive-item .custom-icon {
+                                font-size: 1.2rem; /* Even smaller icon on mobile */
+                            }
+
+                            .custom-incentive-item .custom-text {
+                                font-size: 0.9rem; /* Even smaller text on mobile */
+                            }
+                        }
+                    </style>
+
 
 
 
