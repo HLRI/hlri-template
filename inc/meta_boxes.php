@@ -53,7 +53,7 @@ function custom_render_floorplans_meta_box( $post ) {
         echo '</ul>';
         echo '</div>';
 
-        echo count($totalFloors);
+        echo array_sum($totalFloors) / count($totalFloors);
     } else {
         echo '<p>No associated floorplans found for this property.</p>';
     }
