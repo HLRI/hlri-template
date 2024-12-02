@@ -298,7 +298,6 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
             )
         )
     ));
-dd($associated_floorplans);
     $totalFloors = [];
     foreach ($associated_floorplans as $floorplan_id) {
         $floorplans = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
@@ -311,7 +310,7 @@ dd($associated_floorplans);
     }
 
     $averagePropertySqft = count($totalFloors) ? ceil(array_sum($totalFloors) / count($totalFloors)) : 0;
-
+dd($averagePropertySqft);
     // Retrieve the existing map data for the associated property
     $mapdata = get_post_meta($associated_property_id, 'hlr_framework_mapdata', true);
 
