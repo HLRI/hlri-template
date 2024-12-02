@@ -440,6 +440,21 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                                 <?php endif; ?>
                                             </div>
                                             <?php endif; ?>
+                                            <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
+
+                                                <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Price Per Sq.Ft : </span>
+                                                        <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Price Per Sq.Ft (to) : </span>
+                                                        <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-to'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
                                             <?php if (!empty($floorplans['opt-floorplans-mt-fees-per-month'])) : ?>
                                                 <div class="square-foot-item">
                                                     <span class="name">Mt. Fees per Month : </span>
