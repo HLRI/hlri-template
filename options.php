@@ -1630,11 +1630,16 @@ if (class_exists('CSF')) {
 					'type'  => 'text',
 					'title' => 'Floor Range'
 				),
+                array(
+                    'id'    => 'opt-floorplans-price-from',
+                    'type'  => 'number',
+                    'title' => 'Price (From)'
+                ),
 				array(
-					'id'    => 'opt-floorplans-price-from',
-					'type'  => 'number',
-					'title' => 'Price (From)'
-				),
+                    'id'    => 'opt-floorplans-price-to',
+                    'type'  => 'number',
+                    'title' => 'Price (to)'
+                ),
 				array(
 					'id'    => 'opt-floorplans-price-per',
 					'type'  => 'number',
