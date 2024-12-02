@@ -34,13 +34,26 @@ function custom_render_floorplans_meta_box( $post ) {
 
     if ( $associated_floorplans ) {
         echo $post->title;
-        echo 'sdfasdfsdfsdf <style>.rightDf{float: right;display: inline-block;}.flIl{border: 1px solid #cfcfcf;padding: 10px 10px 10px 15px;border-radius: 5px;background-color: #f8f8f8;font-size: 16px;color: #ae0c0c;box-shadow: 1px 2px 3px #e9e9e9;margin-bottom: 9px;}</style><div class="inside">';
+        echo '<style>.rightDf{float: right;display: inline-block;}.flIl{border: 1px solid #cfcfcf;padding: 10px 10px 10px 15px;border-radius: 5px;background-color: #f8f8f8;font-size: 16px;color: #ae0c0c;box-shadow: 1px 2px 3px #e9e9e9;margin-bottom: 9px;}</style><div class="inside">';
         echo '<ul style="margin-top:30px;">';
+
+        $totalFloors = [];
+
         foreach ( $associated_floorplans as $floorplan ) {
             echo '<li class="flIl"><span>' . esc_html( $floorplan->post_title ) . '</span> <div class="rightDf"><a class="button button-small" target="_blank" href="' . get_edit_post_link( $floorplan->ID ) . '">Edit</a>  <span>  </span>  <a class="button button-small" target="_blank" href="' . get_post_permalink( $floorplan->ID ) . '">View</a></div></li>';
+
+
+            $floorplans = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
+
+            if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) {
+                $totalFloors[] = round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', ''));
+            }
+
         }
         echo '</ul>';
         echo '</div>';
+
+        echo print_r($totalFloors);
     } else {
         echo '<p>No associated floorplans found for this property.</p>';
     }
