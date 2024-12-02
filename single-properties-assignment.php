@@ -250,6 +250,26 @@ function addOrdinalSuffix($number)
                         </div>
                     </div>
 
+                    <!-- Add the following CSS for responsiveness -->
+                    <style>
+                        @media (max-width: 768px) {
+                            .list-unstyled {
+                                gap: 10px; /* Reduce the gap on smaller screens */
+                            }
+
+                            .list-unstyled li {
+                                flex: 1 1 48%; /* Allow items to take up 48% of the width (2 items per row) */
+                            }
+                        }
+
+                        @media (max-width: 480px) {
+                            .list-unstyled li {
+                                flex: 1 1 100%; /* On very small screens, take full width */
+                            }
+                        }
+                    </style>
+
+
 
 
 
