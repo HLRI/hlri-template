@@ -126,6 +126,12 @@ $propertyDetails = trim(sprintf(
                                     To <span
                                             class="to-price"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
                                 </div>
+                            <style>
+                                .floorplan-price .from-price, .floorplan-price .to-price {
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                }
+                            </style>
                             <?php else : ?>
                                 <div class="floorplan-price">
                                     From <span
