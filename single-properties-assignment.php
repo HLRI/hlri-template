@@ -286,7 +286,7 @@ function addOrdinalSuffix($number)
                         @media (max-width: 991px) {
                             .custom-incentive-item .custom-icon {
                                 font-size: 1.5rem; /* Smaller icon on tablets */
-                                margin-right:0px;
+                                margin-right:10px;
                             }
 
                             .custom-incentive-item .custom-text {
