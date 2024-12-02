@@ -402,7 +402,7 @@ $property = new WP_Query($args);
                                                 <?php elseif (!empty($mdata_status['opt-parking-price'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Parking : </span>
-                                                        <span class="value"><?= $mdata_status['opt-parking'] ?></span>
+                                                        <span class="value"><?= $mdata_status['opt-parking-price'] ?></span>
                                                     </div>
                                                 <?php endif; ?>
                                                 <?php if ($mdata_status['opt-locker-waitlist']) : ?>
@@ -413,7 +413,7 @@ $property = new WP_Query($args);
                                                 <?php elseif (!empty($mdata_status['opt-locker-price'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Locker : </span>
-                                                        <span class="value"><?= $mdata_status['opt-locker'] ?></span>
+                                                        <span class="value"><?= $mdata_status['opt-locker-price'] ?></span>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
