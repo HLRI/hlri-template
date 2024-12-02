@@ -421,7 +421,6 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                             <div class="square-foot-wrap">
                                                 <div class="square-foot-title">Prices</div>
                                                 <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                                                <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                                                     <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
                                                         <div class="square-foot-item">
                                                             <span class="name">Price (From) : </span>
