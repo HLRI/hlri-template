@@ -33,34 +33,15 @@ $property = new WP_Query($args);
 
 
 <?php
-// Initialize variables with data from $property and $floorplans
-$propertyName = !empty(get_the_title($pid)) ? get_the_title($pid) : 'Property';
-$developerName = !empty($mdata_single['opt-developer']) ? $mdata_single['opt-developer'] : '';
-$suiteName = !empty($floorplans['opt-floorplans-suite-name']) ? $floorplans['opt-floorplans-suite-name'] : '';
-$numberOfBeds = !empty($floorplans['opt-floorplans-beds']) ? $floorplans['opt-floorplans-beds'] : '';
-$numberOfBaths = !empty($floorplans['opt-floorplans-baths']) ? $floorplans['opt-floorplans-baths'] : '';
+$propertyName = get_the_title($pid) ?: 'Property';
+$developerText = !empty($mdata_single['opt-developer']) ? " by {$mdata_single['opt-developer']}" : '';
+$suiteName = $floorplans['opt-floorplans-suite-name'] ?? '';
+$bedsText = ($beds = (int)($floorplans['opt-floorplans-beds'] ?? 0)) ? "$beds bed" . ($beds > 1 ? 's' : '') : '';
+$bathsText = ($baths = (int)($floorplans['opt-floorplans-baths'] ?? 0)) ? "$baths bath" . ($baths > 1 ? 's' : '') : '';
 
-// Handle empty developer, beds, or baths gracefully
-$developerText = $developerName ? " by $developerName" : '';
-$bedsText = $numberOfBeds ? "$numberOfBeds bed(s)" : '';
-$bathsText = $numberOfBaths ? "$numberOfBaths bath(s)" : '';
+$propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText ? " $bedsText" : '') . ($bathsText ? " & $bathsText" : ''));
 
-// Combine into a single descriptive string
-$propertyDetails = trim(sprintf(
-    '%s%s | %s %s%s',
-    $propertyName,
-    $developerText,
-    $suiteName,
-    $bedsText,
-    $bathsText ? " & $bathsText" : ''
-));
 ?>
-
-
-
-
-
-
 
     <div class="container-lg  px-lg-5 my-4">
         <div class="row">
