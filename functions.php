@@ -279,7 +279,7 @@ add_action('save_post', 'update_property_price_per_sqft_on_floorplan_edit', 10, 
 function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $update) {
     // Exit if this is an auto-save or a revision
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    if ($post->post_type !== 'floorplan') return;
+    if ($post->post_type !== 'floorplans') return;
     dd($post_id);
 
     // Get the associated property ID from the floorplan
