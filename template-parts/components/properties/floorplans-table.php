@@ -89,7 +89,7 @@
                                     <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
                                         <div class="font-weight-bold">
                                             <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
-                                                <span>from </span>
+                                                <span style="font-size: x-small;">from </span>
                                             <?php endif; ?>
                                             <?= '$' . number_format($floor['opt-floorplans-price-from']) ?></div>
                                     <?php else : ?>
