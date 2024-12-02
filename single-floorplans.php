@@ -416,6 +416,12 @@ $property = new WP_Query($args);
                                                         <span class="value">$<?= number_format($mdata_status['opt-locker-price']) ?></span>
                                                     </div>
                                                 <?php endif; ?>
+                                                <?php if (!empty($mdata_status['opt-parking-quantity'])) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Locker : </span>
+                                                        <span class="value">$<?= $mdata_status['opt-parking-quantity'] ?></span>
+                                                    </div>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 mb-5 mb-lg-0">
