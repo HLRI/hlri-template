@@ -273,6 +273,7 @@ function addOrdinalSuffix($number)
                         .custom-icon {
                             font-size: 2rem;
                             min-width: 32px;
+                            margin-right:20px;
                             text-align: center;
                         }
 
@@ -285,6 +286,7 @@ function addOrdinalSuffix($number)
                         @media (max-width: 991px) {
                             .custom-incentive-item .custom-icon {
                                 font-size: 1.5rem; /* Smaller icon on tablets */
+                                margin-right:0px;
                             }
 
                             .custom-incentive-item .custom-text {
@@ -296,6 +298,7 @@ function addOrdinalSuffix($number)
                         @media (max-width: 575px) {
                             .custom-incentive-item .custom-icon {
                                 font-size: 0.9rem; /* Even smaller icon on mobile */
+                                margin-right:0px;
                             }
 
                             .custom-incentive-item .custom-text {
