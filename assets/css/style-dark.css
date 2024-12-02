@@ -4363,3 +4363,6 @@ tr.secureTable td {
 .dataShowStyles{
   filter: blur(4px);
 }
+#sticker-mobile{
+  box-shadow: 0px -2px 8px 0px lightgrey;
+}
