@@ -229,7 +229,25 @@ function addOrdinalSuffix($number)
                         }
                     </style>
 
-
+                    <div class="row">
+                        <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
+                        if (!empty($project_incentives['opt_properties_incentives_items'])) {
+                            $incentives = $project_incentives['opt_properties_incentives_items'];
+                        } else {
+                            $incentives = [];
+                        }
+                        ?>
+                        <ul class="list-unstyled mt-4">
+                            <?php foreach ($incentives as $incentive): ?>
+                                <li class="d-flex align-items-center mb-4" style="color: #ff6600;">
+                                    <i style="font-size: x-large;margin-right: 20px;min-width:32px;text-align:center;"
+                                       class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
+                                    <?php echo $incentive['opt-link-incentives']; ?>
+                                </li>
+                            <?php endforeach; ?>
+                            <div>
+                        </ul>
+                    </div>
                     <div class="row mb-2 justify-content-start px-0 px-md-3 ">
                         <div class="mb-center col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start ">
                             <div class="rating-stars">
