@@ -96,14 +96,16 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                     </div>
                     <div class="col-lg-4 text-right px-lg-0<?= $loginClasses ?>">
                         <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                            <div class="floorplan-price">
-                                From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
-                            </div>
-                        <?php elseif (!empty($floorplans['opt-floorplans-price-to']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
+                            <?php elseif (!empty($floorplans['opt-floorplans-price-to']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
                             <div class="floorplan-price">
                                 From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
                                 To <span class="to-price"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
                             </div>
+                            <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                <div class="floorplan-price">
+                                    From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                </div>
+                            <?php endif; ?>
                         <?php endif; ?>
                         <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
                             <div>
