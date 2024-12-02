@@ -419,7 +419,7 @@ $property = new WP_Query($args);
                                                 <?php if (!empty($mdata_status['opt-parking-quantity'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Number of Parking : </span>
-                                                        <span class="value">$<?= $mdata_status['opt-parking-quantity'] ?></span>
+                                                        <span class="value"><?= $mdata_status['opt-parking-quantity'] ?></span>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
