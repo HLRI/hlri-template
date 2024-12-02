@@ -429,17 +429,36 @@ $propertyDetails = trim(sprintf(
                                             <div class="square-foot-wrap">
                                                 <div class="square-foot-title">Prices</div>
                                                 <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                                                    <div class="square-foot-item">
-                                                        <span class="name">Price (From) : </span>
-                                                        <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
-                                                    </div>
+                                                    <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price (From) : </span>
+                                                            <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                                        </div>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price (to) : </span>
+                                                            <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
+                                                        </div>
+                                                    <?php else : ?>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price (From) : </span>
+                                                            <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 <?php endif; ?>
-                                                <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
-                                                    <div class="square-foot-item">
-                                                        <span class="name">Price Per Sq.Ft : </span>
-<!--                                                        <span class="value">--><?php //= '$' . number_format($floorplans['opt-floorplans-price-per']) . '/sq.ft' ?><!--</span>-->
-                                                        <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
-                                                    </div>
+                                                <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
+
+                                                    <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price Per Sq.Ft : </span>
+                                                            <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                                        <div class="square-foot-item">
+                                                            <span class="name">Price Per Sq.Ft (to) : </span>
+                                                            <span class="value"><?= '$' . round(number_format($floorplans['opt-floorplans-price-to'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 <?php endif; ?>
                                                 <?php if (!empty($floorplans['opt-floorplans-mt-fees-per-month'])) : ?>
                                                     <div class="square-foot-item">
@@ -447,11 +466,11 @@ $propertyDetails = trim(sprintf(
                                                         <span class="value"><?= $floorplans['opt-floorplans-mt-fees-per-month'] ?></span>
                                                     </div>
                                                 <?php endif; ?>
-                                                <?php if($mdata_status['opt-parking-waitlist']) : ?>
-                                                <div class="square-foot-item">
-                                                    <span class="name">Parking : </span>
-                                                    <span class="value">Waitlist</span>
-                                                </div>
+                                                <?php if ($mdata_status['opt-parking-waitlist']) : ?>
+                                                    <div class="square-foot-item">
+                                                        <span class="name">Parking : </span>
+                                                        <span class="value">Waitlist</span>
+                                                    </div>
                                                 <?php elseif (!empty($mdata_status['opt-parking-price'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Parking : </span>
