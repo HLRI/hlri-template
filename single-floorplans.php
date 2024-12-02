@@ -289,7 +289,7 @@ $property = new WP_Query($args);
                                                                 <?php if (!empty($mdata_single['opt-developer'])) : ?>
                                                                     <?= strtoupper(get_the_title() . ' by ' . $mdata_single['opt-developer']) ?>
                                                                 <?php else : ?>
-                                                                    <?= strtoupper(get_the_title() . ' AVERAGE') ?>
+                                                                    <?= strtoupper(get_the_title() . ' AVERAGE jhkghjhg') ?>
                                                                 <?php endif; ?>
                                                             </div>
                                                         <?php
