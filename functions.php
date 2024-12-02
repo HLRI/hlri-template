@@ -277,10 +277,10 @@ add_action('remove_just_launched_properties_event', 'remove_just_launched_proper
 add_action('save_post', 'update_property_price_per_sqft_on_floorplan_edit', 10, 3);
 
 function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $update) {
-    dd($post_id);
     // Exit if this is an auto-save or a revision
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if ($post->post_type !== 'floorplan') return;
+    dd($post_id);
 
     // Get the associated property ID from the floorplan
     $associated_property_id = get_post_meta($post_id, 'associated_property', true);
