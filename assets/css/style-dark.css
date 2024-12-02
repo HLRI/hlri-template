@@ -3060,7 +3060,7 @@ label {
   color: #b19f91;
 }
 
-.floorplan-price .from-price {
+.floorplan-price .from-price,.floorplan-price .to-price {
   font-weight: bold;
   font-size: 28px;
 }
