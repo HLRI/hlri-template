@@ -239,9 +239,9 @@ function addOrdinalSuffix($number)
                                 $incentives = [];
                             }
                             ?>
-                            <ul class="list-unstyled mt-4 px-4" style="display: flex; gap: 20px; justify-content: center; align-items: center; width: 100%; padding: 0;">
+                            <ul class="list-unstyled mt-4 px-4" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; width: 100%; padding: 0;">
                                 <?php foreach ($incentives as $incentive): ?>
-                                    <li class="d-flex align-items-center mb-4" style="color: #ff6600; display: flex; align-items: center; justify-content: center;">
+                                    <li class="d-flex align-items-center mb-4" style="color: #ff6600; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 250px;">
                                         <i style="font-size: x-large; margin-right: 10px; min-width: 32px; text-align: center;" class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
                                         <span><?php echo $incentive['opt-link-incentives']; ?></span>
                                     </li>
@@ -249,6 +249,34 @@ function addOrdinalSuffix($number)
                             </ul>
                         </div>
                     </div>
+
+                    <style>
+                        /* Media Queries for responsive grid layout */
+                        @media (max-width: 1399px) {
+                            ul li {
+                                width: 23%; /* 4 items per row */
+                            }
+                        }
+
+                        @media (max-width: 1199px) {
+                            ul li {
+                                width: 30%; /* 3 items per row */
+                            }
+                        }
+
+                        @media (max-width: 999px) {
+                            ul li {
+                                width: 45%; /* 2 items per row */
+                            }
+                        }
+
+                        @media (max-width: 599px) {
+                            ul li {
+                                width: 90%; /* 1 item per row */
+                            }
+                        }
+                    </style>
+
 
 
 
