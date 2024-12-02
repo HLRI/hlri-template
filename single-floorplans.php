@@ -29,8 +29,39 @@ $args = array(
     'p' => $pid
 );
 $property = new WP_Query($args);
-
 ?>
+
+
+<?php
+// Initialize variables with data from $property and $floorplans
+$propertyName = !empty($property->post_title) ? $property->post_title : 'Unknown Property';
+$developerName = !empty($property->developer_name) ? $property->developer_name : '';
+$suiteName = !empty($floorplans['opt-floorplans-suite-name']) ? $floorplans['opt-floorplans-suite-name'] : '';
+$numberOfBeds = !empty($floorplans['opt-floorplans-beds']) ? $floorplans['opt-floorplans-beds'] : '';
+$numberOfBaths = !empty($floorplans['opt-floorplans-baths']) ? $floorplans['opt-floorplans-baths'] : '';
+
+// Handle empty developer, beds, or baths gracefully
+$developerText = $developerName ? " by $developerName" : '';
+$bedsText = $numberOfBeds ? "$numberOfBeds bed(s)" : '';
+$bathsText = $numberOfBaths ? "$numberOfBaths bath(s)" : '';
+
+// Combine into a single descriptive string
+$propertyDetails = trim(sprintf(
+    '%s%s | %s %s%s',
+    $propertyName,
+    $developerText,
+    $suiteName,
+    $bedsText,
+    $bathsText ? " & $bathsText" : ''
+));
+?>
+
+
+
+
+
+
+
     <div class="container-lg  px-lg-5 my-4">
         <div class="row">
             <div class="col-lg-9 px-4">
@@ -258,6 +289,8 @@ $property = new WP_Query($args);
                     <div class="col-12 px-lg-0">
                         <div id="accordion">
                             <div class="">
+                                <h4><?= $propertyDetails ?></h4>
+
                                 <div class="card-header p-0" id="headingOne">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link px-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
