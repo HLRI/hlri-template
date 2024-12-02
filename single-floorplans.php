@@ -331,7 +331,7 @@ $propertyDetails = trim(sprintf(
                                                 <div class="square-foot-head">THIS FLOOR PLAN</div>
                                                 <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
                                                     <div class="square-foot-price">
-                                                        <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                                        <span><?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></span>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
