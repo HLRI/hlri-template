@@ -405,7 +405,7 @@ $property = new WP_Query($args);
                                                         <span class="value">Waitlist</span>
                                                     </div>
                                                 <?php endif; ?>
-                                                dfdfffsdfdf
+                                                <?php dd($floorplans['opt-floorplans-locker']); ?>
                                                 <?php if (!empty($floorplans['opt-floorplans-locker'])) : ?>
                                                     <div class="square-foot-item">
                                                         <span class="name">Locker : </span>
