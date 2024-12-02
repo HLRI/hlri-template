@@ -48,7 +48,7 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
             <div class="col-lg-9 px-4">
 
                 <div class="row floorplan-header mb-4">
-                    <div class="col-lg-7 px-lg-0">
+                    <div class="col-lg-8 px-lg-0">
                         <?php
                         if (isset($property) && $property->have_posts()) :
                             while ($property->have_posts()) :
@@ -98,7 +98,7 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-5 text-right px-lg-0<?= $loginClasses ?>">
+                    <div class="col-lg-4 text-right px-lg-0<?= $loginClasses ?>">
                         <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
                             <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
                                 <div class="floorplan-price">
