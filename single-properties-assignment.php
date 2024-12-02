@@ -239,9 +239,9 @@ function addOrdinalSuffix($number)
                                 $incentives = [];
                             }
                             ?>
-                            <ul class="list-unstyled mt-4 px-4" style="display: flex; gap: 20px; justify-content: center; align-items: center; width: 100%; padding: 0; flex-wrap: wrap;">
+                            <ul class="list-unstyled mt-4 px-4" style="display: flex; gap: 20px; justify-content: center; align-items: center; width: 100%; padding: 0;">
                                 <?php foreach ($incentives as $incentive): ?>
-                                    <li class="d-flex align-items-center mb-4" style="color: #ff6600; display: flex; align-items: center; justify-content: center; flex: 1 1 45%; box-sizing: border-box;">
+                                    <li class="d-flex align-items-center mb-4" style="color: #ff6600; display: flex; align-items: center; justify-content: center;">
                                         <i style="font-size: x-large; margin-right: 10px; min-width: 32px; text-align: center;" class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
                                         <span><?php echo $incentive['opt-link-incentives']; ?></span>
                                     </li>
@@ -249,25 +249,6 @@ function addOrdinalSuffix($number)
                             </ul>
                         </div>
                     </div>
-
-                    <!-- Add the following CSS for responsiveness -->
-                    <style>
-                        @media (max-width: 768px) {
-                            .list-unstyled {
-                                gap: 10px; /* Reduce the gap on smaller screens */
-                            }
-
-                            .list-unstyled li {
-                                flex: 1 1 48%; /* Allow items to take up 48% of the width (2 items per row) */
-                            }
-                        }
-
-                        @media (max-width: 480px) {
-                            .list-unstyled li {
-                                flex: 1 1 100%; /* On very small screens, take full width */
-                            }
-                        }
-                    </style>
 
 
 
