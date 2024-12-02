@@ -385,7 +385,7 @@ if ( is_user_logged_in() ) {
                     <?php foreach ($incentives as $incentive): ?>
                         <li class="d-flex align-items-center mb-4" style="color: #ff6600;">
                             <i style="font-size: x-large;margin-right: 20px;min-width:32px;text-align:center;" class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
-                            <?php echo htmlspecialchars($incentive['opt-link-incentives']); ?>
+                            <?php echo $incentive['opt-link-incentives']; ?>
                         </li>
                     <?php endforeach; ?>
                     <div>
