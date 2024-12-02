@@ -107,17 +107,17 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                 </div>
                             <?php endif; ?>
                         <?php endif; ?>
-                        <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
-                            <div>
-                                <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
-                            </div>
+                        <?php if (!empty($floorplans['opt-floorplans-interior-size'])) : ?>
+                            <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
+                                <div>
+                                    <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                    <?php if (!empty($floorplans['opt-floorplans-price-to'])) : ?>
+                                            to <?= '$' . round(number_format($floorplans['opt-floorplans-price-to'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
                         <?php endif; ?>
 
-                        <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-to'])) : ?>
-                            <div>
-                                to <?= '$' . round(number_format($floorplans['opt-floorplans-price-to'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
-                            </div>
-                        <?php endif; ?>
 
                     </div>
                 </div>
