@@ -95,18 +95,15 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                         </div>
                     </div>
                     <div class="col-lg-4 text-right px-lg-0<?= $loginClasses ?>">
-                        <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                            <?php elseif (!empty($floorplans['opt-floorplans-price-to']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
+                        <?php if (isset($floorplans['opt-floorplans-price-from']) && is_numeric($floorplans['opt-floorplans-price-from'])) : ?>
                             <div class="floorplan-price">
                                 From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
-                                To <span class="to-price"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
+                                <?php if (isset($floorplans['opt-floorplans-price-to']) && is_numeric($floorplans['opt-floorplans-price-to'])) : ?>
+                                    To <span class="to-price"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
+                                <?php endif; ?>
                             </div>
-                            <?php if (!empty($floorplans['opt-floorplans-price-from'])) : ?>
-                                <div class="floorplan-price">
-                                    From <span class="from-price"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
-                                </div>
-                            <?php endif; ?>
                         <?php endif; ?>
+
                         <?php if (!empty($floorplans['opt-floorplans-interior-size']) && !empty($floorplans['opt-floorplans-price-from'])) : ?>
                             <div>
                                 <?= '$' . round(number_format($floorplans['opt-floorplans-price-from'], 2, '.', '') / number_format($floorplans['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?>
