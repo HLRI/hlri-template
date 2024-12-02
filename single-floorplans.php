@@ -409,7 +409,9 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                                                 <div class="square-foot-item">
                                                                 <span class="name">Price (From) : </span>
                                                                     <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-from']) ?></span>
-                                                                    <span class="name">Price (to) : </span>
+                                                                </div>
+                                                                <div class="square-foot-item">
+                                                                <span class="name">Price (to) : </span>
                                                                     <span class="value"><?= '$' . number_format($floorplans['opt-floorplans-price-to']) ?></span>
                                                                 </div>
                                                             <?php else : ?>
