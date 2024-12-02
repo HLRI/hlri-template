@@ -298,7 +298,7 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
             )
         )
     ));
-
+dd($associated_floorplans);
     $totalFloors = [];
     foreach ($associated_floorplans as $floorplan_id) {
         $floorplans = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
