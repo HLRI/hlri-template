@@ -272,7 +272,6 @@ function addOrdinalSuffix($number)
                         /* Custom styling for the icon */
                         .custom-icon {
                             font-size: 2rem;
-                            margin-right: 10px;
                             min-width: 32px;
                             text-align: center;
                         }
