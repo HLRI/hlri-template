@@ -295,7 +295,6 @@ function custom_render_associated_floorplans() {
 
 
 
-
 function modify_floorplans_permalink($permalink, $post) {
     if ($post->post_type === 'floorplans') {
         // Retrieve the associated property ID from meta
@@ -304,13 +303,16 @@ function modify_floorplans_permalink($permalink, $post) {
         // Get the associated property slug (post_name)
         $property_slug = get_post_field('post_name', $associated_property_id);
 
-        // Construct the custom permalink
+        // Use the floorplan slug
+        $floorplan_slug = $post->post_name;
+
+        // Construct the custom permalink for the frontend
         if ($property_slug) {
-            return home_url("/properties/$property_slug/floorplans/{$post->post_name}/");
+            return home_url("/properties/$property_slug/floorplans/$floorplan_slug/");
         }
     }
 
-    return $permalink; // Fallback to default permalink if no associated property
+    return $permalink; // Return default if no associated property
 }
 add_filter('post_type_link', 'modify_floorplans_permalink', 10, 2);
 
@@ -323,15 +325,13 @@ function add_floorplans_rewrite_rules() {
 }
 add_action('init', 'add_floorplans_rewrite_rules');
 
-
 function flush_floorplans_rewrite_rules() {
     add_floorplans_rewrite_rules();
     flush_rewrite_rules();
 }
 register_activation_hook(__FILE__, 'flush_floorplans_rewrite_rules');
 
-
-// Display custom permalink in the backend
+// Display the full permalink in the admin post edit page
 function custom_edit_floorplan_permalink($post) {
     if ($post->post_type === 'floorplans') {
         // Retrieve the associated property ID from meta
@@ -340,11 +340,11 @@ function custom_edit_floorplan_permalink($post) {
         // Get the associated property slug (post_name)
         $property_slug = get_post_field('post_name', $associated_property_id);
 
-        // Construct the full permalink
+        // Construct the full permalink for the frontend
         if ($property_slug) {
             $full_permalink = home_url("/properties/$property_slug/floorplans/{$post->post_name}/");
         } else {
-            $full_permalink = get_permalink($post->ID);  // Default permalink if no associated property
+            $full_permalink = get_permalink($post->ID); // Default URL if no associated property
         }
 
         // Display the full permalink in the admin
@@ -355,6 +355,8 @@ function custom_edit_floorplan_permalink($post) {
 }
 add_action('edit_form_advanced', 'custom_edit_floorplan_permalink');
 add_action('edit_form_top', 'custom_edit_floorplan_permalink');
+
+
 
 
 
