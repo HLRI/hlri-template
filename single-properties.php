@@ -530,7 +530,7 @@ if (is_user_logged_in()) {
             <?php endif; ?>
             <div class="container-fluid px-lg-5 mb-4">
                 <!-- Development Detail -->
-                <div class="row border-top  mt-5 mb-4" id="development-detail">
+                <div class="row border-top pt-4 mt-5 mb-4" id="development-detail">
                     <div class="col-12">
                         <div class="titr-list ml-0">
                             <h3 class="font-weight-bold">Development Details</h3>
