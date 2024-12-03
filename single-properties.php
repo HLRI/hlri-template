@@ -530,13 +530,96 @@ if (is_user_logged_in()) {
             <?php endif; ?>
             <div class="container-fluid px-lg-5 mb-4">
                 <!-- Development Detail -->
-                    <div class="row border-top  mt-5 mb-4" id="development-detail">
-                        <div class="col-12">
-                            <div class="titr-list ml-0">
-                                <h3 class="font-weight-bold">Development Details</h3>
+                <div class="row border-top  mt-5 mb-4" id="development-detail">
+                    <div class="col-12">
+                        <div class="titr-list ml-0">
+                            <h3 class="font-weight-bold">Development Details</h3>
+                        </div>
+                    </div>
+                    <?php if (!empty($data['opt-floors'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Number of Storeys
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-floors'] ?>
+                                </div>
                             </div>
                         </div>
-    <?php if (!empty($psd['developments'])) : ?>
+                    <?php endif; ?>
+                    <?php if (!empty($data['opt-suites'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Total Number of Suites
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-suites'] ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card-developments">
+                            <div class="card-developments-title">
+                                Est. Building Size
+                            </div>
+                            <div class="card-developments-content">
+                                <?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?><?php echo $data['opt-size-max'] ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php if (!empty($data['opt-architect'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Architects
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-architect'] ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($data['opt-interior-designer'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Architects
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-interior-designer'] ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($data['opt-occupancy']) || !empty($data['opt-occupancy-time-period'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Est. Occupancy
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
+                                    echo $occupancyOp . $data['opt-occupancy']; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($data['opt-sales-type']) || !empty($data['opt-type'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Building Type
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($psd['developments'])) : ?>
                         <?php foreach ($psd['developments'] as $development) : ?>
                             <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                                 <div class="card-developments">
@@ -549,9 +632,9 @@ if (is_user_logged_in()) {
                                 </div>
                             </div>
                         <?php endforeach; ?>
-    <?php endif; ?>
+                    <?php endif; ?>
 
-                    </div>
+                </div>
 
                 <?php if (!empty($psd['price_images'])) : ?>
                     <div class="row mt-5 border-top  mb-4" id="PriceList">
