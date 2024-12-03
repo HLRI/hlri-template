@@ -26,17 +26,18 @@ if (is_user_logged_in()) {
                 <div class="p-0 position-relative">
 
                     <div class="excerpt-top d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                            <?php if (!empty($psd['properties_logo']['url'])) : ?>
-                                <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
-                                     style="max-width:200px;max-height:200px;"
-                                     class="hide-on-sm project-logo-top w-auto rounded mr-4"
-                                     alt="<?= $psd['properties_logo']['url'] ?>"/>
-                            <?php elseif (!empty($psd['thumbnail_url'])) : ?>
-                                <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="hide-on-sm w-auto rounded mr-4"
-                                     alt="<?= $psd['thumbnail_caption'] ?>"/>
-                            <?php else : ?>
-                                <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
-                            <?php endif; ?>
+                        <?php if (!empty($psd['properties_logo']['url'])) : ?>
+                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
+                                 style="max-width:200px;max-height:200px;"
+                                 class="hide-on-sm project-logo-top w-auto rounded mr-4"
+                                 alt="<?= $psd['properties_logo']['url'] ?>"/>
+                        <?php elseif (!empty($psd['thumbnail_url'])) : ?>
+                            <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy"
+                                 class="hide-on-sm w-auto rounded mr-4"
+                                 alt="<?= $psd['thumbnail_caption'] ?>"/>
+                        <?php else : ?>
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                        <?php endif; ?>
                         <div class="container-fluid">
                             <div class="show-on-sm col-sm-12" style="display:none;">
                                 <?php if (!empty($psd['properties_logo']['url'])) : ?>
@@ -266,10 +267,12 @@ if (is_user_logged_in()) {
                                 align-items: unset !important;
                             }
                         }
+
                         @media screen and (max-width: 1300px) {
                             .hide-on-sm {
                                 display: none !important;
                             }
+
                             .show-on-sm {
                                 display: block !important;
                             }
@@ -546,6 +549,91 @@ if (is_user_logged_in()) {
                                 </div>
                             </div>
                         <?php endforeach; ?>
+
+
+                        <div class="col-12">
+                            <div class="titr-list ml-0">
+                                <h3 class="font-weight-bold">Development Details</h3>
+                            </div>
+                        </div>
+                        <?php if (!empty($data['opt-floors'])) : ?>
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card-developments">
+                                    <div class="card-developments-title">
+                                        Number of Storeys
+                                    </div>
+                                    <div class="card-developments-content">
+                                        <?php echo $data['opt-floors'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($data['opt-suites'])) : ?>
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card-developments">
+                                    <div class="card-developments-title">
+                                        Total Number of Suites
+                                    </div>
+                                    <div class="card-developments-content">
+                                        <?php echo $data['opt-suites'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card-developments">
+                                    <div class="card-developments-title">
+                                        Est. Building Size
+                                    </div>
+                                    <div class="card-developments-content">
+                                        <?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?><?php echo $data['opt-size-max'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php if (!empty($data['opt-architect'])) : ?>
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card-developments">
+                                    <div class="card-developments-title">
+                                        Architects
+                                    </div>
+                                    <div class="card-developments-content">
+                                        <?php echo($data['opt-architect'] != "" ? $data['opt-architect'] . " - " : 'TBA '); ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Est. Occupancy
+                                </div>
+                                <div class="card-developments-content">
+                                    Move-In Ready
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    VIP Launch
+                                </div>
+                                <div class="card-developments-content">
+                                    Now
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Building Type
+                                </div>
+                                <div class="card-developments-content">
+                                    Town &amp; Single
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 <?php endif; ?>
 
