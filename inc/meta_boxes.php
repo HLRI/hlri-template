@@ -331,14 +331,6 @@ add_action('init', 'add_floorplans_rewrite_rules');
 
 
 
-function flush_floorplans_rewrite_rules() {
-    add_floorplans_rewrite_rules();
-    flush_rewrite_rules();
-}
-add_action('init', 'flush_floorplans_rewrite_rules');
-
-
-
 
 
 
