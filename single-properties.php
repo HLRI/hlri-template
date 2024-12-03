@@ -252,11 +252,11 @@ if (is_user_logged_in()) {
                                 align-items: unset !important;
                             }
                         }
-                        @media screen and (max-width: 300px) {
+                        @media screen and (max-width: 500px) {
                             .site-logo {
                                 max-width: 100px;
                             }
-                            .excerpt-top img{display:none;}
+                            .excerpt-top img{display:none !important;}
                         }
                     </style>
 
