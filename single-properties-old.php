@@ -467,7 +467,7 @@ $data = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                     <h4 class="font-weight-bold h3">Browse more Floor Plans</h4>
                                 </div>
                                 <div class="col-12">
-                                    <div class="btn-group submitter-group float-left">
+                                    <div class="btn-group submitter-group float-left mb-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text btn-status-floorplan">Status</div>
                                         </div>
