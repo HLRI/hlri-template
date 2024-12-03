@@ -763,7 +763,9 @@ if (is_user_logged_in()) {
                                 <?php foreach ($galleries as $index => $gallery_items): ?>
                                     <div class="col-12 col-md-12 justify-content-center align-items-center p-0 px-4"
                                          id="Gallery-<?php echo $index; ?>">
-                                        <h3 class="titr-list ml-0 mt-5 font-weight-bold"><?php echo htmlspecialchars($titles[$index] ?? 'Gallery ' . ($index + 1)); ?></h3>
+                                        <div class="titr-list ml-0">
+                                            <h3 class="font-weight-bold"><?php echo htmlspecialchars($titles[$index] ?? 'Gallery ' . ($index + 1)); ?></h3>
+                                        </div>
                                         <div class="vrmedia-gallery">
                                             <ul class="ecommerce-gallery-<?php echo $index; ?>">
                                                 <?php foreach ($gallery_items as $item): ?>
