@@ -64,21 +64,28 @@ if (is_user_logged_in()) {
 
                             <script>
                                 function getRandomColor() {
-                                    // Generates a random color in hex format
-                                    const letters = '0123456789ABCDEF';
-                                    let color = '#';
-                                    for (let i = 0; i < 6; i++) {
-                                        color += letters[Math.floor(Math.random() * 16)];
-                                    }
-                                    return color;
+                                    // List of specific colors
+                                    const colors = [
+                                        'rgb(244, 209, 177)',
+                                        'rgb(170, 175, 191)',
+                                        'rgb(247, 217, 50)',
+                                        'rgb(221, 219, 233)',
+                                        'rgb(211, 198, 188)',
+                                        'rgb(223, 164, 113)'
+                                    ];
+
+                                    // Get a random color from the list
+                                    const randomIndex = Math.floor(Math.random() * colors.length);
+                                    return colors[randomIndex];
                                 }
 
                                 function changeBackgroundColor(element) {
-                                    element.style.backgroundColor = getRandomColor(); // Change to a random color
+                                    element.style.backgroundColor = getRandomColor(); // Change to a random color from the list
                                     element.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
                                     element.style.transform = 'scale(1.05)';
                                 }
                             </script>
+
 
 
 
