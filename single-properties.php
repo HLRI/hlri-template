@@ -628,7 +628,6 @@ if (is_user_logged_in()) {
                         </div>
                     <?php endif; ?>
 
-                    <?php endif; ?>
 
                     <?php if (!empty($data['opt-sales-type']) || !empty($data['opt-type'])) : ?>
 
