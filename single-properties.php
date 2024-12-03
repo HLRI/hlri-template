@@ -740,7 +740,7 @@ if (is_user_logged_in()) {
                         }
                         ?>
                         <div class="row">
-                            <div class="col-12 px-lg-0 px-4">
+                            <div class="col-12 px-4">
                                 <script>
                                     jQuery(document).ready(function ($) {
                                         <?php foreach ($galleries as $index => $gallery): ?>
