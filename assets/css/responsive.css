@@ -6,6 +6,8 @@
 .excerpt-top img{display:none;}
 }
   @media (min-width: 280px) and (max-width: 319px) {
+    .excerpt-top img{display:none;}
+
     .wrap-logo-menu{
       display:flex;
     }
