@@ -243,60 +243,6 @@ function custom_render_associated_floorplans() {
 
 
 
-///*==================================================================================*/
-//
-//// Modify the floorplans query to include the associated property
-//function custom_modify_floorplans_query( $query ) {
-//    if ( ! is_admin() || ! $query->is_main_query() ) {
-//        return;
-//    }
-//
-//    if ( $query->get( 'post_type' ) === 'floorplans' ) {
-//        $query->set( 'rewrite', array( 'slug' => 'properties', 'with_front' => false ) );
-//    }
-//}
-//add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
-//
-///*==================================================================================*/
-//
-//// Modify the floorplans permalink structure
-//function custom_modify_floorplans_permalink($permalink, $post) {
-//    if ($post->post_type === 'floorplans') {
-//        $associated_property = get_post_meta($post->ID, 'associated_property', true);
-//        $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
-//        $floorplan_slug = $post->post_name;
-//
-//        $permalink = home_url("/properties/$property_name/floorplans/$floorplan_slug/");
-//    }
-//
-//    return $permalink;
-//}
-//add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
-////hgj
-//
-///*==================================================================================*/
-//
-//// Register additional rewrite rules for the modified floorplans permalink structure
-//function custom_add_rewrite_rules() {
-//    add_rewrite_rule( '^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top' );
-//}
-//add_action( 'init', 'custom_add_rewrite_rules' );
-//
-///*==================================================================================*/
-//
-//// Flush rewrite rules when the associated property is saved or updated
-//function custom_flush_rewrite_rules() {
-//    flush_rewrite_rules();
-//}
-//add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
-//add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
-//
-///*==================================================================================*/
-
-
-
-
-
 /*==================================================================================*/
 
 // Modify the floorplans query to include the associated property
@@ -326,6 +272,7 @@ function custom_modify_floorplans_permalink($permalink, $post) {
     return $permalink;
 }
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
+//hgj
 
 /*==================================================================================*/
 
@@ -346,26 +293,74 @@ add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
 
-// Ensure the default edit button still works for the modified floorplans permalink
-function custom_get_edit_post_link( $link, $post_id ) {
-    $post = get_post( $post_id );
 
-    // Check if the post is a floorplan and modify the edit link if needed
-    if ( 'floorplans' === $post->post_type ) {
-        $associated_property = get_post_meta($post->ID, 'associated_property', true);
-        $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
-        $floorplan_slug = $post->post_name;
 
-        // Custom edit URL based on the modified permalink
-        $link = home_url("/properties/$property_name/floorplans/$floorplan_slug/edit");
+
+
+
+
+
+/*==================================================================================*/
+
+// Add a custom metabox to edit the slug for published floorplans
+function custom_add_slug_metabox() {
+    add_meta_box(
+        'floorplan_slug_metabox', // ID of the metabox
+        'Edit Floorplan Slug',     // Title of the metabox
+        'custom_slug_metabox_html', // Callback function to display the HTML
+        'floorplans',              // Post type where the metabox will appear
+        'side',                    // Position of the metabox
+        'high'                     // Priority of the metabox
+    );
+}
+add_action( 'add_meta_boxes', 'custom_add_slug_metabox' );
+
+/*==================================================================================*/
+
+// Callback function to display the HTML for the custom slug field in the metabox
+function custom_slug_metabox_html( $post ) {
+    // Check if the post is published
+    if ( 'publish' === get_post_status( $post ) ) {
+        // Get the current slug
+        $current_slug = $post->post_name;
+        ?>
+        <label for="floorplan_slug">Slug:</label>
+        <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr( $current_slug ); ?>" class="widefat">
+        <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>
+        <?php
+    } else {
+        echo '<p>This floorplan must be published to edit the slug.</p>';
+    }
+}
+
+/*==================================================================================*/
+
+// Save the updated slug when the post is updated
+function custom_save_slug_metabox( $post_id ) {
+    // Check if the post is being autosaved or not a 'floorplans' post
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id;
+    if ( 'floorplans' !== get_post_type( $post_id ) ) return $post_id;
+
+    // Check if the post is published
+    if ( 'publish' === get_post_status( $post_id ) ) {
+        // Get the new slug from the metabox
+        if ( isset( $_POST['floorplan_slug'] ) ) {
+            $new_slug = sanitize_text_field( $_POST['floorplan_slug'] );
+
+            // Update the post's slug if it's different
+            if ( $new_slug !== get_post_field( 'post_name', $post_id ) ) {
+                // Update the post's slug (post_name)
+                wp_update_post( array(
+                    'ID' => $post_id,
+                    'post_name' => $new_slug
+                ) );
+            }
+        }
     }
 
-    return $link;
+    return $post_id;
 }
-add_filter( 'get_edit_post_link', 'custom_get_edit_post_link', 10, 2 );
-
-
-
+add_action( 'save_post', 'custom_save_slug_metabox' );
 
 
 
