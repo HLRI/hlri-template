@@ -531,128 +531,139 @@ if (is_user_logged_in()) {
             <div class="container-fluid px-lg-5 mb-4">
                 <!-- Development Detail -->
                 <?php if (!empty($psd['developments'])) : ?>
-                    <div class="row border-top  mt-5 mb-4" id="development-detail">
-                        <div class="col-12">
-                            <div class="titr-list ml-0">
-                                <h3 class="font-weight-bold">Development Details</h3>
+                <div class="row border-top  mt-5 mb-4" id="development-detail">
+                    <div class="col-12">
+                        <div class="titr-list ml-0">
+                            <h3 class="font-weight-bold">Development Details</h3>
+                        </div>
+                    </div>
+                    <?php foreach ($psd['developments'] as $development) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    <?= $development['opt-development-details-title'] ?>
+                                </div>
+                                <div class="card-developments-content">
+                                    <?= $development['opt-development-details-content'] ?>
+                                </div>
                             </div>
                         </div>
-                        <?php foreach ($psd['developments'] as $development) : ?>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                <div class="card-developments">
-                                    <div class="card-developments-title">
-                                        <?= $development['opt-development-details-title'] ?>
-                                    </div>
-                                    <div class="card-developments-content">
-                                        <?= $development['opt-development-details-content'] ?>
-                                    </div>
+                    <?php endforeach; ?>
+
+
+                    <div class="col-12">
+                        <div class="titr-list ml-0">
+                            <h3 class="font-weight-bold">Development Details</h3>
+                        </div>
+                    </div>
+                    <?php if (!empty($data['opt-floors'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Number of Storeys
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
-
-
-                        <div class="col-12">
-                            <div class="titr-list ml-0">
-                                <h3 class="font-weight-bold">Development Details</h3>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-floors'] ?>
+                                </div>
                             </div>
                         </div>
-                        <?php if (!empty($data['opt-floors'])) : ?>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                <div class="card-developments">
-                                    <div class="card-developments-title">
-                                        Number of Storeys
-                                    </div>
-                                    <div class="card-developments-content">
-                                        <?php echo $data['opt-floors'] ?>
-                                    </div>
+                    <?php endif; ?>
+                    <?php if (!empty($data['opt-suites'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Total Number of Suites
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-suites'] ?>
                                 </div>
                             </div>
-                        <?php endif; ?>
-                        <?php if (!empty($data['opt-suites'])) : ?>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                <div class="card-developments">
-                                    <div class="card-developments-title">
-                                        Total Number of Suites
-                                    </div>
-                                    <div class="card-developments-content">
-                                        <?php echo $data['opt-suites'] ?>
-                                    </div>
+                        </div>
+                    <?php endif; ?>
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card-developments">
+                            <div class="card-developments-title">
+                                Est. Building Size
+                            </div>
+                            <div class="card-developments-content">
+                                <?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?><?php echo $data['opt-size-max'] ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php if (!empty($data['opt-architect'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Architects
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-architect'] ?>
                                 </div>
                             </div>
-                        <?php endif; ?>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                <div class="card-developments">
-                                    <div class="card-developments-title">
-                                        Est. Building Size
-                                    </div>
-                                    <div class="card-developments-content">
-                                        <?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?><?php echo $data['opt-size-max'] ?>
-                                    </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($data['opt-interior-designer'])) : ?>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card-developments">
+                                <div class="card-developments-title">
+                                    Architects
+                                </div>
+                                <div class="card-developments-content">
+                                    <?php echo $data['opt-interior-designer'] ?>
                                 </div>
                             </div>
-                        <?php if (!empty($data['opt-architect'])) : ?>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                <div class="card-developments">
-                                    <div class="card-developments-title">
-                                        Architects
-                                    </div>
-                                    <div class="card-developments-content">
-                                        <?php echo($data['opt-architect'] != "" ? $data['opt-architect'] . " - " : 'TBA '); ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($data['opt-occupancy']) || !empty($data['opt-occupancy-time-period'])) : ?>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                             <div class="card-developments">
                                 <div class="card-developments-title">
                                     Est. Occupancy
                                 </div>
                                 <div class="card-developments-content">
-                                    Move-In Ready
+                                    <?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
+                                    echo $occupancyOp . $data['opt-occupancy']; ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                            <div class="card-developments">
-                                <div class="card-developments-title">
-                                    VIP Launch
-                                </div>
-                                <div class="card-developments-content">
-                                    Now
-                                </div>
-                            </div>
-                        </div>
+                    <?php endif; ?>
+
+                    <?php endif; ?>
+
+                    <?php if (!empty($data['opt-sales-type']) || !empty($data['opt-type'])) : ?>
+
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                             <div class="card-developments">
                                 <div class="card-developments-title">
                                     Building Type
                                 </div>
                                 <div class="card-developments-content">
-                                    Town &amp; Single
+                                    <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
                                 </div>
                             </div>
                         </div>
+                    <?php endif; ?>
 
 
-                    </div>
+                </div>
                 <?php endif; ?>
 
                 <?php if (!empty($psd['price_images'])) : ?>
-                    <div class="row mt-5 border-top  mb-4" id="PriceList">
-                        <div class="col-12">
-                            <div class="titr-list ml-0">
-                                <h3 class="font-weight-bold">Price List</h3>
+                <div class="row mt-5 border-top  mb-4" id="PriceList">
+                    <div class="col-12">
+                        <div class="titr-list ml-0">
+                            <h3 class="font-weight-bold">Price List</h3>
+                        </div>
+                    </div>
+                    <?php foreach ($psd['price_images'] as $image) : ?>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                            <div class="image-price">
+                                <img loading="lazy" src="<?= $image['opt-price-list-image']['url'] ?>"
+                                     alt="<?= $image['opt-price-list-image']['alt'] ?>">
                             </div>
                         </div>
-                        <?php foreach ($psd['price_images'] as $image) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
-                                <div class="image-price">
-                                    <img loading="lazy" src="<?= $image['opt-price-list-image']['url'] ?>"
-                                         alt="<?= $image['opt-price-list-image']['alt'] ?>">
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                    <?php endforeach; ?>
+                </div>
                 <?php endif; ?>
 
 
@@ -793,30 +804,30 @@ if (is_user_logged_in()) {
 
 
                 <?php if (!empty($floorplans_ids[0])) : ?>
-                    <div class="row border-top  my-4">
-                        <div class="col-12">
-                            <div class="titr-list ml-0">
-                                <h3 class="font-weight-bold">Floor Plans</h3>
-                            </div>
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row px-4">
-                                <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
-                                    <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
-                                        <div class="card-floolplan">
-                                            <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>"
-                                               title="<?= wp_get_attachment_caption($floorplans_item_id) ?>"
-                                               data-lightbox="roadtrip">
-                                                <img loading="lazy" class="img-floorplan"
-                                                     src="<?= wp_get_attachment_url($floorplans_item_id) ?>"
-                                                     alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
-                                            </a>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
+                <div class="row border-top  my-4">
+                    <div class="col-12">
+                        <div class="titr-list ml-0">
+                            <h3 class="font-weight-bold">Floor Plans</h3>
                         </div>
                     </div>
+                    <div class="container-fluid">
+                        <div class="row px-4">
+                            <?php foreach ($floorplans_ids as $floorplans_item_id) : ?>
+                                <div class="col-3 col-sm-2 col-md-2 col-lg-1 px-2 mb-4">
+                                    <div class="card-floolplan">
+                                        <a href="<?= wp_get_attachment_url($floorplans_item_id) ?>"
+                                           title="<?= wp_get_attachment_caption($floorplans_item_id) ?>"
+                                           data-lightbox="roadtrip">
+                                            <img loading="lazy" class="img-floorplan"
+                                                 src="<?= wp_get_attachment_url($floorplans_item_id) ?>"
+                                                 alt="<?= wp_get_attachment_caption($floorplans_item_id) ?>">
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
                 <?php endif; ?>
 
                 <div class="top-48"
@@ -839,41 +850,16 @@ if (is_user_logged_in()) {
                     //                                        ?>
                 </div>
                 <?php if ($associated_floorplans->have_posts()) : ?>
-                    <div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
-                        <div class="content">
-                            <div class="row mb-lg-4 mb-2">
-                                <div class="col-12 mb-4">
-                                    <h4 class="font-weight-bold h3">Browse more <?= $psd['title'] ?> Floor Plans</h4>
-                                </div>
-                                <div class="col-12">
-                                    <div class="btn-group submitter-group float-left mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text btn-status-floorplan">Status</div>
-                                        </div>
-                                        <select class="form-control status-dropdown">
-                                            <option value="">All</option>
-                                            <option value="Sold Out">Sold Out</option>
-                                            <option value="Available">Available</option>
-                                        </select>
-                                    </div>
-                                    <div class="btn-group submitter-group float-right">
-                                        <a style="padding: 5px 10px;border: 0px;background: #f1642c;color: white;border-radius: 4px;"
-                                           href="#register">Register Now to get full package
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-8">
-                                <div class="filter-wrapper">
-                                    <input type="checkbox" class="filter-checkbox" value="Software Engineer" /> Software Engineer
-                                    <input type="checkbox" class="filter-checkbox" value="Accountant" /> Accountant
-                                    <input type="checkbox" class="filter-checkbox" value="Sales Assistant" /> Sales Assistant
-                                    <input type="checkbox" class="filter-checkbox" value="Developer" /> Developer
-                                </div>
+                <div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
+                    <div class="content">
+                        <div class="row mb-lg-4 mb-2">
+                            <div class="col-12 mb-4">
+                                <h4 class="font-weight-bold h3">Browse more <?= $psd['title'] ?> Floor Plans</h4>
                             </div>
-                            <div class="col-4">
-                                <div class="btn-group submitter-group float-right">
+                            <div class="col-12">
+                                <div class="btn-group submitter-group float-left mb-2">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text">Status</div>
+                                        <div class="input-group-text btn-status-floorplan">Status</div>
                                     </div>
                                     <select class="form-control status-dropdown">
                                         <option value="">All</option>
@@ -881,94 +867,119 @@ if (is_user_logged_in()) {
                                         <option value="Available">Available</option>
                                     </select>
                                 </div>
-                            </div> -->
+                                <div class="btn-group submitter-group float-right">
+                                    <a style="padding: 5px 10px;border: 0px;background: #f1642c;color: white;border-radius: 4px;"
+                                       href="#register">Register Now to get full package
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- <div class="col-8">
+                            <div class="filter-wrapper">
+                                <input type="checkbox" class="filter-checkbox" value="Software Engineer" /> Software Engineer
+                                <input type="checkbox" class="filter-checkbox" value="Accountant" /> Accountant
+                                <input type="checkbox" class="filter-checkbox" value="Sales Assistant" /> Sales Assistant
+                                <input type="checkbox" class="filter-checkbox" value="Developer" /> Developer
                             </div>
                         </div>
-                        <div class="card-form py-4">
-                            <div class="table-responsive">
-                                <table id="example" class="table pt-4">
-                                    <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Suite Name</th>
-                                        <th>Suite Type</th>
-                                        <th>Size</th>
-                                        <th>View</th>
-                                        <th>Price</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    $row_index = 0; // Initialize a counter for rows
-
-                                    while ($associated_floorplans->have_posts()) :
-                                        $associated_floorplans->the_post();
-                                        $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
-                                        $row_index++; // Increment the row index
-                                        ?>
-                                        <tr <?php echo ($row_index >= 4) ? 'class="' . $loginClasses . '"' : ''; ?>>
-                                            <td>
-                                                <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
-                                                <div class="wrap-head-floorplan">
-                                                    <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
-                                                    <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
-                                                </div>
-                                            </td>
-                                            <td><?= $floor['opt-floorplans-suite-name'] ?></td>
-                                            <td>
-                                                <?php if (!empty($floor['opt-studio']) and ($floor['opt-studio'] == 1)) : ?>
-                                                    Studio
-                                                <?php endif; ?>
-                                                <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
-                                                    <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
-                                                <?php else : ?>
-                                                    <?php if (!empty($floor['opt-floorplans-baths'])) : ?>
-                                                        <?= ', ' . $floor['opt-floorplans-baths'] . ' Bath' ?>
-                                                    <?php else : ?>
-                                                        <?php if (empty($floor['opt-studio'])) : ?>
-                                                            -
-                                                        <?php endif; ?>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td>
-                                                <?php if (!empty($floor['opt-floorplans-size'])) : ?>
-                                                    <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
-                                                <?php else : ?>
-                                                    -
-                                                <?php endif; ?>
-                                            </td>
-                                            <td><?= $floor['opt-floorplans-view'] ?></td>
-                                            <td>
-                                                <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
-                                                    <div class="font-weight-bold">
-                                                        <?php if (!empty($floor['opt-floorplans-price-to'])) : ?>
-                                                            <span style="font-size: x-small;">from </span>
-                                                        <?php endif; ?>
-                                                        <?= '$' . number_format($floor['opt-floorplans-price-from']) ?>
-                                                    </div>
-                                                <?php else : ?>
-                                                    -
-                                                <?php endif; ?>
-
-                                                <?php if (!empty($floor['opt-floorplans-interior-size']) && !empty($floor['opt-floorplans-price-from'])) : ?>
-                                                    <small><?= '$' . round(number_format($floor['opt-floorplans-price-from'], 2, '.', '') / number_format($floor['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></small>
-                                                <?php else : ?>
-                                                    -
-                                                <?php endif; ?>
-                                            </td>
-                                            <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
-                                        </tr>
-                                    <?php
-                                    endwhile;
-                                    wp_reset_postdata();
-                                    ?>
-                                    </tbody>
-                                </table>
+                        <div class="col-4">
+                            <div class="btn-group submitter-group float-right">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Status</div>
+                                </div>
+                                <select class="form-control status-dropdown">
+                                    <option value="">All</option>
+                                    <option value="Sold Out">Sold Out</option>
+                                    <option value="Available">Available</option>
+                                </select>
                             </div>
+                        </div> -->
                         </div>
                     </div>
+                    <div class="card-form py-4">
+                        <div class="table-responsive">
+                            <table id="example" class="table pt-4">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Suite Name</th>
+                                    <th>Suite Type</th>
+                                    <th>Size</th>
+                                    <th>View</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $row_index = 0; // Initialize a counter for rows
+
+                                while ($associated_floorplans->have_posts()) :
+                                    $associated_floorplans->the_post();
+                                    $floor = get_post_meta(get_the_ID(), 'hlr_framework_floorplans', true);
+                                    $row_index++; // Increment the row index
+                                    ?>
+                                    <tr <?php echo ($row_index >= 4) ? 'class="' . $loginClasses . '"' : ''; ?>>
+                                        <td>
+                                            <div class="d-none"><?= $floor['opt-floorplans-status'] == 'available' ? 'Available' : 'Sold Out' ?></div>
+                                            <div class="wrap-head-floorplan">
+                                                <span class="status-floorplan <?= $floor['opt-floorplans-status'] == 'available' ? 'status-color-success' : 'status-color-danger' ?>"></span>
+                                                <?php the_post_thumbnail('thumbnail', ['loading' => 'lazy']) ?>
+                                            </div>
+                                        </td>
+                                        <td><?= $floor['opt-floorplans-suite-name'] ?></td>
+                                        <td>
+                                            <?php if (!empty($floor['opt-studio']) and ($floor['opt-studio'] == 1)) : ?>
+                                                Studio
+                                            <?php endif; ?>
+                                            <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
+                                                <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                            <?php else : ?>
+                                                <?php if (!empty($floor['opt-floorplans-baths'])) : ?>
+                                                    <?= ', ' . $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                                <?php else : ?>
+                                                    <?php if (empty($floor['opt-studio'])) : ?>
+                                                        -
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php if (!empty($floor['opt-floorplans-size'])) : ?>
+                                                <?= $floor['opt-floorplans-size'] . ' SQFT' ?>
+                                            <?php else : ?>
+                                                -
+                                            <?php endif; ?>
+                                        </td>
+                                        <td><?= $floor['opt-floorplans-view'] ?></td>
+                                        <td>
+                                            <?php if (!empty($floor['opt-floorplans-price-from'])) : ?>
+                                                <div class="font-weight-bold">
+                                                    <?php if (!empty($floor['opt-floorplans-price-to'])) : ?>
+                                                        <span style="font-size: x-small;">from </span>
+                                                    <?php endif; ?>
+                                                    <?= '$' . number_format($floor['opt-floorplans-price-from']) ?>
+                                                </div>
+                                            <?php else : ?>
+                                                -
+                                            <?php endif; ?>
+
+                                            <?php if (!empty($floor['opt-floorplans-interior-size']) && !empty($floor['opt-floorplans-price-from'])) : ?>
+                                                <small><?= '$' . round(number_format($floor['opt-floorplans-price-from'], 2, '.', '') / number_format($floor['opt-floorplans-interior-size'], 2, '.', '')) . '/sq.ft' ?></small>
+                                            <?php else : ?>
+                                                -
+                                            <?php endif; ?>
+                                        </td>
+                                        <td><a target="_blank" href="<?php the_permalink() ?>">More Info</a></td>
+                                    </tr>
+                                <?php
+                                endwhile;
+                                wp_reset_postdata();
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <?php endif; ?>
             </div>
 
