@@ -793,7 +793,7 @@ if (is_user_logged_in()) {
 
 
                 <?php if (!empty($floorplans_ids[0])) : ?>
-                    <div class="row border-top  my-4">
+                    <div class="row mt-5 border-top pt-4 my-4">
                         <div class="col-12">
                             <div class="titr-list ml-0">
                                 <h3 class="font-weight-bold">Floor Plans</h3>
