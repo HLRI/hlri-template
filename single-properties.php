@@ -252,7 +252,7 @@ if (is_user_logged_in()) {
                                 align-items: unset !important;
                             }
                         }
-                        @media (min-width: 80px) and (max-width: 280px) {
+                        @media screen and (max-width: 300px) {
                             .site-logo {
                                 max-width: 100px;
                             }
