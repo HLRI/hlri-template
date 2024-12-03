@@ -1358,8 +1358,8 @@ if ($peroperties_month->have_posts()) :
 
 <?php
 function formatAddress($address) {
-    // Replace spaces and commas with hyphens
-    $formatted = str_replace([' ', ','], '-', $address);
+    // Replace spaces and commas with a single hyphen
+    $formatted = preg_replace('/[\s,]+/', '-', $address);
     // Convert to lowercase
     return strtolower($formatted);
 }
@@ -1370,4 +1370,5 @@ $formattedAddress = formatAddress($address);
 
 echo $formattedAddress;
 ?>
+
 <?php get_footer(); ?>
