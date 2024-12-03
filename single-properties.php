@@ -26,7 +26,7 @@ if (is_user_logged_in()) {
                 <div class="p-0 position-relative">
 
                     <div class="excerpt-top d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-                        <div class="hide-on-sm">
+                        <div class="hide-on-sm" style="display:block">
                             <?php if (!empty($psd['properties_logo']['url'])) : ?>
                                 <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
                                      style="max-width:200px;max-height:200px;"
@@ -40,7 +40,7 @@ if (is_user_logged_in()) {
                             <?php endif; ?>
                         </div>
                         <div class="container-fluid">
-                            <div class="show-on-sm col-sm-12">
+                            <div class="show-on-sm col-sm-12" style="display:none;">
                                 <?php if (!empty($psd['properties_logo']['url'])) : ?>
                                     <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
                                          style="max-width:200px;max-height:200px;"
