@@ -1,5 +1,5 @@
 /* mini mobile */
-@media (min-width: 280px) and (max-width: 319px) {
+@media (min-width: 1px) and (max-width: 319px) {
   .wrap-logo-menu{
     display:flex;
   }
