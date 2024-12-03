@@ -298,7 +298,7 @@ function custom_add_slug_metabox()
         'Edit Floorplan Slug',     // Title of the metabox
         'custom_slug_metabox_html', // Callback function to display the HTML
         'floorplans',              // Post type where the metabox will appear
-        'side',                    // Position of the metabox
+        'advanced',                // Position below the title (use 'advanced' for below title)
         'high'                     // Priority of the metabox
     );
 }
