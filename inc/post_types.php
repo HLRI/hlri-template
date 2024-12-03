@@ -166,6 +166,7 @@ function floorplans() {
         'publicly_queryable'    => true,
         'capability_type'       => 'post',
         'menu_icon'   => 'dashicons-analytics',
+        'rewrite'         => array('slug' => 'floorplans', 'with_front' => false),
     );
 
     register_post_type('floorplans', $args);
