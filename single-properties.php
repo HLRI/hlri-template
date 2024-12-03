@@ -29,8 +29,8 @@ if (is_user_logged_in()) {
 
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="d-flex">
-                                    <div>
+                                <div >
+                                    <div class="col-sm-2">
                                         <?php if (!empty($psd['properties_logo']['url'])) : ?>
                                             <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
                                                  style="max-width:200px;max-height:200px;"
@@ -43,7 +43,7 @@ if (is_user_logged_in()) {
                                             <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                                         <?php endif; ?>
                                     </div>
-                                    <div>
+                                    <div class="col-sm-10">
                                         <h2><?= $psd['title'] ?></h2>
                                         <?php if (!empty(the_excerpt())) : ?>
                                             <p class="text-muted"> <?= the_excerpt() ?></p>
