@@ -256,7 +256,6 @@ if (is_user_logged_in()) {
                             .site-logo {
                                 max-width: 100px;
                             }
-                            .excerpt-top img:first-child{display:none !important;}
                         }
                     </style>
 
