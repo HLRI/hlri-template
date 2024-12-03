@@ -635,30 +635,39 @@ if (is_user_logged_in()) {
                     <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                         <div class="card-developments">
                             <div class="card-developments-title">
-                                <?php // Get the developer taxonomy terms for the current post
+                                <?php
+                                // Get the developer taxonomy terms for the current post
                                 $developer_terms = get_the_terms(get_the_ID(), 'developer');
+
                                 // Check if any terms were found
                                 if ($developer_terms && !is_wp_error($developer_terms)) {
-
-                                    if(count($developer_terms) > 1) {
-
-                                        echo $developer_terms . 's';
-                                    } else{
+                                    if (count($developer_terms) > 1) {
+                                        echo 'Developers';
+                                    } else {
                                         echo 'Developer';
                                     }
-                                    // Loop through each term
-                                    $developers = [];
-                                    foreach ($developer_terms as $developer_term) {
-                                        // Output the term name
-                                        $developers[] = $developer_term->name;
-                                    }
+                                } else {
+                                    echo 'No Developer Found';
                                 }
                                 ?>
                             </div>
                             <div class="card-developments-content">
-                                <?php implode(', ', $developers); ?>
+                                <?php
+                                if ($developer_terms && !is_wp_error($developer_terms)) {
+                                    $developers = [];
+                                    foreach ($developer_terms as $developer_term) {
+                                        // Collect the term names
+                                        $developers[] = $developer_term->name;
+                                    }
+                                    // Output the list of developers
+                                    echo implode(', ', $developers);
+                                } else {
+                                    echo 'No Developers Listed';
+                                }
+                                ?>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <?php if (!empty($psd['price_images'])) : ?>
