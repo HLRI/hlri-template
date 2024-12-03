@@ -297,33 +297,41 @@ function custom_render_associated_floorplans() {
 
 
 
-function modify_floorplan_permalink($permalink, $post) {
+function modify_floorplans_permalink($permalink, $post) {
     if ($post->post_type === 'floorplans') {
-        // Get the associated property ID from the meta field
+        // Retrieve the associated property ID from meta
         $associated_property_id = get_post_meta($post->ID, 'associated_property', true);
 
-        // Fetch the slug (post_name) of the associated property
+        // Get the property slug (post_name)
         $property_slug = get_post_field('post_name', $associated_property_id);
 
-        // If the associated property exists, construct the custom permalink
+        // Use the editable slug for the floorplan post
+        $floorplan_slug = $post->post_name;
+
+        // Construct the permalink dynamically
         if ($property_slug) {
-            return home_url("/properties/$property_slug/floorplans/{$post->post_name}/");
+            return home_url("/properties/$property_slug/floorplans/$floorplan_slug/");
         }
     }
 
-    // Return the original permalink if no associated property is found
-    return $permalink;
+    return $permalink; // Fallback to default if no association
 }
-add_filter('post_type_link', 'modify_floorplan_permalink', 10, 2);
+add_filter('post_type_link', 'modify_floorplans_permalink', 10, 2);
 
-function add_custom_floorplan_rewrite_rules() {
+function add_floorplans_rewrite_rules() {
     add_rewrite_rule(
         '^properties/([^/]+)/floorplans/([^/]+)/?$',
         'index.php?post_type=floorplans&name=$matches[2]',
         'top'
     );
 }
-add_action('init', 'add_custom_floorplan_rewrite_rules');
+add_action('init', 'add_floorplans_rewrite_rules');
+
+function flush_floorplans_rewrite_rules() {
+    add_floorplans_rewrite_rules();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'flush_floorplans_rewrite_rules');
 
 function validate_floorplan_permalink($permalink, $post) {
     if ($post->post_type === 'floorplans') {
