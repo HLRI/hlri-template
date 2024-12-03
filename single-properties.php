@@ -25,14 +25,14 @@ if (is_user_logged_in()) {
             <div class="p-3 bg-foreground rounded mb-4">
                 <div class="p-0 position-relative">
 
-                    <div class="excerpt-top d-flex align-items-center justify-content-between mb-2">
+                    <div class="excerpt-top d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                         <?php if (!empty($psd['properties_logo']['url'])) : ?>
                             <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
-                                 style="max-width:200px;max-height:200px;" class="project-logo-top w-auto rounded mr-4"
-                                 alt="<?= $psd['properties_logo']['url'] ?>">
+                                  class="project-logo-top w-auto rounded mr-4"
+                                 alt="<?= $psd['properties_logo']['url'] ?>"/>
                         <?php elseif (!empty($psd['thumbnail_url'])) : ?>
                             <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
-                                 alt="<?= $psd['thumbnail_caption'] ?>">
+                                 alt="<?= $psd['thumbnail_caption'] ?>"/>
                         <?php else : ?>
                             <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         <?php endif; ?>
@@ -256,6 +256,7 @@ if (is_user_logged_in()) {
                             .site-logo {
                                 max-width: 100px;
                             }
+                            /*.excerpt-top img:first-child{display:none !important;}*/
                         }
                     </style>
 
