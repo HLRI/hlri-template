@@ -4500,3 +4500,6 @@ tr.secureTable td {
 #sticker-mobile{
   box-shadow: 0px -2px 8px 0px lightgrey;
 }
+html {
+  scroll-padding-top: 70px; /* Adjust this value based on your menu height */
+}

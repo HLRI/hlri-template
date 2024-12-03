@@ -223,9 +223,6 @@ if (is_user_logged_in()) {
                     </a>
 
                     <style>
-                        html {
-                            scroll-padding-top: 70px; /* Adjust this value based on your menu height */
-                        }
                         .hlri-input-container span.wpcf7-spinner {
                             position: relative;
                             top: -19px;
