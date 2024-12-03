@@ -1356,19 +1356,5 @@ if ($peroperties_month->have_posts()) :
     </div>
 <?php endif; ?>
 
-<?php
-function formatAddress($address) {
-    // Replace spaces and commas with a single hyphen
-    $formatted = preg_replace('/[\s,]+/', '-', $address);
-    // Convert to lowercase
-    return strtolower($formatted);
-}
-
-// Example usage
-$address = "Preston St N & Smith St, Wellington North, ON, N0G, CAN";
-$formattedAddress = formatAddress($address);
-
-echo $formattedAddress;
-?>
 
 <?php get_footer(); ?>
