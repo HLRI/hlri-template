@@ -38,6 +38,12 @@ function addOrdinalSuffix($number)
                             <?php if (!empty(get_the_excerpt())) : ?>
                                 <p class="text-muted top-excerpt"> <?= get_the_excerpt() ?></p>
                             <?php endif; ?>
+                            <a href="#register" class="mt-2 mb-2 btn btn-lg" style="background-color: rgb(221, 219, 233);border: 2px solid rgb(0 0 0);border-radius: 5px;text-align: center;font-weight: bold;transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;box-shadow: none;transform: scale(1);font-size: 14px;color: black;"
+                               onmouseover="this.style.backgroundColor='rgb(254 194 15)';"
+                               onmouseout="this.style.backgroundColor='rgb(221, 219, 233)'; this.style.transform='scale(1)';">
+                                Register below to secure your unit
+                            </a>
+
                             <?php if (($data['opt-sales-type'] == "Assignment") || ($data['opt-sales-type'] == "Resale")) : ?>
                                 <div class="characteristics-cnt">
                                     <ul>
