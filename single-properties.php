@@ -761,7 +761,7 @@ if (is_user_logged_in()) {
                                     });
                                 </script>
                                 <?php foreach ($galleries as $index => $gallery_items): ?>
-                                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0"
+                                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0 px-4"
                                          id="Gallery-<?php echo $index; ?>">
                                         <h3 class="mt-5"
                                             style="color: #ff6600;"><?php echo htmlspecialchars($titles[$index] ?? 'Gallery ' . ($index + 1)); ?></h3>
