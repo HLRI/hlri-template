@@ -659,7 +659,7 @@ if (is_user_logged_in()) {
 
 
                 <div class="row mt-5 border-top  mb-4">
-                    <div class="col-12 px-lg-0">
+                    <div class="col-12">
 
                         <?php
 
