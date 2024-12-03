@@ -635,7 +635,7 @@ if (is_user_logged_in()) {
                     <?php endif; ?>
 
                 </div>
-
+            </div>
                 <?php if (!empty($psd['price_images'])) : ?>
                     <div class="row mt-5 border-top  mb-4" id="PriceList">
                         <div class="col-12">
