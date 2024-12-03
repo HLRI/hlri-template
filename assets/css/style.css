@@ -2263,6 +2263,9 @@ span.page-numbers {
   .modal-content-login .modal-body-login {
     padding: 26px !important;
   }
+  #account-name{
+    display:none;
+  }
 }
 
 .sign-in-btn {
