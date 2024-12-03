@@ -1,5 +1,5 @@
 /* mini mobile */
-@media (min-width: 280px) and (max-width: 319px) {
+@media (min-width: 80px) and (max-width: 280px) {
   .site-logo {
     max-width: 100px;
   }
@@ -1298,4 +1298,3 @@
       display: block !important;
     }
   }
-}
