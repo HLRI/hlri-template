@@ -879,8 +879,8 @@ if (is_user_logged_in()) {
                                 <div class="col-12 mb-4">
                                     <h4 class="font-weight-bold h3">Browse more <?= $psd['title'] ?> Floor Plans</h4>
                                 </div>
-                                <div class="col-12">
-                                    <div class="btn-group submitter-group float-left mb-2">
+                                <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                    <div class="btn-group submitter-group mb-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text btn-status-floorplan">Status</div>
                                         </div>
@@ -890,12 +890,13 @@ if (is_user_logged_in()) {
                                             <option value="Available">Available</option>
                                         </select>
                                     </div>
-                                    <div class="btn-group submitter-group float-right">
-                                        <a style="padding: 5px 10px;border: 0px;background: #f1642c;color: white;border-radius: 4px;"
-                                           href="#register">Register Now to get full package
+                                    <div class="btn-group submitter-group mt-2 mt-md-0">
+                                        <a style="padding: 5px 10px; border: 0px; background: #f1642c; color: white; border-radius: 4px;" href="#register">
+                                            Register Now to get full package
                                         </a>
                                     </div>
                                 </div>
+
                                 <!-- <div class="col-8">
                                 <div class="filter-wrapper">
                                     <input type="checkbox" class="filter-checkbox" value="Software Engineer" /> Software Engineer
