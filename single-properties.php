@@ -29,10 +29,10 @@ if (is_user_logged_in()) {
                             <?php if (!empty($psd['properties_logo']['url'])) : ?>
                                 <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
                                      style="max-width:200px;max-height:200px;"
-                                     class="project-logo-top w-auto rounded mr-4"
+                                     class="hide-on-sm project-logo-top w-auto rounded mr-4"
                                      alt="<?= $psd['properties_logo']['url'] ?>"/>
                             <?php elseif (!empty($psd['thumbnail_url'])) : ?>
-                                <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
+                                <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="hide-on-sm w-auto rounded mr-4"
                                      alt="<?= $psd['thumbnail_caption'] ?>"/>
                             <?php else : ?>
                                 <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
