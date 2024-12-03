@@ -93,6 +93,21 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
             <h4 class="pt-2 px-4" >Contact Me</h4>
             <?php echo do_shortcode('[contact-form-7 id="2f2fdf4" title="Contact Agent"]'); ?>
         </div>
+        <div class="card mt-4 pb-3 mb-4">
+            <?php
+            $excerpt = get_the_content();
+            if (!empty($excerpt)) {
+                ?>
+                <div class="container d-flex flex-column" >
+                    <h3>Biography (AI generated)</h3>
+                    <p>
+                        <?php the_content(); ?>
+                    </p>
+                </div>
+            <?php }?>
+        </div>
+
+
     </div>
 </div>
 <?php get_footer(); ?>
