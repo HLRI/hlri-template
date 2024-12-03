@@ -528,9 +528,9 @@ if (is_user_logged_in()) {
                     </div>
                 </div>
             <?php endif; ?>
-            <div class="container-fluid px-lg-5 mb-4">
+            <div class="container-fluid px-lg-5 mb-4" id="development-detail">
                 <!-- Development Detail -->
-                <div class="row border-top pt-4 mt-5 mb-4" id="development-detail">
+                <div class="row border-top pt-4 mt-5 mb-4">
                     <div class="col-12">
                         <div class="titr-list ml-0">
                             <h3 class="font-weight-bold">Development Details</h3>
