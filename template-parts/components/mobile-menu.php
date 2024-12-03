@@ -68,7 +68,7 @@ if (!empty($menuitems)) : ?>
                                     <img loading="lazy" class="image-profile" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image">
                                 </div>
                                 <span class="menu-account-name">
-                                    <?= $user_meta->user_nicename ?>
+                                    <span id="account-name"><?= $user_meta->user_nicename ?></span>
                                     <i class="fa fa-chevron-down"></i>
                                 </span>
                                 <div class="menu-account-body">

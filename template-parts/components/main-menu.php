@@ -100,7 +100,7 @@
                                 <img loading="lazy" class="image-profile" src="<?= get_avatar_url(get_current_user_id()) ?>" alt="image">
                             </div>
                             <span class="menu-account-name">
-                                <span id="account-name"><?= $user_meta->user_nicename ?></span>
+                                <?= $user_meta->user_nicename ?>
                                 <i class="fa fa-chevron-down"></i>
                             </span>
 
