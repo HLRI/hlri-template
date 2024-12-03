@@ -635,7 +635,7 @@ function addOrdinalSuffix($number)
                     <div class="row border-top  mt-5 mb-4" id="development-detail">
                         <div class="col-12">
                             <div class="titr-list ml-0">
-                                <h3 class="font-weight-bold">Development Details</h3>
+<!--                                <h3 class="font-weight-bold">Development Details</h3>-->
                             </div>
                         </div>
                         <?php foreach ($psd['developments'] as $development) : ?>
