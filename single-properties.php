@@ -25,7 +25,7 @@ if (is_user_logged_in()) {
             <div class="p-3 bg-foreground rounded mb-4">
                 <div class="p-0 position-relative">
 
-                    <div class="excerpt-top d-flex align-items-center justify-content-between mb-2 card-property-responsive">
+                    <div class="excerpt-top d-flex align-items-center justify-content-between mb-2">
                         <?php if (!empty($psd['properties_logo']['url'])) : ?>
                             <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
                                  style="max-width:200px;max-height:200px;" class="project-logo-top w-auto rounded mr-4"
