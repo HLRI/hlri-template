@@ -347,6 +347,12 @@ function custom_save_slug_metabox( $post_id ) {
         if ( isset( $_POST['floorplan_slug'] ) ) {
             $new_slug = sanitize_text_field( $_POST['floorplan_slug'] );
 
+            // Check if the slug is empty
+            if ( empty( $new_slug ) ) {
+                // Add an error to the post edit screen
+                wp_die( __( 'The slug cannot be empty.', 'your-textdomain' ) );
+            }
+
             // Update the post's slug if it's different
             if ( $new_slug !== get_post_field( 'post_name', $post_id ) ) {
                 // Update the post's slug (post_name)
