@@ -28,7 +28,7 @@ if (is_user_logged_in()) {
                     <div class="excerpt-top d-flex align-items-center justify-content-between mb-2 card-property-responsive">
                         <?php if (!empty($psd['properties_logo']['url'])) : ?>
                             <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
-                                  class="project-logo-top w-auto rounded mr-4"
+                                 style="max-width:200px;max-height:200px;" class="project-logo-top w-auto rounded mr-4"
                                  alt="<?= $psd['properties_logo']['url'] ?>"/>
                         <?php elseif (!empty($psd['thumbnail_url'])) : ?>
                             <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
