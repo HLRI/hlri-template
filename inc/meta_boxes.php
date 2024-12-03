@@ -297,9 +297,6 @@ function custom_render_associated_floorplans() {
 
 
 
-
-
-
 /*==================================================================================*/
 
 // Modify the floorplans query to include the associated property
@@ -349,84 +346,26 @@ add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
 
-// Hide the default slug field in the backend
-function hide_default_slug_field() {
-    global $pagenow, $post;
-    if ('post.php' === $pagenow && $post->post_type === 'floorplans') {
-        ?>
-        <style>
-            #slugdiv {
-                display: none;
-            }
-        </style>
-        <?php
-    }
-}
-add_action('admin_head', 'hide_default_slug_field');
+// Ensure the default edit button still works for the modified floorplans permalink
+function custom_get_edit_post_link( $link, $post_id ) {
+    $post = get_post( $post_id );
 
-/*==================================================================================*/
+    // Check if the post is a floorplan and modify the edit link if needed
+    if ( 'floorplans' === $post->post_type ) {
+        $associated_property = get_post_meta($post->ID, 'associated_property', true);
+        $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
+        $floorplan_slug = $post->post_name;
 
-// Add the custom metabox for permalink editing
-function add_floorplan_permalink_metabox() {
-    add_meta_box(
-        'floorplan_permalink', // Metabox ID
-        'Floorplan Permalink', // Title
-        'floorplan_permalink_metabox_callback', // Callback function
-        'floorplans', // Post type
-        'side', // Context (side of the page)
-        'high' // Priority
-    );
-}
-add_action('add_meta_boxes', 'add_floorplan_permalink_metabox');
-
-// Callback function to display the current permalink and edit button
-function floorplan_permalink_metabox_callback($post) {
-    // Retrieve the associated property ID from meta
-    $associated_property_id = get_post_meta($post->ID, 'associated_property', true);
-
-    // Get the associated property slug
-    $property_slug = get_post_field('post_name', $associated_property_id);
-
-    // Get the current floorplan slug
-    $floorplan_slug = $post->post_name;
-
-    // Construct the full permalink (the user sees)
-    $full_permalink = home_url("/properties/$property_slug/floorplans/$floorplan_slug/");
-
-    // Display the current permalink
-    echo '<p><strong>Current Permalink:</strong></p>';
-    echo '<input type="text" value="' . esc_url($full_permalink) . '" readonly style="width:100%;" />';
-
-    // Add the "Edit" button and input for editing the floorplan slug
-    echo '<p><strong>Edit Floorplan Slug:</strong></p>';
-    echo '<input type="text" name="floorplan_slug" value="' . esc_attr($floorplan_slug) . '" style="width:100%;" />';
-}
-
-// Save the edited floorplan slug
-function save_floorplan_slug($post_id) {
-    // Check if we're saving a floorplan and not an autosave
-    if ('floorplans' !== get_post_type($post_id) || defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return $post_id;
+        // Custom edit URL based on the modified permalink
+        $link = home_url("/properties/$property_name/floorplans/$floorplan_slug/edit");
     }
 
-    // Check if the floorplan_slug field is set and update the post slug
-    if (isset($_POST['floorplan_slug'])) {
-        $new_slug = sanitize_title($_POST['floorplan_slug']);
-
-        // Avoid overwriting the slug with the same value
-        if ($new_slug !== get_post_field('post_name', $post_id)) {
-            wp_update_post([
-                'ID' => $post_id,
-                'post_name' => $new_slug
-            ]);
-        }
-    }
-
-    return $post_id;
+    return $link;
 }
-add_action('save_post', 'save_floorplan_slug');
+add_filter( 'get_edit_post_link', 'custom_get_edit_post_link', 10, 2 );
 
-/*==================================================================================*/
+
+
 
 
 
