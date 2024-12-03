@@ -58,33 +58,10 @@ if (is_user_logged_in()) {
                             <?php endif; ?>
 
                             <a href="#register" class="mt-2 mb-2 btn btn-lg" style="border: 2px solid rgb(255, 102, 0);border-radius: 5px;text-align: center;font-weight: bold;transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;box-shadow: none;transform: scale(1);font-size: 14px;"
-                               onmouseover="changeBackgroundColor(this)" onmouseout="this.style.boxShadow='none'; this.style.transform='scale(1)';">
+                               onmouseover="this.style.backgroundColor='rgb(221, 219, 233)'" onmouseout="this.style.backgroundColor='rgb(255, 102, 0)'; this.style.transform='scale(1)';">
                                 Register below to secure your unit
                             </a>
 
-                            <script>
-                                function getRandomColor() {
-                                    // List of specific colors
-                                    const colors = [
-                                        'rgb(244, 209, 177)',
-                                        'rgb(170, 175, 191)',
-                                        'rgb(247, 217, 50)',
-                                        'rgb(221, 219, 233)',
-                                        'rgb(211, 198, 188)',
-                                        'rgb(223, 164, 113)'
-                                    ];
-
-                                    // Get a random color from the list
-                                    const randomIndex = Math.floor(Math.random() * colors.length);
-                                    return colors[randomIndex];
-                                }
-
-                                function changeBackgroundColor(element) {
-                                    element.style.backgroundColor = getRandomColor(); // Change to a random color from the list
-                                    element.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-                                    element.style.transform = 'scale(1.05)';
-                                }
-                            </script>
 
 
 
