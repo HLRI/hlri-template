@@ -57,9 +57,9 @@ if (is_user_logged_in()) {
                                 <p class="text-muted"> <?= the_excerpt() ?></p>
                             <?php endif; ?>
 
-                            <a href="#register" class="mt-2 mb-2 btn btn-lg" style="background-color: #d40075;border: 2px solid rgb(0 0 0);border-radius: 5px;text-align: center;font-weight: bold;transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;box-shadow: none;transform: scale(1);font-size: 14px;color: white;"
-                               onmouseover="this.style.backgroundColor='rgb(221, 219, 233)';this.style.color='black'"
-                               onmouseout="this.style.backgroundColor='#d40075'; this.style.transform='scale(1)';">
+                            <a href="#register" class="mt-2 mb-2 btn btn-lg" style="background-color: rgb(221, 219, 233);border: 2px solid rgb(0 0 0);border-radius: 5px;text-align: center;font-weight: bold;transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;box-shadow: none;transform: scale(1);font-size: 14px;color: black;"
+                               onmouseover="this.style.backgroundColor='#d40075';this.style.color='white'"
+                               onmouseout="this.style.backgroundColor='rgb(221, 219, 233)';this.style.color='black'; this.style.transform='scale(1)';">
                                 Register below to secure your unit
                             </a>
 
