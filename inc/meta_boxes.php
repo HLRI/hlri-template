@@ -298,6 +298,7 @@ function custom_render_associated_floorplans() {
 
 
 function modify_floorplans_permalink($permalink, $post) {
+    // Skip modification in the admin interface
     if (is_admin() || $post->post_type !== 'floorplans') {
         return $permalink;
     }
@@ -305,7 +306,7 @@ function modify_floorplans_permalink($permalink, $post) {
     // Retrieve the associated property ID from meta
     $associated_property_id = get_post_meta($post->ID, 'associated_property', true);
 
-    // Get the property slug (post_name)
+    // Get the associated property slug (post_name)
     $property_slug = get_post_field('post_name', $associated_property_id);
 
     // Construct the permalink dynamically
@@ -313,9 +314,11 @@ function modify_floorplans_permalink($permalink, $post) {
         return home_url("/properties/$property_slug/floorplans/{$post->post_name}/");
     }
 
-    return $permalink; // Fallback to default if no association
+    // Fallback to the default permalink if no associated property
+    return $permalink;
 }
 add_filter('post_type_link', 'modify_floorplans_permalink', 10, 2);
+
 
 function add_floorplans_rewrite_rules() {
     add_rewrite_rule(
@@ -327,15 +330,12 @@ function add_floorplans_rewrite_rules() {
 add_action('init', 'add_floorplans_rewrite_rules');
 
 
+
 function flush_floorplans_rewrite_rules() {
     add_floorplans_rewrite_rules();
     flush_rewrite_rules();
 }
-register_activation_hook(__FILE__, 'flush_floorplans_rewrite_rules');
-
-
-
-
+add_action('init', 'flush_floorplans_rewrite_rules');
 
 
 
