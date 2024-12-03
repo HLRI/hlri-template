@@ -218,9 +218,10 @@ if (is_user_logged_in()) {
                     </div>
 
 
-                    <a href="https://condoy.com/properties/exhale-condos/#register" class="btn btn-primary btn-lg shadow-sm hover:shadow-lg">
+                    <a href="https://condoy.com/properties/exhale-condos/#register" class="btn btn-primary btn-lg shadow-sm" style="background-color: #007bff; border-color: #007bff;" onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
                         Register below to secure your unit
                     </a>
+
 
 
                     <style>
