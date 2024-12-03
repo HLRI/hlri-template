@@ -297,53 +297,7 @@ function custom_render_associated_floorplans() {
 
 
 
-function modify_floorplans_permalink($permalink, $post) {
-    if ($post->post_type === 'floorplans') {
-        // Retrieve the associated property ID from meta
-        $associated_property_id = get_post_meta($post->ID, 'associated_property', true);
 
-        // Get the property slug (post_name)
-        $property_slug = get_post_field('post_name', $associated_property_id);
-
-        // Use the editable slug for the floorplan post
-        $floorplan_slug = $post->post_name;
-
-        // Construct the permalink dynamically
-        if ($property_slug) {
-            return home_url("/properties/$property_slug/floorplans/$floorplan_slug/");
-        }
-    }
-
-    return $permalink; // Fallback to default if no association
-}
-add_filter('post_type_link', 'modify_floorplans_permalink', 10, 2);
-
-function add_floorplans_rewrite_rules() {
-    add_rewrite_rule(
-        '^properties/([^/]+)/floorplans/([^/]+)/?$',
-        'index.php?post_type=floorplans&name=$matches[2]',
-        'top'
-    );
-}
-add_action('init', 'add_floorplans_rewrite_rules');
-
-function flush_floorplans_rewrite_rules() {
-    add_floorplans_rewrite_rules();
-    flush_rewrite_rules();
-}
-register_activation_hook(__FILE__, 'flush_floorplans_rewrite_rules');
-
-function validate_floorplan_permalink($permalink, $post) {
-    if ($post->post_type === 'floorplans') {
-        $associated_property_id = get_post_meta($post->ID, 'associated_property', true);
-        if (!$associated_property_id) {
-            return home_url("/floorplans/{$post->post_name}/"); // Fallback URL
-        }
-    }
-
-    return $permalink;
-}
-add_filter('post_type_link', 'validate_floorplan_permalink', 10, 2);
 
 
 
