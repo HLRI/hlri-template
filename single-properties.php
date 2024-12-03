@@ -566,7 +566,7 @@ if (is_user_logged_in()) {
                                 Est. Building Size
                             </div>
                             <div class="card-developments-content">
-                                <?php echo !empty($data['opt-size-min']) ? $data['opt-size-min'] . (!empty($data['opt-size-max']) ? " - " . $data['opt-size-max'] : "") . " /Sq.ft." : "TBA"; ?>
+                                <?php echo !empty($data['opt-size-min']) ? $data['opt-size-min'] . (!empty($data['opt-size-max']) ? " - " . $data['opt-size-max'] : "") . " Sq.ft." : "TBA"; ?>
                             </div>
                         </div>
                     </div>
