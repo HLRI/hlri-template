@@ -400,36 +400,19 @@ function floorplan_permalink_metabox_callback($post) {
     // Add the "Edit" button and input for editing the floorplan slug
     echo '<p><strong>Edit Floorplan Slug:</strong></p>';
     echo '<input type="text" name="floorplan_slug" value="' . esc_attr($floorplan_slug) . '" style="width:100%;" />';
-    echo '<p><button type="button" class="button button-primary" id="edit-floorplan-slug">Edit</button></p>';
-
-    // Add some inline JavaScript to handle the "Edit" button click
-    ?>
-    <script type="text/javascript">
-        document.getElementById('edit-floorplan-slug').addEventListener('click', function() {
-            var slugField = document.querySelector('[name="floorplan_slug"]');
-            slugField.removeAttribute('readonly');
-            slugField.focus();
-            // Disable the button to prevent multiple clicks
-            this.setAttribute('disabled', 'true');
-            this.innerText = 'Slug is Editable';
-        });
-    </script>
-    <?php
 }
 
 // Save the edited floorplan slug
 function save_floorplan_slug($post_id) {
-    // Check if we're saving a floorplan
-    if ('floorplans' === get_post_type($post_id)) {
-        // Make sure it's not an autosave
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return $post_id;
-        }
+    // Check if we're saving a floorplan and not an autosave
+    if ('floorplans' !== get_post_type($post_id) || defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return $post_id;
+    }
 
-        // Check if the floorplan_slug field is set
-        if (isset($_POST['floorplan_slug'])) {
-            $new_slug = sanitize_title($_POST['floorplan_slug']);
-            // Update the post slug
+    // Check if the floorplan_slug field is set and update the post slug
+    if (isset($_POST['floorplan_slug'])) {
+        $new_slug = sanitize_title($_POST['floorplan_slug']);
+        if ($new_slug !== get_post_field('post_name', $post_id)) {
             wp_update_post([
                 'ID' => $post_id,
                 'post_name' => $new_slug
@@ -441,18 +424,7 @@ function save_floorplan_slug($post_id) {
 }
 add_action('save_post', 'save_floorplan_slug');
 
-// Ensure the post status is correctly saved when updating
-function ensure_post_save($post_id) {
-    // Check if we are in the save_post hook and the post type is floorplan
-    if (get_post_type($post_id) == 'floorplans') {
-        // Update the post to ensure status is properly saved after editing
-        wp_update_post([
-            'ID' => $post_id,
-            'post_status' => get_post_status($post_id),
-        ]);
-    }
-}
-add_action('save_post', 'ensure_post_save');
+/*==================================================================================*/
 
 
 
