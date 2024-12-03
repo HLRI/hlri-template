@@ -428,21 +428,6 @@ if (is_user_logged_in()) {
                 </div>
             </div>
             <div class="col-12  rounded mb-2 mb-md-0 col-md-6">
-                <div class="row">
-                    <?php // Get the developer taxonomy terms for the current post
-                    $developer_terms = get_the_terms(get_the_ID(), 'developer');
-                    // Check if any terms were found
-                    if ($developer_terms && !is_wp_error($developer_terms)) {
-                        echo '<p>Developer: ';
-                        // Loop through each term
-                        foreach ($developer_terms as $developer_term) {
-                            // Output the term name
-                            echo '' . $developer_term->name;
-                        }
-                        echo '</p>';
-                    }
-                    ?>
-                </div>
 
                 <div class="row">
                     <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
@@ -647,7 +632,34 @@ if (is_user_logged_in()) {
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card-developments">
+                            <div class="card-developments-title">
+                                <?php // Get the developer taxonomy terms for the current post
+                                $developer_terms = get_the_terms(get_the_ID(), 'developer');
+                                // Check if any terms were found
+                                if ($developer_terms && !is_wp_error($developer_terms)) {
 
+                                    if(count($developer_terms) > 1) {
+
+                                        echo $developer_terms . 's';
+                                    } else{
+                                        echo 'Developer';
+                                    }
+                                    // Loop through each term
+                                    $developers = [];
+                                    foreach ($developer_terms as $developer_term) {
+                                        // Output the term name
+                                        $developers[] = $developer_term->name;
+                                    }
+                                }
+                                ?>
+                            </div>
+                            <div class="card-developments-content">
+                                <?php implode(', ', $developers); ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <?php if (!empty($psd['price_images'])) : ?>
                     <div class="row mt-5 border-top  mb-4" id="PriceList">
