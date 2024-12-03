@@ -331,6 +331,32 @@ add_action('init', 'add_floorplans_rewrite_rules');
 
 
 
+// Modify the permalink display in the backend
+// Display custom permalink in the backend
+function custom_edit_floorplan_permalink($post) {
+    if ($post->post_type === 'floorplans') {
+        // Retrieve the associated property ID from meta
+        $associated_property_id = get_post_meta($post->ID, 'associated_property', true);
+
+        // Get the associated property slug (post_name)
+        $property_slug = get_post_field('post_name', $associated_property_id);
+
+        // If a property is associated, modify the permalink structure
+        if ($property_slug) {
+            $full_permalink = home_url("/properties/$property_slug/floorplans/{$post->post_name}/");
+        } else {
+            $full_permalink = get_permalink($post->ID);  // Default permalink
+        }
+
+        // Display the full permalink in the admin
+        echo '<div class="misc-pub-section misc-pub-permalink"><strong>Permalink:</strong> ';
+        echo '<a href="' . esc_url($full_permalink) . '" target="_blank">' . esc_url($full_permalink) . '</a>';
+        echo '</div>';
+    }
+}
+add_action('edit_form_advanced', 'custom_edit_floorplan_permalink');
+add_action('edit_form_top', 'custom_edit_floorplan_permalink');
+
 
 
 
