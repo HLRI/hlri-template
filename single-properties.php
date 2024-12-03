@@ -217,6 +217,11 @@ if (is_user_logged_in()) {
 
                     </div>
 
+
+                    <a href="#register" class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                        Register below to secure your unit
+                    </a>
+
                     <style>
                         .hlri-input-container span.wpcf7-spinner {
                             position: relative;
