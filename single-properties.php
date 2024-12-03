@@ -537,21 +537,6 @@ if (is_user_logged_in()) {
                             <h3 class="font-weight-bold">Development Details</h3>
                         </div>
                     </div>
-                    <?php if (!empty($psd['developments'])) : ?>
-                    <?php foreach ($psd['developments'] as $development) : ?>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
-                            <div class="card-developments">
-                                <div class="card-developments-title">
-                                    <?= $development['opt-development-details-title'] ?>
-                                </div>
-                                <div class="card-developments-content">
-                                    <?= $development['opt-development-details-content'] ?>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-
 
                     <?php if (!empty($data['opt-floors'])) : ?>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -639,10 +624,22 @@ if (is_user_logged_in()) {
                             </div>
                         </div>
                     <?php endif; ?>
-
+                    <?php if (!empty($psd['developments'])) : ?>
+                        <?php foreach ($psd['developments'] as $development) : ?>
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card-developments">
+                                    <div class="card-developments-title">
+                                        <?= $development['opt-development-details-title'] ?>
+                                    </div>
+                                    <div class="card-developments-content">
+                                        <?= $development['opt-development-details-content'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
 
                 </div>
-                <?php endif; ?>
 
                 <?php if (!empty($psd['price_images'])) : ?>
                 <div class="row mt-5 border-top  mb-4" id="PriceList">
