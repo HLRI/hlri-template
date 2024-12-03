@@ -6,7 +6,7 @@
         <input autocomplete="off" autocorrect="off" id="hero-search-field"  type="search" onkeyup="hlr_search()" class="form-control input-search-slider keyword" placeholder="Search by project name, city, neighborhood...">
     </div>
     <span></span>
-    <a target="_blank" title="Search on map" class="btn hero-section-map-btn" href="https://hlric.com/">
+    <a target="_blank" title="Search on map" class="btn hero-section-map-btn" href="https://map.hlrihub.com/">
         Map
         <i onclick="hlr_search()" class="fa fa-location-dot"></i>
     </a>
