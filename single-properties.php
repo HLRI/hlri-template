@@ -740,7 +740,7 @@ if (is_user_logged_in()) {
                         }
                         ?>
                         <div class="row">
-                            <div class="col-12">
+                            <div>
                                 <script>
                                     jQuery(document).ready(function ($) {
                                         <?php foreach ($galleries as $index => $gallery): ?>
@@ -761,7 +761,7 @@ if (is_user_logged_in()) {
                                     });
                                 </script>
                                 <?php foreach ($galleries as $index => $gallery_items): ?>
-                                    <div class="col-12 col-md-12 justify-content-center align-items-center p-0 px-2"
+                                    <div class="col-12 col-md-12 justify-content-center align-items-center"
                                          id="Gallery-<?php echo $index; ?>">
                                         <div class="titr-list ml-0">
                                             <h3 class="font-weight-bold"><?php echo htmlspecialchars($titles[$index] ?? 'Gallery ' . ($index + 1)); ?></h3>
