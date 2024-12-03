@@ -530,13 +530,14 @@ if (is_user_logged_in()) {
             <?php endif; ?>
             <div class="container-fluid px-lg-5 mb-4">
                 <!-- Development Detail -->
-                <?php if (!empty($psd['developments'])) : ?>
+
                 <div class="row border-top  mt-5 mb-4" id="development-detail">
                     <div class="col-12">
                         <div class="titr-list ml-0">
                             <h3 class="font-weight-bold">Development Details</h3>
                         </div>
                     </div>
+                    <?php if (!empty($psd['developments'])) : ?>
                     <?php foreach ($psd['developments'] as $development) : ?>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                             <div class="card-developments">
@@ -549,13 +550,9 @@ if (is_user_logged_in()) {
                             </div>
                         </div>
                     <?php endforeach; ?>
+                    <?php endif; ?>
 
 
-                    <div class="col-12">
-                        <div class="titr-list ml-0">
-                            <h3 class="font-weight-bold">Development Details</h3>
-                        </div>
-                    </div>
                     <?php if (!empty($data['opt-floors'])) : ?>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                             <div class="card-developments">
@@ -663,7 +660,6 @@ if (is_user_logged_in()) {
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <?php endif; ?>
 
 
                 <!-- scrapped floorplan-->
