@@ -243,6 +243,63 @@ function custom_render_associated_floorplans() {
 
 
 
+///*==================================================================================*/
+//
+//// Modify the floorplans query to include the associated property
+//function custom_modify_floorplans_query( $query ) {
+//    if ( ! is_admin() || ! $query->is_main_query() ) {
+//        return;
+//    }
+//
+//    if ( $query->get( 'post_type' ) === 'floorplans' ) {
+//        $query->set( 'rewrite', array( 'slug' => 'properties', 'with_front' => false ) );
+//    }
+//}
+//add_action( 'pre_get_posts', 'custom_modify_floorplans_query' );
+//
+///*==================================================================================*/
+//
+//// Modify the floorplans permalink structure
+//function custom_modify_floorplans_permalink($permalink, $post) {
+//    if ($post->post_type === 'floorplans') {
+//        $associated_property = get_post_meta($post->ID, 'associated_property', true);
+//        $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
+//        $floorplan_slug = $post->post_name;
+//
+//        $permalink = home_url("/properties/$property_name/floorplans/$floorplan_slug/");
+//    }
+//
+//    return $permalink;
+//}
+//add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
+////hgj
+//
+///*==================================================================================*/
+//
+//// Register additional rewrite rules for the modified floorplans permalink structure
+//function custom_add_rewrite_rules() {
+//    add_rewrite_rule( '^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top' );
+//}
+//add_action( 'init', 'custom_add_rewrite_rules' );
+//
+///*==================================================================================*/
+//
+//// Flush rewrite rules when the associated property is saved or updated
+//function custom_flush_rewrite_rules() {
+//    flush_rewrite_rules();
+//}
+//add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
+//add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
+//
+///*==================================================================================*/
+
+
+
+
+
+
+
+
 /*==================================================================================*/
 
 // Modify the floorplans query to include the associated property
@@ -272,7 +329,6 @@ function custom_modify_floorplans_permalink($permalink, $post) {
     return $permalink;
 }
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
-//hgj
 
 /*==================================================================================*/
 
@@ -293,6 +349,94 @@ add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
 
+// Hide the default slug field in the backend
+function hide_default_slug_field() {
+    global $pagenow, $post;
+    if ('post.php' === $pagenow && $post->post_type === 'floorplans') {
+        ?>
+        <style>
+            #slugdiv {
+                display: none;
+            }
+        </style>
+        <?php
+    }
+}
+add_action('admin_head', 'hide_default_slug_field');
+
+/*==================================================================================*/
+
+// Add the custom metabox for permalink editing
+function add_floorplan_permalink_metabox() {
+    add_meta_box(
+        'floorplan_permalink', // Metabox ID
+        'Floorplan Permalink', // Title
+        'floorplan_permalink_metabox_callback', // Callback function
+        'floorplans', // Post type
+        'side', // Context (side of the page)
+        'high' // Priority
+    );
+}
+add_action('add_meta_boxes', 'add_floorplan_permalink_metabox');
+
+// Callback function to display the current permalink and edit button
+function floorplan_permalink_metabox_callback($post) {
+    // Retrieve the associated property ID from meta
+    $associated_property_id = get_post_meta($post->ID, 'associated_property', true);
+
+    // Get the associated property slug
+    $property_slug = get_post_field('post_name', $associated_property_id);
+
+    // Get the current floorplan slug
+    $floorplan_slug = $post->post_name;
+
+    // Construct the full permalink (the user sees)
+    $full_permalink = home_url("/properties/$property_slug/floorplans/$floorplan_slug/");
+
+    // Display the current permalink
+    echo '<p><strong>Current Permalink:</strong></p>';
+    echo '<input type="text" value="' . esc_url($full_permalink) . '" readonly style="width:100%;" />';
+
+    // Add the "Edit" button and input for editing the floorplan slug
+    echo '<p><strong>Edit Floorplan Slug:</strong></p>';
+    echo '<input type="text" name="floorplan_slug" value="' . esc_attr($floorplan_slug) . '" style="width:100%;" />';
+    echo '<p><button type="button" class="button button-primary" id="edit-floorplan-slug">Edit</button></p>';
+
+    // Add some inline JavaScript to handle the "Edit" button click
+    ?>
+    <script type="text/javascript">
+        document.getElementById('edit-floorplan-slug').addEventListener('click', function() {
+            var slugField = document.querySelector('[name="floorplan_slug"]');
+            slugField.removeAttribute('readonly');
+            slugField.focus();
+        });
+    </script>
+    <?php
+}
+
+// Save the edited floorplan slug
+function save_floorplan_slug($post_id) {
+    // Check if we're saving a floorplan
+    if ('floorplans' === get_post_type($post_id)) {
+        // Make sure it's not an autosave
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return $post_id;
+        }
+
+        // Check if the floorplan_slug field is set
+        if (isset($_POST['floorplan_slug'])) {
+            $new_slug = sanitize_title($_POST['floorplan_slug']);
+            // Update the post slug
+            wp_update_post([
+                'ID' => $post_id,
+                'post_name' => $new_slug
+            ]);
+        }
+    }
+
+    return $post_id;
+}
+add_action('save_post', 'save_floorplan_slug');
 
 
 
