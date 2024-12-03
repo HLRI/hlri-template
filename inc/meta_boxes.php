@@ -409,6 +409,9 @@ function floorplan_permalink_metabox_callback($post) {
             var slugField = document.querySelector('[name="floorplan_slug"]');
             slugField.removeAttribute('readonly');
             slugField.focus();
+            // Disable the button to prevent multiple clicks
+            this.setAttribute('disabled', 'true');
+            this.innerText = 'Slug is Editable';
         });
     </script>
     <?php
@@ -438,6 +441,18 @@ function save_floorplan_slug($post_id) {
 }
 add_action('save_post', 'save_floorplan_slug');
 
+// Ensure the post status is correctly saved when updating
+function ensure_post_save($post_id) {
+    // Check if we are in the save_post hook and the post type is floorplan
+    if (get_post_type($post_id) == 'floorplans') {
+        // Update the post to ensure status is properly saved after editing
+        wp_update_post([
+            'ID' => $post_id,
+            'post_status' => get_post_status($post_id),
+        ]);
+    }
+}
+add_action('save_post', 'ensure_post_save');
 
 
 
