@@ -252,6 +252,12 @@ if (is_user_logged_in()) {
                                 align-items: unset !important;
                             }
                         }
+                        @media (min-width: 80px) and (max-width: 280px) {
+                            .site-logo {
+                                max-width: 100px;
+                            }
+                            .excerpt-top img{display:none;}
+                        }
                     </style>
 
 
