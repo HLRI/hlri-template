@@ -295,6 +295,9 @@ function custom_render_associated_floorplans() {
 
 
 
+
+
+
 // Hide the default slug field in the backend
 function hide_default_slug_field() {
     global $pagenow, $post;
@@ -340,7 +343,7 @@ function floorplan_permalink_metabox_callback($post) {
         $full_permalink = home_url("/floorplans/$floorplan_slug/");
     }
 
-    // Display the editable permalink and a button to edit the floorplan slug
+    // Display the full permalink (read-only)
     echo '<label for="floorplan_permalink">Full Permalink:</label>';
     echo '<input type="text" id="floorplan_permalink" name="floorplan_permalink" value="' . esc_url($full_permalink) . '" readonly class="widefat" />';
 
@@ -369,14 +372,6 @@ function save_floorplan_slug($post_id) {
     }
 }
 add_action('save_post', 'save_floorplan_slug');
-
-// Flush rewrite rules on plugin/theme activation
-function flush_floorplans_rewrite_rules() {
-    add_floorplans_rewrite_rules();
-    flush_rewrite_rules();
-}
-register_activation_hook(__FILE__, 'flush_floorplans_rewrite_rules');
-
 // Add rewrite rules for the custom URL structure
 function add_floorplans_rewrite_rules() {
     add_rewrite_rule(
@@ -386,6 +381,14 @@ function add_floorplans_rewrite_rules() {
     );
 }
 add_action('init', 'add_floorplans_rewrite_rules');
+// Flush rewrite rules on plugin/theme activation
+function flush_floorplans_rewrite_rules() {
+    add_floorplans_rewrite_rules();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'flush_floorplans_rewrite_rules');
+
+
 
 
 
