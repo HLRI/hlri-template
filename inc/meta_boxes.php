@@ -349,8 +349,9 @@ function custom_save_slug_metabox( $post_id ) {
 
             // Check if the slug is empty
             if ( empty( $new_slug ) ) {
-                // Add an error to the post edit screen
-                wp_die( __( 'The slug cannot be empty.', 'your-textdomain' ) );
+                // Add an error message to be shown on the post edit screen
+                add_filter( 'redirect_post_location', 'custom_add_slug_error_message', 10, 2 );
+                return $post_id; // Prevent saving
             }
 
             // Update the post's slug if it's different
@@ -367,6 +368,24 @@ function custom_save_slug_metabox( $post_id ) {
     return $post_id;
 }
 add_action( 'save_post', 'custom_save_slug_metabox' );
+
+/*==================================================================================*/
+
+// Add an error message to be shown when the post save is redirected
+function custom_add_slug_error_message( $location, $post_id ) {
+    // Append an error message to the redirect URL
+    return add_query_arg( 'slug_error', urlencode( 'The slug cannot be empty.' ), $location );
+}
+
+/*==================================================================================*/
+
+// Display the error message on the post edit page if it exists
+function custom_display_slug_error_message() {
+    if ( isset( $_GET['slug_error'] ) ) {
+        echo '<div class="error"><p>' . esc_html( $_GET['slug_error'] ) . '</p></div>';
+    }
+}
+add_action( 'edit_form_advanced', 'custom_display_slug_error_message' );
 
 
 
