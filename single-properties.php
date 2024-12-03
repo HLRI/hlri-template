@@ -26,189 +26,181 @@ if (is_user_logged_in()) {
                 <div class="p-0 position-relative">
 
                     <div class="excerpt-top d-flex align-items-center justify-content-between mb-2 card-property-responsive">
-
+                        <div class="col-sm-2">
+                            <?php if (!empty($psd['properties_logo']['url'])) : ?>
+                                <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
+                                     style="max-width:200px;max-height:200px;"
+                                     class="project-logo-top w-auto rounded mr-4"
+                                     alt="<?= $psd['properties_logo']['url'] ?>"/>
+                            <?php elseif (!empty($psd['thumbnail_url'])) : ?>
+                                <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
+                                     alt="<?= $psd['thumbnail_caption'] ?>"/>
+                            <?php else : ?>
+                                <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <?php endif; ?>
+                        </div>
                         <div class="container-fluid">
-                            <div class="row">
-                                <div >
-                                    <div class="col-sm-2">
-                                        <?php if (!empty($psd['properties_logo']['url'])) : ?>
-                                            <img src="<?= $psd['properties_logo']['url'] ?>" loading="lazy"
-                                                 style="max-width:200px;max-height:200px;"
-                                                 class="project-logo-top w-auto rounded mr-4"
-                                                 alt="<?= $psd['properties_logo']['url'] ?>"/>
-                                        <?php elseif (!empty($psd['thumbnail_url'])) : ?>
-                                            <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
-                                                 alt="<?= $psd['thumbnail_caption'] ?>"/>
-                                        <?php else : ?>
-                                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
+                            <h2><?= $psd['title'] ?></h2>
+                            <?php if (!empty(the_excerpt())) : ?>
+                                <p class="text-muted"> <?= the_excerpt() ?></p>
+                            <?php endif; ?>
+                            <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale") || ($data['opt-sales-type'] == "Comming soon")) : ?>
+                                <div class="characteristics-cnt">
+                                    <ul>
+                                        <?php if (($data['opt-sales-type'] == "Preconstruction")) : ?>
+                                            <li class="sales-tatus ic-salesstatus"
+                                                title="Sales Status: <?php echo $data['opt-sales-type']; ?>">
+                                                <img src="https://condoy.com/wp-content/themes/homeleaderrealty/assets/images/building-construction-icon.svg"
+                                                     style="margin-bottom: 4px;height: 30px;">
+                                                <?php echo $data['opt-sales-type'] ?>
+                                            </li>
                                         <?php endif; ?>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <h2><?= $psd['title'] ?></h2>
-                                        <?php if (!empty(the_excerpt())) : ?>
-                                            <p class="text-muted"> <?= the_excerpt() ?></p>
+                                        <?php if ($data['opt-sales-type'] == "Resale") : ?>
+                                            <li class="sales-tatus ic-salesstatus"
+                                                title="Sales Status: <?php echo $data['opt-sales-type']; ?>">
+                                                <i class="fa-solid fa-bullhorn"></i>
+                                                <?php echo $data['opt-sales-type'] ?>
+                                            </li>
                                         <?php endif; ?>
-                                        <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale") || ($data['opt-sales-type'] == "Comming soon")) : ?>
-                                            <div class="characteristics-cnt">
-                                                <ul>
-                                                    <?php if (($data['opt-sales-type'] == "Preconstruction")) : ?>
-                                                        <li class="sales-tatus ic-salesstatus"
-                                                            title="Sales Status: <?php echo $data['opt-sales-type']; ?>">
-                                                            <img src="https://condoy.com/wp-content/themes/homeleaderrealty/assets/images/building-construction-icon.svg"
-                                                                 style="margin-bottom: 4px;height: 30px;">
-                                                            <?php echo $data['opt-sales-type'] ?>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if ($data['opt-sales-type'] == "Resale") : ?>
-                                                        <li class="sales-tatus ic-salesstatus"
-                                                            title="Sales Status: <?php echo $data['opt-sales-type']; ?>">
-                                                            <i class="fa-solid fa-bullhorn"></i>
-                                                            <?php echo $data['opt-sales-type'] ?>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if ($data['opt-sales-type'] == "SoldOut") : ?>
-                                                        <li class="sales-tatus ic-salesstatus"
-                                                            title="Sales Status: <?php echo $data['opt-sales-type']; ?>">
-                                                            <i class="fa-solid fa-tag"></i>
-                                                            <?php echo $data['opt-sales-type'] ?>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if ($data['opt-sales-type'] == "Comming soon") : ?>
-                                                        <li class="sales-tatus ic-salesstatus"
-                                                            title="Sales Status: Coming Soon">
-                                                            <i class="fas fa-clock"></i><br>
-                                                            Coming Soon
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if (($key = array_search('Preconstruction', $data['opt-sales-type'] ?? [])) !== false) {
-                                                        $data['opt-sales-type'] = array_values(array_diff($data['opt-sales-type'] ?? [], ['Preconstruction']));
-                                                    } ?>
-                                                    <li class="property-type ic-proptype"
-                                                        title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>">
-                                                        <i class="fas fa-fas fa-building"></i><br>
-                                                        <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
-                                                    </li>
-                                                    <?php if (($data['opt-ownership'] != "")) : ?>
-                                                        <li class="ownership ic-ownership"
-                                                            title="Ownership: <?php echo implode(', ', $data['opt-ownership']); ?>">
-                                                            <i class="fas fa-fas fa-key"></i><br>
-                                                            <?php echo implode(', ', $data['opt-ownership']); ?>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if (array_search('Commercial', $data['opt-type']) === false) : ?>
-                                                        <li data-label="Beds" class="ic-beds"
-                                                            title="Number of Bedrooms: <?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bed'] ?>">
-                                                            <i class="fas fa-bed"></i><br>
-                                                            <strong><?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bed'] ?></strong>
-                                                            <span class="gray normal-lbl">Bedroom<?php echo(intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
-                                                                    class="gray short-lbl"></span>
-                                                        </li>
-
-                                                        <li data-label="Baths" class="ic-baths"
-                                                            title="Number of Bathrooms: <?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?>">
-                                                            <i class="fas fa-bath"></i><br><strong><?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bath'] ?></strong>
-                                                            <span class="gray normal-lbl">Bathroom<?php echo(intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
-                                                                    class="gray short-lbl"></span>
-                                                        </li>
-                                                    <?php endif; ?>
-
-
-                                                    <li data-label="Sqft" class="ic-sqft"
-                                                        title="Property Size: <?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?> Sqft.">
-                                                        <i class="fas fa-vector-square"></i><br><strong><?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?><?php echo $data['opt-size-max'] ?></strong>
-                                                        <span
-                                                                class="gray normal-lbl">Sqft</span><span
-                                                                class="gray short-lbl"></span>
-                                                    </li>
-                                                    <?php if (!empty($data['opt-floors'])) : ?>
-                                                        <li class="property-type ic-proptype"
-                                                            title="Level: <?php echo $data['opt-floors'] ?>"><i
-                                                                    class="fa-solid fa-elevator"></i><br>
-                                                            <b><?php echo $data['opt-floors'] ?></b> Storeys
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($data['opt-suites'])) : ?>
-                                                        <li class="property-type ic-proptype"
-                                                            title="Level: <?php echo $data['opt-suites'] ?>">
-                                                            <div style="display: inline-block;width: 100%;margin-bottom: 4px;">
-                                                                <svg id="storiesIcon" xmlns="http://www.w3.org/2000/svg"
-                                                                     width="30"
-                                                                     height="30" fill="#6c6c6c" class="bi bi-building-up"
-                                                                     viewBox="0 0 16 16">
-                                                                    <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.354-5.854 1.5 1.5a.5.5 0 0 1-.708.708L13 11.707V14.5a.5.5 0 0 1-1 0v-2.793l-.646.647a.5.5 0 0 1-.708-.708l1.5-1.5a.5.5 0 0 1 .708 0"></path>
-                                                                    <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1z"></path>
-                                                                    <path d="M4.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"></path>
-                                                                </svg>
-                                                            </div>
-                                                            <b><?php echo $data['opt-suites'] ?></b> Suites
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($data['opt-occupancy']) || !empty($data['opt-occupancy-time-period'])) : ?>
-                                                        <li class="property-type ic-proptype">
-                                                            <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
-                                                            echo 'occup ' . $occupancyOp . $data['opt-occupancy']; ?>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($data['opt-parking-quantity'])) : ?>
-                                                        <li class="property-type ic-proptype"
-                                                            title="Number of Parkings: <?php echo $data['opt-parking-quantity']; ?>">
-                                                            <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' Parking' ?>
-                                                        </li>
-                                                    <?php endif; ?>
-
-                                                    <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
-                                                        <li class="property-type ic-proptype"
-                                                            title="Level: <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?>">
-                                                            <i
-                                                                    class="fa-solid fa-elevator"></i><br>
-                                                            <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>
-                                                            Level
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($data['opt-locker'])) : ?>
-                                                        <li class="property-type ic-proptype"
-                                                            title="Number of Lockers: <?php echo $data['opt-locker'] ?>">
-                                                            <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker']; ?></b>
-                                                            Locker
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php if (!empty($firstfloor['opt-floorplans-interior-size']) && !empty($firstfloor['opt-floorplans-price-from'])) : ?>
-                                                        <li class="property-type ic-proptype"
-                                                            title="Property Price/Sqft: <?= '$' . round(number_format($firstfloor['opt-floorplans-price-from'], 2, '.', '') / number_format($firstfloor['opt-floorplans-interior-size'], 2, '.', '')) ?>">
-                                                            <i class="fas fa-comments-dollar"></i><br>
-                                                            <b><?= '$' . round(number_format($firstfloor['opt-floorplans-price-from'], 2, '.', '') / number_format($firstfloor['opt-floorplans-interior-size'], 2, '.', '')) ?></b>/Sqft.
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <?php $terms = get_the_terms(get_the_ID(), 'neighborhood');
-                                                    if (!empty($terms)) {
-                                                        foreach ($terms as $term) {
-                                                            $neighborhood_meta = get_term_meta($term->term_id, 'neighborhood_options', true);
-                                                            if (is_array($neighborhood_meta) && isset($neighborhood_meta['opt-neighborhood-appson'])) {
-                                                                $total_neighborhood[] = $neighborhood_meta['opt-neighborhood-appson'];
-                                                            }
-                                                        }
-                                                        if (count($total_neighborhood)) {
-                                                            $avgn = array_sum($total_neighborhood) / count($total_neighborhood);
-                                                        } else {
-                                                            $avgn = '';
-                                                        }
-                                                    } else {
-                                                        $avgn = '';
-                                                    }
-                                                    ?>
-                                                    <?php if (!empty($avgn)) : ?>
-                                                        <li class="property-type ic-proptype"
-                                                            title="Neighbourhood Price/Sqft Average: <?php echo '$' . number_format($avgn, 0); ?>">
-                                                            <i class="fas fa-map"></i><br><?php echo number_format($avgn, 0); ?>
-                                                            /Sqft Nbhd Avg
-                                                        </li>
-                                                    <?php endif; ?>
-                                                </ul>
-                                            </div>
+                                        <?php if ($data['opt-sales-type'] == "SoldOut") : ?>
+                                            <li class="sales-tatus ic-salesstatus"
+                                                title="Sales Status: <?php echo $data['opt-sales-type']; ?>">
+                                                <i class="fa-solid fa-tag"></i>
+                                                <?php echo $data['opt-sales-type'] ?>
+                                            </li>
                                         <?php endif; ?>
-                                    </div>
+                                        <?php if ($data['opt-sales-type'] == "Comming soon") : ?>
+                                            <li class="sales-tatus ic-salesstatus" title="Sales Status: Coming Soon">
+                                                <i class="fas fa-clock"></i><br>
+                                                Coming Soon
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (($key = array_search('Preconstruction', $data['opt-sales-type'] ?? [])) !== false) {
+                                            $data['opt-sales-type'] = array_values(array_diff($data['opt-sales-type'] ?? [], ['Preconstruction']));
+                                        } ?>
+                                        <li class="property-type ic-proptype"
+                                            title="Property type: <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>">
+                                            <i class="fas fa-fas fa-building"></i><br>
+                                            <?php echo $data['opt-sales-type'] . ' ' . implode(', ', $data['opt-type']); ?>
+                                        </li>
+                                        <?php if (($data['opt-ownership'] != "")) : ?>
+                                            <li class="ownership ic-ownership"
+                                                title="Ownership: <?php echo implode(', ', $data['opt-ownership']); ?>">
+                                                <i class="fas fa-fas fa-key"></i><br>
+                                                <?php echo implode(', ', $data['opt-ownership']); ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (array_search('Commercial', $data['opt-type']) === false) : ?>
+                                            <li data-label="Beds" class="ic-beds"
+                                                title="Number of Bedrooms: <?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bed'] ?>">
+                                                <i class="fas fa-bed"></i><br>
+                                                <strong><?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bed'] ?></strong>
+                                                <span class="gray normal-lbl">Bedroom<?php echo(intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
+                                                        class="gray short-lbl"></span>
+                                            </li>
+
+                                            <li data-label="Baths" class="ic-baths"
+                                                title="Number of Bathrooms: <?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?>">
+                                                <i class="fas fa-bath"></i><br><strong><?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bath'] ?></strong>
+                                                <span class="gray normal-lbl">Bathroom<?php echo(intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
+                                                        class="gray short-lbl"></span>
+                                            </li>
+                                        <?php endif; ?>
+
+
+                                        <li data-label="Sqft" class="ic-sqft"
+                                            title="Property Size: <?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?> <?php echo $data['opt-size-max'] ?> Sqft.">
+                                            <i class="fas fa-vector-square"></i><br><strong><?php echo($data['opt-size-min'] != "" ? $data['opt-size-min'] . " - " : 'TBA '); ?><?php echo $data['opt-size-max'] ?></strong>
+                                            <span
+                                                    class="gray normal-lbl">Sqft</span><span
+                                                    class="gray short-lbl"></span>
+                                        </li>
+                                        <?php if (!empty($data['opt-floors'])) : ?>
+                                            <li class="property-type ic-proptype"
+                                                title="Level: <?php echo $data['opt-floors'] ?>"><i
+                                                        class="fa-solid fa-elevator"></i><br>
+                                                <b><?php echo $data['opt-floors'] ?></b> Storeys
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-suites'])) : ?>
+                                            <li class="property-type ic-proptype"
+                                                title="Level: <?php echo $data['opt-suites'] ?>">
+                                                <div style="display: inline-block;width: 100%;margin-bottom: 4px;">
+                                                    <svg id="storiesIcon" xmlns="http://www.w3.org/2000/svg" width="30"
+                                                         height="30" fill="#6c6c6c" class="bi bi-building-up"
+                                                         viewBox="0 0 16 16">
+                                                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.354-5.854 1.5 1.5a.5.5 0 0 1-.708.708L13 11.707V14.5a.5.5 0 0 1-1 0v-2.793l-.646.647a.5.5 0 0 1-.708-.708l1.5-1.5a.5.5 0 0 1 .708 0"></path>
+                                                        <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1z"></path>
+                                                        <path d="M4.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"></path>
+                                                    </svg>
+                                                </div>
+                                                <b><?php echo $data['opt-suites'] ?></b> Suites
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-occupancy']) || !empty($data['opt-occupancy-time-period'])) : ?>
+                                            <li class="property-type ic-proptype">
+                                                <i class="fas fa-calendar"></i><br><?php $occupancyOp = (!empty($data['opt-occupancy-time-period'])) ? $data['opt-occupancy-time-period'] . ' ' : '';
+                                                echo 'occup ' . $occupancyOp . $data['opt-occupancy']; ?>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-parking-quantity'])) : ?>
+                                            <li class="property-type ic-proptype"
+                                                title="Number of Parkings: <?php echo $data['opt-parking-quantity']; ?>">
+                                                <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' Parking' ?>
+                                            </li>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($firstfloor['opt-floorplans-floor-range'])) : ?>
+                                            <li class="property-type ic-proptype"
+                                                title="Level: <?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?>">
+                                                <i
+                                                        class="fa-solid fa-elevator"></i><br>
+                                                <b><?php echo addOrdinalSuffix($firstfloor['opt-floorplans-floor-range']) ?></b>
+                                                Level
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($data['opt-locker'])) : ?>
+                                            <li class="property-type ic-proptype"
+                                                title="Number of Lockers: <?php echo $data['opt-locker'] ?>">
+                                                <i class="fas fa-lock"></i><br><b><?php echo $data['opt-locker']; ?></b>
+                                                Locker
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if (!empty($firstfloor['opt-floorplans-interior-size']) && !empty($firstfloor['opt-floorplans-price-from'])) : ?>
+                                            <li class="property-type ic-proptype"
+                                                title="Property Price/Sqft: <?= '$' . round(number_format($firstfloor['opt-floorplans-price-from'], 2, '.', '') / number_format($firstfloor['opt-floorplans-interior-size'], 2, '.', '')) ?>">
+                                                <i class="fas fa-comments-dollar"></i><br>
+                                                <b><?= '$' . round(number_format($firstfloor['opt-floorplans-price-from'], 2, '.', '') / number_format($firstfloor['opt-floorplans-interior-size'], 2, '.', '')) ?></b>/Sqft.
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php $terms = get_the_terms(get_the_ID(), 'neighborhood');
+                                        if (!empty($terms)) {
+                                            foreach ($terms as $term) {
+                                                $neighborhood_meta = get_term_meta($term->term_id, 'neighborhood_options', true);
+                                                if (is_array($neighborhood_meta) && isset($neighborhood_meta['opt-neighborhood-appson'])) {
+                                                    $total_neighborhood[] = $neighborhood_meta['opt-neighborhood-appson'];
+                                                }
+                                            }
+                                            if (count($total_neighborhood)) {
+                                                $avgn = array_sum($total_neighborhood) / count($total_neighborhood);
+                                            } else {
+                                                $avgn = '';
+                                            }
+                                        } else {
+                                            $avgn = '';
+                                        }
+                                        ?>
+                                        <?php if (!empty($avgn)) : ?>
+                                            <li class="property-type ic-proptype"
+                                                title="Neighbourhood Price/Sqft Average: <?php echo '$' . number_format($avgn, 0); ?>">
+                                                <i class="fas fa-map"></i><br><?php echo number_format($avgn, 0); ?>
+                                                /Sqft Nbhd Avg
+                                            </li>
+                                        <?php endif; ?>
+                                    </ul>
                                 </div>
-                            </div>
+                            <?php endif; ?>
+
                         </div>
 
                     </div>
@@ -263,12 +255,10 @@ if (is_user_logged_in()) {
                                 align-items: unset !important;
                             }
                         }
-
                         @media screen and (max-width: 394px) {
                             .site-logo {
                                 max-width: 100px;
                             }
-
                             /*.excerpt-top img:first-child{display:none !important;}*/
                         }
                     </style>
