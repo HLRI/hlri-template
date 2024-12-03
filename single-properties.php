@@ -56,7 +56,7 @@ if (is_user_logged_in()) {
                             <?php if (!empty(the_excerpt())) : ?>
                                 <p class="text-muted"> <?= the_excerpt() ?></p>
                             <?php endif; ?>
-                            <a href="#register" class="mt-2 mb-2 btn btn-lg" style="background-color: rgb(255, 102, 0);color: white;border: 2px solid rgb(255, 102, 0);border-radius: 5px;text-align: center;font-weight: bold;transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;box-shadow: none;transform: scale(1);font-size: 14px;" onmouseover="this.style.backgroundColor='#e65c00'; this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='#ff6600'; this.style.boxShadow='none'; this.style.transform='scale(1)';">
+                            <a href="#register" class="mt-2 mb-2 btn btn-lg" style="border: 2px solid rgb(255, 102, 0);border-radius: 5px;text-align: center;font-weight: bold;transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;box-shadow: none;transform: scale(1);font-size: 14px;" onmouseover="this.style.backgroundColor='#e65c00'; this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='rgb(254 194 15)'; this.style.boxShadow='none'; this.style.transform='scale(1)';">
                                 Register below to secure your unit
                             </a>
                             <?php if (($data['opt-sales-type'] == "Preconstruction") || ($data['opt-sales-type'] == "Resale") || ($data['opt-sales-type'] == "Comming soon")) : ?>
