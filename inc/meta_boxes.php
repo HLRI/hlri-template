@@ -412,6 +412,8 @@ function save_floorplan_slug($post_id) {
     // Check if the floorplan_slug field is set and update the post slug
     if (isset($_POST['floorplan_slug'])) {
         $new_slug = sanitize_title($_POST['floorplan_slug']);
+
+        // Avoid overwriting the slug with the same value
         if ($new_slug !== get_post_field('post_name', $post_id)) {
             wp_update_post([
                 'ID' => $post_id,
