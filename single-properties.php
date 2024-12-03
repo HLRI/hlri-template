@@ -465,7 +465,7 @@ if (is_user_logged_in()) {
                 <ol id="tag-list">
                     <?php if (!($data['opt-sales-type'] == "Assignment") && !($data['opt-sales-type'] == "Resale")) : ?>
                         <li><a href="#development-detail" class="item-list-tag" title="map">Development Detail</a></li>
-                        <li><a href="#PriceList" class="item-list-tag" title="map">Price List</a></li>
+                        <li><a href="<?php if (empty($psd['price_images'])) : ?>#FloorPlans<?php else : ?>#PriceList<?php endif; ?>" class="item-list-tag" title="map">Price List</a></li>
                     <?php endif; ?>
                 </ol>
             </nav>
@@ -635,7 +635,6 @@ if (is_user_logged_in()) {
                     <?php endif; ?>
 
                 </div>
-
                 <?php if (!empty($psd['price_images'])) : ?>
                     <div class="row mt-5 border-top  mb-4" id="PriceList">
                         <div class="col-12">
