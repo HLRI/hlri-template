@@ -266,7 +266,7 @@ if (is_user_logged_in()) {
                                 align-items: unset !important;
                             }
                         }
-                        @media screen and (max-width: 394px) {
+                        @media screen and (max-width: 1300px) {
                             .hide-on-sm {
                                 display: none !important;
                             }
