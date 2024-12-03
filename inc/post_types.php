@@ -36,7 +36,7 @@ function agents()
         'label'                 => __('Agents', 'text_domain'),
         'description'           => __('agents Description', 'text_domain'),
         'labels'                => $labels,
-        'supports'              => ['title', 'excerpt', 'thumbnail'],
+        'supports'              => ['title', 'editor', 'excerpt', 'thumbnail'],
         // 'taxonomies'            => array( ''),
         'hierarchical'          => false,
         'public'                => true,
