@@ -243,7 +243,7 @@ if (is_user_logged_in()) {
                             margin-right: 8px;
                         }
 
-                        @media screen and (max-width: 732px) {
+                        @media screen and (max-width: 1300px) {
                             .project-logo-top {
                                 max-width: 200px;
                                 max-height: 200px;
