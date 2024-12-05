@@ -417,23 +417,23 @@ register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 /*==================================================================================*/
 
 // Add an error message to be shown when the post save is redirected
-function custom_add_slug_error_message($location, $post_id)
-{
-    // Append an error message to the redirect URL
-    return add_query_arg('slug_error', urlencode('The slug cannot be empty.'), $location);
-}
+//function custom_add_slug_error_message($location, $post_id)
+//{
+//    // Append an error message to the redirect URL
+//    return add_query_arg('slug_error', urlencode('The slug cannot be empty.'), $location);
+//}
 
 /*==================================================================================*/
 
 // Display the error message on the post edit page if it exists
-function custom_display_slug_error_message()
-{
-    if (isset($_GET['slug_error'])) {
-        echo '<div class="error"><p>' . esc_html($_GET['slug_error']) . '</p></div>';
-    }
-}
-
-add_action('edit_form_advanced', 'custom_display_slug_error_message');
+//function custom_display_slug_error_message()
+//{
+//    if (isset($_GET['slug_error'])) {
+//        echo '<div class="error"><p>' . esc_html($_GET['slug_error']) . '</p></div>';
+//    }
+//}
+//
+//add_action('edit_form_advanced', 'custom_display_slug_error_message');
 
 // end edit slug
 
