@@ -307,109 +307,35 @@ add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 
 
-
-
-// start edit slug
-
-/*==================================================================================*/
-
-// Add a custom metabox to edit the slug for published floorplans
-function custom_add_slug_metabox()
+function add_floorplans_rewrite_rules()
 {
-    add_meta_box(
-        'floorplan_slug_metabox', // ID of the metabox
-        'Edit Floorplan Slug',     // Title of the metabox
-        'custom_slug_metabox_html', // Callback function to display the HTML
-        'floorplans',              // Post type where the metabox will appear
-        'advanced',                // Position below the title (use 'advanced' for below title)
-        'high'                     // Priority of the metabox
+    add_rewrite_rule(
+        '^properties/([^/]+)/floorplans/([^/]+)/?$',
+        'index.php?floorplans=$matches[2]&property=$matches[1]',
+        'top'
     );
 }
+add_action('init', 'add_floorplans_rewrite_rules');
 
-add_action('add_meta_boxes', 'custom_add_slug_metabox');
-
-/*==================================================================================*/
-
-// Callback function to display the HTML for the custom slug field in the metabox
-function custom_slug_metabox_html($post)
+function floorplans_permalink($permalink, $post)
 {
-    // Check if the post is published
-    if ('publish' === get_post_status($post)) {
-        // Get the current slug
-        $current_slug = $post->post_name;
-        ?>
-        <label for="floorplan_slug">Slug:</label>
-        <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>"
-               class="widefat">
-        <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>
-        <?php
-    } else {
-        echo '<p>This floorplan must be published to edit the slug.</p>';
-    }
-}
-
-/*==================================================================================*/
-
-// Save the updated slug when the post is updated
-function custom_save_slug_metabox($post_id)
-{
-    // Check if the post is being autosaved or not a 'floorplans' post
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
-    if ('floorplans' !== get_post_type($post_id)) return $post_id;
-
-    // Check if the post is published
-    if ('publish' === get_post_status($post_id)) {
-        // Get the new slug from the metabox
-        if (isset($_POST['floorplan_slug'])) {
-            $new_slug = sanitize_text_field($_POST['floorplan_slug']);
-
-            // Check if the slug is empty
-            if (empty($new_slug)) {
-                // Add an error message to be shown on the post edit screen
-                add_filter('redirect_post_location', 'custom_add_slug_error_message', 10, 2);
-                return $post_id; // Prevent saving
-            }
-
-            // Update the post's slug if it's different
-            if ($new_slug !== get_post_field('post_name', $post_id)) {
-                // Update the post's slug (post_name)
-                wp_update_post(array(
-                    'ID' => $post_id,
-                    'post_name' => $new_slug
-                ));
-            }
+    if ($post->post_type === 'floorplans') {
+        $parent_id = $post->post_parent;
+        if ($parent_id) {
+            $parent_slug = get_post_field('post_name', $parent_id); // Get parent property slug
+            $permalink = str_replace('%property%', $parent_slug, $permalink);
         }
     }
-
-    return $post_id;
+    return $permalink;
 }
+add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
-add_action('save_post', 'custom_save_slug_metabox');
-
-/*==================================================================================*/
-
-// Add an error message to be shown when the post save is redirected
-function custom_add_slug_error_message($location, $post_id)
+function flush_rewrite_on_activation()
 {
-    // Append an error message to the redirect URL
-    return add_query_arg('slug_error', urlencode('The slug cannot be empty.'), $location);
+    floorplans();
+    flush_rewrite_rules();
 }
-
-/*==================================================================================*/
-
-// Display the error message on the post edit page if it exists
-function custom_display_slug_error_message()
-{
-    if (isset($_GET['slug_error'])) {
-        echo '<div class="error"><p>' . esc_html($_GET['slug_error']) . '</p></div>';
-    }
-}
-
-add_action('edit_form_advanced', 'custom_display_slug_error_message');
-
-// end edit slug
-
-
+register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
 
 
