@@ -269,7 +269,7 @@ function custom_modify_floorplans_permalink($permalink, $post)
         $permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
     }
 
-//    return $permalink;
+    return $permalink;
 }
 
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
