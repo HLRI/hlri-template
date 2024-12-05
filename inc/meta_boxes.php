@@ -274,15 +274,27 @@ function custom_modify_floorplans_permalink($permalink, $post)
         }
 
         $floorplan_slug = sanitize_title_with_dashes($post->post_name);
-        $permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
+        $new_permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
+
+        // Check if the new permalink differs from the current one
+        if ($permalink !== $new_permalink) {
+            // Redirect back to the edit page with success message
+            add_action('save_post', function ($post_id) use ($post) {
+                if (get_post_type($post_id) === 'floorplans') {
+                    $edit_page_url = admin_url('post.php?post=' . $post_id . '&action=edit');
+                    wp_safe_redirect(add_query_arg('slug_update', 'success', $edit_page_url));
+                    exit;
+                }
+            });
+        }
+
+        return $new_permalink;
     }
 
     return $permalink;
 }
 
-
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
-
 /*==================================================================================*/
 
 // Register additional rewrite rules for the modified floorplans permalink structure
@@ -309,33 +321,7 @@ add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
 add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
-//function custom_handle_slug_update($post_id)
-//{
-//    if (get_post_type($post_id) === 'floorplans') {
-//        $permalink = get_permalink($post_id);
-//        if ($permalink) {
-//            wp_safe_redirect($permalink);
-//            exit;
-//        }
-//    }
-//}
-//add_action('save_post', 'custom_handle_slug_update');
-
-
-function custom_handle_slug_update_redirect($location, $post_id)
-{
-    // Ensure this is for the 'floorplans' post type
-    if (get_post_type($post_id) === 'floorplans') {
-        // Append a success message parameter to the edit URL
-        $location = add_query_arg('slug_update', 'success', $location);
-    }
-
-    return $location;
-}
-add_filter('redirect_post_location', 'custom_handle_slug_update_redirect', 10, 2);
-
-
-function custom_display_success_message()
+function custom_display_slug_success_message()
 {
     if (isset($_GET['slug_update']) && $_GET['slug_update'] === 'success') {
         echo '<div class="notice notice-success is-dismissible">
@@ -343,9 +329,7 @@ function custom_display_success_message()
               </div>';
     }
 }
-add_action('admin_notices', 'custom_display_success_message');
-
-
+add_action('admin_notices', 'custom_display_slug_success_message');
 // end modify floorplan link
 
 
