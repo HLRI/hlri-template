@@ -309,17 +309,41 @@ add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
 add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
+//function custom_handle_slug_update($post_id)
+//{
+//    if (get_post_type($post_id) === 'floorplans') {
+//        $permalink = get_permalink($post_id);
+//        if ($permalink) {
+//            wp_safe_redirect($permalink);
+//            exit;
+//        }
+//    }
+//}
+//add_action('save_post', 'custom_handle_slug_update');
+
+
 function custom_handle_slug_update($post_id)
 {
-    if (get_post_type($post_id) === 'floorplans') {
-        $permalink = get_permalink($post_id);
-        if ($permalink) {
-            wp_safe_redirect($permalink);
-            exit;
-        }
+    // Ensure this is a valid save operation for the 'floorplans' post type
+    if (get_post_type($post_id) === 'floorplans' && !defined('DOING_AUTOSAVE')) {
+        // Append a success parameter to the redirect URL
+        add_filter('redirect_post_location', function ($location) use ($post_id) {
+            return add_query_arg('slug_update', 'success', $location);
+        });
     }
 }
 add_action('save_post', 'custom_handle_slug_update');
+
+function custom_show_success_message()
+{
+    if (isset($_GET['slug_update']) && $_GET['slug_update'] === 'success') {
+        echo '<div class="notice notice-success is-dismissible">
+                <p>' . esc_html__('The slug has been successfully updated!', 'text-domain') . '</p>
+              </div>';
+    }
+}
+add_action('admin_notices', 'custom_show_success_message');
+
 
 // end modify floorplan link
 
