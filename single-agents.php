@@ -99,7 +99,6 @@ $info = get_post_meta(get_the_ID(), 'hlr_framework_agents', true);
             if (!empty($excerpt)) {
                 ?>
                 <div class="container d-flex flex-column" >
-                    <h3>Biography (AI generated)</h3>
                     <p>
                         <?php the_content(); ?>
                     </p>
