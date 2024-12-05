@@ -379,40 +379,40 @@ register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 /*==================================================================================*/
 
 // Save the updated slug when the post is updated
-function custom_save_slug_metabox($post_id)
-{
-    // Check if the post is being autosaved or not a 'floorplans' post
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
-    if ('floorplans' !== get_post_type($post_id)) return $post_id;
-
-    // Check if the post is published
-    if ('publish' === get_post_status($post_id)) {
-        // Get the new slug from the metabox
-        if (isset($_POST['floorplan_slug'])) {
-            $new_slug = sanitize_text_field($_POST['floorplan_slug']);
-
-            // Check if the slug is empty
-            if (empty($new_slug)) {
-                // Add an error message to be shown on the post edit screen
-                add_filter('redirect_post_location', 'custom_add_slug_error_message', 10, 2);
-                return $post_id; // Prevent saving
-            }
-
-            // Update the post's slug if it's different
-            if ($new_slug !== get_post_field('post_name', $post_id)) {
-                // Update the post's slug (post_name)
-                wp_update_post(array(
-                    'ID' => $post_id,
-                    'post_name' => $new_slug
-                ));
-            }
-        }
-    }
-
-    return $post_id;
-}
-
-add_action('save_post', 'custom_save_slug_metabox');
+//function custom_save_slug_metabox($post_id)
+//{
+//    // Check if the post is being autosaved or not a 'floorplans' post
+//    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
+//    if ('floorplans' !== get_post_type($post_id)) return $post_id;
+//
+//    // Check if the post is published
+//    if ('publish' === get_post_status($post_id)) {
+//        // Get the new slug from the metabox
+//        if (isset($_POST['floorplan_slug'])) {
+//            $new_slug = sanitize_text_field($_POST['floorplan_slug']);
+//
+//            // Check if the slug is empty
+//            if (empty($new_slug)) {
+//                // Add an error message to be shown on the post edit screen
+//                add_filter('redirect_post_location', 'custom_add_slug_error_message', 10, 2);
+//                return $post_id; // Prevent saving
+//            }
+//
+//            // Update the post's slug if it's different
+//            if ($new_slug !== get_post_field('post_name', $post_id)) {
+//                // Update the post's slug (post_name)
+//                wp_update_post(array(
+//                    'ID' => $post_id,
+//                    'post_name' => $new_slug
+//                ));
+//            }
+//        }
+//    }
+//
+//    return $post_id;
+//}
+//
+//add_action('save_post', 'custom_save_slug_metabox');
 
 /*==================================================================================*/
 
