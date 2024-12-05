@@ -145,36 +145,82 @@ add_filter( 'shortcode_atts_wpcf7', 'custom_shortcode_atts_wpcf7_filter', 10, 3 
 
 add_action("wpcf7_before_send_mail", "wpcf7_sendtogeneralformhandlerpreconstruction");
 function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
-    // Specify the ID of the form you want to target
-//     $target_form_id = '88b86af';
-
-    // Check if the current form matches the target form ID
-//     if ($WPCF7_ContactForm->id() == $target_form_id) {
     // Get current form
     $wpcf7 = WPCF7_ContactForm::get_current();
-    // get current SUBMISSION instance
+    // Get current submission instance
     $submission = WPCF7_Submission::get_instance();
 
-    // Ok go forward
+    // Proceed if submission exists
     if ($submission) {
-        // get submission data
+        // Get submitted data
         $data = $submission->get_posted_data();
 
-        // nothing's here... do nothing...
+        // Ensure data is not empty
         if (!empty($data)) {
-            // extract posted data for example to get name and change it
-            $urlsend = 'http://locatecondo.com/web_controllers/form_controllers/general_form.php'; // link inja
+            // Use the referring URL to determine the current page
+            if (isset($_SERVER['HTTP_REFERER'])) {
+                $referrer_url = $_SERVER['HTTP_REFERER'];
+                $page_id = url_to_postid($referrer_url);
+
+                if ($page_id) {
+                    $current_page_title = get_the_title($page_id);
+                    $current_page_url = get_permalink($page_id);
+                } else {
+                    $current_page_title = 'Unknown Page';
+                    $current_page_url = $referrer_url;
+                }
+            } else {
+                $current_page_title = 'Direct Access';
+                $current_page_url = '';
+            }
+
+            // Add the page title and URL to the data
+            $data['pageTitle'] = $current_page_title;
+            $data['pageUrl'] = $current_page_url;
+            $data['url'] = $current_page_url;
+            if (strpos($current_page_url, '/properties/') !== false && strpos($current_page_url, '/floorplans/') == false) {
+                $data['tags'] = $current_page_title;
+                $data['street'] = $current_page_title;
+                $data['utm_source'] = $current_page_title;
+                $data['type'] = 'Property Inquiry';
+            } elseif(strpos($current_page_url, '/floorplans/') !== false) {
+                $associated_property_id = get_post_meta($page_id, 'associated_property', true);
+                $current_page_title = get_the_title($associated_property_id);
+                $data['tags'] = [$current_page_title, 'Floorplan Request'];
+                $data['street'] = $current_page_title;
+                $data['utm_source'] = $current_page_title;
+                $data['type'] = 'Property Inquiry';
+            } elseif(strpos($current_page_url, 'contact-us') !== false){
+                $data['utm_source'] = $current_page_title;
+                $data['type'] = 'General Inquiry';
+            } elseif(strpos($current_page_url, 'join-us') !== false){
+                $data['tags'] = ['Realtor'];
+                $data['utm_source'] = $current_page_title;
+                $data['type'] = 'Registration';
+            } elseif(strpos($current_page_url, '/agents/') !== false){
+                $data['utm_source'] = $current_page_title . ' Contact Page - CondoY.com';
+                $data['pageTitle'] = 'Contact ' . $current_page_title;
+                $data['type'] = 'General Inquiry';
+                $data['assignedTo'] = $current_page_title;
+            }
+
+            // Debugging: print data to check the updated structure
+
+            // URL for the webhook endpoint
+            $urlsend = 'http://locatecondo.com/web_controllers/form_controllers/general_form.php';
+
+            // Prepare cURL
             $chsend = curl_init($urlsend);
             $datasend = array(
                 'firstName' => $data['your-name'],
-                'lastName' => $data['your-lastname'],
+                'lastName' => isset($data['your-lastname']) ? $data['your-lastname'] : '', // Handle missing fields
                 'emails' => $data['your-email'],
                 'phones' => $data['your-phone'],
                 'message' => $data['your-message'],
-                'isrealtor' => $data['realtor'],
+                'isrealtor' => is_array($data['realtor']) ? implode(", ", $data['realtor']) : $data['realtor'],
                 'type' => $data['type'],
-                'pageTitle' => $data['pageTitle'],
-                'pageUrl' => $data['pageUrl'],
+                'pageTitle' => $data['pageTitle'], // Use the fetched title
+                'pageUrl' => $data['pageUrl'],     // Use the fetched URL
                 'url' => $data['url'],
                 'utm_campaign' => $data['utm_campaign'],
                 'utm_medium' => $data['utm_medium'],
@@ -184,7 +230,9 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 'street' => $data['street'],
                 'tags' => $data['tags'],
                 'tagArray' => $data['tagArray'],
+                'assignedTo' => $data['assignedTo'],
             );
+
             $payloadsend = json_encode(array("formData" => $datasend));
             curl_setopt($chsend, CURLOPT_POSTFIELDS, $payloadsend);
             curl_setopt($chsend, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
@@ -206,10 +254,8 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
     } else {
         error_log("No submission instance found.");
     }
-//     } else {
-//         error_log("Form ID does not match. Skipping.");
-//     }
 }
+
 
 
 
