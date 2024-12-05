@@ -342,19 +342,19 @@ register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 /*==================================================================================*/
 
 // Add a custom metabox to edit the slug for published floorplans
-function custom_add_slug_metabox()
-{
-    add_meta_box(
-        'floorplan_slug_metabox', // ID of the metabox
-        'Edit Floorplan Slug',     // Title of the metabox
-        'custom_slug_metabox_html', // Callback function to display the HTML
-        'floorplans',              // Post type where the metabox will appear
-        'advanced',                // Position below the title (use 'advanced' for below title)
-        'high'                     // Priority of the metabox
-    );
-}
-
-add_action('add_meta_boxes', 'custom_add_slug_metabox');
+//function custom_add_slug_metabox()
+//{
+//    add_meta_box(
+//        'floorplan_slug_metabox', // ID of the metabox
+//        'Edit Floorplan Slug',     // Title of the metabox
+//        'custom_slug_metabox_html', // Callback function to display the HTML
+//        'floorplans',              // Post type where the metabox will appear
+//        'advanced',                // Position below the title (use 'advanced' for below title)
+//        'high'                     // Priority of the metabox
+//    );
+//}
+//
+//add_action('add_meta_boxes', 'custom_add_slug_metabox');
 
 /*==================================================================================*/
 
