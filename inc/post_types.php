@@ -121,6 +121,8 @@ function floorplans() {
         'singular_name'         => _x('floorplan', 'floorplan Singular Name', 'text_domain'),
         'menu_name'             => __('Floorplans', 'text_domain'),
         'name_admin_bar'        => __('floorplans', 'text_domain'),
+        'hierarchical' => true, // This enables parent-child relationships
+        'rewrite' => array('slug' => 'properties', 'with_front' => false),
         'archives'              => __('Item Archives', 'text_domain'),
         'attributes'            => __('Item Attributes', 'text_domain'),
         'parent_item_colon'     => __('Parent Item:', 'text_domain'),
