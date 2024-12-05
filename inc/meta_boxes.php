@@ -273,11 +273,14 @@ function custom_modify_floorplans_permalink($permalink, $post)
             return $permalink;
         }
 
-        $floorplan_slug = sanitize_title_with_dashes($post->post_name);
-        $new_permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
+        $floorplan_slug = $post->post_slug;
+        $old_permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
+
+        $new_floorplan_slug = sanitize_title_with_dashes($post->post_name);
+        $new_permalink = "https://condoy.com/properties/$property_name/floorplans/$new_floorplan_slug/";
 
         // Check if the new permalink differs from the current one
-        if ($permalink !== $new_permalink) {
+        if ($old_permalink !== $new_floorplan_slug) {
             // Redirect back to the edit page with success message
             add_action('save_post', function ($post_id) use ($post) {
                 if (get_post_type($post_id) === 'floorplans') {
@@ -294,7 +297,9 @@ function custom_modify_floorplans_permalink($permalink, $post)
     return $permalink;
 }
 
+
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
+
 /*==================================================================================*/
 
 // Register additional rewrite rules for the modified floorplans permalink structure
@@ -321,15 +326,7 @@ add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
 add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
-function custom_display_slug_success_message()
-{
-    if (isset($_GET['slug_update']) && $_GET['slug_update'] === 'success') {
-        echo '<div class="notice notice-success is-dismissible">
-                <p>' . esc_html__('Slug updated successfully!', 'text-domain') . '</p>
-              </div>';
-    }
-}
-add_action('admin_notices', 'custom_display_slug_success_message');
+
 // end modify floorplan link
 
 
