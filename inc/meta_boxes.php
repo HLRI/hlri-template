@@ -239,22 +239,24 @@ function custom_render_associated_floorplans()
 /*==================================================================================*/
 
 // Modify the floorplans query to include the associated property
+add_action('pre_get_posts', 'custom_modify_floorplans_query');
+
 function custom_modify_floorplans_query($query)
 {
-    if (!is_admin() || !$query->is_main_query()) {
+    if (!is_admin() && $query->is_main_query() && $query->get('post_type') === 'floorplans') {
         return;
     }
-
     if ($query->get('post_type') === 'floorplans') {
         $query->set('rewrite', array('slug' => 'properties', 'with_front' => false));
     }
 }
-
 add_action('pre_get_posts', 'custom_modify_floorplans_query');
+
 
 /*==================================================================================*/
 
 // Modify the floorplans permalink structure
+
 function custom_modify_floorplans_permalink($permalink, $post)
 {
     if ($post->post_type === 'floorplans') {
@@ -279,7 +281,11 @@ add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 // Register additional rewrite rules for the modified floorplans permalink structure
 function custom_add_rewrite_rules()
 {
-    add_rewrite_rule('^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top');
+    add_rewrite_rule(
+        '^properties/([^/]+)/floorplans/([^/]+)/?$',
+        'index.php?post_type=floorplans&name=$matches[2]',
+        'top'
+    );
 }
 
 add_action('init', 'custom_add_rewrite_rules');
