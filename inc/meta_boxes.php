@@ -295,6 +295,41 @@ add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 
 
+function add_floorplans_rewrite_rules()
+{
+    add_rewrite_rule(
+        '^properties/([^/]+)/floorplans/([^/]+)/?$',
+        'index.php?floorplans=$matches[2]&property=$matches[1]',
+        'top'
+    );
+}
+add_action('init', 'add_floorplans_rewrite_rules');
+
+function floorplans_permalink($permalink, $post)
+{
+    if ($post->post_type === 'floorplans') {
+        $parent_id = $post->post_parent;
+        if ($parent_id) {
+            $parent_slug = get_post_field('post_name', $parent_id); // Get parent property slug
+            $permalink = str_replace('%property%', $parent_slug, $permalink);
+        }
+    }
+    return $permalink;
+}
+add_filter('post_type_link', 'floorplans_permalink', 10, 2);
+
+function flush_rewrite_on_activation()
+{
+    floorplans();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
+
+
+
+
+
+
 
 
 
