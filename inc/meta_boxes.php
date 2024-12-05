@@ -223,6 +223,17 @@ function custom_render_associated_floorplans()
 /*==================================================================================*/
 
 
+
+
+
+
+
+
+
+
+
+
+
 // start modify floorplan link
 
 /*==================================================================================*/
@@ -251,6 +262,10 @@ function custom_modify_floorplans_permalink($permalink, $post)
         $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
         $floorplan_slug = $post->post_name;
 
+        // Use the default WordPress function to sanitize the slug
+        $floorplan_slug = sanitize_title_with_dashes($floorplan_slug);
+
+        // Generate the new permalink
         $permalink = home_url("/properties/$property_name/floorplans/$floorplan_slug/");
     }
 
@@ -258,7 +273,6 @@ function custom_modify_floorplans_permalink($permalink, $post)
 }
 
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
-//hgj
 
 /*==================================================================================*/
 
@@ -284,6 +298,20 @@ add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 /*==================================================================================*/
 
 // end modify floorplan link
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // start edit slug
