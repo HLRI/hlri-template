@@ -149,7 +149,7 @@ function floorplans()
         'label'                 => __('Floorplans', 'text_domain'),
         'description'           => __('Floorplans Description', 'text_domain'),
         'labels'                => $labels,
-        'supports'              => ['title', 'thumbnail', 'page-attributes','editor','slug'],
+        'supports'              => ['title', 'thumbnail', 'page-attributes','slug'],
         'hierarchical'          => true,
         'public'                => true,
         'show_ui'               => true,
