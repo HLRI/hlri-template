@@ -309,6 +309,17 @@ add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
 add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
+function custom_handle_slug_update($post_id)
+{
+    if (get_post_type($post_id) === 'floorplans') {
+        $permalink = get_permalink($post_id);
+        if ($permalink) {
+            wp_safe_redirect($permalink);
+            exit;
+        }
+    }
+}
+add_action('save_post', 'custom_handle_slug_update');
 
 // end modify floorplan link
 
