@@ -234,25 +234,25 @@ function custom_render_associated_floorplans()
 
 
 
-//// start modify floorplan link
-//
-///*==================================================================================*/
-//
-//// Modify the floorplans query to include the associated property
-//function custom_modify_floorplans_query($query)
-//{
-//    if (!is_admin() || !$query->is_main_query()) {
-//        return;
-//    }
-//
-//    if ($query->get('post_type') === 'floorplans') {
-//        $query->set('rewrite', array('slug' => 'properties', 'with_front' => false));
-//    }
-//}
-//
-//add_action('pre_get_posts', 'custom_modify_floorplans_query');
-//
-///*==================================================================================*/
+// start modify floorplan link
+
+/*==================================================================================*/
+
+// Modify the floorplans query to include the associated property
+function custom_modify_floorplans_query($query)
+{
+    if (!is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    if ($query->get('post_type') === 'floorplans') {
+        $query->set('rewrite', array('slug' => 'properties', 'with_front' => false));
+    }
+}
+
+add_action('pre_get_posts', 'custom_modify_floorplans_query');
+
+/*==================================================================================*/
 
 // Modify the floorplans permalink structure
 function custom_modify_floorplans_permalink($permalink, $post)
@@ -276,28 +276,28 @@ add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
 
 /*==================================================================================*/
 
-//// Register additional rewrite rules for the modified floorplans permalink structure
-//function custom_add_rewrite_rules()
-//{
-//    add_rewrite_rule('^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top');
-//}
-//
-//add_action('init', 'custom_add_rewrite_rules');
+// Register additional rewrite rules for the modified floorplans permalink structure
+function custom_add_rewrite_rules()
+{
+    add_rewrite_rule('^properties/([^/]+)/floorplans/([^/]+)/?$', 'index.php?properties=$matches[1]&floorplans=$matches[2]', 'top');
+}
+
+add_action('init', 'custom_add_rewrite_rules');
 
 /*==================================================================================*/
-//
-//// Flush rewrite rules when the associated property is saved or updated
-//function custom_flush_rewrite_rules()
-//{
-//    flush_rewrite_rules();
-//}
-//
-//add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
-//add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
-//
-///*==================================================================================*/
-//
-//// end modify floorplan link
+
+// Flush rewrite rules when the associated property is saved or updated
+function custom_flush_rewrite_rules()
+{
+    flush_rewrite_rules();
+}
+
+add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
+add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
+
+/*==================================================================================*/
+
+// end modify floorplan link
 
 
 
