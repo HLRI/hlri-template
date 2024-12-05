@@ -263,7 +263,7 @@ function custom_modify_floorplans_permalink($permalink, $post)
         $floorplan_slug = $post->post_name;
 
         // Use the default WordPress function to sanitize the slug
-//        $floorplan_slug = sanitize_title_with_dashes($floorplan_slug);
+        $floorplan_slug = sanitize_title_with_dashes($floorplan_slug);
 
         // Generate the new permalink
         $permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
