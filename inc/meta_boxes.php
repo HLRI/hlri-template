@@ -268,30 +268,9 @@ function custom_modify_floorplans_permalink($permalink, $post)
         }
 
         $property_name = get_post_field('post_name', $associated_property);
-        if (!$property_name) {
-            error_log('No property name found for associated property ID: ' . $associated_property);
-            return $permalink;
-        }
 
-        $floorplan_slug = $post->post_slug;
-        $old_permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
-
-        $new_floorplan_slug = sanitize_title_with_dashes($post->post_name);
-        $new_permalink = "https://condoy.com/properties/$property_name/floorplans/$new_floorplan_slug/";
-
-        // Check if the new permalink differs from the current one
-        if ($old_permalink !== $new_floorplan_slug) {
-            // Redirect back to the edit page with success message
-            add_action('save_post', function ($post_id) use ($post) {
-                if (get_post_type($post_id) === 'floorplans') {
-                    $edit_page_url = admin_url('post.php?post=' . $post_id . '&action=edit');
-                    wp_safe_redirect(add_query_arg('slug_update', 'success', $edit_page_url));
-                    exit;
-                }
-            });
-        }
-
-        return $new_permalink;
+        $floorplan_slug = sanitize_title_with_dashes($post->post_name);
+        $permalink = "https://condoy.com/properties/$property_name/floorplans/$floorplan_slug/";
     }
 
     return $permalink;
