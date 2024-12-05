@@ -359,22 +359,22 @@ register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 /*==================================================================================*/
 
 // Callback function to display the HTML for the custom slug field in the metabox
-function custom_slug_metabox_html($post)
-{
-    // Check if the post is published
-    if ('publish' === get_post_status($post)) {
-        // Get the current slug
-        $current_slug = $post->post_name;
-        ?>
-        <label for="floorplan_slug">Slug:</label>
-        <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>"
-               class="widefat">
-        <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>
-        <?php
-    } else {
-        echo '<p>This floorplan must be published to edit the slug.</p>';
-    }
-}
+//function custom_slug_metabox_html($post)
+//{
+//    // Check if the post is published
+//    if ('publish' === get_post_status($post)) {
+//        // Get the current slug
+//        $current_slug = $post->post_name;
+//        ?>
+<!--        <label for="floorplan_slug">Slug:</label>-->
+<!--        <input type="text" id="floorplan_slug" name="floorplan_slug" value="--><?php //echo esc_attr($current_slug); ?><!--"-->
+<!--               class="widefat">-->
+<!--        <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>-->
+<!--        --><?php
+//    } else {
+//        echo '<p>This floorplan must be published to edit the slug.</p>';
+//    }
+//}
 
 /*==================================================================================*/
 
