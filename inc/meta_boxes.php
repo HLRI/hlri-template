@@ -239,18 +239,18 @@ function custom_render_associated_floorplans()
 /*==================================================================================*/
 
 // Modify the floorplans query to include the associated property
-function custom_modify_floorplans_query($query)
-{
-    if (!is_admin() || !$query->is_main_query()) {
-        return;
-    }
-
-    if ($query->get('post_type') === 'floorplans') {
-        $query->set('rewrite', array('slug' => 'properties', 'with_front' => false));
-    }
-}
-
-add_action('pre_get_posts', 'custom_modify_floorplans_query');
+//function custom_modify_floorplans_query($query)
+//{
+//    if (!is_admin() || !$query->is_main_query()) {
+//        return;
+//    }
+//
+//    if ($query->get('post_type') === 'floorplans') {
+//        $query->set('rewrite', array('slug' => 'properties', 'with_front' => false));
+//    }
+//}
+//
+//add_action('pre_get_posts', 'custom_modify_floorplans_query');
 
 /*==================================================================================*/
 
