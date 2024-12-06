@@ -436,15 +436,15 @@ function custom_render_associated_floorplans()
 
 
 
-function add_floorplans_rewrite_rules()
-{
-    add_rewrite_rule(
-        '^properties/([^/]+)/floorplans/([^/]+)/?$',
-        'index.php?floorplans=$matches[2]&property=$matches[1]',
-        'top'
-    );
-}
-add_action('init', 'add_floorplans_rewrite_rules');
+//function add_floorplans_rewrite_rules()
+//{
+//    add_rewrite_rule(
+//        '^properties/([^/]+)/floorplans/([^/]+)/?$',
+//        'index.php?floorplans=$matches[2]&property=$matches[1]',
+//        'top'
+//    );
+//}
+//add_action('init', 'add_floorplans_rewrite_rules');
 
 
 //function flush_rewrite_on_activation()
