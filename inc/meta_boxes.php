@@ -348,11 +348,36 @@ function custom_slug_metabox_html($post)
         <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>"
                class="widefat">
         <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const slugInput = document.getElementById('floorplan_slug');
+
+                slugInput.addEventListener('input', function () {
+                    let slug = slugInput.value;
+
+                    // Remove disallowed characters
+                    slug = slug.replace(/[^a-zA-Z0-9\s-]/g, '');
+
+                    // Replace spaces with hyphens
+                    slug = slug.replace(/\s+/g, '-');
+
+                    // Convert to lowercase
+                    slug = slug.toLowerCase();
+
+                    // Update the input value
+                    slugInput.value = slug;
+                });
+            });
+        </script>
         <?php
     } else {
         echo '<p>This floorplan must be published to edit the slug.</p>';
     }
 }
+
+
+
+
 
 /*==================================================================================*/
 
