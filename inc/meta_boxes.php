@@ -277,7 +277,7 @@ function custom_modify_floorplans_permalink($permalink, $post)
 }
 
 add_filter('post_type_link', 'custom_modify_floorplans_permalink', 10, 2);
-//hgj
+
 
 /*==================================================================================*/
 
