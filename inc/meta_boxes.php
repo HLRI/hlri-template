@@ -446,8 +446,8 @@ add_action('init', 'add_floorplans_rewrite_rules');
 
 function flush_floorplans_rewrites_on_activation()
 {
-    add_floorplans_rewrite_rules();  // Add custom rewrite rules
-    flush_rewrite_rules();  // Flush rewrite rules
+    add_floorplans_rewrite_rules();
+    flush_rewrite_rules();
 }
 register_activation_hook(__FILE__, 'flush_floorplans_rewrites_on_activation');
 
