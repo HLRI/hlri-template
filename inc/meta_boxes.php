@@ -463,6 +463,26 @@ function floorplans_permalink($permalink, $post)
 }
 add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
+function update_floorplans_permalink($post_id)
+{
+    // Ensure this is the 'floorplans' post type
+    if (get_post_type($post_id) === 'floorplans') {
+        $associated_property = get_post_meta($post_id, 'associated_property', true);
+
+        if ($associated_property) {
+            $property_slug = get_post_field('post_name', $associated_property); // Get property slug
+            // Update the post slug dynamically
+            $new_slug = "properties/{$property_slug}/floorplans";
+            remove_action('save_post', 'update_floorplans_permalink'); // Avoid infinite loop
+            wp_update_post([
+                'ID'        => $post_id,
+                'post_name' => $new_slug,
+            ]);
+            add_action('save_post', 'update_floorplans_permalink');
+        }
+    }
+}
+add_action('save_post', 'update_floorplans_permalink');
 
 
 
