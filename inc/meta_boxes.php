@@ -447,12 +447,12 @@ function add_floorplans_rewrite_rules()
 add_action('init', 'add_floorplans_rewrite_rules');
 
 
-function flush_rewrite_on_activation()
-{
-    floorplans();
-    flush_rewrite_rules();
-}
-register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
+//function flush_rewrite_on_activation()
+//{
+//    floorplans();
+//    flush_rewrite_rules();
+//}
+//register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
 function floorplans_permalink($permalink, $post)
 {
