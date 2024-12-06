@@ -297,7 +297,7 @@ function custom_flush_rewrite_rules()
     flush_rewrite_rules();
 }
 
-//add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
+add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
 add_action('edit_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
