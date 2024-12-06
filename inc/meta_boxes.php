@@ -461,14 +461,14 @@ function floorplans_permalink($permalink, $post)
         $parent_id = $post->post_parent;
         $associated_property = get_post_meta($post->ID, 'associated_property', true);
         if ($associated_property) {
-            $current_parent = wp_get_post_parent_id($post->ID);
-            if ($current_parent !== $associated_property) {
-                // Update the parent post
-                wp_update_post(array(
-                    'ID'          => $post->ID,
-                    'post_parent' => $associated_property,
-                ));
-            }
+//            $current_parent = wp_get_post_parent_id($post->ID);
+//            if ($current_parent !== $associated_property) {
+//                // Update the parent post
+//                wp_update_post(array(
+//                    'ID'          => $post->ID,
+//                    'post_parent' => $associated_property,
+//                ));
+//            }
             $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
             $permalink = str_replace('%property%', $property_name, $permalink);
         } else {
