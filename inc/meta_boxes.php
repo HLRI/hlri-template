@@ -531,7 +531,7 @@ function update_floorplans_permalink($post_id)
             $property_slug = get_post_field('post_name', $associated_property); // Get property slug
             // Update the post slug dynamically
             $new_slug = "properties/{$property_slug}/floorplans";
-            remove_action('save_post', 'update_floorplans_permalink'); // Avoid infinite loop
+//            remove_action('save_post', 'update_floorplans_permalink'); // Avoid infinite loop
             wp_update_post([
                 'ID'        => $post_id,
                 'post_name' => $new_slug,
