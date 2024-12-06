@@ -450,95 +450,25 @@ add_action('init', 'add_floorplans_rewrite_rules');
 function floorplans_permalink($permalink, $post)
 {
     if ($post->post_type === 'floorplans') {
-        // Get the associated property (parent post or metadata)
+        $parent_id = $post->post_parent;
         $associated_property = get_post_meta($post->ID, 'associated_property', true);
         if ($associated_property) {
-            $property_slug = get_post_field('post_name', $associated_property); // Get the property slug
-            $permalink = str_replace('%property%', $property_slug, $permalink);
-        } else {
-            $permalink = str_replace('%property%', 'property-not-set', $permalink); // Fallback if no property is set
+            $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
+            $permalink = str_replace('%property%', $property_name, $permalink);
         }
     }
     return $permalink;
 }
 add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
-function update_floorplans_permalink($post_id)
+
+
+function flush_rewrite_on_activation()
 {
-    // Ensure this is the 'floorplans' post type
-    if (get_post_type($post_id) === 'floorplans') {
-        $associated_property = get_post_meta($post_id, 'associated_property', true);
-
-        if ($associated_property) {
-            $property_slug = get_post_field('post_name', $associated_property); // Get property slug
-            // Update the post slug dynamically
-            $new_slug = "properties/{$property_slug}/floorplans";
-            remove_action('save_post', 'update_floorplans_permalink'); // Avoid infinite loop
-            wp_update_post([
-                'ID'        => $post_id,
-                'post_name' => $new_slug,
-            ]);
-            add_action('save_post', 'update_floorplans_permalink');
-        }
-    }
-}
-add_action('save_post', 'update_floorplans_permalink');
-
-
-
-function flush_floorplans_rewrites()
-{
-    floorplans(); // Register the post type
+    floorplans();
     flush_rewrite_rules();
 }
-register_activation_hook(__FILE__, 'flush_floorplans_rewrites');
-
-
-function redirect_after_floorplans_save($post_id)
-{
-    // Check if this is the 'floorplans' post type
-    if (get_post_type($post_id) === 'floorplans') {
-        // Prevent infinite loop
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return;
-        }
-
-        // Build the correct edit URL
-        $edit_url = add_query_arg([
-            'post'   => $post_id,
-            'action' => 'edit',
-        ], admin_url('post.php'));
-
-        // Redirect to the correct URL
-        wp_redirect($edit_url);
-        exit;
-    }
-}
-add_action('save_post', 'redirect_after_floorplans_save');
-
-
-
-function custom_floorplans_updated_messages($messages)
-{
-    global $post;
-    $post_ID = $post->ID;
-
-    // Customize success message for Floorplans post type
-    if (get_post_type($post_ID) === 'floorplans') {
-        $messages['post'][1] = sprintf(
-            __('Floorplan updated. <a href="%s">View Floorplan</a>', 'text_domain'),
-            esc_url(get_permalink($post_ID))
-        );
-        $messages['post'][6] = sprintf(
-            __('Floorplan published. <a href="%s">View Floorplan</a>', 'text_domain'),
-            esc_url(get_permalink($post_ID))
-        );
-    }
-
-    return $messages;
-}
-add_filter('post_updated_messages', 'custom_floorplans_updated_messages');
-
+register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
 
 
