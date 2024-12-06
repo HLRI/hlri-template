@@ -454,19 +454,19 @@ add_action('init', 'add_floorplans_rewrite_rules');
 //}
 //register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
-function floorplans_permalink($permalink, $post)
-{
-    if ($post->post_type === 'floorplans') {
-        $parent_id = $post->post_parent;
-        $associated_property = get_post_meta($post->ID, 'associated_property', true);
-        if ($associated_property) {
-            $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
-            $permalink = str_replace('%property%', $property_name, $permalink);
-        }
-    }
-    return $permalink;
-}
-add_filter('post_type_link', 'floorplans_permalink', 10, 2);
+//function floorplans_permalink($permalink, $post)
+//{
+//    if ($post->post_type === 'floorplans') {
+//        $parent_id = $post->post_parent;
+//        $associated_property = get_post_meta($post->ID, 'associated_property', true);
+//        if ($associated_property) {
+//            $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
+//            $permalink = str_replace('%property%', $property_name, $permalink);
+//        }
+//    }
+//    return $permalink;
+//}
+//add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
 
 
