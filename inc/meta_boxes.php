@@ -457,7 +457,7 @@ function floorplans_permalink($permalink, $post)
             $permalink = str_replace('%property%', $property_name, $permalink);
         }
     }
-    return $permalink;
+//    return $permalink;
 }
 add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
