@@ -391,11 +391,11 @@ function custom_save_slug_metabox($post_id)
     // Check if the post is being autosaved or not a 'floorplans' post
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
     if ('floorplans' !== get_post_type($post_id)) return $post_id;
+    add_action('save_post', 'update_floorplan_parent_silently');
 
     // Check if the post is published
     if ('publish' === get_post_status($post_id)) {
         // Get the new slug from the metabox
-        add_action('save_post', 'update_floorplan_parent_silently');
 
         if (isset($_POST['floorplan_slug'])) {
             $new_slug = sanitize_text_field($_POST['floorplan_slug']);
