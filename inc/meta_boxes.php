@@ -450,11 +450,13 @@ add_action('init', 'add_floorplans_rewrite_rules');
 function floorplans_permalink($permalink, $post)
 {
     if ($post->post_type === 'floorplans') {
-        $parent_id = $post->post_parent;
+        // Get the associated property (parent post or metadata)
         $associated_property = get_post_meta($post->ID, 'associated_property', true);
         if ($associated_property) {
-            $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
-            $permalink = str_replace('%property%', $property_name, $permalink);
+            $property_slug = get_post_field('post_name', $associated_property); // Get the property slug
+            $permalink = str_replace('%property%', $property_slug, $permalink);
+        } else {
+            $permalink = str_replace('%property%', 'property-not-set', $permalink); // Fallback if no property is set
         }
     }
     return $permalink;
@@ -463,12 +465,37 @@ add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
 
 
-//function flush_rewrite_on_activation()
-//{
-//    floorplans();
-//    flush_rewrite_rules();
-//}
-//register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
+
+function flush_floorplans_rewrites()
+{
+    floorplans(); // Register the post type
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'flush_floorplans_rewrites');
+
+
+
+function custom_floorplans_updated_messages($messages)
+{
+    global $post;
+    $post_ID = $post->ID;
+
+    // Customize success message for Floorplans post type
+    if (get_post_type($post_ID) === 'floorplans') {
+        $messages['post'][1] = sprintf(
+            __('Floorplan updated. <a href="%s">View Floorplan</a>', 'text_domain'),
+            esc_url(get_permalink($post_ID))
+        );
+        $messages['post'][6] = sprintf(
+            __('Floorplan published. <a href="%s">View Floorplan</a>', 'text_domain'),
+            esc_url(get_permalink($post_ID))
+        );
+    }
+
+    return $messages;
+}
+add_filter('post_updated_messages', 'custom_floorplans_updated_messages');
+
 
 
 
