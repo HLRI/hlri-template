@@ -234,6 +234,34 @@ function custom_render_associated_floorplans()
 
 
 
+function update_floorplan_parent_silently($post_id)
+{
+    // Check if the post is a 'floorplans' post
+    if (get_post_type($post_id) === 'floorplans') {
+        // Get the associated property from post meta
+        $associated_property = get_post_meta($post_id, 'associated_property', true);
+
+        if ($associated_property) {
+            // Get the current parent post ID
+            $current_parent = wp_get_post_parent_id($post_id);
+
+            // If the parent is different, update it silently
+            if ($current_parent !== $associated_property) {
+                // Temporarily remove the 'save_post' hook to prevent triggering it
+                remove_action('save_post', 'set_floorplan_parent');
+
+                // Update the parent post silently
+                wp_update_post(array(
+                    'ID'          => $post_id,
+                    'post_parent' => $associated_property,
+                ));
+
+                // Re-add the 'save_post' hook
+                add_action('save_post', 'set_floorplan_parent');
+            }
+        }
+    }
+}
 
 
 
@@ -367,6 +395,8 @@ function custom_save_slug_metabox($post_id)
     // Check if the post is published
     if ('publish' === get_post_status($post_id)) {
         // Get the new slug from the metabox
+        add_action('save_post', 'update_floorplan_parent_silently');
+
         if (isset($_POST['floorplan_slug'])) {
             $new_slug = sanitize_text_field($_POST['floorplan_slug']);
 
