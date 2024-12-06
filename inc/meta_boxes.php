@@ -432,20 +432,20 @@ function custom_render_associated_floorplans()
 
 
 
-//
-//
-//function add_floorplans_rewrite_rules()
-//{
-//    add_rewrite_rule(
-//        '^properties/([^/]+)/floorplans/([^/]+)/?$',
-//        'index.php?floorplans=$matches[2]&property=$matches[1]',
-//        'top'
-//    );
-//}
-//add_action('init', 'add_floorplans_rewrite_rules');
-//
-//
-//
+
+
+function add_floorplans_rewrite_rules()
+{
+    add_rewrite_rule(
+        '^properties/([^/]+)/floorplans/([^/]+)/?$',
+        'index.php?floorplans=$matches[2]&property=$matches[1]',
+        'top'
+    );
+}
+add_action('init', 'add_floorplans_rewrite_rules');
+
+
+
 
 function floorplans_permalink($permalink, $post)
 {
@@ -457,18 +457,18 @@ function floorplans_permalink($permalink, $post)
             $permalink = str_replace('%property%', $property_name, $permalink);
         }
     }
-//    return $permalink;
+    return $permalink;
 }
 add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
 
 
-function flush_rewrite_on_activation()
-{
-    floorplans();
-    flush_rewrite_rules();
-}
-register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
+//function flush_rewrite_on_activation()
+//{
+//    floorplans();
+//    flush_rewrite_rules();
+//}
+//register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
 
 
