@@ -367,7 +367,8 @@ function custom_save_slug_metabox($post_id)
     if ('publish' === get_post_status($post_id)) {
         // Get the new slug from the metabox
         if (isset($_POST['floorplan_slug'])) {
-            $new_slug = sanitize_text_field($_POST['floorplan_slug']);
+            $suggested_slug = strtolower($_POST['floorplan_slug']);
+            $new_slug = sanitize_text_field($suggested_slug);
 
             // Check if the slug is empty
             if (empty($new_slug)) {
