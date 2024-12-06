@@ -447,12 +447,13 @@ function add_floorplans_rewrite_rules()
 add_action('init', 'add_floorplans_rewrite_rules');
 
 
-function flush_floorplans_rewrites_on_activation()
+function flush_rewrite_on_activation()
 {
-    add_floorplans_rewrite_rules();  // Add custom rewrite rules
-    flush_rewrite_rules();  // Flush rewrite rules
+    floorplans();
+    flush_rewrite_rules();
 }
-register_activation_hook(__FILE__, 'flush_floorplans_rewrites_on_activation');
+register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
+
 
 
 function floorplans_permalink($permalink, $post)
@@ -478,15 +479,6 @@ function floorplans_permalink($permalink, $post)
     return $permalink;
 }
 add_filter('post_type_link', 'floorplans_permalink', 10, 2);
-
-
-
-function flush_rewrite_on_activation()
-{
-    floorplans();
-    flush_rewrite_rules();
-}
-register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
 
 
