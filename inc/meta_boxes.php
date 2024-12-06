@@ -291,14 +291,14 @@ add_action('init', 'custom_add_rewrite_rules');
 
 /*==================================================================================*/
 
-// Flush rewrite rules when the associated property is saved or updated
-function custom_flush_rewrite_rules()
-{
-    flush_rewrite_rules();
-}
-
-add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
-add_action('edit_post_associated_property', 'custom_flush_rewrite_rules');
+//// Flush rewrite rules when the associated property is saved or updated
+//function custom_flush_rewrite_rules()
+//{
+//    flush_rewrite_rules();
+//}
+//
+//add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
+//add_action('edit_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
 
