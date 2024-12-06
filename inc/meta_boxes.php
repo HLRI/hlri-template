@@ -298,6 +298,7 @@ function custom_flush_rewrite_rules()
 }
 
 add_action('save_post_associated_property', 'custom_flush_rewrite_rules');
+add_action('edit_post_associated_property', 'custom_flush_rewrite_rules');
 add_action('delete_post_associated_property', 'custom_flush_rewrite_rules');
 
 /*==================================================================================*/
@@ -391,6 +392,7 @@ function custom_save_slug_metabox($post_id)
 }
 
 add_action('save_post', 'custom_save_slug_metabox');
+add_action('edit_post', 'custom_save_slug_metabox');
 
 /*==================================================================================*/
 
