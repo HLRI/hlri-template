@@ -462,6 +462,12 @@ add_filter('post_type_link', 'floorplans_permalink', 10, 2);
 
 
 
+function flush_rewrite_on_activation()
+{
+    floorplans();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
 
 
