@@ -454,34 +454,19 @@ function flush_rewrite_on_activation()
 }
 register_activation_hook(__FILE__, 'flush_rewrite_on_activation');
 
-
-
 function floorplans_permalink($permalink, $post)
 {
     if ($post->post_type === 'floorplans') {
         $parent_id = $post->post_parent;
         $associated_property = get_post_meta($post->ID, 'associated_property', true);
         if ($associated_property) {
-//            $current_parent = wp_get_post_parent_id($post->ID);
-//            if ($current_parent !== $associated_property) {
-//                // Update the parent post
-//                wp_update_post(array(
-//                    'ID'          => $post->ID,
-//                    'post_parent' => $associated_property,
-//                ));
-//            }
             $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
             $permalink = str_replace('%property%', $property_name, $permalink);
-        } else {
-            $permalink = str_replace('%property%', 'property-not-set', $permalink); // Fallback if no property is set
         }
     }
     return $permalink;
 }
 add_filter('post_type_link', 'floorplans_permalink', 10, 2);
-
-
-
 
 
 
