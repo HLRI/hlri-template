@@ -343,10 +343,10 @@ function custom_slug_metabox_html($post)
     // Check if the post is published
     if ('publish' === get_post_status($post)) {
         // Get the current slug
-        $current_slug = $post->post_name;
+        $current_slug = $post->post_slug;
         ?>
         <label for="floorplan_slug">Slug:</label>
-        <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>"
+        <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>fgfhf"
                class="widefat">
         <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>
         <?php
