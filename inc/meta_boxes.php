@@ -384,9 +384,10 @@ function custom_save_slug_metabox($post_id)
                     'post_name' => $new_slug
                 ));
 
-                // Get the edit page link for the post
-                $edit_url = get_edit_post_link($post_id); // Ensure it's the edit page URL
-                wp_redirect($edit_url); // Redirect to the post edit page
+                // Redirect back to the post edit page after the slug is updated
+                dd($post_id);
+                $edit_url = get_edit_post_link($post_id); // Get the edit post link
+                wp_redirect($edit_url); // Perform the redirect
                 exit; // Exit after redirect to prevent further processing
             }
         }
@@ -397,7 +398,6 @@ function custom_save_slug_metabox($post_id)
 
 add_action('save_post', 'custom_save_slug_metabox');
 add_action('edit_post', 'custom_save_slug_metabox');
-
 
 /*==================================================================================*/
 
