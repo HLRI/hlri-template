@@ -451,10 +451,9 @@ function floorplans_permalink($permalink, $post)
 {
     if ($post->post_type === 'floorplans') {
         $parent_id = $post->post_parent;
-        $associated_property = get_post_meta($post->ID, 'associated_property', true);
-        if ($associated_property) {
-            $property_name = get_post_field('post_name', $associated_property); // Get the slug of the associated property
-            $permalink = str_replace('%property%', $property_name, $permalink);
+        if ($parent_id) {
+            $parent_slug = get_post_field('post_name', $parent_id). 'gcffgf'; // Get parent property slug
+            $permalink = str_replace('%property%', $parent_slug, $permalink);
         }
     }
     return $permalink;
