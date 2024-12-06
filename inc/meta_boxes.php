@@ -381,7 +381,6 @@ function custom_save_slug_metabox($post_id)
             }
 
             // Update the post's slug if it's different
-            if ($new_slug !== get_post_field('post_name', $post_id)) {
                 // Update the post's slug (post_name)
                 wp_update_post(array(
                     'ID' => $post_id,
@@ -391,8 +390,7 @@ function custom_save_slug_metabox($post_id)
                 // Redirect back to the post edit page after the slug is updated
                 $edit_url = get_edit_post_link($post_id); // Get the edit post link
                 wp_redirect("https://condoy.com/wp-admin/post.php?post=$post_id&action=edit"); // Perform the redirect
-                exit; // Exit after redirect to prevent further processing
-            }
+
         }
     }
 
