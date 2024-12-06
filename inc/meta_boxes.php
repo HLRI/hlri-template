@@ -346,7 +346,7 @@ function custom_slug_metabox_html($post)
         $current_slug = $post->post_slug;
         ?>
         <label for="floorplan_slug">Slug:</label>
-        <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>fgfhf"
+        <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>"
                class="widefat">
         <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>
         <?php
