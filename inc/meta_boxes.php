@@ -389,11 +389,7 @@ function custom_save_slug_metabox($post_id)
     if ('publish' === get_post_status($post_id)) {
         // Get the new slug from the metabox
         if (isset($_POST['floorplan_slug'])) {
-            $suggested_slug = preg_replace('/[^a-zA-Z0-9- ]/', '', $_POST['floorplan_slug']); // Remove unallowed characters
-            $suggested_slug = str_replace(' ', '-', $suggested_slug); // Replace spaces with hyphens
-            $suggested_slug = strtolower($suggested_slug); // Optionally, convert to lowercase
-
-            $new_slug = sanitize_text_field($suggested_slug);
+            $new_slug = $_POST['floorplan_slug'];
 
             // Check if the slug is empty
             if (empty($new_slug)) {
