@@ -348,33 +348,11 @@ function custom_slug_metabox_html($post)
         <input type="text" id="floorplan_slug" name="floorplan_slug" value="<?php echo esc_attr($current_slug); ?>"
                class="widefat">
         <p class="description">Edit the slug for this floorplan. It will only be saved when the post is published.</p>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const slugInput = document.getElementById('floorplan_slug');
-
-                slugInput.addEventListener('input', function () {
-                    let slug = slugInput.value;
-
-                    // Remove disallowed characters
-                    slug = slug.replace(/[^a-zA-Z0-9\s-]/g, '');
-
-                    // Replace spaces with hyphens
-                    slug = slug.replace(/\s+/g, '-');
-
-                    // Convert to lowercase
-                    slug = slug.toLowerCase();
-
-                    // Update the input value
-                    slugInput.value = slug;
-                });
-            });
-        </script>
         <?php
     } else {
         echo '<p>This floorplan must be published to edit the slug.</p>';
     }
 }
-
 
 /*==================================================================================*/
 
@@ -389,7 +367,11 @@ function custom_save_slug_metabox($post_id)
     if ('publish' === get_post_status($post_id)) {
         // Get the new slug from the metabox
         if (isset($_POST['floorplan_slug'])) {
-            $new_slug = $_POST['floorplan_slug'];
+            $suggested_slug = preg_replace('/[^a-zA-Z0-9- ]/', '', $_POST['floorplan_slug']); // Remove unallowed characters
+            $suggested_slug = str_replace(' ', '-', $suggested_slug); // Replace spaces with hyphens
+            $suggested_slug = strtolower($suggested_slug); // Optionally, convert to lowercase
+
+            $new_slug = sanitize_text_field($suggested_slug);
 
             // Check if the slug is empty
             if (empty($new_slug)) {
@@ -399,6 +381,7 @@ function custom_save_slug_metabox($post_id)
             }
 
             // Update the post's slug if it's different
+            if ($new_slug !== get_post_field('post_name', $post_id)) {
                 // Update the post's slug (post_name)
                 wp_update_post(array(
                     'ID' => $post_id,
@@ -408,7 +391,8 @@ function custom_save_slug_metabox($post_id)
                 // Redirect back to the post edit page after the slug is updated
                 $edit_url = get_edit_post_link($post_id); // Get the edit post link
                 wp_redirect("https://condoy.com/wp-admin/post.php?post=$post_id&action=edit"); // Perform the redirect
-
+                exit; // Exit after redirect to prevent further processing
+            }
         }
     }
 
