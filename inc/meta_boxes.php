@@ -413,7 +413,7 @@ function custom_display_slug_error_message()
 
 add_action('edit_form_advanced', 'custom_display_slug_error_message');
 
- end edit slug
+ //end edit slug
 
 
 
