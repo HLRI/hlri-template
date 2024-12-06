@@ -474,6 +474,29 @@ function flush_floorplans_rewrites()
 register_activation_hook(__FILE__, 'flush_floorplans_rewrites');
 
 
+function redirect_after_floorplans_save($post_id)
+{
+    // Check if this is the 'floorplans' post type
+    if (get_post_type($post_id) === 'floorplans') {
+        // Prevent infinite loop
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+
+        // Build the correct edit URL
+        $edit_url = add_query_arg([
+            'post'   => $post_id,
+            'action' => 'edit',
+        ], admin_url('post.php'));
+
+        // Redirect to the correct URL
+        wp_redirect($edit_url);
+        exit;
+    }
+}
+add_action('save_post', 'redirect_after_floorplans_save');
+
+
 
 function custom_floorplans_updated_messages($messages)
 {
