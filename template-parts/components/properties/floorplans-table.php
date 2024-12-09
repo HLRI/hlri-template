@@ -1,4 +1,6 @@
-<div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
+<style>
+    table#example td:nth-child(6){text-align:right !important; padding-right:40px;}
+</style><div class="container-fluid border-top pt-3 px-0 mt-lg-5 mt-2" id="FloorPlans">
     <div class="content">
         <div class="row mb-lg-4 mb-2">
             <div class="col-12 mb-4">
