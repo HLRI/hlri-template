@@ -232,6 +232,7 @@ if (is_user_logged_in()) {
 
 
                     <style>
+                        table#example td:nth-child(6){text-align:right !important; padding:20px;}
                         .hlri-input-container span.wpcf7-spinner {
                             position: relative;
                             top: -19px;
