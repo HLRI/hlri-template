@@ -3,6 +3,13 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+    <?php
+    if ( is_singular( 'floorplan' ) ) {
+        // Your custom code here, this will only apply on the floorplan single page
+        echo '<link rel="stylesheet" href="path_to_your_custom_styles.css">';
+    }
+    ?>
+
     <meta charset="<?php bloginfo('charset') ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
