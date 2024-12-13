@@ -351,7 +351,7 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                                         $mdata_single = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                                         ?>
                                                         <?php if (!empty($mdata_single['opt-pricepersqft'])) : ?>
-                                                            <div class="square-foot-price"><span>$<?= $mdata_single['opt-pricepersqft'] ?></span>/sq.ft</div>
+                                                            <div class="square-foot-price"><span>$<?= $mdata_single['opt-pricepersqft'] ?></span>/sq.ft '</div>
                                                         <?php endif; ?>
                                                     <?php
                                                     endwhile;
@@ -365,7 +365,7 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                             <div class="square-foot-wrap">
                                                 <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                                 <?php if (!empty($avgn)) : ?>
-                                                    <div class="square-foot-price"><span>$<?= $avgn ?></span>/sq.ft</div>
+                                                    <div class="square-foot-price"><span>$<?= $avgn ?></span>/sq.ft `</div>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
