@@ -47,7 +47,7 @@ $property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
     wp_reset_query();
 
 
-return $results;
+print_r($results);
 
 
 
