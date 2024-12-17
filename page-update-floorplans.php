@@ -81,7 +81,7 @@ get_header();
 ?>
 
     <div class="wrap">
-        <h1>Update Floorplans Status</h1>
+        <h1>Update Floorplans Status for <?= get_the_title($property_id) ?></h1>
         <p><?= esc_html($message); ?></p>
     </div>
 
