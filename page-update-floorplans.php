@@ -80,9 +80,12 @@ if ($property_id) {
 get_header();
 ?>
 
-    <div class="wrap">
-        <h1>Update Floorplans Status for <?= get_the_title($property_id) ?></h1>
+    <div class="container mt-5 mb-5 pt-5 pb-5">
+    <div class="mt-5 mb-5 pt-5 pb-5">
+
+    <h1>Update Floorplans Status for <?= get_the_title($property_id) ?></h1>
         <p><?= esc_html($message); ?></p>
+    </div>
     </div>
 
 <?php
