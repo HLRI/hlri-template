@@ -57,13 +57,15 @@ if ($property_id) {
             $floorplan_id = get_the_ID();
 
 
-            echo $floorplan_id . '<br>';
             // Get existing meta data and update status
             $meta = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
-//            if (is_array($meta)) {
-//                $meta['opt-floorplans-status'] = 'sold_out';
-//                update_post_meta($floorplan_id, 'hlr_framework_floorplans', $meta);
-//            }
+            echo $meta['opt-floorplans-status'];
+            if (is_array($meta)) {
+                $meta['opt-floorplans-status'] = 'sold_out';
+                update_post_meta($floorplan_id, 'hlr_framework_floorplans', $meta);
+            }
+            echo $floorplan_id . ':'. $meta['opt-floorplans-status'] . '<br>';
+
         }
         wp_reset_postdata();
         wp_reset_query();
