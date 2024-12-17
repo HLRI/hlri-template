@@ -365,7 +365,7 @@ $propertyDetails = trim("$propertyName$developerText | $suiteName" . ($bedsText 
                                             <div class="square-foot-wrap">
                                                 <div class="square-foot-head">NEIGHBOURHOOD AVERAGE</div>
                                                 <?php if (!empty($avgn)) : ?>
-                                                    <div class="square-foot-price"><span>$<?= $avgn ?></span>/sq.ft `</div>
+                                                    <div class="square-foot-price"><span>$<?= $avgn ?></span>/sq.ft </div>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
