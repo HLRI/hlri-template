@@ -10,14 +10,29 @@ if (!current_user_can('manage_options')) {
 // Get property ID from the query parameter
 $property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
 
-if ($property_id) {
 
-    $floorplans = get_posts( array(
-        'post_type' => 'floorplan',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $args = array(
+        'post_type' => 'floorplans',
         'posts_per_page' => -1,
-        'orderby' => 'title',
-        'order' => 'ASC',
-        'post_status' => 'publish',
+        'orderby'   => 'meta_value',
+        'order' => 'DESC',
         'meta_query' => array(
             array(
                 'key' => 'associated_property',
@@ -25,36 +40,21 @@ if ($property_id) {
                 'compare' => '='
             )
         )
-    ));
-    foreach (array_slice($floorplans, 0, 5) as $floorplan){
-        $floorplanData = get_post_meta($floorplan->ID, 'hlr_framework_floorplans', true);
-        if (!empty($floorplanData)) {
-            $floorplansFinal[] =
-                [
-                    "id" => $floorplan->ID,
-                    "post_id" => $property_id,
-                    "suite_name" => $floorplanData['opt-floorplans-suite-name'],
-                    "min_price" => $floorplanData['opt-floorplans-price-from'],
-                    "min_size" => $floorplanData['opt-floorplans-size'],
-                    "min_bath" => $floorplanData['opt-floorplans-baths'],
-                    "min_bed" => $floorplanData['opt-floorplans-beds'],
-                    "view" => $floorplanData['opt-floorplans-view'],
-                    "pricepersqft" => $floorplanData['opt-floorplans-price-per'],
-                    "availability" => $floorplanData['opt-floorplans-status'],
-                    "url" => $floorplan->guid
-                ];
-        }
-    }
-    if(!isset($floorplansFinal)){
-        $floorplansFinal = [];
-    }
-    return $floorplansFinal;
+    );
+
+    $results = new WP_Query($args);
+    wp_reset_postdata();
+    wp_reset_query();
+
+
+return $results;
 
 
 
 
 
 
+if ($property_id) {
 
 
 //    // Query all floorplans linked to the property via "associated_property" taxonomy
