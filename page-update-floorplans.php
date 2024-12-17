@@ -59,14 +59,10 @@ if ($property_id) {
 
             // Get existing meta data and update status
             $meta = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
-            echo $meta['opt-floorplans-status'];
             if (is_array($meta)) {
                 $meta['opt-floorplans-status'] = 'sold_out';
                 update_post_meta($floorplan_id, 'hlr_framework_floorplans', $meta);
             }
-            $meta = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
-
-            echo $floorplan_id . ':'. $meta['opt-floorplans-status'] . '<br>';
 
         }
         wp_reset_postdata();
