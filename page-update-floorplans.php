@@ -13,7 +13,7 @@ $property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
 if ($property_id) {
 
     $floorplans = get_posts( array(
-        'post_type' => 'floorplans',
+        'post_type' => 'floorplan',
         'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
