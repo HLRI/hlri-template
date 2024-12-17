@@ -34,6 +34,7 @@ function custom_render_floorplans_meta_box($post)
     $sold_out_url = site_url() . '/update-floorplans-status/?property_id=' . $post->ID;
     echo '<a href="' . esc_url($add_new_url) . '" target="_blank" class="button button-primary">Add New Floorplan</a>';
     echo '<a href="' . esc_url($sold_out_url) . '" target="_blank" class="button button-primary">mark all as sold out</a>';
+    echo '<a href="' . esc_url(add_query_arg(array('property_id' => $post->ID), site_url('update-floorplans-status'))) . '" target="_blank" class="button button-primary">mark all as sold out</a>';
 
     if ($associated_floorplans) {
         echo $post->title;
