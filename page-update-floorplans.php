@@ -12,19 +12,20 @@ $property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
 
 if ($property_id) {
     // Query all floorplans linked to the property via "associated_property" taxonomy
-    $args = [
-        'post_type'      => 'floorplan', // Replace with your floorplan post type name
+    $floorplans = get_posts( array(
+        'post_type' => 'floorplans',
         'posts_per_page' => -1,
-        'tax_query'      => [
-            [
-                'taxonomy' => 'associated_property',
-                'field'    => 'term_id',
-                'terms'    => $property_id,
-            ],
-        ],
-    ];
-
-    $floorplans = new WP_Query($args);
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'post_status' => 'publish',
+        'meta_query' => array(
+            array(
+                'key' => 'associated_property',
+                'value' => $property_id,
+                'compare' => '='
+            )
+        )
+    ));
 
     if ($floorplans->have_posts()) {
         while ($floorplans->have_posts()) {
