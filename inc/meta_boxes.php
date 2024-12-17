@@ -32,7 +32,7 @@ function custom_render_floorplans_meta_box($post)
     ));
     $add_new_url = add_query_arg(array('post_type' => 'floorplans', 'associated_property' => $post->ID), admin_url('post-new.php'));
     $sold_out_url = add_query_arg(array('property_id' => $post->ID), site_url('update-floorplans-status'));
-    echo '<div class="inside">';
+    echo '<div style="margin-top:30px;" class="inside">';
     echo '<a href="' . esc_url($add_new_url) . '" target="_blank" class="button button-primary">Add New Floorplan</a>';
     echo '<a href="' . esc_url($sold_out_url) . '" target="_blank" class="button button-primary" style="margin-left:20px;">mark all as sold out</a>';
     echo '</div>';
@@ -40,7 +40,7 @@ function custom_render_floorplans_meta_box($post)
     if ($associated_floorplans) {
         echo $post->title;
         echo '<style>.rightDf{float: right;display: inline-block;}.flIl{border: 1px solid #cfcfcf;padding: 10px 10px 10px 15px;border-radius: 5px;background-color: #f8f8f8;font-size: 16px;color: #ae0c0c;box-shadow: 1px 2px 3px #e9e9e9;margin-bottom: 9px;}</style><div class="inside">';
-        echo '<ul style="margin-top:30px;">';
+        echo '<ul style="margin-top:20px;">';
 
         $totalFloors = [];
 
