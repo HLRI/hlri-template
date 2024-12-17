@@ -64,6 +64,8 @@ if ($property_id) {
                 $meta['opt-floorplans-status'] = 'sold_out';
                 update_post_meta($floorplan_id, 'hlr_framework_floorplans', $meta);
             }
+            $meta = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
+
             echo $floorplan_id . ':'. $meta['opt-floorplans-status'] . '<br>';
 
         }
