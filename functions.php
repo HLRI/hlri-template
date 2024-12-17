@@ -333,17 +333,6 @@ function update_floorplans_status_to_sold_out() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 function schedule_remove_just_launched() {
     if (!wp_next_scheduled('remove_just_launched_properties_event')) {
         wp_schedule_event(time(), 'daily', 'remove_just_launched_properties_event');

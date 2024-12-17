@@ -25,7 +25,7 @@ if ($property_id) {
     ];
 
     $floorplans = new WP_Query($args);
-
+dd($floorplans);
     if ($floorplans->have_posts()) {
         while ($floorplans->have_posts()) {
             $floorplans->the_post();
