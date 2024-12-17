@@ -28,6 +28,13 @@ $property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
 
 
 
+
+
+
+if ($property_id) {
+
+
+    // Query all floorplans linked to the property via "associated_property" taxonomy
     $args = array(
         'post_type' => 'floorplans',
         'posts_per_page' => -1,
@@ -42,56 +49,30 @@ $property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
         )
     );
 
-    $results = new WP_Query($args);
-    wp_reset_postdata();
-    wp_reset_query();
+    $floorplans = new WP_Query($args);
+
+    if ($floorplans->have_posts()) {
+        while ($floorplans->have_posts()) {
+            $floorplans->the_post();
+            $floorplan_id = get_the_ID();
 
 
-print_r($results);
+            echo $floorplan_id . '<br>';
+            // Get existing meta data and update status
+            $meta = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
+//            if (is_array($meta)) {
+//                $meta['opt-floorplans-status'] = 'sold_out';
+//                update_post_meta($floorplan_id, 'hlr_framework_floorplans', $meta);
+//            }
+        }
+        wp_reset_postdata();
+        wp_reset_query();
 
+        $message = "All floorplans for the specified property have been marked as 'Sold Out'.";
 
-
-
-
-
-if ($property_id) {
-
-
-//    // Query all floorplans linked to the property via "associated_property" taxonomy
-//    $args = [
-//        'post_type'      => 'floorplan', // Replace with your floorplan post type name
-//        'posts_per_page' => -1,
-//        'tax_query'      => [
-//            [
-//                'taxonomy' => 'associated_property',
-//                'field'    => 'term_id',
-//                'terms'    => $property_id,
-//            ],
-//        ],
-//    ];
-//
-//    $floorplans = new WP_Query($args);
-//
-//    if ($floorplans->have_posts()) {
-//        while ($floorplans->have_posts()) {
-//            $floorplans->the_post();
-//            $floorplan_id = get_the_ID();
-//
-//
-//            echo $floorplan_id . '<br>';
-//            // Get existing meta data and update status
-//            $meta = get_post_meta($floorplan_id, 'hlr_framework_floorplans', true);
-////            if (is_array($meta)) {
-////                $meta['opt-floorplans-status'] = 'sold_out';
-////                update_post_meta($floorplan_id, 'hlr_framework_floorplans', $meta);
-////            }
-//        }
-//        wp_reset_postdata();
-//
-//        $message = "All floorplans for the specified property have been marked as 'Sold Out'.";
-//    } else {
-//        $message = "No floorplans found for the specified property.";
-//    }
+    } else {
+        $message = "No floorplans found for the specified property.";
+    }
 } else {
     $message = "No valid property ID provided.";
 }
