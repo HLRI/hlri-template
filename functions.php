@@ -236,6 +236,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 'assignedTo' => $data['assignedTo'],
             );
 
+            mail("shahab.a@homeleaderrealty.com",'data',json_encode($datasend));
             $payloadsend = json_encode(array("formData" => $datasend));
             curl_setopt($chsend, CURLOPT_POSTFIELDS, $payloadsend);
             curl_setopt($chsend, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
