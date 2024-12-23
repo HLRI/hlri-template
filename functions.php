@@ -205,7 +205,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
             } elseif(strpos($current_page_url, 'christmass-giveaway') !== false){
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Registration';
-                $data['your-message'] = $data['your-message'][0];
+                $data['your-message'] = "\n Property Interest: " . $data['your-message'][0];
             }
 
             // Debugging: print data to check the updated structure
