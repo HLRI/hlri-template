@@ -202,6 +202,9 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['pageTitle'] = 'Contact ' . $current_page_title;
                 $data['type'] = 'General Inquiry';
                 $data['assignedTo'] = $current_page_title;
+            } elseif(strpos($current_page_url, 'christmass-giveaway') !== false){
+                $data['utm_source'] = $current_page_title;
+                $data['type'] = 'Registration';
             }
 
             // Debugging: print data to check the updated structure
