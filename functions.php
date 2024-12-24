@@ -210,8 +210,6 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 // Add the lottery code to the message
                 $data['your-message'] = "\nProperty Interest: " . $data['your-message'][0];
                 $data['your-message'] .= "\nLottery Code: " . $lotteryCode;
-            } else{
-                $lotteryCode = time();
             }
 
             // URL for the webhook endpoint
@@ -224,7 +222,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 'lastName' => isset($data['your-lastname']) ? $data['your-lastname'] : '', // Handle missing fields
                 'emails' => $data['your-email'],
                 'phones' => $data['your-phone'],
-                'message' => $data['your-message'] . "\n" . $lotteryCode,
+                'message' => $data['your-message'] . "\n" . isset($data['lottery-code']) ? $data['lottery-code'] : '',
                 'isrealtor' => is_array($data['realtor']) ? implode(", ", $data['realtor']) : $data['realtor'],
                 'type' => $data['type'],
                 'pageTitle' => $data['pageTitle'], // Use the fetched title
@@ -238,8 +236,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 'street' => $data['street'],
                 'tags' => $data['tags'],
                 'tagArray' => $data['tagArray'],
-                'assignedTo' => $data['assignedTo'],
-                'lotteryCode' => isset($data['lottery-code']) ? $data['lottery-code'] : '',
+                'assignedTo' => $data['assignedTo']
             );
 
             mail("shahab.a@homeleaderrealty.com", 'data', json_encode($datasend));
