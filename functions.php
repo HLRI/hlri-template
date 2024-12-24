@@ -202,11 +202,18 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['pageTitle'] = 'Contact ' . $current_page_title;
                 $data['type'] = 'General Inquiry';
                 $data['assignedTo'] = $current_page_title;
-            } elseif(strpos($current_page_url, 'christmass-giveaway') !== false){
+            } elseif(strpos($current_page_url, 'christmass-giveaway') !== false) {
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Registration';
-                $data['your-message'] = "\n Property Interest: " . $data['your-message'][0];
+
+                // Generate a unique lottery code
+                $lotteryCode = strtoupper('LOT-' . uniqid() . '-' . date('Ymd'));
+
+                // Add the lottery code to the message
+                $data['your-message'] = "\nProperty Interest: " . $data['your-message'][0];
+                $data['your-message'] .= "\nLottery Code: " . $lotteryCode;
             }
+
 
             // Debugging: print data to check the updated structure
 
