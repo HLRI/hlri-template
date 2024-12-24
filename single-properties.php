@@ -515,6 +515,7 @@ if (is_user_logged_in()) {
                     var ws_width = '400';
                     var ws_height = '400';
                 </script><style type='text/css'>#ws-walkscore-tile{position:relative;text-align:left}#ws-walkscore-tile *{float:none;}</style><div class="mt-1" id='ws-walkscore-tile'></div><script type='text/javascript' src='https://www.walkscore.com/tile/show-walkscore-tile.php'></script>
+<?php endif; ?>
 
             </div>
         </div>
