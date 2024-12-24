@@ -315,6 +315,64 @@ if (is_user_logged_in()) {
                         </div>
                     </div>
 
+                    <style>
+                        /* Custom styling for the list container */
+                        .custom-incentive-list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            gap: 20px;
+                            padding: 0;
+                            margin-top: 1.5rem;
+                        }
+
+                        /* Custom styling for each incentive item */
+                        .custom-incentive-item {
+                            color: #ff6600;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        /* Custom styling for the icon */
+                        .custom-icon {
+                            font-size: 1.6rem;
+                            min-width: 32px;
+                            margin-right:20px;
+                            text-align: center;
+                        }
+
+                        /* Custom styling for the text */
+                        .custom-text {
+                            font-size: 1.2rem;
+                        }
+
+                        /* For tablets: reduce icon and text size */
+                        @media (max-width: 1200px) {
+                            .custom-incentive-item .custom-icon {
+                                font-size: 1.5rem; /* Smaller icon on tablets */
+                                margin-right:10px;
+                            }
+
+                            .custom-incentive-item .custom-text {
+                                font-size: 1rem; /* Smaller text on tablets */
+                            }
+                        }
+
+                        /* For mobile: further reduce icon and text size */
+                        @media (max-width: 575px) {
+                            .custom-incentive-item .custom-icon {
+                                font-size: 0.9rem; /* Even smaller icon on mobile */
+                                margin-right:0px;
+                            }
+
+                            .custom-incentive-item .custom-text {
+                                font-size: 0.8rem; /* Even smaller text on mobile */
+                            }
+                        }
+                    </style>
+
+
                     <div class="row mb-2 justify-content-start px-0 px-md-3 ">
                         <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start mb-center">
                             <div class="rating-stars">
