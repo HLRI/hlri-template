@@ -507,6 +507,7 @@ if (is_user_logged_in()) {
                 </div>
             </div>
             <div class="col-12  rounded mb-2 mb-md-0 col-md-6" style="border: 1px solid #e3e3e3;">
+<?php if ($data['opt-coords']['address'] !== '300 Richmond St W #300, Toronto') : ?>
                 <script type='text/javascript'>
                     var ws_wsid = 'g61630a670a2847169cb58e9189f6caab';
                     var ws_address = '<?php echo $data['opt-coords']['address'] ?>';
