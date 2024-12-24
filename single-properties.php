@@ -429,16 +429,15 @@ if (is_user_logged_in()) {
                 </div>
             </div>
             <div class="col-12  rounded mb-2 mb-md-0 col-md-6">
-
-                <div class="row">
-                    asasass
+111
+                <div class="row">222
                     <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
                     if (!empty($project_incentives['opt_properties_incentives_items'])) {
                         $incentives = $project_incentives['opt_properties_incentives_items'];
                     } else {
                         $incentives = [];
                     }
-                    ?>
+                    ?>333
                     <ul class="list-unstyled mt-4">
                         <?php foreach ($incentives as $incentive): ?>
                             <li class="d-flex align-items-center mb-4" style="color: #ff6600;">
