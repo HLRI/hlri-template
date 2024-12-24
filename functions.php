@@ -213,6 +213,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 // Add the lottery code to the message
                 $data['your-message'] = "\nProperty Interest: " . $data['your-message'][0];
                 $data['your-message'] .= "\nLottery Code: " . $lotteryCode;
+                $_SESSION['lottery-code'] = $lotteryCode;
             }
 
             // URL for the webhook endpoint
