@@ -141,18 +141,6 @@ function wpcf7_add_lottery_code_tag($output, $tag, $submission, $instance) {
     return $output;
 }
 
-
-function custom_shortcode_atts_wpcf7_filter( $out, $pairs, $atts ) {
-    $my_attr = 'your-subject';
-
-    if ( isset( $atts[$my_attr] ) ) {
-        $out[$my_attr] = $atts[$my_attr];
-    }
-
-    return $out;
-}
-add_filter( 'shortcode_atts_wpcf7', 'custom_shortcode_atts_wpcf7_filter', 10, 3 );
-
 add_action("wpcf7_before_send_mail", "wpcf7_sendtogeneralformhandlerpreconstruction");
 function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
     // Get current form
@@ -193,36 +181,36 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['street'] = $current_page_title;
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Property Inquiry';
-            } elseif(strpos($current_page_url, '/floorplans/') !== false) {
+            } elseif (strpos($current_page_url, '/floorplans/') !== false) {
                 $associated_property_id = get_post_meta($page_id, 'associated_property', true);
                 $current_page_title = get_the_title($associated_property_id);
                 $data['tags'] = [$current_page_title, 'Floorplan Request'];
                 $data['street'] = $current_page_title;
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Property Inquiry';
-            } elseif(strpos($current_page_url, 'contact-us') !== false){
+            } elseif (strpos($current_page_url, 'contact-us') !== false) {
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'General Inquiry';
-            } elseif(strpos($current_page_url, 'join-us') !== false){
+            } elseif (strpos($current_page_url, 'join-us') !== false) {
                 $data['tags'] = ['Realtor'];
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Registration';
-            } elseif(strpos($current_page_url, '/agents/') !== false){
+            } elseif (strpos($current_page_url, '/agents/') !== false) {
                 $data['utm_source'] = $current_page_title . ' Contact Page - CondoY.com';
                 $data['pageTitle'] = 'Contact ' . $current_page_title;
                 $data['type'] = 'General Inquiry';
                 $data['assignedTo'] = $current_page_title;
-            } elseif(strpos($current_page_url, 'holidays-gift') !== false) {
+            } elseif (strpos($current_page_url, 'holidays-gift') !== false) {
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Registration';
+                // Generate the lottery code
+                $lotteryCode = strtoupper('LOT-' . uniqid() . '-' . date('Ymd'));
+                $data['lottery-code'] = $lotteryCode;
+
                 // Add the lottery code to the message
                 $data['your-message'] = "\nProperty Interest: " . $data['your-message'][0];
-                $data['your-message'] .= "\nLottery Code: " . $data['lottery-code'];
-
+                $data['your-message'] .= "\nLottery Code: " . $lotteryCode;
             }
-
-
-            // Debugging: print data to check the updated structure
 
             // URL for the webhook endpoint
             $urlsend = 'http://locatecondo.com/web_controllers/form_controllers/general_form.php';
@@ -249,9 +237,10 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 'tags' => $data['tags'],
                 'tagArray' => $data['tagArray'],
                 'assignedTo' => $data['assignedTo'],
+                'lotteryCode' => isset($data['lottery-code']) ? $data['lottery-code'] : '',
             );
 
-            mail("shahab.a@homeleaderrealty.com",'data',json_encode($datasend));
+            mail("shahab.a@homeleaderrealty.com", 'data', json_encode($datasend));
             $payloadsend = json_encode(array("formData" => $datasend));
             curl_setopt($chsend, CURLOPT_POSTFIELDS, $payloadsend);
             curl_setopt($chsend, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
@@ -274,7 +263,6 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
         error_log("No submission instance found.");
     }
 }
-
 
 
 
