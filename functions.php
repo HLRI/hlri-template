@@ -131,17 +131,16 @@ add_filter('wpcf7_form_elements', function( $content ) {
 
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-
 add_filter('wpcf7_mail_tag_replacement', 'wpcf7_add_lottery_code_tag', 10, 4);
 function wpcf7_add_lottery_code_tag($output, $tag, $submission, $instance) {
     if ('lottery-code' === $tag->name) {
-        if ($submission) {
-            $lotteryCode = $submission->get_meta('lottery-code');
-            return $lotteryCode ? $lotteryCode : 'N/A';
-        }
+        // Generate a unique lottery code
+        $lotteryCode = strtoupper('LOT-' . uniqid() . '-' . date('Ymd'));
+        return $lotteryCode;
     }
     return $output;
 }
+
 
 function custom_shortcode_atts_wpcf7_filter( $out, $pairs, $atts ) {
     $my_attr = 'your-subject';
@@ -213,19 +212,13 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['pageTitle'] = 'Contact ' . $current_page_title;
                 $data['type'] = 'General Inquiry';
                 $data['assignedTo'] = $current_page_title;
-            } elseif(strpos($current_page_url, 'christmass-giveaway') !== false) {
+            } elseif(strpos($current_page_url, 'holidays-gift') !== false) {
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Registration';
-
-                // Generate a unique lottery code
-                $lotteryCode = strtoupper('LOT-' . uniqid() . '-' . date('Ymd'));
-
                 // Add the lottery code to the message
                 $data['your-message'] = "\nProperty Interest: " . $data['your-message'][0];
-                $data['your-message'] .= "\nLottery Code: " . $lotteryCode;
+                $data['your-message'] .= "\nLottery Code: " . $data['lottery-code'];
 
-                // Save the lottery code for CF7 Mail 2
-                $submission->add_meta('lottery-code', $lotteryCode);
             }
 
 
