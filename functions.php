@@ -143,6 +143,12 @@ add_filter('wpcf7_autop_or_not', '__return_false');
 //    return $output;
 //}
 
+function start_session() {
+    if (!session_id()) {
+        session_start();
+    }
+}
+add_action('init', 'start_session');
 
 add_action("wpcf7_before_send_mail", "wpcf7_sendtogeneralformhandlerpreconstruction");
 function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
