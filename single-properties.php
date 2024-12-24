@@ -431,7 +431,7 @@ if (is_user_logged_in()) {
             <div class="col-12  rounded mb-2 mb-md-0 col-md-6">
                 <script type='text/javascript'>
                     var ws_wsid = 'g61630a670a2847169cb58e9189f6caab';
-                    var ws_address = '200 Queens Quay W Toronto ON M5J 2Y5';
+                    var ws_address = '<?php $data['opt-coords']['address'] ?>>';
                     var ws_format = 'wide';
                     var ws_width = '550';
                     var ws_height = '350';
