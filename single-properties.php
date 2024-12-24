@@ -294,6 +294,26 @@ if (is_user_logged_in()) {
                         }
                     </style>
 
+                    <div>
+                        <div>
+                            <?php
+                            $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
+                            if (!empty($project_incentives['opt_properties_incentives_items'])) {
+                                $incentives = $project_incentives['opt_properties_incentives_items'];
+                            } else {
+                                $incentives = [];
+                            }
+                            ?>
+                            <ul class="custom-incentive-list mb-4">
+                                <?php foreach ($incentives as $incentive): ?>
+                                    <li class="custom-incentive-item d-flex align-items-center mb-2 text-center">
+                                        <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2 custom-icon"></i>
+                                        <span class="custom-text"><?php echo $incentive['opt-link-incentives']; ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
 
                     <div class="row mb-2 justify-content-start px-0 px-md-3 ">
                         <div class=" col-12 col-sm-6 d-flex p-1 align-items-end justify-content-start mb-center">
