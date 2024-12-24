@@ -141,6 +141,19 @@ function wpcf7_add_lottery_code_tag($output, $tag, $submission, $instance) {
     return $output;
 }
 
+add_action('wpcf7_mail_sent', 'save_cf7_data');
+
+function save_cf7_data($cf)
+{
+
+    if(session_id() == '') {
+        session_start();
+    }
+
+    $current_submission = WPCF7_Submission::get_instance();
+
+    $_SESSION['cf7_submission'] = $current_submission->get_posted_data();
+}
 add_action("wpcf7_before_send_mail", "wpcf7_sendtogeneralformhandlerpreconstruction");
 function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
     // Get current form
