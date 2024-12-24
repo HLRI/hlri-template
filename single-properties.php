@@ -514,25 +514,7 @@ if (is_user_logged_in()) {
                     var ws_width = '550';
                     var ws_height = '350';
                 </script><style type='text/css'>#ws-walkscore-tile{position:relative;text-align:left}#ws-walkscore-tile *{float:none;}</style><div id='ws-walkscore-tile'></div><script type='text/javascript' src='https://www.walkscore.com/tile/show-walkscore-tile.php'></script>
-                <div class="row">
-                    <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
-                    if (!empty($project_incentives['opt_properties_incentives_items'])) {
-                        $incentives = $project_incentives['opt_properties_incentives_items'];
-                    } else {
-                        $incentives = [];
-                    }
-                    ?>
-                    <ul class="list-unstyled mt-4">
-                        <?php foreach ($incentives as $incentive): ?>
-                            <li class="d-flex align-items-center mb-4" style="color: #ff6600;">
-                                <i style="font-size: x-large;margin-right: 20px;min-width:32px;text-align:center;"
-                                   class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
-                                <?php echo $incentive['opt-link-incentives']; ?>
-                            </li>
-                        <?php endforeach; ?>
-                        <div>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
