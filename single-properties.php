@@ -435,7 +435,7 @@ if (is_user_logged_in()) {
                     var ws_format = 'wide';
                     var ws_width = '550';
                     var ws_height = '350';
-                </script><style type='text/css'>#ws-walkscore-tile{position:relative;text-align:left}#ws-walkscore-tile *{float:none;}</style><div id='ws-walkscore-tile'></div><script type='text/javascript' src='http://www.walkscore.com/tile/show-walkscore-tile.php'></script>
+                </script><style type='text/css'>#ws-walkscore-tile{position:relative;text-align:left}#ws-walkscore-tile *{float:none;}</style><div id='ws-walkscore-tile'></div><script type='text/javascript' src='https://www.walkscore.com/tile/show-walkscore-tile.php'></script>
                 <div class="row">
                     <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
                     if (!empty($project_incentives['opt_properties_incentives_items'])) {
