@@ -204,7 +204,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['utm_source'] = $current_page_title;
                 $data['type'] = 'Registration';
                 // Generate the lottery code
-                $lotteryCode = strtoupper('LOT-' . uniqid() . '-' . date('Ymd'));
+                $lotteryCode = strtoupper('LOT-' . time() . '-' . date('Ymd'));
                 $data['lottery-code'] = $lotteryCode;
 
                 // Add the lottery code to the message
