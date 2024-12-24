@@ -135,7 +135,7 @@ add_filter('wpcf7_mail_tag_replacement', 'wpcf7_add_lottery_code_tag', 10, 4);
 function wpcf7_add_lottery_code_tag($output, $tag, $submission, $instance) {
     if ('lottery-code' === $tag->name) {
         // Generate a unique lottery code
-        $lotteryCode = strtoupper('LOT-' . uniqid() . '-' . date('Ymd'));
+        $lotteryCode = strtoupper('LOT-' . time() . '-' . date('Ymd'));
         $_SESSION['lottery-code'] = $lotteryCode;
         return $lotteryCode;
     }
