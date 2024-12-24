@@ -8,23 +8,23 @@ if (!current_user_can('manage_options')) {
 }
 
 
-$args1 = [
-    'post_type' => 'properties',
-    'post_status' => 'publish',
-    'posts_per_page' => -1,
-];
+//$args1 = [
+//    'post_type' => 'properties',
+//    'post_status' => 'publish',
+//    'posts_per_page' => -1,
+//];
+//
+//$peroperties = new WP_Query($args1);
+//
+//while ($peroperties->have_posts()) {
+//    $peroperties->the_post();
+//
+//    $post_id = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords']['address'];
+//    if ($post_id === '300 Richmond St W #300, Toronto' ){
+//        echo get_the_ID() . '<br>';
+//    }
+//}
 
-$peroperties = new WP_Query($args1);
-
-while ($peroperties->have_posts()) {
-    $peroperties->the_post();
-
-    $post_id = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords']['address'];
-    if ($post_id === '300 Richmond St W #300, Toronto' ){
-        echo get_the_ID() . '<br>';
-    }
-}
-die();
 
 
 // Get property ID from the query parameter
