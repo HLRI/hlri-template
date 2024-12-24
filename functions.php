@@ -131,17 +131,17 @@ add_filter('wpcf7_form_elements', function( $content ) {
 
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-add_filter('wpcf7_mail_tag_replacement', 'wpcf7_add_lottery_code_tag', 10, 4);
-function wpcf7_add_lottery_code_tag($output, $tag, $submission, $instance) {
-    if ('lottery-code' === $tag->name) {
-        // Generate a unique lottery code
-        $lotteryCode = strtoupper('LOT-' . time() . '-' . date('Ymd'));
-        $_SESSION['lottery-code'] = $lotteryCode;
-        return $lotteryCode;
-    }
-
-    return $output;
-}
+//add_filter('wpcf7_mail_tag_replacement', 'wpcf7_add_lottery_code_tag', 10, 4);
+//function wpcf7_add_lottery_code_tag($output, $tag, $submission, $instance) {
+//    if ('lottery-code' === $tag->name) {
+//        // Generate a unique lottery code
+//        $lotteryCode = strtoupper('LOT-' . time() . '-' . date('Ymd'));
+//        $_SESSION['lottery-code'] = $lotteryCode;
+//        return $lotteryCode;
+//    }
+//
+//    return $output;
+//}
 
 
 add_action("wpcf7_before_send_mail", "wpcf7_sendtogeneralformhandlerpreconstruction");
