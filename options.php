@@ -1328,7 +1328,7 @@ if (class_exists('CSF')) {
                     'title'   => 'Display walkscore based on address',
                     'label'   => 'Yes',
                     'default' => true // or false
-                )
+                ),
 				array(
 					'id'    => 'opt-coords',
 					'type'  => 'map',
