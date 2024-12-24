@@ -7,12 +7,6 @@ if (!current_user_can('manage_options')) {
     wp_die('You do not have permission to access this page.');
 }
 
-// Get property ID from the query parameter
-$property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
-
-
-
-
 
 $args1 = [
     'post_type' => 'properties',
@@ -25,11 +19,33 @@ $peroperties = new WP_Query($args1);
 while ($peroperties->have_posts()) {
     $peroperties->the_post();
 
-$post_id = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords']['address'];
-if ($post_id === '300 Richmond St W #300, Toronto' ){
-    echo get_the_ID() . '<br>';
+    $post_id = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-coords']['address'];
+    if ($post_id === '300 Richmond St W #300, Toronto' ){
+        echo get_the_ID() . '<br>';
+    }
 }
-}
+die();
+
+
+// Get property ID from the query parameter
+$property_id = isset($_GET['property_id']) ? intval($_GET['property_id']) : 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
