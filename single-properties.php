@@ -512,7 +512,7 @@ if (is_user_logged_in()) {
                     var ws_address = '<?php echo $data['opt-coords']['address'] ?>';
                     var ws_format = 'wide';
                     var ws_width = '550';
-                    var ws_height = '350';
+                    var ws_height = '450';
                 </script><style type='text/css'>#ws-walkscore-tile{position:relative;text-align:left}#ws-walkscore-tile *{float:none;}</style><div id='ws-walkscore-tile'></div><script type='text/javascript' src='https://www.walkscore.com/tile/show-walkscore-tile.php'></script>
 
             </div>
