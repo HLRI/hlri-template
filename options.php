@@ -1322,6 +1322,13 @@ if (class_exists('CSF')) {
 					),
 					'default'    => false
 				),
+                array(
+                    'id'      => 'opt-floorplans_walkscore',
+                    'type'    => 'checkbox',
+                    'title'   => 'Display walkscore based on address',
+                    'label'   => 'Yes',
+                    'default' => true // or false
+                )
 				array(
 					'id'    => 'opt-coords',
 					'type'  => 'map',
