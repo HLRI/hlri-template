@@ -429,15 +429,21 @@ if (is_user_logged_in()) {
                 </div>
             </div>
             <div class="col-12  rounded mb-2 mb-md-0 col-md-6">
-111
-                <div class="row">222
+                <script type='text/javascript'>
+                    var ws_wsid = 'g61630a670a2847169cb58e9189f6caab';
+                    var ws_address = '200 Queens Quay W Toronto ON M5J 2Y5';
+                    var ws_format = 'wide';
+                    var ws_width = '550';
+                    var ws_height = '350';
+                </script><style type='text/css'>#ws-walkscore-tile{position:relative;text-align:left}#ws-walkscore-tile *{float:none;}</style><div id='ws-walkscore-tile'></div><script type='text/javascript' src='http://www.walkscore.com/tile/show-walkscore-tile.php'></script>
+                <div class="row">
                     <?php $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
                     if (!empty($project_incentives['opt_properties_incentives_items'])) {
                         $incentives = $project_incentives['opt_properties_incentives_items'];
                     } else {
                         $incentives = [];
                     }
-                    ?>333
+                    ?>
                     <ul class="list-unstyled mt-4">
                         <?php foreach ($incentives as $incentive): ?>
                             <li class="d-flex align-items-center mb-4" style="color: #ff6600;">
