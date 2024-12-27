@@ -278,6 +278,52 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
 
 
 
+
+
+function schedule_remove_hot_deals() {
+    if (!wp_next_scheduled('remove_hot_deals_properties_event')) {
+        wp_schedule_event(time(), 'monthly', 'remove_hot_deals_properties_event');
+    }
+}
+
+function remove_hot_deals_properties() {
+    $args = [
+        'post_type'      => 'properties',
+        'posts_per_page' => -1,
+        'tax_query'      => [
+            [
+                'taxonomy' => 'group',
+                'field'    => 'slug',
+                'terms'    => 'this-month-hot-new-projects-in-toronto',
+            ],
+        ],
+    ];
+
+    $query = new WP_Query($args);
+
+    echo 'Checking properties...' . '<br>';
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $date = get_the_modified_time(get_the_ID());
+
+            // Convert stored date to timestamp for comparison
+            $date_timestamp = strtotime($date);
+            $one_months_ago = strtotime('-1 months');
+
+            if ($date_timestamp && $date_timestamp <= $one_months_ago) {
+                wp_remove_object_terms(get_the_ID(), 'this-month-hot-new-projects-in-toronto', 'group');
+            }
+        }
+    }
+
+    wp_reset_postdata();
+}
+
+add_action('remove_hot_deals_properties_event', 'remove_hot_deals_properties');
+
+
 function schedule_remove_just_launched() {
     if (!wp_next_scheduled('remove_just_launched_properties_event')) {
         wp_schedule_event(time(), 'daily', 'remove_just_launched_properties_event');
