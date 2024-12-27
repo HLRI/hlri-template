@@ -311,6 +311,7 @@ function remove_hot_deals_properties() {
             $date_timestamp = strtotime($date);
             $one_months_ago = strtotime('-1 months');
 
+            dd($date_timestamp, $one_months_ago);
             if ($date_timestamp && $date_timestamp <= $one_months_ago) {
                 echo ( $date_timestamp <= $one_months_ago) . '<br>';
                 wp_remove_object_terms(get_the_ID(), 'this-month-hot-new-projects-in-toronto', 'group');
