@@ -446,7 +446,7 @@ if (is_user_logged_in()) {
                                         </span>
 
                                         <?php else : ?>
-                                        <span class="text-red">Sold Out</span>
+                                        <span class="text-red" style="color:red">Sold Out</span>
                                     <?php endif; ?>
 
 
