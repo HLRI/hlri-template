@@ -64,13 +64,8 @@ $peroperties = new WP_Query($args);
 
         <div class="wrap-button">
             <a target="_blank" href="https://condoy.com/just-launched-check/?action=6_months" class="button button-success loading">Remove dated properties from Just-Launched Group (6 Months)</a>
+            <a target="_blank" href="https://condoy.com/just-launched-check/?action=6_months" class="button button-success loading">Remove dated properties from Hot Deals Group (1 month)</a>
             <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-success loading">Download Backup</a>
-            <div class="wrap-button">
-                <a href="<?= admin_url('admin-post.php?action=update_floorplans_status&property_id=' . get_the_ID()) ?>"
-                   class="button button-primary">
-                    Mark All Floorplans for This Property as Sold Out
-                </a>
-            </div>
 
         </div>
         <div style="color: red; font-weight: bold; font-size: 15px; padding: 6px 0;" class="loading">Make sure to download the backup before making any changes!</div>
