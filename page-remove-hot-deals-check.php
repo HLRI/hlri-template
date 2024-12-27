@@ -3,7 +3,7 @@
 
 $action = $_GET['action'];
 
-if ($action == '1_months') {
+if ($action == '1_month') {
     do_action('remove_hot_deals_properties_event');
     echo "Action executed successfully.";
     exit;
