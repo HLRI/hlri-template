@@ -443,10 +443,13 @@ if (is_user_logged_in()) {
                                                 <?php else : ?>
                                                     $<?= number_format($data['opt-price-min']) ?>
                                                 <?php endif; ?>
-                                        <?php endif; ?>
+                                        </span>
+
+                                        <?php else : ?>
+                                    Sold Out
+                                    <?php endif; ?>
 
 
-                                </span>
                                 </div>
                                 <div class="btn-group">
                                     <!-- <button class="btn btn-primary"> <i class="fa fa-share" ></i> Share </button> -->
