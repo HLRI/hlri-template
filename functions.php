@@ -220,6 +220,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['your-message'] = "\nProperty Interest: " . $data['your-message'][0];
                 $data['your-message'] .= "\nLottery Code: " . $lotteryCode;
                 $_SESSION['lottery-code'] = $lotteryCode;
+                $data['street'] = '';
             }
 
             // URL for the webhook endpoint
