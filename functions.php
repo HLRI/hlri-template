@@ -306,7 +306,7 @@ function remove_hot_deals_properties() {
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            $date = get_the_modified_time(get_the_ID());
+            $date = get_the_modified_time();
 echo $date . '<br>';
             // Convert stored date to timestamp for comparison
             $date_timestamp = strtotime($date);
