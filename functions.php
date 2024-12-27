@@ -307,12 +307,12 @@ function remove_hot_deals_properties() {
         while ($query->have_posts()) {
             $query->the_post();
             $date = get_the_modified_time();
-echo $date . '<br>';
             // Convert stored date to timestamp for comparison
             $date_timestamp = strtotime($date);
             $one_months_ago = strtotime('-1 months');
 
             if ($date_timestamp && $date_timestamp <= $one_months_ago) {
+                echo ( $date_timestamp <= $one_months_ago);
                 wp_remove_object_terms(get_the_ID(), 'this-month-hot-new-projects-in-toronto', 'group');
             }
         }
