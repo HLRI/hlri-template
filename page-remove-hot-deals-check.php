@@ -1,9 +1,10 @@
 <?php
-/* Template Name: Remove Properties */
+/* Template Name: Remove Properties from Hot Deals (1 month) */
 
 $action = $_GET['action'];
-if ($action == '6_months'){
-do_action('remove_just_launched_properties_event');
+
+if ($action == '1_months') {
+    do_action('remove_hot_deals_properties_event');
     echo "Action executed successfully.";
     exit;
 } else{
@@ -13,4 +14,3 @@ do_action('remove_just_launched_properties_event');
     get_template_part( 404 ); // Load the 404 template
     exit;
 }
-
