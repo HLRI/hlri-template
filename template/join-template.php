@@ -116,6 +116,7 @@
                              src="<?= !empty($theme_options['opt-join-us-detail-image-1']) ? $theme_options['opt-join-us-detail-image-1'] : ""  ?>"
                              class="img-fluid rounded "
                              alt="home-leader-reality-join-us"
+                             style="height: 100%;object-fit: cover;object-position: left;"
                              >
                         </div>
                                          

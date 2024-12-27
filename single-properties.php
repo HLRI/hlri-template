@@ -36,7 +36,7 @@ if (is_user_logged_in()) {
                                  class="hide-on-sm w-auto rounded mr-4"
                                  alt="<?= $psd['thumbnail_caption'] ?>"/>
                         <?php else : ?>
-                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">1
+                            <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         <?php endif; ?>
                         <div class="container-fluid">
                             <div class="show-on-sm col-sm-12" style="display:none;">
@@ -49,7 +49,7 @@ if (is_user_logged_in()) {
                                     <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy" class="w-auto rounded mr-4"
                                          alt="<?= $psd['thumbnail_caption'] ?>"/>
                                 <?php else : ?>
-                                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">2
+                                    <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                                 <?php endif; ?>
                             </div>
                             <h2><?= $psd['title'] ?></h2>
@@ -490,7 +490,7 @@ if (is_user_logged_in()) {
                     </div>
                 <?php else : ?>
                     <div class="d-flex flex-wrap justify-content-between" style="gap:10px;">
-                        <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">3
+                        <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
                         <img loading="lazy" src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
