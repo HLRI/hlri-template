@@ -6,8 +6,6 @@ get_header();
 
 // Retrieve the saved JSON data
 $properties = get_option('precon_progress', []);
-dd($properties);
-die();
 ?>
 
     <div class="container mt-5">
