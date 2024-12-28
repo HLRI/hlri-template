@@ -49,8 +49,38 @@ add_action('template_redirect', function () {
 
 // Example functions
 function update_precon_progress() {
-    echo 'This is Function update_precon_progress';
+    // Define the URL for the JSON request
+    $url = 'https://hlrihub.com/project-progress-list-json';
+
+    // Make the GET request
+    $response = wp_remote_get($url);
+
+    // Check if the response is successful
+    if (is_wp_error($response)) {
+        // Handle the error
+        echo 'Failed to retrieve data: ' . $response->get_error_message();
+        return;
+    }
+
+    // Retrieve the body of the response
+    $body = wp_remote_retrieve_body($response);
+
+    // Decode the JSON data
+    $data = json_decode($body, true);
+
+    // Check if the JSON is valid
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        echo 'Failed to decode JSON: ' . json_last_error_msg();
+        return;
+    }
+
+    // Update the WordPress option with the JSON data
+    update_option('precon_progress', $data);
+
+    // Output success message
+    echo 'Pre-construction progress data updated successfully.';
 }
+
 
 function function_name_2() {
     echo 'This is Function 2';
