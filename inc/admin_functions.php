@@ -42,8 +42,6 @@ add_action('template_redirect', function () {
             }
             exit; // Prevent WordPress from rendering a full page
         }
-    } else {
-        wp_die('You do not have sufficient permissions to access this page.');
     }
 });
 
