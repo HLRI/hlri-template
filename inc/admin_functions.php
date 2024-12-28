@@ -25,8 +25,8 @@ add_action('template_redirect', function () {
         if ($function_name) {
             // Call different functions based on the 'admin_function' parameter
             switch ($function_name) {
-                case 'function_name_1':
-                    function_name_1();
+                case 'update_precon_progress':
+                    update_precon_progress();
                     break;
                 case 'function_name_2':
                     function_name_2();
@@ -48,8 +48,8 @@ add_action('template_redirect', function () {
 });
 
 // Example functions
-function function_name_1() {
-    echo 'This is Function 1';
+function update_precon_progress() {
+    echo 'This is Function update_precon_progress';
 }
 
 function function_name_2() {
