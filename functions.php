@@ -446,3 +446,11 @@ add_action('template_redirect', function () {
         exit; // Prevent WordPress from rendering a full page
     }
 });
+
+// Ensure rewrite rules are flushed when the theme is activated
+function flush_rewrite_rules_on_theme_activation()
+{
+    flush_rewrite_rules();
+}
+
+add_action('after_switch_theme', 'flush_rewrite_rules_on_theme_activation');
