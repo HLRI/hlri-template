@@ -2,7 +2,7 @@
 <div class="wrap-button" style="margin-top:50px;">
     <a target="_blank" href="https://condoy.com/just-launched-check/?action=6_months" class="button button-success loading">Remove dated properties from Just-Launched Group (6 Months)</a>
     <a target="_blank" href="https://condoy.com/hot-deals-check/?action=1_month" class="button button-success loading">Remove dated properties from Hot Deals Group (1 month)</a>
-    <a target="_blank" href="https://condoy.com/wp-admin/admin_function?action=update_precon_progress" class="button button-success loading">update precon progress from hub</a>
+    <a target="_blank" href="https://condoy.com/wp-admin/admin_function?action=update_precon_progress" class="button button-success loading">Update precon progress from hub</a>
     <a download href="<?= HLR_THEME_URL . "template-parts/admin-pages/backup.json" ?>" class="button button-success loading">Download Backup</a>
 
 </div>
