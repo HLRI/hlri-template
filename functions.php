@@ -460,7 +460,7 @@ add_filter('query_vars', function ($query_vars) {
 add_action('template_redirect', function () {
     // Ensure that only administrators can access this URL
     if (!is_admin() && current_user_can('administrator')) {
-        $function_name = get_query_var('admin_function');
+        $function_name = get_query_var('action');
 
         // Check if the query variable is set and matches a known function
         if ($function_name) {
