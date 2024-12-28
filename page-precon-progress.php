@@ -6,7 +6,7 @@ get_header();
 
 // Retrieve the saved JSON data
 $properties = get_option('precon_progress', []);
-echo dd($properties);
+dd($properties);
 die();
 ?>
 
