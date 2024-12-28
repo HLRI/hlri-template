@@ -586,7 +586,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
           "</h6>" +
           "                </a>" +
           "            </div>" +
-          '            <div class="properties-card_desc">' +
+          '            <div class="properties-card_desc ghif">' +
           '                 <a href="' +
           post.permalink +
           '" title="' +

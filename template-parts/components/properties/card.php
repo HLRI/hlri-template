@@ -12,7 +12,7 @@
                     <h6 class="text-black"><?= strlen(get_the_title())  > 18 ? substr(get_the_title(), 0, 18) . '...' : get_the_title() ?></h6>
                 </a>
             </div>   
-            <div class="properties-card_desc" >
+            <div class="properties-card_desc ghool" >
                  <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">
                     <?= strlen(strip_tags(get_the_excerpt()))  > 44 ? substr(strip_tags(get_the_excerpt()), 0, 44) . '...' : strip_tags(get_the_excerpt()) ?>
                 </a><br>
