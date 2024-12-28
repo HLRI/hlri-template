@@ -40,7 +40,7 @@ $properties = get_option('precon_progress', []);
                                     alt="<?php echo esc_attr($property['name']); ?>">
                             <div class="card-body text-center">
                                 <h5 class="card-title"><?php echo esc_html($property['name']); ?></h5>
-                                <a href="<?php echo esc_url($property['link']); ?>" class="btn btn-primary" target="_blank">
+                                <a href="<?php echo esc_url($property['link']); ?>" class="btn top-section-button" target="_blank">
                                     View Details
                                 </a>
                             </div>
