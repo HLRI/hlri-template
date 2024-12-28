@@ -70,17 +70,6 @@ function addOrdinalSuffix($number)
                                         <?php if (!empty($data['opt-studio']) and ($data['opt-studio'] == 1)) : ?>
                                             Studio
                                         <?php endif; ?>
-                                        <?php if (!empty($data['opt-floorplans-beds']) && !empty($data['opt-floorplans-baths'])) : ?>
-                                            <?= $data['opt-floorplans-beds'] . ' Bed' ?> , <?= $data['opt-floorplans-baths'] . ' Bath' ?>
-                                        <?php else : ?>
-                                            <?php if (!empty($data['opt-floorplans-baths'])) : ?>
-                                                <?= ', ' . $data['opt-floorplans-baths'] . ' Bath' ?>
-                                            <?php else : ?>
-                                                <?php if (empty($data['opt-studio'])) : ?>
-                                                    -
-                                                <?php endif; ?>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
                                         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>
                                             </strong>
