@@ -500,17 +500,3 @@ function function_name_2() {
 function function_name_3() {
     echo 'This is Function 3';
 }
-
-// Ensure rewrite rules are flushed when the theme is activated
-function flush_rewrite_rules_on_theme_activation() {
-    flush_rewrite_rules();
-}
-add_action('after_switch_theme', 'flush_rewrite_rules_on_theme_activation');
-
-// Manually trigger flush rewrite rules for testing
-add_action('wp_loaded', function () {
-    // Manually flush rewrite rules if they're not set
-    if (!get_option('rewrite_rules')) {
-        flush_rewrite_rules();
-    }
-});
