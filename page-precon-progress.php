@@ -8,9 +8,11 @@ get_header();
 $properties = get_option('precon_progress', []);
 ?>
 <style>
-    .card-img-top{
-        height: 370px;object-fit: scale-down;gish
-
+    .card-img-top {
+        height: 180px;
+        object-fit: contain;
+        border: 2px dashed #e1e1e1;
+        padding: 10px;
     }
 </style>
     <div class="container mt-5">
