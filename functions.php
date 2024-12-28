@@ -443,7 +443,6 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 
 
 
-<?php
 // Add a custom rewrite rule
 add_action('init', function () {
     add_rewrite_rule(
