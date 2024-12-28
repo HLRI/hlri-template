@@ -67,16 +67,16 @@ function addOrdinalSuffix($number)
                                             <?php echo implode(', ', $data['opt-ownership']); ?>
                                         </li>
                                         <?php endif; ?>
-                                        <?php if (!empty($floor['opt-studio']) and ($floor['opt-studio'] == 1)) : ?>
+                                        <?php if (!empty($data['opt-studio']) and ($data['opt-studio'] == 1)) : ?>
                                             Studio
                                         <?php endif; ?>
-                                        <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
-                                            <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                        <?php if (!empty($data['opt-floorplans-beds']) && !empty($data['opt-floorplans-baths'])) : ?>
+                                            <?= $data['opt-floorplans-beds'] . ' Bed' ?> , <?= $data['opt-floorplans-baths'] . ' Bath' ?>
                                         <?php else : ?>
-                                            <?php if (!empty($floor['opt-floorplans-baths'])) : ?>
-                                                <?= ', ' . $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                            <?php if (!empty($data['opt-floorplans-baths'])) : ?>
+                                                <?= ', ' . $data['opt-floorplans-baths'] . ' Bath' ?>
                                             <?php else : ?>
-                                                <?php if (empty($floor['opt-studio'])) : ?>
+                                                <?php if (empty($data['opt-studio'])) : ?>
                                                     -
                                                 <?php endif; ?>
                                             <?php endif; ?>
