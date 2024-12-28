@@ -68,7 +68,11 @@ function addOrdinalSuffix($number)
                                         </li>
                                         <?php endif; ?>
                                         <?php if (!empty($data['opt-studio']) and ($data['opt-studio'] == 1)) : ?>
-                                            Studio
+                                            <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: Studio">
+                                                <i class="fas fa-bed"></i><br><strong>Studio
+                                                </strong><span
+                                                        class="gray short-lbl"></span>
+                                            </li>
                                         <?php endif; ?>
                                         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>
