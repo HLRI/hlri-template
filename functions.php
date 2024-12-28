@@ -442,27 +442,77 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 
 
 
-// Add a custom rewrite rule
+<?php
+// Add a custom rewrite rule to catch the 'admin_function' query variable under wp-admin
 add_action('init', function () {
     add_rewrite_rule(
-        '^custom-hello/?$', // Custom URL: example.com/custom-hello
-        'index.php?custom_hello=1', // Internal query parameter
-        'top'
+        '^wp-admin/admin_function/?$', // Custom URL: example.com/wp-admin/admin_function
+        'index.php?admin_function=1', // Internal query parameter
+        'top' // Priority at the top of the rules
     );
 });
 
-// Register a custom query variable
+// Register the custom query variable 'admin_function'
 add_filter('query_vars', function ($query_vars) {
-    $query_vars[] = 'custom_hello';
+    $query_vars[] = 'admin_function'; // Add 'admin_function' to the list of query vars
     return $query_vars;
 });
 
-// Hook into template_redirect to run the Hello World function
+// Hook into template_redirect to run the functions based on the 'admin_function' query variable
 add_action('template_redirect', function () {
-    // Check if it's a front-end request
-    if (!is_admin() && get_query_var('custom_hello') == 1) {
-        // Output Hello World
-        echo 'Hello World!';
-        exit; // Prevent WordPress from rendering a full page
+    // Ensure that only administrators can access this URL
+    if (!is_admin() && current_user_can('administrator')) {
+        $function_name = get_query_var('admin_function');
+
+        // Check if the query variable is set and matches a known function
+        if ($function_name) {
+            // Call different functions based on the 'admin_function' parameter
+            switch ($function_name) {
+                case 'function_name_1':
+                    function_name_1();
+                    break;
+                case 'function_name_2':
+                    function_name_2();
+                    break;
+                case 'function_name_3':
+                    function_name_3();
+                    break;
+                // Add more cases for other functions as needed
+                default:
+                    // If the function is not recognized, show an error or default message
+                    echo 'Function not found.';
+                    break;
+            }
+            exit; // Prevent WordPress from rendering a full page
+        }
+    } else {
+        wp_die('You do not have sufficient permissions to access this page.');
+    }
+});
+
+// Example functions
+function function_name_1() {
+    echo 'This is Function 1';
+}
+
+function function_name_2() {
+    echo 'This is Function 2';
+}
+
+function function_name_3() {
+    echo 'This is Function 3';
+}
+
+// Ensure rewrite rules are flushed when the theme is activated
+function flush_rewrite_rules_on_theme_activation() {
+    flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'flush_rewrite_rules_on_theme_activation');
+
+// Manually trigger flush rewrite rules for testing
+add_action('wp_loaded', function () {
+    // Manually flush rewrite rules if they're not set
+    if (!get_option('rewrite_rules')) {
+        flush_rewrite_rules();
     }
 });
