@@ -422,3 +422,27 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
     }
 }
 
+
+// Add a custom rewrite rule
+add_action('init', function () {
+    add_rewrite_rule(
+        '^custom-hello/?$', // Custom URL: example.com/custom-hello
+        'index.php?custom_hello=1', // Internal query parameter
+        'top'
+    );
+});
+
+// Register a custom query variable
+add_filter('query_vars', function ($query_vars) {
+    $query_vars[] = 'custom_hello';
+    return $query_vars;
+});
+
+// Hook into template_redirect to run the Hello World function
+add_action('template_redirect', function () {
+    if (get_query_var('custom_hello') == 1) {
+        // Your Hello World output
+        echo 'Hello World!';
+        exit; // Prevent WordPress from rendering a full page
+    }
+});
