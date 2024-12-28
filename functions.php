@@ -445,7 +445,7 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 add_action('init', function () {
     add_rewrite_rule(
         '^wp-admin/admin_function/?$', // Custom URL: example.com/wp-admin/admin_function
-        'index.php?admin_function=1', // Internal query parameter
+        'index.php?action=1', // Internal query parameter
         'top' // Priority at the top of the rules
     );
 });
