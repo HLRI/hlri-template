@@ -36,7 +36,7 @@ $properties = get_option('precon_progress', []);
                             <img
                                     src="<?php echo esc_url($property['logo']); ?>"
                                     class="card-img-top"
-                                    style=""
+                                    loading="lazy"
                                     alt="<?php echo esc_attr($property['name']); ?>">
                             <div class="card-body text-center">
                                 <h5 class="card-title"><?php echo esc_html($property['name']); ?></h5>
