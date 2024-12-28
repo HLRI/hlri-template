@@ -423,6 +423,31 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
+
+
 // Add a custom rewrite rule
 add_action('init', function () {
     add_rewrite_rule(
@@ -441,6 +466,9 @@ add_filter('query_vars', function ($query_vars) {
 // Hook into template_redirect to run the Hello World function
 add_action('template_redirect', function () {
     if (get_query_var('custom_hello') == 1) {
+        // Debugging output
+        error_log('Custom Hello URL triggered!');
+
         // Your Hello World output
         echo 'Hello World!';
         exit; // Prevent WordPress from rendering a full page
@@ -454,3 +482,10 @@ function flush_rewrite_rules_on_theme_activation()
 }
 
 add_action('after_switch_theme', 'flush_rewrite_rules_on_theme_activation');
+
+// Manually trigger flush rewrite rules for testing
+add_action('wp_loaded', function () {
+    if (!get_option('rewrite_rules')) {
+        flush_rewrite_rules();
+    }
+});
