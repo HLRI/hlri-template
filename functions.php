@@ -441,8 +441,6 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 
 
 
-
-<?php
 // Add a custom rewrite rule to catch the 'admin_function' query variable under wp-admin
 add_action('init', function () {
     add_rewrite_rule(
