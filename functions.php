@@ -442,7 +442,6 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 
 
 
-
 // Add a custom rewrite rule
 add_action('init', function () {
     add_rewrite_rule(
@@ -465,19 +464,5 @@ add_action('template_redirect', function () {
         // Output Hello World
         echo 'Hello World!';
         exit; // Prevent WordPress from rendering a full page
-    }
-});
-
-// Ensure rewrite rules are flushed when the theme is activated
-function flush_rewrite_rules_on_theme_activation() {
-    flush_rewrite_rules();
-}
-add_action('after_switch_theme', 'flush_rewrite_rules_on_theme_activation');
-
-// Manually trigger flush rewrite rules for testing
-add_action('wp_loaded', function () {
-    // Manually flush rewrite rules if they're not set
-    if (!get_option('rewrite_rules')) {
-        flush_rewrite_rules();
     }
 });
