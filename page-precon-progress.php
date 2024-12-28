@@ -16,7 +16,7 @@ $properties = get_option('precon_progress', []);
     }
 </style>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Properties Grid</h1>
+        <h1 class="text-center mb-4">Preconstruction Projects Progress</h1>
 
         <!-- Search bar -->
         <div class="mb-4">
