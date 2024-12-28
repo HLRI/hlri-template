@@ -73,14 +73,15 @@ function addOrdinalSuffix($number)
                                                 </strong><span
                                                         class="gray short-lbl"></span>
                                             </li>
+                                        <?php else: ?>
+                                            <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>">
+                                                <i class="fas fa-bed"></i><br><strong><?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>
+                                                </strong>
+                                                <span
+                                                        class="gray normal-lbl">Beds</span><span
+                                                        class="gray short-lbl"></span>
+                                            </li>
                                         <?php endif; ?>
-                                        <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>">
-                                            <i class="fas fa-bed"></i><br><strong><?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>
-                                            </strong>
-                                            <span
-                                                    class="gray normal-lbl">Beds</span><span
-                                                    class="gray short-lbl"></span>
-                                        </li>
                                         <li data-label="Baths" class="ic-baths" title="Number of Bathrooms: <?php echo $data['opt-min-bath']; ?>">
                                             <i class="fas fa-bath"></i><br><strong><?php echo $data['opt-min-bath'] ?></strong>
                                             <span
