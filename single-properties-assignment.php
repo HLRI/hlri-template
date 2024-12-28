@@ -67,6 +67,20 @@ function addOrdinalSuffix($number)
                                             <?php echo implode(', ', $data['opt-ownership']); ?>
                                         </li>
                                         <?php endif; ?>
+                                        <?php if (!empty($floor['opt-studio']) and ($floor['opt-studio'] == 1)) : ?>
+                                            Studio
+                                        <?php endif; ?>
+                                        <?php if (!empty($floor['opt-floorplans-beds']) && !empty($floor['opt-floorplans-baths'])) : ?>
+                                            <?= $floor['opt-floorplans-beds'] . ' Bed' ?> , <?= $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                        <?php else : ?>
+                                            <?php if (!empty($floor['opt-floorplans-baths'])) : ?>
+                                                <?= ', ' . $floor['opt-floorplans-baths'] . ' Bath' ?>
+                                            <?php else : ?>
+                                                <?php if (empty($floor['opt-studio'])) : ?>
+                                                    -
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                         <li data-label="Beds" class="ic-beds" title="Number of Bedrooms: <?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>">
                                             <i class="fas fa-bed"></i><br><strong><?php echo (fmod($data['opt-min-bed'], 1) == 0.5) ? floor($data['opt-min-bed']) . " + Den" : $data['opt-min-bed']; ?>
                                             </strong>
