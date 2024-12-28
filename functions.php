@@ -452,7 +452,7 @@ add_action('init', function () {
 
 // Register the custom query variable 'admin_function'
 add_filter('query_vars', function ($query_vars) {
-    $query_vars[] = 'admin_function'; // Add 'admin_function' to the list of query vars
+    $query_vars[] = 'action'; // Add 'admin_function' to the list of query vars
     return $query_vars;
 });
 
