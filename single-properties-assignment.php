@@ -88,12 +88,14 @@ function addOrdinalSuffix($number)
                                                     class="gray normal-lbl">Baths</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
+                                        <?php if (!empty($data['opt-floorplans-size'])) : ?>
                                         <li data-label="Sqft" class="ic-sqft" title="Property Size: <?php echo $data['opt-size-min']; ?> Sqft.">
                                             <i class="fas fa-vector-square"></i><br><strong><?php echo $data['opt-size-min'] ?></strong>
                                             <span
                                                     class="gray normal-lbl">Sqft</span><span
                                                     class="gray short-lbl"></span>
                                         </li>
+                                        <?php endif; ?>
                                         <?php if (!empty($data['opt-parking-quantity'])) : ?>
                                             <li class="property-type ic-proptype" title="Number of Parkings: <?php echo $data['opt-parking-quantity']; ?>">
                                                 <i class="fas fa-parking"></i><br><?php echo $data['opt-parking-quantity'] . ' Parking' ?>
