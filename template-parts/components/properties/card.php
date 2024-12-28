@@ -15,7 +15,8 @@
             <div class="properties-card_desc" >
                  <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">
                     <?= strlen(strip_tags(get_the_excerpt()))  > 44 ? substr(strip_tags(get_the_excerpt()), 0, 44) . '...' : strip_tags(get_the_excerpt()) ?>
-                </a>
+                </a><br>
+                .
             </div>   
             <div class="properties-card_opt" >
                 <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
