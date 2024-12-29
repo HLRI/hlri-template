@@ -4381,3 +4381,10 @@ html {
   overflow-y: scroll;
   margin-top: 8px;
 }
+.incentives-taxonomy{
+  height: 75px;
+  overflow-y: scroll;
+  min-height: 75px;
+  font-size: 13px;
+  margin-top: 10px;
+}
