@@ -16,7 +16,24 @@
                  <a href="<?= get_the_permalink() ?>" title="<?= get_the_title() ?>">
                     <?= strlen(strip_tags(get_the_excerpt()))  > 44 ? substr(strip_tags(get_the_excerpt()), 0, 44) . '...' : strip_tags(get_the_excerpt()) ?>
                 </a><br>
-                .
+                <div>
+                    <?php
+                    $project_incentives = get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true);
+                    if (!empty($project_incentives['opt_properties_incentives_items'])) {
+                        $incentives = $project_incentives['opt_properties_incentives_items'];
+                    } else {
+                        $incentives = [];
+                    }
+                    ?>
+                    <ul class="custom-incentive-list mb-4">
+                        <?php foreach ($incentives as $incentive): ?>
+                            <li class="custom-incentive-item d-flex align-items-center mb-2 text-center">
+                                <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2 custom-icon"></i>
+                                <span class="custom-text"><?php echo $incentive['opt-link-incentives']; ?></span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>   
             <div class="properties-card_opt" >
                 <?php if (!empty($mdata['opt-min-price-sqft'])) : ?>
