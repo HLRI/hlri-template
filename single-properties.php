@@ -1187,7 +1187,7 @@ if ($peroperties_single) :
                 </div>
                 <div class="col-12">
                     <div class="d-flex justify-content-center">
-                        <div class="owl-carousel owl-theme listing-wrap wrap-list">
+                        <div class="owl-carousel owl-theme listing-wrap wrap-list">xsdxfgvhmbj
                             <?php while ($peroperties_single->have_posts()) : $peroperties_single->the_post();
                                 $mdata = get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true);
                                 ?>
