@@ -4506,3 +4506,9 @@ tr.secureTable td {
 html {
   scroll-padding-top: 70px; /* Adjust this value based on your menu height */
 }
+.incentive-item-group{
+  font-size: 13px;
+  max-height: 60px;
+  overflow-y: scroll;
+  margin-top: 8px;
+}

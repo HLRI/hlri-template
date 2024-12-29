@@ -613,7 +613,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
           '">' +
           description +
           "                </a>" +
-          "<div class=\"incentive-item-group\">" + incentivesHtml + "</div>" +
+          "<div class=\"incentive-item-group text-black\">" + incentivesHtml + "</div>" +
           "            </div>" +
           '            <div class="properties-card_opt">' +
           maxPriceSqft +
