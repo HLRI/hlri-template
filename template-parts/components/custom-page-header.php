@@ -12,5 +12,5 @@
             <h2 class="font-weight-bold"><?php echo esc_html($title); ?></h2>
         </div>
     </div>
-<p class="container"><?php echo esc_html($paragraph); ?></p>
+<p class="container text-center mt-5"><?php echo esc_html($paragraph); ?></p>
 
