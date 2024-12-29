@@ -519,7 +519,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
 
         var incentives = post.metadata['incentives'];
         var incentivesI = incentives['opt_properties_incentives_items'];
-        if(incentives['opt_properties_incentives_items'][0]) {
+        if(incentives['opt_properties_incentives_items']) {
           var incentivesHtml = incentivesI
               .map(function (incentive) {
                 return (
