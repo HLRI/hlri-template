@@ -34,4 +34,4 @@ getPropertiesRestApi("buy-with-five-percent-down", 6, 9, token);
 getPropertiesRestApi("buy-with-10-percent-down", 6, 10, token);
 getPropertiesRestApi("immediate-occupancy", 6, 1172, token);
 getPropertiesRestApi("commingsoon", 6, 8, token);
-getPropertiesRestApi("hot-deals", 30, 6, token);
+getPropertiesRestApi("hot-deals", 6, 6, token);
