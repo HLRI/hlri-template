@@ -3417,6 +3417,8 @@ a.item-list-tag {
     font-size: 30px;
     line-height: 36px;
     padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 /* #############  END Page Header page ##############*/
