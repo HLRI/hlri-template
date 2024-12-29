@@ -519,6 +519,18 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
 
         var incentives = post.metadata['incentives'];
         var incentivesI = incentives['opt_properties_incentives_items'];
+        var incentivesHtml = incentivesI
+            .map(function (incentive) {
+              return (
+                  '<div class="incentive-item">' +
+                  '<i class="' +
+                  incentive['opt-icon-incentives'] +
+                  '"></i> ' +
+                  incentive['opt-link-incentives'] +
+                  "</div>"
+              );
+            })
+            .join("");
         console.log(incentivesI);
         var minSize = post.metadata["opt-size-min"]
           ? '<div class="properties-card_size">' +
@@ -597,7 +609,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
           '">' +
           description +
           "                </a>" +
-            "k" +
+            incentivesHtml +
           "            </div>" +
           '            <div class="properties-card_opt">' +
           maxPriceSqft +
