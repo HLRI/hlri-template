@@ -16,6 +16,13 @@ define('CUSTOM_PAGE_HEADER', [
 include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 ?>
 
+<style>
+    @media (max-width: 768px) {
+        .page-header {
+            margin-bottom: -40px;
+        }
+    }
+</style>
 <div class="container-lg">
     <?php
     echo '<div class="mb-5 mt-5 px-4" style="color: black;z-index: 99999;display: block;position: relative;">' . $description . '</div>';
