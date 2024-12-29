@@ -34,6 +34,7 @@ if (is_user_logged_in()) {
                         <?php elseif (!empty($psd['thumbnail_url'])) : ?>
                             <img src="<?= $psd['thumbnail_url'] ?>" loading="lazy"
                                  class="hide-on-sm w-auto rounded mr-4"
+                                 style="max-width:200px;max-height:200px;"
                                  alt="<?= $psd['thumbnail_caption'] ?>"/>
                         <?php else : ?>
                             <img src="<?= HLR_THEME_ASSETS . 'images/noimage.jpg' ?>" alt="">
