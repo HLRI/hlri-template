@@ -165,7 +165,9 @@ if (have_posts()) :
                         </div>
                     <?php endif; ?>
 
-
+<script>
+    getPropertiesRestApi("hot-deals", 6, 6, token);
+</script>
 
                 </div>
                 <div class="col-lg-3">

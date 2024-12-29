@@ -104,6 +104,9 @@ function theme_scripts()
     if (is_home()) {
         wp_enqueue_script('HLR-home-script');
     }
+    if (is_single()) {
+        wp_enqueue_script('HLR-home-script');
+    }
 }
 
 add_action('wp_head', 'theme_head');
