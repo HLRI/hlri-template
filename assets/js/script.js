@@ -519,18 +519,22 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
 
         var incentives = post.metadata['incentives'];
         var incentivesI = incentives['opt_properties_incentives_items'];
-        var incentivesHtml = incentivesI
-            .map(function (incentive) {
-              return (
-                  '<div class="incentive-item">' +
-                  '<i class="' +
-                  incentive['opt-icon-incentives'] +
-                  '"></i> ' +
-                  incentive['opt-link-incentives'] +
-                  "</div>"
-              );
-            })
-            .join("");
+        if(incentivesI = incentives['opt_properties_incentives_items'][0]) {
+          var incentivesHtml = incentivesI
+              .map(function (incentive) {
+                return (
+                    '<div class="incentive-item">' +
+                    '<i class="' +
+                    incentive['opt-icon-incentives'] +
+                    '"></i> ' +
+                    incentive['opt-link-incentives'] +
+                    "</div>"
+                );
+              })
+              .join("");
+        } else{
+          incentivesHtml = '';
+        }
         console.log(incentivesI);
         var minSize = post.metadata["opt-size-min"]
           ? '<div class="properties-card_size">' +
