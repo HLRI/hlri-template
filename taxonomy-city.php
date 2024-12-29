@@ -18,7 +18,7 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
 
 <div class="container-lg">
     <?php
-    echo '<div class="mb-5 px-4" style="color: black;z-index: 99999;display: block;position: relative;">' . $description . '</div>';
+    echo '<div class="mb-5 mt-5 px-4" style="color: black;z-index: 99999;display: block;position: relative;">' . $description . '</div>';
 
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $term = get_queried_object();
