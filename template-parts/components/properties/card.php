@@ -27,7 +27,7 @@
                     ?>
                     <ul class=" mb-4">
                         <?php foreach ($incentives as $incentive): ?>
-                            <li class="mb-2 text-center">
+                            <li class="mb-2">
                                 <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2 custom-icon"></i>
                                 <span class="custom-text"><?php echo $incentive['opt-link-incentives']; ?></span>
                             </li>
