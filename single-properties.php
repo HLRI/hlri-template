@@ -1356,7 +1356,7 @@ if ($peroperties_month->have_posts()) :
                                                     $incentives = [];
                                                 }
                                                 ?>
-                                                <ul class="text-small incentives-taxonomy">
+                                                <ul class="text-small incentives-taxonomy-related">
                                                     <?php foreach ($incentives as $incentive): ?>
                                                         <li class="mb-1">
                                                             <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
