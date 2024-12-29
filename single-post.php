@@ -169,7 +169,11 @@ if (have_posts()) :
 <script>
     getPropertiesRestApi("hot-deals", 6, 6, token);
 </script>
-
+<style>
+    .properties-card {
+        max-height: 456px;
+    }
+</style>
                 </div>
                 <div class="col-lg-3">
                     <div class="card position-sticky sticky-top mb-3 tab-card" style="top:10px;">
