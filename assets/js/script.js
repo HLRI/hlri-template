@@ -605,7 +605,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
           "</h6>" +
           "                </a>" +
           "            </div>" +
-          '            <div class="properties-card_desc ghif">' +
+          '            <div class="properties-card_desc">' +
           '                 <a href="' +
           post.permalink +
           '" title="' +
@@ -613,12 +613,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
           '">' +
           description +
           "                </a>" +
-          "<div style=\"\n" +
-            "    font-size: 13px;\n" +
-            "    max-height: 60px;\n" +
-            "    overflow-y: scroll;\n" +
-            "    margin-top: 8px;\n" +
-            "\">" + incentivesHtml + "</div>" +
+          "<div class=\"incentive-item-group\">" + incentivesHtml + "</div>" +
           "            </div>" +
           '            <div class="properties-card_opt">' +
           maxPriceSqft +
