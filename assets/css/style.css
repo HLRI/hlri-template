@@ -3528,6 +3528,7 @@ a.item-list-tag {
   .page-header .page-header-title h2 {
     font-size: 30px;
     line-height: 36px;
+    padding-bottom: 30px;
   }
 }
 /* #############  END Page Header page ##############*/
