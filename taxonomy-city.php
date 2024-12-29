@@ -21,10 +21,10 @@ include(HLR_THEME_COMPONENT . 'custom-page-header.php');
         .page-header {
             margin-bottom: -40px;
         }
-        .header-desc{
-            max-height: 293px;
-            overflow-y: auto;
-        }
+    }
+    .header-desc{
+        max-height: 293px;
+        overflow-y: auto;
     }
 </style>
 <div class="container-lg">
