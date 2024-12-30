@@ -941,12 +941,12 @@ if (class_exists('CSF')) {
 					'id'     => 'opt_properties_incentives_items',
 					'type'   => 'repeater',
 					'desc'  => 'Click the + button to add item.',
-//					'fields' => array(
-//						array(
-//							'id'    => 'opt-icon-incentives',
-//							'type'  => 'icon',
-//							'title' => 'Icon',
-//						),
+					'fields' => array(
+						array(
+							'id'    => 'opt-icon-incentives',
+							'type'  => 'icon',
+							'title' => 'Icon',
+						),
 						array(
 							'id'    	=>	'opt-link-incentives',
 							'type'  	=>	'text',
