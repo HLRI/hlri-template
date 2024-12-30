@@ -772,8 +772,10 @@ function getProperties(WP_REST_Request $request)
                 'term_ids' => $terms_ids,
                 'metadata' => [
                     'opt-min-price-sqft' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-min-price-sqft'],
+                    'opt-min-price' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-min-price'],
                     'incentives' => get_post_meta(get_the_ID(), 'hlr_framework_properties-incentives', true),
                     'opt-max-price-sqft' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-max-price-sqft'],
+                    'opt-max-price' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-max-price'],
                     'opt-size-min' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-size-min'],
                     'opt-size-max' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-size-max'],
                     'opt-size-max' => get_post_meta(get_the_ID(), 'hlr_framework_mapdata', true)['opt-size-max'],
