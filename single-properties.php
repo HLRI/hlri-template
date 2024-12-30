@@ -122,7 +122,7 @@ if (is_user_logged_in()) {
                                                 <i class="fas fa-bed"></i><br>
                                                 <strong><?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bed'] ?>
 
-                                                    <?php echo($data['opt-max-half-bath'] != "" ? '+ ' . $data['opt-max-half-bath'] . 'Den' : ''); ?>
+                                                    <?php echo($data['opt-max-half-bath'] != "" ? '<span class="color:gray">+ ' . $data['opt-max-half-bath'] . 'Den</span>' : ''); ?>
 
                                                 </strong>
                                                 <span class="gray normal-lbl">Bedroom<?php echo(intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
