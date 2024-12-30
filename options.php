@@ -1601,9 +1601,9 @@ if (class_exists('CSF')) {
 					'default' => 0,
 				),
                 array(
-                    'id'    => 'opt-floorplans-den-max',
+                    'id'    => 'opt-floorplans-dens',
                     'type'  => 'number',
-                    'title' => 'Max Den (if has more than 1 Den at a max)'
+                    'title' => 'Number of Dens (if has more than 1 Den)'
                 ),
 				array(
 					'id'      => 'opt-floorplans-baths',
@@ -1616,9 +1616,9 @@ if (class_exists('CSF')) {
 				),
 
                 array(
-                    'id'    => 'opt-floorplans-max-half-bath',
+                    'id'    => 'opt-floorplans-half-baths',
                     'type'  => 'number',
-                    'title' => 'Max Half Bath'
+                    'title' => 'Number of Half Baths'
                 ),
                 array(
                     'id'         => 'opt-studio',
