@@ -1168,7 +1168,7 @@ if (class_exists('CSF')) {
                     'id'    => 'opt-max-half-bath',
                     'type'  => 'number',
                     'title' => 'Max Half Bath'
-                )
+                ),
                 array(
                     'id'          => 'opt-type',
                     'type'        => 'select',
