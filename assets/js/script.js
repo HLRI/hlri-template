@@ -535,7 +535,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
         } else{
           incentivesHtml = '';
         }
-        console.log(post.metadata["opt-price-min"]);
+        console.log(post.metadata["opt-price-min"] + 'empty');
         var minPrice = post.metadata["opt-price-min"]
             ? '<div class="properties-card_price">' +
             '<i class="fas fa-money-bill-wave-alt"></i>' +
