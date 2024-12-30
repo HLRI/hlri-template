@@ -222,6 +222,12 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['your-message'] .= "\nLottery Code: " . $lotteryCode;
                 $_SESSION['lottery-code'] = $lotteryCode;
                 $data['street'] = '';
+            } elseif (strpos($current_page_url, 'test') !== false) {
+                $data['type'] = 'Seller Inquiry';
+                $data['message'] = 'inquiry for: ' . $data['transaction'] . "\n\n Price Range: " . $data['price_range'] . "\n\n"
+                    . "\n\n Property Type: " . $data['property_type'] . "\n\n"
+                    . "\n\n Property Address: " . $data['property_address'] . "\n\n"
+                    . "\n\n Postal Code: " . $data['zipcode'] . "\n\n" ;
             }
 
             // URL for the webhook endpoint
