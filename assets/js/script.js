@@ -535,13 +535,13 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
         } else{
           incentivesHtml = '';
         }
-        console.log(post.metadata["opt-price-min"] + 'empty');
-        var minPrice = post.metadata["opt-price-min"]
+        console.log(post.metadata["opt-min-price"] + 'empty');
+        var minPrice = post.metadata["opt-min-price"]
             ? '<div class="properties-card_price">' +
             '<i class="fas fa-money-bill-wave-alt"></i>' +
-            "$" + post.metadata["opt-price-min"] +
+            "$" + post.metadata["opt-min-price"] +
             " - $" +
-            post.metadata["opt-price-max"] +
+            post.metadata["opt-max-price"] +
             "" +
             "</div>"
             : "";
