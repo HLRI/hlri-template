@@ -1165,6 +1165,11 @@ if (class_exists('CSF')) {
 					'title' => 'Max Bath'
 				),
                 array(
+                    'id'    => 'opt-max-half-bath',
+                    'type'  => 'number',
+                    'title' => 'Max Half Bath'
+                )
+                array(
                     'id'          => 'opt-type',
                     'type'        => 'select',
                     'title'       => 'Type',
