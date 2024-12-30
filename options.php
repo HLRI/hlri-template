@@ -1628,6 +1628,15 @@ if (class_exists('CSF')) {
 					'step'    => 1,
 					'default' => 0,
 				),
+                array(
+                    'id'      => 'opt-floorplans-size-max',
+                    'type'  => 'slider',
+                    'title' => 'Size Max',
+                    'min'     => 0,
+                    'max'     => 20000,
+                    'step'    => 1,
+                    'default' => 0,
+                ),
 				array(
 					'id'          => 'opt-floorplans-view',
                     'type'  => 'text',
