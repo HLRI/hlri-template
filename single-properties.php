@@ -308,7 +308,8 @@ if (is_user_logged_in()) {
                             <ul class="custom-incentive-list mb-4">
                                 <?php foreach ($incentives as $incentive): ?>
                                     <li class="custom-incentive-item d-flex align-items-center mb-2 text-center">
-                                        <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2 custom-icon"></i>
+<!--                                        <i class="text-dark --><?php //echo htmlspecialchars($incentive['opt-icon-incentives']); ?><!-- me-2 custom-icon"></i>-->
+                                        <i class="text-dark fas fa-caret-right me-2 custom-icon"></i>
                                         <span class="custom-text"><?php echo $incentive['opt-link-incentives']; ?></span>
                                     </li>
                                 <?php endforeach; ?>
@@ -1359,7 +1360,8 @@ if ($peroperties_month->have_posts()) :
                                                 <ul class="text-small incentives-taxonomy-related">
                                                     <?php foreach ($incentives as $incentive): ?>
                                                         <li class="mb-1">
-                                                            <i class="text-dark <?php echo htmlspecialchars($incentive['opt-icon-incentives']); ?> me-2"></i>
+<!--                                                            <i class="text-dark --><?php //echo htmlspecialchars($incentive['opt-icon-incentives']); ?><!-- me-2"></i>-->
+                                                            <i className="text-dark fas fa-caret-right me-2 custom-icon"></i>
                                                             <span class="text-dark"><?php echo $incentive['opt-link-incentives']; ?></span>
                                                         </li>
                                                     <?php endforeach; ?>

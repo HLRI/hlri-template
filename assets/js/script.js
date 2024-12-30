@@ -525,7 +525,7 @@ function getPropertiesRestApi(className, totalProperty, termID, token) {
                 return (
                     '<div class="incentive-item">' +
                     '<i class="' +
-                    incentive['opt-icon-incentives'] +
+                    'fas fa-caret-right' +
                     '"></i> ' +
                     incentive['opt-link-incentives'] +
                     "</div>"
