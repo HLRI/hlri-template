@@ -755,7 +755,7 @@ if (is_user_logged_in()) {
                             </div>
                         </div>
                         <?php foreach ($psd['price_images'] as $image) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4 <?php $loginClasses ?>">
                                 <div class="image-price">
                                     <img loading="lazy" src="<?= $image['opt-price-list-image']['url'] ?>"
                                          alt="<?= $image['opt-price-list-image']['alt'] ?>">
