@@ -1144,6 +1144,11 @@ if (class_exists('CSF')) {
 					'type'  => 'number',
 					'title' => 'Min Bed'
 				),
+                array(
+                    'id'    => 'opt-den-max',
+                    'type'  => 'number',
+                    'title' => 'Max Den'
+                ),
 				array(
 					'id'    => 'opt-max-bed',
 					'type'  => 'number',
