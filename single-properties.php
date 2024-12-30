@@ -123,7 +123,6 @@ if (is_user_logged_in()) {
                                                 <strong><?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bed'] ?>
 
                                                     <?php echo($data['opt-den-max'] != "" ? '<span style="color: #7c7c7c;font-size: 12px;>+ ' . $data['opt-den-max'] . 'Den</span>' : ''); ?>
-
                                                 </strong>
                                                 <span class="gray normal-lbl">Bedroom<?php echo(intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
                                                         class="gray short-lbl"></span>
@@ -131,9 +130,7 @@ if (is_user_logged_in()) {
 
                                             <li data-label="Baths" class="ic-baths"
                                                 title="Number of Bathrooms: <?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?>">
-                                                <i class="fas fa-bath"></i><br><strong><?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bath'] ?>
-
-                                                </strong>
+                                                <i class="fas fa-bath"></i><br><strong><?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bath'] ?></strong>
                                                 <span class="gray normal-lbl">Bathroom<?php echo(intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
                                                         class="gray short-lbl"></span>
                                             </li>
