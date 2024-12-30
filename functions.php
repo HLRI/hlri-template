@@ -223,8 +223,27 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $_SESSION['lottery-code'] = $lotteryCode;
                 $data['street'] = '';
             } elseif (strpos($current_page_url, 'test') !== false) {
+                $priceRanges = [
+                    "Under $100K",
+                    "$100K - $150K",
+                    "$150K - $200K",
+                    "$200K - $250K",
+                    "$250K - $300K",
+                    "$300K - $350K",
+                    "$350K - $400K",
+                    "$400K - $450K",
+                    "$450K - $500K",
+                    "$500K - $600K",
+                    "$600K - $700K",
+                    "$700K - $800K",
+                    "$800K - $900K",
+                    "$900K - $1M",
+                    "$1M+",
+                    "$5M+"
+                ];
                 $data['type'] = 'Seller Inquiry';
-                $data['message'] = 'inquiry for: ' . $data['transaction'] . "\n\n Price Range: " . $data['price_range'] . "\n\n"
+                $data['message'] = 'inquiry for: ' . $data['transaction']
+                    . "\n\n Price Range: " . $priceRanges[$data['price_range']] . "\n\n"
                     . "\n\n Property Type: " . $data['property_type'] . "\n\n"
                     . "\n\n Property Address: " . $data['property_address'] . "\n\n"
                     . "\n\n Postal Code: " . $data['zipcode'] . "\n\n" ;
