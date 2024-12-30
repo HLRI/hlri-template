@@ -1600,6 +1600,11 @@ if (class_exists('CSF')) {
 					'step'    => 0.5,
 					'default' => 0,
 				),
+                array(
+                    'id'    => 'opt-floorplans-den-max',
+                    'type'  => 'number',
+                    'title' => 'Max Den (if has more than 1 Den at a max)'
+                ),
 				array(
 					'id'      => 'opt-floorplans-baths',
 					'type'  => 'slider',
@@ -1609,6 +1614,12 @@ if (class_exists('CSF')) {
 					'step'    => 0.5,
 					'default' => 0,
 				),
+
+                array(
+                    'id'    => 'opt-floorplans-max-half-bath',
+                    'type'  => 'number',
+                    'title' => 'Max Half Bath'
+                ),
                 array(
                     'id'         => 'opt-studio',
                     'type'       => 'button_set',
