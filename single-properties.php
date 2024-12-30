@@ -120,7 +120,11 @@ if (is_user_logged_in()) {
                                             <li data-label="Beds" class="ic-beds"
                                                 title="Number of Bedrooms: <?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bed'] ?>">
                                                 <i class="fas fa-bed"></i><br>
-                                                <strong><?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bed'] ?></strong>
+                                                <strong><?php echo($data['opt-min-bed'] != "" ? $data['opt-min-bed'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bed'] ?>
+
+                                                    <?php echo($data['opt-max-half-bath'] != "" ? '-' . $data['opt-max-half-bath'] : ''); ?>
+
+                                                </strong>
                                                 <span class="gray normal-lbl">Bedroom<?php echo(intval($data['opt-max-bed']) >= 2 ? 's' : ''); ?></span><span
                                                         class="gray short-lbl"></span>
                                             </li>
