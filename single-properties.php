@@ -132,7 +132,7 @@ if (is_user_logged_in()) {
                                             <li data-label="Baths" class="ic-baths"
                                                 title="Number of Bathrooms: <?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?> <?php echo $data['opt-max-bath'] ?>">
                                                 <i class="fas fa-bath"></i><br><strong><?php echo($data['opt-min-bath'] != "" ? $data['opt-min-bath'] . " - " : 'TBA '); ?><?php echo $data['opt-max-bath'] ?>
-                                                    <?php echo($data['opt-max-half-bath'] != "" ? '<span style="color: #7c7c7c;font-size: 12px;">+ ' . $data['opt-max-half-bath'] . 'Den</span>' : ''); ?>
+
                                                 </strong>
                                                 <span class="gray normal-lbl">Bathroom<?php echo(intval($data['opt-max-bath']) >= 2 ? 's' : ''); ?></span><span
                                                         class="gray short-lbl"></span>
