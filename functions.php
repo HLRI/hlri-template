@@ -471,7 +471,7 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 function disable_scroll_on_inputs($hook) {
     // Check if the current screen is 'post' for the required post types
     $screen = get_current_screen();
-    if (in_array($screen->post_type, ['property', 'floorplan'])) {
+    if ($screen->post_type) {
         // Add inline script to disable mouse wheel on range and number inputs
         $script = <<<EOT
         <script>
