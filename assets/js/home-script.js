@@ -28,6 +28,36 @@ jQuery(".listing-wrap").owlCarousel({
   // autoWidth: true,
   margin: 5,
 });
+jQuery(".listing-wrap2").owlCarousel({
+  responsive: {
+    200: { items: 1 },
+    300: { items: 1 },
+    500: { items: 1.4 },
+    600: { items: 2 },
+    768: { items: 2 },
+    800: { items: 2.4 },
+    1000: { items: 2.6 },
+    1200: { items: 3 },
+    1250: { items: 3 },
+    1400: { items: 3 },
+    1600: { items: 3 },
+  },
+  loop: true,
+  nav: true,
+  navText: [
+    '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+    '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+  ],
+  autoplay: false,
+  autoplaySpeed: 1000,
+  autoplayTimeout: 2000,
+  autoplayHoverPause: true,
+  rtl: false,
+  center: false,
+  dots: false,
+  // autoWidth: true,
+  margin: 5,
+});
 var token = getCookie("uthlri");
 getPropertiesRestApi("just-launched", 6, 7, token);
 getPropertiesRestApi("buy-with-five-percent-down", 6, 9, token);
