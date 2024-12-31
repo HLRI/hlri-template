@@ -467,3 +467,24 @@ function update_property_price_per_sqft_on_floorplan_edit($post_id, $post, $upda
 
 
 
+//disable scrool on inputs
+function disable_scroll_on_inputs($hook) {
+    // Check if the current screen is 'post' for the required post types
+    $screen = get_current_screen();
+    if (in_array($screen->post_type, ['property', 'floorplan'])) {
+        // Add inline script to disable mouse wheel on range and number inputs
+        $script = <<<EOT
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[type="range"], input[type="number"]').forEach(input => {
+              input.addEventListener('wheel', (event) => {
+                event.preventDefault(); // Stop default scroll behavior
+              });
+            });
+          });
+        </script>
+        EOT;
+        echo $script;
+    }
+}
+add_action('admin_footer', 'disable_scroll_on_inputs');
