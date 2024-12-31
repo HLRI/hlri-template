@@ -245,7 +245,7 @@ function wpcf7_sendtogeneralformhandlerpreconstruction($WPCF7_ContactForm) {
                 $data['message'] = 'inquiry for: ' . $data['transaction']
                     . "\n\n Price Range: " . $data['price_range'] . "\n\n"
                     . "\n\n Property Type: " . $data['property_type'] . "\n\n"
-                    . "\n\n Property Address: " . $data['property_address'] . "\n\n"
+                    . "\n\n Property Address: " . $data['street'] . "\n\n"
                     . "\n\n Postal Code: " . $data['zipcode'] . "\n\n" ;
             }
 
