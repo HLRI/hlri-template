@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
     margin: 5,
   });
 
-  jQuery(".listing-wrap2").owlCarousel({
+  jQuery(".listing-wrap").owlCarousel({
     responsive: {
       200: { items: 1 },
       300: { items: 1 },
