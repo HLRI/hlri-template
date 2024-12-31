@@ -197,6 +197,8 @@ if (have_posts()) :
         // autoWidth: true,
         margin: 5,
     });
+    var token = getCookie("uthlri");
+
     getPropertiesRestApi("hot-deals", 6, 6, token);
 </script>
 <style>
