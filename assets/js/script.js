@@ -18,6 +18,7 @@ jQuery(document).ready(function ($) {
       992: { items: 3 },
       1100: { items: 3 },
       1600: { items: 3 },
+      2000: { items: 3 },
     },
     loop: true,
     nav: true,
