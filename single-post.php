@@ -167,6 +167,7 @@ if (have_posts()) :
                     <?php include(HLR_THEME_COMPONENT . 'properties-category/hot-deals.php'); ?>
 
 <script>
+
     getPropertiesRestApi("hot-deals", 6, 6, token);
 </script>
 <style>
