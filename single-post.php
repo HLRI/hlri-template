@@ -164,7 +164,7 @@ if (have_posts()) :
                             </div>
                         </div>
                     <?php endif; ?>
-                    <?php include(HLR_THEME_COMPONENT . 'properties-category/hot-deals.php'); ?>
+                    <?php include(HLR_THEME_COMPONENT . 'properties-category/hot-deals-blog.php'); ?>
 
 <style>
     .properties-card {
