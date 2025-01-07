@@ -521,33 +521,21 @@ function add_search_input_to_meta_box($meta_box_id)
         ?>
         <style>.categorydiv div.tabs-panel{height:250px;}</style><script>
 
-            // Declare commercialCheck variable outside the event listeners
-            let commercialCheck = document.getElementById('in-group-1064-2').checked;
-            console.log(commercialCheck);
-
-            // Listen for change event to prevent unwanted state change
             document.getElementById('in-group-10-2').addEventListener('change', function(event) {
-                event.preventDefault();  // Prevent any default behavior
+                event.preventDefault(); // Prevent the default behavior of the checkbox toggle
                 event.stopPropagation(); // Prevent the event from bubbling up
 
-                console.log('Before change event - Commercial checkbox status:', commercialCheck);
+                // Manually restore the checkbox state to its original value
+                const commercialCheckbox = document.getElementById('in-group-1064-2');
+                const originalState = commercialCheckbox.checked; // Store the original state
+                console.log('Commercial checkbox state before change:', originalState);
 
-                // Delay the check to ensure the state has been updated
-                setTimeout(function() {
-                    // If the "Commercial" checkbox is checked when it shouldn't be, uncheck it
-                    if (commercialCheck === false && document.getElementById('in-group-1064-2').checked === true) {
-                        console.log('Unchecking Commercial checkbox');
-                        document.getElementById('in-group-1064-2').checked = false;
-                    }
+                // If necessary, re-check the checkbox if it's being toggled
+                commercialCheckbox.checked = originalState;
 
-                    console.log('After change event - Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
-                }, 0); // Timeout of 0 ensures the function runs after the current call stack
+                console.log('Commercial checkbox state after preventing toggle:', commercialCheckbox.checked);
             });
-            document.getElementById('in-group-1064-2').addEventListener('click', function(event) {
-                let commercialCheck = document.getElementById('in-group-1064-2').checked;
-                console.log(commercialCheck);
 
-            });
 
 
             jQuery(document).ready(function($) {
