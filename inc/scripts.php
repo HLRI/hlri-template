@@ -522,9 +522,9 @@ function add_search_input_to_meta_box($meta_box_id)
         <style>.categorydiv div.tabs-panel{height:250px;}</style><script>
 
             // avoid an error:
-            let commercialCheck = document.getElementById('in-group-1064-2').checked;
 
             document.getElementById('in-group-10-2').addEventListener('change', function(event) {
+                let commercialCheck = document.getElementById('in-group-1064-2').checked;
                 event.preventDefault();  // Prevent any default behavior
                 event.stopPropagation(); // Prevent the event from bubbling up
                 if(commercialCheck === false && document.getElementById('in-group-1064-2').checked === true){
