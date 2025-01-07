@@ -523,18 +523,31 @@ function add_search_input_to_meta_box($meta_box_id)
 
             // avoid an error:
 
+            // Declare commercialCheck variable outside the event listeners
+            let commercialCheck = document.getElementById('in-group-1064-2').checked;
+
+            // Listen for input event to detect changes in the "Buy with 10 Percent Down" checkbox
             document.getElementById('in-group-10-2').addEventListener('input', function(event) {
-                let commercialCheck = document.getElementById('in-group-1064-2').checked;
-                console.log(commercialCheck);
+                commercialCheck = document.getElementById('in-group-1064-2').checked;
+                console.log('Commercial checkbox status during input:', commercialCheck);
             });
 
+            // Listen for change event to prevent unwanted state change
             document.getElementById('in-group-10-2').addEventListener('change', function(event) {
                 event.preventDefault();  // Prevent any default behavior
                 event.stopPropagation(); // Prevent the event from bubbling up
-                if(commercialCheck === false && document.getElementById('in-group-1064-2').checked === true){
+
+                console.log('Before change event - Commercial checkbox status:', commercialCheck);
+
+                // If the "Commercial" checkbox is checked when it shouldn't be, uncheck it
+                if (commercialCheck === false && document.getElementById('in-group-1064-2').checked === true) {
+                    console.log('Unchecking Commercial checkbox');
                     document.getElementById('in-group-1064-2').checked = false;
                 }
+
+                console.log('After change event - Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
             });
+
 
 
             jQuery(document).ready(function($) {
