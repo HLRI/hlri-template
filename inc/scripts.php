@@ -523,15 +523,15 @@ function add_search_input_to_meta_box($meta_box_id)
 
             // avoid an error:
             document.getElementById('in-group-10-2').addEventListener('change', function(event) {
+                console.log('Before: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
+
+                if(document.getElementById('in-group-1064-2').checked === false){
+                    document.getElementById('in-group-1064-2').checked = false;
+                }
                 event.preventDefault();  // Prevent any default behavior
                 event.stopPropagation(); // Prevent the event from bubbling up
 
-                console.log('Before: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
-
-                // // Optionally force the Commercial checkbox to stay unchecked
-                // document.getElementById('in-group-1064-2').checked = false;
-                //
-                // console.log('After: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
+                console.log('After: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
             });
 
 
