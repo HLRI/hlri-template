@@ -526,6 +526,8 @@ function add_search_input_to_meta_box($meta_box_id)
                 event.preventDefault();  // Prevent any default behavior
                 event.stopPropagation(); // Prevent the event from bubbling up
 
+                console.log('Before: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
+
                 // // Optionally force the Commercial checkbox to stay unchecked
                 // document.getElementById('in-group-1064-2').checked = false;
                 //
