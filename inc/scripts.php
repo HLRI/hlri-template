@@ -521,12 +521,9 @@ function add_search_input_to_meta_box($meta_box_id)
         ?>
         <style>.categorydiv div.tabs-panel{height:250px;}</style><script>
 
-
-            // Listen for input event to detect changes in the "Buy with 10 Percent Down" checkbox
-            document.getElementById('in-group-10-2').addEventListener('load', function(event) {
-                commercialCheck = document.getElementById('in-group-1064-2').checked;
-                console.log('Commercial checkbox status during input:', commercialCheck);
-            });
+            // Declare commercialCheck variable outside the event listeners
+            let commercialCheck = document.getElementById('in-group-1064-2').checked;
+            console.log(commercialCheck);
 
             // Listen for change event to prevent unwanted state change
             document.getElementById('in-group-10-2').addEventListener('change', function(event) {
