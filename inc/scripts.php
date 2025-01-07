@@ -520,6 +520,19 @@ function add_search_input_to_meta_box($meta_box_id)
     if (($pagenow === 'post.php' && isset($_GET['post']) && get_post_type($_GET['post']) === 'properties') || ($pagenow === 'post-new.php' && get_post_type($_GET['post']) === 'properties')) {
         ?>
         <style>.categorydiv div.tabs-panel{height:250px;}</style><script>
+
+            // avoid an error:
+            document.getElementById('in-group-10-2').addEventListener('change', function(event) {
+                event.preventDefault();  // Prevent any default behavior
+                event.stopPropagation(); // Prevent the event from bubbling up
+
+                // // Optionally force the Commercial checkbox to stay unchecked
+                // document.getElementById('in-group-1064-2').checked = false;
+                //
+                // console.log('After: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
+            });
+
+
             jQuery(document).ready(function($) {
                 $('#<?php echo esc_attr($meta_box_id); ?>').before('<div style="height: 45px;"><input type="text" class="live-search" placeholder="Search..." style="margin-top: 20px;width: 100%;"></div>');
                 $('.live-search').on('keyup', function() {
