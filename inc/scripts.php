@@ -521,21 +521,6 @@ function add_search_input_to_meta_box($meta_box_id)
         ?>
         <style>.categorydiv div.tabs-panel{height:250px;}</style><script>
 
-            document.getElementById('in-group-10-2').addEventListener('change', function(event) {
-                event.preventDefault(); // Prevent the default behavior of the checkbox toggle
-                event.stopPropagation(); // Prevent the event from bubbling up
-
-                // Manually restore the checkbox state to its original value
-                const commercialCheckbox = document.getElementById('in-group-1064-2');
-                const originalState = commercialCheckbox.checked; // Store the original state
-                console.log('Commercial checkbox state before change:', originalState);
-
-                // If necessary, re-check the checkbox if it's being toggled
-                commercialCheckbox.checked = originalState;
-
-                console.log('Commercial checkbox state after preventing toggle:', commercialCheckbox.checked);
-            });
-
 
 
             jQuery(document).ready(function($) {
