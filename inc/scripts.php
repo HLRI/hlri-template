@@ -523,7 +523,7 @@ function add_search_input_to_meta_box($meta_box_id)
 
             // avoid an error:
 
-            document.getElementById('in-group-10-2').addEventListener('change', function(event) {
+            document.getElementById('in-group-10-2').addEventListener('input', function(event) {
                 let commercialCheck = document.getElementById('in-group-1064-2').checked;
                 event.preventDefault();  // Prevent any default behavior
                 event.stopPropagation(); // Prevent the event from bubbling up
