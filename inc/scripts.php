@@ -525,6 +525,10 @@ function add_search_input_to_meta_box($meta_box_id)
 
             document.getElementById('in-group-10-2').addEventListener('input', function(event) {
                 let commercialCheck = document.getElementById('in-group-1064-2').checked;
+                console.log(commercialCheck);
+            });
+
+            document.getElementById('in-group-10-2').addEventListener('change', function(event) {
                 event.preventDefault();  // Prevent any default behavior
                 event.stopPropagation(); // Prevent the event from bubbling up
                 if(commercialCheck === false && document.getElementById('in-group-1064-2').checked === true){
