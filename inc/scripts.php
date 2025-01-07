@@ -543,7 +543,11 @@ function add_search_input_to_meta_box($meta_box_id)
                     console.log('After change event - Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
                 }, 0); // Timeout of 0 ensures the function runs after the current call stack
             });
+            document.getElementById('in-group-1064-2').addEventListener('click', function(event) {
+                let commercialCheck = document.getElementById('in-group-1064-2').checked;
+                console.log(commercialCheck);
 
+            });
 
 
             jQuery(document).ready(function($) {
