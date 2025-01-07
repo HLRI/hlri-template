@@ -523,6 +523,7 @@ function add_search_input_to_meta_box($meta_box_id)
 
             // Declare commercialCheck variable outside the event listeners
             let commercialCheck = document.getElementById('in-group-1064-2').checked;
+            console.log(commercialCheck);
 
             // Listen for input event to detect changes in the "Buy with 10 Percent Down" checkbox
             document.getElementById('in-group-10-2').addEventListener('input', function(event) {
