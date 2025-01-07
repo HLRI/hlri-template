@@ -522,16 +522,15 @@ function add_search_input_to_meta_box($meta_box_id)
         <style>.categorydiv div.tabs-panel{height:250px;}</style><script>
 
             // avoid an error:
+            if(document.getElementById('in-group-1064-2').checked === false){
+                let commercialCheck = document.getElementById('in-group-1064-2').checked = false;
+            }
             document.getElementById('in-group-10-2').addEventListener('change', function(event) {
-                console.log('Before: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
-
-                if(document.getElementById('in-group-1064-2').checked === false){
-                    document.getElementById('in-group-1064-2').checked = false;
-                }
                 event.preventDefault();  // Prevent any default behavior
                 event.stopPropagation(); // Prevent the event from bubbling up
-
-                console.log('After: Commercial checkbox status:', document.getElementById('in-group-1064-2').checked);
+                if(commercialCheck === false && document.getElementById('in-group-1064-2').checked === true){
+                    document.getElementById('in-group-1064-2').checked = false;
+                }
             });
 
 
