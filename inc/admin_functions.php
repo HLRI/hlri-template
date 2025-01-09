@@ -28,11 +28,11 @@ add_action('template_redirect', function () {
                 case 'update_precon_progress':
                     update_precon_progress();
                     break;
-                case 'function_name_2':
-                    function_name_2();
+                case 'not_updated_for_3_months':
+                    not_updated_for_3_months();
                     break;
-                case 'function_name_3':
-                    function_name_3();
+                case 'not_updated_for_6_months':
+                    not_updated_for_6_months();
                     break;
                 // Add more cases for other functions as needed
                 default:
@@ -80,10 +80,65 @@ function update_precon_progress() {
 }
 
 
-function function_name_2() {
-    echo 'This is Function 2';
+
+
+
+// Function to get properties not updated in the specified months
+function get_properties_not_updated($months) {
+    global $wpdb;
+
+    $date_limit = date('Y-m-d H:i:s', strtotime("-$months months"));
+
+    $query = "
+        SELECT ID, post_title, post_modified
+        FROM {$wpdb->posts}
+        WHERE post_type = 'property'
+        AND post_status = 'publish'
+        AND post_modified < %s
+    ";
+
+    $results = $wpdb->get_results($wpdb->prepare($query, $date_limit));
+
+    return $results;
 }
 
-function function_name_3() {
-    echo 'This is Function 3';
+// Generate the table
+function generate_properties_table($properties) {
+    if (empty($properties)) {
+        return '<p>No properties found.</p>';
+    }
+
+    $table = '<table border="1" cellspacing="0" cellpadding="5">';
+    $table .= '<thead>';
+    $table .= '<tr><th>Title</th><th>Edit Link</th><th>Last Updated</th></tr>';
+    $table .= '</thead>';
+    $table .= '<tbody>';
+
+    foreach ($properties as $property) {
+        $edit_link = get_edit_post_link($property->ID);
+        $table .= '<tr>';
+        $table .= '<td>' . esc_html($property->post_title) . '</td>';
+        $table .= '<td><a href="' . esc_url($edit_link) . '" target="_blank">Edit</a></td>';
+        $table .= '<td>' . esc_html($property->post_modified) . '</td>';
+        $table .= '</tr>';
+    }
+
+    $table .= '</tbody>';
+    $table .= '</table>';
+
+    return $table;
+}
+
+// Function to display properties not updated for 3 months
+function not_updated_for_3_months() {
+    $properties = get_properties_not_updated(3);
+    echo '<h2>Properties Not Updated for 3 Months</h2>';
+    echo generate_properties_table($properties);
+}
+
+// Function to display properties not updated for 6 months
+function not_updated_for_6_months() {
+    $properties = get_properties_not_updated(6);
+    echo '<h2>Properties Not Updated for 6 Months</h2>';
+    echo generate_properties_table($properties);
 }
