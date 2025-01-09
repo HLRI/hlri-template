@@ -83,23 +83,26 @@ function update_precon_progress() {
 
 
 
+
+
+
 // Function to get properties not updated in the specified months
 function get_properties_not_updated($months) {
-    global $wpdb;
+    $args = [
+        'post_type'      => 'property',  // Ensure this is the correct post type
+        'posts_per_page' => -1,          // Get all properties
+        'post_status'    => 'publish',   // Only published properties
+        'date_query'     => [
+            [
+                'column' => 'post_modified',
+                'before' => "$months months ago", // Date query to filter by modified date
+            ],
+        ],
+    ];
 
-    $date_limit = date('Y-m-d H:i:s', strtotime("-$months months"));
+    $query = new WP_Query($args);
 
-    $query = "
-        SELECT ID, post_title, post_modified
-        FROM {$wpdb->posts}
-        WHERE post_type = 'property'
-        AND post_status = 'publish'
-        AND post_modified < %s
-    ";
-
-    $results = $wpdb->get_results($wpdb->prepare($query, $date_limit));
-
-    return $results;
+    return $query->posts;
 }
 
 // Generate the table
