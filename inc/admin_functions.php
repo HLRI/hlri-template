@@ -23,20 +23,19 @@ add_action('template_redirect', function () {
 
         // Check if the query variable is set and matches a known function
         if ($function_name) {
-            // Call different functions based on the 'admin_function' parameter
+            // Check for the dynamic month-based function
+            if (preg_match('/^not_updated_for_(\d+)_months$/', $function_name, $matches)) {
+                $months = (int) $matches[1]; // Extract the month number from the URL
+                not_updated_for_months($months);
+                exit;
+            }
+
+            // Other static functions can be handled here
             switch ($function_name) {
                 case 'update_precon_progress':
                     update_precon_progress();
                     break;
-                case 'not_updated_for_3_months':
-                    not_updated_for_3_months();
-                    break;
-                case 'not_updated_for_6_months':
-                    not_updated_for_6_months();
-                    break;
-                // Add more cases for other functions as needed
                 default:
-                    // If the function is not recognized, show an error or default message
                     echo 'Function not found.';
                     break;
             }
@@ -45,45 +44,27 @@ add_action('template_redirect', function () {
     }
 });
 
-// Example functions
+// Example function to handle updating pre-construction progress
 function update_precon_progress() {
-    // Define the URL for the JSON request
     $url = 'https://hlrihub.com/project-progress-list-json';
-
-    // Make the GET request
     $response = wp_remote_get($url);
 
-    // Check if the response is successful
     if (is_wp_error($response)) {
-        // Handle the error
         echo 'Failed to retrieve data: ' . $response->get_error_message();
         return;
     }
 
-    // Retrieve the body of the response
     $body = wp_remote_retrieve_body($response);
-
-    // Decode the JSON data
     $data = json_decode($body, true);
 
-    // Check if the JSON is valid
     if (json_last_error() !== JSON_ERROR_NONE) {
         echo 'Failed to decode JSON: ' . json_last_error_msg();
         return;
     }
 
-    // Update the WordPress option with the JSON data
     update_option('precon_progress', $data);
-
-    // Output success message
     echo 'Pre-construction progress data updated successfully.';
 }
-
-
-
-
-
-
 
 // Function to get properties not updated in the specified months, sorted by modified date
 function get_properties_not_updated($months) {
@@ -102,7 +83,6 @@ function get_properties_not_updated($months) {
     ];
 
     $query = new WP_Query($args);
-
     return $query->posts;
 }
 
@@ -138,16 +118,12 @@ function generate_properties_table($properties) {
     return $table;
 }
 
-// Function to display properties not updated for 3 months
-function not_updated_for_3_months() {
-    $properties = get_properties_not_updated(3);
-    echo '<h2>Properties Not Updated for 3 Months</h2>';
-    echo generate_properties_table($properties);
-}
+// Function to display properties not updated for the dynamic number of months
+function not_updated_for_months($months) {
+    // Ensure the months value is between 1 and 12
+    $months = max(1, min(12, intval($months))); // This ensures the months value is between 1 and 12
+    $properties = get_properties_not_updated($months);
 
-// Function to display properties not updated for 6 months
-function not_updated_for_6_months() {
-    $properties = get_properties_not_updated(6);
-    echo '<h2>Properties Not Updated for 6 Months</h2>';
+    echo "<h2>Properties Not Updated for $months Month" . ($months > 1 ? 's' : '') . "</h2>";
     echo generate_properties_table($properties);
 }
