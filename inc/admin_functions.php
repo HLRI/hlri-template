@@ -85,19 +85,20 @@ function update_precon_progress() {
 
 
 
-
-// Function to get properties not updated in the specified months
+// Function to get properties not updated in the specified months, sorted by modified date
 function get_properties_not_updated($months) {
     $args = [
         'post_type'      => 'properties',  // Ensure this is the correct post type
-        'posts_per_page' => -1,          // Get all properties
-        'post_status'    => 'publish',   // Only published properties
+        'posts_per_page' => -1,            // Get all properties
+        'post_status'    => 'publish',     // Only published properties
         'date_query'     => [
             [
                 'column' => 'post_modified',
                 'before' => "$months months ago", // Date query to filter by modified date
             ],
         ],
+        'orderby'        => 'modified',    // Sort by the modified date
+        'order'          => 'DESC',        // In descending order (most recent first)
     ];
 
     $query = new WP_Query($args);
@@ -111,7 +112,12 @@ function generate_properties_table($properties) {
         return '<p>No properties found.</p>';
     }
 
-    $table = '<table border="1" cellspacing="0" cellpadding="5">';
+    // Display total properties above the title
+    $total_properties = count($properties);
+    $table = '<p>Total Properties: ' . $total_properties . '</p>';
+
+    // Start the table
+    $table .= '<table border="1" cellspacing="0" cellpadding="5">';
     $table .= '<thead>';
     $table .= '<tr><th>Title</th><th>Edit Link</th><th>Last Updated</th></tr>';
     $table .= '</thead>';
