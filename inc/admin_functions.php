@@ -102,6 +102,7 @@ function get_properties_not_updated($months) {
 
     $query = new WP_Query($args);
 
+    dd($query);
     return $query->posts;
 }
 
