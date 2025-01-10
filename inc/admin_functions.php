@@ -89,7 +89,7 @@ function update_precon_progress() {
 // Function to get properties not updated in the specified months
 function get_properties_not_updated($months) {
     $args = [
-        'post_type'      => 'property',  // Ensure this is the correct post type
+        'post_type'      => 'properties',  // Ensure this is the correct post type
         'posts_per_page' => -1,          // Get all properties
         'post_status'    => 'publish',   // Only published properties
 //        'date_query'     => [
