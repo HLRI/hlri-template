@@ -92,12 +92,12 @@ function get_properties_not_updated($months) {
         'post_type'      => 'property',  // Ensure this is the correct post type
         'posts_per_page' => -1,          // Get all properties
         'post_status'    => 'publish',   // Only published properties
-        'date_query'     => [
-            [
-                'column' => 'post_modified',
-                'before' => "$months months ago", // Date query to filter by modified date
-            ],
-        ],
+//        'date_query'     => [
+//            [
+//                'column' => 'post_modified',
+//                'before' => "$months months ago", // Date query to filter by modified date
+//            ],
+//        ],
     ];
 
     $query = new WP_Query($args);
